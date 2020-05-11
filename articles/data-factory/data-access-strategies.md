@@ -7,14 +7,14 @@ author: nabhishek
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ---
 
 # Data access strategies
 
 A vital security goal of an organization is to protect their data stores from random access over the internet, may it be an on-premise or a Cloud/ SaaS data store. 
 
-Typically a cloud data store control access using the below mechanisms:
+Typically a cloud data store controls access using the below mechanisms:
 * Firewall rules that limit connectivity by IP address
 * Authentication mechanisms that require users to prove their identity
 * Authorization mechanisms that restrict users to specific actions and data
@@ -25,7 +25,7 @@ Typically a cloud data store control access using the below mechanisms:
 > [!NOTE] 
 > The IP address ranges are blocked for Azure integration runtime and is currently only used for Data Movement, pipeline and external activities. Dataflows now do not use these IP ranges. 
 
-Though this should work in many scenarios, we do understand that a unique Static IP address per integration runtime would be desirable, but this wouldn't be possible using Azure Integration Runtime currently, which is serverless. If necessary, you can always set up a Self-hosted Integration Runtime and use your Static IP with it. 
+This should work in many scenarios, and we do understand that a unique Static IP address per integration runtime would be desirable, but this wouldn't be possible using Azure Integration Runtime currently, which is serverless. If necessary, you can always set up a Self-hosted Integration Runtime and use your Static IP with it. 
 
 ## Data access strategies through Azure Data Factory
 
@@ -34,7 +34,9 @@ Though this should work in many scenarios, we do understand that a unique Static
 * **[Static IP range](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - You can use Azure Integration Runtime's IP addresses to allow list it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
 * **[Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - A service tag represents a group of IP address prefixes from a given Azure service (like Azure Data Factory). Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. It is useful when whitelisting data access on IaaS hosted data stores in Virtual Network.
 * **Allow Azure Services** - Some services lets you allow all Azure services to connect to it in case you choose this option. 
-    * **Azure Integration Runtime**
+
+For more information about supported network security mechanisms on data stores in Azure Integration Runtime and Self-hosted Integration Runtime, see below two tables.  
+* **Azure Integration Runtime**
 
     | Data Stores                  | Supported Network Security Mechanism on Data Stores         | Trusted Service     | Static IP range | Service Tags | Allow Azure Services |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|
@@ -49,10 +51,10 @@ Though this should work in many scenarios, we do understand that a unique Static
     | Other PaaS/ SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.            | -                   | Yes             | -            | -                    |
     | Azure laaS                   | SQL Server, Oracle,   etc.                                  | -                   | Yes             | Yes          | -                    |
     | On-premise laaS              | SQL Server, Oracle,   etc.                                  | -                   | Yes             | -            | -                    |
-
+    
     **Applicable only when Azure Data Explorer is virtual network injected, and IP range can be applied on NSG/ Firewall.* 
 
-    * **Self-hosted Integration Runtime (in Vnet/on-premise)**
+* **Self-hosted Integration Runtime (in Vnet/on-premise)**
     
     | Data   Stores                  | Supported Network   Security Mechanism on Data Stores         | Static IP | Trusted   Services  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
@@ -67,7 +69,7 @@ Though this should work in many scenarios, we do understand that a unique Static
     | Other PaaS/   SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.              | Yes       | -                   |
     | Azure laaS                     | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |
     | On-premise   laaS              | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |    
-    
+
 ## Next steps
 
 For more information, see the following related articles:
