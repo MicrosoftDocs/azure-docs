@@ -193,26 +193,26 @@ After ingesting data, it is possible to use the  **Data** pillar to discover, br
        ![Spark](./media/get-started-synapse-analytics/run-spark.png)
        * Because Spark pool is probably not running yet, it will take up to 3 minutes to get the Spark pool running and the notebook to be executed. This time to spin-up pool from a cold stage is an industry-leading benchmark in the Big Data space.
 
-## Prep and Transform
+<!-- ## Prep and Transform -->
 <!--- Euan --->
 
-## Create tables
+<!-- ## Create tables -->
 <!--- Euan --->
 
-## Analyze
-### Analyze with a notebook
+<!-- ## Analyze -->
+<!-- ### Analyze with a notebook -->
 <!--- Euan --->
 
-### Analyze with SQL script
+<!-- ### Analyze with SQL script -->
 <!--- Josh --->
 
-### Analyze with Power BI
+<!-- ### Analyze with Power BI -->
 <!--- Josh --->
 
-## Serve via Power BI
+<!-- ## Serve via Power BI -->
 <!--- Josh --->
 
-## Serve via SQL pool
+<!-- ## Serve via SQL pool -->
 <!--- Matthew --->
 
 ## Orchestrate using a pipeline
