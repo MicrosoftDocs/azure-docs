@@ -13,8 +13,6 @@ ms.author: rogarana
 
 This article describes the process required for enabling AD DS on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
-This article contains a script that makes the modifications for you, as well as an explanation of the script's actions. We explain what the script does, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the individual commands manually, or the script.
-
 ### Example header
 
 The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to do run the command manually, you should select the account best suited for your environment.

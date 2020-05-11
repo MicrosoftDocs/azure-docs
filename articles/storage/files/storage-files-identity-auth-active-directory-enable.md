@@ -19,7 +19,7 @@ If you are interested in enabling Azure AD DS authentication for Azure file shar
 
 - Identities used for Azure file share authentication must be synced to Azure AD. Password hash synchronization is optional. 
 - Does not support authentication against computer accounts created in AD DS. 
-- Only be supported against the AD forest where the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.
+- Only supported against the AD forest that the storage account is registered. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.
 - Supported for Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with RC4-HMAC encryption. AES Kerberos encryption is not yet supported.
 - Only supported on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
