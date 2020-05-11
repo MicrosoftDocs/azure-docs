@@ -160,7 +160,7 @@ Similarly, in the read scenario, read the data using Scala and write it into a t
 
 ## Allowing other users to use the DW Connector in your workspace
 
-You need to be Storage Blob Data Owner on the ADLS Gen 2 storage account connected to the workspace to alter missing permissions for others. Please ensure the user has access to the workspace and permissions to run notebooks.
+To alter missing permissions for others, you need to be the Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace . Please ensure the user has access to the workspace and permissions to run notebooks.
 
 ### Option 1
 

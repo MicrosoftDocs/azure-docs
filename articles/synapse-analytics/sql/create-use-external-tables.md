@@ -14,13 +14,14 @@ ms.reviewer: jrasnick, carlrab
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
 
 In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
-- Public storage where user access public storage files.
-- Protected storage where user access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
+- Public storage where users access public storage files.
+- Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
 ## Prerequisites
 
-Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This  setup script will create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
+
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
@@ -51,7 +52,7 @@ The queries in this article will be executed on your sample database and use the
 
 ## Create an external table on protected data
 
-You can create external tables that access data on Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. 
@@ -76,7 +77,7 @@ GO
 
 ## Create an external table on public data
 
-You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
+You can create external tables that read data from the files placed on publicly available Azure storage. This [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
 ```sql
 CREATE EXTERNAL TABLE Taxi (
@@ -99,7 +100,7 @@ CREATE EXTERNAL TABLE Taxi (
 
 You can use external tables in your queries the same way you use them in SQL Server queries.
 
-The following query demonstrates using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
+The following query demonstrates this using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.
