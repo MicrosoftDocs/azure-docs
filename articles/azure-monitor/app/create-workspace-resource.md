@@ -23,7 +23,7 @@ To test out the new experience, sign in to the [Azure portal](https://portal.azu
 
 If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-For the public preview **workspace-based resources are currently limited to West US 2, East US, and the Azure Government region.**
+For the public preview **workspace-based resources are currently limited to West US 2, East US, and South Central US.**
 
 Once your resource is created, you will see the corresponding workspace info in the **Overview** pane:
 
