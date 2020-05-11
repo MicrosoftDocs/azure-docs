@@ -1,15 +1,9 @@
 ---
-title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
-description: Application Insights automatically collect and visualize dependencies
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Azure Monitor Application Insights NuGet packages
+description: Azure Monitor Application Insights NuGet packages lists for ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.author: mbullwin
+
 ---
 
 # Application Insights NuGet packages
@@ -20,24 +14,40 @@ Below is the current list of stable release NuGet Packages for Application Insig
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights | 2.8.0 | Provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
+| Microsoft.ApplicationInsights | 2.12.0 | Provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Enables Interception of method calls | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
-| Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
-| Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights for .NET web applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
-| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
-| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+| Microsoft.ApplicationInsights.DependencyCollector | 2.12.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
+| Microsoft.ApplicationInsights.PerfCounterCollector | 2.12.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
+| Microsoft.ApplicationInsights.Web | 2.12.0 | Application Insights for .NET web applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.WindowsServer | 2.12.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
+| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## Common packages for ASP.NET Core
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AspNetCore | 2.5.0 | Application Insights for ASP.NET Core web applications. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) |
-| Microsoft.ApplicationInsights | 2.8.0 | This package provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
-| Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
-| Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
-| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+| Microsoft.ApplicationInsights | 2.12.0 | This package provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
+| Microsoft.ApplicationInsights.DependencyCollector | 2.12.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
+| Microsoft.ApplicationInsights.PerfCounterCollector | 2.12.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
+| Microsoft.ApplicationInsights.WindowsServer | 2.12.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
+| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+
+## Common packages for Python using OpenCensus
+| Package Name | Stable Version | Description | Download |
+|-------------------------------|-----------------------|------------|----|
+| opencensus-ext-azure | 1.0.0 | Application Insights for Python applications under Azure Monitor via OpenCensus. | [Download Package](https://pypi.org/project/opencensus-ext-azure/) |
+| opencensus-ext-django | 0.7.2 | This package provides integration with the Python [django](https://pypi.org/project/django/) library. | [Download Package](https://pypi.org/project/opencensus-ext-django/) |
+| opencensus-ext-flask | 0.7.3 | This package provides integration with the Python [flask](https://pypi.org/project/flask/) library. | [Download Package](https://pypi.org/project/opencensus-ext-flask/) |
+| opencensus-ext-httplib | 0.7.2 | This package provides integration with the Python [http.client](https://docs.python.org/3/library/http.client.html) library for Python3 and [httplib](https://docs.python.org/2/library/httplib.html) for Python2. | [Download Package](https://pypi.org/project/opencensus-ext-httplib/) |
+| opencensus-ext-logging | 0.1.0 | This package enriches log records with trace data. | [Download Package](https://pypi.org/project/opencensus-ext-logging/) |
+| opencensus-ext-mysql | 0.1.2 | This package provides integration with the Python [mysql-connector](https://pypi.org/project/mysql-connector/) library. | [Download Package](https://pypi.org/project/opencensus-ext-mysql/) |
+| opencensus-ext-postgresql | 0.1.2 | This package provides integration with the Python [psycopg2](https://pypi.org/project/psycopg2/) library. | [Download Package](https://pypi.org/project/opencensus-ext-postgresql/) |
+| opencensus-ext-pymongo | 0.7.1 | This package provides integration with the Python [pymongo](https://pypi.org/project/pymongo/) library. | [Download Package](https://pypi.org/project/opencensus-ext-pymongo/) |
+| opencensus-ext-pymysql | 0.1.2 | This package provides integration with the Python [PyMySQL](https://pypi.org/project/PyMySQL/) library. | [Download Package](https://pypi.org/project/opencensus-ext-pymysql/) |
+| opencensus-ext-pyramid | 0.7.1 | This package provides integration with the Python [pyramid](https://pypi.org/project/pyramid/) library. | [Download Package](https://pypi.org/project/opencensus-ext-pyramid/) |
+| opencensus-ext-requests | 0.7.2 | This package provides integration with the Python [requests](https://pypi.org/project/requests/) library. | [Download Package](https://pypi.org/project/opencensus-ext-requests/) |
+| opencensus-ext-sqlalchemy | 0.1.2 | This package provides integration with the Python [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) library. | [Download Package](https://pypi.org/project/opencensus-ext-sqlalchemy/) |
 
 ## Listeners/collectors/appenders
 

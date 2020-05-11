@@ -2,12 +2,9 @@
 title: Limit access to kubeconfig in Azure Kubernetes Service (AKS)
 description: Learn how to control access to the Kubernetes configuration file (kubeconfig) for cluster administrators and cluster users
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: mlearned
+ms.date: 05/06/2020
+
 ---
 
 # Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
@@ -31,21 +28,26 @@ The [az aks get-credentials][az-aks-get-credentials] command lets you get the ac
 The two built-in roles are:
 
 * **Azure Kubernetes Service Cluster Admin Role**  
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
-    * Downloads *kubeconfig* for the *clusterAdmin* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
+  * Downloads *kubeconfig* for the *clusterAdmin* role.
 * **Azure Kubernetes Service Cluster User Role**
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
-    * Downloads *kubeconfig* for *clusterUser* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
+  * Downloads *kubeconfig* for *clusterUser* role.
 
 These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
+
+> [!NOTE]
+> On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
+>
+> Clusters that do not use Azure AD only use the *clusterAdmin* role.
 
 ## Assign role permissions to a user or group
 
 To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands:
 
 * Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
-* Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
+* Use the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
+* Finally, assign a role using the [az role assignment create][az-role-assignment-create] command.
 
 The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
@@ -55,7 +57,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \

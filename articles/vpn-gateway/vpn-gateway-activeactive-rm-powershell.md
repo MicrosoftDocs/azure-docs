@@ -1,5 +1,5 @@
-﻿---
-title: 'Configure active-active S2S VPN connections for VPN Gateways: Azure Resource Manager: PowerShell | Microsoft Docs'
+---
+title: 'Configure active-active S2S Azure VPN Gateway connections'
 description: This article walks you through configuring active-active connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 author: yushwang
@@ -15,7 +15,7 @@ ms.reviewer: cherylmc
 
 This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## About highly available cross-premises connections
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available Cross-Premises and VNet-to-VNet Connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
@@ -32,9 +32,7 @@ If you already have a VPN gateway, you can:
 You can combine these together to build a more complex, highly available network topology that meets your needs.
 
 > [!IMPORTANT]
-> The active-active mode uses only the following SKUs: 
->   * VpnGw1, VpnGw2, VpnGw3
->   * HighPerformance (for old legacy SKUs)
+> The active-active mode is available for all SKUs except Basic.
 
 ## <a name ="aagateway"></a>Part 1 - Create and configure active-active VPN gateways
 The following steps will configure your Azure VPN gateway in active-active modes. The key differences between the active-active and active-standby gateways:

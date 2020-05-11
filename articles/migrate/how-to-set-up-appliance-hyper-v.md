@@ -1,31 +1,30 @@
 ---
-title: Set up an appliance for Azure Migrate Server Assessment/Migration for Hyper-V VMs | Microsoft Docs
-description: Describes how to set up an appliance for discovery, assessment, and agentless migration of Hyper-V VMs using Azure Migrate Server Assessment/Migration.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Set up an Azure Migrate appliance for Hyper-V
+description: Learn how to set up an Azure Migrate appliance to assess and migrate Hyper-V VMs.
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: raynew
+ms.date: 03/23/2020
 ---
 
 
 # Set up an appliance for Hyper-V VMs
 
-This article describes how to set up the Azure Migrate appliance if you're assessing Hyper-V VMs with the Azure Migrate Server Assessment tool, or migrating VMware VMs to Azure using the Azure Migrate Server Migration tool.
+Follow this article to set up the Azure Migrate appliance for assessment of Hyper-V VMs with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
-The Hyper-V VM appliance is a lightweight appliance used by Azure Migrate Server Assessment/Migration to do the following:
+The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate:Server Assessment/Migration to discover on-premises Hyper-V VMs, and send VM metadata/performance data to Azure.
 
-- Discover on-premises Hyper-V VMs.
-- Send metadata and performance data for discovered VMs to Azure Migrate Server Assessment/Migration.
+You can deploy the appliance using a couple of methods:
 
-[Learn more](migrate-appliance.md) about the Azure Migrate appliance.
+- Set up on a Hyper-V VM using a downloaded VHD. This is the method described in this article.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using a VHD, or if you're in Azure Government.
 
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
-## Appliance deployment steps
+## Appliance deployment (VHD)
 
-To set up the appliance you:
+To set up the appliance using a VHD template:
+
 - Download a compressed Hyper-V VHD from the Azure portal.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
+- Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
 - Configure the appliance for the first time, and register it with the Azure Migrate project.
 
 ## Download the VHD
@@ -46,15 +45,12 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
-
-  **Algorithm** | **Hash value**
-  --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+3.  For appliance version 2.19.11.12, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security).
 
 
-  
+
+
 ## Create the appliance VM
 
 Import the downloaded file, and create the VM.
@@ -77,11 +73,11 @@ Import the downloaded file, and create the VM.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ## Configure the appliance
 
-Set up the appliance for the first time.
+Set up the appliance for the first time. If you deploy the appliance using a script instead of a VHD, the first two steps in the procedure aren't applicable.
 
 1. In Hyper-V Manager > **Virtual Machines**, right-click the VM > **Connect**.
 2. Provide the language, time zone, and password for the appliance.
@@ -100,7 +96,7 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign-in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
@@ -138,14 +134,14 @@ Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal. 
+This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
 
 ## Verify VMs in the portal
 
 After discovery finishes, you can verify that the VMs appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**. 
+2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
 
 
 ## Next steps

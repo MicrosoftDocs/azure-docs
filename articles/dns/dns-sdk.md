@@ -1,10 +1,11 @@
 ---
-title: Create DNS zones and record sets in Azure DNS using the .NET SDK | Microsoft Docs
-description: How to create DNS zones and record sets in Azure DNS by using the .NET SDK.
+title: Create DNS zones and record sets using the .NET SDK
+titleSuffix: Azure DNS
+description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: rohinkoul
+manager: kumudD
 
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
@@ -13,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Create DNS zones and record sets using the .NET SDK
@@ -25,7 +26,7 @@ You can automate operations to create, delete, or update DNS zones, record sets,
 Typically, programmatic access to Azure resources is granted via a dedicated account rather than your own user credentials. These dedicated accounts are called 'service principal' accounts. To use the Azure DNS SDK sample project, you first need to create a service principal account and assign it the correct permissions.
 
 1. Follow [these instructions](../active-directory/develop/howto-authenticate-service-principal-powershell.md) to create a service principal account (the Azure DNS SDK sample project assumes password-based authentication.)
-2. Create a resource group ([here's how](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. Create a resource group ([here's how](../azure-resource-manager/templates/deploy-portal.md)).
 3. Use Azure RBAC to grant the service principal account 'DNS Zone Contributor' permissions to the resource group ([here's how](../role-based-access-control/role-assignments-portal.md).)
 4. If using the Azure DNS SDK sample project, edit the 'program.cs' file as follows:
 

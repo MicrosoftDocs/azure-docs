@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to install the LEMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -33,7 +33,7 @@ This article walks you through how to deploy an NGINX web server, MySQL, and PHP
 
 This setup is for quick tests or proof of concept.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -168,10 +168,10 @@ In this tutorial, you deployed a LEMP server in Azure. You learned how to:
 > * Verify installation and configuration
 > * Install WordPress on the LEMP stack
 
-Advance to the next tutorial to learn how to secure web servers with SSL certificates.
+Advance to the next tutorial to learn how to secure web servers with TLS/SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [Secure web server with TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

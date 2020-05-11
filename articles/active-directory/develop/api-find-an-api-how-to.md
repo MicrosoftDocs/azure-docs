@@ -1,22 +1,16 @@
 ---
-title: How to find a specific API needed for a custom-developed application | Microsoft Docs
+title: Find an API for a custom-developed app | Azure
 description: How to configure the permissions you need to access a particular API in your custom developed Azure AD application
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-
-ms.collection: M365-identity-device-management
 ---
 
 # How to find a specific API needed for a custom-developed application
@@ -33,6 +27,4 @@ When you add permissions to your app registration, you can **add API access** to
 
 ## Next steps
 
--   [Understanding the Azure Active Directory application manifest](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
-
+- [Understanding the Azure Active Directory application manifest](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)

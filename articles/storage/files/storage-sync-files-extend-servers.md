@@ -24,8 +24,6 @@ The article demonstrates the basic steps for extending the storage capacity of a
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -132,7 +130,7 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 For the Windows Server 2016 Datacenter server, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
 
-In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in File Explorer.
+In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in Start Menu.
 
 1. In **Server Manager**, select **Local Server**.
 

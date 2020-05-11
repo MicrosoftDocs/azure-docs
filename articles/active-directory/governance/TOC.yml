@@ -5,7 +5,7 @@
   items:
   - name: What is Identity Governance?
     href: identity-governance-overview.md
-  - name: What is entitlement management? (Preview)
+  - name: What is entitlement management?
     href: entitlement-management-overview.md
   - name: What are access reviews?
     href: access-reviews-overview.md
@@ -19,6 +19,8 @@
   items:
   - name: Entitlement management
     items:
+    - name: Delegation and roles
+      href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
   - name: Access reviews
@@ -36,24 +38,62 @@
     items:
     - name: Common scenarios
       href: entitlement-management-scenarios.md
-    - name: Create a new access package
-      href: entitlement-management-access-package-create.md
-    - name: Edit an access package
-      href: entitlement-management-access-package-edit.md
-    - name: Create a catalog
-      href: entitlement-management-catalog-create.md
-    - name: Request access
-      href: entitlement-management-request-access.md
-    - name: Approve requests
-      href: entitlement-management-request-approve.md
-    - name: Delegate tasks
-      href: entitlement-management-delegate.md
-    - name: View reports and logs
-      href: entitlement-management-reports.md
-    - name: Troubleshoot
-      href: entitlement-management-troubleshoot.md
+    - name: Administrators
+      items:
+      - name: Delegate to catalog creators
+        href: entitlement-management-delegate-catalog.md
+      - name: Add a connected organization
+        href: entitlement-management-organization.md
+      - name: Govern access for external users
+        href: entitlement-management-external-users.md
+      - name: View reports and logs
+        href: entitlement-management-reports.md
+      - name: Archive logs and reporting
+        href: entitlement-management-logs-and-reporting.md
+      - name: Troubleshoot
+        href: entitlement-management-troubleshoot.md
+    - name: Catalog owners
+      items:
+      - name: Create a catalog of resources
+        href: entitlement-management-catalog-create.md
+      - name: Delegate to access package managers
+        href: entitlement-management-delegate-managers.md
+    - name: Access package managers
+      items:
+      - name: Create a new access package
+        href: entitlement-management-access-package-create.md
+      - name: Share access package link
+        href: entitlement-management-access-package-settings.md
+      - name: Change resource roles
+        href: entitlement-management-access-package-resources.md
+      - name: Change request and approval settings
+        href: entitlement-management-access-package-request-policy.md
+      - name: Change lifecycle settings
+        href: entitlement-management-access-package-lifecycle-policy.md
+      - name: View requests
+        href: entitlement-management-access-package-requests.md
+      - name: View, add, and remove assignments
+        href: entitlement-management-access-package-assignments.md
+      - name: Hide or delete
+        href: entitlement-management-access-package-edit.md
+    - name: Approvers
+      items:
+      - name: Approve requests
+        href: entitlement-management-request-approve.md
+    - name: Requestors
+      items:
+      - name: Request access
+        href: entitlement-management-request-access.md
   - name: Access reviews
     items:
+    - name: Access packages
+      items:
+        - name: Create an access review
+          href: entitlement-management-access-reviews-create.md
+        - name: Review access
+          href: entitlement-management-access-reviews-review-access.md 
+        - name: Review access for yourself 
+          href: entitlement-management-access-reviews-self-review.md 
     - name: Groups and apps
       items:
       - name: Create an access review

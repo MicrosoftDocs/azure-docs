@@ -1,20 +1,20 @@
 ---
-title: Load data from SAP Business Warehouse by using Azure Data Factory | Microsoft Docs
+title: Load data from SAP Business Warehouse
 description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer:
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from SAP Business Warehouse by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows how to use Azure Data Factory to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -152,11 +152,15 @@ On the data factory **Let's get started** page, select **Create pipeline from te
 
    - **SAPOpenHubDestinationName**: Specify the Open Hub table name to copy data from.
 
-   - **ADLSGen2SinkPath**: Specify the destination Azure Data Lake Storage Gen2 path to copy data to. If the path doesn't exist, the Data Factory copy activity creates a path during execution.
+   - **Data_Destination_Container**: Specify the destination Azure Data Lake Storage Gen2 container to copy data to. If the container doesn't exist, the Data Factory copy activity creates one during execution.
+  
+   - **Data_Destination_Directory**: Specify the folder path under the Azure Data Lake Storage Gen2 container to copy data to. If the path doesn't exist, the Data Factory copy activity creates a path during execution.
+  
+   - **HighWatermarkBlobContainer**: Specify the container to store the high-watermark value.
 
-   - **HighWatermarkBlobPath**: Specify the path to store the high-watermark value, such as `container/path`.
+   - **HighWatermarkBlobDirectory**: Specify the folder path under the container to store the high-watermark value.
 
-   - **HighWatermarkBlobName**: Specify the blob name to store the high watermark value, such as `requestIdCache.txt`. In Blob storage, go to the corresponding path of HighWatermarkBlobPath+HighWatermarkBlobName, such as *container/path/requestIdCache.txt*. Create a blob with content 0.
+   - **HighWatermarkBlobName**: Specify the blob name to store the high watermark value, such as `requestIdCache.txt`. In Blob storage, go to the corresponding path of HighWatermarkBlobContainer+HighWatermarkBlobDirectory+HighWatermarkBlobName, such as *container/path/requestIdCache.txt*. Create a blob with content 0.
 
       ![Blob content](media/load-sap-bw-data/blob.png)
 
@@ -181,11 +185,11 @@ On the data factory **Let's get started** page, select **Create pipeline from te
          }
          ```
 
-      3. Add a **Create blob** action. For **Folder path** and **Blob name**, use the same values that you configured previously in **HighWatermarkBlobPath** and **HighWatermarkBlobName**.
+      3. Add a **Create blob** action. For **Folder path** and **Blob name**, use the same values that you configured previously in *HighWatermarkBlobContainer+HighWatermarkBlobDirectory* and *HighWatermarkBlobName*.
 
       4. Select **Save**. Then, copy the value of **HTTP POST URL** to use in the Data Factory pipeline.
 
-4. After you provide the Data Factory pipeline parameters, select **Debug** > **Finish** to invoke a run to validate the configuration. Or, select **Publish All** to publish the changes, and then select **Trigger** to execute a run.
+4. After you provide the Data Factory pipeline parameters, select **Debug** > **Finish** to invoke a run to validate the configuration. Or, select **Publish** to publish all the changes, and then select **Add trigger** to execute a run.
 
 ## SAP BW Open Hub Destination configurations
 

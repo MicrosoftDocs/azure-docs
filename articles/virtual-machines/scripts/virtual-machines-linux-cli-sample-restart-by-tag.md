@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Restart VMs | Microsoft Docs
+title: Azure CLI Script Sample - Restart VMs 
 description: Azure CLI Script Sample - Restart VMs by tag and by ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -29,14 +29,14 @@ This sample shows a couple of ways to get some VMs and restart them.
 
 The first restarts all the VMs in the resource group.
 
-```bash
+```azurecli
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
 The second gets the tagged VMs using `az resource list` and filters to the resources that are VMs,
 and restarts those VMs.
 
-```bash
+```azurecli
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
@@ -76,7 +76,7 @@ and then it restarts just the tagged VMs.
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

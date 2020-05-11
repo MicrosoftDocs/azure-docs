@@ -1,17 +1,14 @@
 ---
-title: SQL Database Application Development Overview | Microsoft Docs
+title: Application Development Overview 
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
-ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.service: sql-database
-ms.date: 02/07/2019
+ms.date: 11/14/2019
 ---
 # SQL Database application development overview
 
@@ -43,7 +40,7 @@ Avoid long-running transactions because any infrastructure or connection failure
 
 ## Resiliency
 
-Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](sql-database-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](sql-database-develop-error-messages.md).
+Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](sql-database-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 For more information about how to prepare for planned maintenance events on your Azure SQL database, see [planning for Azure maintenance events in Azure SQL Database](sql-database-planned-maintenance.md).
 

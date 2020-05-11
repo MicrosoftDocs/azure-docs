@@ -3,7 +3,7 @@ title: Deploy StorSimple Snapshot Manager | Microsoft Docs
 description: Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Deploy the StorSimple Snapshot Manager MMC snap-in

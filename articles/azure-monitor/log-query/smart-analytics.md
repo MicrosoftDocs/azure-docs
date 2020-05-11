@@ -1,20 +1,13 @@
 ---
 title: Log Analytics smart analytics examples | Microsoft Docs
 description: Examples that use smart analytics functions in Log Analytics to perform analysis of user activity.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/15/2019
 ms.author: bwren
----
+ms.date: 01/15/2019
 
+---
 
 # Log Analytics smart analytics examples
 This article includes examples that use smart analytics functions in Log Analytics to perform analysis of user activity. You can either use these examples to analyze your own applications monitored by Application Insights or use the concepts in these queries for similar analysis on other data. 

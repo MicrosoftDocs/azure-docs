@@ -1,5 +1,5 @@
 ---
-title: PowerShell example - create a managed instance in Azure SQL Database | Microsoft Docs
+title: PowerShell example - create a managed instance in Azure SQL Database 
 description: Azure PowerShell example script to create a managed instance in Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses some of the following commands. For more information about used and other commands in the table below, click on the links to command specific documentation.
 
 | Command | Notes |
 |---|---|

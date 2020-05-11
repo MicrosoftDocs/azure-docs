@@ -1,25 +1,25 @@
 ---
-title: Quickstart:Create a Standard Load Balancer - Azure portal
-titlesuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard Load Balancer by using the Azure portal.
+title: Quickstart:Create a public Load Balancer - Azure portal
+titleSuffix: Azure Load Balancer
+description: This quickstart shows how to create a Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: asudbring 
 manager: twooley
-Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
 ---
 
-# Quickstart: Create a Standard Load Balancer to load balance VMs using the Azure portal
+# Quickstart: Create a Load Balancer to load balance VMs using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a Standard Load Balancer.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a public Load Balancer.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Create a Standard Load Balancer
+## Create a Load Balancer
 
-In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
+In this section, you create a Load Balancer that helps load balance virtual machines. You can create a public Load Balancer or an internal  Load Balancer. When you create a public Load Balancer, you must also create a new Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Load Balancer.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
@@ -41,10 +41,15 @@ In this section, you create a Standard Load Balancer that helps load balance vir
     | Name                   | *myLoadBalancer*                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard**.                          |
-    | Public IP address | Select **Create new**. |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
-    |Availability zone| Select **Zone redundant**.    |
+    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads. |
+    | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing** |
+    | Public IP address name              | Type *myPublicIP* in the text box.   Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.|
+    | Availability zone | Type *Zone-redundant* to create a resilient Load Balancer. To create a zonal Load Balancer, select a specific zone from 1, 2, or 3 |
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+
+
 3. In the **Review + create** tab, select **Create**.   
 
     ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -53,7 +58,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
 
 In this section, you configure Load Balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
-### Create a backend address pool
+### Create a Backend pool
 
 To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the Load Balancer. Create the backend address pool *myBackendPool* to include virtual machines for load-balancing internet traffic.
 
@@ -100,24 +105,23 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
-### Create a virtual network
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+## Virtual network and parameters
 
-1. In **Create virtual network**, enter or select this information:
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter *myVNet*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *myResourceGroupSLB*. |
-    | Location | Select **West Europe**.|
-    | Subnet - Name | Enter *myBackendSubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
-1. Leave the rest of the defaults and select **Create**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create virtual machines
-Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2* and *myVM3*) with a Standard public IP address in three different zones (*Zone 1*, *Zone 2*, and *Zone 3*) that are later added to the backend pool of the Standard Load Balancer that was created earlier.
+Public IP SKUs and Load Balancer SKUs must match. For Standard Load Balancer , use VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2* and *myVM3*) with a Standard public IP address in three different zones (*Zone 1*, *Zone 2*, and *Zone 3*) that are later added to the backend pool of the Load Balancer that was created earlier. If you selected Basic, use VMs with Basic IP addresses.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**. 
    
@@ -133,7 +137,7 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: *myVnet*
    - **Subnet**: *myBackendSubnet*
-   - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**, and for **Availability zone**, select **Zone-redundant**, and then select **OK**.
+   - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**, and for **Availability zone**, select **Zone-redundant**, and then select **OK**. If you created a Basic Load Balancer, select Basic. Microsoft recommends using Standard SKU for production workloads.
    - To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
        1. In the **Configure network security group** field, select **Create new**. 
        1. Type *myNetworkSecurityGroup*, and select **OK**.
@@ -162,15 +166,20 @@ In this section, you create a network security group rule to allow inbound conne
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list select **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, select **Inbound security rules**, and then select **Add**.
 3. Enter these values for the inbound security rule named *myHTTPRule* to allow for an inbound HTTP connections using port 80:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *80* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *100* for **Priority**
-    - *myHTTPRule* for name
-    - *Allow HTTP* - for description
+    - **Source**: *Service Tag*
+    -  **Source service tag**: *Internet*
+    - **Destination port ranges**: *80*
+    - **Protocol**: *TCP*
+    - **Action**: *Allow*
+    - **Priority**: *100*
+    - **Name**: *myHTTPRule* 
+    - **Description**: "*Allow HTTP* 
 4. Select **Add**.
+5. Repeat the steps for the inbound RDP rule, if needed, with the following differing values:
+   - **Destination port ranges**: Type *3389*.
+   - **Priority**: Type *200*. 
+   - **Name**: Type *MyRDPRule*. 
+   - **Description**: Type *Allow RDP*. 
  
 ### Install IIS
 
@@ -209,7 +218,6 @@ When no longer needed, delete the resource group, Load Balancer, and all related
 
 ## Next steps
 
-In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

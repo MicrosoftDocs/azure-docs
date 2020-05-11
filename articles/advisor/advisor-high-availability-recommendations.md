@@ -1,11 +1,6 @@
 ---
-title: Improve availability of your application with Azure Advisor | Microsoft Docs
+title: Improve availability of your application with Azure Advisor
 description: Use Azure Advisor to improve high availability of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 
@@ -29,6 +24,10 @@ To provide redundancy to your application, we recommend that you group two or mo
 ## Use Managed Disks to improve data reliability
 
 Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+
+## Known issue with Check Point Network Virtual Appliance image version
+
+Advisor can identify if your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. Advisor recommendation will help you upgrade to a newer version of the image that addresses this issue. This will ensure business continuity through better network connectivity.
 
 ## Ensure application gateway fault tolerance
 
@@ -85,7 +84,7 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 
@@ -108,4 +107,4 @@ For more information about Advisor recommendations, see:
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-
+* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

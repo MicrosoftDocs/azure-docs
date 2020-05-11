@@ -1,19 +1,14 @@
 ---
 title: Agent Health solution in Azure Monitor | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to monitor the health of your agents reporting directly to Log Analytics or System Center Operations Manager.
-services: operations-management-suite
-documentationcenter: ''
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/19/2017
-ms.author: magoedte
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 02/06/2020
+
 ---
+
 #  Agent Health solution in Azure Monitor
 The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace in Azure Monitor or a System Center Operations Manager management group  connected to Azure Monitor, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
@@ -79,7 +74,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | `Version` | Log Analytics Agent or Operations Manager Agent version.|
 | `SCAgentChannel` | Value is *Direct* and/or *SCManagementServer*.|
 | `IsGatewayInstalled` | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
-| `ComputerIP` | IP address of the computer.|
+| `ComputerIP` | The public IP address of the computer. On Azure VMs, this will show the public IP if one is available. For VMs using private IPs, this will display the Azure SNAT address (not the private IP address). |
 | `RemoteIPCountry` | Geographic location where computer is deployed.|
 | `ManagementGroupName` | Name of Operations Manager management group.|
 | `SourceComputerId` | Unique ID of computer.|

@@ -1,11 +1,8 @@
 ---
-title: Configure Storage using Azure Files
-description: How to configure and connect to Azure Files in Windows Container on App Service.
+title: Add custom storage (Windows container)
+description: Learn how to attach custom network share in a custom Windows container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
-manager: gwallace
 
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
@@ -29,6 +26,16 @@ This guide shows how to access Azure Storage in Windows Containers. Only [Azure 
 > Azure Files is non-default storage and billed separately, not included with the web app. It doesn't support using Firewall configuration due to infrastructure limitations.
 >
 
+## Limitations
+
+- Azure Storage in Windows containers is **in preview** and **not supported** for **production scenarios**.
+- Azure Storage in Windows containers supports mounting **Azure Files containers** (Read / Write) only.
+- Azure Storage in Windows containers is currently **not supported** for bring your own code scenarios on Windows App Service plans.
+- Azure Storage in Windows containers **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- Azure Storage in Windows containers lets you specify **up to five** mount points per app.
+- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
+- Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
+
 ## Link storage to your web app (preview)
 
  To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
@@ -46,7 +53,6 @@ Once an Azure Files share is linked to a web app, you can verify this by running
 ```azurecli
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
-
 
 ## Next steps
 

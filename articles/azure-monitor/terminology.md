@@ -1,21 +1,19 @@
 ---
 title: Azure Monitor terminology updates | Microsoft Docs
 description: Describes recent terminology changes made to Azure monitoring services.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/18/2019
+author: bwren
 ms.author: bwren
+ms.date: 10/08/2019
+
 ---
 
 # Azure Monitor naming and terminology changes
 Significant changes have been made to Azure Monitor recently, with different services being consolidated in order to simplify monitoring for Azure customers. This article describes recent name and terminology changes in Azure Monitor documentation.
+
+## October 2019 - Diagnostic Log to Resource Log
+"Diagnostic logs" were changed to "resource logs" to better match what is actually being collected. The term "diagnostic settings" remains the same.  
 
 ## February 2019 - Log Analytics terminology
 After the consolidation of different services under Azure Monitor, we're taking the next step by modifying terminology in our documentation to better describe the Azure Monitor service and its different components. 

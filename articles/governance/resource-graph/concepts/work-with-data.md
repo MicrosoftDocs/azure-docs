@@ -1,12 +1,8 @@
 ---
 title: Work with large data sets
-description: Understand how to get and control large data sets while working with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 04/01/2019
+description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
+ms.date: 03/20/2020
 ms.topic: conceptual
-ms.service: resource-graph
-manager: carmonm
 ---
 # Working with large Azure resource data sets
 
@@ -33,14 +29,14 @@ The default limit can be overridden through all methods of interacting with Reso
 following examples show how to change the data set size limit to _200_:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resources/resources), the control is **$top** and is
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$top** and is
 part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -67,51 +63,143 @@ The following examples show how to skip the first _10_ records a query would res
 starting the returned result set with the 11th record:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resources/resources), the control is **$skip** and is
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$skip** and is
 part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
-result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST
-API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** provides values to
+result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** provides values to
 indicate of a results set has been broken up: **resultTruncated** and **$skipToken**.
 **resultTruncated** is a boolean value that informs the consumer if there are additional records
 not returned in the response. This condition can also be identified when the **count** property is
 less than the **totalRecords** property. **totalRecords** defines how many records that match the
 query.
 
-When **resultTruncated** is **true**, the **$skipToken** property is set in the response. This
-value is used with the same query and subscription values to get the next set of records that
-matched the query.
+ **resultTruncated** is **true** when either paging is disabled or not possible due to no `id`
+ column or when there are less resources available than a query is requesting. When
+ **resultTruncated** is **true**, the **$skipToken** property is not set.
 
 The following examples show how to **skip** the first 3000 records and return the **first** 1000
-records after those skipped with Azure CLI and Azure PowerShell:
+records after those records skipped with Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query)
+For an example, see [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)
 in the REST API docs.
+
+## Formatting results
+
+Results of a Resource Graph query are provided in two formats, _Table_ and _ObjectArray_. The format
+is configured with the **resultFormat** parameter as part of the request options. The _Table_ format
+is the default value for **resultFormat**.
+
+Results from Azure CLI are provided in JSON by default. Results in Azure PowerShell are a
+**PSCustomObject** by default, but they can quickly be converted to JSON using the `ConvertTo-Json`
+cmdlet. For other SDKs, the query results can be configured to output the _ObjectArray_ format.
+
+### Format - Table
+
+The default format, _Table_, returns results in a JSON format designed to highlight the column
+design and row values of the properties returned by the query. This format closely resembles data as
+defined in a structured table or spreadsheet with the columns identified first and then each row
+representing data aligned to those columns.
+
+Here is a sample of a query result with the _Table_ formatting:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### Format - ObjectArray
+
+The _ObjectArray_ format also returns results in a JSON format. However, this design aligns to the
+key/value pair relationship common in JSON where the column and the row data are matched in array
+groups.
+
+Here is a sample of a query result with the _ObjectArray_ formatting:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+Here are some examples of setting **resultFormat** to use the _ObjectArray_ format:
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## Next steps
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](explore-resources.md).
+- Learn more about how to [explore resources](explore-resources.md).

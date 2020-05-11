@@ -1,14 +1,12 @@
 ---
-title: Security recommendations for Azure App Service
-description: Security recommendations for the Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your web app solutions. 
-services: app-service
-author: barclayn
+title: Security recommendations
+description: Implement the security recommendations to help fulfill your security obligations as stated in our shared responsibility model. Improve the security of your app.
+author: msmbaldwin
 manager: barbkess
 
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---

@@ -28,16 +28,10 @@ This article:
 
 ## Manage device identities
 
-The Azure AD portal provides you with a central place to manage your device identities. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or by following these manual steps:
+The Azure AD portal provides you with a central place to manage your device identities. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as administrator.
-2. On the left navbar, click **Active Directory**.
-
-   ![Configure device settings](./media/device-management-azure-portal/01.png)
-
-3. In the **Manage** section, click **Devices**.
-
-   ![Configure device settings](./media/device-management-azure-portal/74.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
 
 The **Devices** page enables you to:
 
@@ -50,9 +44,7 @@ The **Devices** page enables you to:
 
 To manage your device identities using the Azure AD portal, your devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings.
 
-![Configure device settings](./media/device-management-azure-portal/22.png)
-
-The device settings page enables you to configure:
+The device settings page enables you to configure settings related to device identities:
 
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
@@ -67,12 +59,12 @@ This option is a premium edition capability available through products such as A
 - **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
-> **Require Multi-Factor Auth to join devices** setting does not apply to hybrid Azure AD joined devices.
+> **Require Multi-Factor Auth to join devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The device quota is counted for all devices that are either Azure AD joined or Azure AD registered today. The default value is **20**.
+- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **20**.
 
 > [!NOTE]
-> **Maximum number of devices** setting does not apply to hybrid Azure AD joined devices.
+> **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
 
 - **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
 This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
@@ -82,12 +74,7 @@ This option is a premium capability available through products such as Azure AD 
 You have two options to locate registered and joined devices:
 
 - **All devices** in the **Manage** section of the **Devices** page  
-
-   ![All devices](./media/device-management-azure-portal/41.png)
-
 - **Devices** in the **Manage** section of a **User** page
-
-   ![All devices](./media/device-management-azure-portal/43.png)
 
 With both options, you can get to a view that:
 
@@ -136,6 +123,7 @@ To enable / disable a device, you have two options:
 
 - You need to be a global administrator or cloud device administrator in Azure AD to enable / disable a device. 
 - Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials.
+- Disabling the device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
 
 ### Delete an Azure AD device
 
@@ -193,9 +181,7 @@ Device activities are available through the activity logs. These logs include ac
 
 Your entry point to the auditing data is **Audit logs** in the **Activity** section of the **Devices** page.
 
-![Audit logs](./media/device-management-azure-portal/61.png)
-
-An audit log has a default list view that shows:
+The audit log has a default list view that shows:
 
 - The date and time of the occurrence
 - The targets

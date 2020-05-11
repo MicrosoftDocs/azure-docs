@@ -1,23 +1,22 @@
 ---
-title: Azure Stream Analytics diagnostic log data errors
+title: Azure Stream Analytics resource log data errors
 description: This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 03/27/2020
 ---
 
 # Azure Stream Analytics data errors
 
-Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the diagnostic logs.  In some cases, summary of this information is also provided through portal notifications.
+Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs.  In some cases, summary of this information is also provided through portal notifications.
 
-This article outlines the different error types, causes, and diagnostic log details for input and output data errors.
+This article outlines the different error types, causes, and resource log details for input and output data errors.
 
-## Diagnostic log schema
+## Resource Logs schema
 
-See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) to see the schema for diagnostic logs. The following JSON is an example value for the **Properties** field of a diagnostic log for a data error.
+See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
 
 ```json
 {
@@ -39,7 +38,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The input compression type selected doesn't match the data.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Messages with any deserialization errors including invalid compression type are dropped from the input.
 * Log details
    * Input message identifier. For Event Hub, the identifier is the PartitionId, Offset, and Sequence Number.
@@ -54,7 +53,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The header of input data is invalid. For example, a CSV has columns with duplicate names.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Messages with any deserialization errors including invalid header are dropped from the input.
 * Log details
    * Input message identifier. 
@@ -70,7 +69,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The input columns defined with CREATE TABLE or through TIMESTAMP BY doesn't exist.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Events with missing columns are dropped from the input.
 * Log details
    * Input message identifier. 
@@ -91,7 +90,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: Unable to convert the input to the type specified in the CREATE TABLE statement.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Events with type conversion error are dropped from the input.
 * Log details
    * Input message identifier. 
@@ -111,7 +110,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: Input data is not in the right format. For example, the input isn't valid JSON.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: All events in the message after an invalid data error has been encountered are dropped from the input.
 * Log details
    * Input message identifier. 
@@ -131,7 +130,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The value of the TIMESTAMP BY expression can't be converted to datetime.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Events with invalid input timestamp are dropped from the input.
 * Log details
    * Input message identifier. 
@@ -148,7 +147,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The value of TIMESTAMP BY OVER timestampColumn is NULL.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact: Events with invalid input timestamp key are dropped from the input.
 * Log details
    * The actual payload up to few kilobytes.
@@ -163,7 +162,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The difference between application time and arrival time is greater than late arrival tolerance window.
 * Portal notification provided: No
-* Diagnostic log level: Information
+* Resource log level: Information
 * Impact:  Late input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Log details
    * Application time and arrival time. 
@@ -179,7 +178,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The difference between Application time and Arrival time is greater than 5 minutes.
 * Portal notification provided: No
-* Diagnostic log level: Information
+* Resource log level: Information
 * Impact:  Early input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Log details
    * Application time and arrival time. 
@@ -195,7 +194,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: Event is considered out of order according to the out of order tolerance window defined.
 * Portal notification provided: No
-* Diagnostic log level: Information
+* Resource log level: Information
 * Impact:  Out of order events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Log details
    * Actual payload up to few kilobytes.
@@ -212,7 +211,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey does't exist.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact:  All output data conversion errors including missing required column are handled according to the [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) setting.
 * Log details
    * Name of the column and either the record identifier or part of the record.
@@ -227,7 +226,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The column value doesn't conform with the output. For example, the column name isn't a valid Azure table column.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact:  All output data conversion errors including invalid column name are handled according to the [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) setting.
 * Log details
    * Name of the column and either record identifier or part of the record.
@@ -242,7 +241,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: A column can't be converted to a valid type in the output. For example, the value of column is incompatible with constraints or type defined in SQL table.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact:  All output data conversion errors including type conversion error are handled according to the [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) setting.
 * Log details
    * Name of the column.
@@ -258,7 +257,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: The value of the message is greater than the supported output size. For example, a record is larger than 1 MB for an Event Hub output.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact:  All output data conversion errors including record exceeded size limit are handled according to the [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) setting.
 * Log details
    * Either record identifier or part of the record.
@@ -273,7 +272,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 * Cause: A record already contains a column with the same name as a System column. For example, CosmosDB output with a column named ID when ID column is to a different column.
 * Portal notification provided: Yes
-* Diagnostic log level: Warning
+* Resource log level: Warning
 * Impact:  All output data conversion errors including duplicate key are handled according to the [Output Data Policy](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) setting.
 * Log details
    * Name of the column.

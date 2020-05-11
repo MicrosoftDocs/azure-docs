@@ -1,26 +1,22 @@
 ---
-title: Configure an application's publisher domain | Azure
+title: Configure an app's publisher domain | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure an application's publisher domain (Preview)
+# How to: Configure an application's publisher domain
 
 An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
@@ -92,6 +88,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 ### To select a verified domain
 
 - If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+
+>[!Note]
+> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## Implications on the app consent prompt
 

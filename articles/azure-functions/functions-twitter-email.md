@@ -1,15 +1,11 @@
 ---
 title: Create a function that integrates with Azure Logic Apps
 description: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to categorize tweet sentiment and send notifications when sentiment is poor.
-services: functions, logic-apps, cognitive-services
-keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 author: craigshoemaker
-manager: gwallace
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -18,7 +14,7 @@ ms.custom: mvc, cc996988-fb4f-47
 
 Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. 
 
-This tutorial shows you how to use Functions with Logic Apps and Cognitive Services on Azure to run sentiment analysis from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
+This tutorial shows you how to use Azure Functions with Logic Apps and Cognitive Services on Azure to run sentiment analysis from Twitter posts. An HTTP trigger function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
 
 ![image first two steps of app in Logic App Designer](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -36,7 +32,14 @@ In this tutorial, you learn how to:
 
 + An active [Twitter](https://twitter.com/) account. 
 + An [Outlook.com](https://outlook.com/) account (for sending notifications).
-+ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restrictions in logic apps. 
+> If you have a Gmail consumer account, you can use the Gmail connector with only specific Google-approved apps and services, 
+> or you can [create a Google client app to use for authentication in your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
 If you haven't already done so, complete these steps now to create your function app.
 
 ## Create a Cognitive Services resource
@@ -60,7 +63,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 4. Click **Create** to create your resource. 
 
-5. Click on **Overview** and copy the value of the **Endpoint** to a text editor. This value is used when creating a connection to the Cognitive Services API.
+5. Click **Overview** and copy the value of the **Endpoint** to a text editor. This value is used when creating a connection to the Cognitive Services API.
 
     ![Cognitive Services Settings](media/functions-twitter-email/02-cognitive-services.png)
 
@@ -70,21 +73,21 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 ## Create the function app
 
-Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
+Azure Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP trigger function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## Create an HTTP triggered function  
+## Create an HTTP trigger function  
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal**.
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu.
 
-    ![Functions quickstart page in the Azure portal](media/functions-twitter-email/05-function-app-create-portal.png)
+2. From the **New Function** window, select **HTTP trigger**.
 
-2. Next, select **Webhook + API** and click **Create**. 
+    ![Choose HTTP trigger function](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Choose the HTTP trigger](./media/functions-twitter-email/06-function-webhook.png)
+3. From the **New Function** page, select **Create Function**.
 
-3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
+4. In your new HTTP trigger function, select **Code + Test** from the left menu, replace the contents of the `run.csx` file with the following code, and then select **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -119,17 +122,18 @@ Functions provides a great way to offload processing tasks in a logic apps workf
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     This function code returns a color category based on the sentiment score received in the request. 
 
-4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. A value of **RED** is returned in the body of the response. 
+5. To test the function, select **Test** from the top menu. On the **Input** tab, enter a value of `0.2` in the **Body**, and then select **Run**. A value of **RED** is returned in the **HTTP response content** on the **Output** tab. 
 
-    ![Test the function in the Azure portal](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Define the proxy settings":::
 
 Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services API. 
 
 ## Create a logic app   
 
-1. In the Azure portal, click the **New** button found on the upper left-hand corner of the Azure portal.
+1. In the Azure portal, click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Click **Web** > **Logic App**.
  
@@ -183,7 +187,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
     ![New Step, and then Add an action](media/functions-twitter-email/12-connection-settings.png)
 
-4. Next, enter **Tweet Text** in the text box and then click on **New Step**.
+4. Next, enter **Tweet text** in the text box and then click **New Step**.
 
     ![Define text to analyze](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -211,7 +215,7 @@ Now, your function is triggered when a sentiment score is sent from the logic ap
 
 ## Add email notifications
 
-The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This topic uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
+The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This article uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
 
 1. In the Logic Apps Designer, click **New step** > **Add a condition**. 
 
@@ -273,7 +277,7 @@ Now that the workflow is complete, you can enable the logic app and see the func
     > [!IMPORTANT]
     > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services API.
 
-Now you have seen how easy it is to integrate Functions into a Logic Apps workflow.
+Now you've seen how easy it is to integrate Functions into a Logic Apps workflow.
 
 ## Disable the logic app
 

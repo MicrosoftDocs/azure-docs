@@ -1,18 +1,9 @@
 ---
-title: Tutorial install Service Fabric standalone client - Azure Service Fabric | Microsoft Docs
+title: Install Service Fabric standalone client
 description: In this tutorial you learn how to install the Service Fabric standalone client on the cluster you created in the previous tutorial article.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc

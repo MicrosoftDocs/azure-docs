@@ -8,6 +8,7 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
+ms.custom: amqp
 ---
 
 # Azure IoT device SDK for C – more about serializer
@@ -48,7 +49,7 @@ What goes inside the namespace are model definitions. In this case, there is a s
 
 Models contain a definition of the events you can ingress to IoT Hub (the *data*) as well as the messages you can receive from IoT Hub (the *actions*). As you can see from the example, events have a type and a name; actions have a name and optional parameters (each with a type).
 
-What’s not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
+What's not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
 
 > [!NOTE]
 > IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
@@ -62,13 +63,13 @@ The following data types are supported in models created with the **serializer**
 | Type | Description |
 | --- | --- |
 | double |double precision floating point number |
-| int |32 bit integer |
+| int |32-bit integer |
 | float |single precision floating point number |
 | long |long integer |
-| int8\_t |8 bit integer |
-| int16\_t |16 bit integer |
-| int32\_t |32 bit integer |
-| int64\_t |64 bit integer |
+| int8\_t |8-bit integer |
+| int16\_t |16-bit integer |
+| int32\_t |32-bit integer |
+| int64\_t |64-bit integer |
 | bool |boolean |
 | ascii\_char\_ptr |ASCII string |
 | EDM\_DATE\_TIME\_OFFSET |date time offset |
@@ -76,7 +77,7 @@ The following data types are supported in models created with the **serializer**
 | EDM\_BINARY |binary |
 | DECLARE\_STRUCT |complex data type |
 
-Let’s start with the last data type. The **DECLARE\_STRUCT** allows you to define complex data types, which are groupings of the other primitive types. These groupings allow us to define a model that looks like this:
+Let's start with the last data type. The **DECLARE\_STRUCT** allows you to define complex data types, which are groupings of the other primitive types. These groupings allow us to define a model that looks like this:
 
 ```C
 DECLARE_STRUCT(TestType,
@@ -134,7 +135,7 @@ testModel->Test.aBinary = binaryData;
 SendAsync(iotHubClientHandle, (const void*)&(testModel->Test));
 ```
 
-Basically, we’re assigning a value to every member of the **Test** structure and then calling **SendAsync** to send the **Test** data event to the cloud. **SendAsync** is a helper function that sends a single data event to IoT Hub:
+Basically, we're assigning a value to every member of the **Test** structure and then calling **SendAsync** to send the **Test** data event to the cloud. **SendAsync** is a helper function that sends a single data event to IoT Hub:
 
 ```C
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
@@ -246,7 +247,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 }
 ```
 
-We'll use hard-coded values for temperature and humidity in the sample code, but imagine that we’re actually retrieving these values by sampling the corresponding sensors on the thermostat.
+We'll use hard-coded values for temperature and humidity in the sample code, but imagine that we're actually retrieving these values by sampling the corresponding sensors on the thermostat.
 
 The code above uses the **GetDateTimeOffset** helper that was introduced previously. For reasons that will become clear later, this code explicitly separates the task of serializing and sending the event. The previous code serializes the temperature event into a buffer. Then, **sendMessage** is a helper function (included in **simplesample\_amqp**) that sends the event to IoT Hub:
 
@@ -265,7 +266,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-This code is a subset of the **SendAsync** helper described in the previous section, so we won’t go over it again here.
+This code is a subset of the **SendAsync** helper described in the previous section, so we won't go over it again here.
 
 When we run the previous code to send the Temperature event, this serialized form of the event is sent to IoT Hub:
 
@@ -273,7 +274,7 @@ When we run the previous code to send the Temperature event, this serialized for
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-We're sending a temperature which is of type **TemperatureEvent** and that struct contains a **Temperature** and **Time** member. This is directly reflected in the serialized data.
+We're sending a temperature, which is of type **TemperatureEvent**, and that struct contains a **Temperature** and **Time** member. This is directly reflected in the serialized data.
 
 Similarly, we can send a humidity event with this code:
 
@@ -286,7 +287,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-The serialized form that’s sent to IoT Hub appears as follows:
+The serialized form that's sent to IoT Hub appears as follows:
 
 ```C
 {"Humidity":45, "Time":"2015-09-17T18:45:56Z"}
@@ -296,7 +297,7 @@ Again, this is as expected.
 
 With this model, you can imagine how additional events can easily be added. You define more structures using **DECLARE\_STRUCT**, and include the corresponding event in the model using **WITH\_DATA**.
 
-Now, let’s modify the model so that it includes the same data but with a different structure.
+Now, let's modify the model so that it includes the same data but with a different structure.
 
 ### Model 2
 
@@ -310,9 +311,9 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-In this case we've eliminated the **DECLARE\_STRUCT** macros and are simply defining the data items from our scenario using simple types from the modeling language.
+In this case, we've eliminated the **DECLARE\_STRUCT** macros and are simply defining the data items from our scenario using simple types from the modeling language.
 
-Just for the moment, ignore the **Time** event. With that aside, here’s the code to ingress **Temperature**:
+Just for the moment, ignore the **Time** event. With that aside, here's the code to ingress **Temperature**:
 
 ```C
 time_t now;
@@ -367,7 +368,7 @@ You might guess that the result of this code is that two data events are sent to
 {"Humidity":45}
 ]
 
-In other words, you might expect that this code is the same as sending **Temperature** and **Humidity** separately. It’s just a convenience to pass both events to **SERIALIZE** in the same call. However, that’s not the case. Instead, the code above sends this single data event to IoT Hub:
+In other words, you might expect that this code is the same as sending **Temperature** and **Humidity** separately. It's just a convenience to pass both events to **SERIALIZE** in the same call. However, that's not the case. Instead, the code above sends this single data event to IoT Hub:
 
 {"Temperature":75, "Humidity":45}
 
@@ -381,7 +382,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-More to the point, we didn’t model these events where **Temperature** and **Humidity** are in the same structure:
+More to the point, we didn't model these events where **Temperature** and **Humidity** are in the same structure:
 
 ```C
 DECLARE_STRUCT(TemperatureAndHumidityEvent,
@@ -396,7 +397,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 
 If we used this model, it would be easier to understand how **Temperature** and **Humidity** would be sent in the same serialized message. However it may not be clear why it works that way when you pass both data events to **SERIALIZE** using model 2.
 
-This behavior is easier to understand if you know the assumptions that the **serializer** library is making. To make sense of this let’s go back to our model:
+This behavior is easier to understand if you know the assumptions that the **serializer** library is making. To make sense of this, let's go back to our model:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -406,7 +407,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Think of this model in object-oriented terms. In this case we’re modeling a physical device (a thermostat) and that device includes attributes like **Temperature** and **Humidity**.
+Think of this model in object-oriented terms. In this case, we're modeling a physical device (a thermostat) and that device includes attributes like **Temperature** and **Humidity**.
 
 We can send the entire state of our model with code such as the following:
 
@@ -423,19 +424,19 @@ Assuming the values of Temperature, Humidity and Time are set, we would see an e
 {"Temperature":75, "Humidity":45, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Sometimes you may only want to send *some* properties of the model to the cloud (this is especially true if your model contains a large number of data events). It’s useful to send only a subset of data events, such as in our earlier example:
+Sometimes you may only want to send *some* properties of the model to the cloud (this is especially true if your model contains a large number of data events). It's useful to send only a subset of data events, such as in our earlier example:
 
 ```C
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-This generates exactly the same serialized event as if we had defined a **TemperatureEvent** with a **Temperature** and **Time** member, just as we did with model 1. In this case we were able to generate exactly the same serialized event by using a different model (model 2) because we called **SERIALIZE** in a different way.
+This generates exactly the same serialized event as if we had defined a **TemperatureEvent** with a **Temperature** and **Time** member, just as we did with model 1. In this case, we were able to generate exactly the same serialized event by using a different model (model 2) because we called **SERIALIZE** in a different way.
 
 The important point is that if you pass multiple data events to **SERIALIZE,** then it assumes each event is a property in a single JSON object.
 
-The best approach depends on you and how you think about your model. If you’re sending "events" to the cloud and each event contains a defined set of properties, then the first approach makes a lot of sense. In that case you would use **DECLARE\_STRUCT** to define the structure of each event and then include them in your model with the **WITH\_DATA** macro. Then you send each event as we did in the first example above. In this approach you would only pass a single data event to **SERIALIZER**.
+The best approach depends on you and how you think about your model. If you're sending "events" to the cloud and each event contains a defined set of properties, then the first approach makes a lot of sense. In that case you would use **DECLARE\_STRUCT** to define the structure of each event and then include them in your model with the **WITH\_DATA** macro. Then you send each event as we did in the first example above. In this approach, you would only pass a single data event to **SERIALIZER**.
 
-If you think about your model in an object-oriented fashion, then the second approach may suit you. In this case, the elements defined using **WITH\_DATA** are the "properties" of your object. You pass whatever subset of events to **SERIALIZE** that you like, depending on how much of your "object’s" state you want to send to the cloud.
+If you think about your model in an object-oriented fashion, then the second approach may suit you. In this case, the elements defined using **WITH\_DATA** are the "properties" of your object. You pass whatever subset of events to **SERIALIZE** that you like, depending on how much of your "object's" state you want to send to the cloud.
 
 Nether approach is right or wrong. Just be aware of how the **serializer** library works, and pick the modeling approach that best fits your needs.
 
@@ -447,7 +448,7 @@ So far this article has only discussed sending events to IoT Hub, and hasn't add
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-You then write the callback function that’s invoked when a message is received:
+You then write the callback function that's invoked when a message is received:
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -533,9 +534,9 @@ This section described everything you need to know when sending events and recei
 
 ## Macro configuration
 
-If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
+If you're using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
 
-If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
+If you have cloned the Azure-iot-sdk-c repository from GitHub and issued the `git submodule update --init` command, then you will find this shared utility library here:
 
 ```C
 .\\c-utility
@@ -553,9 +554,9 @@ This folder contains a Visual Studio solution called **macro\_utils\_h\_generato
 
   ![Screenshot of the Visual Studio solution maco_utils_h_generator](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-The program in this solution generates the **macro\_utils.h** file. There’s a default macro\_utils.h file included with the SDK. This solution allows you to modify some parameters and then recreate the header file based on these parameters.
+The program in this solution generates the **macro\_utils.h** file. There's a default macro\_utils.h file included with the SDK. This solution allows you to modify some parameters and then recreate the header file based on these parameters.
 
-The two key parameters to be concerned with are **nArithmetic** and **nMacroParameters** which are defined in these two lines found in macro\_utils.tt:
+The two key parameters to be concerned with are **nArithmetic** and **nMacroParameters**, which are defined in these two lines found in macro\_utils.tt:
 
 ```C
 <#int nArithmetic=1024;#>
@@ -651,7 +652,7 @@ serializer_init(NULL);
 
 This is done just before you call **IoTHubClient\_CreateFromConnectionString**.
 
-Similarly, when you're done working with the library, the last call you’ll make is to **serializer\_deinit**:
+Similarly, when you're done working with the library, the last call you'll make is to **serializer\_deinit**:
 
 ```C
 serializer_deinit();

@@ -9,7 +9,6 @@ editor: ''
 
 ms.service: api-management
 ms.workload: mobile
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm

@@ -4,7 +4,7 @@ title: 'Troubleshoot errors in Azure Active Directory reporting API | Microsoft 
 description: Provides you with a resolution to errors while calling Azure Active Directory Reporting APIs.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -24,24 +24,11 @@ ms.collection: M365-identity-device-management
 
 # Troubleshoot errors in Azure Active Directory reporting API
 
-This article lists the common error messages you may run into while accessing activity reports using the MS Graph API and steps for their resolution.
+This article lists the common error messages you may run into while accessing activity reports using the Microsoft Graph API and steps for their resolution.
 
 ### 500 HTTP internal server error while accessing Microsoft Graph V2 endpoint
 
 We do not currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
-
-### Error: Failed to get user roles from AD Graph
-
-You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
-
-![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
-
-### Error: Failed to do premium license check from AD Graph 
-
-If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
-
-![Modify permissions UI](./media/troubleshoot-graph-api/modify-permissions.png)
-
 
 ### Error: Neither tenant is B2C or tenant doesn't have premium license
 
@@ -55,7 +42,7 @@ If you see this error message while trying to access audit logs or sign-ins usin
 
 Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 
-### Error: Application missing MSGraph API 'Read all audit log data' permission
+### Error: Application missing Microsoft Graph API 'Read all audit log data' permission
 
 Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 

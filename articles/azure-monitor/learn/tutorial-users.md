@@ -1,15 +1,13 @@
 ---
 title: Understand your customers in Azure Application Insights | Microsoft Docs
 description: Tutorial on using Azure Application Insights to understand how customers are using your application.
-keywords:
-services: application-insights
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
 ---
 
 # Use Azure Application Insights to understand how customers are using your application

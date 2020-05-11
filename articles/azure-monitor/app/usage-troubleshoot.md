@@ -1,19 +1,14 @@
 ---
-title: Troubleshoot user behavior analytics tools in Azure Application Insights
+title: Troubleshoot user analytics tools - Azure Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 07/11/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Troubleshoot user behavior analytics tools in Application Insights
 Have questions about the [user behavior analytics tools in Application Insights](usage-overview.md): [Users, Sessions, Events](usage-segmentation.md), [Funnels](usage-funnels.md), [User Flows](usage-flows.md), [Retention](usage-retention.md), or Cohorts? Here are some answers.
 

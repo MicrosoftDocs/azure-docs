@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Monitor an Azure DC/OS cluster - ELK stack
 description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK (Elasticsearch, Logstash, and Kibana).
-services: container-service
 author: sauryadas
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
@@ -27,7 +24,7 @@ Azure Container Service. Explore the DC/OS dashboard and Marathon services [here
 ELK stack is a combination of Elasticsearch, Logstash, and Kibana that provides an end to end stack that can be used to monitor and analyze logs in your cluster.
 
 ## Configure the ELK stack on a DC/OS cluster
-Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to **Universe**. Search and 
+Access your DC/OS UI via `http://localhost:80/` Once in the DC/OS UI navigate to **Universe**. Search and 
 install Elasticsearch, Logstash, and Kibana from the DC/OS Universe and in that specific order. You can learn more about configuration 
 if you go to the **Advanced Installation** link.
 

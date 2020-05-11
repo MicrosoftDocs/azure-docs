@@ -1,4 +1,4 @@
-- name: Azure Security Center for IoT Documentation
+- name: Azure Security Center for IoT documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -21,7 +21,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Enable Azure Security Center for IoT in IoT Hub
+  - name: Onboard Azure Security Center for IoT in IoT Hub
     href: quickstart-onboard-iot-hub.md
   - name: Configure your solution
     href: quickstart-configure-your-solution.md
@@ -37,8 +37,12 @@
     href: concept-security-module.md
   - name: Security alerts
     href: concept-security-alerts.md
+  - name: Customizable security alerts
+    href: concept-customizable-security-alerts.md
   - name: Security recommendations
     href: concept-recommendations.md
+  - name: Baseline
+    href: concept-baseline.md
   - name: Event aggregation
     href: event-aggregation.md
   - name: Pricing and associated costs
@@ -62,7 +66,7 @@
     - name: Local configuration C
       href: azure-iot-security-local-configuration-c.md
     - name: Local configuration C#
-      href: azure-iot-security-local-configuration-csharp.md 
+      href: azure-iot-security-local-configuration-csharp.md
   - name: Deploy Edge security module
     href: how-to-deploy-edge.md
   - name: Configure security agents
@@ -73,6 +77,10 @@
     href: how-to-security-data-access.md
   - name: Investigate a device
     href: how-to-investigate-device.md
+  - name: Connect to Azure Sentinel
+    href: how-to-configure-with-sentinel.md
+  - name: Customize your solution
+    href: how-to-customize-solution.md
 - name: Resources
   items:
   - name: Frequently asked questions

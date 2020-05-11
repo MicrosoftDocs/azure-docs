@@ -1,18 +1,15 @@
 ---
-title: Performance recommendations in Azure Database for MariaDB
+title: Performance recommendations - Azure Database for MariaDB
 description: This article describes the Performance Recommendation feature in Azure Database for MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 3/18/2020
 ---
 # Performance Recommendations in Azure Database for MariaDB
 
 **Applies to:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Performance Recommendations is in preview.
 
 The Performance Recommendations feature analyzes your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. If performance schema is OFF, turning on Query Store enables performance_schema and a subset of performance schema instruments required for the feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes.
 

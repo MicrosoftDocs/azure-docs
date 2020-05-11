@@ -1,5 +1,5 @@
 ---
-title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
+title: Report across scaled-out cloud databases
 description: Use cross database database queries to report across multiple databases.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
+ms.date: 10/10/2019
 
 ---
 # Report across scaled-out cloud databases (preview)
@@ -28,7 +28,7 @@ Download and run the [Getting started with Elastic Database tools sample](sql-da
 ## Create a shard map manager using the sample app
 Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you will see the following command prompt:
+1. Build and run the **Getting started with Elastic Database tools** sample application by following the steps in the article section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Once you finish all the steps, you will see the following command prompt:
 
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
@@ -57,13 +57,13 @@ These are used to connect to the shard map manager and the shards:
 1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
 2. Connect to ElasticDBQuery database and execute the following T-SQL commands:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" and "password" should be the same as login information used in step 6 of [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md).
+    "username" and "password" should be the same as login information used in step 3 of section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in the **Getting started with Elastic Database tools** article.
 
 ### External data sources
 To create an external data source, execute the following command on the ElasticDBQuery database:

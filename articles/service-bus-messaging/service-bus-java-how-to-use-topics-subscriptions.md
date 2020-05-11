@@ -1,6 +1,6 @@
 ---
 title: Use Azure Service Bus topics and subscriptions with Java
-description: Use Service Bus topics and subscriptions in Azure.
+description: In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,17 +12,17 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# How to use Service Bus topics and subscriptions with Java
+# Quickstart: Use Service Bus topics and subscriptions with Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In this quickstart, you write Java code to send messages to a Service Bus topic and then receive messages from subscriptions to that topic. 
+In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this quickstart, you write Java code to send messages to a Service Bus topic 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![Libraries in Eclipse Build Path](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Add Microsoft Azure Libraries for Java to your Eclipse project](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 You also need to add the following JARs to the Java Build Path:
 
@@ -179,7 +179,7 @@ public class MyServiceBusTopicClient {
         receiveClient.registerMessageHandler(
         			messageHandler,
                     // callback invoked when the message handler has an exception to report
-                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
                 new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
 
     }
@@ -459,7 +459,7 @@ Message sending: Id = 9
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
 [Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

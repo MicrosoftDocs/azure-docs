@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 
@@ -118,9 +118,9 @@ Fuzzy matching is used on the normalized password to identify if it contains a p
 
 Example: assume that the password “abcdef” is banned, and a user tries to change their password to one of the following:
 
-‘abcdeg’    *(last character changed from ‘f’ to ‘g’)*
-‘abcdefg’   *’(g’ appended to end)*
-‘abcde’     *(trailing ‘f’ was deleted from end)*
+‘abcdeg’    *(last character changed from ‘f’ to ‘g’)*
+‘abcdefg’   *’(g’ appended to end)*
+‘abcde’     *(trailing ‘f’ was deleted from end)*
 
 Each of the above passwords does not specifically match the banned password "abcdef". However, since each example is within an edit distance of 1 of the banned term ‘abcdef’, they are all considered as a  match to “abcdef”.
 
@@ -165,7 +165,7 @@ Since this password is at least five (5) points, it is accepted.
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
 
 > [!NOTE]
-> On-premises Windows Server Active Directory users that not synchronized to Azure Active Directory also avail the benefits of Azure AD password protection based on existing licensing for synchronized users.
+> On-premises Windows Server Active Directory users that are not synchronized to Azure Active Directory also benefits from Azure AD password protection based on existing licensing for synchronized users.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 

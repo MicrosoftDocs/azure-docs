@@ -1,25 +1,23 @@
 ---
-title: Azure Monitor - Azure Application Insights override default SDK endpoints | Microsoft Docs
-description: Modify default Azure Application Insights SDK endpoints for regions like Azure Government.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights override default SDK endpoints
+description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.author: mbullwin
+
 ---
 
- # Application Insights overriding default endpoints
+# Application Insights overriding default endpoints
 
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
+> [!NOTE]
+> [Connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
+
+---
+
 ## SDK code changes
 
-### .NET with applicationinsights.config
+# [.NET](#tab/net)
 
 > [!NOTE]
 > The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
@@ -44,7 +42,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 </ApplicationInsights>
 ```
 
-### .NET Core
+# [.NET Core](#tab/netcore)
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
@@ -61,18 +59,25 @@ The values for Live Metrics and the Profile Query Endpoint can only be set via c
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //Place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QuickPulse_Endpoint_Address");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
 
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+    //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
 
-### Java
+# [Azure Functions](#tab/functions)
+
+For Azure Functions it is now recommended to use [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
+
+Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+Value: `Connection String Value`
+
+# [Java](#tab/java)
 
 Modify the applicationinsights.xml file to change the default endpoint address.
 
@@ -107,7 +112,7 @@ Modify the `application.properties` file and add:
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### Node.js
+# [Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -126,7 +131,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### JavaScript
+# [JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -138,6 +143,12 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
     );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
+
+# [Python](#tab/python)
+
+For guidance on modifying the ingestion endpoint for the opencensus-python SDK consult the [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## Regions that require endpoint modification
 

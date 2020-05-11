@@ -1,18 +1,12 @@
 ---
 title: Guidance for personal data stored in Azure Log Analytics| Microsoft Docs
 description: This article describes how to manage personal data stored in Azure Log Analytics and the methods to identify and remove it.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.author: magoedte
+
 ---
 
 # Guidance for personal data stored in Log Analytics and Application Insights
@@ -93,6 +87,11 @@ For both view and export data requests, the [Log Analytics query API](https://de
 We have made available as part of a privacy handling a *purge* API path. This path should be used sparingly due to the risk associated with doing so, the potential performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handle private data.
 
 Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
+
+> [!IMPORTANT]
+> In order to manage system resources, purge requests are throttled at 50 requests per hour. You should batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. You should run the query before executing the purge request to verify that the results are expected. 
+
+
 
 Once the Azure Resource Manager role has been assigned, two new API paths are available: 
 

@@ -1,15 +1,9 @@
 ---
 title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.author: mbullwin
+ms.date: 09/11/2019
+
 ---
 
 # Geolocation and IP address handling
@@ -31,10 +25,9 @@ This behavior is by design to help avoid unnecessary collection of personal data
 
 While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling in Application Insights, consult the [guidance for personal data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## Storing partial IP address data
+## Storing IP address data
 
-In order to enable partial IP collection and storage, the  `DisableIpMasking` property of the Application Insights component must be set to `true`. This property can be set either through Azure Resource Manager templates or by calling the REST API. IP addresses will be recorded with the last octet zeroed out.
-
+In order to enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`. This property can be set either through Azure Resource Manager templates or by calling the REST API. 
 
 ### Azure Resource Manager Template
 
@@ -87,7 +80,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
     In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
 
-6. Once the deployment is complete new telemetry data will be recorded with the first three octets populated with the IP and the last octet zeroed out.
+6. Once the deployment is complete new telemetry data will be recorded.
 
     If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
     
@@ -123,7 +116,7 @@ Content-Length: 54
 
 ## Telemetry initializer
 
-If you need to record the entire IP address rather than just the first three octets, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy the IP address to a custom field that will not be masked.
+If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
 
 ### ASP.NET / ASP.NET Core
 
@@ -153,7 +146,7 @@ namespace MyWebApp
 > [!NOTE]
 > If you are unable to access `ISupportProperties`, check and make sure you are running the latest stable release of the Application Insights SDK. `ISupportProperties` are intended for high cardinality values, whereas `GlobalProperties` are more appropriate for low cardinality values like region name, environment name, etc. 
 
-### Enable telemetry initializer for .ASP.NET
+### Enable telemetry initializer for ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

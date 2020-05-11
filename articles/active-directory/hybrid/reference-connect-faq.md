@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -51,7 +51,7 @@ Yes. After you install the agent, you can complete the registration process by u
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
+**Q: Does Azure AD Connect support syncing from two domains to an Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](how-to-connect-install-multiple-domains.md).
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  
@@ -108,7 +108,7 @@ The following is an informational document that presents some of the best practi
 - Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
 - Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
 - Test and Validate all upgrades on the Staging Server first
-- Always validate exports before switching over to the staging serverLeverage the staging server for Full Imports and Full Synchronizations to reduce business impact
+- Always validate exports before switching over to the staging server.  Leverage the staging server for Full Imports and Full Synchronizations to reduce business impact
 - Keep version consistency between Azure AD Connect Servers as much as possible 
 
 **Q: Can I allow Azure AD Connect to create the Azure AD Connector account on Workgroup machine?**
@@ -265,3 +265,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 * Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q: Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?**
+
+The events 6311 - **The server encountered an unexpected error while performing a callback** and 6401 - **The management agent controller encountered an unexpected error** - are always logged after a synchronization step error. To resolve these errors, you need to clean up the synchronization step errors.  For more information, see [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) and [Troubleshoot object synchronization with Azure AD Connect sync](tshoot-connect-objectsync.md)

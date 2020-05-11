@@ -1,17 +1,10 @@
 ﻿---
-title: Secure and use policies on your Windows VMs in Azure | Microsoft Docs
-description: Learn about security and policies for Windows and virtual machines in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Secure and use policies on your VMs in Azure 
+description: Learn about security and policies for virtual machines in Azure.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual

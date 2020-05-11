@@ -2,11 +2,12 @@
  title: include file
  description: include file
  services: digital-twins
- author: kingdomofends
+ ms.author: alinast
+ author: alinamstanciu
+ manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 08/12/2019
- ms.author: v-adgera
+ ms.date: 01/15/2020
  ms.custom: include file
 ---
 

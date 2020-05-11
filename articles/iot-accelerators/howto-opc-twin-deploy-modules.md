@@ -1,6 +1,6 @@
 ---
 title: How to deploy OPC Twin module for Azure from scratch | Microsoft Docs
-description: How to deploy OPC Twin from scratch.
+description: This article describes how to deploy OPC Twin from scratch using the Azure portal's IoT Edge blade and also using AZ CLI.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -181,7 +181,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 2. Use the following command to apply the configuration to an IoT Edge device:
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
@@ -190,7 +190,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 3. Once you've deployed modules to your device, you can view all of them with the following command:
 
-   ```bash
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 

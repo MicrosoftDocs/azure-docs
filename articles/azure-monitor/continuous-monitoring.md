@@ -1,17 +1,12 @@
 ---
 title: Continuous monitoring with Azure Monitor | Microsoft Docs
 description: Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 10/12/2018
+author: bwren
 ms.author: bwren
+ms.date: 10/12/2018
+
 ---
 
 # Continuous monitoring with Azure Monitor
@@ -51,7 +46,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../azure-monitor/insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../azure-monitor/insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.

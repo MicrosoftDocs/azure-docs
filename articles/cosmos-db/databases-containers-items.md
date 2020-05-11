@@ -1,11 +1,11 @@
 ---
 title: Work with databases, containers, and items in Azure Cosmos DB 
 description: This article describes how to create and use databases, containers, and items in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.author: rimman
+ms.date: 04/24/2020
 ms.reviewer: sngun
 
 ---
@@ -60,9 +60,9 @@ An Azure Cosmos container is a schema-agnostic container of items. Items in a co
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in an Azure Cosmos container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
-You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container. 
+You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container.
 
-You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your Azure Cosmos container. 
+You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your Azure Cosmos container.
 
 You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, no new or updated items with values that duplicate the values specified by the unique key constraint can be created. To learn more, see [Unique key constraints](unique-keys.md).
 
@@ -70,7 +70,10 @@ An Azure Cosmos container is specialized into API-specific entities as shown in 
 
 | Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Collection | Table | Collection | Graph | Table |
+|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+
+> [!NOTE]
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ### Properties of an Azure Cosmos container
 
@@ -78,7 +81,7 @@ An Azure Cosmos container has a set of system-defined properties. Depending on w
 
 | System-defined property | System-generated or user-configurable | Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | Unique identifier of container | Yes | No | No | No | No |
+|\_rid | System-generated | Unique identifier of container | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Last updated timestamp of the container | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the container | Yes | No | No | No | No |
@@ -114,11 +117,11 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 
 | System-defined property | System-generated or user-configurable| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | Unique identifier of the item | Yes | No | No | No | No |
+|\_rid | System-generated | Unique identifier of the item | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |
-|id | Either | User-defined unique name in a logical partition. If the user doesn’t specify the ID, the system automatically generates one. | Yes | Yes | Yes | Yes | Yes |
+|id | Either | User-defined unique name in a logical partition. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
 
 > [!NOTE]

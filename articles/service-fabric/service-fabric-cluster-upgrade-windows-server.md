@@ -1,21 +1,11 @@
 ---
-title: Upgrade the version of an Azure Service Fabric standalone cluster | Microsoft Docs
+title: Upgrade the version of a standalone cluster 
 description: Upgrade the Azure Service Fabric code that runs a standalone Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-
 ---
 # Upgrade the Service Fabric version that runs on your cluster 
 
@@ -145,7 +135,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. Start a cluster upgrade to an available version.
 
@@ -168,7 +158,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](http
 ## Next steps
 * [Upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md)
 * Customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* [Scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* [Scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

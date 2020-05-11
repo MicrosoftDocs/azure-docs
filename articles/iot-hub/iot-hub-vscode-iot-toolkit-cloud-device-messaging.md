@@ -1,5 +1,5 @@
 ---
-title: Manage Azure IoT Hub cloud device messaging with Azure IoT Tools for Visual Studio Code | Microsoft Docs
+title: Use Azure IoT Tools for VSCode to manager IT Hub messaging
 description: Learn how to use Azure IoT Tools for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
 author: formulahendry
 ms.service: iot-hub
@@ -35,7 +35,7 @@ You learn how to use Azure IoT Tools for Visual Studio Code to monitor device-to
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or [open this link in Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## Sign in to access your IoT hub
 
@@ -58,7 +58,7 @@ To monitor messages that are sent from your device to your IoT hub, follow these
 
 1. Right-click your device and select **Start Monitoring Built-in Event Endpoint**.
 
-2. The monitored messages will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+2. The monitored messages will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 3. To stop monitoring, right-click the **OUTPUT** view and select **Stop Monitoring Built-in Event Endpoint**.
 
@@ -70,7 +70,7 @@ To send a message from your IoT hub to your device, follow these steps:
 
 2. Enter the message in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Next steps
 

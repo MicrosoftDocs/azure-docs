@@ -1,19 +1,13 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure - Azure portal
-description: Quickly learn to create a private Docker container registry with the Azure portal.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Quickstart - Create registry in portal
+description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 ms.topic: quickstart
-ms.date: 01/22/2019
-ms.author: danlep
+ms.date: 03/03/2020
 ms.custom: "seodec18, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+An Azure container registry is a private Docker registry in Azure where you can store and manage private Docker container images and related artifacts. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -29,9 +23,11 @@ Select **Create a resource** > **Containers** > **Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+In the **Basics** tab, enter values for **Resource group** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. 
 
 ![Create container registry in the Azure portal][qs-portal-03]
+
+Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
 In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
 
@@ -39,11 +35,11 @@ When the **Deployment succeeded** message appears, select the container registry
 
 ![Container registry Overview in the Azure portal][qs-portal-05]
 
-Take note of the value of the **Login server**. You use this value in the following steps while working with your registry with the Azure CLI and Docker.
+Take note of the value of the **Login server**. You use this value in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
+Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI. (Specify only the registry name when logging in. Don't include the 'azurecr.io' suffix.)
 
 ```azurecli
 az acr login --name <acrName>
@@ -57,7 +53,7 @@ The command returns `Login Succeeded` once completed.
 
 To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
 
-In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **TAGS**.
+In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **Tags**.
 
 ![List container images in the Azure portal][qs-portal-09]
 

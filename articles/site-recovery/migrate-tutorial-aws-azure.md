@@ -6,14 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 
-This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Site Recovery. When you migrate AWS EC2 instances to Azure, the VMs are treated like physical, on-premises computers. In this tutorial, you learn how to:
+This tutorial shows you how to migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Site Recovery. When you migrate AWS EC2 instances to Azure, the VMs are treated like physical, on-premises computers. In this tutorial, you learn how to:
+
+
+> [!TIP]
+> You should now use the Azure Migrate service to migrate AWS VMs to Azure, instead of the Azure Site Recovery service. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md).
+
 
 > [!div class="checklist"]
 > * Verify prerequisites
@@ -25,6 +30,7 @@ This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machi
 > * Run a onetime failover to Azure
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
 
 ## Prerequisites
 - Ensure that the VMs that you want to migrate are running a supported OS version. Supported versions include: 
@@ -88,11 +94,11 @@ When Azure VMs are created after the migration (failover), they're joined to thi
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** >
    **Virtual network**.
 3. For **Name**, enter **myMigrationNetwork**.
-4. Leave the default value for **Address space**.
+4. Leave the default value for **Address space** (must enter value).
 5. For **Subscription**, select the subscription that you want to use.
 6. For **Resource group**, select **Use existing**, and then select **migrationRG**.
 7. For **Location**, select **West Europe**.
-8. Under **Subnet**, leave the default values for **Name** and **IP range**.
+8. Under **Subnet**, leave the default values for **Name** and **IP range (must enter value)**.
 9. Add instructions for DDoS protection settings.
 10. Leave the **Service Endpoints** option disabled.
 11. Add instructions for Firewall settings.
@@ -110,6 +116,7 @@ On the **Protection Goal** page, select the following values:
 |---------|-----------|
 | Where are your machines located? |Select **On-premises**.|
 | Where do you want to replicate your machines? |Select **To Azure**.|
+| Are you performing a migration? | Select **Yes**, and then check the box next to **I underdstand, but I would like to continue with Azure Site Recovery.**
 | Are your machines virtualized? |Select **Not virtualized / Other**.|
 
 When you're done, select **OK** to move to the next section.
@@ -128,17 +135,17 @@ On the **Prepare source** page, select **+ Configuration Server**.
 4. Select the **Download** button to download the vault registration key. Copy the downloaded file to the VM you're using as the configuration server.
 5. On the VM, right-click the installer you downloaded for Microsoft Azure Site Recovery Unified Setup, and then select **Run as administrator**.
 
-	1. Under **Before You Begin**, select **Install the configuration server and process server**, and then select **Next**.
-	2. In **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.
-	3. In **Registration**, select **Browse**, and then go to where you put the vault registration key file. Select **Next**.
-	4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server**, and then select **Next**.
-	5. The **Prerequisites Check** page runs checks for several items. When it's finished, select **Next**.
-	6. In **MySQL Configuration**, provide the required passwords, and then select **Next**.
-	7. In **Environment Details**, select **No**. You don't need to protect VMware machines. Then, select **Next**.
-	8. In **Install Location**, select **Next** to accept the default.
-	9. In **Network Selection**, select **Next** to accept the default.
-	10. In **Summary**, select **Install**.
-	11. **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**. Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save it somewhere safe.
+    1. Under **Before You Begin**, select **Install the configuration server and process server**, and then select **Next**.
+    2. In **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.
+    3. In **Registration**, select **Browse**, and then go to where you put the vault registration key file. Select **Next**.
+    4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server**, and then select **Next**.
+    5. The **Prerequisites Check** page runs checks for several items. When it's finished, select **Next**.
+    6. In **MySQL Configuration**, provide the required passwords, and then select **Next**.
+    7. In **Environment Details**, select **No**. You don't need to protect VMware machines. Then, select **Next**.
+    8. In **Install Location**, select **Next** to accept the default.
+    9. In **Network Selection**, select **Next** to accept the default.
+    10. In **Summary**, select **Install**.
+    11. **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**. Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save it somewhere safe.
 6. On the VM, run cspsconfigtool.exe to create one or more management accounts on the configuration server. Make sure that the management accounts have administrator permissions on the EC2 instances that you want to migrate.
 
 When you're done setting up the configuration server, go back to the portal and select the server that you created for **Configuration Server**. Select **OK** to go to 3: Prepare target.
@@ -205,7 +212,7 @@ Enable replication for each VM that you want to migrate. When replication is ena
 
 3. When the wizard is finished, select **Enable replication**.
 
-To track the progress of the **Enable Protection** job, go to **Monitoring and reports** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.		
+To track the progress of the **Enable Protection** job, go to **Monitoring and reports** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.        
 
 When you enable replication for a VM, changes can take 15 minutes or longer to take effect and appear in the portal.
 

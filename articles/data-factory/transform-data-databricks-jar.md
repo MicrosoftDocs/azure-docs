@@ -1,19 +1,21 @@
 ---
-title: Transform data with Databricks Jar - Azure | Microsoft Docs
+title: Transform data with Databricks Jar
 description: Learn how to process or transform data by running a Databricks Jar.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
-ms.date: 03/15/2018
-author: nabhishek
 ms.author: abnarain
-manager: craigg
+author: nabhishek
+manager: shwang
+ms.date: 03/15/2018
 ---
+
 # Transform data by running a Jar activity in Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Azure Databricks Jar Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Spark Jar in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
@@ -60,6 +62,9 @@ definition:
 |mainClassName|The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library.|Yes|
 |parameters|Parameters that will be passed to the main method.  This is an array of strings.|No|
 |libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of <string, object>|Yes (at least one containing the mainClassName method)|
+
+> [!NOTE]
+> **Known Issue** - When using the same [Interactive cluster](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) for running concurrent Databricks Jar activities (without cluster restart), there is a known issue in Databricks where in parameters of the 1st activity will be used by following activities as well. Hence resulting to incorrect parameters being passed to the subsequent jobs. To mitigate this use a [Job cluster](compute-linked-services.md#example---using-new-job-cluster-in-databricks) instead. 
 
 ## Supported libraries for databricks activities
 

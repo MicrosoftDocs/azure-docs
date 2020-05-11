@@ -4,7 +4,7 @@ description: Create an Azure data factory to copy data from one location in Azur
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -20,6 +20,8 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-dot-net.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
 
@@ -43,7 +45,7 @@ From the sections in *How to: Use the portal to create an Azure AD application a
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
 3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), get the **authentication key**, and note down this value that you use later in this tutorial.
-4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
+4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
 
@@ -282,7 +284,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
        pipelineRun = client.PipelineRuns.Get(
            resourceGroup, dataFactoryName, runResponse.RunId);
        Console.WriteLine("Status: " + pipelineRun.Status);
-       if (pipelineRun.Status == "InProgress")
+       if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
            System.Threading.Thread.Sleep(15000);
        else
            break;

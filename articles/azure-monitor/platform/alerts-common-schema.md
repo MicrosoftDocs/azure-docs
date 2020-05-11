@@ -1,15 +1,11 @@
 ---
 title: Common alert schema for Azure monitor alerts
 description: Understanding the common alert schema, why you should use it and how to enable it
-author: anantr
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: anantr
 ms.subservice: alerts
----
+ms.date: 03/14/2019
 
+---
 
 # Common alert schema
 
