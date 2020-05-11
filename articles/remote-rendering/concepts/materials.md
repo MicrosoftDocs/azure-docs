@@ -54,6 +54,10 @@ void SetMaterialColorToGreen(Material material)
 }
 ```
 
+## Material de-duplication
+
+During conversion multiple materials with the same properties and textures are automatically de-duplicated into a single material. You can disable this feature in the [conversion settings](../how-tos/conversion/configure-model-conversion.md), but we recommend leaving it on for best performance.
+
 ## Next steps
 
 * [PBR materials](../overview/features/pbr-materials.md)
