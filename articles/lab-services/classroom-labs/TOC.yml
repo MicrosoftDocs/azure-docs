@@ -136,7 +136,7 @@
     href: https://azure.microsoft.com/updates/?product=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-lab-services
+  - name: Tech community forum
+    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
   - name: Frequently asked questions
     href: classroom-labs-faq.md
