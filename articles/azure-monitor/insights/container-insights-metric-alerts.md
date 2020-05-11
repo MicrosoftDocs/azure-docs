@@ -53,3 +53,15 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 After clicking on the enable radio button the alert rule is created, and the rule name updates to include a link to the actual alert resource. 
 
 ## Edit alert rules
+
+You can view and manage Azure Monitor for containers alert rules, to edit its threshold or configure an [action group](../platform/action-groups.md) for your AKS cluster. While you can perform this through Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Azure Monitor for containers.
+
+1. From the command bar, select **Recommended alerts**.
+
+2. To modify the threshold, on the **Recommended alerts** pane, select the enabled alert. In the **Edit rule**, select the **Alert criteria** you want to edit. 
+
+    * To modify the alert rule threshold, select the **Condition**.
+    * To specify an existing or create an action group, select **Add** or **Create** under **ACION GROUPS**
+
+## View fired alerts
+
