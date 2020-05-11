@@ -10,7 +10,7 @@ ms.date: 05/10/2020
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. You can configure autoscale for new databases and containers using Azure portal, Azure Resource Manager (ARM) template, or Azure Cosmos DB .NET V3 SDK.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. You can configure autoscale for new databases and containers using the Azure portal, Azure Resource Manager (ARM) template, Azure Cosmos DB .NET V3 SDK and Java V4 SDK. You can also enable autoscale on existing database and containers using the Azure portal.
 
 ## Azure portal
 
@@ -25,10 +25,13 @@ This article explains how to provision autoscale throughput on a database or con
 
 1. Select **OK**.
 
-You can create a shared throughput database with autoscale by selecting the **Provision database throughput** option.
 
 ## Azure Cosmos DB .NET V3 SDK
-You can use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources.
+You can use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
+
+> [!IMPORTANT]
+> You can use the SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. Changing the throughput type is currently supported in only the Azure portal. 
+
 ### Create database
 ```csharp
 // Create instance of CosmosClient

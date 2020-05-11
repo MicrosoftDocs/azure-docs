@@ -31,25 +31,42 @@ Each hour, you will be billed for the highest throughput `T` the system scaled t
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
-### Is autoscale  supported for multi-master accounts?
+### Is autoscale supported for multi-master accounts?
 Yes, autoscale is supported for multi-master accounts. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
 
-### How do I enable autoscale for my databases or containers?
-Autoscale can be currently enabled on new databases and containers created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
-
-### Is there Azure CLI or PowerShell support to manage databases or containers with autoscale?
-Currently, you can only create and manage resources with autoscale from the Azure portal and .NET V3 SDK. Support in Azure CLI, PowerShell, and other SDKs is not yet available.
+### How do I enable autoscale on new databases or containers?
+You can enable autoscale on new databases and containers created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk) (version 3.9 or higher), the Java SDK (version 4.0 or higher), or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
 
 ### Can I enable autoscale on an existing database or a container?
-Currently, you can enable autoscale on new databases and containers when creating them. Support to enable autoscale on existing databases and containers is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
+Yes, you can enable autoscale on an existing database or container. You can also switch between autoscale and standard (manual) provisioned throughput at any time if needed. Currently, you can use the Azure portal to do these operations.
 
-### Can I turn off autoscale on a database or container?
-Yes, you can turn off autoscale by switching to the 'Standard (Manual)' option for the provisioned throughput. In the current release, after switching from autoscale to standard (manual) provisioned throughput, you cannot enable autoscale again for the same resource. 
+### How does the migration between autoscale and standard (manual) provisioned throughput work?
+
+Conceptually, changing the throughput type is a two-stage process. First, you send a request to change the throughput settings to use either autoscale or manual provisioned throughput. In both cases, the system will automatically determine and set an initial RU/s value, based on the current throughput settings and storage. During this step, no user-provided RU/s value will be accepted. Then, after the update is complete, you can [change the RU/s](#can-i-change-the-max-rus-on-the-database-or-container) at any time to suit your workload. 
+
+**Migration from standard (manual) provisioned throughput to autoscale**
+
+For a container, the initial autoscale max RU/s will be: ``10 * MAX(400, current manual provisioned RU/s / 10, maximum RU/s ever provisioned / 100, storage in GB * 10)``, rounded to the nearest 1000 RU/s.
+
+Example #1: Suppose you have a container with 10,000 RU/s manual provisioned throughput, and 25 GB of storage. When you enable autoscale, the initial autoscale max RU/s will be: 10,000 RU/s, which will scale between 1000 - 10,000 RU/s. 
+
+Example #2: Suppose you have a container with 50,000 RU/s manual provisioned throughput, and 2500 GB of storage. When you enable autoscale, the initial autoscale max RU/s will be: 250,000 RU/s, which will scale between 25,000 - 250,000 RU/s. 
+
+For a shared throughput database, the initial autoscale max RU/s will be: ``10 * MAX(400, current manual provisioned RU/s / 10, maximum RU/s ever provisioned / 100, storage in GB * 10, container count * 100)``, rounded to the nearest 1000 RU/s.  
+
+**Migration from autoscale to standard (manual) provisioned throughput**
+
+The initial manual provisioned throughput will be equal to the current autoscale max RU/s. 
+
+Example: Suppose you have an autoscale database or container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s). When you update to use manual provisioned throughput, the initial throughput will be 20,000 RU/s. 
+
+### Is there Azure CLI or PowerShell support to manage databases or containers with autoscale?
+Currently, you can only create and manage resources with autoscale from the Azure portal, .NET V3 SDK, and Java V4 SDK. Support in Azure CLI, PowerShell, and other SDKs is not yet available.
 
 ### Is autoscale supported for shared throughput databases?
 Yes, autoscale is supported for shared throughput databases. To enable this feature, select autoscale and the **Provision throughput** option when creating the database. 
 
-### What is the number of allowed collections per shared throughput database when autoscale is enabled?
+### What is the number of allowed containers per shared throughput database when autoscale is enabled?
 For shared throughput databases with autoscale enabled, the number of allowed collections is: MIN(25, Max RU/s of database / 1000). For example, if the max throughput of the database is 20,000 RU/s, the database can have MIN(25, 20,000 RU/s / 1000) = 20 collections. 
 
 ### What is the storage limit associated with each max RU/s option?  
@@ -68,19 +85,21 @@ Yes. See this [documentation](provision-throughput-autopilot.md#how-autoscale-pr
 ### Can I change the max RU/s on the database or container? 
 Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to change the max RU/s.
 
-**Increasing the max RU/s**
-
+#### Increasing the max RU/s ####
 When you send a request to increase the max RU/s `Tmax`, depending on the requested value `Tmax_new`, this can be an asynchronous  operation that may take some time to complete (typically 4-6 hours, depending on the RU/s selected). 
 
 During this time, the service provisions more resources to support the higher max RU/s. While this is happening, your existing workload and operations will not be affected. The system will continue to scale your database or container between the previous `0.1*Tmax` to `Tmax` until the new scale range of `0.1*Tmax_new` to `Tmax_new` is ready.
 
-**Lowering the max RU/s**
-
-When you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
+#### Lowering the max RU/s ####
+For a container, when you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
 
 Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. The lowest, minimum value you can set max RU/s to is: 10 * MAX(400, 20,000 / 100, **50 * 10**) = 5000 RU/s (scales between 500 - 5000 RU/s). 
 
 Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: 10 * MAX(400, **150,000 / 100**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
+
+For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10, MAX(Container count - 25, 0) * 100)`, rounded to the nearest 1000 RU/s.
+
+Examples TBD:
 
 The above examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
 

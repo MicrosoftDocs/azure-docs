@@ -5,7 +5,7 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 5/10/2020
+ms.date: 05/11/2020
 ---
 
 # Create Azure Cosmos containers and databases with autoscale throughput
@@ -55,13 +55,16 @@ Each hour, you will be billed for the highest throughput `T` the system scaled t
 
 The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, which scales between 400 - 4000 RU/s. You can set `Tmax` in increments of 1000 RU/s and change the value at any time.  
 
+## Enable autoscale on existing resources ##
+You can enable autoscale on an existing database or container, and switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
+
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
 For any value of `Tmax`, the database or container can store a total of `0.01 * Tmax GB`. After this amount of storage is reached, the maximum RU/s will be automatically increased based on the new storage value, with no impact to your application. 
 
 For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
-When you use database level throughput with autoscale, you can have `0.001*TMax` containers in the database. For example, if you provision a maximum throughput of 15,000 RU/s, the database can have 15 containers. 
+When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s). After the first 25 containers, you will need to increment the autoscale maximum RU/s by 1000 RU/s for each additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
 
 ## Comparison – Containers configured with manual vs autoscale throughput
 
