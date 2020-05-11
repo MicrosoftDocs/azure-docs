@@ -140,7 +140,7 @@ A registry hive corruption could be due to:
 
       The resulting command to copy the file would be: `copy F:\Windows\WinSxS\amd64_xxxxxx\cmimcext.sys F:\Windows\System32\Drivers`.
 
-Once this task is complete, continue to Enable Serial Console and memory dump collection.
+Once this task is complete, continue to [Enable the Serial Console and memory dump collection](#enable-the-serial-console-and-memory-dump-collection).
 
 ### Add the OSDEVICE Variable
 
@@ -243,7 +243,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    `bcdedit /store <LETTER OF EFI FOLDER>:EFI\Microsoft\boot\bcd /set {< IDENTIFIER>} OSDEVICE partition=<LETTER OF WINDOWS FOLDER>:`
 
-Once this task is complete, continue to Enable Serial Console and memory dump collection.
+Once this task is complete, continue to [Enable the Serial Console and memory dump collection](#enable-the-serial-console-and-memory-dump-collection).
 
 ### Contact Support
 
