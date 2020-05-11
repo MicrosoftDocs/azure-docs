@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -41,7 +41,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Overview of Azure AD Identity Protection
 
-Each day, Microsoft collects and analyses trillions of anonymized signals as part of user sign-in attempts. These signals help build patterns of good user sign-in behavior, and identify potential risky sign-in attempts. Azure AD Identity Protection can review user sign-in attempts and take additional action if there's suspicious behavior.
+Each day, Microsoft collects and analyses trillions of anonymized signals as part of user sign-in attempts. These signals help build patterns of good user sign-in behavior, and identify potential risky sign-in attempts. Azure AD Identity Protection can review user sign-in attempts and take additional action if there's suspicious behavior:
 
 Some of the following actions may trigger Azure AD Identity Protection risk detection:
 
@@ -52,7 +52,7 @@ Some of the following actions may trigger Azure AD Identity Protection risk dete
 * Sign-ins from IP addresses with suspicious activity.
 * Sign-ins from unfamiliar locations.
 
-The following three policies are available in Azure AD Identity Protection to protect users and respond to suspicious activity. You can choose to turn the policy enforcement on or off, select users or groups for the policy to apply to, and if you want to block access at sign-in or prompt for additional action.
+The following three policies are available in Azure AD Identity Protection to protect users and respond to suspicious activity. You can choose to turn the policy enforcement on or off, select users or groups for the policy to apply to, and decide if you want to block access at sign-in or prompt for additional action.
 
 * User risk policy
     * Identifies and responds to user accounts that may have compromised credentials. Can prompt the user to create a new password.
@@ -61,9 +61,9 @@ The following three policies are available in Azure AD Identity Protection to pr
 * MFA registration policy
     * Makes sure users are registered for Azure Multi-Factor Authentication. If a sign-in risk policy prompts for MFA, the user must already be registered for Azure Multi-Factor Authentication.
 
-When you enable a policy user or sign in risk policy, you can also choose the threshold for risk level - low and above, medium and above, or high. This flexibility lets you decide how aggressive you want to be in enforcing any controls for suspicious sign-in events.
+When you enable a policy user or sign in risk policy, you can also choose the threshold for risk level - *low and above*, *medium and above*, or *high*. This flexibility lets you decide how aggressive you want to be in enforcing any controls for suspicious sign-in events.
 
-For more information about Azure AD Identity Protection, see [What is Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)
+For more information about Azure AD Identity Protection, see [What is Azure AD Identity Protection?](../identity-protection/overview-identity-protection.md)
 
 ## Enable MFA registration policy
 
@@ -82,13 +82,13 @@ It's recommended to enable the MFA registration policy for users that are to be 
 
 ## Enable user risk policy for password change
 
-Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find username and password pairs. When one of these pairs matches an account in your environment, a risk-based password change can be requested. This policy and action makes the user update their password before they can sign in to make sure any previously exposed credentials no longer work.
+Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find username and password pairs. When one of these pairs matches an account in your environment, a risk-based password change can be requested. This policy and action requires the user update their password before they can sign in to make sure any previously exposed credentials no longer work.
 
 To enable this policy, complete the following steps:
 
 1. Select the **User risk policy** from the menu on the left-hand side.
 1. By default, the policy applies to *All users*. If desired, select **Assignments**, then choose the users or groups to apply the policy on.
-1. Under *Conditions*, choose  **Select conditions > Select a risk level**, then choose **Medium and above**.
+1. Under *Conditions*, choose  **Select conditions > Select a risk level**, then choose *Medium and above*.
 1. Choose **Select**, then **Done**.
 1. Under *Access*, select **Access**. Make sure the option for **Allow access** and *Require password change* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.
@@ -103,7 +103,7 @@ To enable this policy, complete the following steps:
 
 1. Select the **Sign-in risk policy** from the menu on the left-hand side.
 1. By default, the policy applies to *All users*. If desired, select **Assignments**, then choose the users or groups to apply the policy on.
-1. Under *Conditions*, choose  **Select conditions > Select a risk level**, then choose **Medium and above**.
+1. Under *Conditions*, choose  **Select conditions > Select a risk level**, then choose *Medium and above*.
 1. Choose **Select**, then **Done**.
 1. Under *Access*, choose **Select a control**. Make sure the option for **Allow access** and *Require multi-factor authentication* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.
@@ -118,7 +118,7 @@ To test the Azure AD Identity Protection policies created in the previous steps,
 
 ## Clean up resources
 
-If you have completed tests and no longer want to have the risk-based policies enabled, return to each policy you want to disable and set *Enforce Policy* to **Off**.
+If you have completed tests and no longer want to have the risk-based policies enabled, return to each policy you want to disable and set **Enforce Policy** to *Off*.
 
 ## Next steps
 
@@ -132,4 +132,4 @@ In this tutorial, you enabled risk-based user policies for Azure AD Identity Pro
 > * Test risk-based policies for user sign-in attempts
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure AD Identity Protection](../identity-protection/overview-identity-protection.md
+> [Learn more about Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)
