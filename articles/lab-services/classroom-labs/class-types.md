@@ -57,6 +57,10 @@ You can set up a lab in Azure Lab Services to teach an introductory mobile appli
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach mobile application development with Android Studio](class-type-mobile-dev-android-studio.md).
 
+## Big data analytics
+You can set up a lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package which provides tools for storing, managing, and processing big data. 
+
+For detailed information on how to set up this type of lab, see [Set up a lab to big data analytics using Docker deployment of HortonWorks Data Platform](class-type-big-data-analytics.md).
 
 ## Next steps
 
