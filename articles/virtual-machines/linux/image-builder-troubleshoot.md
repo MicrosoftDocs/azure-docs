@@ -314,7 +314,7 @@ az resource show \
 
 Increase the **buildTimeoutInMinutes**.
  
-### 
+### Repetitive packer errors
 
 #### Error
 
@@ -367,8 +367,11 @@ Resource exhaustion. This issue is commonly seen with Windows Update running usi
 
 #### Solution
 
-Increase build VM size.
+Increase the build VM size.
 
+### Builds finished but no artifacts were created
+
+#### Error
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -385,10 +388,17 @@ Increase build VM size.
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:24 waiting for all plugin processes to complete...
 Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
 ```
-Cause: Timeout waiting for underlying Azure resources required for the build to create. 
+#### Cause
 
-Action: Rerun build
+Timeout caused by waiting for required Azure resources to be created.
 
+#### Solution
+
+Re-run the build to try again.
+
+### Resource not found
+
+#### Error
 
 ```text
   "provisioningState": "Succeeded",
@@ -399,10 +409,19 @@ Action: Rerun build
    "message": "network.InterfacesClient#UpdateTags: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code=\"ResourceNotFound\" Message=\"The Resource 'Microsoft.Network/networkInterfaces/aibpls7lz2e.nic.4609d697-be0a-4cb0-86af-49b6fe877fe1' under resource group 'IT_aibImageRG200_window2019VnetTemplate01_9988723b-af56-413a-9006-84130af0e9df' was not found.\""
   },
 ```
-Cause: Permissions
+#### Cause
 
-Action: Recheck that AIB has all permissions it requires, review [networking permissions](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Missing permissions.
 
+#### Solution
+
+Recheck Azure Image Builder has all permissions it requires. 
+
+For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
+
+###
+
+#### Error
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -456,11 +475,19 @@ Action: Recheck that AIB has all permissions it requires, review [networking per
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
 ```
-Cause: Suspected this is a timing issue on the D1_V2 VM size, when you limited, quick customizations (< 3s in total), then sysprep commands are run by AIB to deprovision. When AIB deprovisions, the sysprep command checks for the WindowsAzureGuestAgent, which has not fully installed. 
+#### Cause
 
-Action: Increase VM size, or add 60s PowerShell sleep customization.
+This may be a timing issue caused by the D1_V2 VM size. If customizations are limited and execute in less than three seconds, sysprep commands are run by Azure Image Builder to de-provision. When Azure Image Builder de-provisions, the sysprep command checks for the *WindowsAzureGuestAgent*, which may not be fully installed causing the timing issue. 
+
+#### Solution
+
+Increase the VM size. Or, you can add a 60 second PowerShell sleep customization to avoid the timing issue.
 
 ## DevOps task 
+
+### Operation was canceled
+
+#### Error
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -488,30 +515,42 @@ Action: Increase VM size, or add 60s PowerShell sleep customization.
 2020-05-05T19:33:14.3923479Z ##[error]The operation was canceled.
 2020-05-05T19:33:14.3939721Z ##[section]Finishing: Azure VM Image Builder Task
 ```
-Cause: If this was not cancelled by a user, it was cancelled by Azure DevOps User Agent. It is likely the 1 hour timeout is happening due to Azure DevOps capabilities, if you are using a private project, and agent, you only get 60mins build time, after that it will cancel the running task.
+#### Cause
+
+If the build was not cancelled by a user, it was cancelled by Azure DevOps User Agent. Most likely the 1 hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
+
+For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
-https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations
- 
-Action: You can host your own DevOps agents, or look to reduce the time of your build, such as, if you are distributing to the shared image gallery, just replicate to one region. 
+#### Solution
+
+You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. 
  
 ## VMs created from AIB images do not create successfully
 
-By default, the AIB will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalize is a process where the image is setup, so it can be reused to create multiple VMs, and you can pass in VM settings, such as hostname, username etc. In Windows, AIB executes Sysprep, and in Linux AIB runs ‘waagent -deprovision’. 
+By default, the Azure Image Builder runs *de-provision* code at the end of each image customization phase to *generalize* the image. Generalize is a process where the image is setup to be reused to create multiple VMs and you can pass in VM settings, such as hostname, username, etc. For Windows, Azure Image Builder executes *Sysprep*, and for Linux Azure Image Builder runs `waagent -deprovision`. 
 
-For Windows, we use a generic Sysprep command, however, it is understood, that this may not be suitable for every successful Windows generalization, so AIB will allow you to customize this command. Please note, AIB is an image automation tool, it is responsible for running Sysprep command successfully, but, you may need different Sysprep commands to make your image reusable. For Linux we use a generic 'waagent -deprovision+user' comand, see here for [documentation](https://github.com/Azure/WALinuxAgent#command-line-options). 
+For Windows, Azure Image Builder uses a generic Sysprep command. However, this may not be suitable for every successful Windows generalization. Azure Image Builder allows you to customize the Sysprep command. Note Azure Image Builder is an image automation tool. It's responsible for running Sysprep command successfully. But, you may need different Sysprep commands to make your image reusable. For Linux, Azure Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
 
+If you are migrating an existing customization and you are using different Sysprep/waagent commands, you can try the image builder generic commands. If the VM creation fails, use your previous Sysprep/waagent commands.
 
-If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can try the image builder generic commands, and if the VM creates fail, use your previous Sysprep/waagent commands.
+> [!NOTE]
+> If AIB creates a Windows custom image successfully, and you create a VM from it then find the VM will not create successfully (For example, the VM creation command does not complete/timeouts), you will need to review the Windows Server Sysprep documentation. Or, you can raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep command.
 
->>>Note! If AIB creates a Windows custom image successfully, and you create a VM from it, then find the VM will not create successfully (i.e. the VM creation command does not complete/timeouts), you will need to review the Windows Server Sysprep documenation, or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep command.
+### Command Locations and Filenames
 
-#### Command Locations and Filenames
-```bash
-Windows: c:\DeprovisioningScript.ps1
+Windows:
 
-Linux: /tmp/DeprovisioningScript.sh
 ```
-#### Sysprep Command: Windows
+c:\DeprovisioningScript.ps1
+```
+
+Linux:
+```bash
+/tmp/DeprovisioningScript.sh
+```
+
+### Sysprep Command: Windows
+
 ```PowerShell
 echo '>>> Waiting for GA to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
@@ -521,10 +560,13 @@ echo '>>> Sysprepping VM ...'
 if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
 while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
 ```
-#### Deprovision Command: Linux
+
+### Deprovision Command: Linux
+
 ```bash
 /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
-#### Overriding the Commands
-To override the commands, use the PowerShell or Shell script provisioners to create the command files with the exact file name, and put them in the directories above. AIB will read these commands, these are written out to the AIB logs, ‘customization.log’. See here on how to collect AIB logs: 
+### Overriding the Commands
+
+To override the commands, use the PowerShell or shell script provisioners to create the command files with the exact file name and put them in the directories listed previously. Azure Image Builder reads these commands and output is written to the *customization.log*.

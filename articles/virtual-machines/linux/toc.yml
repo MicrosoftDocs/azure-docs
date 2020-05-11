@@ -540,7 +540,7 @@
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
       - name: Troubleshoot
-        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
+        href: image-builder-troubleshoot.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
