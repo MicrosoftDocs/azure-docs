@@ -62,6 +62,9 @@
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -109,8 +112,6 @@
       href: platform/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
-    - name: Change analysis
-      href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -238,9 +239,11 @@
       - name: Azure Functions
         displayname: functions, monitor functions, automation
         href: ../azure-functions/functions-monitoring.md
-      - name: Kubernetes applications
-        displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
-        href: app/kubernetes.md
+      - name: Azure Kubernetes Service
+        items:
+        - name: Kubernetes (Deprecated)
+          displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
+          href: app/kubernetes.md
       - name: Standalone - any environment
         items:  
           - name: Java (preview)
@@ -281,7 +284,7 @@
       href: app/app-map.md
     - name: Transaction diagnostics
       href: app/transaction-diagnostics.md
-      displayname: e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies
+      displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
       - name: URL tests
@@ -524,7 +527,9 @@
         displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
+      href: platform/stream-monitoring-data-event-hubs.md
+    - name: Change analysis
+      href: app/change-analysis.md 
   - name: Monitor VMs and guest OS
     items: 
     - name: Monitor Azure virtual machines
@@ -748,8 +753,6 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
-    - name: Key Vault
-      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage

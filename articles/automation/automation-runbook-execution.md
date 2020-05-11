@@ -63,7 +63,7 @@ Your runbooks must include logic to deal with [resources](https://docs.microsoft
 
 ## Security
 
-Azure Automation uses the [Azure Security Center (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Azure Security Center (ASC)](../security-center/security-center-intro.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
 ASC places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
@@ -82,7 +82,7 @@ Azure Automation makes use of the [Azure Monitor](https://docs.microsoft.com/azu
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-window) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces. 
+The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces. 
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
