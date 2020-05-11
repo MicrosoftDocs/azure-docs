@@ -528,6 +528,8 @@
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md
+    - name: Monitor Key Vault
+      href: insights/key-vaults-insights-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Monitor VMs and guest OS
