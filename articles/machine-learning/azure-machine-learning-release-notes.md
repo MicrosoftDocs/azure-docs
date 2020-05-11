@@ -145,7 +145,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-core**
     + Improved stability when reading from Azure Blob Storage using a TabularDataset.
     + Improved documentation for the `grant_workspace_msi` parameter for `Datastore.register_azure_blob_store`.
-    + Fixed bug with `datastore.upload` where if the `src_dir` argument ended with a `/` or `\`, we will fail to upload.
+    + Fixed bug with `datastore.upload` to support the `src_dir` argument ending with a `/` or `\`.
     + Added actionable error message when trying to upload to an Azure Blob Storage datastore that does not have an access key or SAS token.
   + **azureml-interpret**
     + Added upper bound to file size for the visualization data on uploaded explanations.
