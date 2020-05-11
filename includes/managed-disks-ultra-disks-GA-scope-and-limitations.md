@@ -18,20 +18,20 @@ The following table outlines the regions ultra disks are available in, as well a
 > [!NOTE]
 > If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
 
-|Regions  |Ultra disk availability zones  |
+|Regions  |Number of availability zones supporting ultra disks  |
 |---------|---------|
-|US Gov Virginia     |No         |
-|South Central US     |No         |
-|Central US     |Available in three zones         |
-|West US     |No         |
-|West US 2    |Available in three zones         |
-|East US     |Available in three zones         |
-|East US 2     |Available in two zones         |
-|SouthEast Asia     |Available in three zones         |
-|North Europe     |Available in three zones          |
-|West Europe     |Available in three zones          |
-|UK South     |Available in three zones          |
-|Japan East     |Available in two zones         |
+|US Gov Virginia     |None         |
+|South Central US     |None         |
+|Central US     |Three zones         |
+|West US     |None         |
+|West US 2    |Three zones         |
+|East US     |Three zones         |
+|East US 2     |Two zones         |
+|SouthEast Asia     |Three zones         |
+|North Europe     |Three zones          |
+|West Europe     |Three zones          |
+|UK South     |Three zones          |
+|Japan East     |Two zones         |
 
 
 
