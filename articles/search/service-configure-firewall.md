@@ -1,7 +1,7 @@
 ---
 title: Configure an IP firewall for your Azure Cognitive Search service
 titleSuffix: Azure Cognitive Search
-description: Configure IP control policies to restrict access to your Azure Cogjnitive Search service.
+description: Configure IP control policies to restrict access to your Azure Cognitive Search service.
 
 manager: nitinme
 author: mrcarter8
