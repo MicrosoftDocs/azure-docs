@@ -75,7 +75,7 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 
 ### Queries to understand data volume details
 
-There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. (Note that `systemEvents` will not have data size information for [#workspace-based-application-insights](workspace-based Application Insights resources).) 
+There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. `systemEvents` will not have data size information for [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources).
 
 #### Using aggregated data volume information
 
