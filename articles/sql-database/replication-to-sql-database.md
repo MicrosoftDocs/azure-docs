@@ -22,7 +22,7 @@ You can configure an Azure SQL Database as the push subscriber in a one-way tran
 ## Supported Configurations
   
 - Azure SQL Database can only be the push subscriber of a SQL Server publisher and distributor.  
-- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
+- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md). 
 - The distribution database and the replication agents cannot be placed on an Azure SQL database.  
 - [Snapshot](/sql/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
 

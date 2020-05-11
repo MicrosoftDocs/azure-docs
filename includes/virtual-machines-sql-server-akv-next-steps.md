@@ -11,9 +11,9 @@ After enabling Azure Key Vault Integration, you can enable SQL Server encryption
 
 There are several forms of encryption you can take advantage of:
 
-* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [Encrypted backups](/sql/relational-databases/backup-restore/backup-encryption)
+* [Column Level Encryption (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 The following Transact-SQL scripts provide examples for each of these areas.
 
