@@ -141,7 +141,7 @@ The `az aks update-credentials` command can be used to move an AKS cluster betwe
 
 Movement of clusters between subscriptions is currently unsupported.
 
-## Can I move my AKS clusters from the current azure subscription to another? 
+## Can I move my AKS clusters from the current Azure subscription to another? 
 
 Moving your AKS cluster and it's associated resources between Azure subscriptions is not supported.
 
