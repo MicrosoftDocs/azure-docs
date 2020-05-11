@@ -36,7 +36,7 @@ highlightedContent:
     # Card
     - title: What is Relay?
       itemType: overview
-      url: ../service-bus-relay/relay-what-is-it.md
+      url: ../azure-relay/relay-what-is-it.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
