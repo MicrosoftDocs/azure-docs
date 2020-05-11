@@ -19,8 +19,8 @@ Azure Data Factory encrypts data at rest, including entity definitions, any data
 
 Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Azure Active Directory (Azure AD) tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
-[!NOTE]
-For now, customer-managed key can only be configured on an empty Data Factory: no linked service, no pipeline, no data sets, nothing. Consider enable customer-managed key right after factory creation.
+> [!NOTE]
+> For now, customer-managed key can only be configured on an empty Data Factory: no linked service, no pipeline, no data sets, nothing. Consider enable customer-managed key right after factory creation.
 
 ## About Customer-Managed Keys
 
