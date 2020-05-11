@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 5/11/2020
 ---
 # Using reference data for lookups in Stream Analytics
 
 Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
 
 ## Example  
- If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use a commercial vehicle registration lookup table to identify all commercial vehicles with expired registration.  
+You can have a real time stream of events generated when cars pass a toll booth. The toll booth can capture the license plate in real time and join with a static dataset that has registration details to identify license plates that have expired.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -105,15 +105,13 @@ You can use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azu
 
 ## Size limitation
 
-Stream Analytics supports reference data with **maximum size of 300 MB**. The 300 MB limit of maximum size of reference data is achievable only with simple queries. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
+It is recommended to use reference datasets which are less than 300 MB for best performance. Usage of reference data greater than 300 MB is supported in jobs with 6 SUs or more. This functionality is in preview and must not be used in production. Using a very large reference data may impact performance of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
-|**Number of Streaming Units**  |**Approx. Max Size Supported (in MB)**  |
+|**Number of Streaming Units**  |**Recommended Size**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 and beyond   |300   |
-
-Increasing number of Streaming Units of a job beyond 6 does not increase the maximum supported size of reference data.
+|1   |50 MB or lower   |
+|3   |150 MB or lower   |
+|6 and beyond   |300 MB or lower. Using reference data greater than 300 MB is supported in preview and could impact performance of your job.    |
 
 Support for compression is not available for reference data.
 
