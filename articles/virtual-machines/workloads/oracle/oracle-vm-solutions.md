@@ -100,7 +100,11 @@ In addition to having an HA and DR solution architected in Azure, you should hav
 According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility. 
 
 
-## Oracle WebLogic Server virtual machine images
+## Oracle WebLogic Server virtual machine offers
+
+Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of a collection of Azure Application offers.  These offers are described in the article [Oracle WebLogic Server Azure Applications](oracle-weblogic).
+
+### Oracle WebLogic Server virtual machine images
 
 * **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of Oracle WebLogic Server. Do not use clustering with Oracle WebLogic Server Standard Edition.
 * **UDP multicast is not supported.** Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
