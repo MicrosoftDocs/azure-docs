@@ -1,8 +1,9 @@
 ---
-title: Get Resource Events
+title: Get Resource Events in Azure App Service
 description: Learn how to get resource events through Activity Logs and Event Grid on your App Service app.
 ms.topic: article
 ms.date: 04/24/2020
+ms.author: msangapu
 
 ---
 # Get resource events in Azure App Service
@@ -10,7 +11,7 @@ ms.date: 04/24/2020
 Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) and enable [Event Grid](https://docs.microsoft.com/azure/event-grid/) to monitor resource events related to your App Service web app.
 
 > [!NOTE]
-> App Service integration with Event Grid is in preview.
+> App Service integration with Event Grid is in **preview**. [View the announcement for more details.](https://aka.ms/app-service-event-grid-announcement)
 >
 
 ## View Azure Activity Logs
@@ -23,7 +24,7 @@ Azure Activity Logs for App Service details such as:
 - the status of the operation
 - property values to help you research the operation
 
-### What can you do with Activity Logs?
+### What can you do with Azure Activity Logs?
 
 Azure Activity Logs can be queried using the Azure Portal, PowerShell, REST API, or CLI. You can send the logs to a storage account, Event Hub, and Log Analytics. You can also analyze them in PowerBI or create alerts to stay updated on resource events.
 
