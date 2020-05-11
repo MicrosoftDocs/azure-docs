@@ -4,7 +4,7 @@ description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 05/11/2020
 ---
 
 # Integrate Azure AD in Azure Kubernetes Service (Preview)
