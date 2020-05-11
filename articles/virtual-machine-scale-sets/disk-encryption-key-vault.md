@@ -1,12 +1,15 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption
 description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
+author: ju-shim
+ms.author: jushiman
+ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.custom: seodec18
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption
