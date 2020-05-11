@@ -1018,7 +1018,7 @@
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library
         href: how-to-migrate-from-change-feed-library.md
-      - name: Create a Java SQL application with Change Feed
+      - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
     - name: Built-in analytics with Apache Spark
       items:
