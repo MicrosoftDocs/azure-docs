@@ -54,6 +54,6 @@ A: The emulator is a standalone dev/test tool and does not use the key managemen
 
 ## Next steps
 
-* You can choose to add a second layer of encryption with keys your own keys, to learn more, see the [customer-managed keys](how-to-setup-cmk.md) article.
+* You can choose to add a second layer of encryption with your own keys, to learn more, see the [customer-managed keys](how-to-setup-cmk.md) article.
 * For an overview of Cosmos DB security and the latest improvements, see [Azure Cosmos database security](database-security.md).
 * For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
