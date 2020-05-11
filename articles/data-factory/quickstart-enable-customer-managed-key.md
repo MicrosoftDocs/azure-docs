@@ -1,5 +1,5 @@
 ---
-title: Encrypt Data Factory with Customer Managed Key (CMK)
+title: Encrypt Azure Data Factory with customer-managed key
 description: Enhance Data Factory security with Bring Your Own Key (BYOK)
 services: data-factory
 documentationcenter: ''
@@ -19,13 +19,14 @@ Azure Data Factory encrypts data at rest, including entity definitions, any data
 
 Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Azure Active Directory (Azure AD) tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
-[!NOTE] For now, customer-managed key can only be configured on an empty Data Factory: no linked service, no pipeline, no data sets, nothing. Consider enable customer-managed key right after factory creation.
+[!NOTE]
+For now, customer-managed key can only be configured on an empty Data Factory: no linked service, no pipeline, no data sets, nothing. Consider enable customer-managed key right after factory creation.
 
 ## About Customer-Managed Keys
 
 The following diagram shows how Data Factory uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Diagram showing how customer-managed keys work in Azure Data Factory](media/quickstart-enable-customer-managed-key/encryption-customer-managed-keys-diagram.png)
+  ![Diagram showing how customer-managed keys work in Azure Data Factory](media/quickstart-enable-customer-managed-key/encryption-customer-managed-keys-diagram.png)
 
 The following list explains the numbered steps in the diagram:
 
@@ -44,41 +45,41 @@ Using customer-managed keys with Data Factory requires two properties to be set 
 - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
 - [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md)
 
-If you are creating a new Azure Key Vault through Azure Portal, __Soft Delete__ and __Do Not Purge__ can be enabled as follows:
+If you are creating a new Azure Key Vault through Azure portal, __Soft Delete__ and __Do Not Purge__ can be enabled as follows:
 
-![Screenshot Enable Soft Delete and Purge Protection upon creation of Key Vault](media/quickstart-enable-customer-managed-key/01-enable-purge-protection.png)
+  ![Screenshot Enable Soft Delete and Purge Protection upon creation of Key Vault](media/quickstart-enable-customer-managed-key/01-enable-purge-protection.png)
 
 ### Grant Data Factory Access to Key Vault
 
 Make sure that Azure Key Vault and Azure Data Factory are in the same Azure Active Directory (Azure AD) tenant and in the _same region_. From Azure Key Vault access control, grant data factory's Managed Service Identity (MSI) following permissions: _Get_, _Unwrap Key_, and _Wrap Key_. These permissions are required to enable customer-managed keys in Data Factory.
 
-![Screenshot Enable Data Factory Access to Key Vault](media/quickstart-enable-customer-managed-key/02-access-policy-factory-msi.png)
+  ![Screenshot Enable Data Factory Access to Key Vault](media/quickstart-enable-customer-managed-key/02-access-policy-factory-msi.png)
 
 ### Generate or Upload customer-managed key to Key Vault
 
-You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Note that only 2048-bit RSA keys are supported with Data Factory encryption. For more information, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Only 2048-bit RSA keys are supported with Data Factory encryption. For more information, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 
-![Screenshot Generate Customer Managed Key](media/quickstart-enable-customer-managed-key/03-create-key.png)
+  ![Screenshot Generate Customer Managed Key](media/quickstart-enable-customer-managed-key/03-create-key.png)
 
 ## Enable Customer-Managed Keys
 
 1. Ensure the Data Factory is empty: no linked service, no pipeline, and no data set, nothing. For now, deploying customer-managed key to a non-empty factory will result in an error.
 
-2. To locate the key URI in the Azure portal, navigate to Azure Key Vault, and select the Keys setting. Select the wanted key, then click the key to view its versions. Select a key version to view the settings
+1. To locate the key URI in the Azure portal, navigate to Azure Key Vault, and select the Keys setting. Select the wanted key, then click the key to view its versions. Select a key version to view the settings
 
-3. Copy the value of the Key Identifier field, which provides the URI
+1. Copy the value of the Key Identifier field, which provides the URI
 
-  ![Screenshot Get Key URI from Key Vault](media/quickstart-enable-customer-managed-key/04-get-key-uri.png)
+    ![Screenshot Get Key URI from Key Vault](media/quickstart-enable-customer-managed-key/04-get-key-uri.png)
 
-4. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Home Page
+1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Home Page
 
-5. Click on the __Customer manged key__ icon
+1. Click on the __Customer manged key__ icon
 
-  ![Screenshot Enable Customer Managed Key in Data Factory](media/quickstart-enable-customer-managed-key/05-cmk-configuration.png)
+    ![Screenshot Enable Customer Managed Key in Data Factory](media/quickstart-enable-customer-managed-key/05-cmk-configuration.png)
 
-6. Enter the URI for customer-managed key that you copied before
+1. Enter the URI for customer-managed key that you copied before
 
-7. Click __Save__ and customer-manged key encryption is enabled for Data Factory
+1. Click __Save__ and customer-manged key encryption is enabled for Data Factory
 
 ## Update Key Version
 
@@ -86,7 +87,7 @@ When you create a new version of a key, update data factory to use the new versi
 
 1. Locate the URI for the new key version through Azure Key Vault Portal
 
-1. Navigate to __Customer managed key__ setting
+1. Navigate to __Customer-managed key__ setting
 
 1. Replace and paste in the URI for the new key
 
