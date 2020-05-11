@@ -22,7 +22,7 @@
   items:
   - name: Import HSM-protected keys
     href: hsm-protected-keys.md
-  - name: Import HSM-protected keys
+  - name: Import HSM-protected keys (BYOK)
     href: hsm-protected-keys-byok.md
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
