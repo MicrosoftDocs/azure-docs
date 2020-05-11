@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -64,12 +64,11 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Lifecycle management policies
 
-* The deletion of blob snapshots is not yet supported.  
+The deletion of blob snapshots is not yet supported. 
 
 ## Archive Tier
 
 There is currently a bug that affects the archive access tier.
-
 
 ## Blobfuse
 
@@ -103,6 +102,39 @@ Applications that call Blob APIs will likely work.
 ## Access control lists (ACL) and anonymous read access
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+
+## Premium-performance block blob storage accounts
+
+### Diagnostic logs
+
+Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### Lifecycle management policies
+
+- Lifecycle management policies aren't yet supported in premium block blob storage accounts. 
+
+- Data can't be moved from the premium tier to lower tiers. 
+
+- The **Delete Blob** action is currently not supported. 
+
+### HDInsight support
+
+When you create a n HDInsight cluster, you can't yet select a block blob storage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
+
+### Dremio support
+
+Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
 
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 
