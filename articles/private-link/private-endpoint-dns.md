@@ -110,7 +110,7 @@ In this scenario, there's a [hub & spoke](https://docs.microsoft.com/azure/archi
 For on-premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a DNS forwarder to make the resolution of the Azure service [public DNS zone](#azure-services-dns-zone-configuration) deployed in Azure.
 
 
-The following scenario is appropriate for an on premises network that has a DNS forwarder in Azure, which in turn is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
+The following scenario is appropriate for an on-premises network that has a DNS forwarder in Azure, which in turn is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
 
 > [!NOTE]
 > This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -123,7 +123,7 @@ To configure properly, you would need the following resources:
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) with [type A Record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and Private IP Address)
 
-The following diagram illustrates the DNS resolution sequence from an on premises network that uses a DNS forwarder deployed in Azure,
+The following diagram illustrates the DNS resolution sequence from an on-premises network that uses a DNS forwarder deployed in Azure,
 where the resolution is made by a private DNS zone linked to a virtual network.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="On-premises using Azure DNS":::
