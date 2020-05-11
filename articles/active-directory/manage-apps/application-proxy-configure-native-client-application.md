@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---

@@ -11,18 +11,15 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 06/19/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ---
 
-# Deprecated: Get started with Notification Hubs using Baidu
+# Get started with Notification Hubs using Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
-
-> [!IMPORTANT]
-> This tutorial is deprecated. 
 
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices.
 
@@ -38,63 +35,10 @@ This tutorial requires:
 > [!NOTE]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
-## Create a Baidu account
+To get started, do the following:
 
-To use Baidu, you must have a Baidu account. If you already have one, log in to the [Baidu portal] and skip to the next step. Otherwise, see the following instructions on how to create a Baidu account.  
-
-1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** (**Register Now**) to start the account registration process.
-
-    ![Baidu Registration](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
-
-2. Enter the required details—phone/email address, password, and verification code—and click 注册 (**Signup**).
-
-    ![Baidu Registration Input](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
-
-3. You are sent an email to the email address that you entered with a link to activate your Baidu account.
-
-    ![Baidu Registration Confirmation](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
-
-4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
-
-    ![Baidu Activation e-mail](./media/notification-hubs-baidu-get-started/BaiduActivationEmail.png)
-
-Once you have an activated Baidu account, log in to the [Baidu portal].
-
-## Create a Baidu cloud push project
-
-When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
-
-1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
-
-    ![Registration - More](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
-
-2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度云推送** (**Baidu Cloud Push**).
-
-    ![Baidu Open Cloud Platform](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
-
-3. On the next page, click **登录** (**Login**) on the top-right corner.
-
-    ![Baidu Login](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
-
-4. Then, click **创建应用** (**Create Application**) on this page.
-
-    ![Baidu Create Application](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
-
-5. On the next page, click 创建新应用 (**Create New Application**).
-
-    ![Baidu Create New Application](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
-
-6. Enter an application name and click 创建 (**Create**).
-
-    ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
-
-7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we use later.
-
-    ![Baidu Push Secrets](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
-
-8. Configure the project for push notifications by clicking 创建通知 (**Create Notification**)  on the left pane.
-
-    ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
+1. Create a Baidu account.
+2. Create a Baidu cloud push project, and make a note of the API key and secret key.
 
 ## Configure a new notification hub
 

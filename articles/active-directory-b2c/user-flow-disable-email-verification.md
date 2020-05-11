@@ -9,16 +9,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Disable email verification during customer sign-up in Azure Active Directory B2C
 
-By default, Azure Active Directory B2C (Azure AD B2C) verifies your customer's email address for local accounts (accounts for users who sign up with email address or username). Azure AD B2C ensures valid email addresses by requiring customers to verify them during the sign-up process. It also prevents a malicious actors from using automated processes to generate fraudulent accounts in your applications.
-
-Some application developers prefer to skip email verification during the sign-up process and instead have customers verify their email address later. To support this, Azure AD B2C can be configured to disable email verification. Doing so creates a smoother sign-up process and gives developers the flexibility to differentiate customers that have verified their email address from customers that have not.
+[!INCLUDE [disable email verification intro](../../includes/active-directory-b2c-disable-email-verification.md)]
 
 Follow these steps to disable email verification:
 
@@ -30,8 +28,10 @@ Follow these steps to disable email verification:
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **Email Address**.
-1. In the **REQUIRES VERIFICATION** drop down, select **No**.
+1. In the **REQUIRES VERIFICATION** drop-down, select **No**.
 1. Select **Save**. Email verification is now disabled for this user flow.
 
-> [!WARNING]
-> Disabling email verification in the sign-up process may lead to spam. If you disable the default Azure AD B2C-provided email verification, we recommend that you implement a replacement verification system.
+## Next steps
+
+- Learn how to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md)
+

@@ -4,12 +4,11 @@ description: Machine learning in Azure SQL Database Edge Preview supports models
 keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice:
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph
-ms.date: 11/07/2019
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
 ---
 
 # Machine learning and AI with ONNX in SQL Database Edge Preview

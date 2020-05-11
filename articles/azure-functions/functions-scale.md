@@ -59,7 +59,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 * Perpetually warm instances to avoid any cold start
 * VNet connectivity
-* Unlimited execution duration
+* Unlimited execution duration (60 minutes guaranteed)
 * Premium instance sizes (one core, two core, and four core instances)
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
@@ -128,7 +128,7 @@ It's certainly possible for multiple function apps to share the same storage acc
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#core-storage-services).
 
 ## How the consumption and premium plans work
 
@@ -149,12 +149,10 @@ The unit of scale for Azure Functions is the function app. When the function app
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. There are a few intricacies of scaling behaviors to be aware of:
 
 * A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
-* For HTTP triggers, new instances will only be allocated at most once every 1 second.
-* For non-HTTP triggers, new instances will only be allocated at most once every 30 seconds.
-
-Different triggers may also have different scaling limits as well as documented below:
-
-* [Event Hub](functions-bindings-event-hubs-trigger.md#scaling)
+* For HTTP triggers, new instances are allocated, at most, once per second.
+* For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](#premium-plan).
+* For Service Bus triggers, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling isn't as accurate because the queue length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* For Event Hub triggers, see the [scaling guidance](functions-bindings-event-hubs-trigger.md#scaling) in the reference article. 
 
 ### Best practices and patterns for scalable apps
 

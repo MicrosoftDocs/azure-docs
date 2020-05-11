@@ -2,7 +2,7 @@
 title: Importing from data sources - QnA Maker
 description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) sets and optional metadata associated with each QnA pair.
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 03/16/2020
 ---
 
 # Importing from data sources
@@ -51,7 +51,9 @@ The **displayOrder** is numeric and the **displayText** is text that shouldn't i
 
 ## Export as example
 
-If you are unsure how to represent your QnA set in the `.tsv` file, create the set in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the set.
+If you are unsure how to represent your QnA pair in the `.tsv` file:
+* Use this [downloadable example from GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
+* Or create the set in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the set.
 
 ## Next steps
 

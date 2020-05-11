@@ -24,7 +24,7 @@ Azure Dev Spaces also allows you to debug and iterate using:
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
 - [Visual Studio Code installed](https://code.visualstudio.com/download).
-- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions for Visual Studio Code installed.
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions for Visual Studio Code installed.
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create an Azure Kubernetes Service cluster
@@ -90,7 +90,7 @@ When Visual Studio Code also prompts you to configure your public endpoint, choo
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 ## Build and run code in Kubernetes from Visual Studio Code
 
@@ -104,6 +104,9 @@ This command builds and runs your service in Azure Dev Spaces in debugging mode.
 > If you don't see any Azure Dev Spaces commands in the *Command Palette*, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory in Visual Studio Code.
 
 You can see the service running by opening the public URL.
+
+> [!Note]
+> Initially, the public URL may show a *Bad Gateway* error. Wait a few seconds before refreshing the webpage, and you should see your service running.
 
 Click *Debug* then *Stop Debugging* to stop the debugger.
 

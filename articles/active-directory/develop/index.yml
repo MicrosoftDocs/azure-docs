@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft identity platform (formerly Azure Active Directory for developers)
-summary: Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built. It’s a full-featured platform that consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
+title: Microsoft identity platform documentation
+summary: Microsoft identity platform allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs like Microsoft Graph, or APIs you've built. This full-featured platform consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstarts, code samples, tutorials, and how-to guides.
 
 metadata:
    ms.topic: landing-page
@@ -17,10 +17,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Evolution of Microsoft identity platform
-            url: about-microsoft-identity-platform.md
           - text: Microsoft identity platform (v2.0)
             url: v2-overview.md
+          - text: Evolution of Microsoft identity platform
+            url: about-microsoft-identity-platform.md
           - text: Azure Active Directory for developers (v1.0)
             url: ../azuread-dev/v1-overview.md
       - linkListType: concept
@@ -47,6 +47,8 @@ landingContent:
         links:
           - text: JavaScript
             url: quickstart-v2-javascript.md
+          - text: Angular
+            url: quickstart-v2-angular.md
       - linkListType: tutorial
         links:
           - text: JavaScript

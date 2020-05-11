@@ -32,7 +32,7 @@ To implement a serverless event-based flow, you need:
 Creating your Azure Function with an Azure Functions trigger for Cosmos DB is now supported across all Azure Functions IDE and CLI integrations:
 
 * [Visual Studio Extension](../azure-functions/functions-develop-vs.md) for Visual Studio users.
-* [Visual Studio Core Extension](/azure/javascript/tutorial-vscode-serverless-node-01) for Visual Studio Code users.
+* [Visual Studio Code Extension](/azure/javascript/tutorial-vscode-serverless-node-01) for Visual Studio Code users.
 * And finally [Core CLI tooling](../azure-functions/functions-run-local.md#create-func) for a cross-platform IDE agnostic experience.
 
 ## Run your trigger locally

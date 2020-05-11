@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/08/2020
+
 ---
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
@@ -130,7 +131,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
 ## What did you accomplish?
 
-You created a new knowledge base, added a public URL to the knowledge base, added your own QnA set, trained, tested, and published the knowledge base.
+You created a new knowledge base, added a public URL to the knowledge base, added your own QnA pair, trained, tested, and published the knowledge base.
 
 After publishing the knowledge base, you created a bot, and tested the bot.
 
@@ -149,6 +150,5 @@ For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
 * QnA Maker [data sources](../concepts/knowledge-base.md).
-* [Bot resource configuration settings](../tutorials/create-qna-bot.md).
 
 

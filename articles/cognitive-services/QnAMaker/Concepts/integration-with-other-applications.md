@@ -15,11 +15,11 @@ QnA Maker integrates with conversational client applications such as [Microsoft 
 
 ## Create a bot without writing any code
 
-After you publish your knowledge base, create a bot from the **Publish** page, by selecting the **Create bot** button. Use the [bot tutorial](../tutorials/create-qna-bot.md) to learn what happens after you select the button.
+After you publish your knowledge base, create a bot from the **Publish** page, by selecting the **Create bot** button. Use the [bot tutorial](../Quickstarts/create-publish-knowledge-base.md) to learn what happens after you select the button.
 
 ## Providing multi-turn conversations
 
-A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA set. Learn [how to](../how-to/multiturn-conversation.md) add multi-turn conversation question and answer sets to your knowledge base.
+A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA pair. Learn [how to](../how-to/multiturn-conversation.md) add multi-turn conversation question and answer sets to your knowledge base.
 
 ## Natural language processing
 

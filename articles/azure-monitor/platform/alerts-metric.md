@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
@@ -130,7 +130,7 @@ The previous sections described how to create, view, and manage metric alert rul
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
+- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
 - [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
 - [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

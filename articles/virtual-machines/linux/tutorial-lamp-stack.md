@@ -120,10 +120,10 @@ In this tutorial, you deployed a LAMP server in Azure. You learned how to:
 > * Verify installation and configuration
 > * Install WordPress on the LAMP server
 
-Advance to the next tutorial to learn how to secure web servers with SSL certificates.
+Advance to the next tutorial to learn how to secure web servers with TLS/SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [Secure web server with TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

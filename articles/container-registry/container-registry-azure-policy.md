@@ -20,7 +20,7 @@ There are no charges for using Azure Policy.
 
 The following built-in policy definitions are specific to Azure Container Registry:
 
-[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/azure-policy-samples-policies-container-registry.md)]
+[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
 See also the built-in network policy definition: [[Preview] Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
@@ -64,14 +64,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Then run [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
+Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Or run [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
+Or run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
 
 ```azurecli
 az policy state list \

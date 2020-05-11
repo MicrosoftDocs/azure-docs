@@ -113,7 +113,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## Reference CloudTable property of a specific table
 
 > [!IMPORTANT]
-> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzTableTable** command to get the reference to this object. This command also creates the table if it does not already exist.
+> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzStorageTable** command to get the reference to this object. This command also creates the table if it does not already exist.
 
 To perform operations on a table using **AzTable**, you need a reference to CloudTable property of a specific table.
 

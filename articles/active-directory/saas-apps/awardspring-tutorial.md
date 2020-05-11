@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| First Name | user.givenname |
 	| Last Name | user.surname |
 	| Email | user.mail |
-	| Username | user.userprinicipalname |
+	| Username | user.userprincipalname |
 	| StudentID | < Student ID > |
 
 	> [!NOTE]

@@ -2,14 +2,11 @@
 title: Authenticate using Azure managed identities 
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using Azure managed identities
-ms.service: azure-app-configuration
 author: lisaguthrie
-
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.author: lcozzens
-
 ---
 # Integrate with Azure Managed Identities
 
@@ -236,8 +233,6 @@ Browse to your web app by using a browser to verify that the content is deployed
 ```bash
 http://<app_name>.azurewebsites.net
 ```
-
-![App running in App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## Use managed identity in other languages
 

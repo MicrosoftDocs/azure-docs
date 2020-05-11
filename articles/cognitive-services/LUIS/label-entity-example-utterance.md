@@ -1,15 +1,8 @@
 ---
 title: Label entity example utterance
-titleSuffix: Azure Cognitive Services
 description: Learn how to label a machine-learned entity with subcomponents in an example utterance in an intent detail page of the LUIS portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 04/14/2020
 #Customer intent: As a new user, I want to label a machine-learned entity in an example utterance.
 ---
 
@@ -82,7 +75,11 @@ Entity roles are labeled using the entity palette.
 1. In the Intent detail page, select the **Entity palette** from the context toolbar.
 1. After the Entity palette opens, select the entity from the list of entity.
 1. Move to the **Entity inspector**, and either select an existing role or create a new role.
-1. In the example utterance text, label the text with the entity role. 
+1. In the example utterance text, label the text with the entity role.
+
+## Labeling for punctuation
+
+You do not need to label for punctuation. Use [application settings](luis-reference-application-settings.md) to control if punctuation impacts utterance predictions.
 
 ## Unlabel entities
 

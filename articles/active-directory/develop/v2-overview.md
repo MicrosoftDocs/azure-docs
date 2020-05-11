@@ -2,16 +2,12 @@
 title: Microsoft identity platform (v2.0) overview - Azure
 description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
@@ -30,7 +26,7 @@ Microsoft identity platform is an evolution of the Azure Active Directory (Azure
   - Social or local accounts (via Azure AD B2C)
 - **Open-source libraries**: Microsoft Authentication Libraries (MSAL) and support for other standards-compliant libraries
 - **Application management portal**: A registration and configuration experience built in the Azure portal, along with all your other Azure management capabilities.
-- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through REST API (Microsoft Graph and Azure Active Directory Graph 1.6) and PowerShell, so you can automate your DevOps tasks.
+- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through the Microsoft Graph API and PowerShell, so you can automate your DevOps tasks.
 - **Developer content**: conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
 
 For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and Conditional Access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.

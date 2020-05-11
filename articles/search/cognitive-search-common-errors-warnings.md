@@ -44,7 +44,7 @@ Indexer was unable to read the document from the data source. This can happen du
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| inconsistent field types across different documents | Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray. | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
+| Inconsistent field types across different documents | "Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray."  "Error converting data type nvarchar to float."  "Conversion failed when converting the nvarchar value '12 months' to data type int."  "Arithmetic overflow error converting expression to data type int." | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
 | errors from the data source's underlying service | (from Cosmos DB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
 | transient issues | A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
@@ -87,6 +87,8 @@ Indexer was not able to run a skill in the skillset.
 
 ## Error: Could not execute skill because the Web API request failed
 Skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
+
+While debugging this issue, be sure to pay attention to any [skill input warnings](#warning-skill-input-was-invalid) for this skill. Your Web API endpoint may be failing because the indexer is passing it unexpected input.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

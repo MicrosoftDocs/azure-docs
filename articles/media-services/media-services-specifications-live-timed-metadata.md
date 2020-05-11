@@ -70,17 +70,17 @@ The following documents contain provisions, which, through reference in this tex
 | [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
 | [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
 | [HLS-TMD]         | Timed Metadata for HTTP Live Streaming - [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
-| [CMAF-ID3]        | [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/)                                                                                                        |
+| [CMAF-ID3]        | [Timed Metadata in the Common Media Application Format (CMAF)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
 | [ID3v2]           | ID3 Tag version 2.4.0  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
 | [ISO-14496-12]    | ISO/IEC 14496-12: Part 12 ISO base media file format, FourthEdition 2012-07-15                                                                                                                                 |
 | [MPEGDASH]        | Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats. May 2014. Published. URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Information technology -- Multimedia application format (MPEG-A) -- Part 19: Common media application format (CMAF) for segmented media. January 2018. Published. URL: https://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | Information technology -- MPEG systems technologies -- Part 7: Common encryption in ISO base media file format files. February 2016. Published. URL: https://www.iso.org/standard/68042.html                   |
-| [MS-SSTR]         | [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR]         | ["Microsoft Smooth Streaming Protocol", May 15, 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
 | [MS-SSTR-Ingest]  | [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| [RTMP]            | [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [RTMP]            | ["Adobe's Real-Time Messaging Protocol", December 21, 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
 | [SCTE-35-2019]    | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions                                                                                                                 |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile                                                                                                                                  |
@@ -129,7 +129,7 @@ The following [AMF0] commands are supported by Azure Media Services for RTMP ing
 
 The following table describes the format of the AMF message payload that Media Services will ingest for both "simple" and [SCTE35] message modes.
 
-The name of the [AMF0] message can be used to differentiate multiple event streams of the same type.  For both [SCTE-35] messages and "simple" mode, the name of the AMF message MUST be “onAdCue” as required in the [Adobe-Primetime] specification.  Any fields not listed below SHALL be ignored by Azure Media Services at ingest.
+The name of the [AMF0] message can be used to differentiate multiple event streams of the same type.  For both [SCTE-35] messages and "simple" mode, the name of the AMF message MUST be "onAdCue" as required in the [Adobe-Primetime] specification.  Any fields not listed below SHALL be ignored by Azure Media Services at ingest.
 
 ## 2.1.1 RTMP with custom metadata using "onUserDataEvent"
 
@@ -209,15 +209,15 @@ Note that only one "EventType" per "EventStream" is supported at this time. Only
 ### Built-in supported Scheme ID URIs
 | Scheme ID URI                 | Description                                                                                                                                                                                                                                          |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https:\//aomedia.org/emsg/ID3 | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/) |
+| https:\//aomedia.org/emsg/ID3 | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://github.com/AOMediaCodec/id3-emsg) |
 
 ### Event processing and manifest signaling
 
 On receipt of a valid **"onUserDataEvent"** event, Azure Media Services will look for a valid XML payload that matches the EventStreamType (defined in [MPEGDASH] ), parse the XML payload and convert it into an [MPEGCMAF] MP4 fragment 'emsg' version 1 box for storage in the live archive and transmission to the Media Services Packager.   The Packager will detect the 'emsg' box in the live stream and:
 
-- (a)	"dynamically package" it into TS segments for delivery to HLS clients in compliance with the HLS timed metadata specification [HLS-TMD], or
-- (b)	pass it through for delivery in CMAF fragments via HLS or DASH, or 
-- (c)	convert it into a sparse track signal for delivery via Smooth Streaming [MS-SSTR].
+- (a)    "dynamically package" it into TS segments for delivery to HLS clients in compliance with the HLS timed metadata specification [HLS-TMD], or
+- (b)    pass it through for delivery in CMAF fragments via HLS or DASH, or 
+- (c)    convert it into a sparse track signal for delivery via Smooth Streaming [MS-SSTR].
 
 In addition to the in-band 'emsg' format CMAF or TS PES packets for HLS, the manifests for DASH (MPD), and Smooth Streaming will contain a reference to the in-band event streams (also known as sparse stream track in Smooth Streaming). 
 
@@ -410,9 +410,9 @@ received at least four seconds prior to the presentation time will be acted upon
 
 ## 2.2 Fragmented MP4 Ingest (Smooth Streaming)
 
-Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box (‘moov’).  
+Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box ('moov').  
 
-Each sparse fragment consists of a Movie Fragment Box (‘moof’) and Media Data Box (‘mdat’), where the ‘mdat’ box is the binary message.
+Each sparse fragment consists of a Movie Fragment Box ('moof') and Media Data Box ('mdat'), where the 'mdat' box is the binary message.
 
 In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time.
 
@@ -423,10 +423,10 @@ The sparse track **MUST** be declared in the Live Server Manifest box with a
 
 | **Attribute Name** | **Field Type** | **Required?** | **Description**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemBitrate      | Number         | Required      | **MUST** be “0”, indicating a track with unknown, variable bitrate.                                                                                                                                                          |
+| systemBitrate      | Number         | Required      | **MUST** be "0", indicating a track with unknown, variable bitrate.                                                                                                                                                          |
 | parentTrackName    | String         | Required      | **MUST** be the name of the parent track, to which the sparse track time codes are timescale aligned. The parent track cannot be a sparse track.                                                                             |
-| manifestOutput     | Boolean        | Required      | **MUST** be “true”, to indicate that the sparse track will be embedded in the Smooth client manifest.                                                                                                                        |
-| Subtype            | String         | Required      | **MUST** be the four character code “DATA”.                                                                                                                                                                                  |
+| manifestOutput     | Boolean        | Required      | **MUST** be "true", to indicate that the sparse track will be embedded in the Smooth client manifest.                                                                                                                        |
+| Subtype            | String         | Required      | **MUST** be the four character code "DATA".                                                                                                                                                                                  |
 | Scheme             | String         | Required      | **MUST** be a URN or URL identifying the message scheme. For [SCTE-35] messages, this **MUST** be "urn:scte:scte35:2013:bin" in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-35]. |
 | trackName          | String         | Required      | **MUST** be the name of the sparse track. The trackName can be used to differentiate multiple event streams with the same scheme. Each unique event stream **MUST** have a unique track name.                                |
 | timescale          | Number         | Optional      | **MUST** be the timescale of the parent track.                                                                                                                                                                               |
@@ -435,10 +435,10 @@ The sparse track **MUST** be declared in the Live Server Manifest box with a
 
 ### 2.2.2 Movie Box
 
-The Movie Box (‘moov’) follows the Live Server Manifest Box as part of the
+The Movie Box ('moov') follows the Live Server Manifest Box as part of the
 stream header for a sparse track.
 
-The ‘moov’ box **SHOULD** contain a **TrackHeaderBox (‘tkhd’)** box as defined in
+The 'moov' box **SHOULD** contain a **TrackHeaderBox ('tkhd')** box as defined in
 [ISO-14496-12] with the following constraints:
 
 | **Field Name** | **Field Type**          | **Required?** | **Description**                                                                                                    |
@@ -447,21 +447,21 @@ The ‘moov’ box **SHOULD** contain a **TrackHeaderBox (‘tkhd’)** box as d
 
 ---
 
-The ‘moov’ box **SHOULD** contain a **HandlerBox (‘hdlr’)** as defined in
+The 'moov' box **SHOULD** contain a **HandlerBox ('hdlr')** as defined in
 [ISO-14496-12] with the following constraints:
 
 | **Field Name** | **Field Type**          | **Required?** | **Description**       |
 | -------------- | ----------------------- | ------------- | --------------------- |
-| handler_type   | 32-bit unsigned integer | Required      | **SHOULD** be ‘meta’. |
+| handler_type   | 32-bit unsigned integer | Required      | **SHOULD** be 'meta'. |
 
 ---
 
-The ‘stsd’ box **SHOULD** contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name **SHOULD** be 'scte'.
+The 'stsd' box **SHOULD** contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name **SHOULD** be 'scte'.
 
 ### 2.2.3 Movie Fragment Box and Media Data Box
 
-Sparse track fragments consist of a Movie Fragment Box (‘moof’) and a Media Data
-Box (‘mdat’).
+Sparse track fragments consist of a Movie Fragment Box ('moof') and a Media Data
+Box ('mdat').
 
 > [!NOTE]
 > In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is
@@ -469,8 +469,8 @@ Box (‘mdat’).
 > type 1 or 2, as defined in [ISO-14496-12] Annex I
 > 
 
-The MovieFragmentBox (‘moof’) box **MUST** contain a
-**TrackFragmentExtendedHeaderBox (‘uuid’)** box as defined in [MS-SSTR] with the
+The MovieFragmentBox ('moof') box **MUST** contain a
+**TrackFragmentExtendedHeaderBox ('uuid')** box as defined in [MS-SSTR] with the
 following fields:
 
 | **Field Name**         | **Field Type**          | **Required?** | **Description**                                                                                           |
@@ -481,14 +481,14 @@ following fields:
 ---
 
 
-The MediaDataBox (‘mdat’) box **MUST** have the following format:
+The MediaDataBox ('mdat') box **MUST** have the following format:
 
 | **Field Name**          | **Field Type**                   | **Required?** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                 | 32-bit unsigned integer (uimsbf) | Required      | Determines the format of the contents of the ‘mdat’ box. Unrecognized versions will be ignored. Currently the only supported version is 1.                                                                                                                                                                                                                                                                                                                                                                      |
+| version                 | 32-bit unsigned integer (uimsbf) | Required      | Determines the format of the contents of the 'mdat' box. Unrecognized versions will be ignored. Currently the only supported version is 1.                                                                                                                                                                                                                                                                                                                                                                      |
 | id                      | 32-bit unsigned integer (uimsbf) | Required      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value; that is, processing any one event message box with the same id is sufficient.                                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | 32-bit unsigned integer (uimsbf) | Required      | The sum of the fragment_absolute_time, specified in the TrackFragmentExtendedHeaderBox, and the presentation_time_delta **MUST** be the presentation time of the event. The presentation time and duration **SHOULD** align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration **SHOULD** align with segment boundaries. The presentation time and duration of different event messages within the same event stream **MUST** not overlap. |
-| message                 | byte array                       | Required      | The event message. For [SCTE-35] messages, the message is the binary splice_info_section(). For [SCTE-35] messages, this **MUST** be the splice_info_section() in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-35]. For [SCTE-35] messages, the binary splice_info_section() is the payload of the ‘mdat’ box, and it is **NOT** base64 encoded.                                                                                                                     |
+| message                 | byte array                       | Required      | The event message. For [SCTE-35] messages, the message is the binary splice_info_section(). For [SCTE-35] messages, this **MUST** be the splice_info_section() in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-35]. For [SCTE-35] messages, the binary splice_info_section() is the payload of the 'mdat' box, and it is **NOT** base64 encoded.                                                                                                                     |
 
 ---
 
@@ -503,7 +503,7 @@ Messages can be canceled or updated by sending multiple messages with the same p
 Event stream data is opaque to Media Services. Media Services merely
 passes three pieces of information between the ingest endpoint and the client
 endpoint. The following properties are delivered to the client, in compliance
-with [SCTE-35] and/or the client’s streaming protocol:
+with [SCTE-35] and/or the client's streaming protocol:
 
 1.  Scheme – a URN or URL identifying the scheme of the message.
 2.  Presentation Time – the presentation time of the event on the media
@@ -520,38 +520,38 @@ The StreamIndex **MUST** have a Subtype of "DATA", and the CustomAttributes **MU
 
 #### Smooth Client Manifest Example showing base64-encoded [SCTE35] splice_info_section()
 ~~~ xml
-<?xml version=”1.0” encoding=”utf-8”?>
-<SmoothStreamingMedia MajorVersion=”2” MinorVersion=”0” TimeScale=”10000000” IsLive=”true” Duration=”0”
-  LookAheadFragmentCount=”2” DVRWindowLength=”6000000000”>
+<?xml version="1.0" encoding="utf-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
+  LookAheadFragmentCount="2" DVRWindowLength="6000000000">
 
-  <StreamIndex Type=”video” Name=”video” Subtype=”” Chunks=”0” TimeScale=”10000000”
-    Url=”QualityLevels({bitrate})/Fragments(video={start time})”>
-    <QualityLevel Index=”0” Bitrate=”230000”
-      CodecPrivateData=”250000010FC3460B50878A0B5821FF878780490800704704DC0000010E5A67F840” FourCC=”WVC1”
-      MaxWidth=”364” MaxHeight=”272”/>
-    <QualityLevel Index=”1” Bitrate=”305000”
-      CodecPrivateData=”250000010FC3480B50878A0B5821FF87878049080894E4A7640000010E5A67F840” FourCC=”WVC1”
-      MaxWidth=”364” MaxHeight=”272”/>
-    <c t=”0” d=”20000000” r=”300” />
+  <StreamIndex Type="video" Name="video" Subtype="" Chunks="0" TimeScale="10000000"
+    Url="QualityLevels({bitrate})/Fragments(video={start time})">
+    <QualityLevel Index="0" Bitrate="230000"
+      CodecPrivateData="250000010FC3460B50878A0B5821FF878780490800704704DC0000010E5A67F840" FourCC="WVC1"
+      MaxWidth="364" MaxHeight="272"/>
+    <QualityLevel Index="1" Bitrate="305000"
+      CodecPrivateData="250000010FC3480B50878A0B5821FF87878049080894E4A7640000010E5A67F840" FourCC="WVC1"
+      MaxWidth="364" MaxHeight="272"/>
+    <c t="0" d="20000000" r="300" />
   </StreamIndex>
-  <StreamIndex Type=”audio” Name=”audio” Subtype=”” Chunks=”0” TimeScale=”10000000”
-    Url=”QualityLevels({bitrate})/Fragments(audio={start time})”>
-    <QualityLevel Index=”0” Bitrate=”96000” CodecPrivateData=”1000030000000000000000000000E00042C0”
-      FourCC=”WMAP” AudioTag=”354” Channels=”2” SamplingRate=”44100” BitsPerSample=”16” PacketSize=”4459”/>
-    <c t=”0” d=”20000000” r=”300” />
+  <StreamIndex Type="audio" Name="audio" Subtype="" Chunks="0" TimeScale="10000000"
+    Url="QualityLevels({bitrate})/Fragments(audio={start time})">
+    <QualityLevel Index="0" Bitrate="96000" CodecPrivateData="1000030000000000000000000000E00042C0"
+      FourCC="WMAP" AudioTag="354" Channels="2" SamplingRate="44100" BitsPerSample="16" PacketSize="4459"/>
+    <c t="0" d="20000000" r="300" />
   </StreamIndex>
-  <StreamIndex Type=”text” Name=”scte35-sparse-stream” Subtype=”DATA” Chunks=”0” TimeScale=”10000000”
-    ParentStreamIndex=”video” ManifestOutput=”true” 
-    Url=”QualityLevels({bitrate})/Fragments(captions={start time})”>
-    <QualityLevel Index=”0” Bitrate=”0” CodecPrivateData=”” FourCC=””>
+  <StreamIndex Type="text" Name="scte35-sparse-stream" Subtype="DATA" Chunks="0" TimeScale="10000000"
+    ParentStreamIndex="video" ManifestOutput="true" 
+    Url="QualityLevels({bitrate})/Fragments(captions={start time})">
+    <QualityLevel Index="0" Bitrate="0" CodecPrivateData="" FourCC="">
       <CustomAttributes>
-        <Attribute Name=”Scheme” Value=”urn:scte:scte35:2013:bin”/>
+        <Attribute Name="Scheme" Value="urn:scte:scte35:2013:bin"/>
       </CustomAttributes>
     </QualityLevel>
     <!-- The following <c> and <f> fragments contains the base64-encoded [SCTE35] splice_info_section() message -->
-    <c t=”600000000” d=”300000000”>    <f>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</f>
+    <c t="600000000" d="300000000">    <f>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</f>
     </c>
-    <c t=”1200000000” d=”400000000”>      <f>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</f>
+    <c t="1200000000" d="400000000">      <f>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</f>
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
@@ -784,7 +784,7 @@ The "legacy" EXT-X-CUE tag is defined as below and also can be normative referen
 | **Attribute Name** | **Type**                      | **Required?**                             | **Description**                                                                                                                                                                                                                                                                          |
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CUE                | quoted string                 | Required                                  | The message encoded as a base64-encoded string as described in [RFC4648]. For [SCTE-35] messages, this is the base64-encoded splice_info_section().                                                                                                                                      |
-| TYPE               | quoted string                 | Required                                  | A URN or URL identifying the message scheme. For [SCTE-35] messages, the type takes the special value “scte35”.                                                                                                                                                                          |
+| TYPE               | quoted string                 | Required                                  | A URN or URL identifying the message scheme. For [SCTE-35] messages, the type takes the special value "scte35".                                                                                                                                                                          |
 | ID                 | quoted string                 | Required                                  | A unique identifier for the event. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                              |
 | DURATION           | decimal floating point number | Required                                  | The duration of the event. If unknown, the value **SHOULD** be 0. Units are factional seconds.                                                                                                                                                                                           |
 | ELAPSED            | decimal floating point number | Optional, but Required for sliding window | When the signal is being repeated to support a sliding presentation window, this field **MUST** be the amount of presentation time that has elapsed since the event began. Units are fractional seconds. This value may exceed the original specified duration of the splice or segment. |
@@ -880,7 +880,7 @@ of the sliding presentation window.
 [MPEGDASH] provides three ways to signal events:
 
 1.  Events signaled in the MPD EventStream
-2.  Events signaled in-band using the Event Message Box (‘emsg’)
+2.  Events signaled in-band using the Event Message Box ('emsg')
 3.  A combination of both 1 and 2
 
 Events signaled in the MPD EventStream are useful for VOD streaming because clients have
@@ -1156,7 +1156,7 @@ In this case, the output manifest is a multi-period DASH .mpd with an EventStrea
 ~~~
 ### 3.3.4 MPEG DASH In-band Event Message Box Signaling
 
-An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box (‘emsg’).  Event message boxes with scheme identifiers that are not defined in the MPD **SHOULD** not be present.
+An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box ('emsg').  Event message boxes with scheme identifiers that are not defined in the MPD **SHOULD** not be present.
 
 For in-band [SCTE-35] carriage, signals **MUST** use the schemeId = "urn:scte:scte35:2013:bin".
 Normative definitions of carriage of [SCTE-35] in-band messages are defined in [SCTE-214-3] sec 7.3.2 (Carriage of SCTE 35 cue messages).
@@ -1165,9 +1165,9 @@ The following details outline the specific values the client should expect in th
 
 | **Field Name**          | **Field Type**          | **Required?** | **Description**                                                                                                                                                                                                                                                                                        |
 | ----------------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| scheme_id_uri           | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value **MUST** be a URN identifying the message scheme. For [SCTE-35] messages, this **MUST** be “urn:scte:scte35:2013:bin” in compliance with [SCTE-214-3]          |
+| scheme_id_uri           | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value **MUST** be a URN identifying the message scheme. For [SCTE-35] messages, this **MUST** be "urn:scte:scte35:2013:bin" in compliance with [SCTE-214-3]          |
 | Value                   | string                  | Required      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value will be set to the name of the event stream (trackName for Smooth ingest or AMF message name for RTMP ingest). |
-| Timescale               | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                            |
+| Timescale               | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the 'emsg' box.                                                                                                                                                                                                            |
 | Presentation_time_delta | 32-bit unsigned integer | Required      | The media presentation time delta of the presentation time of the event and the earliest presentation time in this segment. The presentation time and duration **SHOULD** align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I.                                  |
 | event_duration          | 32-bit unsigned integer | Required      | The duration of the event, or 0xFFFFFFFF to indicate an unknown duration.                                                                                                                                                                                                                              |
 | Id                      | 32-bit unsigned integer | Required      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                        |
@@ -1182,7 +1182,7 @@ The following details outline the specific values the client should expect in th
 
 ### 3.3.5 DASH Message Handling
 
-Events are signaled in-band, within the ‘emsg’ box, for both video and audio tracks.  The signaling occurs for all segment requests for which the presentation_time_delta is 15 seconds or less. 
+Events are signaled in-band, within the 'emsg' box, for both video and audio tracks.  The signaling occurs for all segment requests for which the presentation_time_delta is 15 seconds or less. 
 
 When a sliding presentation window is enabled, event messages are removed from the MPD when the sum of the time and duration of the event message is less than the time of the media data in the manifest.  In other words, the event messages are removed from the manifest when the media time to which they refer has rolled out of the sliding presentation window.
 
@@ -1191,7 +1191,7 @@ When a sliding presentation window is enabled, event messages are removed from t
 The following guidelines are common issues that can impact an encoder vendor's implementation of this specification.  The guidelines below have been collected based on real world partner feedback to make it easier to implement this specification for others. 
 
 [SCTE-35] messages are ingested in binary format using the Scheme
-**“urn:scte:scte35:2013:bin”** for [MS-SSTR-Ingest] and the type **“scte35”** for
+**"urn:scte:scte35:2013:bin"** for [MS-SSTR-Ingest] and the type **"scte35"** for
 [RTMP] ingest. To facilitate the conversion of [SCTE-35] timing, which is based on
 MPEG-2 transport stream presentation time stamps (PTS), a mapping between PTS
 (pts_time + pts_adjustment of the splice_time()) and the media timeline is
@@ -1199,7 +1199,7 @@ provided by the event presentation time (the fragment_absolute_time field for
 Smooth ingest and the time field for RTMP ingest). The mapping is necessary because the
 33-bit PTS value rolls over approximately every 26.5 hours.
 
-Smooth Streaming ingest [MS-SSTR-Ingest] requires that the Media Data Box (‘mdat’) **MUST** contain the **splice_info_section()** defined in [SCTE-35]. 
+Smooth Streaming ingest [MS-SSTR-Ingest] requires that the Media Data Box ('mdat') **MUST** contain the **splice_info_section()** defined in [SCTE-35]. 
 
 For RTMP ingest,the cue attribute of the AMF message is set to the base64-encoded **splice_info_section()** defined in [SCTE-35].  
 

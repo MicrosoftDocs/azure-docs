@@ -1,52 +1,23 @@
 ---
 title: Improve knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.author: diberry
+ms.date: 04/06/2020
 ---
 
-# Use active learning to improve your knowledge base
 
-[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
-
-Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
+# Accept active learning suggested questions in the knowledge base
 
 
-## Upgrade your runtime version to use active learning
-
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
-
-## Turn on active learning to see suggestions
-
-Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
-
-1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the QnA Maker portal do not impact active learning.
-
-1. To turn active learning on in the QnA Maker portal, go to the top-right corner, select your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings).
-
-    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top-right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
-
-
-1. Find the QnA Maker service then toggle **Active Learning**.
-
-    > [!div class="mx-imgBorder"]
-    > [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
-
-    > [!Note]
-    > The exact version on the preceding image is shown as an example only. Your version may be different.
-
-    Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
-
-## Accept an active learning suggestion in the knowledge base
+<a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
 Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
+
+## Turn on active learning
+
+In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+
+## View suggested questions
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**.
 
@@ -58,7 +29,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 1. Each QnA pair suggests the new question alternatives with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question.
 
-    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all** in the contextual toolbar.
 
@@ -105,7 +76,7 @@ When the client application (such as a chat bot) receives the response, the top 
             "questions": [
                 "Wi-Fi Direct Status Indicator"
             ],
-            "answer": "**Wi-Fi Direct Status Indicator**\n\nStatus bar icons indicate your current Wi-Fi Direct connection status:  \n\nWhen your device is connected to another device using Wi-Fi Direct, '$  \n\n+ •+ ' Wi-Fi Direct is displayed in the Status bar.",
+            "answer": "**Wi-Fi Direct Status Indicator**\n\nStatus bar icons indicate your current Wi-Fi Direct connection status:  \n\nWhen your device is connected to another device using Wi-Fi Direct, '$  \n\n+ *+ ' Wi-Fi Direct is displayed in the Status bar.",
             "score": 74.21,
             "id": 607,
             "source": "Bugbash KB.pdf",
@@ -228,7 +199,7 @@ In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these
 
 ### Example C# code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```csharp
 public class FeedbackRecords
@@ -291,7 +262,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### Example Node.js code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```javascript
 async callTrain(stepContext){

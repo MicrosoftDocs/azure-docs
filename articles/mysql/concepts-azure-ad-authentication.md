@@ -1,6 +1,6 @@
 ---
-title: Active Directory authentication - Azure Database for MySQL - Single Server
-description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL - Single Server
+title: Active Directory authentication - Azure Database for MySQL
+description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
@@ -85,7 +85,7 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
+- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 

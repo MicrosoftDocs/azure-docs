@@ -232,12 +232,12 @@ conceptualContent:
 
     - title: Database security
       links:
-        - url: ./fundamentals/database-security-overview.md
+        - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
           itemType: overview
-          text:  Security overview
-        - url: ./fundamentals/database-best-practices.md
+          text:  Data security
+        - url: ./fundamentals/paas-applications-using-sql.md
           itemType: concept
-          text:  Security best practices
+          text:  Best practices for PaaS databases
         - url: ./fundamentals/database-security-checklist.md
           itemType: concept
           text:  Security checklist

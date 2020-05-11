@@ -7,9 +7,11 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
+ms.date: 04/27/2020
 ---
 # Troubleshoot data flows in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
@@ -36,7 +38,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. Stream chosen for broadcast seems to large to produce data within this limit.
-- **Recommendation**: Avoid broadcasting large data streams where the processing can take more than 60 secs. Choose a smaller stream to broadcast instead. Large SQL/DW tables and source files are typically bad candidates.
+- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If this is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
 
 ### Error code: DF-Executor-Conversion
 
@@ -49,6 +51,18 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 - **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
 - **Causes**: No column name was specified
 - **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
+
+### Error code: GetCommand OutputAsync failed
+
+- **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
+
+### Error code: Hit unexpected exception and execution failed
+
+- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
 
 ## General troubleshooting guidance
 

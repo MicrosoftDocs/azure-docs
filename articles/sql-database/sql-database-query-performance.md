@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL database.
+description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,29 +10,25 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
+ms.date: 03/10/2020
 ---
 # Query Performance Insight for Azure SQL Database
 
-Managing and tuning the performance of relational databases takes expertise and time. Query Performance Insight is a part of the Azure SQL Database intelligent performance product line. It helps you spend less time troubleshooting database performance by providing:
+Query Performance Insight provides intelligent query analysis for single and pooled databases. It helps identify the top resource consuming and long-running queries in your workload. This helps you find the queries to optimize to improve overall workload performance and efficiently use the resource that you are paying for. Query Performance Insight helps you spend less time troubleshooting database performance by providing:
 
-* Deeper insight into your databases resource (DTU) consumption.
-* Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements).
-* The ability to drill down into details of a query, to view the query text and history of resource utilization.
-* Annotations that show performance recommendations from [SQL Database Advisor](sql-database-advisor.md).
+* Deeper insight into your databases resource (DTU) consumption
+* Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements)
+* The ability to drill down into details of a query, to view the query text and history of resource utilization
+* Annotations that show performance recommendations from [database advisors](sql-database-advisor.md)
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
-
-> [!TIP]
-> For basic performance monitoring with Azure SQL Database, we recommend Query Performance Insight. Note the product limitations published in this article. For advanced monitoring of database performance at scale, we recommend [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md). It has built-in intelligence for automated performance troubleshooting. To automatically tune some of the most common database performance issues, we recommend [Automatic Tuning](sql-database-automatic-tuning.md).
 
 ## Prerequisites
 
 Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all Azure SQL databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
-> If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration-for-query-performance-insight).
->
+> If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration).
 
 ## Permissions
 
@@ -59,6 +55,11 @@ Query Performance Insight is easy to use:
 
 > [!NOTE]
 > For SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+>
+
+For database performance recommendations, select [Recommendations](sql-database-advisor.md) on the Query Performance Insight navigation blade.
+
+![The Recommendations tab](./media/sql-database-query-performance/ia.png)
 
 ## Review top CPU-consuming queries
 
@@ -66,9 +67,9 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
 
 1. Select or clear individual queries to include or exclude them from the chart by using check boxes.
 
-    The top line shows overall DTU percentage for the database. The bars show CPU percentage that the selected queries consumed during the selected interval. For example, if **Past week** is selected, each bar represents a single day.
+   The top line shows overall DTU percentage for the database. The bars show CPU percentage that the selected queries consumed during the selected interval. For example, if **Past week** is selected, each bar represents a single day.
 
-    ![Top queries](./media/sql-database-query-performance/top-queries.png)
+   ![Top queries](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    > The DTU line shown is aggregated to a maximum consumption value in one-hour periods. It's meant for a high-level comparison only with query execution statistics. In some cases, DTU utilization might seem too high compared to executed queries, but this might not be the case.
@@ -186,7 +187,7 @@ In some cases, a high execution count can lead to more network round trips. Roun
 
 For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the database server can slow performance. In general, keep round trips to a minimum.
 
-To identify frequently executed (“chatty”) queries:
+To identify frequently executed ("chatty") queries:
 
 1. Open the **Custom** tab in Query Performance Insight for the selected database.
 2. Change the metrics to **execution count**.
@@ -211,7 +212,7 @@ In some cases, due to the zoom level, it's possible that annotations close to ea
 
 Correlating queries and performance-tuning actions might help you to better understand your workload.
 
-## Optimize the Query Store configuration for Query Performance Insight
+## Optimize the Query Store configuration
 
 While using Query Performance Insight, you might see the following Query Store error messages:
 
@@ -254,7 +255,7 @@ We recommend setting all policies to **AUTO** and the cleaning policy to 30 days
 
 Increase the size of Query Store by connecting to a database through [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal and running the following query. (Replace `YourDB` with the database name.)
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
@@ -268,16 +269,6 @@ Applying these settings will eventually make Query Store collect telemetry for n
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## Summary
-
-Query Performance Insight helps you understand the impact of query workload and how it relates to the consumption of database resources. With this feature, you'll learn about the top-consuming queries on your database, and you'll find queries to optimize before they become a problem.
-
 ## Next steps
 
-* For database performance recommendations, select [Recommendations](sql-database-advisor.md) on the Query Performance Insight navigation blade.
-
-    ![The Recommendations tab](./media/sql-database-query-performance/ia.png)
-
-* Consider enabling [Automatic Tuning](sql-database-automatic-tuning.md) for common database performance problems.
-* Learn how [Intelligent Insights](sql-database-intelligent-insights.md) can help automatically troubleshoot database performance problems.
-* Consider using [Azure SQL Analytics]( ../azure-monitor/insights/azure-sql.md) for advanced performance monitoring of a large fleet of SQL databases, elastic pools, and Managed Instances with built-in intelligence.
+Consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring of a large fleet of single and pooled databases, elastic pools, managed instances and instance databases.

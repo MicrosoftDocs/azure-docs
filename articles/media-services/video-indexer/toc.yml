@@ -15,6 +15,8 @@
   items:
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
+  - name: Logic Apps connector
+    href: logic-apps-connector-tutorial.md
 - name: Samples
   items:
   - name: Video Indexer samples
@@ -111,3 +113,5 @@
     href: release-notes.md
   - name: User voice
     href: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - name: Blogs
+    href: https://azure.microsoft.com/blog/tag/video-indexer/

@@ -296,7 +296,7 @@ To give other people access to the storage resources:
 
 **How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
-SSL is not currently supported on storage accounts with custom domains.
+TLS/SSL is not currently supported on storage accounts with custom domains.
 But you can use non-HTTPS custom domains. For more information,
 see [Configure a custom domain name for your Blob storage endpoint](../blobs/storage-custom-domain-name.md).
 
@@ -312,7 +312,7 @@ Read-access geo-redundant storage is required to access redundant storage. Howev
 
 **For a replicated storage account (such as zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
--   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+-   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 -   If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
 
