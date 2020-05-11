@@ -32,7 +32,7 @@ The illustration shows how:
 
 Frame statistics provide some high-level information for the last frame, such as latency. The data provided in the `FrameStatistics` structure is measured on the client side, so the API is a synchronous call:
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -41,7 +41,18 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
+
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
 
 The retrieved `FrameStatistics` object holds the following members:
 
