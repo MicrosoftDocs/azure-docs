@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -28,18 +28,12 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.0.67` or higher by using the following command.
+2. Verify that the version of Azure CLI that have installed is `2.5.1` or higher by using the following command.
 
    ```azurecli
     az --version
    ```
-   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-3. Install the `storage` extension.
-
-   ```azurecli
-   az extension add -n storage
-   ```
+   If your version of Azure CLI is lower than `2.5.1`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Connect to the account
 
@@ -277,7 +271,7 @@ The following image shows the output after setting the ACL of a file.
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### Update directory and file permissions
+### Update an ACL
 
 Another way to set this permission is to use the `az storage fs access set` command. 
 
@@ -314,5 +308,5 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
+
 
