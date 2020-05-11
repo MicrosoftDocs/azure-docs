@@ -13,7 +13,7 @@ ms.date: 04/15/2020
 
 # Getting Started Tutorial with Azure Synapse Analytics
 
-We recommend this tutorial for anyone starting with Azure Synapse Analytics. s, beginners to experts, through all the necessary steps to understand basic but core principles.
+We recommend this tutorial for anyone starting with Azure Synapse Analytics. It guides, beginners to experts, through all the necessary steps to understand basic but core principles.
 
 ![Action cards](./media/get-started-synapse-analytics/action-cards.png)
 
