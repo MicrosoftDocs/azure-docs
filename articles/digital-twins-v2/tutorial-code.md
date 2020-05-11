@@ -52,7 +52,7 @@ Once in the project directory, create an empty .NET console app project. In the 
 dotnet new console
 ```
 
-This will create several files inside your directory, including one called *Program.cs*.
+This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
@@ -421,7 +421,7 @@ In your command window, run the program with `dotnet run`. You should see all th
 
 ## Complete code example
 
-At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program is listed below:
+At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
 
 ```csharp
 using System;
