@@ -76,6 +76,8 @@ landingContent:
         links:
           - text: Set up your environment
             url: how-to-configure-environment.md
+          - text: Interpret & explain models
+            url: how-to-machine-learning-interpretability.md
           - text: Deep learning vs ML
             url: concept-deep-learning-vs-machine-learning.md
           - text: Train with Scikit-learn
@@ -92,7 +94,7 @@ landingContent:
             url: concept-ml-pipelines.md                  
 
   # MLOps
-  - title: Deploy & manage models
+  - title: Deploy & manage models (MLOps)
     linkLists:
       - linkListType: how-to-guide
         links:
