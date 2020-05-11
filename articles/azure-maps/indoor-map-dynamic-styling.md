@@ -27,7 +27,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Implement dynamic styling
 
-Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `stateSetId`.
+Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
 
 ### Select features
 
