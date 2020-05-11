@@ -19,6 +19,10 @@ You can reduce your total Windows Virtual Desktop deployment cost by scaling you
 
 In this article, you'll learn about the scaling tool built with Azure Automation and Azure Logic Apps that will automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
+## Report issues
+
+Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issues with the scaling tool, you can report them bu opening a GitHub issue labeled "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+
 ## How the scaling tool works
 
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
@@ -253,6 +257,3 @@ Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resour
 
 ![An image of the output window for the scaling tool.](../media/tool-output.png)
 
-## Report issues
-
-If you encounter any issues with the scaling tool, you can report them at the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
