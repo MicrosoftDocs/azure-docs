@@ -98,7 +98,7 @@ You can use various tools to connect to Synapse SQL to query data.
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
 | Power BI | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
 | Azure Analysis Service | Yes | Yes |
-| Azure Data Studio | Yes | Yes, version 1.18 or higher. SQL scripts and SQL Notebooks are supported. |
+| Azure Data Studio | Yes | Yes, version 1.18.0 or higher. SQL scripts and SQL Notebooks are supported. |
 | SQL Server Management Studio | Yes | Yes, version 18.5 or higher |
 
 > [!NOTE]
