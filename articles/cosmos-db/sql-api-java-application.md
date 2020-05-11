@@ -245,7 +245,7 @@ To do this, you will need to convert your project to a maven project by completi
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Like Azure Cosmos databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
+5. Like Azure Cosmos databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "ID") rather than self-link:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -260,7 +260,7 @@ To do this, you will need to convert your project to a maven project by completi
                 return null;
             }
         }
-6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by id and then deserialize it to a POJO:
+6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by ID and then deserialize it to a POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {
