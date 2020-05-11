@@ -38,6 +38,16 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
+**Installation for Bug Bash 5/11** 
+
+For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
+
+Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
+
+```cmd/sh
+pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl
+```
+
 ## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in Python as the IoT Plug and Play device. The following instructions show you how to install and run the device:
@@ -48,13 +58,15 @@ In this quickstart, you use a sample environmental sensor that's written in Pyth
     git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
     ```
 
-1. Configure the _device connection string_:
+1. Configure the _device connection string_ environmental variable:
 
     ```cmd/sh
     set IOTHUB_DEVICE_CONNECTION_STRING=<YourIOTDeviceHubConnectionString>
     ```
 
-1. Run the sample with the following command:
+1. Navigate to sample folder `azure-iot-sdk-python\azure-iot-hub\samples`.
+
+1. Use the following command to run the sample:
 
     ```cmd/sh
     python iothub_digital_twin_manager_sample.py
@@ -74,9 +86,9 @@ digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
 ### Update a digital twin
 
 ```python
-  # Update digital twin
-    patch = []  # json-patch for digital twin
-    updated_digital_twin = iothub_digital_twin_manager.update_digital_twin(device_id, patch)
+# Update digital twin
+patch = []  # json-patch for digital twin
+updated_digital_twin = iothub_digital_twin_manager.update_digital_twin(device_id, patch)
 ```
 
 ### Invoke a command
