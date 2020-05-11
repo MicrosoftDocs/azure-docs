@@ -68,12 +68,12 @@ To perform the steps described in this article, you must have:
     > Wildcard domain names, e.g. `*.contoso.com` are supported in all tiers except the Consumption tier.
 
     > [!TIP]
-    > We recommend using Azure Key Vault for managing certificates and setting them to autorotate.
+    > We recommend using [Azure Key Vault for managing certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) and setting them to autorenew.
     > If you use Azure Key Vault to manage the custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a _secret_.
     >
     > To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. When using Azure portal all the necessary configuration steps will be completed automatically. When using command line tools or management API, these permissions must be granted manually. This is done in two steps. First, use Managed identities page on your API Management instance to make sure that Managed Identity is enabled and make a note of the principal id shown on that page. Second, give permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
     >
-    > If the certificate is set to autorotate, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
+    > If the certificate is set to autorenew, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
 
 1. Click Apply.
 

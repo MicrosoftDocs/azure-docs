@@ -137,7 +137,7 @@ The following table lists the properties for Azure Storage resource logs when th
 |**correlationId** | The ID that is used to correlate logs across resources. For example: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**location** | The location of storage account. For example: `North Europe`. |
 |**protocol**|The protocol that is used in the operation. For example: `HTTP`, `HTTPS`, `SMB`, or `NFS`|
-| **uri** | Uniform resource identifier that is requested. For example: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+| **uri** | Uniform resource identifier that is requested. For example: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### Fields that describe how the operation was authenticated
 
