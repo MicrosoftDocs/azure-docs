@@ -94,29 +94,28 @@ Next, you'll need to enable Azure Active Directory authentication. To enable thi
     via
     
     ```powershell
-    Select-AzSubscription -SubscriptionId \<subscription name\>
+    Select-AzSubscription -SubscriptionId <subscription name>
     ```
 
-11. Connect the SA with active directory via command below. Replace \<rg-name\>
-    and \<sa-name\> with values from section Setup storage account.
+11. Connect the SA with active directory via command below. Replace `<rg-name>`
+    and `<sa-name>` with values from section Setup storage account.
 
->[!IMPORTANT]
->the below command supports capability for adding new account to an organization unit via the switches -OrganizationalUnitName and -OrganizationalUnitDistinguishedName. For mode details, [visit](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable#12-domain-join-your-storage-account)*.*
+     >[!IMPORTANT]
+     >the below command supports capability for adding new account to an organization unit via the switches -OrganizationalUnitName and -OrganizationalUnitDistinguishedName. For mode details, [visit](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable#12-domain-join-your-storage-account)*.*
 
-```powershell
-Join-AzStorageAccountForAuth -ResourceGroupName "\<rg-name\>" \`
+     ```powershell
+     Join-AzStorageAccountForAuth -ResourceGroupName "<rg-name>" `
 
-\-Name "\<sa-name\>" -DomainAccountType "ComputerAccount" \`
+     -Name "<sa-name>" -DomainAccountType "ComputerAccount" `
 
-\-DomainAccountType "ComputerAccount"
-```
+     -DomainAccountType "ComputerAccount"
+     ```
 
-1.  Navigate to the Azure portal open the storage account that was created,
+12. Navigate to the Azure portal open the storage account that was created,
     select on **Configuration** and confirm **Azure Directory (AD)** is enabled
 
-![](media/a140f4cd5050bfdaf97e58a7af3a1065.png)
+     ![](media/a140f4cd5050bfdaf97e58a7af3a1065.png)
 
->   A screenshot of a cell phone Description automatically generated
 
 ## Assign Azure RBAC permission to storage account
 
@@ -229,7 +228,7 @@ In this section we cover the steps needed to configure a VM with FSLogix. These 
 
 5.  Configure profile container registry settings, more details [here](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    -  Navigate to **Computer\\HKEY_LOCAL_MACHINE\\SOFTWARE\\FSLogix**
+    -  Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
     -  Create key **Profiles**
 
@@ -255,7 +254,8 @@ When the session has been established and start menu is visible:
 
 4.  Confirm that a folder containing the user profile has been created
 
->[!NOTE]
->For troubleshooting FSLogix please follow the guide [here](/fslogix/fslogix-trouble-shooting-ht).
-
 ![A screenshot of a cell phone Description automatically generated](media/70bf3b78244f426a1e4091f2f3a69f9e.png)
+
+## Next steps
+
+To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
