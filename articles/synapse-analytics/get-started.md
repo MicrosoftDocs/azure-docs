@@ -13,7 +13,7 @@ ms.date: 04/15/2020
 
 # Getting Started Tutorial with Azure Synapse Analytics
 
-We recommend this tutorial for anyone starting with Azure Synapse Analytics. It guide, beginners to experts, through all the necessary steps to understand basic but core principles.
+We recommend this tutorial for anyone starting with Azure Synapse Analytics. s, beginners to experts, through all the necessary steps to understand basic but core principles.
 
 ![Action cards](./media/get-started-synapse-analytics/action-cards.png)
 
@@ -42,6 +42,26 @@ The workspace provisioning process will kick off; notifications will indicate th
 
 Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md)
 
+## Getting started Hub
+
+You can run some SQL Scripts using the New-York City cabs sample data loaded into a newly created SQL pool or using an existing SQL pool. Here is an overview of the Getting started Hub:
+1. From the Azure home page navigate to the Getting started hub clicking on the "?"
+![Action cards](./media/get-started-synapse-analytics/get-started-hub1.png)
+
+2. Click on "Query sample data" card
+![Action cards](./media/get-started-synapse-analytics/get-started-hub2.png)
+
+3. Select from the drop-down menu "+ New" if you want to create a New SQL pool. This operation will take a few minutes. While the SQL pool is being created you can click on the "?" and can discover the "guided tour". If you previously created a SQL pool you can select it from the drop-down menu for existing SQL pools and then select "Query data". In this case, you will be adding sample data to the selected SQL pool. Make sure that you did not previously load the sample data. This activity will take a few minutes.
+![Action cards](./media/get-started-synapse-analytics/get-started-hub3.png)
+
+4. Once the SQL pool is created or the sample data is loaded to your existing SQL pool, you can click on "Get started with sample scripts"
+![Action cards](./media/get-started-synapse-analytics/get-started-hub4.png)
+
+5. Two preloaded scripts will appear. Run SampleQueries and check the results in the table and the in the chart and then run the BringYourData to create the External Table.
+![Action cards](./media/get-started-synapse-analytics/get-started-hub5.png)
+
+6. You can now pause or delete the SQL pool.
+
 ## Create analytics pools
 
 Once the Synapse workspace is deployed, SQL pools and Apache Spark pools can be provisioned to use SQL or open-source analytics on your data. Here are the steps to provision them from the Azure portal:
@@ -64,6 +84,7 @@ Here are the steps to provision a SQL pool using the Azure portal:
 Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
 
 ### Provisioning an Apache Spark pool
+
 Here are the steps to provision an Apache Spark pool using the Azure portal:
 
 1. Navigate to the Azure portal.
@@ -87,9 +108,6 @@ Follow the steps in our quickstarts:
 
 - [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool.md)
 - [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool.md)
-
-<!--## Add users into the workspace--->
-<!--- Optional Saveen --->
 
 ## Adding an additional storage account
 
@@ -154,7 +172,8 @@ To copy data towards that storage account and container, follow the directions:
    12. Once the process to copy the data is over, you should see the data under the storage account **Contosolake** and the path **datasets/nyctaxismall**.
 
 ## Discover and Explore data
-After ingesting some data, it is possible to use the  **Data** pillar to discover, browse, and explore Synapse databases and external data stores, connected through linked services.
+
+After ingesting data, it is possible to use the  **Data** pillar to discover, browse, and explore Synapse databases and external data stores, connected through linked services.
 
    1. Go to **Data** to access the Orchestrate section
    2. Expand the **Storage accounts** and find the account named **Tutorial_Synapse** and expand it
@@ -197,6 +216,7 @@ After ingesting some data, it is possible to use the  **Data** pillar to discove
 <!--- Matthew --->
 
 ## Orchestrate using a pipeline
+
 After ingesting, exploring, analyzing, and serving your data, you can schedule these activities to automatically run using pipeline orchestration.
 
    1. Go to **Develop** and find the Spark notebook you used to analyze your data.
@@ -232,6 +252,7 @@ After ingesting, exploring, analyzing, and serving your data, you can schedule t
           Your pipeline will now run every week until your chosen end date.
 
 ## Monitor
+
 After setting up a pipeline that lets you ingest and analyze your data automatically, you can monitor the progress and history of your pipeline runs.
 
    1. Click **Monitor** and open **Pipeline runs**.
@@ -400,3 +421,7 @@ After setting up a pipeline that lets you ingest and analyze your data automatic
    2. You should see your tutorial pipeline's runs listed. If you see other more recent pipeline runs instead, you can **filter** the list by pipeline name to just see runs of your pipeline.
    3. Open **the most recent run of your pipeline** to see the details of when each activity ran within your pipeline. The **pipeline run details view** will open.
    4. To see details about each activity run in your pipeline, examine the **activity runs**, which are listed at the bottom of the view.
+
+## Next steps
+
+[Add users into the workspace]()
