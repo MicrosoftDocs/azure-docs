@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -67,10 +67,10 @@ Log Analytics charges are added to your Azure bill. You can see details of your 
 
 ## Viewing Log Analytics usage on your Azure bill 
 
-Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.operationalinsights/workspace for Log Analytics) will allow you to track your spend.
+Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. First, add a filter by "Resource type" (to microsoft.operationalinsights/workspace for Log Analytics and microsoft.operationalinsights/workspace for Log Analytics Clusters) will allow you to track your Log Analytics spend. Then for "Group by" select "Meter category" or "Meter".  Note that other services such as Azure Security Center and Azure Sentinel also bill their usage against Log Analytics workspace resources. To see the mapping to Service name, you can select the Table view instead of a chart. 
 
 More understanding of your usage can be gained by [downloading your usage from the Azure portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). 
-In the downloaded spreadsheet you can see usage per Azure resource (e.g. Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Insights and Analytics" (used by some of the legacy pricing tiers) and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains workspace". The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+In the downloaded spreadsheet you can see usage per Azure resource (e.g. Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Log Analytics", "Insights and Analytics" (used by some of the legacy pricing tiers) and "Azure Monitor" (used by Capacity Reservation pricing tiers), and then adding a filter on the "Instance ID" column which is "contains workspace" or "contains cluster" (the latter to include Log Analytics Cluster usage). The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 ## Changing pricing tier
 
@@ -104,7 +104,7 @@ More details of pricing tier limitations are available [here](https://docs.micro
 
 ## Change the data retention period
 
-The following steps describe how to configure how long log data is kept by in your workspace. Data retention can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier. 
+The following steps describe how to configure how long log data is kept by in your workspace. Data retention can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier.[Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. 
 
 ### Default retention
 
@@ -249,7 +249,7 @@ union withsource = tt *
 ```
 
 > [!TIP]
-> Use these `union withsource = tt *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
+> Use these `union *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
 
 ## Understanding ingested data volume
 
@@ -308,7 +308,7 @@ Usage
 
 ### Data volume by computer
 
-The `Usage` data type does not include information at the completer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
+The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 union withsource = tt * 
@@ -318,7 +318,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges.
+The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges. 
 
 To see the **count** of billable events ingested per computer, use 
 
@@ -329,6 +329,10 @@ union withsource = tt *
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
+
+> [!TIP]
+> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
+
 
 ### Data volume by Azure resource, resource group, or subscription
 
@@ -353,6 +357,9 @@ union withsource = tt *
 ```
 
 Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resource group. 
+
+> [!TIP]
+> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
 
 > [!WARNING]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
@@ -453,24 +460,34 @@ To see the number of distinct Automation nodes, use the query:
 
 The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Capacity Reservation** tier is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
 
-To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns.  This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day evaluates which pricing tier would have been optimal. To use the query, you need to specify whether the workspace is using Azure Security Center by setting `workspaceHasSecurityCenter` to `true` or `false`, and then (optionally) updating the Per Node and Per GB prices that your organizaiton receives. 
+To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns.  This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day evaluates which pricing tier would have been optimal. To use the query, you need to specify
+
+1. whether the workspace is using Azure Security Center by setting `workspaceHasSecurityCenter` to `true` or `false`, 
+2. update the prices if you have specific discounts, and
+3. specify the number of days to look back and analyze by setting `daysToEvaluate`. This is useful if the query is taking too long trying to look at 7 days of data. 
+
+Here is the pricing tier recommendation query:
 
 ```kusto
 // Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
-let PerGBPrice = 2.30; // Enter your price per GB 
+let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the query is taking too long)
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
+let EndDate = startofday(now());
 union withsource = tt * 
-| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join kind=leftouter (
     Heartbeat 
-    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where Computer != ""
     | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
     | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
@@ -478,8 +495,7 @@ union withsource = tt *
 ) on day
 | join (
     Usage 
-    | where TimeGenerated > ago(8d)
-    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where IsBillable == true
     | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
     | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
@@ -492,15 +508,18 @@ union withsource = tt *
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
              max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
-| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerNodeOveragePrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
 | project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
-| project day, Recommendation // Comment this line to see details
+//| project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
 
 This query is not an exact replication of how usage is calculated, but will work for providing pricing tier recommendations in most cases.  
+
+> [!NOTE]
+> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
 
 ## Create an alert when data collection is high
 

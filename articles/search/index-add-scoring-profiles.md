@@ -4,28 +4,23 @@ titleSuffix: Azure Cognitive Search
 description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
 
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 05/06/2020
 ---
 # Add scoring profiles to an Azure Cognitive Search index
 
 *Scoring* computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest.
 
  Azure Cognitive Search uses default scoring to compute an initial score, but you can customize the calculation through a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
+
+ The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## Scoring profile definitions
 
  A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters.  
 
