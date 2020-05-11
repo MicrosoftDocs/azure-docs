@@ -31,6 +31,8 @@ Change feed support is well-suited for scenarios that process data based on obje
   - Build solutions to backup, mirror, or replicate object state in your account for disaster management or compliance.
 
   - Build connected application pipelines that react to change events or schedule executions based on created or changed object.
+  
+Change feed is a prerequisite feature for [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Change feed provides a durable, ordered log model of the changes that occur to a blob. Changes are written and made available in your change feed log  within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to quickly react to changes that occur to a blob. 
@@ -50,7 +52,7 @@ Here's a few things to keep in mind when you enable the change feed.
 - Only GPv2 and Blob storage accounts can enable Change feed. Premium BlockBlobStorage accounts, and hierarchical namespace enabled accounts are not currently supported. GPv1 storage accounts are not supported but can be upgraded to GPv2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 > [!IMPORTANT]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. See the [conditions](#conditions) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article. You must register your subscription before you can enable change feed on your storage accounts.
+> The change feed is in public preview, and is available in the **West Central US**, **West US 2**, **France Central**, **France South**, **Canada Central**, and **Canada East** regions. See the [conditions](#conditions) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article. You must register your subscription before you can enable change feed on your storage accounts.
 
 ### [Portal](#tab/azure-portal)
 
@@ -305,8 +307,8 @@ az provider register --namespace 'Microsoft.Storage'
 ## Conditions and known issues (Preview)
 
 This section describes known issues and conditions in the current public preview of the change feed. 
-- For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the westcentralus or westus2 regions. 
-- The change feed captures only create, update, delete, and copy operations. Metadata updates are not currently captured in preview.
+- For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the West Central US, West US 2, France Central, France South, Canada Central, and Canada East regions. 
+- The change feed captures only create, update, delete, and copy operations. Blob property and metadata changes are also captured. However the access tier property is not currently captured. 
 - Change event records for any single change might appear more than once in your change feed.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs 
 - The `url` property of the log file is currently always empty.
