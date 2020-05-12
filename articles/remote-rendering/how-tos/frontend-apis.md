@@ -73,7 +73,7 @@ For more information about the conversion service, see [the model conversion RES
 
 #### Start asset conversion
 
-``` cs
+```cs
 private StartConversionAsync _pendingAsync = null;
 
 void StartAssetConversion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
@@ -97,9 +97,14 @@ void StartAssetConversion(AzureFrontend frontend, string modelName, string model
 }
 ```
 
+```cpp
+TODO
+```
+
+
 #### Get conversion status
 
-``` cs
+```cs
 private ConversionStatusAsync _pendingAsync = null
 void GetConversionStatus(AzureFrontend frontend, string assetId)
 {
@@ -121,6 +126,11 @@ void GetConversionStatus(AzureFrontend frontend, string assetId)
 }
 ```
 
+```cpp
+TODO
+```
+
+
 ### Rendering APIs
 
 See [the session management REST API](session-rest-api.md) for details about session management.
@@ -129,7 +139,7 @@ A rendering session can either be created dynamically on the service or an alrea
 
 #### Create rendering session
 
-``` cs
+```cs
 private CreateSessionAsync _pendingAsync = null;
 void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
@@ -152,11 +162,15 @@ void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSiz
 }
 ```
 
+```cpp
+TODO
+```
+
 #### Open an existing rendering session
 
 Opening an existing session is a synchronous call.
 
-``` cs
+```cs
 void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 {
     AzureSession session = frontend.OpenRenderingSession(sessionId);
@@ -164,9 +178,14 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 }
 ```
 
+```cpp
+TODO
+```
+
+
 #### Get current rendering sessions
 
-``` cs
+```cs
 private SessionPropertiesArrayAsync _pendingAsync = null;
 void GetCurrentRenderingSessions(AzureFrontend frontend)
 {
@@ -187,11 +206,15 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 }
 ```
 
+```cpp
+TODO
+```
+
 ### Session APIs
 
 #### Get rendering session properties
 
-``` cs
+```cs
 private SessionPropertiesAsync _pendingAsync = null;
 void GetRenderingSessionProperties(AzureSession session)
 {
@@ -212,9 +235,13 @@ void GetRenderingSessionProperties(AzureSession session)
 }
 ```
 
+```cpp
+TODO
+```
+
 #### Update rendering session
 
-``` cs
+```cs
 private SessionAsync _pendingAsync;
 void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 {
@@ -236,9 +263,13 @@ void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 }
 ```
 
+```cpp
+TODO
+```
+
 #### Stop rendering session
 
-``` cs
+```cs
 private SessionAsync _pendingAsync;
 void StopRenderingSession(AzureSession session)
 {
@@ -259,9 +290,13 @@ void StopRenderingSession(AzureSession session)
 }
 ```
 
+```cpp
+TODO
+```
+
 #### Connect to ARR inspector
 
-``` cs
+```cs
 private ArrInspectorAsync _pendingAsync = null;
 void ConnectToArrInspector(AzureSession session, string hostname)
 {
@@ -292,6 +327,10 @@ void ConnectToArrInspector(AzureSession session, string hostname)
             }
         };
 }
+```
+
+```cpp
+TODO
 ```
 
 ## Next steps

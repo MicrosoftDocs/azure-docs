@@ -77,7 +77,7 @@ You can [extend the lease time](../how-tos/session-rest-api.md#update-a-session)
 
 The code below shows a simple implementation of starting a session, waiting for the *ready* state, connecting, and then disconnecting and shutting down again.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
@@ -130,6 +130,11 @@ await session.StopAsync().AsTask();
 // shut down the remote rendering SDK
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
+
+```cpp
+TODO
+```
+
 
 Multiple `AzureFrontend` and `AzureSession` instances can be maintained, manipulated, and queried from code. But only a single device may connect to an `AzureSession` at a time.
 

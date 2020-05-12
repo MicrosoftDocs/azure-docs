@@ -30,12 +30,16 @@ The only other relevant part for Unity is accessing the [basic binding](#access)
 
 To select a graphics binding, take the following two steps: First, the graphics binding has to be statically initialized when the program is initialized:
 
-``` cs
+```cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
 managerInit.graphicsApi = GraphicsApiType.WmrD3D11;
 managerInit.connectionType = ConnectionType.General;
 managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
+```
+
+```cpp
+TODO
 ```
 
 The call above is necessary to initialize Azure Remote Rendering into the holographic APIs. This function must be called before any holographic API is called and before any other Remote Rendering APIs are accessed. Similarly, the corresponding de-init function `RemoteManagerStatic.ShutdownRemoteRendering();` should be called after no holographic APIs are being called anymore.
@@ -44,7 +48,7 @@ The call above is necessary to initialize Azure Remote Rendering into the hologr
 
 Once a client is set up, the basic graphics binding can be accessed with the `AzureSession.GraphicsBinding` getter. As an example, the last frame statistics can be retrieved like this:
 
-``` cs
+```cs
 AzureSession currentSesson = ...;
 if (currentSesson.GraphicsBinding)
 {
@@ -54,6 +58,10 @@ if (currentSesson.GraphicsBinding)
         ...
     }
 }
+```
+
+```cpp
+TODO
 ```
 
 ## Graphic APIs
@@ -69,7 +77,7 @@ There are two things that need to be done to use the WMR binding:
 
 #### Inform Remote Rendering of the used coordinate system
 
-``` cs
+```cs
 AzureSession currentSesson = ...;
 IntPtr ptr = ...; // native pointer to ISpatialCoordinateSystem
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
@@ -79,16 +87,25 @@ if (binding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 }
 ```
 
+```cpp
+TODO
+```
+
+
 Where the above `ptr` must be a pointer to a native `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` object that defines the world space coordinate system in which coordinates in the API are expressed in.
 
 #### Render remote image
 
 At the start of each frame the remote frame needs to be rendered into the back buffer. This is done by calling `BlitRemoteFrame`, which will fill both color and depth information into the currently bound render target. Thus it is important that this is done after binding the back buffer as a render target.
 
-``` cs
+```cs
 AzureSession currentSesson = ...;
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
 binding.BlitRemoteFrame();
+```
+
+```cpp
+TODO
 ```
 
 ### Simulation
@@ -101,7 +118,7 @@ The setup is a bit more involved and works as follows:
 Remote and local content needs to be rendered to an offscreen color / depth render target called 'proxy' using
 the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function. The proxy must match the resolution of the back buffer. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
 
-``` cs
+```cs
 AzureSession currentSesson = ...;
 IntPtr d3dDevice = ...; // native pointer to ID3D11Device
 IntPtr color = ...; // native pointer to ID3D11Texture2D
@@ -111,6 +128,10 @@ bool flipBlitRemoteFrameTextureVertically = false;
 bool flipReprojectTextureVertically = false;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
+```
+
+```cpp
+TODO
 ```
 
 The init function needs to be provided with pointers to the native d3d-device as well as to the color and depth texture of the proxy render target. Once initialized, `AzureSession.ConnectToRuntime` and `DisconnectFromRuntime` can be called multiple times but when switching to a different session, `GraphicsBindingSimD3d11.DeinitSimulation` needs to be called first on the old session before `GraphicsBindingSimD3d11.InitSimulation` can be called on another session.
@@ -124,7 +145,7 @@ If the returned proxy update `SimulationUpdate.frameId` is null, there is no rem
 1. The application should now bind the proxy render target and call `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`. This will fill the remote color and depth information into the proxy render target. Any local content can now be rendered onto the proxy using the proxy camera transform.
 1. Next, the back buffer needs to be bound as a render target and `GraphicsBindingSimD3d11.ReprojectProxy` called at which point the back buffer can be presented.
 
-``` cs
+```cs
 AzureSession currentSesson = ...;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 SimulationUpdate update = new SimulationUpdate();
@@ -148,6 +169,10 @@ else
     // Use current camera data to render local content
     ...
 }
+```
+
+```cpp
+TODO
 ```
 
 ## Next steps

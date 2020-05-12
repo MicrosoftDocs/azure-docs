@@ -29,7 +29,7 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 
 The following code shows an example for setting outline parameters via the API:
 
-``` cs
+```cs
 void SetOutlineParameters(AzureSession session)
 {
     OutlineSettings outlineSettings = session.Actions.OutlineSettings;
@@ -37,6 +37,10 @@ void SetOutlineParameters(AzureSession session)
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
 }
+```
+
+```cpp
+TODO
 ```
 
 ## Performance

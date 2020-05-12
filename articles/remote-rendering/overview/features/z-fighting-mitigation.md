@@ -21,7 +21,7 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 The following code enables z-fighting mitigation:
 
-``` cs
+```cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
@@ -33,6 +33,11 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
     settings.Highlighting = highlight;
 }
 ```
+
+```cpp
+TODO
+```
+
 
 > [!NOTE]
 > Z-fighting mitigation is a global setting that affects all rendered meshes.

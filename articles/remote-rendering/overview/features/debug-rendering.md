@@ -21,7 +21,7 @@ The debug rendering API provides a range of global options to alter server-side 
 
 The following code enables these debugging effects:
 
-``` cs
+```cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -35,6 +35,10 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
 }
+```
+
+```cpp
+TODO
 ```
 
 ![Debug rendering](./media/debug-rendering.png)

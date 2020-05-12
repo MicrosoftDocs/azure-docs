@@ -19,7 +19,7 @@ It's possible to compute the bounds of an entire object hierarchy this way, but 
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
-``` cs
+```cs
 private BoundsQueryAsync _boundsQuery = null;
 
 public void GetBounds(Entity entity)
@@ -36,6 +36,11 @@ public void GetBounds(Entity entity)
     };
 }
 ```
+
+```cpp
+TODO
+```
+
 
 ## Next steps
 

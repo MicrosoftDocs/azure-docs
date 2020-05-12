@@ -34,7 +34,7 @@ Similar to loading models, there are two variants of addressing a texture asset 
 
 The following sample code shows how to load a texture via its SAS URI (or built-in texture) - note that only the loading function/parameter differs for the other case:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
@@ -54,6 +54,11 @@ void LoadMyTexture(AzureSession session, string textureUri)
         };
 }
 ```
+
+```cpp
+TODO
+```
+
 
 Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 

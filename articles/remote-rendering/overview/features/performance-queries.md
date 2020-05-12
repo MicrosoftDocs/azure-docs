@@ -81,7 +81,7 @@ None of the values above gives clear indication of pure network latency (the red
 
 *Performance assessment queries* provide more in-depth information about the CPU and GPU workload on the server. Since the data is requested from the server, querying a performance snapshot follows the usual async pattern:
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -96,6 +96,10 @@ void QueryPerformanceAssessment(AzureSession session)
         _assessmentQuery = null;
     };
 }
+```
+
+```cpp
+TODO
 ```
 
 Contrary to the `FrameStatistics` object, the `PerformanceAssessment` object contains server-side information:
@@ -118,7 +122,7 @@ This assessment metric provides a rough indication of the server's health, but i
 
 The class `ARRServiceStats` wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()
@@ -142,6 +146,10 @@ void Update()
         InfoLabel.text = _stats.GetStatsString();
     }
 }
+```
+
+```cpp
+TODO
 ```
 
 The code above populates the text label with the following text:
