@@ -4,7 +4,7 @@ description: In part two of this three-part Azure SQL Edge tutorial for predicti
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.topic: conceptual
+ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
