@@ -53,8 +53,8 @@ This error can be caused by any of the following conditions:
 1. Rebuild the VM.
 1. Reconfigure the SAN Policy.
 
-   > [!NOTE]
-   > When encountering this error, the Guest OS isn't operational. You will be troubleshooting in offline mode to resolve the issue.
+> [!NOTE]
+> When encountering this error, the Guest OS isn't operational. You will be troubleshooting in offline mode to resolve the issue.
 
 ### Create and Access a Repair VM
 
