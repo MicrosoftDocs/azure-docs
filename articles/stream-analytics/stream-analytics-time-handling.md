@@ -47,9 +47,9 @@ It's important to use a timestamp in the payload when temporal logic is involved
 
 When you use application time, the time progression is based on the incoming events. It's difficult for the stream processing system to know if there are no events, or if events are delayed. For this reason, Azure Stream Analytics generates heuristic watermarks in the following ways for each input partition:
 
-1. When there's any incoming event, the watermark is the largest event time Stream Analytics has seen so far minus the out-of-order tolerance window size.
+* When there's any incoming event, the watermark is the largest event time Stream Analytics has seen so far minus the out-of-order tolerance window size.
 
-2. When there's no incoming event, the watermark is the current estimated arrival time minus the late arrival tolerance window. The estimated arrival time is the time that has elapsed from the last time an input event was seen plus that input event's arrival time.
+* When there's no incoming event, the watermark is the current estimated arrival time minus the late arrival tolerance window. The estimated arrival time is the time that has elapsed from the last time an input event was seen plus that input event's arrival time.
 
    The arrival time can only be estimated because the real arrival time is generated on the input event broker, such as Event Hubs, nor on the Azure Stream Analytics VM processing the events.
 
@@ -85,7 +85,7 @@ Instead of using a watermark that is global to all events in an input partition,
 
 Substreams are a unique solution provided by Azure Stream Analytics, and are not offered by other streaming data processing systems.
 
-When you use substreams, Stream Analytics applies the late arrival tolerance window to incoming events. The late arrival tolerance decides the maximum amount by which different substreams can be apart from eachother. For example, if Device 1 is at Timestamp 1, and Device 2 is at Timestamp 2, the at most late arrival tolerace is  Timestamp 2 minus Timestamp 1. The default setting is 5 seconds and is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes and make adjustments according to their device clock skew pattern.
+When you use substreams, Stream Analytics applies the late arrival tolerance window to incoming events. The late arrival tolerance decides the maximum amount by which different substreams can be apart from each other. For example, if Device 1 is at Timestamp 1, and Device 2 is at Timestamp 2, the at most late arrival tolerance is  Timestamp 2 minus Timestamp 1. The default setting is 5 seconds and is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes and make adjustments according to their device clock skew pattern.
 
 ## Early arriving events
 
@@ -93,7 +93,7 @@ You may have noticed another concept called early arrival window that looks like
 
 Because Azure Stream Analytics guarantees complete results, you can only specify **job start time** as the first output time of the job, not the input time. The job start time is required so that the complete window is processed, not just from the middle of the window.
 
-Stream Analytics derives the start time from the query specification. However, because the input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward: starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen as having an event time 5 minutes ealier than the arrival time. The [early input events metric](stream-analytics-monitoring.md) is incrimented when the events are dropped.
+Stream Analytics derives the start time from the query specification. However, because the input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward: starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen as having an event time 5 minutes earlier than the arrival time. The [early input events metric](stream-analytics-monitoring.md) is incremented when the events are dropped.
 
 This concept is used to ensure the processing is repeatable no matter where you start to output from. Without such a mechanism, it would not be possible to guarantee repeatability, as many other streaming systems claim they do.
 
