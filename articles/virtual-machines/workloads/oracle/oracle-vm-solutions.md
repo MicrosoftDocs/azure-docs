@@ -102,7 +102,7 @@ According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/e
 
 ## Oracle WebLogic Server virtual machine offers
 
-Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of a collection of Azure Application offers.  These offers are described in the article [Oracle WebLogic Server Azure Applications](oracle-weblogic).
+Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of a collection of Azure Application offers.  These offers are described in the article [Oracle WebLogic Server Azure Applications](oracle-weblogic.md).
 
 ### Oracle WebLogic Server virtual machine images
 
