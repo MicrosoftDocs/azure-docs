@@ -39,7 +39,7 @@ Once throttling is detected, SQL on-demand has built-in handling of this scenari
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV files with the same data. SQL on-demand will need less time and storage requests to read it.
+- Convert CSV and JSON to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV or JSON files with the same data. SQL on-demand will need less time and storage requests to read it.
 - If a query targets a single large file, you'll benefit from splitting it into multiple smaller files.
 - Try keeping your CSV file size below 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
@@ -113,7 +113,14 @@ For more information, check [filename](develop-storage-files-overview.md#filenam
 > [!TIP]
 > Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
 
+> [!NOTE]
+> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each table created in Synapse Spark.
+
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
+
+## Use PARSER_VERSION 2.0 for querying CSV files
+
+You can use performance optimized parser when querying CSV files. Check [PARSER_VERSION](develop-openrowset.md) for details.
 
 ## Use CETAS to enhance query performance and joins
 
@@ -122,6 +129,12 @@ If your stored data isn't partitioned, consider partitioning it so you can use t
 You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. Next, you can join to this single external table instead of repeating common joins in multiple queries.
 
 As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
+
+## AAD pass-through performance
+
+SQL on-demand allows you to access files in storage using AAD pass-through or SAS credential. You might experience slower performance with AAD pass-through comparing to SAS. 
+
+If you need better performance, try SAS credentials to access storage until AAD pass-through performance is improved.
 
 ## Next steps
 

@@ -18,6 +18,8 @@
     href: quickstart-create-workspace.md
   - name: Use Azure Synapse Studio 
     href: quickstart-synapse-studio.md
+  - name: Link a Power BI workspace
+    href: quickstart-power-bi.md
   - name: Create pools
     items:
     - name: Create Apache Spark notebook using web tools
@@ -194,6 +196,8 @@
         href: ./spark/apache-spark-what-is-delta-lake.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md
+      - name: Apache Spark Auto Scale behavior
+        href: ./spark/apache-spark-autoscale.md
     - name: Development
       items:
       - name: Azure Synapse studio notebooks
