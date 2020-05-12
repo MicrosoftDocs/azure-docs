@@ -46,7 +46,7 @@ To perform a key transfer, the customer performs following steps:
 
 **Step 2:** Retrieves the public key of the KEK 
 
-**Step 3:** Imports the KEK into the target HSM and Exports the Target Key protected by the KEK
+**Step 3:** Using HSM vendor provided BYOK tool - Imports the KEK into the target HSM and exports the Target Key protected by the KEK
 
 **Step 4:** Imports the protected Target Key to Azure Key Vault
 
