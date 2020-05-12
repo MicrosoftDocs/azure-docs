@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/11/2020
 ms.author: victorh
 ---
 
@@ -124,7 +124,7 @@ Azure Firewall doesn't SNAT when the destination IP address is a private IP rang
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is supported. For more information, see [Azure Firewall forced tunneling (preview)](forced-tunneling.md). 
+Forced tunneling is supported. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md). 
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
