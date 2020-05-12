@@ -15,7 +15,7 @@ ms.reviewer: jrasnick, carlrab
 
 A SQL on-demand query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
 - **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to to access storage.
-- **SQL service level** - User should have `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
+- **SQL service level** - User should have `SELECT` permission to read data from [external table](develop-tables-external-tables.md) or `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
 
@@ -23,9 +23,9 @@ This article describes the types of credentials you can use and how credential l
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
+- [User Identity](#user-identity)
 - [Shared access signature](#shared-access-signature)
 - [Managed Identity](#managed-identity)
-- [User Identity](#user-identity)
 
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
@@ -34,9 +34,9 @@ In the table below you can find the available authorization types:
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     |
 | ------------------------------------- | ------------- | -----------    |
+| [User Identity](#user-identity)       | Not supported | Supported      |
 | [SAS](#shared-access-signature)       | Supported     | Supported      |
 | [Managed Identity](#managed-identity) | Not supported | Supported      |
-| [User Identity](#user-identity)       | Not supported | Supported      |
 
 ### Shared access signature
 
@@ -144,7 +144,7 @@ You can use the following combinations of authorization and Azure Storage types:
 
 ### Grant permissions to use credential
 
-To use the credential, a user must have REFERENCES permission on a specific credential. To grant a REFERENCES permission ON a storage_credential for a specific_user, execute:
+To use the credential, a user must have `REFERENCES` permission on a specific credential. To grant a `REFERENCES` permission ON a storage_credential for a specific_user, execute:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
@@ -160,11 +160,11 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 
 Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
 - Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
-- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from external table that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
 **Server-scoped credential with Shared Access Signature for Blob Storage**
 
-The following script creates a server-level credential that can be used to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -177,7 +177,7 @@ GO
 
 **Server-scoped credential that allows access to public storage**
 
-The following script creates a server-level credential that can be used to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
 You would need to have  Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -200,7 +200,7 @@ GO
 
 **Database-scoped credential with Azure AD Identity**
 
-The following script creates a credential that is used by external tables and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
+The following script creates a database-scoped credential that is used by [external table](develop-tables-external-tables.md) and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
@@ -210,7 +210,7 @@ GO
 
 **Database-scoped credential with Managed Identity**
 
-The following script creates a credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
+The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
