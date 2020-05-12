@@ -47,7 +47,8 @@ Webhooks include a URL and a payload formatted in JSON that the data sent to the
 | *Search Interval* |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
 | *Search Interval StartTime* |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
 | *SearchQuery* |#searchquery |Log search query used by the alert rule. |
-| *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records, if "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
+| *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
+| *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
 | *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement](alerts-unified-log.md#metric-measurement-alert-rules) or [Number of results](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
 | *Application ID* |#applicationid |ID of your Application Insights app. |
@@ -86,50 +87,66 @@ The following sample payload is for a standard webhook action *without a custom 
 
 ```json
 {
-	"SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-	"AlertRuleName":"AcmeRule",
-    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToSearchResultsAPI": "https://api.int.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "LinkToFilteredSearchResultsAPI": "https://api.int.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "Description": "log alert rule",
-    "Severity": "Warning",
-    "AffectedConfigurationItems": [
-      "INC-Gen2Alert"
-    ],
-    "Dimensions": [
-                    {
-                      "name": "Computer",
-                      "value": "INC-Gen2Alert"
-                    }
-                  ],
-	"SearchResult":
-        {
-		"tables":[
-                    {"name":"PrimaryResult","columns":
-                        [
-				        {"name":"$table","type":"string"},
-					    {"name":"Computer","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"}
-                        ],
-					"rows":
-                        [
-						    ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
-                        ]
-                    }
-                ]
-        },
-	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-    "AlertType": "Metric measurement"
- }
+	"SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+	"AlertRuleName": "AcmeRule",
+	"SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+	"SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+	"SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+	"AlertThresholdOperator": "Greater Than",
+	"AlertThresholdValue": 0,
+	"ResultCount": 2,
+	"SearchIntervalInSeconds": 3600,
+	"LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+	"LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+	"LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+	"LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+	"Description": "log alert rule",
+	"Severity": "Warning",
+	"AffectedConfigurationItems": [
+		"INC-Gen2Alert"
+	],
+	"Dimensions": [
+		{
+			"name": "Computer",
+			"value": "INC-Gen2Alert"
+		}
+	],
+	"SearchResult": {
+		"tables": [
+			{
+				"name": "PrimaryResult",
+				"columns": [
+					{
+						"name": "$table",
+						"type": "string"
+					},
+					{
+						"name": "Computer",
+						"type": "string"
+					},
+					{
+						"name": "TimeGenerated",
+						"type": "datetime"
+					}
+				],
+				"rows": [
+					[
+						"Fabrikam",
+						"33446677a",
+						"2018-02-02T15:03:12.18Z"
+					],
+					[
+						"Contoso",
+						"33445566b",
+						"2018-02-02T15:16:53.932Z"
+					]
+				]
+			}
+		]
+	},
+	"WorkspaceId": "12345a-1234b-123c-123d-12345678e",
+	"AlertType": "Metric measurement"
+}
  ```
 
 > [!NOTE]
@@ -141,49 +158,65 @@ The following sample payload is for a standard webhook *without a custom JSON op
     
 ```json
 {
-    "schemaId":"Microsoft.Insights/LogAlert","data":
-    { 
-	"SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-	"AlertRuleName":"AcmeRule",
-    "SearchQuery":"requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-    "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-    "Description": null,
-    "Severity": "3",
-    "Dimensions": [
-                    {
-                      "name": "IP",
-                      "value": "1.1.1.1"
-                    }
-                  ],
-	"SearchResult":
-        {
-		"tables":[
-                    {"name":"PrimaryResult","columns":
-                        [
-				        {"name":"$table","type":"string"},
-					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"}
-                        ],
-					"rows":
-                        [
-						    ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
-                        ]
-                    }
-                ]
-        },
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
-    "AlertType": "Metric measurement"
-    }
+	"schemaId": "Microsoft.Insights/LogAlert",
+	"data": {
+		"SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+		"AlertRuleName": "AcmeRule",
+		"SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+		"SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+		"SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+		"AlertThresholdOperator": "Greater Than",
+		"AlertThresholdValue": 0,
+		"ResultCount": 2,
+		"SearchIntervalInSeconds": 3600,
+		"LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+		"LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+		"LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+		"LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+		"Description": null,
+		"Severity": "3",
+		"Dimensions": [
+			{
+				"name": "IP",
+				"value": "1.1.1.1"
+			}
+		],
+		"SearchResult": {
+			"tables": [
+				{
+					"name": "PrimaryResult",
+					"columns": [
+						{
+							"name": "$table",
+							"type": "string"
+						},
+						{
+							"name": "Id",
+							"type": "string"
+						},
+						{
+							"name": "TimeGenerated",
+							"type": "datetime"
+						}
+					],
+					"rows": [
+						[
+							"Fabrikam",
+							"33446677a",
+							"2018-02-02T15:03:12.18Z"
+						],
+						[
+							"Contoso",
+							"33445566b",
+							"2018-02-02T15:16:53.932Z"
+						]
+					]
+				}
+			]
+		},
+		"ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+		"AlertType": "Metric measurement"
+	}
 }
 ```
 
