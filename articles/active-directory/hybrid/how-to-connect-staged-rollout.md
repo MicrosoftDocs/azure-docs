@@ -55,9 +55,7 @@ The following scenarios are supported for staged rollout. The feature works only
 - Users who are provisioned to Azure AD by using Azure AD Connect. It does not apply to cloud-only users.
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
-
-> [!IMPORTANT]
-> A recent change in march has limited the group size to 50,000 users.
+- Group size is currently limited to 50,000 users.
 
 ## Unsupported scenarios
 
