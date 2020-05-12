@@ -18,7 +18,7 @@ ms.author: ambapat
 
 ## Scenario
 
-A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure into the HSM backing Azure Key Vault. The process of importing a key generated outside Key Vault is generally referred to as Bring Your Own Key (BYOK).
+A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure, into the HSM backing Azure Key Vault. The process of importing a key generated outside Key Vault is generally referred to as Bring Your Own Key (BYOK).
 
 The following are the requirements:
 1. The key to be transferred never exists outside an HSM in plain text form.
