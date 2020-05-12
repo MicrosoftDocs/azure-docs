@@ -14,7 +14,7 @@ ms.reviewer: jrasnick, carlrab
 # Control storage account access for SQL on-demand (preview)
 
 A SQL on-demand query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
-- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to to access storage.
+- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to access storage.
 - **SQL service level** - User should have `SELECT` permission to read data from [external table](develop-tables-external-tables.md) or `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
@@ -23,22 +23,14 @@ This article describes the types of credentials you can use and how credential l
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
-- [User Identity](#user-identity)
-- [Shared access signature](#shared-access-signature)
-- [Managed Identity](#managed-identity)
+- [User Identity](?tabs=user-identity)
+- [Shared access signature](?tabs=shared-access-signature)
+- [Managed Identity](?tabs=managed-identity)
 
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
 
-In the table below you can find the available authorization types:
-
-| Authorization type                    | *SQL user*    | *Azure AD user*     |
-| ------------------------------------- | ------------- | -----------    |
-| [User Identity](#user-identity)       | Not supported | Supported      |
-| [SAS](#shared-access-signature)       | Supported     | Supported      |
-| [Managed Identity](#managed-identity) | Not supported | Supported      |
-
-### Shared access signature
+### [Shared access signature](#tab/shared-access-signature)
 
 **Shared access signature (SAS)** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
 over the type of access you grant to clients who have an SAS, including validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
@@ -50,7 +42,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-### User Identity
+### [User Identity](#tab/user-identity)
 
 **User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
@@ -94,11 +86,37 @@ DROP CREDENTIAL [UserIdentity];
 
 If you want to re-enable it again, refer to the [force Azure AD pass-through](#force-azure-ad-pass-through) section.
 
-### Managed Identity
+### [Managed Identity](#tab/managed-identity)
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
+
+### [Anonymous access](#tab/public-access)
+
+You can access publicly available files placed on Azure storage accounts that allow anonymous access. 
+
+---
+
+### Supported authorization types for databases users
+
+In the table below you can find the available authorization types:
+
+| Authorization type                    | *SQL user*    | *Azure AD user*     |
+| ------------------------------------- | ------------- | -----------    |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+
+### Supported storages and authorization types
+
+You can use the following combinations of authorization and Azure Storage types:
+
+|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| ------------------- | ------------   | --------------   | -----------   |
+| *SAS*               | Supported      | Not  supported   | Supported     |
+| *Managed  Identity* | Supported      | Supported        | Supported     |
+| *User  Identity*    | Supported      | Supported        | Supported     |
 
 ## Credentials
 
@@ -121,7 +139,6 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-
 > [!NOTE]
 > There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through).
 
@@ -130,17 +147,6 @@ Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
-
-### Supported storages and authorization types
-
-You can use the following combinations of authorization and Azure Storage types:
-
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
-| ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Supported      | Not  supported   | Supported     |
-| *Managed  Identity* | Supported      | Supported        | Supported     |
-| *User  Identity*    | Supported      | Supported        | Supported     |
-
 
 ### Grant permissions to use credential
 
@@ -156,13 +162,11 @@ To ensure a smooth Azure AD pass-through experience, all users will, by default,
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ```
 
-### Examples
+## Server-scoped credential
 
-Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
-- Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
-- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
 
-**Server-scoped credential with Shared Access Signature for Blob Storage**
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
 
@@ -175,7 +179,25 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-**Server-scoped credential that allows access to public storage**
+### [User Identity](#tab/user-identity)
+
+The following script creates a server-level credential that enables user to impersonate using his Azure AD identity.
+
+```sql
+CREATE CREDENTIAL [UserIdentity]
+WITH IDENTITY = 'User Identity';
+```
+
+### [Managed Identity](#tab/managed-identity)
+
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace managed identity.
+
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='Managed Identity'
+```
+
+### [Public access](#tab/public-access)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -187,8 +209,14 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = '';
 GO
 ```
+---
 
-**Database-scoped credential with SAS token**
+## Database-scoped credential
+
+Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+
+
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
@@ -198,7 +226,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-**Database-scoped credential with Azure AD Identity**
+### [Azure AD Identity](#tab/user-identity)
 
 The following script creates a database-scoped credential that is used by [external table](develop-tables-external-tables.md) and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
@@ -208,7 +236,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-**Database-scoped credential with Managed Identity**
+### [Managed Identity](#tab/managed-identity)
 
 The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
@@ -218,7 +246,65 @@ WITH IDENTITY = 'Managed Identity';
 GO
 ```
 
-The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+
+### [Public access](#tab/public-access)
+
+Database scoped credential is not required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+
+---
+
+## Examples
+
+**External table that access publicly available data source**
+
+Use the following script to create a table that access publicly available data source.
+
+```sql
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+CREATE EXTERNAL DATA SOURCE publicData
+WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
+GO
+
+CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/userdata.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+```
+
+**External table that access data source using credential**
+
+Modify the following script to create an external table that access Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
+
+```sql
+-- Create master key in databases with some password (one-off per database)
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
+GO
+
+-- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+
+CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+
+-- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
+
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+-- Uncomment one of these options depending on authentication method that you want to use to access data source:
+--,CREDENTIAL = MyIdentity 
+--,CREDENTIAL = WorkspaceIdentity 
+--,CREDENTIAL = SasCredential 
+)
+
+CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+
+```
 
 ## Next steps
 
