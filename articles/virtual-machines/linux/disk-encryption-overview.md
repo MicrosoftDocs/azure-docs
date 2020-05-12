@@ -100,8 +100,17 @@ Make sure the /etc/fstab settings are configured properly for mounting. To confi
 - Before starting encryption, be sure to stop all services and processes that could be writing to mounted data disks and disable them, so that they do not restart automatically after a reboot. These could keep files open on these partitions, preventing the encryption procedure to remount them, causing failure of the encryption. 
 - After reboot, it will take time for the Azure Disk Encryption process to mount the newly encrypted disks. They won't be immediately available after a reboot. The process needs time to start, unlock, and then mount the encrypted drives before being available for other processes to access. This process may take more than a minute after reboot depending on the system characteristics.
 
-An example of commands that can be used to mount the data disks and create the necessary /etc/fstab entries can be found in the [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) (lines 244-248) and the [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+An example of the commands that can be used to mount the data disks and create the necessary /etc/fstab entries can be found in the [Azure Disk Encryption validation shell  script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L245-L251), lines 245-251:
 
+```bash
+UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
+UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+mkdir /data0
+mkdir /data1
+echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+mount -a
+```
 ## Networking requirements
 
 To enable the Azure Disk Encryption feature, the Linux VMs must meet the following network endpoint configuration requirements:
