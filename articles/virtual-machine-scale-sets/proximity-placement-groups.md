@@ -1,13 +1,13 @@
 ---
 title: Proximity placement groups preview for virtual machine scale sets
 description: Learn about creating and using proximity placement groups for Windows virtual machine scale sets in Azure. 
-author: ju-shim
-ms.author: jushiman
+author: cynthn
+ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 07/01/2019
-ms.reviewer: mimckitt
+ms.reviewer: zivr
 ms.custom: mimckitt
 
 ---
