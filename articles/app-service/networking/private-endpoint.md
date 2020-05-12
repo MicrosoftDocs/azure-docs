@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -24,7 +24,7 @@ Using Private Endpoint for your Web App enables you to:
 - Secure your Web App by configuring the Private Endpoint, eliminating public exposure.
 - Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering.
 
-If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet or a globally peered VNet, Private Endpoint is the solution.  
+If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet, or a globally peered VNet, Private Endpoint is the solution.  
 
 For more information, see [Service Endpoints][serviceendpoint].
 
@@ -59,13 +59,21 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This i
 ## DNS
 
 As this feature is in preview, we don't change the DNS entry during the preview. You need to manage the DNS entry in your private DNS server or Azure DNS private zone yourself.
-If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. See [custom DNS validation][dnsvalidation] for more information.
+If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. For more information, see [custom DNS validation][dnsvalidation].
+
+If you need to use the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you need to create two records in your Azure DNS private zone or your custom DNS server. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## Pricing
 
 For pricing details, see [Azure Private Link pricing][pricing].
 
 ## Limitations
+
+When you use Azure Function in Elastic Premium Plan with Private Endpoint, you cannot run or execute the function in Azure Web portal. You must have direct network access in order to run your app or you will receive an HTTP 403 error. 
+
+During the preview only the production slot is exposed behind the Private Endpoint, other slots are reachable by Public Endpoint only.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
