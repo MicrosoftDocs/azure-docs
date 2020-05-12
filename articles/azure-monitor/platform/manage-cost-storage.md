@@ -372,7 +372,7 @@ Changing `subscriptionId` to `resourceGroup` will show the billable ingested dat
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
 + **Workspace-based Application Insights** resources
-  - learn more [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources)
+  - learn more [here](https://docs.microsoft.com/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources)
 + **Security** solution
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Log Management** solution
