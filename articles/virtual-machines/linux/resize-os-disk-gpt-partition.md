@@ -183,7 +183,7 @@ When the VM has restarted, perform the following steps:
 
       ```#resize2fs /dev/sda4```
 
-   1. Verify the increased file system size for **df -Th**, using the following command:
+   1. Verify the increased file system size for **df -Th**, by using the following command:
 
       `#df -Th`
 
@@ -257,7 +257,7 @@ When the VM has restarted, perform the following steps:
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. Use the following command to resize the *physical volume (PV)*:
+   1. Use the following command to resize the physical volume (PV):
 
       `#pvresize /dev/sda4`
 
@@ -295,7 +295,7 @@ When the VM has restarted, perform the following steps:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Verify whether **/dev/mapper/rootvg-rootlv** has increased the file system size by using the following command:
+   1. Verify whether **/dev/mapper/rootvg-rootlv** has increased in file system size by using the following command:
 
       `#df -Th /`
 
