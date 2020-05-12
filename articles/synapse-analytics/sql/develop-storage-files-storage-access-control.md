@@ -19,7 +19,7 @@ A SQL on-demand query reads files directly from Azure Storage. Permissions to ac
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
 
-## Supported storage authorization types
+## Authorization types
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
@@ -100,6 +100,10 @@ If you want to re-enable it again, refer to the [force Azure AD pass-through](#f
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
 
+### [Anonymous access](#tab/public-access)
+
+You can access publicly available files placed on Azure storage accounts that allow anonymous access. 
+
 ---
 
 ## Credentials
@@ -179,7 +183,25 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### [Public access](#tab/user-identity)
+### [User Identity](#tab/user-identity)
+
+The following script creates a server-level credential that enables user to impersonate using his Azure AD identity.
+
+```sql
+CREATE CREDENTIAL [UserIdentity]
+WITH IDENTITY = 'User Identity';
+```
+
+### [Managed Identity](#tab/managed-identity)
+
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace managed identity.
+
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='Managed Identity'
+```
+
+### [Public access](#tab/public-access)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -191,6 +213,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = '';
 GO
 ```
+
 ---
 
 ## Database-scoped credential
@@ -226,6 +249,10 @@ GO
 ```
 
 The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+
+### [Public access](#tab/public-access)
+
+Database scoped crednetial is not required to allow access to publicly available files.
 
 ---
 
