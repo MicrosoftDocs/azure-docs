@@ -51891,7 +51891,7 @@
     },
     {
       "source_path": "articles/terraform/terraform-create-complete-vm.md",
-      "redirect_url": "/azure/developer/terraform/create-linux-virtual machine-with-infrastructure",
+      "redirect_url": "/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure",
       "redirect_document_id": false
     },
     {
