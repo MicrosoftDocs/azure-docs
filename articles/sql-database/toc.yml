@@ -775,7 +775,7 @@
         href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
       - name: Database mail
         href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
-    - Security:
+    - name: Security
       items: 
       - name: Secure public endpoints
         href: sql-database-managed-instance-public-endpoint-securely.md
