@@ -20,11 +20,9 @@ ms.custom: contperfq4
 
 This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA**.
-
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-## Settings
+The following settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |

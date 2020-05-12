@@ -36,7 +36,7 @@ When you use app passwords, the following considerations apply:
 
 * There's a limit of 40 app passwords per user.
 * Applications that cache passwords and use them in on-premises scenarios can fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
-* After Azure Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Howevever, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
+* After Azure Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. However, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
     * To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
 
 >[!WARNING]
@@ -94,4 +94,4 @@ Users can also create app passwords after registration. For more information and
 
 ## Next steps
 
-For more information on how to enable allow users to quickly register for Azure Multi-Factor Authentication, see [Combined security information registration overview](concept-registration-mfa-sspr-combined.md).
+For more information on how to allow users to quickly register for Azure Multi-Factor Authentication, see [Combined security information registration overview](concept-registration-mfa-sspr-combined.md).
