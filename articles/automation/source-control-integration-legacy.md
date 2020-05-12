@@ -96,7 +96,7 @@ Runbook check in allows you to push the changes you have made to a runbook in Az
    > [!NOTE]
    > Source control runbooks are special Automation runbooks that you cannot view or edit. While they do not show up on your runbook list, you see sync jobs showing in your jobs list.
 
-5. The name of the modified runbook is sent as an input parameter for the checked in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) by expanding runbook on the Repository Synchronization page.  
+5. The name of the modified runbook is sent as an input parameter for the checked in runbook. You can [view the job details](automation-runbook-execution.md#job-statuses) by expanding runbook on the Repository Synchronization page.  
 
     ![A Window showing the input for a sync job](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. Refresh your GitHub repository once the job completes to view the changes.  There should be a commit in your repository with a commit message: **Updated *Runbook Name* in Azure Automation.**  

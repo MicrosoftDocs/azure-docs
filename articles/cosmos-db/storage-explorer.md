@@ -268,7 +268,7 @@ If you're unable to remove an account, or if the reauthenticate link does not do
 
 ### Http/Https proxy issue
 
-You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment.
+You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment.
 
 ### "Development" node under "Local and Attached" node issue
 
