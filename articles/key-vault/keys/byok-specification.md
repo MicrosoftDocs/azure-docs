@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: specification
+ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 
@@ -163,15 +163,15 @@ Request body:
 
 ## Azure Key Vault Rest API
 
-* [Create key](https://docs.microsoft.com/en-us/rest/api/keyvault/createkey/createkey)
-* [Get key(key attributes and public key only)](https://docs.microsoft.com/en-us/rest/api/keyvault/getkey/getkey)
-* [Import key](https://docs.microsoft.com/en-us/rest/api/keyvault/importkey/importkey)
+* [Create key](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
+* [Get key(key attributes and public key only)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
+* [Import key](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
 
 
 ## Azure Key Vault CLI commands
-* [az keyvault key create](https://docs.microsoft.com/en-us/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [az keyvault key download](https://docs.microsoft.com/en-us/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [az keyvault key import](https://docs.microsoft.com/en-us/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
+* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+* [az keyvault key download](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
+* [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
 
 
 # Next Steps
