@@ -49,10 +49,11 @@ To use X2Go, the instructor must:
 
 X2Go uses the same port that is already enabled for SSH; as a result, there is no extra configuration required to open a port on the VM for X2Go.
 
->[!NOTE] In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If >you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
+> [!NOTE]
+> In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If >you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
 
->[!IMPORTANT] Some marketplace images already have a graphical desktop environment and remote >desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
-> 
+> [!IMPORTANT]
+>  Some marketplace images already have a graphical desktop environment and remote >desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
 
 ## Enable remote desktop connection for RDP
 
