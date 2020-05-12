@@ -59,7 +59,7 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This i
 ## DNS
 
 As this feature is in preview, we don't change the DNS entry during the preview. You need to manage the DNS entry in your private DNS server or Azure DNS private zone yourself.
-If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. For more informations, see [custom DNS validation][dnsvalidation].
+If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. For more information, see [custom DNS validation][dnsvalidation].
 
 If you need to use the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you need to create two records in your Azure DNS private zone or your custom DNS server. 
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
