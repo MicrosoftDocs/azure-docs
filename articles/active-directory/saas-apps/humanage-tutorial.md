@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/12/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -80,10 +80,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign on URL** text box, type a URL:
-    `https://cppatest.cslab.com.ar/#/saml/SAP`
+    `https://cppatest.cslab.com.ar/#/saml/< CUSTOMER NAME >`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://cppa.cslab.com.ar/#/entityId/MICROSOFT`
+    `https://cppa.cslab.com.ar/#/entityId/< CUSTOMER NAME >`
+
+    > [!NOTE]
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Humanage support team](mailto:amoron@cardinalsystems.com.ar) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -129,7 +132,7 @@ To configure single sign-on on **Humanage** side, you need to send the downloade
 
 ### Create Humanage test user
 
-In this section, you create a user called Britta Simon in Humanage. Work with [Humanage support team](mailto:amoron@cardinalsystems.com.ar) to add the users in the Humanage platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Humanage. Work with [Humanage support team](mailto:amoron@cardinalsystems.com.ar) to add the users in the Humanage platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -150,4 +153,3 @@ When you click the Humanage tile in the Access Panel, you should be automaticall
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Humanage with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
