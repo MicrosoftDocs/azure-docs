@@ -235,6 +235,11 @@
             href: instance-generalized-image-version-cli.md
         - name: Update image resources
           href: ../virtual-machines/update-image-resources-cli.md
+      - name: Troubleshoot shared images
+        href: ../virtual-machines/troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: ../virtual-machines/image-version-encryption.md
   - name: Create a template
     items:
     - name: Learn about scale set templates

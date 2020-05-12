@@ -12,6 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio (SSMS)
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -25,8 +26,12 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 
 ### Supported tools for SQL on-demand (preview)
 
-SSMS is partially supported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
+> [!NOTE]
+> If AAD login has connection open for more than 1 hour at time of query execution, any query that relies on AAD will fail. This includes querying storage using AAD pass-through and statements that interact with AAD (like CREATE EXTERNAL PROVIDER). This affects every tool that keeps connection open, like in query editor in SSMS and ADS. Tools that open new connection to execute query are not affected, like Synapse Studio.
+> You can restart SSMS or connect and disconnect in ADS to mitigate this issue. 
+.
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites:  
