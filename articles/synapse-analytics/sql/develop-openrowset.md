@@ -23,27 +23,27 @@ OPENROWSET function in Synapse SQL reads the content of the file(s) from a data 
 The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to specify the data source that contains files.
 - `OPENROWSET` without `DATA_SOURCE` can be used to directly read the contents of the files from the URL location specified as `BULK` option:
 
-```sql
-SELECT *
-FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
-                TYPE = 'PARQUET') AS file
-```
+    ```sql
+    SELECT *
+    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
+                    TYPE = 'PARQUET') AS file
+    ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
 
 - `OPENROWSET` with `DATA_SOURCE` can be used to access files on specified storage account:
 
-```sql
-SELECT *
-FROM OPENROWSET(BULK '/folder/*.parquet',
-                DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                TYPE = 'PARQUET') AS file
-```
+    ```sql
+    SELECT *
+    FROM OPENROWSET(BULK '/folder/*.parquet',
+                    DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
+                    TYPE = 'PARQUET') AS file
+    ```
 
-This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
-
-> [!IMPORTANT]
-> `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+    This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
+    
+    > [!IMPORTANT]
+    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 ## Security
 
@@ -135,8 +135,10 @@ The WITH clause allows you to specify columns that you want to read from files.
 
 - For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
 
-> [!IMPORTANT]
-> The WITH clause is mandatory for CSV files.
+    > [!IMPORTANT]
+    > The WITH clause is mandatory for CSV files.
+    >
+    
 - For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name. If the WITH clause is omitted, all columns from Parquet files will be returned.
 
 column_name = Name for the output column. If provided, this name overrides the column name in the source file.

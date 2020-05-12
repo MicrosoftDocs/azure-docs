@@ -175,7 +175,7 @@ To alter missing permissions for others, you need to be the Storage Blob Data Ow
 | Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
 | Default Permissions | ---| ---| ---| ---| ---| ---| ---|
 
-- You should be able to ACL all folders from "synapse" and downward from Azure Portal. In order to ACL the root "/" folder, please follow the instructions below.
+- You should be able to ACL all folders from "synapse" and downward from Azure portal. In order to ACL the root "/" folder, please follow the instructions below.
 
 - Please connect to the storage account connected with the workspace from Storage Explorer using AAD
 - Select your Account and give the ADLS Gen2 URL and default file system for the workspace
@@ -186,5 +186,5 @@ To alter missing permissions for others, you need to be the Storage Blob Data Ow
 
 ## Next steps
 
-- [Create a SQL pool]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
+- [Create a SQL pool](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
 - [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 

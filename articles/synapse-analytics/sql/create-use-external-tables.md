@@ -22,31 +22,35 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 Your first step is to create a database where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
-```
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
+    WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+    SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+    ```
+
 - EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
-```sql
-CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
-    CREDENTIAL = sqlondemand
-);
-GO
-CREATE EXTERNAL DATA SOURCE YellowTaxi
-WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
-```
+
+    ```sql
+    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+        LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+        CREDENTIAL = sqlondemand
+    );
+    GO
+    CREATE EXTERNAL DATA SOURCE YellowTaxi
+    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+    ```
+
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
-```sql
-CREATE EXTERNAL FILE FORMAT QuotedCsvWithHeaderFormat
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT,
-    FORMAT_OPTIONS ( FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2   )
-);
-GO
-CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
-```
+
+    ```sql
+    CREATE EXTERNAL FILE FORMAT QuotedCsvWithHeaderFormat
+    WITH (  
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2   )
+    );
+    GO
+    CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
+    ```
 
 The queries in this article will be executed on your sample database and use these objects. 
 
