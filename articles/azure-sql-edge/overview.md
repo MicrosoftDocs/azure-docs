@@ -69,4 +69,4 @@ Azure SQL Edge makes developing and maintaining applications easier and more pro
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md)
 - [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)
-- [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)
+- [Building an end-to-end IoT solution with SQL Edge](deploy-azure-resources.md)

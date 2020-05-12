@@ -4,10 +4,6 @@
   items:
   - name: What is SQL Edge?
     href: overview.md
-  - name: What's new
-    href: whats-new.md
-  - name: Release notes
-    href: release-notes.md
   - name: Supported editions and features
     href: features.md
 - name: Quickstarts
@@ -23,7 +19,7 @@
     href: tutorial-sync-data-factory.md
   - name: Sync data with SQL Data Sync
     href: tutorial-sync-data-sync.md
-  - name: Build an end-to-end connected SQL Edge solution
+  - name: Build an end-to-end IoT solution with SQL Edge
     items: 
     - name: Set up resources for the tutorial
       href: deploy-azure-resources.md

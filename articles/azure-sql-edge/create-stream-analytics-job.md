@@ -204,5 +204,5 @@ The streaming job can be in any one of the following statuses
 
 ## Next Steps
 
-- View metadata associated with streaming jobs in Azure SQL Edge (Preview) 
+- [View metadata associated with streaming jobs in Azure SQL Edge (Preview)](streaming-catalog-views.md) 
 - [Create an External Stream](create-external-stream-transact-sql.md)

@@ -13,10 +13,10 @@ ms.date: 05/19/2020
 
 # Supported features of Azure SQL Edge (Preview) 
 
-This article provides details of features supported by Azure SQL Edge. Azure SQL Edge, is built on the latest versions of the Microsoft SQL Server Database Engine on Linux, and supports a subset of the features supported in SQL Server 2019 for Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux or on Windows. For a complete list of the features supported in SQL Server on Linux, see [Editions and supported features of SQL Server 2019 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). For editions and supported features of SQL Server on Windows, refer [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+This article provides details of features supported by Azure SQL Edge. Azure SQL Edge, is built on the latest version of the Microsoft SQL Server Database Engine on Linux, and supports a subset of the features supported in SQL Server 2019 for Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux or on Windows. For a complete list of the features supported in SQL Server on Linux, see [Editions and supported features of SQL Server 2019 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). For editions and supported features of SQL Server on Windows, refer [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 > [!NOTE]
-> Azure SQL Edge is currently in (Preview) and as such should NOT be used in production environments. Microsoft may recommend running Azure SQL Egde in production environments after validation of the deployment and the use case scenarios.
+> Azure SQL Edge is currently in (Preview) and as such should NOT be used in production environments. Microsoft may recommend running Azure SQL Edge in production environments after validation of the deployment and the use case scenarios.
 
 ## Azure SQL Edge Editions
 
@@ -62,22 +62,22 @@ The list below includes the SQL Server 2019 on Linux features that are currently
 | &nbsp; | Spatial Data Type and related DDL commands and Transact-SQL functions, catalog views and dynamic management views |
 | &nbsp; | Stretch DB and related DDL commands and Transact-SQL functions, catalog views and dynamic management views |
 | &nbsp; | Full Text Indexes and search and related DDL commands and Transact-SQL functions, catalog views and dynamic management views|
-| &nbsp; | FileTable, FILESTREAM and related DDL commands and Transact-SQL functions, catalog views and dynamic management views|
+| &nbsp; | FileTable, FILESTREAM, and related DDL commands and Transact-SQL functions, catalog views and dynamic management views|
 | **Database Engine** | Replication. However Azure SQL Edge can be configured as a push subscriber of a replication topology. |
 | &nbsp; | Polybase. However Azure SQL Edge can be configured as a target for External tables in Polybase |
 | &nbsp; | Language extensibility through Java and Spark |
 | &nbsp; | Active Directory Integration |
 | &nbsp; | Database Snapshots |
 | &nbsp; | Support for Persistent Memory |
-| &nbsp; | Microsoft Distributed Transaction Cordinator |
+| &nbsp; | Microsoft Distributed Transaction Coordinator |
 | &nbsp; | Resource Governor and IO Resource Governance |
 | &nbsp; | Buffer Pool Extension |
 | &nbsp; | Distributed query with 3rd-party connections |
 | &nbsp; | Linked Servers |
 | &nbsp; | System extended stored procedures (XP_CMDSHELL, etc.) |
 | &nbsp; | CLR Assemblies and related DDL commands and Transact-SQL functions, catalog views and dynamic management views |
-| &nbsp; | CLR dependent T-SQL functions like ASSEMBLYPROPERTY, FORMAT, PARSE, TRY_PARSE |
-| &nbsp; | CLR dependent date and time catalog views, functions and query clauses |
+| &nbsp; | CLR-dependent T-SQL functions like ASSEMBLYPROPERTY, FORMAT, PARSE, TRY_PARSE |
+| &nbsp; | CLR-dependent date and time catalog views, functions, and query clauses |
 | &nbsp; | Buffer Pool Extension |
 | &nbsp; | Database Mail |
 | **SQL Server Agent** |  Subsystems: CmdExec, PowerShell, Queue Reader, SSIS, SSAS, SSRS |

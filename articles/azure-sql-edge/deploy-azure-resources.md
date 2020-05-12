@@ -10,6 +10,7 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
+# Install software and set up resources for the tutorial
 In this tutorial, you will be predicting iron ore impurities as a % of Silica in Azure SQL Edge. Before you proceed with the tutorial, ensure you have an active Azure subscription and you have installed the below pre-requisite software.
 
 ## Pre-requisite software to be installed 
@@ -17,12 +18,11 @@ In this tutorial, you will be predicting iron ore impurities as a % of Silica in
 2. Install [PowerShell 3.6.8](https://www.python.org/downloads/release/python-368/)
       * Windows x86-x64 Executable Installer
       * Ensure to add python path to the PATH environment variables
-3. Install ["Microsoft Visual C++ 14.0" and build tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) - Download can be located under "Tools For Visual Studio 2019"
-4. Install [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
-5. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-6. Open Azure Data Studio and configure Python for Notebooks. Details on how this can be accessed [here](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
-7. Install latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)
-8. The below scripts require that the AZ PowerShell to be at the latest version (3.5.0, Feb 2020)
+3. Install [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
+4. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+5. Open Azure Data Studio and configure Python for Notebooks. Details on how this can be accessed [here](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
+6. Install latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)
+7. The below scripts require that the AZ PowerShell to be at the latest version (3.5.0, Feb 2020)
 
 ## Deploying Azure resources using PowerShell Script
 
@@ -234,6 +234,13 @@ az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShe
 ```powershell
 az ml workspace create -w $MyWorkSpace -g $ResourceGroup
 ```
+<<<<<<< HEAD
 ## Next Steps
 
 * [Set up IoT Edge Modules](set-up-iot-edge-modules.md)
+=======
+
+## Next Steps
+
+- [Setting up IoT Edge modules and connections](set-up-iot-edge-modules.md)
+>>>>>>> 50f5ab686ad02827c22552bc296bc47031d7d113
