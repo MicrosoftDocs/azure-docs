@@ -426,6 +426,24 @@
           items:
             - name: Voice assistants FAQ
               href: faq-voice-assistants.md
+    - name: Voice assistants on Windows
+      items:
+        - name: Overview of voice assistants on Windows
+          href: windows-voice-assistants-overview.md
+        - name: How-to guides
+          items:
+            - name: 'Start developing your assistant with Windows'
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Resources
+          items:
+            - name: 'Privacy requirements and guidelines'
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: 'Best practices for assistant experiences'
+              href: windows-voice-assistants-best-practices.md
+            - name: 'Samples and frequently asked questions'
+              href: windows-voice-assistants-faq.md
     - name: Custom Keyword
       items:
         - name: Custom keyword overview
@@ -539,6 +557,20 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: SPX
+    items:
+      - name: What is SPX?
+        href: spx-overview.md
+      - name: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech
