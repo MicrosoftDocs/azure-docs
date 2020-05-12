@@ -1,6 +1,6 @@
 ---
 title: Query Azure Cosmos DB Analytical Store with Synapse Spark
-description: How to query Cosmos DB analytical with Synapse Spark
+description: How to query Azure Cosmos DB analytical with Synapse Spark
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -22,7 +22,7 @@ In this step, you'll read data from Azure Cosmos DB analytical store in a Spark 
 This operation doesn't impact the transactional store.
 
 ```python
-# To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+# To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 df = spark.read.format("cosmos.olap")\
     .option("spark.synapse.linkedService", "INFERRED")\
@@ -34,7 +34,7 @@ df = spark.read.format("cosmos.olap")\
 
 The equivalent code gesture in **Scala** would be the following code:
 ```java
-// To select a preferred list of regions in a multi-region Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+// To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val df_olap = spark.read.format("cosmos.olap").
     option("spark.synapse.linkedService", "pySparkSamplesDb").
@@ -50,7 +50,7 @@ This scenario is convenient to reuse tables through third-party tools and provid
 
 ```sql
 %%sql
--- To select a preferred list of regions in a multi-region Cosmos DB account, add spark.cosmos.preferredRegions '<Region1>,<Region2>' in the config options
+-- To select a preferred list of regions in a multi-region Azure Cosmos DB account, add spark.cosmos.preferredRegions '<Region1>,<Region2>' in the config options
 
 create table call_center using cosmos.olap options (
     spark.synapse.linkedService 'INFERRED',
@@ -63,8 +63,8 @@ create table call_center using cosmos.olap options (
 In this gesture, you'll write a dataframe into a container. This operation will impact the transactional performance and consume Request Units. Using Azure Cosmos DB transactional performance is ideal for write transactions. Make sure that you replace **YOURDATAFRAME** by the dataframe that you want to write back to.
 
 ```python
-# Write a Spark DataFrame into a Cosmos DB container
-# To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+# Write a Spark DataFrame into an Azure Cosmos DB container
+# To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 
 YOURDATAFRAME.write.format("cosmos.oltp")\
@@ -77,7 +77,7 @@ YOURDATAFRAME.write.format("cosmos.oltp")\
 
 The equivalent code gesture in **Scala** would be the following code:
 ```java
-// To select a preferred list of regions in a multi-region Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+// To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 import org.apache.spark.sql.SaveMode
 
@@ -92,10 +92,10 @@ df.write.format("cosmos.oltp").
 ## Load streaming DataFrame from container
 In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) that you connected to the workspace. 
 
-If the folder */localReadCheckpointFolder* isn't created, it will be automatically created. This operation will impact the transactional performance of Cosmos DB.
+If the folder */localReadCheckpointFolder* isn't created, it will be automatically created. This operation will impact the transactional performance of Azure Cosmos DB.
 
 ```python
-# To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+# To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 dfStream = spark.readStream\
     .format("cosmos.oltp")\
@@ -110,7 +110,7 @@ dfStream = spark.readStream\
 
 The equivalent code gesture in **Scala** would be the following code:
 ```java
-// To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+// To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val dfStream = spark.readStream.
     format("cosmos.oltp").
@@ -124,10 +124,10 @@ val dfStream = spark.readStream.
 ```
 
 ## Write streaming DataFrame to container
-In this gesture, you'll write a streaming dataframe into the Cosmos DB container you selected. If the folder */localReadCheckpointFolder* isn't created, it will be automatically created. This operation will impact the transactional performance of Cosmos DB.
+In this gesture, you'll write a streaming dataframe into the Azure Cosmos DB container you selected. If the folder */localReadCheckpointFolder* isn't created, it will be automatically created. This operation will impact the transactional performance of Azure Cosmos DB.
 
 ```python
-# To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+# To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 streamQuery = dfStream\
         .writeStream\
@@ -144,7 +144,7 @@ streamQuery.awaitTermination()
 
 The equivalent code gesture in **Scala** would be the following code:
 ```java
-// To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+// To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val query = dfStream.
             writeStream.
@@ -161,4 +161,4 @@ query.awaitTermination()
 ## Next steps
 
 * [Learn what is supported between Synapse and Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
-* [Connect to Synapse Link for Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* [Connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
