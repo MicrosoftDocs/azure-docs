@@ -9,8 +9,6 @@ ms.date: 05/15/2020
 
 At times, you may find it necessary to handle both task and application failures within your Batch solution. This article talks about types of errors and how to resolve them.
 
-**Should this be combined with [Detecting and handling Batch service errors](batch-retry-after-errors.md)? And/or moved out of this section?**
-
 ## Application failures
 
 During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As described in [Files and directories](files-and-directories.md), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node.
