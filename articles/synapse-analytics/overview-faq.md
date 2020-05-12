@@ -30,7 +30,7 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 
 ### Q: How do I get started with Azure Synapse Analytics
 
-A: To start using Azure Synapse Analytics, create a [Synapse workspace](https://portal.azure.com) (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials, such as [Create a Synapse SQL pool](quickstart-create-sql-pool.md) or [Create a workspace](quickstart-create-workspace.md), that will walk you through simple use case. 
+A: To start using Azure Synapse Analytics, create a [Synapse workspace](https://portal.azure.com) (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials, such as [Create a Synapse SQL pool](quickstart-create-sql-pool-portal.md) or [Create a workspace](quickstart-create-workspace.md), that will walk you through simple use case. 
 
 You can also find sample notebooks and SQL scripts in our [repository](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). If you need to connect to a public dataset, create a new linked service with the following attributes:
 
@@ -101,6 +101,6 @@ A: Yes, you can use your third-party business applications, like Tableau and Pow
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 - [Use SQL on-demand](quickstart-sql-on-demand.md)
-- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md) 
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md) 
