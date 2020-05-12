@@ -6,7 +6,7 @@ ms.date: 08/29/2019
 ms.custom: seodec18
 
 ---
-# Develop large-scale parallel compute solutions with Batch
+# [OLD] Develop large-scale parallel compute solutions with Batch
 
 In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
