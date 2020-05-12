@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Live Video Analytics on IoT Edge documentation # < 60 chars
+summary: Learn how to use Live Video Analytics on IoT Edge # < 160 chars
+
+metadata:
+  title: Live Video Analytics on IoT Edge documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Live Video Analytics on IoT Edge # Required; article description that is displayed in search results. < 160 chars.
+  services: media-services
+  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author:  #Required; your GitHub user alias, with correct capitalization.
+  ms.author:  #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/12/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Live Video Analytics on IoT Edge
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Live Video Analytics on IoT Edge
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Media Graph
+            url: media-graph-concept.md
+          - text: Video recording 
+            url: video-recording-concept.md
+          - text: Video playback
+            url: video-playback-concept.md
+      - linkListType: learn
+        links:
+          - text: Continuous video recording 
+            url: continuous-video-recording-concept.md
+          - text: Event-based video recording 
+            url: event-based-video-recording-concept.md
+          - text: Analyzing live videos 
+            url: analyze-live-video-concept.md    
+
+  # Card
+  - title: Develop
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Continuous video recording  
+            url: continuous-video-recording-tutorial.md
+
+  

@@ -613,11 +613,6 @@
     items:
       - name: v3
         tocHref: /azure/media-services/latest/
-        topicHref: /azure/media-services/latest/
-        items:
-          - name: edge
-            tocHref: /azure/media-services/latest/edge
-            topicHref: /azure/media-services/latest/edge            
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
@@ -627,6 +622,9 @@
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
+      - name: Live Video Analytics on IoT Edge
+        tocHref: /azure/media-services/live-video-analytics-edge/
+        topicHref: /azure/media-services/live-video-analytics-edge/ 
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
