@@ -41,7 +41,7 @@ Threat protection for Azure Storage offers new detections powered by Microsoft T
 
 ### Workflow automation with Logic Apps (preview)
 
-Organizations with centrally managed security and IT/operations implement internal workflow processes to drive required action within the organization when discrepancies are discovered in their environments. In many cases these workflows are repeatable processes and automation can greatly reduce overhead streamline processes within the organization.
+Organizations with centrally managed security and IT/operations implement internal workflow processes to drive required action within the organization when discrepancies are discovered in their environments. In many cases, these workflows are repeatable processes and automation can greatly streamline processes within the organization.
 
 Today we are introducing a new capability in Security Center that allows customers to create automation configurations leveraging Azure Logic Apps and to create policies that will automatically trigger them based on specific ASC findings such as Recommendations or Alerts. Azure Logic App can be configured to do any custom action supported by the vast community of Logic App connectors, or use one of the templates provided by Security Center such as sending an email or opening a ServiceNow™ ticket.
 
@@ -54,7 +54,7 @@ To learn about creating Logic Apps, see [Azure Logic Apps](https://docs.microsof
 
 With the many tasks that a user is given as part of Secure Score, the ability to effectively remediate issues across a large fleet can become challenging.
 
-In order to simplify remediation of security misconfigurations and to be able to quickly remediate recommendations on a bulk of resources and improve your secure score use Quick Fix remediation.
+To simplify remediation of security misconfigurations and to be able to quickly remediate recommendations on a bulk of resources and improve your secure score, use Quick Fix remediation.
 
 This operation will allow you to select the resources you want to apply the remediation to and launch a remediation action that will configure the setting on your behalf.
 
@@ -76,7 +76,7 @@ The scan itself is automatically triggered when pushing new container images to 
 
 The Regulatory Compliance dashboard provides insights into your compliance posture based on Security Center assessments. The dashboard shows how your environment complies with controls and requirements designated by specific regulatory standards and industry benchmarks and provides prescriptive recommendations for how to address these requirements.
 
-The regulatory compliance dashboard has thus far supported four built-in standards:  Azure CIS 1.1.0, PCI-DSS, ISO 27001 and SOC-TSP. We are now announcing the public preview release of additional supported standards: NIST SP 800-53 R4, SWIFT CSP CSCF v2020, Canada Federal PBMM and UK Official together with UK NHS. We are also releasing an updated version of Azure CIS 1.1.0, covering more controls from the standard and enhancing extensibility.
+The regulatory compliance dashboard has thus far supported four built-in standards:  Azure CIS 1.1.0, PCI-DSS, ISO 27001, and SOC-TSP. We are now announcing the public preview release of additional supported standards: NIST SP 800-53 R4, SWIFT CSP CSCF v2020, Canada Federal PBMM and UK Official together with UK NHS. We are also releasing an updated version of Azure CIS 1.1.0, covering more controls from the standard and enhancing extensibility.
 
 [Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -119,7 +119,7 @@ These new policies will be part of the Security Center recommendations experienc
 
 ### Extending Azure Security Center coverage with platform for community and partners
 
-Use Security Center to receive recommendations not only from Microsoft but also from existing solutions from partners such as Check Point, Tenable and CyberArk with many more integrations coming.  Security Center’s simple onboarding flow can connect your existing solutions to Security Center, enabling you to view your security posture recommendations in a single place, run unified reports and leverage all of Security Center's capabilities against both built-in and partner recommendations. You can also export Security Center recommendations to partner products.
+Use Security Center to receive recommendations not only from Microsoft but also from existing solutions from partners such as Check Point, Tenable, and CyberArk with many more integrations coming.  Security Center’s simple onboarding flow can connect your existing solutions to Security Center, enabling you to view your security posture recommendations in a single place, run unified reports and leverage all of Security Center's capabilities against both built-in and partner recommendations. You can also export Security Center recommendations to partner products.
 
 [Learn more about Microsoft Intelligent Security Association](https://www.microsoft.com/security/partnerships/intelligent-security-association).
 
@@ -130,7 +130,7 @@ Use Security Center to receive recommendations not only from Microsoft but also 
 In order to enable enterprise level scenarios on top of Security Center, it’s now possible to consume Security Center alerts and recommendations in additional places except the Azure portal or API. These can be directly exported to an Event Hub and to Log Analytics workspaces. Here are a few workflows you can create around these new capabilities:
 
 - With export to Log Analytics workspace, you can create custom dashboards with PowerBI.
-- With export to Event Hub, you’ll be able to export Security Center alerts and recommendations to your third party SIEMs, to a third party solution in real time, or Azure Data Explorer.
+- With export to Event Hub, you’ll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution in real time, or Azure Data Explorer.
 
 
 ### Onboard on-prem servers to Security Center from Windows Admin Center (preview)
@@ -144,7 +144,7 @@ With this new experience users will be to onboard a WAC server to Azure Security
 
 ### Managing rules with adaptive application controls improvements
 
-The experience of managing rules for virtual machines using adaptive application controls has improved. Adaptive application controls are a feature of Azure Security Center that help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
+The experience of managing rules for virtual machines using adaptive application controls has improved. Azure Security Center's adaptive application controls help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).
 
@@ -166,7 +166,7 @@ JIT VM access reduces exposure to network volumetric attacks by providing contro
 
 When you enable JIT for your VMs, you create a policy that determines the ports to be protected, how long the ports are to remain open, and approved IP addresses from where these ports can be accessed. This policy helps you stay in control of what users can do when they request access.
 
-Requests are logged in the Azure Activity Log, so you can easily monitor and audit access. The just-in-time blade also helps you quickly identify existing VMs that have JIT enabled and VMs where JIT is recommended.
+Requests are logged in the Azure Activity Log, so you can easily monitor and audit access. The just-in-time page also helps you quickly identify existing VMs that have JIT enabled and VMs where JIT is recommended.
 
 [Learn more about Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
 
