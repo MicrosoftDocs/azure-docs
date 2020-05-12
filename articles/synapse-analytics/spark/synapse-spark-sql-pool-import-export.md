@@ -18,7 +18,7 @@ The Spark SQL Analytics Connector is designed to efficiently transfer data betwe
 
 Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
-The Spark pools to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
+The Spark pools to SQL Analytics Connector are a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -49,7 +49,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 ## Usage
 
-The import statements do not need to be provided, they are pre-imported for the notebook experience.
+The import statements are not required, they are pre-imported for the notebook experience.
 
 ### Transferring data to or from a SQL pool in the Logical Server (DW Instance) attached with the workspace
 
@@ -160,7 +160,7 @@ Similarly, in the read scenario, read the data using Scala and write it into a t
 
 ## Allowing other users to use the DW Connector in your workspace
 
-To alter missing permissions for others, you need to be the Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace . Please ensure the user has access to the workspace and permissions to run notebooks.
+To alter missing permissions for others, you need to be the Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace. Ensure the user has access to the workspace and permissions to run notebooks.
 
 ### Option 1
 
@@ -168,21 +168,21 @@ To alter missing permissions for others, you need to be the Storage Blob Data Ow
 
 ### Option 2
 
-- Please specify the following ACLs on the folder structure:
+- Specify the following ACLs on the folder structure:
 
 | Folder | / | synapse | workspaces  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
-| Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
-| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
+| Access Permissions |--X |--X |--X |--X |--X |--X |-WX |
+| Default Permissions |---|---|---|---|---|---|---|
 
-- You should be able to ACL all folders from "synapse" and downward from Azure portal. In order to ACL the root "/" folder, please follow the instructions below.
+- You should be able to ACL all folders from "synapse" and downward from Azure portal. In order to ACL the root "/" folder, follow the instructions below.
 
-- Please connect to the storage account connected with the workspace from Storage Explorer using AAD
+- Connect to the storage account connected with the workspace from Storage Explorer using AAD
 - Select your Account and give the ADLS Gen2 URL and default file system for the workspace
-- Once you can see the storage account listed, right click on the listing workspace and select "Manage Access"
+- Once you can see the storage account listed, right-click on the listing workspace and select "Manage Access"
 - Add the User to the / folder with "Execute" Access Permission. Select "Ok"
 
-**Please make sure you don't select "Default" if you don't intend to**
+**Make sure you don't select "Default" if you don't intend to**
 
 ## Next steps
 
