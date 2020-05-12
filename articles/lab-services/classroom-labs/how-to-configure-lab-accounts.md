@@ -34,6 +34,9 @@ Here are some restrictions when specifying the address range that you should kee
 
 1. On the **Lab Account** page, select **Labs settings** on the left menu.
 2. For the **Address range** field, specify the address range for VMs that will be created in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range.
+
+    > [!NOTE]
+    > The Address range property only applies if Peer virtual network is enabled for the lab. 
 3. Select **Save** on the toolbar. 
 
     ![Configure address range](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
