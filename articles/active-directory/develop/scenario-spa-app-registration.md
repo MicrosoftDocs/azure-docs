@@ -51,11 +51,11 @@ Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/
 3. Select the **Single-Page Application** platform tile.
 ![add SPA platform](media/scenario-spa-app-registration/configure-platform.png)
 
-4.Enter your [redirect URI](https://docs.microsoft.com/azure/active-directory/develop/reply-url). If you are using MSAL 2.0, you should not have to select any implicit grant settings. Click configure. 
+4. Enter your [redirect URI](https://docs.microsoft.com/azure/active-directory/develop/reply-url). If you are using MSAL 2.0, you should not have to select any implicit grant settings. Click configure. 
 
 ![configure SPA](media/scenario-spa-app-registration/configure-spa.png)
 
-5.You have now registered your SPA redirect URI. 
+5. You have now registered your SPA redirect URI. 
 
 ### Existing Application Migrating from implicit flow to authorization code flow 
 
@@ -64,15 +64,15 @@ If you already have an application using MSAL.js 1.0 and/or the implicit flow in
 #### Add MSAL 2.0 to your application
 
 #### Update existing redirect URIs to new "SPA" platform 
-1.Navigate to the Authentication pane of your app registration
+1. Navigate to the Authentication pane of your app registration
 
-2.In the "Web App" platform tile, you will notice a warning banner. Select "Migrate URIs"
+2. In the "Web App" platform tile, you will notice a warning banner. Select "Migrate URIs"
 ![warning to migrate from 'web' to 'spa'](media/scenario-spa-app-registration/web-warning.png)
 
-3.In the pane that pops up on the side, select **only the redirect URIs used with MSAL.js**
+3. In the pane that pops up on the side, select **only the redirect URIs used with MSAL.js**
 ![screenshot of pane to migrate from web to spa](media/scenario-spa-app-registration/migration-pane.png)
 
-4.These redirect URIs will now appear in the new "SPA" platform tile. This enables CORS support with the authorization code flow and PKCE for these URIs. 
+4. These redirect URIs will now appear in the new "SPA" platform tile. This enables CORS support with the authorization code flow and PKCE for these URIs. 
 
 
 #### Uncheck implicit settings 
@@ -92,13 +92,13 @@ Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/
 
 3. Select the "Single Page Application" platform tile.
 
-4.Enter your redirect URI [Docs on what is a redirect URI?].If your application is only signing in users and getting ID tokens, it's enough to select the **ID tokens** check box.
+4. Enter your redirect URI [Docs on what is a redirect URI?].If your application is only signing in users and getting ID tokens, it's enough to select the **ID tokens** check box.
 
-If your application also needs to get access tokens to call APIs, make sure to select the **Access tokens** check box as well. For more information, see [ID tokens](./id-tokens.md) and [Access tokens](./access-tokens.md).
+If your application also needs to get access tokens to call APIs, make sure to select the **Access tokens** check box as well. For more  information, see [ID tokens](./id-tokens.md) and [Access tokens](./access-tokens.md).
 
 ![configure SPA with implicit settings](media/scenario-spa-app-registration/configure-spa-implicit.png)
 
-5.You have now registered your SPA redirect URI. 
+5. You have now registered your SPA redirect URI. 
 
 
 ### Note about authorization flows 
