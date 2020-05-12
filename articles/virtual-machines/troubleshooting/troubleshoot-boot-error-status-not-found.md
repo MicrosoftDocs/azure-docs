@@ -215,7 +215,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    For single partitions OS disks, add `BOOT`.
 
-   > ![NOTE]
+   > [!NOTE]
    > The boot-able folder will be on the same partition as the windows folder **\windows folder**.
    > - The bootable folder for Generation 1 VMs is **(\boot\bcd folder)**.
    > - The bootable folder for Generation 2 VMs is **EFI\Microsoft\boot\bcd**.
@@ -230,7 +230,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    For multiple partition OS disks, add `PARTITION=<LETTER OF WINDOWS FOLDER>:`.
 
-   > ![NOTE]
+   > [!NOTE]
    > The boot-able folder will most likely be on a different partition than the windows folder **\windows folder**.
    > - The bootable folder for Generation 1 VMs is **(\boot\bcd folder)**.
    > - The bootable folder for Generation 2 VMs is **EFI\Microsoft\boot\bcd**.

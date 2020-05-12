@@ -40,8 +40,8 @@ In this situation, the operating system (OS) is unable to complete a Windows Upd
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
-   > [!NOTE]
-   > When encountering this error, the Guest OS is not operational. Troubleshoot this issue in offline mode to resolve this issue.
+> [!NOTE]
+> When encountering this error, the Guest OS is not operational. Troubleshoot this issue in offline mode to resolve this issue.
 
 ### Create and Access a Repair VM
 
@@ -52,12 +52,12 @@ In this situation, the operating system (OS) is unable to complete a Windows Upd
 
 To solve the issue:
 
-- Resize the disk to 1 TB if it isn’t already resized.
+- Resize the disk up to 1 TB if it is not already at the maximum size of 1 TB.
 - Perform a disk cleanup.
 - De-fragment the drive.
 
-1. Check if the disk is full. If the disk is below 1 TB, expand it to a maximum of 1 TB [using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
-1. Once the disk is 1 TB, you will need to perform a disk cleanup.
+1. Check if the disk is full. If the disk size is below 1 TB, expand it up to a maximum of 1 TB [using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. If the disk is already 1 TB, you will need to perform a disk cleanup.
    1. Detach the data disk [from the broken VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
    1. Attach the data disk [to a functioning VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
