@@ -87,10 +87,10 @@
       href: azure-stack-edge-limits.md
     - name: Security overview
       href: azure-stack-edge-security.md
-    - name: Review specifications
+    - name: Device specifications
       href: azure-stack-edge-technical-specifications-compliance.md
       items:
-      - name: Regional power cords
+      - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-powercords-regional.md
   - name: How to
     items:

@@ -44,8 +44,8 @@ The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with hig
 
 ### Azure Stack Edge power cord specifications by region
 
-Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
-For technical specifications for all regional power cords supported by Azure Stack Edge, see [Azure Stack Edge power cord specifications by region](azure-stack-edge-technical-specifications-powercords-regional.md).
+Your Azure Stack Edge device needs a power cord that varies depending on your Azure region.
+For technical specifications of all the supported power cords, see [Azure Stack Edge power cord specifications by region](azure-stack-edge-technical-specifications-powercords-regional.md).
 
 <!--## Power consumption statistics
 

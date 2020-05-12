@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge power cord technical specifications based on locale| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge power cords.
+title: Microsoft Azure Stack Edge power cord technical specifications based on location| Microsoft Docs
+description: Learn about the technical specifications for your Azure Stack Edge power cords.
 services: databox
 author: priestlg
 
@@ -11,11 +11,11 @@ ms.date: 04/16/2020
 ms.author: v-grpr
 ---
 
-# Azure Stack Edge power cord specifications by region
+# Azure Stack Edge power cord specifications
 
 Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 
-## Azure Stack Edge supported power cord by country
+## Supported power cords
 
 You can use the following table to find the correct cord specifications for your region:
 
