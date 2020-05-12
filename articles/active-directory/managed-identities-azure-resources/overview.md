@@ -52,9 +52,6 @@ Also, when a User-Assigned or System-Assigned Identity is created, the Managed I
 
 Your code can use a managed identity to request access tokens for services that support Azure AD authentication. Azure takes care of rolling the credentials that are used by the service instance. 
 
-## Credential Rotation
-Credential rotation is controlled by the resource provider that hosts the Azure resource. The default rotation of the credential occurs every 46 days. It's up to the resource provider to call for new credentials, so the resource provider could wait longer than 46 days.
-
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
 ![Managed service identities and Azure VMs](media/overview/data-flow.png)
@@ -104,6 +101,9 @@ The following diagram shows how managed service identities work with Azure virtu
 
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
+
+## Credential Rotation
+Credential rotation is controlled by the resource provider that hosts the Azure resource. The default rotation of the credential occurs every 46 days. It's up to the resource provider to call for new credentials, so the resource provider could wait longer than 46 days.
 
 ## How can I use managed identities for Azure resources?
 
