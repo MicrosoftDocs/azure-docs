@@ -36,7 +36,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Create an Azure Database for PostgreSQL server
 
-You create an Azure Database for MySQL server with a configured set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
+You create an Azure Database for PostgreSQL server with a configured set of compute and storage resources. To learn more, see [Pricing tiers in Azure Database for PostgreSQL - Single Server](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 ### Review the template
 
