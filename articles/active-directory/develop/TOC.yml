@@ -369,7 +369,8 @@
         href: msal-client-application-configuration.md
       - name: Shared devices
         href: msal-shared-devices.md
-        displayName: shared device mode, firstline worker, frontline worker, flSite cookie changes in Chrome browser
+        displayName: shared device mode, firstline worker, frontline worker, flw
+      - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
   - name: Authentication protocols
     displayName: Auth protocol
