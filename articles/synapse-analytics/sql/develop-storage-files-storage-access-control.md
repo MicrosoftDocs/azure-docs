@@ -34,9 +34,9 @@ In the table below you can find the available authorization types:
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     |
 | ------------------------------------- | ------------- | -----------    |
-| [User Identity](#user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
-| [Managed Identity](#managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -166,7 +166,7 @@ Depending on the [authorization type](#supported-storage-authorization-types), y
 
 ### Server-scoped credential
 
-#### [Shared Access Signature](#tab/shared-access-signature)
+#### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
 
@@ -195,7 +195,7 @@ GO
 
 ### Database-scoped credential
 
-#### [Shared Access Signature](#tab/shared-access-signature)
+#### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
@@ -215,7 +215,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-#### Managed Identity(#tab/managed-identity)
+#### [Managed Identity](#tab/managed-identity)
 
 The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
@@ -226,6 +226,8 @@ GO
 ```
 
 The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+
+---
 
 ## Next steps
 
