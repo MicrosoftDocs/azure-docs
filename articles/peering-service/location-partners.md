@@ -25,6 +25,7 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
+| [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |United States|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
