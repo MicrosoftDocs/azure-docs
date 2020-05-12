@@ -1145,10 +1145,12 @@
       href: platform/collect-sccm.md
 - name: Reference
   items:
-  - name: Terminology changes
-    href: terminology.md
   - name: Service limits
     href: service-limits.md
+  - name: Terminology changes
+    href: terminology.md
+  - name: Logs
+    href: https://docs.microsoft.com/azure/azure-monitor/reference/
   - name: Diagnostics extension
     items: 
     - name: Windows configuration schema
@@ -1201,12 +1203,12 @@
       href: platform/diagnostic-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
-  - name: Azure Monitor Logs table reference
-    href: https://docs.microsoft.com/azure/azure-monitor/reference/
   - name: Azure CLI
-    href: /cli/azure/monitor?view=azure-cli-latest
-  - name: Azure CLI - Application Insights (Preview)
-    href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
+    items:
+    - name: Azure CLI
+      href: /cli/azure/monitor?view=azure-cli-latest
+    - name: Azure CLI - Application Insights
+      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
   - name: Azure Functions
     href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
