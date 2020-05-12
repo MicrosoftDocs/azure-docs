@@ -295,7 +295,7 @@ When the VM has restarted, perform the following steps:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Verify whether **/dev/mapper/rootvg-rootlv** has increased in file system size by using the following command:
+   1. Verify whether **/dev/mapper/rootvg-rootlv** has an increased file system size by using the following command:
 
       `#df -Th /`
 
