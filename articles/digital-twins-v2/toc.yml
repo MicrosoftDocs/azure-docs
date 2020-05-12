@@ -6,14 +6,12 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
-- name: Quickstart
-  items:
-  - name: Get started with Azure Digital Twins
-    href: quickstart.md
 - name: Tutorials
   items:
   - name: Code a client app
     href: tutorial-code.md
+  - name: Explore with a command-line app
+    href: tutorial-command-line-app.md
   - name: Build an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts
@@ -42,6 +40,8 @@
     href: how-to-create-azure-function.md
   - name: Use the APIs and SDKs
     href: how-to-use-apis-sdks.md
+  - name: Create custom SDKs with AutoRest
+    href: how-to-create-custom-sdks.md
   - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin

@@ -59,6 +59,11 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -124,6 +129,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Use Uptime SLA
+      href: uptime-sla.md
     - name: Process node OS updates
       href: node-updates-kured.md
     - name: Configure an AKS cluster

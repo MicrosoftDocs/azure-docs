@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a basic client application from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a C# console client app step by step, starting from scratch.
 
 ## Prerequisites
 
@@ -27,11 +27,21 @@ What you need to begin:
 * Any code editor
 * .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
+## Set up an Azure Digital Twins instance
+
+To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
+
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
+
+Otherwise, you can either:
+* Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). Also, set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
+
 ## Set up project
 
-The first step is to set up a project. 
+Next, set up the client app project. 
 
-Open a command prompt or shell window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+Open a command prompt or other console window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -41,7 +51,7 @@ Once in the project directory, create an empty .NET console app project. In the 
 dotnet new console
 ```
 
-This will create several files inside your directory, including one called *Program.cs*.
+This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
@@ -54,17 +64,6 @@ The first dependency is the Azure Digital Twins SDK for .NET.
 The second dependency provides tools to help with authentication against Azure.
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
-
-## Set up an Azure Digital Twins instance
-
-To continue with the tutorial's development steps, you need to create an Azure Digital Twins service instance to program against. 
-
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
-
-Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
-
-> [!TIP]
-> To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
 ## Get started with project code
 
@@ -164,14 +163,13 @@ In the directory where you created your project, create a new *.json* file calle
 
 ```json
 {
-  "@id": "urn:example:SampleModel:1",
+  "@id": "dtmi:com:contoso:SampleModel;1",
   "@type": "Interface",
   "name": "SampleModel",
   "contents": [
     {
       "@type": "Relationship",
-      "name": "contains",
-      "target": "*"
+      "name": "contains"
     },
     {
       "@type": "Property",
@@ -179,7 +177,7 @@ In the directory where you created your project, create a new *.json* file calle
       "schema": "string"
     }
   ],
-  "@context": "http://azure.com/v3/contexts/Model.json"
+  "@context": "dtmi:dtdl:context;2"
 }
 ```
 
@@ -280,7 +278,7 @@ Date: Tue, 05 May 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
-Type name: : urn:example:SampleModel:1
+Type name: : dtmi:com:contoso:SampleModel;1
 ```
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
@@ -301,7 +299,7 @@ Then, add the following code to the end of the `Main` method to create and initi
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
 {
-    { "$model", "urn:example:SampleModel:1" },
+    { "$model", "dtmi:com:contoso:SampleModel;1" },
 };
 // Initialize the twin properties
 var initData = new Dictionary<string, object>
@@ -421,7 +419,7 @@ In your command window, run the program with `dotnet run`. You should see all th
 
 ## Complete code example
 
-At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program is listed below:
+At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
 
 ```csharp
 using System;
@@ -471,7 +469,7 @@ namespace minimal
             // Initialize twin metadata
             var meta = new Dictionary<string, object>
             {
-                { "$model", "urn:example:SampleModel:1" },
+                { "$model", "dtmi:com:contoso:SampleModel;1" },
             };
             // Initialize the twin properties
             var initData = new Dictionary<string, object>
@@ -548,10 +546,10 @@ namespace minimal
 
 In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.
 
-Next, continue to the next tutorial to connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
+Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
+> [Tutorial: Explore with a command-line app](tutorial-command-line-app.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
 * [How-to: Manage a twin model](how-to-manage-model.md)

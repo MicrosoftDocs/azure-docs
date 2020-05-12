@@ -42,7 +42,7 @@ The quickstart is driven by a sample project written in C#. Get the sample proje
 
 ## Build out a sample solution
 
-In the remainder of this quickstart, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
+Now that the instance and sample app are configured, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
 
 ### Model a physical environment with DTDL
 
@@ -50,7 +50,7 @@ The first step in creating an Azure Digital Twins solution is concepting and def
 
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
 
-In the sample project folder, navigate to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
+In the sample project folder, navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
 Open *Room.json*, and change it in the following ways:
 
@@ -66,7 +66,7 @@ Open *Room.json*, and change it in the following ways:
       "schema": "string"
     }
     ```
-* **Add a relationship**. After the `RoomName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+* **Add a relationship**. After the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
     ```json
     ,
@@ -83,28 +83,30 @@ When you are finished, the updated model should look like this:
 Make sure to save the file before moving on.
 
 > [!TIP]
-> If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
+> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 #### Upload models to Azure Digital Twins
 
 Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance before you can create twins that use them.
 
-Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (DigitalTwinsSample project":::
+:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
  
 A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
 
 ```cmd
-addModels Room Floor
+CreateModels Room Floor
 ```
+
+The output should let you know that the models were created successfully.
 
 > [!TIP]
 > If you designed your own model earlier, you can also upload it here, by adding the part of its file name before the *.json* extension to the `Room Floor` list in the command above.
 
-Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
+Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
-:::image type="content" source="media/quickstart/output-list-models.png" alt-text="Results of listModels, showing the updated Room model":::
+:::image type="content" source="media/quickstart/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
 
 Keep the project console window running for the following steps.
 
@@ -112,53 +114,53 @@ Keep the project console window running for the following steps.
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can create [**digital twins**](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a digital twin, you use the `addTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
+To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
 Run this code in the running project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
 ```cmd
-addTwin dtmi:example:Floor;1 floor0
-addTwin dtmi:example:Floor;1 floor1
-addTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
-addTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
+CreateDigitalTwin dtmi:example:Floor;1 floor0
+CreateDigitalTwin dtmi:example:Floor;1 floor1
+CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
+CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
 ```
 
 > [!TIP]
-> If you uploaded your own model earlier, try making your own `addTwin` command based on the commands above to add a twin of your own model type.
+> If you uploaded your own model earlier, try making your own `CreateDigitalTwin` command based on the commands above to add a twin of your own model type.
 
 The output from these commands should indicate the twins were created successfully. 
 
-:::image type="content" source="media/quickstart/output-add-twin.png" alt-text="Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1":::
+:::image type="content" source="media/quickstart/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
 
-You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
+You can also verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
 ### Create a graph by adding relationships
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, you use the `addEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+To add a relationship, use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
 Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
 ```cmd
-addEdge floor0 contains room0 relationship0
-addEdge floor1 contains room1 relationship1
+CreateEdge floor0 contains room0 relationship0
+CreateEdge floor1 contains room1 relationship1
 ```
 
-The output from these commands shows information about the relationships being created:
+The output from these commands confirms that the relationships were created successfully:
 
-:::image type="content" source="media/quickstart/output-add-edge.png" alt-text="Excerpt from the results of addEdge commands, showing relationship0 and relationship1":::
+:::image type="content" source="media/quickstart/output-create-edge.png" alt-text="Excerpt from the results of CreateEdge commands, showing relationship0 and relationship1":::
 
 To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
 * To see all relationships coming off of each floor,
     ```cmd
-    listEdges floor0
-    listEdges floor1
+    GetEdges floor0
+    GetEdges floor1
     ```
-* To query for these relationships by ID, 
-    ```csharp
-    getEdgeById floor0 contains relationship0
-    getEdgeById floor1 contains relationship1
+* To query for these relationships individually, 
+    ```cmd
+    GetEdge floor0 contains relationship0
+    GetEdge floor1 contains relationship1
     ```
 
 The twins and relationships you have set up in this quickstart form the following conceptual graph:
@@ -172,20 +174,20 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
     ```cmd
-    queryTwins
+    Query
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
-    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Results of twin query, showing floor0, floor1, room0, and room1":::
+    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
-    >Observe how `queryTwins` without any additional arguments is the equivalent of `queryTwins SELECT * FROM DIGITALTWINS`.
+    >Observe how `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
 
 * **What are all the rooms in my environment?** (query by model)
 
     ```cmd
-    queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
+    Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
@@ -195,7 +197,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the rooms on *floor0*?** (query by relationship)
 
     ```cmd
-    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
+    Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
     ```
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
@@ -205,7 +207,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the twins in my environment with a temperature above 75?** (query by property)
 
     ```cmd
-    queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
+    Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
     ```
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported.
@@ -215,10 +217,10 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
     ```cmd
-    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
+    Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
-    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
+    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
     :::image type="content" source="media/quickstart/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
