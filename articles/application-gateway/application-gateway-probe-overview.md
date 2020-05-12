@@ -64,7 +64,7 @@ Once the match criteria is specified, it can be attached to probe configuration 
 > [!NOTE]
 > The port is the same port as the back-end HTTP settings.
 
-The default probe looks only at http:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
+The default probe looks only at http:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes. For more information on HTTP probes, check the [documentation here](ssl-overview.md#for-probe-traffic).
 
 ### Probe intervals
 

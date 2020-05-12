@@ -236,6 +236,10 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 Learn more about [Application Gateway probe matching](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
+>[!NOTE]
+> For all TLS related error messages, to learn more about SNI behavior and differences between the V1 and V2 SKU, check the [TLS overview](ssl-overview.md) page.
+
+
 #### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
@@ -325,7 +329,7 @@ If the output doesn't show the complete chain of the certificate being returned,
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
-**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s Server Name Indication (SNI) is set as the FQDN in the backend pool address.
+**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU (V2) behavior. The Standard and WAF SKU’s (V1) Server Name Indication (SNI) is set as the FQDN in the backend pool address. For more information on SNI behavior and differences between V1 and V2 SKU, check the [TLS overview page](ssl-overview.md).
 
 In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the host name mentioned in the HTTP settings. Or, if “Pick host name from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be applied.
 

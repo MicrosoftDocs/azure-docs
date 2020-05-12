@@ -163,6 +163,8 @@ All configuration items are set before creating the application gateway. The fol
    > The default probe gets the public key from the *default* TLS binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
    > 
    > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* TLS binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default TLS binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
+   
+   For more information on SNI in Application Gateway, check the [documentation here](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
