@@ -27,7 +27,7 @@ You can change the routing configuration for your storage account so that both i
 
 The following diagram shows how traffic flows between the client and the storage account for each routing preference:
 
-![Overview of routing options for Azure Storage](media/network-routing-preferences/routing-options-diagram.png)
+![Overview of routing options for Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
 For more information on routing preference in Azure, see [What is routing preference (preview)?](../../virtual-network/routing-preference-overview.md).
 

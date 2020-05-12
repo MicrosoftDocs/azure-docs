@@ -110,8 +110,8 @@
       href: storage-files-configure-p2s-vpn-windows.md
     - name: Configure Point-to-Site VPN on Linux
       href: storage-files-configure-p2s-vpn-linux.md
-    - name: Configure network routing preferences
-      href: ../common/network-routing-preferences.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json      
+    - name: Configure network routing preference
+      href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json      
   - name: Manage
     items:
     - name: Register a server with Azure File Sync
