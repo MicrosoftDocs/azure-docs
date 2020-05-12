@@ -1,5 +1,5 @@
 ---
-title: Dynamically add partitions to an Azure event hub
+title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs. 
 services: event-hubs
 author: spelluru
