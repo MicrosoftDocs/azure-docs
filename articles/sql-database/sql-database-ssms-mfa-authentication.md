@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse
-ms.custom: seoapril2019, sqldbrb=1
+ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek

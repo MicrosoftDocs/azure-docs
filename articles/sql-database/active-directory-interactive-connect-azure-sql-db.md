@@ -4,7 +4,7 @@ description: "C# Code example, with explanations, for connecting to Azure SQL Da
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: active directory, sqldbrb=1
+ms.custom: active directory, has-adal-ref, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: GithubMirek

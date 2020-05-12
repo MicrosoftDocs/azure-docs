@@ -56,6 +56,8 @@ SQL Database and SQL Managed Instance support self-service for point-in-time res
 
 The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database or SQL Managed Instance service as it balances the overall system workload. You can't change or disable the backup jobs.
 
+### Default backup retention period
+
 PITR backups are protected with geo-redundant storage. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 For more information about PITR, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).

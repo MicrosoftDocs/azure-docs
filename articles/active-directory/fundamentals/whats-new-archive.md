@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ---
 
