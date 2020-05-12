@@ -19,19 +19,19 @@ ms.service: digital-twins
 
 The following tutorials progressively introduce you to the core features of Azure Digital Twins. They also show you in a simple example how to connect Azure Digital Twins with other services for and end-to-end solution. 
 
-* The [Coding with the Azure Digital Twins APIs](./tutorial-code)  tutorial walks you through writing a simple C# console client app step by step, starting from scratch. You will use the command line and any code editor of your choice. 
-* The [Explore Azure Digital Twins using a command line tool](./tutorial-explore-adt-with-a-command-line-tool.md) tutorial introduces a simple sample application that implements a command line tool to interact with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code implementing the commands and modifying it as you desire.
-* The [End-to-end tutorial](./tutorial-end-to-end.md) builds on the command line tool and adds other services around Azure Digital Twins to demonstrate a minimal end-to-end example that illustrates how to feed Azure Digital Twins with data and process the data using and Azure Function. 
+* The [Coding with the Azure Digital Twins APIs](tutorial-code.md)  tutorial walks you through writing a simple C# console client app step by step, starting from scratch. You will use the command line and any code editor of your choice. 
+* The [Explore Azure Digital Twins using a command line tool](tutorial-command-line-app.md) tutorial introduces a simple sample application that implements a command line tool to interact with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code implementing the commands and modifying it as you desire.
+* The [End-to-end tutorial](tutorial-end-to-end.md) builds on the command line tool and adds other services around Azure Digital Twins to demonstrate a minimal end-to-end example that illustrates how to feed Azure Digital Twins with data and process the data using and Azure Function. 
 
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Coding with the Azure Digital Twins APIs](./tutorial-code)  
+> [Coding with the Azure Digital Twins APIs](tutorial-code.md)  
 
 > [!div class="nextstepaction"]
-> [Explore Azure Digital Twins using a command line tool](./tutorial-explore-adt-with-a-command-line-tool.md)
+> [Explore Azure Digital Twins using a command line tool](tutorial-command-line-app.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
