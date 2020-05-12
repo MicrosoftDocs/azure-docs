@@ -12,6 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio (SSMS)
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
