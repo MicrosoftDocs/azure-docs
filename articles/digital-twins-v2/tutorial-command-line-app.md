@@ -20,13 +20,17 @@ ms.service: digital-twins
 This tutorial introduces a sample application that implements a command-line app for interacting with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code, implementing the commands, and modifying it how you would like.
 
 In this tutorial, you will...
-* Set up an Azure Digital Twins instance
-* Explore Azure Digital Twins using a command-line app
-* Explore the code behind the command-line app and extend it
+1. Set up an Azure Digital Twins instance
+2. Configure the sample command-line app to interact with the instance
+3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
+4. Explore the code behind the command-line app and extend it
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
+
+> [!NOTE]
+> The PowerShell version of Azure Cloud Shell is recommended for its parsing of quotations. The other bash version will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
 
 [!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
 
@@ -36,9 +40,26 @@ The tutorial is driven by a sample project written in C#. Get the sample project
 
 [!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
-## Prerequisites
+## Explore with the sample solution
 
-* Visual Studio 2019
+Now that the instance and sample app are configured, you will use the sample project and some pre-written example code to build out and explore a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
+
+### Get started with the command-line app
+
+Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+
+:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
+ 
+A console window will open, carry out authentication, and wait for a command. 
+* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in to Azure. You can then close the browser tab or window.
+
+Here is a screenshot of what the project console looks like:
+
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Welcome message from the command-line app":::
+
+> [!TIP]
+> For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
 
 ### Model a physical environment with DTDL
 
@@ -83,40 +104,6 @@ Make sure to save the file before moving on.
 > [!TIP]
 > If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
 
-## Get started with the command-line app
-
-In your cloned sample repo, navigate to the folder *digital-twins-samples/buildingScenario/AdtSampleApp*.
-
-Open the solution file _**AdtE2ESample.sln**_ with Visual Studio 2019.
-
-Configure the sample application to work with the instance of Azure Digital Twins that you have previously set up. To do so:
-
-* Copy the file *serviceConfig.json.TEMPLATE* to a new file called *serviceConfig.json*.
-* Edit the newly created file. It contains a preset JSON file with three configuration variables:
-
-```json
-{
-  "tenantId": "<your tenant ID here>",
-  "clientId": "<your client ID here>",
-  "instanceUrl": "<your instance URL here>"
-}
-```
-
-Replace all three values with the values for your subscription, app registration, and Azure Digital Twins service instance.
-
-Run the console application by pressing **F5** in Visual Studio.
-
-When the application starts up, your default web browser will open and bring up an authentication prompt. Use this prompt to sign in to Azure.
-You can then close the browser tab or window.
-
-The command-line sample tool will show up as follows:
-
-:::image type="content" source="media/tutorial-command-line-app/command-line-app-1.png" alt-text="Welcome message from the command-line app":::
-
-Enter `help` in the command line and press return. You will see a list of all the possible commands:
-
-:::image type="content" source="media/tutorial-command-line-app/command-line-app-2.png" alt-text="Help message from the command-line app":::
-
 #### Upload models to Azure Digital Twins
 
 Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. THis configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
@@ -134,6 +121,30 @@ Verify the models were created by running the `GetModels` command. This will que
 :::image type="content" source="media/quickstart/output-list-models.png" alt-text="Results of listModels, showing the updated Room model":::
 
 Keep the project console window running for the following steps.
+
+
+#### Errors
+
+The sample application also handles errors from the service. Try to upload one of the same models you just uploaded again:
+
+```cmd/sh
+CreateModels Room
+```
+
+As models cannot be overwritten, this will now return a service error:
+```cmd/sh
+Response 409: Service request failed.
+Status: 409 (Conflict)
+
+Content:
+{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
+
+Headers:
+api-supported-versions: REDACTED
+Date: Fri, 08 May 2020 01:53:52 GMT
+Content-Length: 115
+Content-Type: application/json; charset=utf-8
+```
 
 ### Create digital twins
 
@@ -159,6 +170,24 @@ The output from these commands should indicate the twins were created successful
 
 You can also verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
+#### Modify a digital twin
+
+You can can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
+
+```cmd/sh
+UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
+```
+
+Then run this command to see *room0*'s information.:
+```cmd/sh
+GetDigitalTwin room0
+```
+
+The output should reflect the updated name.
+
+> [!NOTE]
+> The underlying REST API uses JSON Patch to define updates to a twin. The command-line app reflects this format, so that you can experiment with what the underlying APIs actually expect.
+
 ### Create a graph by adding relationships
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
@@ -172,34 +201,31 @@ CreateEdge floor0 contains room0 relationship0
 CreateEdge floor1 contains room1 relationship1
 ```
 
-The output from these commands shows information about the relationships being created:
+The output from these commands confirms that the relationships were created successfully:
 
-:::image type="content" source="media/quickstart/output-add-edge.png" alt-text="Excerpt from the results of addEdge commands, showing relationship0 and relationship1":::
+:::image type="content" source="media/quickstart/output-create-edge.png" alt-text="Excerpt from the results of CreateEdge commands, showing relationship0 and relationship1":::
 
-To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
-* To see all relationships coming off of each floor,
+You can also verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+* To see all relationships coming off of each floor (viewing the relationships from one side),
     ```cmd/sh
     GetEdges floor0
     GetEdges floor1
     ```
-* To retrieve these relationships by ID, 
-    ```csharp
-    GetEdge floor0 contains relationship0
-    GetEdge floor1 contains relationship1
-    ```
-* We can also find the incoming edges for twins. Try:
-
+* To see all relationships arriving at each room (viewing the relationship from the "other" side),
     ```cmd/sh
     GetIncomingEdges room0
     ```
-
-    That returns the perspective from "the other side".
+* To query for these relationships individually, 
+    ```cmd/sh
+    GetEdge floor0 contains relationship0
+    GetEdge floor1 contains relationship1
+    ```
 
 The twins and relationships you have set up in this quickstart form the following conceptual graph:
 
 :::image type="content" source="media/quickstart/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
 
-## Query the twin graph to answer environment questions
+### Query the twin graph to answer environment questions
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
 
@@ -211,7 +237,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
 
-    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Results of twin query, showing floor0, floor1, room0, and room1":::
+    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
     >Observe how `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
@@ -256,53 +282,15 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     :::image type="content" source="media/quickstart/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
-### Modify a twin
-You can can also modify twin properties, using this command:
-
-```cmd/sh
-UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
-```
-
-Run this command to verify that it worked:
-```cmd/sh
-GetDigitalTwin room0
-```
-
-As you will see, the twin property data has been updated.
-
-Note that the underlying REST API uses JSON Patch to define updates to a twin. The command-line app reflects this format so that you can experiment with what the underlying APIs actually expect.
-
-### Errors
-
-The sample application also handles errors from the service. Try to upload the same model you uploaded in the beginning again:
-
-```cmd/sh
-CreateModels Room
-```
-
-As models cannot be overwritten, this will now return a service error:
-```cmd/sh
-Response 409: Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
-
-Headers:
-api-supported-versions: REDACTED
-Date: Fri, 08 May 2020 01:53:52 GMT
-Content-Length: 115
-Content-Type: application/json; charset=utf-8
-```
-
 ## Explore the commands and the code
 
 From this point, feel free to experiment with the commands. You can look at the implementations of the commands, and start adding to or manipulating them however you would like.
 
 * The file *Program.cs* contains the authentication logic
-* The file *CommandLoop.cs* contains all the interesting commands
+* The file *CommandLoop.cs* contains the bulk of the Azure Digital Twins commands
 
 Here is an example that creates a twin:
+
 ```csharp
 Dictionary<string, object> meta = new Dictionary<string, object>()
 {
@@ -331,9 +319,9 @@ catch (Exception ex)
 
 ## Clean up resources
 
-The project in this tutorial forms the basis for the [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md). Please keep the resources around if you plan to move on to that tutorial. 
+The project in this tutorial forms the basis for the next tutorial, [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
 
-If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorial, you can keep the resources you set up here to continue using this instance and client app configuration. 
+If you no longer need the resources created in this tutorial, follow these steps to delete them.
 
 Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 
@@ -350,7 +338,7 @@ Next, delete the AAD app registration you created for your client app with this 
 az ad app delete --id <your-application-ID>
 ```
 
-Finally, delete the project sample folder you downloaded from your local machine.
+Finally, delete the project sample folder you downloaded to your local machine.
 
 ## Next steps
 
