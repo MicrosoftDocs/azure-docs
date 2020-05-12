@@ -23,7 +23,7 @@ Azure Security is in active development and receives improvements on an ongoing 
 - Bug fixes
 - Deprecated functionality
 
-This page is updated regularly, so revisit it often. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
+This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
 ## May 2020
@@ -60,7 +60,7 @@ Suppression rules define the criteria for which alerts should be automatically d
 
 One of the security controls introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
 
-To make it easier to find your custom recommendations, we have moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
+To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
@@ -71,22 +71,22 @@ Security controls are logical groups of related security recommendations. They r
 
 To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-By default, your recommendations are shown in the security controls, but from this update you can display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls' at the top of the list in the portal.
+By default, your recommendations are shown in the security controls. From this update you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
 ### Account security recommendations moved to "Security best practices" security control
 
-One of the security controls introduced with the enhanced secure score was "Security best practices". 
+One of the security controls introduced with the enhanced secure score is "Security best practices". 
 
 With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control.
 
 The recommendations are:
 
-- MFA should be enabled on accounts with read permissions on your subscription (this was originally in the "Enable MFA" control)
-- External accounts with read permissions should be removed from your subscription (this was originally in the "Manage access and permissions" control)
-- A maximum of 3 owners should be designated for your subscription (this was originally in the "Manage access and permissions" control)
+- MFA should be enabled on accounts with read permissions on your subscription (originally in the "Enable MFA" control)
+- External accounts with read permissions should be removed from your subscription (originally in the "Manage access and permissions" control)
+- A maximum of 3 owners should be designated for your subscription (originally in the "Manage access and permissions" control)
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
@@ -97,7 +97,7 @@ Custom policies are now part of the Security Center recommendations experience, 
 
 Create a custom initiative in Azure policy, add it as a policy in Azure Security Center, and visualize it as recommendations.
 
-We've now also added the ability to edit the custom recommendation metadata such as severity, remediation steps, threats information, and more.  
+We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 
 [Learn more about enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
 
@@ -110,7 +110,13 @@ The Azure Security Center regulatory compliance dashboard now includes **dynamic
 
 Dynamic compliance packages can be added to your subscription or management group from the Security Center security policy page. When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. A summary report for any of the standards that have been onboarded will be available to download.
 
-Now, you can add standards such as **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UK Official and UK NHS**, **Canada Federal PBMM**, and **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0). 
+Now, you can add standards such as:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official and UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
 
 In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
  
@@ -119,7 +125,7 @@ In addition, we've recently added the **Azure Security Benchmark**, the Microsof
 
 ### Identity recommendations now included in Azure Security Center free tier
 
-Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features completely free. Until now, these recommendations were only available on the standard pricing tier.
+Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features free. Until now, these recommendations were only available on the standard pricing tier.
 
 Examples of identity and access recommendations include:
 
@@ -162,13 +168,13 @@ Learn more about how to [integrate Azure Security Center with Windows Admin Cent
 
 Azure Security Center is expanding its container security features to protect Azure Kubernetes Service (AKS).
 
-The popular, open source platform Kubernetes has been adopted so widely that it’s now an industry standard for container orchestration. Despite this widespread implementation, there’s still a lack of understanding regarding how to secure a Kubernetes environment. Defending the attack surfaces of a containerized application requires expertise to ensuring the infrastructure is configured securely and constantly monitored for potential threats.
+The popular, open-source platform Kubernetes has been adopted so widely that it’s now an industry standard for container orchestration. Despite this widespread implementation, there’s still a lack of understanding regarding how to secure a Kubernetes environment. Defending the attack surfaces of a containerized application requires expertise to ensuring the infrastructure is configured securely and constantly monitored for potential threats.
 
 The Security Center defense includes:
 
-- **Discovery and visibility** — Continuous discovery of managed AKS instances within the subscriptions registered to Security Center.
-- **Security recommendations** — Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they’re viewed as a part of your organization’s security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
-- **Threat protection** — Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
+- **Discovery and visibility** - Continuous discovery of managed AKS instances within the subscriptions registered to Security Center.
+- **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they’re viewed as a part of your organization’s security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
+- **Threat protection** - Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
 
 [Learn more about Azure Kubernetes Services integration with Security Center](azure-kubernetes-service-integration.md).
 [Learn more about the container security features in Security Center](container-security.md).
@@ -178,8 +184,8 @@ The Security Center defense includes:
 
 The features, operation, and UI for Azure Security Center’s just-in-time tools that secure your management ports have been enhanced as follows: 
 
-- **Justification field** — When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
-- **Automatic cleanup of redundant just-in-time (JIT) rules** — Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed any more. The cleaner never deletes rules that you've created. 
+- **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
+- **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created. 
 
 [Learn more about the JIT access feature](security-center-just-in-time.md).
 
@@ -189,12 +195,12 @@ The features, operation, and UI for Azure Security Center’s just-in-time tools
 Two security recommendations related to web applications are being deprecated: 
 
 - The rules for web applications on IaaS NSGs should be hardened.
-    (Related policy — The NSGs rules for web applications on IaaS should be hardened)
+    (Related policy: The NSGs rules for web applications on IaaS should be hardened)
 
 - Access to App Services should be restricted.
-    (Related policy — Access to App Services should be restricted [preview])
+    (Related policy: Access to App Services should be restricted [preview])
 
-These recommendations will no longer appear in the Security Center list of recommendations and their related policies will no longer be included in the Security Center Default initiative.
+These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
 
 [Learn more about security recommendations](recommendations-reference.md).
 
@@ -202,9 +208,12 @@ These recommendations will no longer appear in the Security Center list of recom
 
 ### Fileless attack detection for Linux is now in preview
 
-As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques minimize or eliminate traces of malware on disk and greatly reduce the chances of detection by disk-based malware scanning solutions.
+As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
 
-To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended  fileless attack detection on Linux as well. 
+- minimize or eliminate traces of malware on disk
+- greatly reduce the chances of detection by disk-based malware scanning solutions
+
+To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
 
 
 ## January 2020
