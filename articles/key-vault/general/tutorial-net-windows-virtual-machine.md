@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
-In this tutorial, you learn how to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
+In this tutorial, you learn how to get a console application to read information from Azure Key Vault. Application would use virtual machine managed identity would be used to authenticate to Key Vault. 
 
 The tutorial shows you how to:
 
@@ -40,16 +40,6 @@ For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
   * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-## About Managed Service Identity
-
-Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
-
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
-
-![MSI](../media/MSI.png)
-
-Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI endpoint. 
 
 ## Create resources and assign permissions
 
