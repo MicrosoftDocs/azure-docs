@@ -231,7 +231,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - [Remove Database Auditing Policy (Remove-AzSqlDatabaseAudit)](/powershell/module/az.sql/remove-azsqldatabaseaudit)
 - [Remove Server Auditing Policy (Remove-AzSqlServerAudit)](/powershell/module/az.sql/remove-azsqlserveraudit)
 
-For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+For a script example, see [Configure auditing and threat detection using PowerShell](../azure-sql/database/scripts/configure-auditing-threat-detection-powershell.md).
 
 ### Using REST API
 

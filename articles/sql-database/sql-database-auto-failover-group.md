@@ -28,8 +28,8 @@ In addition, auto-failover groups provide read-write and read-only listener end-
 When you are using auto-failover groups with automatic failover policy, any outage that impacts databases on a server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - [Azure portal](sql-database-implement-geo-distributed-database.md)
-- [Azure CLI: Failover Group](scripts/sql-database-add-single-db-to-failover-group-cli.md)
-- [PowerShell: Failover Group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- [Azure CLI: Failover Group](../azure-sql/database/scripts/add-database-to-failover-group-cli.md)
+- [PowerShell: Failover Group](../azure-sql/database/scripts/add-database-to-failover-group-powershell.md)
 - [REST API: Failover group](/rest/api/sql/failovergroups).
 
 After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
@@ -468,7 +468,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - For sample scripts, see:
   - [Use PowerShell to configure active geo-replication for Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Use PowerShell to add an Azure SQL Database to a failover group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [Use PowerShell to add an Azure SQL Database to a failover group](../azure-sql/database/scripts/add-database-to-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
