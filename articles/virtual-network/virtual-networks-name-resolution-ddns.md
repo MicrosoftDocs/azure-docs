@@ -57,7 +57,7 @@ then
 fi
 ```
 
-You can also use the `nsupdate` command to perform secure DDNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/). The DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key, so that it can verify the signature on the request. To provide the key-pair to `nsupdate`, use the `-k` option, for the DDNS update request to be signed.
+You can also use the `nsupdate` command to perform secure DDNS updates. For example, when you're using a Bind DNS server, a public-private key pair is generated (`http://linux.yyz.us/nsupdate/`). The DNS server is configured (`http://linux.yyz.us/dns/ddns-server.html`) with the public part of the key, so that it can verify the signature on the request. To provide the key-pair to `nsupdate`, use the `-k` option, for the DDNS update request to be signed.
 
 When you're using a Windows DNS server, you can use Kerberos authentication with the `-g` parameter in `nsupdate`, but it's not available in the Windows version of `nsupdate`. To use Kerberos, use `kinit` to load the credentials. For example, you can load credentials from a [keytab file](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), then `nsupdate -g` picks up the credentials, from the cache.
 

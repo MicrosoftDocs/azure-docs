@@ -46,7 +46,7 @@ Follow [Custom Domain Document](spring-cloud-tutorial-custom-domain.md) to set u
 3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
 
 Here is the traffic manager profile:
-* Traffic Manager DNS Name: http://asc-bcdr.trafficmanager.net
+* Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
 * Endpoint Profiles: 
 
 | Profile | Type | Target | Priority | Custom Header Settings |
