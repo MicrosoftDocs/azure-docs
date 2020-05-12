@@ -48,7 +48,7 @@ If an app exceeds the *CPU (short)*, *CPU (Day)*, or *bandwidth* quota, the app 
 
 ![403 error message][http403]
 
-If the app Memory quota is exceeded, the app is restarted.
+If the app Memory quota is exceeded, the app is stopped temporarily.
 
 If the Filesystem quota is exceeded, any write operation fails. Write operation failures include any writes to logs.
 
