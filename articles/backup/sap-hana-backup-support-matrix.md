@@ -32,7 +32,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 ------
 
 > [!NOTE]
-> Backup and restore operations from SAP HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) aren't currently supported.
+> You can now [monitor the backup and restore (to the same machine) jobs](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) triggered from HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
 
 ## Next steps
 

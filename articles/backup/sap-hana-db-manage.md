@@ -63,13 +63,21 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 ### HANA native client integration
 
-Now on-demand full backups triggered from any of the HANA native clients will show up as a full backup on the **Backup Items** page.
+#### Backup
+
+On-demand backups triggered from any of the HANA native clients (to **Backint**) will show up in the backup list on the **Backup Items** page.
 
 ![Last backups run](./media/sap-hana-db-manage/last-backups.png)
 
-These ad-hoc full backups will also show up in the list of restore points for restore.
+You can also [monitor these backups](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
+
+These on-demand backups will also show up in the list of restore points for restore.
 
 ![List of restore points](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### Restore
+
+Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) from the Backup jobs page.
 
 ### Run SAP HANA native client backup on a database with Azure backup enabled
 

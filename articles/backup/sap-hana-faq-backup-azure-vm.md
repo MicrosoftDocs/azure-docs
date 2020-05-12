@@ -56,6 +56,18 @@ Currently we do not have the capability to set up the solution against a virtual
 
 The primary and secondary nodes of the HSR will be treated as two individual, un-related VMs. You need to configure backup on the primary node and when the fail-over happens, you need to configure backup on the secondary node (which now becomes the primary node). There is no automatic 'fail-over' of backup to the other node.
 
+### How can I move an on-demand backup to the local file system instead of the Azure vault?
+
+1. Wait for the currently running backup to complete on the desired database (check from studio for completion)
+1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
+1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
+    1. Set enable_auto_log_backup to **no**
+    1. Set log_backup_using_backint to **false**
+1. Take an on-demand backup on the desired database, and wait for the backup and catalog backup to complete.
+1. Revert to the previous settings to allow backups to flow to the Azure vault:
+    1. Set enable_auto_log_backup to **yes**
+    1. Set log_backup_using_backint to **true**
+
 ## Restore
 
 ### Why can't I see the HANA system I want my database to be restored to?
