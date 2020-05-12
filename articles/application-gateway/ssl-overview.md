@@ -51,7 +51,7 @@ For more information, see [configure TLS termination with application gateway](h
 ### Size of the certificate
 Check the [Application Gateway limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
 
-## End to end TLS encryption
+## End-to-end TLS encryption
 
 Some users may not desire unencrypted communication to the backend servers. This could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, Application Gateway supports end to end TLS encryption.
 
