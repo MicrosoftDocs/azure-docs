@@ -89,6 +89,8 @@
       href: azure-stack-edge-security.md
     - name: Review specifications
       href: azure-stack-edge-technical-specifications-compliance.md
+      - name: Regional power cords
+        href: azure-stack-edge-technical-specifications-powercords-regional.md
   - name: How to
     items:
     - name: Develop C# module

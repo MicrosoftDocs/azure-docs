@@ -23,7 +23,6 @@ The Azure Stack Edge device has the following specifications for compute and mem
 | CPU    | 2 X 10 core CPU                     |
 | Memory              | 128 GB RAM                  |
 
-
 ## FPGA specifications
 
 A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios. 
@@ -31,7 +30,6 @@ A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge dev
 | Specification           | Value                  |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
 
 ## Power supply unit specifications
 
@@ -43,6 +41,11 @@ The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with hig
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
+
+### Azure Stack Edge power cord specifications by region
+
+Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
+For technical specifications for all regional power cords supported by Azure Stack Edge, see [Azure Stack Edge power cord specifications by region](azure-stack-edge-technical-specifications-powercords-regional.md).
 
 <!--## Power consumption statistics
 
