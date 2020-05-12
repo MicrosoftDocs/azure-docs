@@ -25,7 +25,7 @@ The following table includes links to bash scripts built using Azure PowerShell.
 | [Create and attach disks to a scale set](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine scale set with attached data disks. |
 |**Manage scale and redundancy**||
 | [Enable host-based autoscale](scripts/powershell-sample-enable-autoscale.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that is configured to automatically scale based on CPU usage. |
-| [Create a single-zone scale set](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
+| [Create a single-zone scale set](scripts/powershell-single-av-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
 | [Create a zone-redundant scale set](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale across multiple Availability Zones. |
 | | |
 
