@@ -13,6 +13,7 @@ ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
