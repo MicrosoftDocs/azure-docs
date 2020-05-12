@@ -40,7 +40,7 @@ The template already exists.
 
 #### Solution
 
-If you submit an image configuration template and the submission fails, a failed template artifact still exist. You must delete the failed template.
+If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
 
 ### The resource operation completed with terminal provisioning state 'Failed'
 
@@ -146,7 +146,7 @@ You can view the storage account in the resource group by selecting **Storage Ac
 
 ### Understanding the customization log
 
-The log is extremely verbose. It covers the image build including any issues with the image distribution, such as Shared Image Gallery replication. These errors are surfaced in the error message of the image template status.
+The log is verbose. It covers the image build including any issues with the image distribution, such as Shared Image Gallery replication. These errors are surfaced in the error message of the image template status.
 
 The customization.log includes the following stages:
 
@@ -200,7 +200,7 @@ The customization.log includes the following stages:
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
     ```
 
-6. Clean up stage. Once the build has completed, Azure Image Builder resource are deleted.
+6. Clean up stage. Once the build has completed, Azure Image Builder resources are deleted.
     ```text
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
     ```
@@ -226,7 +226,7 @@ Customization failure.
 
 #### Solution
 
-Review log to locate customerizers failures. Search for *(telemetry)*. 
+Review log to locate customizers failures. Search for *(telemetry)*. 
 
 For example:
 ```text
@@ -256,17 +256,17 @@ The build exceeded the build timeout. This error is seen in the 'lastrunstatus'.
 
 #### Solution
 
-1. Review the customization.log. Identify the last customizer to run. Search for `(telemetry)` starting from the the bottom of the log. 
+1. Review the customization.log. Identify the last customizer to run. Search for `(telemetry)` starting from the bottom of the log. 
 
-2. Check script customizations. The customizations may not be supressing user interation for commands, such as `quiet` options. For example, `apt-get install -y` results in the script execution is waiting for user interaction.
+2. Check script customizations. The customizations may not be suppressing user interaction for commands, such as `quiet` options. For example, `apt-get install -y` results in the script execution waiting for user interaction.
 
-3. If you are using the `File` customizer to download artifacts greater than 20MB, see workarounds section.
+3. If you are using the `File` customizer to download artifacts greater than 20 MB, see workarounds section.
 
 4. Review errors and dependencies in script that may cause the script to wait.
 
 5. If you expect that the customizations need more time, increase [buildTimeoutInMinutes](image-builder-json.md). The default is four hours.
 
-6. If you have resource intensive actions, such as downloading gigabytes of files, consider the underlying build VM size. The service uses a Standard_D1_v2 VM. The VM has, 1 vCPU and 3.5GB of memory. If you are downloading 50 GB, this will likely exhaust the VM resources and cause communication failures between the Azure Image Builder Service and build VM. Retry the build with a larger memory VM, by setting the [VM_Size](image-builder-json.md#vmprofile).
+6. If you have resource-intensive actions, such as downloading gigabytes of files, consider the underlying build VM size. The service uses a Standard_D1_v2 VM. The VM has, 1 vCPU and 3.5 GB of memory. If you are downloading 50 GB, this will likely exhaust the VM resources and cause communication failures between the Azure Image Builder Service and build VM. Retry the build with a larger memory VM, by setting the [VM_Size](image-builder-json.md#vmprofile).
 
 ### Long file download time
 
@@ -289,7 +289,7 @@ File customizer is downloading a large file.
 
 #### Solution
 
-The file customizer is only suitable for small file downloads less than 20 MB. For larger file downloads, use a script or inline command. For example, on Linux you can use `wget` or `curl`. On Windows you can use`Invoke-WebRequest`.
+The file customizer is only suitable for small file downloads less than 20 MB. For larger file downloads, use a script or inline command. For example, on Linux you can use `wget` or `curl`. On Windows, you can use`Invoke-WebRequest`.
 
 ### Error waiting on shared image gallery
 
@@ -390,11 +390,11 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 ```
 #### Cause
 
-Timeout caused by waiting for required Azure resources to be created.
+Time out caused by waiting for required Azure resources to be created.
 
 #### Solution
 
-Re-run the build to try again.
+Rerun the build to try again.
 
 ### Resource not found
 
@@ -477,11 +477,11 @@ For more information on configuring permissions, see [Configure Azure Image Buil
 ```
 #### Cause
 
-This may be a timing issue caused by the D1_V2 VM size. If customizations are limited and execute in less than three seconds, sysprep commands are run by Azure Image Builder to de-provision. When Azure Image Builder de-provisions, the sysprep command checks for the *WindowsAzureGuestAgent*, which may not be fully installed causing the timing issue. 
+The cause may be a timing issue due to the D1_V2 VM size. If customizations are limited and execute in less than three seconds, sysprep commands are run by Azure Image Builder to de-provision. When Azure Image Builder de-provisions, the sysprep command checks for the *WindowsAzureGuestAgent*, which may not be fully installed causing the timing issue. 
 
 #### Solution
 
-Increase the VM size. Or, you can add a 60 second PowerShell sleep customization to avoid the timing issue.
+Increase the VM size. Or, you can add a 60-second PowerShell sleep customization to avoid the timing issue.
 
 ## DevOps task 
 
@@ -517,7 +517,7 @@ Increase the VM size. Or, you can add a 60 second PowerShell sleep customization
 ```
 #### Cause
 
-If the build was not cancelled by a user, it was cancelled by Azure DevOps User Agent. Most likely the 1 hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
+If the build was not canceled by a user, it was canceled by Azure DevOps User Agent. Most likely the 1-hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
 
 For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
@@ -527,7 +527,7 @@ You can host your own DevOps agents, or look to reduce the time of your build. F
  
 ## VMs created from AIB images do not create successfully
 
-By default, the Azure Image Builder runs *de-provision* code at the end of each image customization phase to *generalize* the image. Generalize is a process where the image is setup to be reused to create multiple VMs and you can pass in VM settings, such as hostname, username, etc. For Windows, Azure Image Builder executes *Sysprep*, and for Linux Azure Image Builder runs `waagent -deprovision`. 
+By default, the Azure Image Builder runs *de-provision* code at the end of each image customization phase to *generalize* the image. Generalize is a process where the image is set up to be reused to create multiple VMs and you can pass in VM settings, such as hostname, username, etc. For Windows, Azure Image Builder executes *Sysprep*, and for Linux Azure Image Builder runs `waagent -deprovision`. 
 
 For Windows, Azure Image Builder uses a generic Sysprep command. However, this may not be suitable for every successful Windows generalization. Azure Image Builder allows you to customize the Sysprep command. Note Azure Image Builder is an image automation tool. It's responsible for running Sysprep command successfully. But, you may need different Sysprep commands to make your image reusable. For Linux, Azure Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
 
