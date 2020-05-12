@@ -28,7 +28,9 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript:Auth Code Flow
+      href: quickstart-v2-javascript-auth-code.md
+    - name: JavaScript:Implicit Flow 
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
@@ -73,7 +75,9 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript: Auth Code Flow
+      href: tutorial-v2-javascript-spa-auth-code.md  
+    - name: JavaScript: Implicit Flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
