@@ -507,7 +507,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 > [!NOTE]
 > This quickstart uses the `loginPopup` and `acquireTokenPopup` methods by default. If you are using Internet Explorer as your browser, it is recommended to use `loginRedirect` and `acquireTokenRedirect` methods, due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the way Internet Explorer handles pop-up windows. If you would like to see how to achieve the same result using redirect methods, please see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 
-## Call the Microsoft Graph API 
+## Call the Microsoft Graph API
 
 
  Create a .js file named *graph.js* that will make a REST call to Microsoft Graph API, and add the following code:
@@ -580,5 +580,7 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
+
+If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
 
 The [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js) contains additional library documentation, a FAQ, and provides issue support.
