@@ -38,7 +38,7 @@ In the table below you can find the available authorization types:
 | [Managed Identity](#managed-identity) | Not supported | Supported      |
 | [User Identity](#user-identity)       | Not supported | Supported      |
 
-### Shared access signature
+### [Shared access signature](#tab/shared-access-signature)
 
 **Shared access signature (SAS)** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
 over the type of access you grant to clients who have an SAS, including validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
@@ -50,7 +50,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-### User Identity
+### [User Identity](#tab/user-identity)
 
 **User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
@@ -94,11 +94,13 @@ DROP CREDENTIAL [UserIdentity];
 
 If you want to re-enable it again, refer to the [force Azure AD pass-through](#force-azure-ad-pass-through) section.
 
-### Managed Identity
+### [Managed Identity](#tab/managed-identity)
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
+
+---
 
 ## Credentials
 
