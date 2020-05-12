@@ -87,7 +87,7 @@ When you create a support ticket, the name of the service is still listed as `SQ
 
 [Reserved capacity](sql-database-reserved-capacity.md) for an Azure SQL Managed Instance is still listed under the  **SQL Database** product. 
 
-![Reservations](./media/quota-increase-request/reservations.png)
+![Reservations](./media/azure-sql-managed-instance-rebrand/reservations.png)
 
 
 ## Next steps
