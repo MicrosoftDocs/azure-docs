@@ -30,6 +30,8 @@
     items:
     - name: COPY statement
       href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Synapse Studio
+      href: quickstart-load-studio-sql-pool.md
   - name: Use SQL on-demand
     href: quickstart-sql-on-demand.md
 - name: Tutorials

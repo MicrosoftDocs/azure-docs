@@ -5,7 +5,7 @@
  author: erindormier
  ms.service: cognitive-services
  ms.topic: include
- ms.date: 03/11/2020
+ ms.date: 05/11/2020
  ms.author: egeaney
  ms.custom: include
 ---
@@ -18,3 +18,5 @@ Customer-managed keys are currently available in these regions:
 * US South Central
 * West US 2
 * East US
+* US Gov Virginia
+* US Gov Arizona
