@@ -41627,8 +41627,8 @@
     },
     {
       "source_path": "articles/log-analytics/powershell-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/alert-log.md",
