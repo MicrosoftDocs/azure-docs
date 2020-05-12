@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 With guest users, you have auditing capabilities similar to with member users. 
 
 ## Access reviews
-You can use access reviews to periodically verify whether guest users still need access to your resources. The **Access reviews** feature is available in **Azure Active Directory** under **Manage** > **Organizational Relationships** (soon to be renamed **External Identities**). (You can also search for "access reviews" from **All services** in the Azure portal.) To learn how to use access reviews, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
+You can use access reviews to periodically verify whether guest users still need access to your resources. The **Access reviews** feature is available in **Azure Active Directory** under **Organizational Relationships** > **Access reviews** (or **External Identities** > **Access reviews** ). You can also search for "access reviews" from **All services** in the Azure portal. To learn how to use access reviews, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
 
 ## Audit logs
 
