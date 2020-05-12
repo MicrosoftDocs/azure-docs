@@ -13,7 +13,7 @@ ms.reviewer: jrasnick, carlrab
 
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
 
-In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
+In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
 - Public storage where user access public storage files.
 - Protected storage where user access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
@@ -71,7 +71,6 @@ WITH (
     DATA_SOURCE = sqlondemanddemo,
     FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
 ## Create an external table on public data
@@ -97,7 +96,7 @@ CREATE EXTERNAL TABLE Taxi (
 ```
 ## Use a external table
 
-You can use external tables in your queries the same way you use them in SQL Server queries.
+You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
 
 The following query demonstrates using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
 
