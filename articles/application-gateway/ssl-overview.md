@@ -123,7 +123,7 @@ Scenario | V1 | V2 |
 | --- | --- | --- |
 | If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Return the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener configured (in the order)|
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener configured (in the order)
-| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Certificate configured in the basic listener is returned to the client (default or fallback certificate) | Returns the certificate of the first HTTPS listener configured (in the order) |
+| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate of the first HTTPS listener configured (in the order) |
 
 ### Backend TLS connection (Application Gateway to the backend server)
 
