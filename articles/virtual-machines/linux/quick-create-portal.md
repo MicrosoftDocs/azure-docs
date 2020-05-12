@@ -71,7 +71,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 ```
 
 > [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the ** Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 ## Install web server
 
