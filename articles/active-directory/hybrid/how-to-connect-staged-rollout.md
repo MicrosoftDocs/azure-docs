@@ -77,7 +77,7 @@ The following scenarios are not supported for staged rollout:
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
 >[!NOTE]
-> Because tenanted endpoints do not send login hints, they are not supported for staged rollout.  SAML applications typically use the tenanted endpoints and if configured as such do not support staged rollout.
+> Because tenanted endpoints do not send login hints, they are not supported for staged rollout.  SAML applications use the tenanted endpoints and are also not support for staged rollout.
 
 ## Get started with staged rollout
 
