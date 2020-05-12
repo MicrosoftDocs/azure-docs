@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Azure Active Directory Conditional Access FAQs
 

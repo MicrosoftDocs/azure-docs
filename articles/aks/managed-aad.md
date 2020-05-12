@@ -4,19 +4,19 @@ description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 05/11/2020
 ---
 
 # Integrate Azure AD in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing AKS v1 clusters with AD integration are not affected by the new AKS v2 experience.
+> Existing AKS clusters with AAD (Azure Active Directory) integration are not affected by the new AKS-managed AAD experience.
 
-Azure AD integration with AKS v2 is designed to simplify the Azure AD integration with AKS v1 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+Azure AD integration with AKS-managed AAD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing Azure AD enabled AKS v1 cluster to the v2 experience.
+* You can't currently upgrade an existing AKS AAD-Integrated cluster to the new AKS-managed AAD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -26,11 +26,14 @@ Azure AD integration with AKS v2 is designed to simplify the Azure AD integratio
 
 ## Before you begin
 
+> [!Important]
+> You must use Kubectl with a minimum version of 1.18
+
 You must have the following resources installed:
 
-- The Azure CLI, version 2.2.0 or later
+- The Azure CLI, version 2.5.1 or later
 - The aks-preview 0.4.38 extension
-- Kubectl with a minimum version of [1.18 beta](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#client-binaries)
+- Kubectl with a minimum version of [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
 
 To install/update the aks-preview  extension or later, use the following Azure CLI commands:
 
@@ -101,7 +104,7 @@ Alternatively, if you first create a group and add members, you can enable the A
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-A successful creation of an Azure AD v2 cluster has the following section in the response body
+A successful creation of an AKS-managed AAD cluster has the following section in the response body
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
@@ -145,7 +148,8 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Next steps
 
-Learn about [Azure AD Role Based Access Control][azure-ad-rbac].
+* Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
+* Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that are not available in kubectl.
 
 <!-- LINKS - Internal -->
 [azure-ad-rbac]: azure-ad-rbac.md
