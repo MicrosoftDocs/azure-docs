@@ -69,7 +69,7 @@ Students need to find out from their instructor which Linux graphical desktop en
 
 1. Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2goclient) on your local computer.
 
-1. Follow the instructions in the [first section](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-SSH) to copy the SSH connection information for your VM.  You need this information to connect using the X2Go client.
+1. Follow the instructions in the [first section](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to copy the SSH connection information for your VM.  You need this information to connect using the X2Go client.
 
 1. Once you have the SSH connection information, open the X2Go client and select **Session** > **New Session**.
    ![X2Go create new session](../media/how-to-use-classroom-lab/x2go-new-session.png)

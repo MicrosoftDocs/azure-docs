@@ -37,7 +37,7 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Small  |
 | VM image | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
-| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using RDP. For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
 
 ## Install desktop and xrdp
