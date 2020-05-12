@@ -23,6 +23,8 @@ Microsoft and Oracle have partnered to provide low latency, high throughput cros
 
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud. 
 
+If you are interested in running your middleware, including WebLogic Server, on Azure infrastructure, but have the Oracle database running within OCI, see [WebLogic Server Azure Applications](oracle-weblogic.md).
+
 If you are interested in deploying Oracle solutions entirely on Azure infrastructure, see [Oracle VM images and their deployment on Microsoft Azure](oracle-vm-solutions.md).
 
 ## Scenario overview
@@ -40,7 +42,7 @@ Applications you can run in a cross-cloud configuration include:
 * Oracle Retail applications
 * Oracle Hyperion Financial Management
 
-The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
+The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include additional tiers such as a WebLogic Server cluster or web tier in Azure. For more information, see the following sections.
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
@@ -66,6 +68,8 @@ Using ExpressRoute and FastConnect, customers can peer a virtual network in Azur
 Network security is a crucial component of any enterprise application, and is central to this multi-cloud solution. Any traffic going over ExpressRoute and FastConnect passes over a private network. This configuration allows for secure communication between an Azure virtual network and an Oracle virtual cloud network. You don't need to provide a public IP address to any virtual machines in Azure. Similarly, you don't need an internet gateway in OCI. All communication happens via the private IP address of the machines.
 
 Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) on your OCI virtual cloud network and  security rules (attached to Azure [network security groups](../../../virtual-network/security-overview.md)). Use these rules to control the traffic flowing between machines in the virtual networks. Network security rules can be added at a machine level, at a subnet level, as well as at the virtual network level.
+
+The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a network security group pre-configured to work with WebLogic Server's port configurations.
  
 ## Identity
 

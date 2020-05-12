@@ -18,7 +18,7 @@ ms.author: borisb
 
 # Overview of Oracle Applications and solutions on Azure
 
-This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [WebLogic Server Azure Applications](oracle-weblogic.md), [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
 
@@ -32,9 +32,13 @@ You can also choose to setup Oracle Database on a non-Oracle Linux image availab
 
 Optionally configure with multiple attached disks and improve database performance by installing Oracle Automated Storage Management (ASM).
 
+## WebLogic Server with Azure Service Integrations
+
+Choose from a variety of WebLogic Server Azure Applications to accelerate your cloud journey.  Several pre-configured Azure service integrations are available, including database, Azure App Gateway, and Azure Active Directory.
+
 ## Applications on Oracle Linux and WebLogic Server
 
-Run enterprise applications in Azure on supported Oracle operating systems. The following images are available in the Azure Marketplace:
+Run enterprise applications in Azure on supported Oracle operating systems. The following virtual machine images are available in the Azure Marketplace:
 
 * Oracle WebLogic Server 12.1.2
 
@@ -86,6 +90,8 @@ Use Oracle Database Cloud Services (Autonomous Database, RAC, Exadata, DBaaS, Si
 Deployment of Oracle Applications in Azure is based on a "bring your own license" model. It's assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 
 ## Next steps
+
+* Learn more about [WebLogic Server Azure Applications](oracle-weblogic.md) and the Azure service integrations they support.
 
 * Learn more about deploying [Oracle VM images](oracle-vm-solutions.md) in Azure infrastructure.
 
