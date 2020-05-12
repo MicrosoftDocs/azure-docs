@@ -250,7 +250,7 @@ Refresh tokens for web apps and native apps do not have specified lifetimes. Typ
 
 Although refresh tokens aren't revoked when used to acquire new access tokens, you are expected to discard the old refresh token. The [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-6) says: "The authorization server MAY issue a new refresh token, in which case the client MUST discard the old refresh token and replace it with the new refresh token. The authorization server MAY revoke the old refresh token after issuing a new refresh token to the client."
 
->[IMPORTANT]
+>[!IMPORTANT]
 > For refresh tokens sent to a redirect URI registered as `spa`, the refresh token will expire after 24 hours. Additional refresh tokens acquired using the initial refresh token will carry over that expiration time, so apps must be prepared to re-run the authorization code flow using an interactive authentication to get a new refresh token every 24 hours. Users do not have to enter their credentials, and will usually not even see any UX, just a reload of your application - but the browser must visit the login page in a top level frame in order to see the login session.  This is due to [privacy features in browsers that block 3rd party cookies](reference-third-party-cookies-spas.md). 
 
 ```HTTP
