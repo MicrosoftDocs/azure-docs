@@ -45,13 +45,17 @@ landingContent:
             url: scenario-spa-overview.md
       - linkListType: quickstart
         links:
-          - text: JavaScript
+          - text: JavaScript:Auth Code
+            url: quickstart-v2-javascript-auth-code.md
+          - text: JavaScript: Implicit
             url: quickstart-v2-javascript.md
           - text: Angular
             url: quickstart-v2-angular.md
       - linkListType: tutorial
         links:
-          - text: JavaScript
+          - text: JavaScript:Auth Code
+            url: tutorial-v2-javascript-spa-auth-code.md
+          - text: JavaScript:Implicit
             url: tutorial-v2-javascript-spa.md
       - linkListType: download
         links:
