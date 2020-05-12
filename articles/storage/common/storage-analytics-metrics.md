@@ -51,8 +51,8 @@ Azure Storage uses the Storage Analytics solution to store metrics that include 
 |Metrics level|Table names|Supported for versions|  
 |-------------------|-----------------|----------------------------|  
 |Hourly metrics, primary location|-   $MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />-   $MetricsTransactionsQueue|Versions prior to August 15, 2013, only. While these names are still supported, we recommend that you switch to using the tables that follow.|  
-|Hourly metrics, primary location|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|All versions. Support for File service metrics is available only in version April 5, 2015, and later.|  
-|Minute metrics, primary location|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|All versions. Support for File service metrics is available only in version April 5, 2015, and later.|  
+|Hourly metrics, primary location|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|All versions. Support for file service metrics is available only in version April 5, 2015, and later.|  
+|Minute metrics, primary location|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|All versions. Support for file service metrics is available only in version April 5, 2015, and later.|  
 |Hourly metrics, secondary location|-   $MetricsHourSecondaryTransactionsBlob<br />-   $MetricsHourSecondaryTransactionsTable<br />-   $MetricsHourSecondaryTransactionsQueue|All versions. Read-access geo-redundant replication must be enabled.|  
 |Minute metrics, secondary location|-   $MetricsMinuteSecondaryTransactionsBlob<br />-   $MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|All versions. Read-access geo-redundant replication must be enabled.|  
 |Capacity (blob service only)|$MetricsCapacityBlob|All versions.|  
@@ -81,7 +81,7 @@ The cmdlets that control storage metrics use the following parameters:
 * **MetricsLevel**: Possible values are:
    * **None**: Turns off monitoring.
    * **Service**: Collects metrics such as ingress and egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
-   * **ServiceAndApi**: In addition to the Service metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
+   * **ServiceAndApi**: In addition to the service metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
 
 For example, the following command switches on minute metrics for the blob service in your storage account with the retention period set to five days: 
 
@@ -142,11 +142,11 @@ If you want to download the metrics for long-term storage or to analyze them loc
 ||||  
 |-|-|-|  
 |**Metrics**|**Table names**|**Notes**|  
-|Hourly metrics|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|In versions prior to August 15, 2013, these tables were known as:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Metrics for the File service are available beginning with version April 5, 2015.|  
-|Minute metrics|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Can only be enabled by using PowerShell or programmatically.<br /><br /> Metrics for the File service are available beginning with version April 5, 2015.|  
+|Hourly metrics|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|In versions prior to August 15, 2013, these tables were known as:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Metrics for the file service are available beginning with version April 5, 2015.|  
+|Minute metrics|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Can only be enabled by using PowerShell or programmatically.<br /><br /> Metrics for the file service are available beginning with version April 5, 2015.|  
 |Capacity|$MetricsCapacityBlob|Blob service only.|  
 
-For full details of the schemas for these tables, see [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema). The following sample rows show only a subset of the columns available, but illustrate some important features of the way storage metrics saves these metrics:  
+For full details of the schemas for these tables, see [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema). The following sample rows show only a subset of the columns available, but they illustrate some important features of the way storage metrics saves these metrics:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -176,7 +176,7 @@ The following listing shows sample C# code that accesses the minute metrics for 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  
 {  
- // Convert the dates to the format used in the PartitionKey  
+ // Convert the dates to the format used in the PartitionKey.  
  var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");  
  var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");  
 
@@ -195,8 +195,8 @@ private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, Dat
              where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0   
              select entity;  
 
-     // Filter on "user" transactions after fetching the metrics from Table Storage.  
-     // (StartsWith is not supported using LINQ with Azure Table storage)  
+     // Filter on "user" transactions after fetching the metrics from Azure Table storage.  
+     // (StartsWith is not supported using LINQ with Azure Table storage.)  
      var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));  
      var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();  
      Console.WriteLine(resultString);  
