@@ -5,7 +5,7 @@ description: Learn how to use Multi-Factored Authentication with SSMS for Azure 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=3
+ms.custom: has-adal-ref, sqldbrb=3
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek

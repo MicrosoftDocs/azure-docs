@@ -5,7 +5,7 @@ description: Learn how to connect to SQL Database, SQL Managed Instance, and Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
