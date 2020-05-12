@@ -20,6 +20,7 @@ To troubleshooting problems with the alerts themselves, see
 
 ## Action or notification on my alert did not work as expected
 
+
 If you can see a fired alert in the Azure portal, but have an issue with some of its actions or notifications, see the following sections.
 
 ## Did not receive expected email
