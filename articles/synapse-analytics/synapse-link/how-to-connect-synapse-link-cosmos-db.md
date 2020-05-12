@@ -37,7 +37,7 @@ Connecting an Azure Cosmos DB database is done as a linked service. An Azure Cos
 From the Data Object Explorer, you can directly connect to an Azure Cosmos DB database by doing the following steps:
 1. Select ***+*** icon near Data
 2. Select **Connect to external data**
-3. Select the API that you want to connect to: SQL API or MongoDB API
+3. Select the API that you want to connect to: SQL API or API for MongoDB
 4. Select ***Continue***
 5. Name the linked service. The name will be displayed in the Object Explorer and used by Synapse run-times to connect to the database and containers. We recommend using a friendly name.
 6. Select the **Azure Cosmos DB account name** and **database name**
