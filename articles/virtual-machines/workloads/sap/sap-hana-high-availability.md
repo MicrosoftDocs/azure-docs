@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: radeltch
 
 ---
