@@ -26,7 +26,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ### Clean up deployment
 
