@@ -25,7 +25,6 @@ In this tutorial, you will...
 1. Set up an Azure Digital Twins instance
 2. Configure the sample command-line app to interact with the instance
 3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
-4. Get familiar with the code behind the command-line app
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
@@ -286,41 +285,6 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Results of compound query, showing no results":::
-
-## Explore the commands and the code
-
-From this point, feel free to experiment with the commands. You can look at the implementations of the commands, and start adding to or manipulating them however you would like.
-
-* The file *Program.cs* contains the authentication logic
-* The file *CommandLoop.cs* contains the bulk of the Azure Digital Twins commands
-
-Here is an example that creates a twin:
-
-```csharp
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", model_id},
-    { "$kind", "DigitalTwin" }
-};
-Dictionary<string, object> twinData = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-};
-try
-{
-    await client.CreateDigitalTwinAsync(twin_id, 
-                    JsonConvert.SerializeObject(twinData));
-    Log.Ok($"Twin '{twin_id}' created successfully!");
-}
-catch (RequestFailedException e)
-{
-    Log.Error($"Error {e.Status}: {e.Message}");
-}
-catch (Exception ex)
-{
-    Log.Error($"Error: {ex}");
-}
-``` 
 
 ## Clean up resources
 
