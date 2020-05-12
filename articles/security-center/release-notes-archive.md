@@ -129,7 +129,7 @@ Use Security Center to receive recommendations not only from Microsoft but also 
 
 In order to enable enterprise level scenarios on top of Security Center, it’s now possible to consume Security Center alerts and recommendations in additional places except the Azure portal or API. These can be directly exported to an Event Hub and to Log Analytics workspaces. Here are a few workflows you can create around these new capabilities:
 
-- With export to Log Analytics workspace, you can create custom dashboards with PowerBI.
+- With export to Log Analytics workspace, you can create custom dashboards with Power BI.
 - With export to Event Hub, you’ll be able to export Security Center alerts and recommendations to your third-party SIEMs, to a third-party solution in real time, or Azure Data Explorer.
 
 
