@@ -1,5 +1,5 @@
 ---
-title: How to handle the ITP feature in Safari | Azure
+title: How to handle the ITP feature in Safari with the Microsoft identity platform | Azure
 titleSuffix: Microsoft identity platform
 description: SPA authentication when third-party cookies are no longer allowed.
 services: active-directory
@@ -17,6 +17,8 @@ ms.reviewer: kkrishna
 ms.custom: aaddev
 ---
 # Handle ITP in Safari, and other browsers where third-party cookies are blocked
+
+Many browsers are blocking third party cookies - cookies on requests to domains that are not the same as the one showing in the browser bar.  This breaks the implicit flow and requires new authentication patterns to succesfully sign in users. In the Microsoft identity platform, we use the authorization flow with PKCE and refresh tokens to keep users signed in when third party cookies are blocked. 
 
 ## What is ITP (Intelligent Tracking Protection)
 
@@ -54,7 +56,7 @@ Some applications using the implicit flow attempt sign-in without redirecting aw
     1. When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
     1. Browsers are decreasing support for popups, so they may not be the most reliable option.  User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
 
->[NOTE]
+>[!NOTE]
 > Apple also [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/), a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferral of permissions in the future, it will not impact the guidance here.  Here, the popup is being used as a first party navigation to the login page so that a session is found and an auth code can be provided.  This should continue working into the future.
 
 ### A note on iframed applications
