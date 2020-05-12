@@ -17,13 +17,15 @@ ms.service: digital-twins
 
 # Explore Azure Digital Twins with a command-line app
 
-This tutorial introduces a sample application that implements a command-line app for interacting with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code, implementing the commands, and modifying it how you would like.
+This tutorial introduces a sample application that implements a command-line app for interacting with an Azure Digital Twins instance. The command line app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+
+You can use this tool to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample tool to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
 
 In this tutorial, you will...
 1. Set up an Azure Digital Twins instance
 2. Configure the sample command-line app to interact with the instance
 3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
-4. Explore the code behind the command-line app and extend it
+4. Get familiar with the code behind the command-line app
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
@@ -51,7 +53,7 @@ Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio 2019. Run the project 
 :::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
  
 A console window will open, carry out authentication, and wait for a command. 
-* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in to Azure. You can then close the browser tab or window.
+* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
 
 Here is a screenshot of what the project console looks like:
 
@@ -61,7 +63,7 @@ Here is a screenshot of what the project console looks like:
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 > :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
 
-Keep the project running for the rest of the steps in this tutorial.
+Keep the project console running for the rest of the steps in this tutorial.
 
 ### Model a physical environment with DTDL
 
@@ -70,15 +72,15 @@ The first step in creating an Azure Digital Twins solution is defining twin [**m
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
-> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service. They are supported, however, in IoT Plug and Play for devices.
+> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
 Using the *Solution Explorer* pane in your Visual Studio window, navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
 Select *Room.json* to open it in the editing window, and change it in the following ways:
 
 * **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
-* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this tutorial).
-* **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
+* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
+* **Add a property**. Underneath the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
 
     ```json
     ,
@@ -88,7 +90,7 @@ Select *Room.json* to open it in the editing window, and change it in the follow
       "schema": "string"
     }
     ```
-* **Add a relationship**. After the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+* **Add a relationship**. Underneath the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
     ```json
     ,
@@ -126,7 +128,9 @@ Verify the models were created by running the command `GetModels true`. This wil
 
 #### Errors
 
-The sample application also handles errors from the service. Try to upload one of the same models you just uploaded again:
+The sample application also handles errors from the service. 
+
+Re-run the `CreateModels` command to try re-uploading one of the same models you just uploaded, for a second time:
 
 ```cmd/sh
 CreateModels Room
@@ -158,7 +162,7 @@ Run this code in the running project console to create several twins based on th
 ```cmd/sh
 CreateDigitalTwin dtmi:example:Floor;1 floor0
 CreateDigitalTwin dtmi:example:Floor;1 floor1
-CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 CreateDigitalTwin double 70 HumidityLevel double 30
+CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
 CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
 ```
 
@@ -195,7 +199,7 @@ Next, you can create some **relationships** between these twins, to connect them
 
 To add a relationship, use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
-Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
+Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
 ```cmd/sh
 CreateEdge floor0 contains room0 relationship0
@@ -241,7 +245,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
-    >Observe how `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
+    >The command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
 
 * **What are all the rooms in my environment?** (query by model)
 
@@ -269,7 +273,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
     ```
 
-    You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported.
+    You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. *room1* shows up in the results here, because it has a temperature of 80.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Results of property query, showing only room1":::
 
