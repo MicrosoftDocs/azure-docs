@@ -179,7 +179,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### [Public access](#tab/public-access)
+### [Public access](#tab/user-identity)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
