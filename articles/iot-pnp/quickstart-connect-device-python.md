@@ -44,14 +44,14 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## Set up your environment
 
-**Installation for Bug Bash 5/11** 
+**Installation for Bug Bash 5/13** 
 
 For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
 
 Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl
+pip install azure_iot_device-2.1.0-py2.py3-none-any.whl
 ```
 
 Clone the Python SDK IoT repository and check out the preview branch called **digitaltwins-preview**:
@@ -64,9 +64,9 @@ git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
 
 The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. There are three Python files in this folder:
 
-1. pnp_sample_device.py
-1. pnp_helper.py  
-1. pnp_methods.py
+- pnp_sample_device.py
+- pnp_helper.py  
+- pnp_methods.py
 
 The sample file is **pnp_sample_device.py**. This sample code uses methods from **pnp_methods.py**. The **pnp_methods.py** file uses Azure IoT Python SDK functionality to provide IoT Plug and Play compatible functionality. The **pnp_methods.py** file uses  helper functions in the **pnp_helper.py** file.
 

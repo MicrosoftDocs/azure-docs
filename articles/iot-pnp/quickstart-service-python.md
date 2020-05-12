@@ -38,14 +38,14 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-**Installation for Bug Bash 5/11** 
+**Installation for Bug Bash 5/13** 
 
 For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
 
-Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
+Go to https://aka.ms/PythonServicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl
+pip install azure_iot_hub-2.2.0-py2.py3-none-any.whl
 ```
 
 ## Run the sample device
