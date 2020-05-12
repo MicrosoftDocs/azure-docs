@@ -44,7 +44,7 @@ If users are accessing the Azure file share using Active Directory (AD) or Azure
 
 ### Solution for cause 3
 
-To update the share-level permissions, see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
+To update the share-level permissions, see [Assign access permissions to an identity](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -318,6 +318,30 @@ Error 'System error 1359 has occurred. An internal error' happens when you try t
 Currently, you can consider redeploying your AAD DS using a new domain DNS name that applies with the rules below:
 - Names cannot begin with a numeric character.
 - Names must be from 3 to 63 characters long.
+
+## Unable to mount Azure Files with AD credentials 
+
+### Self diagnostics steps
+First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+
+Second, try [mounting Azure file share with storage account key](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). If you failed to mount, download [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
+
+Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+The cmdlet performs these checks below in sequence and provides guidance for failures:
+1. CheckPort445Connectivity: check that Port 445 is opened for SMB connection
+2. CheckDomainJoined: validate that the client machine is domain joined to AD
+3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
+4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
+5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
+6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
+
+We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

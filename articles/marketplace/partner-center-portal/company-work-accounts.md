@@ -49,4 +49,4 @@ If you're having trouble signing in to your work account (also known as your Azu
 
 ## Next steps
 
-- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md) 
+- [Manage your commercial marketplace account in Partner Center](./manage-account.md) 

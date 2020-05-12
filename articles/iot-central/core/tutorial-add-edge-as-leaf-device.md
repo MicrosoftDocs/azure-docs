@@ -21,6 +21,8 @@ manager: peterpr
 
 # Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
 
+*This article applies to solution builders and device developers.*
+
 This tutorial shows you how to configure and add an Azure IoT Edge device to your Azure IoT Central application. The tutorial uses an IoT Edge-enabled Linux virtual machine (VM) from Azure Marketplace to simulate an IoT Edge device. The IoT Edge device uses a module that generates simulated environmental telemetry. You view the telemetry on a dashboard in your IoT Central application.
 
 In this tutorial, you learn how to:
@@ -265,9 +267,9 @@ The **Modules** page shows the status of the IoT Edge modules:
 
 ## Next steps
 
-Now that you've learned how to work with and manage IoT Edge devices in IoT Central, here's the suggested next step:
+As a device developer, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [Configure transparent gateway](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Get connected to Azure IoT Central](./concepts-get-connected.md)

@@ -33,6 +33,9 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Choose a streaming analytics technology
@@ -61,14 +64,18 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
-  - name: User-defined functions
+  - name: Extend queries with functions
     items:
-    - name: Machine learning UDF
-      href: machine-learning-udf.md
-    - name: C# UDF
-      href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Functions overview
+      href: functions-overview.md
     - name: JavaScript UDF
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: JavaScript UDA
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: C# UDF
+      href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Machine learning UDF
+      href: machine-learning-udf.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units
@@ -140,8 +147,6 @@
       href: stream-analytics-edge.md
     - name: Toll booth sensor data analysis
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-    - name: Run a JavaScript UDA
-      href: stream-analytics-javascript-user-defined-aggregates.md
     - name: High-frequency trading
       href: stream-analytics-high-frequency-trading.md
     - name: Process IoT streaming data
@@ -197,6 +202,8 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code
     items:
+    - name: Complete code with IntelliSense
+      href: vs-code-intellisense.md  
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
@@ -215,7 +222,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Activity and diagnostic logs
+    - name: Activity and resource logs
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
@@ -420,7 +427,7 @@
               href: /stream-analytics-query/power-azure-stream-analytics
               maintainContext: true
             - name: ROUND
-              href: /stream-analytics-query/round-azure-stream-analytics.md
+              href: /stream-analytics-query/round-azure-stream-analytics
               maintainContext: true
             - name: SIGN
               href: /stream-analytics-query/sign-azure-stream-analytics
@@ -466,7 +473,7 @@
               href: /stream-analytics-query/regexmatch-azure-stream-analytics
               maintainContext: true
             - name: REPLACE
-              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              href: /stream-analytics-query/replace-azure-stream-analytics
               maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
@@ -514,7 +521,7 @@
           href: /stream-analytics-query/case-azure-stream-analytics
           maintainContext: true
         - name: COALESCE
-          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
+          href: /stream-analytics-query/coalesce-azure-stream-analytics
           maintainContext: true
         - name: CREATE TABLE
           href: /stream-analytics-query/create-table-stream-analytics

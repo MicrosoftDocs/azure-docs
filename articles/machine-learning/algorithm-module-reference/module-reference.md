@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
 ---
 # Algorithm & module reference for Azure Machine Learning designer (preview)
 
@@ -19,7 +19,7 @@ Each module represents a set of code that can run independently and perform a ma
 
 For help with choosing algorithms, see 
 * [How to select algorithms](../how-to-select-algorithms.md)
-* [Azure Machine Learning Algorithm Cheat Sheet](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
+* [Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)
 
 > [!TIP]
 > In any pipeline in the designer, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
@@ -54,6 +54,10 @@ For help with choosing algorithms, see
 | Recommendation | Build recommendation models. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
 | Anomaly Detection | Build anomaly detection models. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) |
 
+
+## Web Service
+
+Learn about the [web service modules](web-service-input-output.md) which are necessary for real-time inference in Azure Machine Learning designer.
 
 ## Error messages
 

@@ -4,6 +4,7 @@ description: This article describes how you can create new user accounts to inte
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
 ---

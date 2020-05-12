@@ -14,6 +14,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Google Cloud Storage using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data from Google Cloud Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 

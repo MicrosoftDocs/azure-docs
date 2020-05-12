@@ -22,6 +22,8 @@
   items:
   - name: Classroom Labs concepts
     href: classroom-labs-concepts.md    
+  - name: Classroom Labs architecture fundamentals
+    href: classroom-labs-fundamentals.md    
   - name: Scenarios
     items:  
     - name: Use labs for conducting classes
@@ -50,6 +52,8 @@
       href: class-type-jupyter-notebook.md
     - name: Mobile app development with Android Studio
       href: class-type-mobile-dev-android-studio.md
+    - name: Big data analytics
+      href: class-type-big-data-analytics.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts
@@ -105,7 +109,9 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: View support information (instructor)
-      href: lab-creator-support-information.md      
+      href: lab-creator-support-information.md
+    - name: Access student VMs from instructor view
+      href: instructor-access-virtual-machines.md      
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
@@ -126,11 +132,13 @@
     href: reference-powershell-module.md
 - name: Resources
   items:
+  - name: Azure Lab Services Blog
+    href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-lab-services
+  - name: Tech community forum
+    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
   - name: Frequently asked questions
     href: classroom-labs-faq.md

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -56,23 +56,18 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 <a id="api-scope-data-lake-client-library" />
 
-## File system support in SDKs
+## File system support in SDKs, PowerShell, and Azure CLI
 
-Get and set ACL operations are not currently recursive.
-
-## File system support in PowerShell and Azure CLI
-
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
 - Get and set ACL operations are not currently recursive.
+
 
 ## Lifecycle management policies
 
-* The deletion of blob snapshots is not yet supported.  
+The deletion of blob snapshots is not yet supported. 
 
 ## Archive Tier
 
 There is currently a bug that affects the archive access tier.
-
 
 ## Blobfuse
 
@@ -107,8 +102,41 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Windows Azure Storage Blob (WASB) driver (unsupported with ADLS Gen2)
+## Premium-performance block blob storage accounts
 
-Currently, the WASB driver - which was designed to work with the Blob API only - encounters problems in a few common scenarios, that is, when it is a client to a namespace-enabled storage account. Note that Multi-Protocol Access (MPA) will NOT mitigate these issues, either. 
+### Diagnostic logs
 
-For the time being (and most likely the foreseeable future), we will not support customers using the WASB driver as a client to a namespace-enabled storage account. We instead recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we may get in touch with you on the right path forward for you and your organization.
+Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### Lifecycle management policies
+
+- Lifecycle management policies aren't yet supported in premium block blob storage accounts. 
+
+- Data can't be moved from the premium tier to lower tiers. 
+
+- The **Delete Blob** action is currently not supported. 
+
+### HDInsight support
+
+When you create a n HDInsight cluster, you can't yet select a block blob storage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
+
+### Dremio support
+
+Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
+
+## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
+
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
+
+For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
