@@ -3,7 +3,7 @@ title: Use workflows to integrate your Azure IoT Central application with other 
 description: This how-to article shows you, as a builder, how to configure rules and actions that integrate your IoT Central application with other cloud services. To create an advanced rule, you use an IoT Central connector in either Power Automate or Azure Logic Apps. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,18 +26,18 @@ Before you can trigger a workflow in Power Automate or Azure Logic Apps, you nee
 
 To add the **Azure IoT Central - preview** connector as a trigger in Power Automate:
 
-- In Power Automate, select **+ Create**, select the **Custom** tab.
-- Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
-- In the list of triggers, select **When a rule is fired (preview)**.
-- In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
+1. In Power Automate, select **+ Create**, select the **Custom** tab.
+1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. In the list of triggers, select **When a rule is fired (preview)**.
+1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
 To add the **Azure IoT Central - preview** connector as a trigger in Azure Logic Apps:
 
-- In **Logic Apps Designer**, select the **Blank Logic App** template.
-- In the designer, select the **Custom** tab.
-- Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
-- In the list of triggers, select **When a rule is fired (preview)**.
-- In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
+1. In **Logic Apps Designer**, select the **Blank Logic App** template.
+1. In the designer, select the **Custom** tab.
+1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. In the list of triggers, select **When a rule is fired (preview)**.
+1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
 :::image type="content" source="./media/howto-configure-rules-advanced/triggers.png" alt-text="Find the Azure IoT Central - preview connector and choose the trigger":::
 
@@ -49,17 +49,17 @@ You can run actions in an IoT Central application from Power Automate and Azure 
 
 To add the **Azure IoT Central - preview** connector as an action in Power Automate:
 
-- In Power Automate, in the **Choose an action** panel, select the **Custom** tab.
-- Search for *IoT Central* and select the **Azure IoT Central - preview** connector.
-- In the list of actions, select the IoT Central action you want to use.
-- In the action step, complete the configuration for the action you chose. Then select **Save**.
+1. In Power Automate, in the **Choose an action** panel, select the **Custom** tab.
+1. Search for *IoT Central* and select the **Azure IoT Central - preview** connector.
+1. In the list of actions, select the IoT Central action you want to use.
+1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
 To add the **Azure IoT Central - preview** connector as an action in Azure Logic Apps:
 
-- In **Logic Apps Designer**, in the **Choose an action** panel, select the **Custom** tab.
-- Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
-- In the list of actions, select the IoT Central action you want to use.
-- In the action step, complete the configuration for the action you chose. Then select **Save**.
+1. In **Logic Apps Designer**, in the **Choose an action** panel, select the **Custom** tab.
+1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. In the list of actions, select the IoT Central action you want to use.
+1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
 :::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Find the Azure IoT Central - preview connector and choose an action":::
 
