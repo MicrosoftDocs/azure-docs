@@ -44,7 +44,13 @@ The control that is _most restrictive_ will win. For example, if your query uses
 would be equal to **First**. Likewise, if **top** or **limit** is smaller than **First**, the
 record set returned would be the smaller value configured by **top** or **limit**.
 
-**First** currently has a maximum allowed value of _5000_.
+**First** currently has a maximum allowed value of _5000_, which it achieves by
+[paging results](#paging-results) _1000_ records at a time.
+
+> [!IMPORTANT]
+> When **First** is configured to be greater than _1000_ records, the query must **project** the
+> **id** field in order for pagination to work. If it's missing from the query, the response won't
+> get [paged](#paging-results) and the results are limited to _1000_ records.
 
 ## Skipping records
 
