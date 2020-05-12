@@ -442,11 +442,85 @@ ORDER BY
 Ensure that when you run the query, that you are running it using the NYCTaxiVirtual database.
 ![Run updated query in correct database](./media/get-started-synapse-analytics/sql-run-query-in-db.PNG)
 
-<!--### Analyze with Power BI--->
-<!--- Josh 
+### Visualize with Power BI
+ Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before going forward, follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
+On the **Develop** hub, expand your linked workspace under **Power BI** and click on **Power BI Datasets**.
 
-<!--## Serve via Power BI--->
-<!--- Josh 
+![View Power BI datasets](./media/get-started-synapse-analytics/pbi-view-datasets.PNG)
+
+Any existing datasets from you linked Power BI workspace will be displayed here. You can create new reports in Synapse Studio using these Power BI datasets. Let’s create a new Power BI dataset for the virtual database which we created in the last section. Click **+ New Power BI dataset**. 
+
+![New Power BI datasets](./media/get-started-synapse-analytics/pbi-new-dataset.PNG)
+
+While Power BI reports can be created in Synapse Studio, Power BI datasets must be created in the Power BI Desktop. Install the Power BI Desktop if you have not already and then click **Start** once the installation is complete.
+
+![Download Power BI Desktop](./media/get-started-synapse-analytics/pbi-download-desktop.PNG)
+
+Select **NYCTaxiVirtual** and click continue.
+
+![Select database to use](./media/get-started-synapse-analytics/pbi-select-database.PNG)
+
+Click **Download** to download the Power BI dataset file (pbids). Open the file when the download is complete to launch the Power BI Desktop. Once the Power BI Desktop has been launched, sign into Synapse by using your Azure Active Directory user account. Then click **Connect**.
+
+![Sign into Synapse](./media/get-started-synapse-analytics/pbi-sign-in.PNG)
+
+Select all the views to include in your Power BI dataset and click **Load**.
+
+![Select all views in the navigator](./media/get-started-synapse-analytics/pbi-navigator.PNG)
+
+Select **DirectQuery** and click **OK**.
+
+![Select DirectQuery](./media/get-started-synapse-analytics/pbi-directquery.PNG)
+
+Click on the **Model** view and create relationships between the three tables by dragging **DateID** from **Trips** and dropping it on **DateID** in **dimDate**. 
+
+![Create relationships](./media/get-started-synapse-analytics/pbi-create-relationship.PNG)
+
+Click **Assume referential integrity** and click **OK**.
+
+![Setup relationship](./media/get-started-synapse-analytics/pbi-ref-integrity.PNG)
+
+Create another relationship by dragging **PickupGepgraphyID** from **Trips** and dropping it on **GeographyID** on **dimGeography**. Select **Assume referential integrity** like in the last step. Your model diagram should now look something like below.
+
+![Relationship diagram](./media/get-started-synapse-analytics/pbi-diagram.PNG)
+
+Go back to the **Report** view and right-click on the **Trips** table and click on **New Measure**.
+
+![New measure](./media/get-started-synapse-analytics/pbi-new-measure.PNG)
+
+Enter the following DAX formula into the formula bar and press enter.
+```dax
+Average fair per trip = DIVIDE(
+                                SUM(Trips[TotalAmount])
+                                ,COUNTROWS(Trips)
+                            )
+```
+
+![Formula bar](./media/get-started-synapse-analytics/pbi-formula.PNG)
+
+Save the Power BI File and publish it to the Power BI workspace that you linked to Synapse.
+
+![Publish to workspace](./media/get-started-synapse-analytics/pbi-publish.PNG)
+
+After publishing, go to the **Settings** page for your Power BI dataset inside of your Power BI workspace.
+
+![Dataset settings](./media/get-started-synapse-analytics/pbi-find-dataset-settings.PNG)
+
+Under **Data source credentials** hit **Edit credentials**.
+
+![Edit credentials](./media/get-started-synapse-analytics/pbi-edit-credentials.PNG)
+
+Change the **Authentication method** to **OAuth2** and click **Sign in**. Sign in with your Azure Active Directory Account.
+
+![Sign into Synapse](./media/get-started-synapse-analytics/pbi-web-sign-in.PNG)
+
+After publishing, switch back to Synapse Studio and click **Close and refresh**.
+
+![Close and refresh](./media/get-started-synapse-analytics/pbi-close-refresh.PNG)
+
+Click **New Power BI report** next to the name of the Power BI dataset that you just published. Now you can build out your Power BI report direction in Synapse Studio. Don’t forget to save the report when you are finished creating it.
+
+![Save report](./media/get-started-synapse-analytics/pbi-save-report.PNG)
 
 <!--## Serve via SQL pool--->
 <!--- Matthew
