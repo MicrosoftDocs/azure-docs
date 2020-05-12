@@ -13,7 +13,7 @@ ms.reviewer: jrasnick, carlrab
 
 # Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files.
+In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files. Supported formats are listed in [OPENROWSET](develop-openrowset.md).
 
 ## Prerequisites
 
