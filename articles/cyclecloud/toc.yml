@@ -110,6 +110,8 @@
       href: ./how-to/projects.md
     - name: Use Storage Blobs
       href: ./how-to/storage-blobs.md
+    - name: Configure SELinux
+      href: ./how-to/selinux.md
   - name: Node Preparation
     items:
     - name: Install Jetpack
