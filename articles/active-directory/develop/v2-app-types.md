@@ -47,7 +47,7 @@ In this flow, the app receives a code from the Microsoft identity platform autho
 To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
 > [!NOTE]
-> For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single page apps. With the removal of [3rd party cookies](reference-third-party-cookies-and-spas.md), and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we have moved to the authorization code flow for single page apps. To ensure compatibility of your app in Safari and other privacy-conscious browsers, we do not recommend the implicit flow any longer.  
+> For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single page apps. With the removal of [3rd party cookies](reference-third-party-cookies-spas.md), and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we have moved to the authorization code flow for single page apps. To ensure compatibility of your app in Safari and other privacy-conscious browsers, we do not recommend the implicit flow any longer.  
 
 ## Web apps
 
