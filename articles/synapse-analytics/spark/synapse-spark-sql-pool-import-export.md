@@ -170,10 +170,10 @@ You need to be Storage Blob Data Owner on the ADLS Gen 2 storage account connect
 
 - Please specify the following ACLs on the folder structure:
 
-| Folder | / | synapse | workspaces  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+| Folder | / | synapse | workspaces  | "workspacename" | sparkpools | "sparkpoolname"  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
 | Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
-| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
+| Default Permissions | ---| ----| ----| ----| ----| ----| ----|
 
 - You should be able to ACL all folders from "synapse" and downward from Azure Portal. In order to ACL the root "/" folder, please follow the instructions below.
 
@@ -182,9 +182,9 @@ You need to be Storage Blob Data Owner on the ADLS Gen 2 storage account connect
 - Once you can see the storage account listed, right click on the listing workspace and select "Manage Access"
 - Add the User to the / folder with "Execute" Access Permission. Select "Ok"
 
-**Please make sure you don't select "Default" if you don't intend to**
+> [!NOTE]
+> Please make sure you don't select "Default" if you don't intend to
 
 ## Next steps
 
-- [Create a SQL pool]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
-- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
