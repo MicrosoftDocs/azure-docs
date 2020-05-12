@@ -62,7 +62,7 @@ Upload a model and list models:
 ```csharp
 // Upload a model
 var typeList = new List<string>();
-string dtdl = File.ReadAllText("Simple.json");
+string dtdl = File.ReadAllText("SampleModel.json");
 typeList.Add(dtdl);
 try {
     await client.CreateModelsAsync(typeList);
@@ -82,7 +82,7 @@ Create and query twins:
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
 {
-    { "$model", "urn:example:Simple:1" },
+    { "$model", "dtmi:com:contoso:SampleModel;1" },
 };
 // Initialize the twin properties
 var initData = new Dictionary<string, object>
