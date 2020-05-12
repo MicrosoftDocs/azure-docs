@@ -28,21 +28,22 @@ The following example shows the model for a thermostat device:
 
 ```json
 {
-  "@id": "dtmi:aziotsamples:Thermostat_T_1000;1",
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
   "@type": "Interface",
+  "displayName": "Sample thermostat with remote control",
   "contents": [
     {
-      "@type" : "Component",
-      "name": "thermostat",
-      "schema": "dtmi:aziotsamples:Thermostat;1"
+      "@type": "Component",
+      "schema": "dtmi:com:example:TemperatureSensor;1",
+      "name": "tempSensor1"
     },
     {
-      "@type" : "Component",
-      "name": "deviceInformation",
-      "schema": "dtmi:azureiot:DeviceManagement:DeviceInformation;1"
+      "@type": "Component",
+      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+      "name": "deviceInfo"
     }
-  ],
-  "@context": "dtmi:dtdl:context;2"
+  ]
 }
 ```
 
@@ -69,20 +70,29 @@ With DTDL, you describe the model of your device using interfaces. An interface 
 - `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
 - `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off.
 
-The following example shows the interface for a thermostat device:
+The following example shows the interface for a temperature sensor:
 
 ```json
 {
-  "@id": "dtmi:aziotsamples:Thermostat;1",
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureSensor;1",
   "@type": "Interface",
+  "displayName": "Temperature Sensor",
+  "description": "Provides functionality to report temperature, and write property to set the target Temperature",
+  "comment": "Requires temperature sensors.",
   "contents": [
     {
-      "@type": "Telemetry",
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "description": "Current temperature on the device",
+      "displayName": "Temperature",
       "name": "temperature",
-      "schema": "double"
+      "schema": "double",
+      "unit": "degreeCelsius"
     }
-  ],
-  "@context": "dtmi:dtdl:context;2"
+  ]
 }
 ```
 
@@ -130,7 +140,7 @@ IoT Plug and Play makes it easy to advertise the capabilities of your device. A 
 This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
 
 ```c
-#define DIGITALTWIN_SAMPLE_DEVICE_MODEL_ID "dtmi:aziotsamples:Thermostat_T_1000;1"
+#define DIGITALTWIN_SAMPLE_DEVICE_MODEL_ID "dtmi:com:example:Thermostat;1"
 deviceHandle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, MQTT_Protocol);
 DigitalTwin_DeviceClient_CreateFromDeviceHandle(deviceHandle, DIGITALTWIN_SAMPLE_DEVICE_MODEL_ID, &dtDeviceClientHandle)
 ```
@@ -143,8 +153,8 @@ For the thermostat interface shown previously, using the C SDK, you create and c
 DIGITALTWIN_INTERFACE_HANDLE thermostatInterfaceHandle;
 
 DIGITALTWIN_CLIENT_RESULT result = DigitalTwin_InterfaceClient_Create(
-    "thermostat",
-    "dtmi:aziotsamples:Thermostat;1",
+    "tempSensor",
+    "dtmi:com:example:TemperatureSensor;1",
     null, null,
     &thermostatInterfaceHandle);
 ```
