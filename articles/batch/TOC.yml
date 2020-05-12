@@ -53,7 +53,7 @@
     items:
     - name: Security baseline
       href: security-baseline.md
-  - name: [OLD] Developer features
+  - name: OLD - Developer features
     href: batch-api-basics.md
   - name: Batch service workflow and resources
     displayName: developer features
