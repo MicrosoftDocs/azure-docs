@@ -1,5 +1,5 @@
 ---
-title: Live video analytics without video recording
+title: Live video analytics without video recording - Azure
 description: A Media Graph can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
 ms.topic: conceptual
 ms.date: 04/27/2020
@@ -20,7 +20,7 @@ A Media Graph can be used to just extract analytics from a live video stream, wi
 
 This is the simplest form of a Media Graph, but powerful, as it allows you to understand motion in physical spaces by leveraging your existing deployment of cameras. It is up to you to take specific action based on the events that are published to the IoT Hub. Consider an example scenario where key infrastructure is locked down and the expectation is that no one will be near it during specific times; e.g. electricity control panel from 10 pm to 4 am. Such assets can be now automatically monitored by leveraging a camera pointed to such a panel and connected to a graph such as below. The graph pushes motion detection events onto the IoT Edge Hub and these can be used to alert the relevant operators.
 
-In the topology below, [RTSP Source](media-graph-concept.md#rtsp-source) delivers the video feed to a [Motion Detection Processor](media-graph-concept.md#motion-detection-processor) that uses an AI model to detect motion. The output events from the Motion Detector are sent to the IoT edge hub via [IoT Hub Message Sink](media-graph-concept.md#iot-hub-message-sink) for consumption purpose.  You can write your own business logic or use other Azure services either on the edge or in the cloud to consume these events and generate notification alerts for end users.
+In the topology below, [RTSP Source](media-graph-concept.md#rtsp-source) delivers the video feed to a [Motion Detection Processor](media-graph-concept.md#motion-detection-processor) that uses an AI model to detect motion. The output events from the Motion Detector are sent to the IoT Edge hub via [IoT Hub Message Sink](media-graph-concept.md#iot-hub-message-sink) for consumption purpose.  You can write your own business logic or use other Azure services either on the edge or in the cloud to consume these events and generate notification alerts for end users.
 
 ![Live video analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
 

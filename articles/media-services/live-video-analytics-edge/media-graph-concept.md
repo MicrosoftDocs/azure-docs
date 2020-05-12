@@ -1,5 +1,5 @@
 ---
-title: Media Graph concept
+title: Media Graph concept - Azure
 description: Media Graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of Media Graph.
 ms.topic: conceptual
 ms.date: 04/27/2020

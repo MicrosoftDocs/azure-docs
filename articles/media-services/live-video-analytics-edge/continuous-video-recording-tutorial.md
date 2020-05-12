@@ -1,5 +1,5 @@
 ---
-title: Continuous video recording to cloud and playback from cloud tutorial
+title: Continuous video recording to cloud and playback from cloud tutorial - Azure
 description: In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to continuously record video to the cloud, and stream any portion of that video using Azure Media Services.
 ms.topic: tutorial
 ms.date: 04/27/2020
@@ -50,9 +50,9 @@ As covered in the [continuous video recording scenarios](continuous-video-record
 
 ## Download and configure the sample 
 
-1. Clone or download the [QuickStart RC2 repo](https://github.com/Azure-Samples/lva-edge-rc2). <!--(TODO, change this for launch)--> 
+1. Clone or download the [Quickstart RC2 repo](https://github.com/Azure-Samples/lva-edge-rc2). <!--(TODO, change this for launch)--> 
 1. Open the project in Visual Studio Code.
-1. Copy appsettings.json created by the quickstart script to src/quick-start/app folder. Alternatively you can enter the values for IoThubConnectionString and deviceId yourself. Note that deviceId refers to the IoT Edge device id. This should look as follows.
+1. Copy appsettings.json created by the quickstart script to src/quick-start/app folder. Alternatively you can enter the values for IoThubConnectionString and deviceId yourself. Note that deviceId refers to the IoT Edge device ID. This should look as follows.
 
     ```
     {
@@ -189,4 +189,4 @@ resources created in this tutorial.
 
 > [!div class="nextstepaction"]
 > * Use an IP camera with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the ONVIF conformant products page by looking for devices that conform with profiles G, S, or T.<br/>
-> *	Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in Install Azure IoT Edge runtime on Linux and then follow instructions in this QuickStart guide to register the device with Azure IoT Hub.
+> *	Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in Install Azure IoT Edge runtime on Linux and then follow instructions in this Quickstart guide to register the device with Azure IoT Hub.

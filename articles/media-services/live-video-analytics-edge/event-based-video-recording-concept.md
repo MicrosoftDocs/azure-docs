@@ -1,5 +1,5 @@
 ---
-title: Video recording
+title: Video recording - Azure
 description: In the context of a video management system for CCTV, video recording refers to the process of capturing video from the cameras and recording it for viewing via mobile and browser apps. Video recording can be categorized as continuous video recording and event-based video recording. 
 ms.topic: conceptual
 ms.date: 04/27/2020
@@ -27,7 +27,7 @@ A few use cases related to event-based video recording are described in this art
 
 In this use case, you can record video clips only when there is motion detected in the video and be alerted when such a video clip is generated. This could be relevant in commercial security scenarios involving protection of assets or critical infrastructure. Generating video on motion and alerts when such motion is detected improves the efficiency of the human operator, since action is only needed when the alert is generated.
 
-The diagram below provides a visual view of a Media Graph that can enable this use case. In the diagram, the RTSP Source captures the video from the camera and delivers it to a [Motion Detection Processor](media-graph-concept.md#motion-detection-processor). The output events from the Motion Detector Processor are sent to the [Signal Gate Processor](media-graph-concept.md#signal-gate-processor), as well as to the IoT edge hub via IoT Hub Message Sink for alerting purpose. The Signal Gate Processor receives video from RTSP Source alongside the incoming events, which it evaluates over a period of time. If there is a signal from the Motion Detector in that period, it lets the media flow through to the Asset Sink. In the absence of subsequent such motion detection events the gate remains open for a configured amount of time, and this determines the length of the video clip recorded via the asset sink.
+The diagram below provides a visual view of a Media Graph that can enable this use case. In the diagram, the RTSP Source captures the video from the camera and delivers it to a [Motion Detection Processor](media-graph-concept.md#motion-detection-processor). The output events from the Motion Detector Processor are sent to the [Signal Gate Processor](media-graph-concept.md#signal-gate-processor), as well as to the IoT Edge hub via IoT Hub Message Sink for alerting purpose. The Signal Gate Processor receives video from RTSP Source alongside the incoming events, which it evaluates over a period of time. If there is a signal from the Motion Detector in that period, it lets the media flow through to the Asset Sink. In the absence of subsequent such motion detection events the gate remains open for a configured amount of time, and this determines the length of the video clip recorded via the asset sink.
 
 ![Video recording based on motion detection](./media/event-based-video-recording/motion-detection.png)
 
