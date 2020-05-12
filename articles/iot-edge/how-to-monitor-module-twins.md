@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -26,19 +26,75 @@ The IoT Edge hub is responsible for processing the communications between the Az
 
 ### Monitor edgeAgent
 
-The following illustration shows the edgeAgent module twin in Visual Studio code with most of the JSON sections collapsed so that we can review its major nodes.
+The following JSON code block depicts the edgeAgent module twin in Visual Studio code with most of the JSON sections collapsed.
 
-The top of the file contains metadata populated by IoT Hub and the connection status of the Edge Agent itself. Interestingly, the connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can run the [ping](how-to-edgeagent-direct-method.md#ping) built-in direct method to get the edgeAgent status.
+```json
+{
+  "deviceId": "Windows109",
+  "moduleId": "$edgeAgent",
+  "etag": "AAAAAAAAAAU=",
+  "deviceEtag": "NzgwNjA1MDUz",
+  "status": "enabled",
+  "statusUpdateTime": "0001-01-01T00:00:00Z",
+  "connectionState": "Disconnected",
+  "lastActivityTime": "0001-01-01T00:00:00Z",
+  "cloudToDeviceMessageCount": 0,
+  "authenticationType": "sas",
+  "x509Thumbprint": {
+    "primaryThumbprint": null,
+    "secondaryThumbprint": null
+  },
+  "version": 53,
+  "properties": {
+    "desired": { ···
+    },
+    "reported": {
+      "schemaVersion": "1.0",
+      "version": { ···
+      },
+      "lastDesiredStatus": { ···
+      },
+      "runtime": {
+        "platform": { ···
+        },
+        "type": "docker",
+        "settings": { ···
+        }
+      },
+      "systemModules": {
+        "edgeAgent": { ···
+        },
+        "edgeHub": { ···
+        }
+      },
+      "lastDesiredVersion": 5,
+      "modules": {
+        "SimulatedTemperatureSensor": { ···
+        }
+      },
+      "$metadata": {  ···
+      },
+      "$version": 48
+    }
+  }
+}
+```
 
-The reported properties node is where you need to look to determine the status of the modules currently running on the device, as reported by the IoT Edge agent. You can compare these property values to their expected values in the desired properties node.  
+The section of the JSON is described in the following table:
 
-![edgeAgent JSON file in Visual Studio Code with sections collapsed](media/how-to-monitor-module-twins/edgeAgent.png)
+The top of the code contains metadata populated by IoT Hub about the IoT Edge Agent connectivity. Interestingly, the connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can still determine its connection status.
 
-The reported properties provide data for the edgeAgent and edgeHub modules (`systemModules`) as well as the values for your custom modules. The following properties are the first ones to examine for troubleshooting. See [EdgeAgent reported properties](module-edgeagent-edgehub.md#edgeagent-reported-properties) for details for a complete listing.
+To determine connection status for the IoT Edge Agent, run the [ping](how-to-edgeagent-direct-method.md#ping) built-in direct method to get the edgeAgent status.
 
-* `runtimeStatus` , which can be one of the following values:
+Under the top metadata section, there is the version, followed by the `properties` section that contains the `desired` and `reported` subsections. The desired and reported subsections contain subsections for custom module properties, `modules`, and  that describes `$edgeAgent` and `$edgeHub`.
 
-    | runtimeStatus value | Description |
+It is by comparing the reported values against the desired values that can help you troubleshoot issues. In doing these comparisons, check the `$lastUpdated` value for the property you are investigating.
+
+The following properties are the first ones to examine for troubleshooting:
+
+* **runtimeStatus** - Can be one of the following values:
+
+    | Value | Description |
     | --- | --- |
     | unknown | Default state until deployment is created. |
     | backoff | The module is scheduled to be started but is not currently running. This value is useful when we have a failing module that is undergoing state changes as part of the implementation of its restart policy. For example, when a failing module is awaiting restart during the cool-off period as dictated by the exponential back-off restart strategy, the module will be in this backoff state. |
@@ -47,11 +103,13 @@ The reported properties provide data for the edgeAgent and edgeHub modules (`sys
     | stopped | Indicates that the module exited successfully (with a zero exit code). |
     | failed | Indicates that the module exited with a failure exit code (non-zero). The module can transition back to backoff from this state depending on the restart policy in effect. This state can indicate that the module has experienced an unrecoverable error. This happens when the Microsoft Monitoring Agent (MMA) has given up on trying to resuscitate the module and user action is required to update its configuration in order for it to work again that would mean that a new deployment is required. |
 
-* `exitcode` - Any value other than zero indicates that the module stopped with a failure. However, error codes 137 or 143 are used when a module was set to stopped status because otherwise the failure will trigger SIGKILL or SIGTERM.
+* **exitcode** - Any value other than zero indicates that the module stopped with a failure. However, error codes 137 or 143 are used when a module was set to stopped status because otherwise the failure will trigger SIGKILL or SIGTERM.
 
-* `lastStartTimeUtc` Shows the **DateTime** that the container was last started. This value is 0001-01-01T00:00:00Z if the container was not started.
+* **lastStartTimeUtc** - Shows the **DateTime** that the container was last started. This value is 0001-01-01T00:00:00Z if the container was not started.
 
-* `lastExitTimeUtc` Shows the **DateTime** that the container last finished. This value is 0001-01-01T00:00:00Z if the container is running and was never stopped.
+* **lastExitTimeUtc** - Shows the **DateTime** that the container last finished. This value is 0001-01-01T00:00:00Z if the container is running and was never stopped.
+
+See [EdgeAgent reported properties](module-edgeagent-edgehub.md#edgeagent-reported-properties) for details for a complete listing.
 
 ### Monitor edgeHub
 
@@ -59,9 +117,9 @@ The reported properties provide data for the edgeAgent and edgeHub modules (`sys
 
 The JSON for the module twins for your custom code modules does not provide connectivity and health data but is vital for determining if the code in your custom code modules is operating as expected. The desired properties that you define in your deployment.template.json file are reflected in the module twin in IoT Hub for your custom module.
 
-You can monitor how the reported properties for your module compare with the desired properties reported in IoT Hub by defining custom metrics, such as described in [Monitor a deployment in the Azure portal](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal). 
+You can monitor how the reported properties for your module compare with the desired properties reported in IoT Hub by defining custom metrics, such as described in [Monitor a deployment in the Azure portal](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal).
 
-You can also programmatically edit the module twin based on your code. For an example, see [Edit the twin module](tutorial-csharp-module-windows.md#edit-the-module-twin).
+You can also programmatically edit the module twin based on your code. For an example, see [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md#edit-the-module-twin).
 
 ## Access the module twins
 
