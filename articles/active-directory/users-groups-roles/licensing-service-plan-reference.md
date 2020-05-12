@@ -36,8 +36,9 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
 | --- | --- | --- |--- | --- |
-| AUDIO CONFERENCING | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | AUDIO CONFERENCING(3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
-| AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ACTIVE DIRECTORY BASIC(c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
+| APP CONNECT IW | SPZA_IW |  8f0c5670-4e56-4892-b06d-91c085d7004f | SPZA (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | APP CONNECT (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>EXCHANGE FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) |
+| AUDIO CONFERENCING | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 | MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | AUDIO CONFERENCING (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
+| AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ACTIVE DIRECTORY BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
 | AZURE ACTIVE DIRECTORY PREMIUM P1	| AAD_PREMIUM	| 078d2b04-f1bd-4111-bbd4-b4b1b354cef4	| AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) | AZURE ACTIVE DIRECTORY PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MICROSOFT AZURE MULTI-FACTOR AUTHENTICATION (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>CLOUD APP SECURITY DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9) |
 | AZURE ACTIVE DIRECTORY PREMIUM P2	| AAD_PREMIUM_P2	| 84a661c4-e949-4bd2-a560-ed7766fcaf2b	| AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AAD_PREMIUM_P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) | AZURE ACTIVE DIRECTORY PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MICROSOFT AZURE MULTI-FACTOR AUTHENTICATION (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>CLOUD APP SECURITY DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>AZURE ACTIVE DIRECTORY PREMIUM P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998) |
 | AZURE INFORMATION PROTECTION PLAN 1	| RIGHTSMANAGEMENT	| c52ea49f-fe5d-4e95-93ba-1de91d380f89	| RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3) | AZURE INFORMATION PROTECTION PREMIUM P1 (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3)<br/>MICROSOFT AZURE ACTIVE DIRECTORY RIGHTS (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)|
@@ -128,7 +129,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 
 ## Service plans that cannot be assigned at the same time
 
-Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 E1* and *Office 365 E3* in your Azure AD organization, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 E1* and *Office 365 E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
