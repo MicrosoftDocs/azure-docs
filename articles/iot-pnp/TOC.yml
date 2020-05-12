@@ -49,7 +49,7 @@
   items:
   - name: Install and use IoT explorer
     href: howto-install-iot-explorer.md
-  - name: Manage models
+  - name: Manage models in the repository
     href: howto-manage-models.md
   - name: Connect to a device in your solution
     href: howto-connect-pnp-device-solution.md
@@ -60,11 +60,7 @@
   - name: REST API
     items:
     - name: Digital Twin
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin
-    - name: Digital Twin service
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service
-    - name: Digital Twin model repository
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel
+      href: https://aka.ms/iot-pnp-preview-rest
     - name: Generate a REST security token
       href: howto-generate-sas-token.md
 - name: Resources
