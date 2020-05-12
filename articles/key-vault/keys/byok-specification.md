@@ -18,7 +18,7 @@ ms.author: ambapat
 
 ## Scenario
 
-A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure into the HSM backing Azure Key Vault.
+A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure into the HSM backing Azure Key Vault. The process of importing a key generated outside Key Vault is generally referred to as Bring Your Own Key (BYOK).
 
 The following are the requirements:
 1. The key to be transferred never exists outside an HSM in plain text form.
@@ -50,7 +50,7 @@ To perform a key transfer, the customer performs following steps:
 
 **Step 4:** Imports the protected Target Key to Azure Key Vault
 
-HSM Vendor will provide a BYOK tool and accompanying documentation for their customers to successfully complete Steps 3 to produce a Key Transfer Blob.
+HSM Vendor provides a BYOK tool and accompanying documentation to their customers to complete Steps 3 and produce a Key Transfer Blob (a .byok file).
 
 
 ## HSM Constraints
@@ -58,7 +58,7 @@ HSM Vendor will provide a BYOK tool and accompanying documentation for their cus
 Existing HSM may apply constraints on key that they manage, including:
 * The HSM may need to be configured to allow key wrap-based export
 * The target key may need to be marked CKA_EXTRACTABLE for the HSM to allow controlled export
-* The key encryption key, and the wrapping key dependent on implementation, may need to be marked CKA_TRUSTED to allow it to be used to wrap keys in the HSM
+* Dependent on implementation, the key encryption key and wrapping key may need to be marked as CKA_TRUSTED to allow it to be used to wrap keys in the HSM
 
 The configuration of source HSM is, generally, outside the scope of this specification. Microsoft expects the HSM Vendor to produce documentation accompanying their BYOK tool to include any such configuration steps.
 
