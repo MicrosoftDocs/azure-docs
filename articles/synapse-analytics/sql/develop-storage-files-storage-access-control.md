@@ -164,9 +164,9 @@ Depending on the [authorization type](#supported-storage-authorization-types), y
 - Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
 - Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
-### Server-scoped credential
+## Server-scoped credential
 
-#### [Shared access signature](#tab/shared-access-signature)
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
 
@@ -179,7 +179,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-#### [Public access](#tab/public-access)
+### [Public access](#tab/public-access)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -193,9 +193,9 @@ GO
 ```
 ---
 
-### Database-scoped credential
+## Database-scoped credential
 
-#### [Shared access signature](#tab/shared-access-signature)
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
@@ -205,7 +205,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-#### [Azure AD Identity](#tab/user-identity)
+### [Azure AD Identity](#tab/user-identity)
 
 The following script creates a database-scoped credential that is used by [external table](develop-tables-external-tables.md) and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
@@ -215,7 +215,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-#### [Managed Identity](#tab/managed-identity)
+### [Managed Identity](#tab/managed-identity)
 
 The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
