@@ -55,7 +55,7 @@ Before you can connect the Azure Sphere DevKit device to IoT Central, you need t
 
 ## Connect the device
 
-To enable the sample to connect to IoT Central, you must [configure an Azure IoT Central application and then modify the sample's application manifest](https://github.com/Azure/azure-sphere-samples/blob/master/Samples/AzureIoT/IoTCentral.md).
+To enable the sample to connect to IoT Central, you must [configure an Azure IoT Central application and then modify the sample's application manifest](https://aka.ms/iotcentral-sphere-git-readme).
 
 ## View the telemetry from the device
 
