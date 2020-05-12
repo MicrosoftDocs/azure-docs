@@ -1,12 +1,12 @@
 ---
 title: Configure Azure Multi-Factor Authentication - Azure Active Directory
-description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
+description: Learn how to configure settings for Azure Multi-Factor Authentication in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 05/11/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4
 ---
 # Configure Azure Multi-Factor Authentication settings
 
@@ -25,8 +26,6 @@ You can access settings related to Azure Multi-Factor Authentication from the Az
 
 ## Settings
 
-Some of these settings apply to MFA Server, Azure MFA, or both.
-
 | Feature | Description |
 | ------- | ----------- |
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
@@ -37,20 +36,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
-## Manage MFA Server
-
-Settings in this section are for MFA Server only.
-
-| Feature | Description |
-| ------- | ----------- |
-| Server settings | Download MFA Server and generate activation credentials to initialize your environment |
-| [One-time bypass](#one-time-bypass) | Allow a user to authenticate without performing two-step verification for a limited time. |
-| [Caching rules](#caching-rules) |  Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress. |
-| Server status | See the status of your on-premises MFA servers including version, status, IP, and last communication time and date. |
-
-## Activity report
-
-The reporting available here is specific to MFA Server (on-premises). For Azure MFA (cloud) reports see the sign-ins report in Azure AD.
+## Account lockout
 
 ## Block and unblock users
 
@@ -102,6 +88,10 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 Configure email addresses here for users who will receive fraud alert emails in **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
 
 ![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+
+## OATH tokens
+
+
 
 ## Phone call settings
 
@@ -174,40 +164,6 @@ Sample scripts for creating custom messages.
 | Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
 | Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension … |
 
-## One-time bypass
-
-The _one-time bypass_ feature allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
-
-### Create a one-time bypass
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
-3. Select **Add**.
-4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
-6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
-
-### View the one-time bypass report
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
-
-## Caching rules
-
-You can set a time period to allow authentication attempts after a user is authenticated by using the _caching_ feature. Subsequent authentication attempts for the user within the specified time period succeed automatically. Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress.
-
->[!NOTE]
->The caching feature is not intended to be used for sign-ins to Azure Active Directory (Azure AD).
-
-### Set up caching
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Caching rules**.
-3. Select **Add**.
-4. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
-5. If necessary, select an authentication type and specify an application.
-6. Select **Add**.
-
 ## MFA service settings
 
 Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
@@ -217,77 +173,7 @@ Settings for app passwords, trusted IPs, verification options, and remember mult
 > [!NOTE]
 > The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure Multi-Factor Authentication, you can only use public IP address ranges.
 
-## App passwords
-
-Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
-
-Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
-
->[!NOTE]
->App passwords do not work with Conditional Access based multi-factor authentication policies and modern authentication.
-
-### Considerations about app passwords
-
-When using app passwords, consider the following important points:
-
-* App passwords are only entered once per application. Users don't have to keep track of the passwords or enter them every time.
-* The actual password is automatically generated and is not supplied by the user. The automatically generated password is harder for an attacker to guess and is more secure.
-* There is a limit of 40 passwords per user.
-* Applications that cache passwords and use them in on-premises scenarios can start to fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
-* After Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account. To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
-
->[!WARNING]
->App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud auto-discover endpoints. Domain passwords are required to authenticate on-premises. App passwords are required to authenticate with the cloud.
-
-### Guidance for app password names
-
-App password names should reflect the device on which they're used. If you have a laptop that has non-browser applications like Outlook, Word, and Excel, create one app password named **Laptop** for these apps. Create another app password named **Desktop** for the same applications that run on your desktop computer.
-
->[!NOTE]
->We recommend that you create one app password per device, rather than one app password per application.
-
-### Federated or single sign-on app passwords
-
-Azure AD supports federation, or single sign-on (SSO), with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you're using Azure Multi-Factor Authentication, consider the following points about app passwords.
-
->[!NOTE]
->The following points apply only to federated (SSO) customers.
-
-* App passwords are verified by Azure AD, and therefore, bypass federation. Federation is actively used only when setting up app passwords.
-* The Identity Provider (IdP) is not contacted for federated (SSO) users, unlike the passive flow. The app passwords are stored in the work or school account. If a user leaves the company, the user's information flows to the work or school account by using **DirSync** in real time. The disable/deletion of the account can take up to three hours to synchronize, which can delay the disable/deletion of the app password in Azure AD.
-* On-premises client Access Control settings aren't honored by the app passwords feature.
-* No on-premises authentication logging/auditing capability is available for use with the app passwords feature.
-* Some advanced architectures require a combination of credentials for two-step verification with clients. These credentials can include a work or school account username and passwords, and app passwords. The requirements depend on how the authentication is performed. For clients that authenticate against an on-premises infrastructure, a work or school account username and password a required. For clients that authenticate against Azure AD, an app password is required.
-
-  For example, suppose you have the following architecture:
-
-  * Your on-premises instance of Active Directory is federated with Azure AD.
-  * You're using Exchange online.
-  * You're using Skype for Business on-premises.
-  * You're using Azure Multi-Factor Authentication.
-
-  In this scenario, you use the following credentials:
-
-  * To sign in to Skype for Business, use your work or school account username and password.
-  * To access the address book from an Outlook client that connects to Exchange online, use an app password.
-
-### Allow users to create app passwords
-
-By default, users can't create app passwords. The app passwords feature must be enabled. To give users the ability to create app passwords, use the following procedure:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
-
-### Create app passwords
-
-Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
-
-Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-
-## Trusted IPs
+## Named locations
 
 The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
@@ -424,5 +310,3 @@ The feature reduces the number of authentications on web apps, which normally pr
 After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
 
 ## Next steps
-
-[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md)
