@@ -26,6 +26,8 @@
     href: hsm-protected-keys-byok.md
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
+  - name: Bring Your Own Key Specification
+    href: byok-specification.md
 
 - name: Samples
   items:
