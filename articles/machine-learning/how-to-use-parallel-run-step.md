@@ -23,26 +23,77 @@ With ParallelRunStep, it's straightforward to scale offline inferences to large 
 
 In this article, you learn the following tasks:
 
-> * Create a remote compute resource.
-> * Write a custom inference script.
-> * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
-> * Use the model to run batch inference on sample images available in your Azure Blob storage account. 
+> * Set up machine learning resources.
+> * Configure batch inference data inputs and output.
+> * Prepare the pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
+> * Write your inference script.
+> * Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
+> * Resubmit a batch inference run with new data input and parameters. 
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
-* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
+* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace. 
 
-* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment.
+* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own local environment.
 
-## Set up resources
+## Set up machine learning resources
 
-The following actions set up the resources that you need to run a batch inference pipeline:
+The following actions set up the machine learning resources that you need to run a batch inference pipeline:
 
-- Create a datastore that points to a blob container that has images to inference.
-- Set up data references as inputs and outputs.
-- Set up a compute cluster to run batch inference.
+- Connect to a workspace.
+- Create or attach existing compute resource.
+
+### Configure workspace
+
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the config.json file and loads the details into an object named ws.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### Create a compute target
+
+In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create a CPU based [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
+
+```python
+from azureml.core.compute import AmlCompute, ComputeTarget
+from azureml.core.compute_target import ComputeTargetException
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "e2ecpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
+
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
+    print('creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
+```
+
+## Configure inputs and output
 
 ### Create a datastore with sample images
 
@@ -72,14 +123,11 @@ When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/s
 def_data_store = ws.get_default_datastore()
 ```
 
-### Configure inputs and outputs
+### Create the data inputs
 
-Now you need to configure inputs and outputs, including:
+The inputs for batch inference is the data that you want to partition for parallel processing. A batch inference pipeline accepts data inputs through [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
 
-- The directory that contains the input images.
-- The directory for inference output.
-
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In this example, you'll use `FileDataset` as the inputs. `FileDataset` provides you with the ability to download or mount the files to your compute. By creating a dataset, you create a reference to the data source location. If you applied any subsetting transformations to the dataset, they will be stored in the dataset as well. The data remains in its existing location, so no extra storage cost is incurred.
+`Dataset` is for exploring, transforming, and managing data in Azure Machine Learning. There are two types: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In this example, you'll use `FileDataset` as the inputs. `FileDataset` provides you with the ability to download or mount the files to your compute. By creating a dataset, you create a reference to the data source location. If you applied any subsetting transformations to the dataset, they will be stored in the dataset as well. The data remains in its existing location, so no extra storage cost is incurred.
 
 For more information about Azure Machine Learning datasets, see [Create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -92,7 +140,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-In order to use a dynamic data input when run the batch inference pipeline, you can define the input `Dataset` as a [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). You can specify the input dataset each time when you resubmit the batch inference pipeline.
+In order to use dynamic data inputs when run the batch inference pipeline, you can define the inputs `Dataset` as a [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). You can specify the inputs dataset each time when you resubmit a batch inference pipeline run.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -102,7 +150,9 @@ pipeline_param = PipelineParameter(name="mnist_param", default_value=input_mnist
 input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pipeline_param).as_mount()
 ```
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference outputs.
+### Create the output
+
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference output.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -110,44 +160,6 @@ from azureml.pipeline.core import Pipeline, PipelineData
 output_dir = PipelineData(name="inferences", 
                           datastore=def_data_store, 
                           output_path_on_compute="mnist/results")
-```
-
-### Set up a compute target
-
-In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create a CPU based [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
-
-```python
-from azureml.core.compute import AmlCompute, ComputeTarget
-from azureml.core.compute_target import ComputeTargetException
-
-# choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
-compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
-
-# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
-
-
-if compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[compute_name]
-    if compute_target and type(compute_target) is AmlCompute:
-        print('found compute target. just use it. ' + compute_name)
-else:
-    print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes, 
-                                                                max_nodes = compute_max_nodes)
-
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current AmlCompute status, use get_status()
-    print(compute_target.get_status().serialize())
 ```
 
 ## Prepare the model
@@ -169,7 +181,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
 ```
 
-Then register the model with your workspace so it's available to your remote compute resource.
+Then register the model with your workspace so it's available to your compute resource.
 
 ```python
 from azureml.core.model import Model
@@ -190,8 +202,8 @@ model = Model.register(model_path="models/",
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: ParallelRunStep will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. You should make sure that enough data is included in run result to map input to run result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+    -  `mini_batch`: ParallelRunStep will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. You should make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -238,9 +250,7 @@ def run(mini_batch):
     return resultList
 ```
 
-### How to access other files in source directory in entry_script
-
-If you have another file or folder in the same directory as your entry script, you can reference it by finding the current working directory.
+If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
@@ -249,11 +259,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## Build and run the pipeline containing ParallelRunStep
 
-Now you have everything you need to build the pipeline.
+Now you have everything you need: the data inputs, the model, the output and your inference script. Let's build the batch inference pipeline containing ParallelRunStep.
 
 ### Prepare the run environment
 
-First, specify the dependencies for your script. You use this object later when you create the ParallelRunStep. 
+First, specify the dependencies for your script. This allows you to install pip packages as well as configure the inference environment. 
 - Please always include **azureml-core** package.
 - If your input is `FileDataset`, please include **azureml-dataprep[fuse]**.
 - If your input is `TabularDataset`, please include **azureml-dataprep[pandas, fuse]**.
@@ -266,39 +276,39 @@ from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
 batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[fuse]"])",
+                                                          "azureml-core", "azureml-dataprep[fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
 batch_env.docker.base_image = DEFAULT_GPU_IMAGE
-batch_env.spark.precache_packages = False
 ```
 
-### Specify the parameters for ParallelRunStep using ParallelRunConfig
+### Specify the parameters using ParallelRunConfig
 
-`ParallelRunConfig` is the major configuration for the newly introduced batch inference `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following parameters:
+`ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for FileDataset and `1MB` for TabularDataset.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
-- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
+- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name is configurable, default will be `parallel_run_step.txt`.
+    - `append_row`: For all inputs, only one file will be created in the output folder to append all outputs separated by line. The file name is configurable, default fail name is `parallel_run_step.txt`.
 - `append_row_file_name`: To customize the output file name for append_row output_action (optional).
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
 - `node_count`: The number of compute nodes to be used for running the user script.
 - `process_count_per_node`: The number of processes per node. Best practice is to set to the number of GPU or CPU one node has (optional; default value is `1`).
-- `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
+- `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
-- `run_max_try`: Max call count for `run()` method against a mini batch in case of failure. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
+- `run_max_try`: Max call count for `run()` method against a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can also use `PipelineParameter` for parameters in `ParallelRunConfig` so that when you resubmit a pipeline run, you can pass in different values. In this example, we use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and we will tune these values when resubmit run later. 
+You can also use `PipelineParameter` for parameters in `ParallelRunConfig` so that when you resubmit a pipeline run, you can pass in different values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will tune these values when resubmit a run later. 
 
 ```python
+from azureml.pipeline.core import PipelineParameter
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
@@ -316,29 +326,29 @@ parallel_run_config = ParallelRunConfig(
 
 ### Create the ParallelRunStep
 
-Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for the script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
+Create the ParallelRunStep by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for your inference script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
 - `name`: The name of the step, with the following naming restrictions: unique, 3-32 characters, and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets.
-- `side_inputs`: One or more reference data used as side inputs.
+- `side_inputs`: One or more reference data used as side inputs. Support for datasets.
 - `output`: A `PipelineData` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunStep
+from azureml.pipeline.steps import ParallelRunStep
 
 parallelrun_step = ParallelRunStep(
-    name="batch-mnist",
+    name="predict-digits-mnist",
     parallel_run_config=parallel_run_config,
     inputs=[input_mnist_ds_consumption],
     output=output_dir,
     allow_reuse=True
 )
 ```
-### Submit the pipeline
+### create and run the pipeline
 
-Now, run the pipeline. First, create a [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
+Now, run the pipeline. First, create a [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch inference. To build pipelines that have multiple steps, place the steps in order in this array.
 
 Next, use the `Experiment.submit()` function to submit the pipeline for execution.
 
@@ -347,12 +357,13 @@ from azureml.pipeline.core import Pipeline
 from azureml.core.experiment import Experiment
 
 pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
-pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
+experiment = Experiment(ws, 'digit_identification')
+pipeline_run = experiment.submit(pipeline)
 ```
 
 ## Monitor the batch inference job
 
-A batch inference job can take a long time to finish. This example monitors progress by using a Jupyter widget. You can also manage the job's progress by using:
+A batch inference job can take a long time to finish. This example monitors progress by using a Jupyter widget. You can also monitor the job's progress by using:
 
 * Azure Machine Learning Studio. 
 * Console output from the [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) object.
@@ -364,9 +375,9 @@ RunDetails(pipeline_run).show()
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
-## Resubmit a run with new parameters
+## Resubmit a run with new data inputs and parameters
 
-You can resubmit a run with a different dataset without having to create an entirely new experiment. 
+Since you made the inputs and several configures as `PipelineParameter`, you can resubmit a batch inference run with a different dataset input and fine tune the parameters without having to create an entirely new pipeline. You will use the same datastore but use only a single image as data inputs.
 
 ```python
 path_on_datastore = mnist_data.path('mnist/0.png')
