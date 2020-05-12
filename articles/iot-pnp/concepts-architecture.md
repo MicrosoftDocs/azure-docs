@@ -19,6 +19,8 @@ IoT Plug and Play Preview enables solution developers to integrate devices with 
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
+Every model and interface has a unique ID.
+
 The following diagram shows the key elements of an IoT Plug and Play solution:
 
 :::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="IoT Plug and Play architecture":::
@@ -35,8 +37,11 @@ The model repository uses RBAC to enable you to limit access to interface defini
 
 A device developer implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the developer to:
 
-- Code the behaviors defined in the DTDL interfaces the device implements. These behaviors are implemented using digital twins that manage the synchronization of the device state with your IoT hub.
-- Register the device with your IoT hub and register the DTDL interfaces the device implements.
+- Connect securely to an IoT hub.
+- Register the device with your IoT hub and register the model Id that identifies the collection of interfaces the device implements.
+- Code the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
+- Code command handlers for the commands defined in the DTDL interfaces the device implements.
+- Send telemetry to the IoT hub.
 
 ## IoT Hub
 
@@ -44,18 +49,18 @@ A device developer implements the code to run on an IoT device using one of the 
 
 An IoT hub:
 
-- Makes the interface IDs implemented by a device available to a backend solution.
+- Makes the model ID implemented by a device available to a backend solution.
 - Maintains the digital twin associated with each Plug and Play device connected to the hub.
 - Forwards telemetry streams to other services for processing or storage.
 - Routes digital twin change events to other services to enable device monitoring.
 
 ## Backend solution
 
-A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the service SDKs to implement your backend solution. The solution can understand the capabilities of a connected device by:
+A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the service SDKs to implement your backend solution. To understand the capabilities of a connected device, the solution backend:
 
-1. Retrieving the interface IDs the device registered with the IoT hub.
-1. Using the interface IDs to retrieve the interface definitions from the model repository.
-1. Using the model parser to extract information from the interface definitions.
+1. Retrieves the model ID the device registered with the IoT hub.
+1. Uses the model ID to retrieve the interface definitions from the model repository using the REST API.
+1. Uses the model parser to extract information from the interface definitions.
 
 The backend solution can use the information from the interface definitions to:
 
