@@ -54,7 +54,7 @@ For paid accounts the `Url` field is currently pointing to an internal URL inste
 In the coming weeks we will change it and return the [Video Indexer website](https://www.videoindexer.ai/) URL for all accounts (trial and paid).
 
     Do not use the internal URLs, you should be using the [Video Indexer public APIs](https://api-portal.videoindexer.ai/).
-* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the [Video Indexer API endpoint](https://api.videoindexer.ai) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
+* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the Video Indexer API endpoint (`https://api.videoindexer.ai`) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
 
    You can do it it by either:
 
