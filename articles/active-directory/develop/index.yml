@@ -54,7 +54,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: JavaScript - Auth code
-            url: tutorial-v2-javascript-spa-auth-code.md
+            url: tutorial-v2-javascript-auth-code.md
           - text: JavaScript - Implicit
             url: tutorial-v2-javascript-spa.md
       - linkListType: download
