@@ -36,7 +36,7 @@ This tutorial describes the steps you need to perform in both MediusFlow and Azu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An active MediusFlow subscription with a Quality assurance or Production tenant.
 * A user account in MediusFlow with admin access rights to be able to carry out the configuration within MediusFlow.
 * The companies added in the MediusFlow tenant where the users should be provisioned to.
@@ -49,14 +49,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure MediusFlow to support provisioning with Azure AD
 
 ### Activate the Office 365 app within MediusFlow
-Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following:
+Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following steps:
 
 #### User login
-To enable the login flow to Office 365/Azure AD refer [this](https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
+To, enable the login flow to Office 365/Azure AD refer [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
-To enable the configuration portal of the users for provisioning from Azure AD refer [this](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup).
+To, enable the configuration portal of the users for provisioning from Azure AD refer [this](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) article.
 
 #### Configure user provisioning
 
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 	![Config users](./media/mediusflow-provisioning-tutorial/8_configure_user_configuration_1.png)
 
-9. Provide the default settings for the users. In this view it is possible to set the default attribute. If the standard settings are ok it is enough to provide just a valid company name. Since these configuration settings are fetched from Mediusflow, they need to be configured first. See the **Prerequisites** section of this article for more information.
+9. Provide the default settings for the users. In this view, it is possible to set the default attribute. If the standard settings are ok, it is enough to provide just a valid company name. Since these configuration settings are fetched from Mediusflow, they need to be configured first. For more information see the **Prerequisites** section of this article.
 
 	![Config users](./media/mediusflow-provisioning-tutorial/9_configure_user_config_detail_1.png)
 
@@ -108,7 +108,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 ## Step 3. Add MediusFlow from the Azure AD application gallery
 
-Add MediusFlow from the Azure AD application gallery to start managing provisioning to MediusFlow. If you have previously setup MediusFlow for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Add MediusFlow from the Azure AD application gallery to start managing provisioning to MediusFlow. If you have previously setup MediusFlow for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -116,7 +116,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * When assigning users and groups to MediusFlow, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
 ## Step 5. Configure automatic user provisioning to MediusFlow 
