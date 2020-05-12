@@ -557,6 +557,20 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: SPX
+    items:
+      - name: What is SPX?
+        href: spx-overview.md
+      - name: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech
