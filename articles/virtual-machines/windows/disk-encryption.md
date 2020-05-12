@@ -70,11 +70,11 @@ For now, customer-managed keys have the following restrictions:
 - Only ["soft" and "hard" RSA keys](../../key-vault/keys/about-keys.md) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
-- Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
-- Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
+- Managed disks encrypted using server-side encryption with customer-managed keys cannot also be encrypted with Azure Disk Encryption and vice versa
+- For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../image-version-encryption.md).
 
 ### PowerShell
 
