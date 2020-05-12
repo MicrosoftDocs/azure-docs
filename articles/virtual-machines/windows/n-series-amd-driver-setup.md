@@ -13,7 +13,9 @@ ms.author: vikancha
 
 # Install AMD GPU drivers on N-series VMs running Windows
 
-To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The AMD driver extension will be available in the coming weeks. This article provides supported operating systems, drivers, and manual installation and verification steps.
+To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The [AMD GPU Driver Extension](../extensions/hpccompute-amd-gpu-windows.md) installs AMD GPU drivers on an NVv4-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [AMD GPU Driver Extension documentation](../extensions/hpccompute-amd-gpu-windows.md) for supported operating systems and deployment steps.
+
+If you choose to install AMD GPU drivers manually, this article provides supported operating systems, drivers, and installation and verification steps.
 
 Only driverrs published by Microsoft are supported on NVv4 VMs. Please DO NOT install any drivers available on the AMD portal.
 
