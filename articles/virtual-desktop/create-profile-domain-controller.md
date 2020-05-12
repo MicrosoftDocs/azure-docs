@@ -1,6 +1,6 @@
 ---
 title: Create FSLogix profile container Azure Files domain controller - Azure
-description: How to set up an FSLogix profile container for Windows Virtual Desktop with an Azure Files domain controller.
+description: How to set up an FSLogix profile container in an existing Windows Virtual Desktop host pool.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 05/19/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create a profile container with a domain controller
+# Create an FSLogix profile container in a host pool
 
 In this article, you'll learn how to set up an Azure Files storage profile authenticated by a domain controller on an existing Windows Virtual Desktop host pool.
 
