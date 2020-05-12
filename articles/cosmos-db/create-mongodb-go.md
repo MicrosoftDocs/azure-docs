@@ -18,7 +18,7 @@ ms.date: 04/24/2020
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
