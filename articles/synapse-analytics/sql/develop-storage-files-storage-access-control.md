@@ -30,14 +30,6 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
 
-In the table below you can find the available authorization types:
-
-| Authorization type                    | *SQL user*    | *Azure AD user*     |
-| ------------------------------------- | ------------- | -----------    |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
-| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
-
 ### [Shared access signature](#tab/shared-access-signature)
 
 **Shared access signature (SAS)** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
@@ -106,6 +98,26 @@ You can access publicly available files placed on Azure storage accounts that al
 
 ---
 
+### Supported authorization types for databases users
+
+In the table below you can find the available authorization types:
+
+| Authorization type                    | *SQL user*    | *Azure AD user*     |
+| ------------------------------------- | ------------- | -----------    |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+
+### Supported storages and authorization types
+
+You can use the following combinations of authorization and Azure Storage types:
+
+|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| ------------------- | ------------   | --------------   | -----------   |
+| *SAS*               | Supported      | Not  supported   | Supported     |
+| *Managed  Identity* | Supported      | Supported        | Supported     |
+| *User  Identity*    | Supported      | Supported        | Supported     |
+
 ## Credentials
 
 To query a file located in Azure Storage, your SQL on-demand end point needs a credential that contains the authentication information. Two types of credentials are used:
@@ -127,7 +139,6 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-
 > [!NOTE]
 > There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through).
 
@@ -136,17 +147,6 @@ Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
-
-### Supported storages and authorization types
-
-You can use the following combinations of authorization and Azure Storage types:
-
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
-| ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Supported      | Not  supported   | Supported     |
-| *Managed  Identity* | Supported      | Supported        | Supported     |
-| *User  Identity*    | Supported      | Supported        | Supported     |
-
 
 ### Grant permissions to use credential
 
@@ -162,13 +162,9 @@ To ensure a smooth Azure AD pass-through experience, all users will, by default,
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ```
 
-## Examples
-
-Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
-- Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
-- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
-
 ## Server-scoped credential
+
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -213,10 +209,12 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = '';
 GO
 ```
-
 ---
 
 ## Database-scoped credential
+
+Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -252,7 +250,7 @@ The database scoped credential doesn't need to match the name of storage account
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential is not required to allow access to publicly available files. Create data sorce without database scoped credential to access publicly available files on Azure storage.
+Database scoped credential is not required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ---
 
