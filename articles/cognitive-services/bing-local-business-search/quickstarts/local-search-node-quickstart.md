@@ -14,17 +14,16 @@ ms.author: aahi
 
 # Quickstart: Send a query to the Bing Local Business Search API using Node.js
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Node.js, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+Use this quickstart to learn how to send requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Node.js, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
 
 This example application gets local response data from the API for a search query.
 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
-
 * The [JavaScript Request Library](https://github.com/request/request).
+* A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. For this quickstart, the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient. Save the API key that's provided when you activate your free trial. For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Code scenario
 
@@ -36,7 +35,6 @@ The following code defines and sends the request, which is implemented in the fo
 4. Define the Search function that creates the request and adds the `Ocp-Apim-Subscription-Key` header.
 5. Run the search function.
 
-The complete code for this demo is as follows:
 
 ```javascript
 'use strict';

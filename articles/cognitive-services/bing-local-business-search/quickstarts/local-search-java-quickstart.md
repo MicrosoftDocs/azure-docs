@@ -14,15 +14,14 @@ ms.author: aahi
 
 # Quickstart: Send a query to the Bing Local Business Search API using Java
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Java, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+Use this quickstart to learn how to send requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Java, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
 
 This example application gets local response data from the API for a search query.
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You'll need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* The [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. For this quickstart, the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient. Save the API key that's provided when you activate your free trial. For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 
 ## Create the request 
@@ -45,7 +44,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ## Run the complete application
 
-The Bing Local Business Search API returns results from the Bing search engine.
+The following code uses the Bing Local Business Search API to return search results from the Bing search engine. Run this code by following these steps:
 1. Download or install the gson library.
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the code provided below.
