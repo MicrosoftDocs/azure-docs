@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 tags: connectors
 ---
 
@@ -127,17 +127,17 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 ### Handle dynamic bulk data
 
-Sometimes, when you make a call to a stored procedure in the SQL Server connector, the returned output is dynamic. In this scenario, you need to:
+Sometimes, when you make a call to a stored procedure in the SQL Server connector, the returned output is dynamic. In this scenario, follow these steps:
 
 1. Open **Logic Apps Designer**.
 1. Perform a test run of your logic app to see the output format. Copy down your sample output.
-1. Select **+ New step** in **Logic Apps Designer**.
+1. In the designer, under the action where you call the stored procedure, select **New step**.
 1. Under **Choose an action**, search for and select the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) action.
-1. In the new **Parse JSON** step, select **Use sample payload to generate schema**.
-1. In the **Enter or paste a sample JSON payload** window, paste in your sample output. Then, select **Done**. Now, the **Parse JSON** action contains a **Schema**. 
-1. If you receive an error that Logic Apps is unable to generate a schema, verify that your sample output's syntax is correctly formatted. If you're still unable to generate a schema, manually enter one in the **Schema** text box.
-1. Select **Save** in the **Logic Apps Designer** menu.
-1. Access your JSON content's properties using the data tokens from the [Parse JSON action](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+1. In the **Parse JSON** action, select **Use sample payload to generate schema**.
+1. In the **Enter or paste a sample JSON payload** window, paste your sample output, then select **Done**.
+1. If you get an error that Logic Apps can't generate a schema, check that your sample output's syntax is correctly formatted. If you still can't generate the schema, manually enter one in the **Schema** box.
+1. On the designer toolbar, select **Save**.
+1. To access the JSON content properties, use the data tokens that appear in the dynamic content list under the [**Parse JSON** action](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## Connector-specific details
 
