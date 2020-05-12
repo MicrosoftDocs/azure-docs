@@ -300,7 +300,7 @@ Sign in to the [Azure portal](https://portal.azure.com). From the left menu, sel
 
 Verify the image is shown in the container.
 
-![Azure Portal listing of images container](media/storage-upload-process-images/figure13.png)
+![Azure portal listing of images container](media/storage-upload-process-images/figure13.png)
 
 ## Test thumbnail viewing
 
