@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.reviewer: sngun
 ---
 
@@ -143,6 +143,8 @@ while (iterator.HasMoreResults)
 // Some time later
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
+
+As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.
 
 ## Comparing with change feed processor
 
