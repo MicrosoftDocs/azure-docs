@@ -43,11 +43,15 @@ Filtering by the resource type: microsoft.labservices/labaccounts will show only
 
 # Understanding the usage
 
-Below is a sample of the cost analysis 
+Below is a sample of the cost analysis. 
 
  > [!div class="mx-imgBorder"]
 > ![Subscription cost analysis](../media/cost-management-guide/cost-analysis.png)
 
-There are six columns: Resource, Resource Type, Location, Resource group name, Tags, Cost.  The Resource column contains the information about the Lab account, Lab Name, and the VM.  The rows with Lab account / Lab Name / default is the overall cost for the lab, which can be seen on the second and third rows.  The used VMs will have a cost under the Lab account / Lab Name / default / VM name.  In this example summing the first row with second row, both starting with "aaalab / dockerlab" will give you the total cost for the lab "dockerlab" in the "aaalab" Lab Account.
+There are six columns: Resource, Resource Type, Location, Resource group name, Tags, Cost.  The Resource column contains the information about the Lab account, Lab Name, and the VM.  The rows with Lab account / Lab Name / default is the cost for the lab, which can be seen on the second and third rows.  The used VMs will have a cost under the Lab account / Lab Name / default / VM name.  In this example summing the first row with second row, both starting with "aaalab / dockerlab" will give you the total cost for the lab "dockerlab" in the "aaalab" Lab Account.
 
  To get Shared image gallery information, change the resource type to Microsoft.Compute / Galleries which will give you the overall cost for the image gallery.  Be careful multiple labs could be using the same Share Image Gallery.
+
+ # Separating costs
+
+ Some Universities have used the Lab Account and the resource group as ways to separate out the different classes.  Each class will have it's own Lab account and resource group. In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class and only the costs for that class will be visible.  This allows a clearer delineation between the different classes when viewing the costs.  The scheduled export feature of the Cost analysis allows for the costs of each class to be downloaded in separate files. The Share Image galleries may not show up in the costs depending on where the gallery is stored. 
