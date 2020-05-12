@@ -31,7 +31,7 @@ There are two cases to consider when you fail over to a DR site:
 >[!NOTE]
 >The following steps must be done on the HANA Large Instance unit, which represents the DR unit. 
  
-To restore to the latest replicated storage snapshots, follow the steps in "Perform full DR failover - azure_hana_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+To restore to the latest replicated storage snapshots, follow the steps in "Perform full DR failover - azure_hana_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 If you want to have multiple SAP HANA instances failed over, run the azure_hana_dr_failover command several times. When requested, enter the SAP HANA SID you want to fail over and restore. 
 

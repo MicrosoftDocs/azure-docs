@@ -3,7 +3,7 @@ title: Limit access to kubeconfig in Azure Kubernetes Service (AKS)
 description: Learn how to control access to the Kubernetes configuration file (kubeconfig) for cluster administrators and cluster users
 services: container-service
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 05/06/2020
 
 ---
 
@@ -36,7 +36,7 @@ The two built-in roles are:
 
 These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
 
-> ![NOTE]
+> [!NOTE]
 > On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
 >
 > Clusters that do not use Azure AD only use the *clusterAdmin* role.

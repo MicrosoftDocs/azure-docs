@@ -128,7 +128,7 @@ Yes, you can deploy an additional virtual machine within the same subnet as an H
 
 - Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Control network traffic](./control-network-traffic.md).
 
 ### Should I store data on the local disk of an edge node?
 

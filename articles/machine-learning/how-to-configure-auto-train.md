@@ -108,7 +108,7 @@ For remote executions, training data must be accessible from the remote compute.
 * easily transfer data from static files or URL sources into your workspace
 * make your data available to training scripts when running on cloud compute resources
 
-See the [how-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) for an example of using the `Dataset` class to mount data to your compute target.
+See the [how-to](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your compute target.
 
 ## Train and validation data
 
