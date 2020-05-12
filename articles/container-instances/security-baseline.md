@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -60,9 +60,11 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21767).
 
-**Guidance**: Not applicable. Benchmark is intended for Azure App Service or compute resources hosting web applications.
+**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications hosted in Azure Container Instances for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
+How to deploy Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
 
-**Azure Security Center monitoring**: Not Applicable
+
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
