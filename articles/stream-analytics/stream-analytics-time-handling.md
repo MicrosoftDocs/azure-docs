@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 05/11/2020
 ---
 
 # Understand time handling in Azure Stream Analytics
@@ -23,77 +23,77 @@ To better frame the discussion, let's define some background concepts:
 
 - **Watermark**: An event time marker that indicates up to what point events have been ingressed to the streaming processor. Watermarks let the system indicate clear progress on ingesting the events. By the nature of streams, the incoming event data never stops, so watermarks indicate the progress to a certain point in the stream.
 
-   The watermark concept is important. Watermarks allow Stream Analytics to determine when the system can produce complete, correct, and repeatable results that don’t need to be retracted. The processing can be done in a guaranteed way that's predictable and repeatable. For example, if a recount needs to be done for some error handling condition, watermarks are safe starting and ending points.
+   The watermark concept is important. Watermarks allow Stream Analytics to determine when the system can produce complete, correct, and repeatable results that don’t need to be retracted. The processing can be done in a predictable and repeatable way. For example, if a recount needs to be done for some error handling condition, watermarks are safe starting and ending points.
 
-As additional resources on this subject, see Tyler Akidau's blog posts [Streaming 101](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101) and [Streaming 102](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102).
+For additional resources on this subject, see Tyler Akidau's blog posts [Streaming 101](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101) and [Streaming 102](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102).
 
-## Choosing the best starting time
+## Choose the best starting time
 
-Stream Analytics gives users two choices for picking event time:
+Stream Analytics gives users two choices for picking event time: arrival time and application time.
 
-1. **Arrival time**  
+### Arrival time
 
-   Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedUtcTime** property for Event Hubs inputs, **IoTHub.EnqueuedTime** property for IoT Hub, and using the **BlobProperties.LastModified** property for blob input.
+Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedUtcTime** property for Event Hubs input, the **IoTHub.EnqueuedTime** property for IoT Hub input, and the **BlobProperties.LastModified** property for blob input.
 
-   Using arrival time is the default behavior, and best used for data archiving scenarios, where there's no temporal logic necessary.
+Arrival time is used by default and is best used for data archiving scenarios where temporal logic isn't necessary.
 
-2. **Application time** (also named Event Time)
+### Application time (also named Event Time)
 
-   Application time is assigned when the event is generated, and it's part of the event payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time.
+Application time is assigned when the event is generated, and it's part of the event payload. To process events by application time, use the **Timestamp by** clause in the SELECT query. If **Timestamp by** is absent, events are processed by arrival time.
 
-   It’s important to use a timestamp in the payload when temporal logic is involved. That way, delays in the source system or in the network can be accounted for. The time assigned to an event is available in [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
+It's important to use a timestamp in the payload when temporal logic is involved to account for delays in the source system or in the network. The time assigned to an event is available in [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
 
 ## How time progresses in Azure Stream Analytics
 
-When using application time, the time progression is based on the incoming events. It’s difficult for the stream processing system to know if there are no events, or if events are delayed. For this reason, Azure Stream Analytics generates heuristic watermarks in the following ways for each input partition:
+When you use application time, the time progression is based on the incoming events. It's difficult for the stream processing system to know if there are no events, or if events are delayed. For this reason, Azure Stream Analytics generates heuristic watermarks in the following ways for each input partition:
 
-1. Whenever there's any incoming event, the watermark is the largest event time we have seen so far minus the out-of-order tolerance window size.
+1. When there's any incoming event, the watermark is the largest event time Stream Analytics has seen so far minus the out-of-order tolerance window size.
 
-2. Whenever there is no incoming event, the watermark is the current estimated arrival time (the elapsed time on behind the scenes VM processing the events from last time an input event is seen plus that input event’s arrival time) minus the late arrival tolerance window.
+2. When there's no incoming event, the watermark is the current estimated arrival time minus the late arrival tolerance window. The estimated arrival time is the time that has elapsed from the last time an input event was seen plus that input event's arrival time.
 
-   The arrival time can only be estimated, because the real arrival time is generated on the input event broker, such as Event Hubs, and not the Azure Stream Analytics VM processing the events.
+   The arrival time can only be estimated because the real arrival time is generated on the input event broker, such as Event Hubs, nor on the Azure Stream Analytics VM processing the events.
 
-The design serves two additional purposes, besides generating watermarks:
+The design serves two additional purposes other than generating watermarks:
 
 1. The system generates results in a timely fashion with or without incoming events.
 
-   You have control over how timely they want to see the output results. In the Azure portal, on the **Event ordering** page of your Stream Analytics job, you can configure the **Out of order events** setting. When configuring that setting, consider the trade-off of timeliness with tolerance of out-of-order events in the event stream.
+   You have control over how timely you want to see the output results. In the Azure portal, on the **Event ordering** page of your Stream Analytics job, you can configure the **Out of order events** setting. When you configure that setting, consider the trade-off of timeliness with tolerance of out-of-order events in the event stream.
 
-   The late arrival tolerance window is important to keep generating watermarks, even in the absence of incoming events. At times, there may be a period where no incoming events come in, such as when an event input stream is sparse. That problem is exacerbated by the use of multiple partitions in the input event broker.
+   The late arrival tolerance window is necessary to keep generating watermarks, even in the absence of incoming events. At times, there may be a period where no incoming events come in, like when an event input stream is sparse. That problem is exacerbated by the use of multiple partitions in the input event broker.
 
    Streaming data processing systems without a late arrival tolerance window may suffer from delayed outputs when inputs are sparse and multiple partitions are used.
 
-2. The system behavior has to be repeatable. Repeatability is an important property of a streaming data processing system.
+2. The system behavior needs to be repeatable. Repeatability is an important property of a streaming data processing system.
 
-   The watermark is derived from arrival time and application time. Both are persisted in the event broker, and thus repeatable. In the case the arrival time has to be estimated in the absence of events, Azure Stream Analytics journals the estimated arrival time for repeatability during replay for the purpose of failure recovery.
+   The watermark is derived from the arrival time and application time. Both are persisted in the event broker, and thus repeatable. When an arrival time is estimated in the absence of events, Azure Stream Analytics journals the estimated arrival time for repeatability during replay for failure recovery.
 
-Notice that when you choose to use **arrival time** as the event time, there is no need to configure the out-of-order tolerance and late arrival tolerance. Since **arrival time** is guaranteed to be monotonically increasing in the input event broker, Azure Stream Analytics simply disregards the configurations.
+When you choose to use **arrival time** as the event time, there you don't need to configure the out-of-order tolerance and late arrival tolerance. Since **arrival time** is guaranteed to be increasing in the input event broker, Azure Stream Analytics simply disregards the configurations.
 
 ## Late arriving events
 
-By definition of late arrival tolerance window, for each incoming event, Azure Stream Analytics compares the **event time** with the **arrival time**; if the event time is outside of the tolerance window, you can configure the system to either drop the event or adjust the event’s time to be within the tolerance.
+By definition of late arrival tolerance window, for each incoming event, Azure Stream Analytics compares the **event time** with the **arrival time**. If the event time is outside of the tolerance window, you can configure the system to drop the event or adjust the event's time to be within the tolerance.
 
-Consider that after watermarks are generated, the service can potentially receive events with event time lower than the watermark. You can configure the service to either **drop** those events, or **adjust** the event’s time to the watermark value.
+Once watermarks are generated, the service can potentially receive events with an event time lower than the watermark. You can configure the service to either **drop** those events, or **adjust** the event's time to the watermark value.
 
-As a part of the adjustment, the event’s **System.Timestamp** is set to the new value, but the **event time** field itself is not changed. This adjustment is the only situation where an event’s **System.Timestamp** can be different from the value in the event time field, and may cause unexpected results to be generated.
+As a part of the adjustment, the event's **System.Timestamp** is set to the new value, but the **event time** field itself is not changed. This adjustment is the only situation where an event's **System.Timestamp** can be different from the value in the event time field and may cause unexpected results to be generated.
 
-## Handling time variation with substreams
+## Handle time variation with substreams
 
-The heuristic watermark generation mechanism described here works well in most of the cases where time is mostly synchronized between the various event senders. However, in real life, especially in many IoT scenarios, the system has little control over the clock on the event senders. The event senders could be all sorts of devices in the field, perhaps on different versions of hardware and software.
+The heuristic watermark generation mechanism described works well in most of cases where time is mostly synchronized between the various event senders. However, in real life, especially in many IoT scenarios, the system has little control over the clock on the event senders. The event senders could be all sorts of devices in the field, perhaps on different versions of hardware and software.
 
-Instead of using a watermark global to all events in an input partition, Stream Analytics has another mechanism called substreams to help you. You can utilize substreams in your job by writing a job query that uses the [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) clause and the keyword **OVER**. To designate the substream, provide a key column name after the **OVER** keyword, such as a `deviceid`, so that system applies time policies by that column. Each substream gets its own independent watermark. This mechanism is useful to allow timely output generation, when dealing with large clock skews or network delays among event senders.
+Instead of using a watermark that is global to all events in an input partition, Stream Analytics has another mechanism called **substreams**. You can utilize substreams in your job by writing a job query that uses the [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) clause and the keyword **OVER**. To designate the substream, provide a key column name after the **OVER** keyword, such as a `deviceid`, so that system applies time policies by that column. Each substream gets its own independent watermark. This mechanism is useful to allow timely output generation, when dealing with large clock skews or network delays among event senders.
 
 Substreams are a unique solution provided by Azure Stream Analytics, and are not offered by other streaming data processing systems.
 
-Stream Analytics applies the late arrival tolerance window to incoming events when substreams are used. Late arrival tolerance decides the maximum amount by which different substreams can be apart from eachother. (if device 1 is at TS 1, and device 2 is at TS 2,  TS 2- TS1 is at most late arrival tolerance). The default setting (5 seconds) is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes, and make adjustments according to their device clock skew pattern.
+When you use substreams, Stream Analytics applies the late arrival tolerance window to incoming events. The late arrival tolerance decides the maximum amount by which different substreams can be apart from eachother. For example, if Device 1 is at Timestamp 1, and Device 2 is at Timestamp 2, the at most late arrival tolerace is  Timestamp 2 minus Timestamp 1. The default setting is 5 seconds and is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes and make adjustments according to their device clock skew pattern.
 
 ## Early arriving events
 
-You may have noticed another concept called early arrival window, that looks like the opposite of late arrival tolerance window. This window is fixed at 5 minutes, and serves a different purpose from the late arrival tolerance window.
+You may have noticed another concept called early arrival window that looks like the opposite of late arrival tolerance window. This window is fixed at 5 minutes and serves a different purpose from the late arrival tolerance window.
 
 Because Azure Stream Analytics guarantees complete results, you can only specify **job start time** as the first output time of the job, not the input time. The job start time is required so that the complete window is processed, not just from the middle of the window.
 
-Stream Analytics then derives the starting time from the query specification. However, because input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward. It’s starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen having event time 5 minutes greater than arrival time. (add link to metrics https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-monitoring) Early input events metric is incrimented when the events are dropped.
+Stream Analytics derives the start time from the query specification. However, because the input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward. It’s starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen having event time 5 minutes greater than arrival time. (add link to metrics https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-monitoring) Early input events metric is incrimented when the events are dropped.
 
 This concept is used to ensure the processing is repeatable no matter where you start to output from. Without such a mechanism, it would not be possible to guarantee repeatability, as many other streaming systems claim they do.
 
