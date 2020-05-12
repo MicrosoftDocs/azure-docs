@@ -1211,7 +1211,7 @@
       href: /powershell/module/az.monitor
     - name: Azure Monitor Logs
       href: /powershell/module/az.operationalinsights
-      - name: Application Insights
+    - name: Application Insights
       href: /powershell/module/az.applicationinsights
   - name: Azure CLI
     items:
