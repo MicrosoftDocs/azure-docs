@@ -18,7 +18,7 @@ ms.custom: aaddev
 ---
 # Handle ITP in Safari, and other browsers where third-party cookies are blocked
 
-Many browsers are blocking third party cookies - cookies on requests to domains that are not the same as the one showing in the browser bar.  This breaks the implicit flow and requires new authentication patterns to succesfully sign in users. In the Microsoft identity platform, we use the authorization flow with PKCE and refresh tokens to keep users signed in when third party cookies are blocked. 
+Many browsers are blocking third party cookies - cookies on requests to domains that are not the same as the one showing in the browser bar.  This breaks the implicit flow and requires new authentication patterns to successfully sign in users. In the Microsoft identity platform, we use the authorization flow with PKCE and refresh tokens to keep users signed in when third party cookies are blocked. 
 
 ## What is ITP (Intelligent Tracking Protection)
 
