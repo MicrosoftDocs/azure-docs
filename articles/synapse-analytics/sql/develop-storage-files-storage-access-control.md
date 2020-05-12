@@ -23,9 +23,9 @@ This article describes the types of credentials you can use and how credential l
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
-- [Shared access signature](#shared-access-signature)
-- [Managed Identity](#managed-identity)
-- [User Identity](#user-identity)
+- [Shared access signature](?tabs=shared-access-signature)
+- [Managed Identity](?tabs=managed-identity)
+- [User Identity](?tabs=user-identity)
 
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
@@ -34,9 +34,9 @@ In the table below you can find the available authorization types:
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     |
 | ------------------------------------- | ------------- | -----------    |
-| [SAS](#shared-access-signature)       | Supported     | Supported      |
-| [Managed Identity](#managed-identity) | Not supported | Supported      |
-| [User Identity](#user-identity)       | Not supported | Supported      |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      |
+| [Managed Identity](#managed-identity#supported-storage-authorization-types) | Not supported | Supported      |
+| [User Identity](#user-identity#supported-storage-authorization-types)       | Not supported | Supported      |
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -158,13 +158,15 @@ To ensure a smooth Azure AD pass-through experience, all users will, by default,
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ```
 
-### Examples
+## Examples
 
 Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
 - Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
 - Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from external table that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
-**Server-scoped credential with Shared Access Signature for Blob Storage**
+### Server-scoped credential
+
+#### [Shared Access Signature](#tab/shared-access-signature)
 
 The following script creates a server-level credential that can be used to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
 
@@ -177,7 +179,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-**Server-scoped credential that allows access to public storage**
+#### [Public access](#tab/public-access)
 
 The following script creates a server-level credential that can be used to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -189,8 +191,11 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = '';
 GO
 ```
+---
 
-**Database-scoped credential with SAS token**
+### Database-scoped credential
+
+#### [Shared Access Signature](#tab/shared-access-signature)
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
@@ -200,7 +205,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-**Database-scoped credential with Azure AD Identity**
+#### [Azure AD Identity](#tab/user-identity)
 
 The following script creates a credential that is used by external tables and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
@@ -210,7 +215,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-**Database-scoped credential with Managed Identity**
+#### Managed Identity(tab/managed-identity)
 
 The following script creates a credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
