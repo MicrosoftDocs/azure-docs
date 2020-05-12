@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -35,7 +35,7 @@ To set up a storage account:
     - Create a new resource group.
     - Enter a unique name for your storage account.
     - For **Location**, the location you choose must be the same as the Windows Virtual Desktop host pool.
-    - For **Performance**, select **Standard** (this is a test deployment with less than 200 users).
+    - For **Performance**, select **Standard** (for deployments with fewer than 200 users).
     - For **Account type**, select **StorageV2**.
     - For **Replication**, select **Read-access geo-redundant (RA-GRS)**.
 
@@ -51,13 +51,13 @@ To create a file share:
 
 2. On the Overview page, select **File shares**.
 
-3. Select **+File shares**,create a new file share named **profiles**, then enter a quota of **30 GB**.
+3. Select **+File shares**, create a new file share named **profiles**, then enter a quota of **30 GB**.
 
 4. Select **Create**.
 
 ## Enable Azure AD authentication for your storage account
 
-Next, you'll need to enable Azure AD authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. For this guide, this means you should follow these instructions on the VM running the domain controller.
+Next, you'll need to enable Azure AD authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain controller VM.
 
@@ -121,9 +121,9 @@ Next, you'll need to enable Azure AD authentication. To enable this policy, you'
 
 At least one admin needs to be assigned the Storage File Data SMB Share Elevated Contributor role. This admin will then assign other users NTFS permissions on the file share.
 
-All users that need to have FSLogix profiles stored on the SA must be assigned the Storage File Data SMB Share Contributor role. You'll need to create an Azure AD group for all users that need to have FSLogix profiles.
+All users that need to have FSLogix profiles stored on the SA must be assigned the Storage File Data SMB Share Contributor role. You'll also need to create an Azure AD group for all users with FSLogix profiles.
 
-To assign RBAC permissions:
+To assign role-based access control (RBAC) permissions:
 
 1. Open the Azure portal.
 
@@ -137,7 +137,7 @@ To assign RBAC permissions:
 
 6. Select **Save**.
 
-Repeat these instructions when assigning permissions to users that need FSLogix profiles, but change the role to **Storage File Data SMB Share Contributor**.
+To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
 
 >[!NOTE]
 >The accounts you use here should have been created in the domain controller and synced to Azure AD. Accounts sourced from Azure AD won't work.
@@ -163,11 +163,11 @@ Here's how to get the UNC path:
 
 4. Copy the **Primary File Service Endpoint** URI to the text editor of your choice.
 
-5. After copying the URI do the following things to change it into the UNC:
+5. After copying the URI, do the following things to change it into the UNC:
 
-    -  Remove `https://`
-    -  Replace the forward slash `/` with a back slash `\`.
-    -  Add the name of the file share you created in [Create an Azure file share](#create-an-azure-file-share) to the end of the UNC.
+    - Remove `https://`
+    - Replace the forward slash `/` with a back slash `\`.
+    - Add the name of the file share you created in [Create an Azure file share](#create-an-azure-file-share) to the end of the UNC.
 
         For example: `\\customdomain.file.core.windows.net\<fileshare-name>`
 
@@ -202,7 +202,7 @@ To configure your NTFS permissions:
     - Select **Edit...** to change permissions for existing users.
     - Select **Add...** to grant permissions to new users.
 
-5. If you select **Add...**, enter the user name you want to grant permission to in the **Enter the object names to select** field, then select on **Check Names** to find the full UPN name of that user.
+5. If you select **Add...**, enter the user name you want to grant permission to in the **Enter the object names to select** field. Next, select **Check names** to find the full UPN name of that user.
 
 6. Select **OK**.
 
@@ -224,15 +224,15 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    -  Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
+    - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
-    -  Create a **Profiles** key.
+    - Create a **Profiles** key.
 
-    -  Create **Enabled, DWORD** with a value of 1.
+    - Create **Enabled, DWORD** with a value of 1.
 
-    -  Create **VHDLocations, MULTI_SZ**.
+    - Create **VHDLocations, MULTI_SZ**.
 
-    -  Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
+    - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
 6. Restart the VM.
 
@@ -240,15 +240,17 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 Once the VM has been restarted sign in with a user that has permission on the session host and on the file share.
 
-When the session has been established and start menu is visible:
+To check your permissions on your session:
 
-1. Open the Azure portal.
+1. Start a session on Windows Virtual Desktop.
 
-2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
+2. Open the Azure portal.
 
-3. Select **Create a share** on the Create an Azure file share page.
+3. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-4. Make sure a folder containing the user profile now exists in your files.
+4. Select **Create a share** on the Create an Azure file share page.
+
+5. Make sure a folder containing the user profile now exists in your files.
 
 ## Next steps
 
