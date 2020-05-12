@@ -1,18 +1,18 @@
 ---
-title: Azure marketplace
-description: Describes how EA customers can use Azure marketplace
+title: Azure Marketplace
+description: Describes how EA customers can use Azure Marketplace
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/12/2020
 ms.author: banders
 
 ---
 
-# Azure marketplace
+# Azure Marketplace
 
-This article explains how EA customers and partners can view marketplace charges and enable Azure marketplace purchases.
+This article explains how EA customers and partners can view marketplace charges and enable Azure Marketplace purchases.
 
 ## Azure Marketplace for EA customers
 
