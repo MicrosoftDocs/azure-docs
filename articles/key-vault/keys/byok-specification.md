@@ -50,7 +50,7 @@ To perform a key transfer, the customer performs following steps:
 
 **Step 4:** Imports the protected Target Key to Azure Key Vault
 
-HSM Vendor provides a BYOK tool and accompanying documentation to their customers to complete Steps 3 and produce a Key Transfer Blob (a .byok file).
+Customers use BYOK tool and documentation provided by HSM vendor to complete Steps 3 and produce a Key Transfer Blob (a .byok file).
 
 
 ## HSM Constraints
@@ -58,27 +58,28 @@ HSM Vendor provides a BYOK tool and accompanying documentation to their customer
 Existing HSM may apply constraints on key that they manage, including:
 * The HSM may need to be configured to allow key wrap-based export
 * The target key may need to be marked CKA_EXTRACTABLE for the HSM to allow controlled export
-* Dependent on implementation, the key encryption key and wrapping key may need to be marked as CKA_TRUSTED to allow it to be used to wrap keys in the HSM
+* In some cases, the KEK and wrapping key may need to be marked as CKA_TRUSTED. This allows it to be used to wrap keys in the HSM.
 
-The configuration of source HSM is, generally, outside the scope of this specification. Microsoft expects the HSM Vendor to produce documentation accompanying their BYOK tool to include any such configuration steps.
+The configuration of source HSM is, generally, outside the scope of this specification. Microsoft expects the HSM vendor to produce documentation accompanying their BYOK tool to include any such configuration steps.
+
+> [!NOTE]
+> Steps 1, 2, and 4 described below can be performed using other interfaces such as Azure PowerShell and Azure Portal. They can also be performed programmatically using equivalent functions in Key Vault SDK.
 
 ### Step 1: Generate KEK
 
-Use the az keyvault key create command to create KEK with key operations set to import. Note down the key identifier 'kid' returned from the below command.
+Use the **az keyvault key create** command to create KEK with key operations set to import. Note down the key identifier 'kid' returned from the below command.
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
 
-This step can also be performed using the equivalent Azure PowerShell, REST API commands or Key Vault SDKs (.NET, Python, Java, node etc.) to generate a KEK.
-
 ### Step 2: Customer runs following command to retrieve public key of KEK
+
+Download the public key portion of the KEK and store it into a PEM file.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
-
-This step can also be performed using the equivalent REST API commands or Key Vault SDKs (.NET, Python, Java, node etc.) to retrieve public key and then storing it into a .pem file if executed programmatically.
 
 ### Steps 3: Generate Key Transfer Blob using HSM Vendor provided BYOK tool
 
@@ -111,7 +112,7 @@ If CKM_RSA_AES_KEY_WRAP_PAD is used, the JSON serialization of the transfer blob
     "enc": "CKM_RSA_AES_KEY_WRAP"
   },
   "ciphertext":"BASE64URL(<ciphertext contents>)",
-  "generator": "byok tool name and version; source HSM name and firmware version"
+  "generator": "BYOK tool name and version; source HSM name and firmware version"
 }
 
 ```
@@ -119,19 +120,17 @@ If CKM_RSA_AES_KEY_WRAP_PAD is used, the JSON serialization of the transfer blob
 * kid = key identifier of KEK. For Key Vault keys it looks like this: https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * alg = algorithm. 
 * dir = Direct mode, i.e. the referenced kid is used to directly protect the ciphertext which is an accurate representation of CKM_RSA_AES_KEY_WRAP
-* generator = an informational field that denotes the name and version of byok tool and the source HSM manufacturer and model. This information is intended for use in troubleshooting and support.
+* generator = an informational field that denotes the name and version of BYOK tool and the source HSM manufacturer and model. This information is intended for use in troubleshooting and support.
 
 The JSON blob is stored in file. The file must have .byok extension so that the Azure PowerShell/CLI client treats it accordingly when ‘Add-AzKeyVaultKey’ (PSH) or ‘az keyvault key import’ (CLI) command is used.
 
-### Step 4: Upload .byok file to import HSM-key
+### Step 4: Upload Key Transfer Blob to import HSM-key
 
-Customer will transfer the BYOK blob to an online workstation and then run a ‘Add-AzKeyVaultKey’ or ‘az keyvault key import’ command to import this blob as a new HSM-backed key into Key Vault. 
+Customer will transfer the Key Transfer Blob (.byok file) to an online workstation and then run a **az keyvault key import**’** command to import this blob as a new HSM-backed key into Key Vault. 
 
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
-
-This can also be achieved using the equivalent REST API commands or Key Vault SDKs (.NET, Python, Java, node etc.) if executed programmatically.
 
 When the above command is executed, it results in sending a REST API request as follows:
 
@@ -162,11 +161,11 @@ Request body:
 ### Azure Key Vault Rest API
 
 * [Create key](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Get key(key attributes and public key only)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
+* [Get key (key attributes and public key only)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
 * [Import key](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
 
 
-### Azure Key Vault CLI commands
+### Azure CLI commands
 * [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
 * [az keyvault key download](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
 * [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
