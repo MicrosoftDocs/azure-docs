@@ -159,21 +159,21 @@ Request body:
 ```
 “key_hsm” value is the entire contents of the KeyTransferPackage-ContosoFirstHSMkey.byok encoded in the Base64 format.
 
-# References
+## References
 
-## Azure Key Vault Rest API
+### Azure Key Vault Rest API
 
 * [Create key](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
 * [Get key(key attributes and public key only)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
 * [Import key](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
 
 
-## Azure Key Vault CLI commands
+### Azure Key Vault CLI commands
 * [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
 * [az keyvault key download](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
 * [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
 
 
-# Next Steps
+## Next Steps
 * Step-by-step BYOK instructions: [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys.byok.md)
 
