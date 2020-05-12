@@ -25,7 +25,7 @@ Azure SQL Edge supports configuration through one of the following two options:
 
 Azure SQL Edge exposes several different environment variables that can be used to configure the SQL Edge container. These environment variables are a subset of the environment variables available for SQL Server on Linux. For more information on SQL Server on Linux environment variables, see [Environment Variables](/sql/linux/sql-server-linux-configure-environment-variables/).
 
-SQL Server on Linux environment variables are NOT supported for Azure SQL Edge. If defined, these environment variables will be ignored during container initialization.
+The following SQL Server on Linux environment variables are NOT supported for Azure SQL Edge. If defined, these environment variables will be ignored during container initialization.
 
 | Environment variable | Description |
 |-----|-----|
