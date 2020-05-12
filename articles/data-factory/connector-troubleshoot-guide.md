@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot Azure Data Factory Connectors
