@@ -11,23 +11,28 @@ ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 05/12/2020
 ms.author: yelevin
 
 ---
-# Connect Windows firewall
+# Connect Windows Defender Firewall
 
+The Windows Defender Firewall connector allows Azure Sentinel to easily ingest Windows Defender Firewall logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
 
-
-The Windows firewall connector allows you to easily connect your Windows firewalls logs, if they are connected to your Azure Sentinel workspace. This connection enables you to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
-
+The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 > - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
+
+## Prerequisites
+
+- You must have read and write permissions on the workspace to which the machines you wish to monitor are connected.
+
+- You must have write permissions be assigned the **Log Analytics Contributor** role in addition to any Azure Sentinel roles.
 
 ## Enable the connector 
 
