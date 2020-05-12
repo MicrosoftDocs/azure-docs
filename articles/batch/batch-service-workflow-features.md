@@ -36,9 +36,6 @@ The following sections discuss the resources of Batch that enable your distribut
 - [Nodes and pools](nodes-and-pools.md)
 - [Jobs and tasks](jobs-and-tasks.md)
 - [Files and directories](files-and-directories.md)
-- [Error handling](error-handling.md)
-- Application packages? or can that fit somewhere else?
-
 
 ## Next steps
 

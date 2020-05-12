@@ -71,12 +71,9 @@
     - name: Files and directories
       displayName: Batch file
       href: files-and-directories.md
-    - name: Error handling
-      displayName: troubleshooting
-      href: error-handling.md
   - name: APIs and tools
     href: batch-apis-tools.md
-  - name: Detecting and handling Batch service errors
+  - name: Error handling and detection
     href: batch-retry-after-errors.md
   - name: Best practices
     href: best-practices.md
