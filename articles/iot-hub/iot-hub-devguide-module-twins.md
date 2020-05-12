@@ -231,15 +231,15 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* **Keys**: All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
+* **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
 
 * **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
-    * String values are UTF-8 encoded and can have a maximum length of 512 bytes.
+    * String values are UTF-8 encoded and can have a maximum length of 4 KB.
 
-* **Depth**: All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+* **Depth**: The maximum depth of JSON objects in tags, desired properties, and reported properties is 10. For instance, the following object is valid:
 
     ```json
     {
@@ -250,7 +250,17 @@ Tags, desired properties, and reported properties are JSON objects with the foll
                     "three": {
                         "four": {
                             "five": {
-                                "property": "value"
+                                "six": {
+                                    "seven": {
+                                        "eight": {
+                                            "nine": {
+                                                "ten": {
+                                                    "property": "value"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
