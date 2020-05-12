@@ -23,9 +23,8 @@ ms.reviewer: jrasnick
 
 Use Visual Studio to query SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
-### Supported tools for SQL on-demand (preview)
-
-Visual studio is not currently supported for SQL on-demand (preview). However, Azure Data Studi (preview)o is a fully supported tool. SQL Server Management Studio is partially supported from version 18.4 and has limited features such as connecting and querying.
+> [!NOTE]
+> SQL on-demand (preview) is not supported by SSDT.
 
 ## Prerequisites
 To use this tutorial, you need to have the following components:
