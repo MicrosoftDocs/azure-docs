@@ -11,8 +11,8 @@ ms.author: victorh
 
 # Azure Firewall threat intelligence-based filtering
 
-Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
-
+Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.<br>
+<br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Firewall threat intelligence" border="false":::
 
