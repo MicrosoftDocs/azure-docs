@@ -237,7 +237,7 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 Learn more about [Application Gateway probe matching](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
 >[!NOTE]
-> For all TLS related error messages, to learn more about SNI behavior and differences between the V1 and V2 SKU, check the [TLS overview](ssl-overview.md) page.
+> For all TLS related error messages, to learn more about SNI behavior and differences between the v1 and v2 SKU, check the [TLS overview](ssl-overview.md) page.
 
 
 #### Backend server certificate invalid CA
