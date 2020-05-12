@@ -24,7 +24,7 @@ Using Private Endpoint for your Web App enables you to:
 - Secure your Web App by configuring the Private Endpoint, eliminating public exposure.
 - Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering.
 
-If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet or a globally peered VNet, Private Endpoint is the solution.  
+If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet, or a globally peered VNet, Private Endpoint is the solution.  
 
 For more information, see [Service Endpoints][serviceendpoint].
 
@@ -59,9 +59,9 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This i
 ## DNS
 
 As this feature is in preview, we don't change the DNS entry during the preview. You need to manage the DNS entry in your private DNS server or Azure DNS private zone yourself.
-If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. See [custom DNS validation][dnsvalidation] for more information.
+If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. For more informations, see [custom DNS validation][dnsvalidation].
 
-If you need to use the Kudu console, or Kudu REST API (deployment with Azure DevOps for example), you need to create two records in your Azure DNS private zone or your custom DNS server. 
+If you need to use the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you need to create two records in your Azure DNS private zone or your custom DNS server. 
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
