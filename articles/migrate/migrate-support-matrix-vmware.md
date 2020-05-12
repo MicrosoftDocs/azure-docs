@@ -34,7 +34,7 @@ In addition to discovering machines, Server Assessment can discover apps, role, 
 **vCenter credentials** | App discovery needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **VM credentials** | App discovery currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
 **VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/> The VMware tools version must be later than 10.2.0.
-**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
+**PowerShell** | Windows VMs must have PowerShell version 2.0 or later installed.
 **Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
 **Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
 
@@ -100,7 +100,7 @@ In addition to discovering machines, Server Assessment can discover apps, role, 
 **Required agents** | No agent required on machines you want to analyze.
 **VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
 **vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations. 
-**PowerShell** | VMs must have PowerShell version 2.0 or above installed.
+**PowerShell** | Windows VMs must have PowerShell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 
 
