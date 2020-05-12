@@ -76,7 +76,7 @@
     - name: Angular
       href: tutorial-v2-angular.md
     - name: JavaScript - Auth code flow
-      href: tutorial-v2-javascript-spa-auth-code.md  
+      href: tutorial-v2-javascript-auth-code.md  
     - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
