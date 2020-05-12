@@ -76,7 +76,7 @@ If you already have an application using MSAL.js 1.0 and/or the implicit flow in
 
 
 #### Uncheck implicit settings 
-Once all of your apps using this client ID in production have succesfully integrated MSAL 2.0/the authorization code flow, you should uncheck the implicit settings. Note that these settings apply to the entire app registration. Ensure that this app registration is not using the [implicit flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) in production before unchecking these settings to avoid breaking this flow.
+Once all of your apps using this client ID in production have succesfully integrated MSAL 2.0/the authorization code flow, you should uncheck the implicit settings. Note that these settings apply to the entire application registration. Ensure that this app registration is not using the [implicit flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) in production before unchecking these settings to avoid breaking this flow.
 
 ## MSAL.js 1.0 and the Implicit Flow 
 
@@ -103,9 +103,9 @@ If your application also needs to get access tokens to call APIs, make sure to s
 
 ### Note about authorization flows 
 
-New applications created in the SPA platofrm will by default be enabled for the authorization code flow. To actually take advantage of this flow, you will have to update your application to be using MSAL 2.0. Once none of your in production apps are using MSAL.js 1.0 and implicit flow, you can uncheck the implicit settings in the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
+New applications created in the SPA platofrm will by default be enabled for the authorization code flow. To actually take advantage of this flow, you will have to update your application to be using MSAL 2.0. Once none of your in production applications are using MSAL.js 1.0 and implicit flow, you can uncheck the implicit settings in the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your application can use MSAL 1.0 and the implicit flow. 
 
-Applications using MSAL.js 1.0 will still be using the implicit flow. The latest [OAuth Best Current Practices](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) now recommends using the authotization code flow rather than the implicit flow for SPAs. Having limited lifetime refresh tokens will also help your application adapt to [modern browser cookie privacy limitations](https://docs.microsoft.com/azure/active-directory/develop/reference-third-party-cookies-and-spas) such as Safari ITP. 
+Applications using MSAL.js 1.0 will still be using the implicit flow. The latest [OAuth Best Current Practices](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) now recommends using the authorization code flow rather than the implicit flow for SPAs. Having limited lifetime refresh tokens will also help your application adapt to [modern browser cookie privacy limitations](https://docs.microsoft.com/azure/active-directory/develop/reference-third-party-cookies-spas) such as Safari ITP. 
 
 ## API permissions
 
