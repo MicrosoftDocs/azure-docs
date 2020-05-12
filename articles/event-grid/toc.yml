@@ -148,8 +148,6 @@
       href: handler-functions.md
     - name: Event Hubs 
       href: handler-event-hubs.md
-    - name: Logic Apps
-      href: handler-logic-apps.md
     - name: Relay hybrid connections
       href: handler-relay-hybrid-connections.md
     - name: Service Bus

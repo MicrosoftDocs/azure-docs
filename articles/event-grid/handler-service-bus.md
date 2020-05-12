@@ -57,20 +57,22 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## Message headers
-Set the following message headers when sending events as messages to a Service Bus endpoint.
+## Message properties
+Set the following message properties when sending events as messages to a Service Bus endpoint.
 
 | Property name | Description |
 | ------------- | ----------- | 
 | aeg-subscription-name | Name of event subscription. |
 | aeg-delivery-count | Number of attempts made for the event. Example: "1" |
-| aeg-data-version | Data version of the event. Example: "1" |
-| aeg-metadata-version | Metadata version of the event. Example: "1" |
 | aeg-event-type | Event type. Example: "Microsoft.Storage.blobCreated" | 
+| aeg-metadata-version | Metadata version of the event. Example: "1". For **Event Grid event schema**, this property represents the metadata version and for **cloud event schema**, it represents the **spec version**. |
+| aeg-data-version | Data version of the event. Example: "1". Default value: "". For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply. |
+| aeg-output-event-id | ID of the Event Grid event. |
 
+## Message headers
+When sending events to a Service Bus endpoint (queue or topic) as brokered messages, the `messageid` of the brokered message is the **event ID**.
 
-## Duplicate detection
-When sending events to a Service Bus endpoint as brokered messages, the `messageid` of the brokered message is the event ID. This will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, which ever is longer.
+The event ID will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
 
 ## Next steps
 
