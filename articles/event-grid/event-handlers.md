@@ -16,10 +16,9 @@ An event handler is the place where the event is sent. The handler takes some fu
 
 Here are the supported event handlers: 
 
-- [WebHooks](handler-webhooks.md). Azure Automation runbooks are supported via webhooks. 
+- [WebHooks](handler-webhooks.md). Azure Automation runbooks and Logic Apps are supported via webhooks. 
 - [Azure functions](handler-functions.md)
 - [Event hubs](handler-event-hubs.md)
-- [Logic Apps](handler-logic-apps.md)
 - [Relay hybrid connections](handler-relay-hybrid-connections.md)
 - [Service Bus queues and topics](handler-service-bus.md)
 - [Storage queues](handler-storage-queues.md)
