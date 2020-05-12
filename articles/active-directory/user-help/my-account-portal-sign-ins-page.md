@@ -26,7 +26,7 @@ You can view all of your recent work or school account sign-in activity, from th
 
 ## View your recent sign-in activity
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
 2. Select **My Sign-ins (preview)** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins (preview)** block.
 
