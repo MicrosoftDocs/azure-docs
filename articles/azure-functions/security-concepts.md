@@ -27,7 +27,9 @@ Security Center integrates with your function app in the portal. It provides, fo
 
 One to detect attacks is through activity monitoring activity and logging analytics. Functions integrates with Application Insights to collects log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
-Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
+Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
+
+For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Azure Sentinel to this workspace. To learn more, see [What is Azure Sentinel](../sentinel/overview.md).  
 
 For more security recommendations for observability, see the [Azure security baseline for Azure Functions](security-baseline.md#logging-and-monitoring). 
 
@@ -43,6 +45,27 @@ For more information, see [Secure connections (TSL)](../app-service/overview-sec
 
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
+#### System key 
+
+Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
+
+The scope of system keys is determined by the extension, but it generally applies to the entire function app. System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs.
+
+#### Keys comparison
+
+The following table compares the uses for various kinds of access keys:
+
+| Action                                        | Scope                    | Valid keys         |
+|-----------------------------------------------|--------------------------|--------------------|
+| Execute a function                            | Specific function        | Function           |
+| Execute a function                            | Any function             | Function or host   |
+| Call an admin endpoint                        | Function app             | Host (master only) |
+| Call Durable Task extension APIs              | Function app<sup>1</sup> | System<sup>2</sup> |
+| Call an extension-specific Webhook (internal) | Function app<sup>1</sup> | system<sup>2</sup> |
+
+<sup>1</sup>Scope determined by the extension.
+<sup>2</sup>Specific names set by extension.
+
 To learn more about access keys, see the [HTTP trigger binding article](functions-bindings-http-webhook-trigger.md#obtaining-keys).
 
 ### Authentication/authorization
@@ -55,13 +78,15 @@ While function keys can provide some mitigation for unwanted access, the only wa
 
 As with any application or service, the goal is run your function app with the lowest possible permissions. 
 
-#### Least privilege 
+#### User management permissions
 
 Functions supports build-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
-Permissions are effective at the function app level. 
+Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
 
->[!TODO:] What is the least privilege to perform key Functions tasks (create,publish,restart, etc.)
+#### Organize functions by privilege 
+
+Connection strings and other credentials stored in application settings gives all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/learn/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
 
 #### Managed identities
 
@@ -73,7 +98,7 @@ For more information, see [How to use managed identities for App Service and Azu
 
 [Cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is a way to allow web apps running in another domain to make requests to your HTTP trigger endpoints. App Service provides built-in support for handing the required CORS headers in HTTP requests. CORS rules are defined on a function app level.  
 
-It's tempting to use a wildcard that allows all sites to access your endpoint. But, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. Instead, add a separate CORS entry to for the domain of each web app that must access your endpoint. 
+While it's tempting to use a wildcard that allows all sites to access your endpoint. But, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. Instead, add a separate CORS entry for the domain of each web app that must access your endpoint. 
 
 ### Managing secrets 
 
@@ -101,9 +126,9 @@ Consider setting a usage quota on functions running in a Consumption plan. When 
 
 ### Data validation
 
-The triggers and bindings used by your functions don't provide any additional data validation. Validate any data received from a trigger or input binding. If an upstream service is compromised, you don't want unvalidated inputs flowing through your functions. For example, if your function stores data from an Azure Storage queue in a relational database, you must validate the data and parameterize your commands to avoid SQL injection attacks. 
+The triggers and bindings used by your functions don't provide any additional data validation. Your code must validate any data received from a trigger or input binding. If an upstream service is compromised, you don't want unvalidated inputs flowing through your functions. For example, if your function stores data from an Azure Storage queue in a relational database, you must validate the data and parameterize your commands to avoid SQL injection attacks. 
 
-Never assume that the data coming into your function has already been validated or sanitized. It's also a good idea to verify that the data being written to output bindings is valid. 
+Don't assume that the data coming into your function has already been validated or sanitized. It's also a good idea to verify that the data being written to output bindings is valid. 
 
 ### Handle errors
 
@@ -151,9 +176,13 @@ Every function app has a corresponding `scm` service endpoint that used by the A
 
 By having a separate scm endpoint, you can control deployments and other advanced tools functionalities for function app that are isolated or running in a virtual network. The scm endpoint supports both basic authentication (using deployment credentials) and single sign-on with your Azure portal credentials. To learn more, see [Accessing the Kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). 
 
+### Continuous security validation
+
+Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/devops/migrate/security-validation-cicd-pipeline).  
+
 ## Network security
 
-Restricting network access to your function app lets you control who can access your functions endpoints. Functions leverages App Service infrastructure to enable your functions to access resources without using internet-routable addresses or to restrict internet access to function endpoints. To learn more about these networking options, see [Azure Functions networking options](functions-networking-options.md).
+Restricting network access to your function app lets you control who can access your functions endpoints. Functions leverages App Service infrastructure to enable your functions to access resources without using internet-routable addresses or to restrict internet access to a function endpoint. To learn more about these networking options, see [Azure Functions networking options](functions-networking-options.md).
 
 ### Set access restrictions
 
