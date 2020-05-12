@@ -48,7 +48,7 @@ Connect to [Azure portal](https://portal.azure.com) with your subscription. Navi
   > [!NOTE]
   > If the selected Storage account is behind VNet, you will see the following message:
   >
-  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
+  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage requires to enable 'Allow trusted Microsoft services to access this storage account' on the storage account and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
   >If you do not see this message, then storage account is not behind a VNet.
 
