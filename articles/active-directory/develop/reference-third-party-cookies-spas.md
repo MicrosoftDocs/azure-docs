@@ -47,14 +47,14 @@ SPAs have two additional restrictions:
 
 Some applications using the implicit flow attempt sign-in without redirecting away by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed in user (assuming consent has already been granted).  This pattern meant applications did not need a full page redirect to sign the user in, improving performance and user experience - the user visits the web page and is signed in already.  `prompt=none` in an iframe are no longer an option when third-party cookies are blocked, so applications must visit the login page in a top-level frame to have an authorization code issued.  There are two ways of accomplishing sign-in:
 
-1. Full page redirects
-    1. On the first load of the SPA, redirect the user to the sign-in page if no session exists already (or if the session is expired).  The user's browser will visit the login page, present the cookies containing the user session, and then redirect back to the application with the code and tokens in a fragment.
-    1. The redirect does result in the SPA being loaded twice.  Follow best practices for caching of SPAs so that the app is not downloaded in full twice.
-    1. Consider having a pre-load sequence in the app that checks for a login session and redirects to the login page before the app fully unpacks and executes the JavaScript payload.
-1. Popups
-    1. If the UX of a full page redirect does not work for the application, consider using a popup to handle authentication.  
-    1. When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
-    1. Browsers are decreasing support for popups, so they may not be the most reliable option.  User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
+* Full page redirects
+    * On the first load of the SPA, redirect the user to the sign-in page if no session exists already (or if the session is expired).  The user's browser will visit the login page, present the cookies containing the user session, and then redirect back to the application with the code and tokens in a fragment.
+    * The redirect does result in the SPA being loaded twice.  Follow best practices for caching of SPAs so that the app is not downloaded in full twice.
+    * Consider having a pre-load sequence in the app that checks for a login session and redirects to the login page before the app fully unpacks and executes the JavaScript payload.
+* Popups
+    * If the UX of a full page redirect does not work for the application, consider using a popup to handle authentication.  
+    * When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
+    * Browsers are decreasing support for popups, so they may not be the most reliable option.  User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
 
 >[!NOTE]
 > Apple also [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/), a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferral of permissions in the future, it will not impact the guidance here.  Here, the popup is being used as a first party navigation to the login page so that a session is found and an auth code can be provided.  This should continue working into the future.
@@ -68,3 +68,8 @@ A common pattern in web apps is to use an iframe to embed one app inside another
 Issuing refresh tokens to the browser is generally considered a security issue, as XSS attacks or compromised JS packages can steal the refresh token and use it remotely until it expires or is revoked. In order to minimize the risk of stolen refresh tokens, SPAs will be issued tokens valid for only 24 hours.  After 24 hours the app must acquire a new authorization code via a top-level frame visit to the login page. 
 
 This limited-lifetime refresh token pattern was chosen as a balance between security and degraded UX. Without refresh tokens or third party cookies, the authorization code flow (as recommended by the [OAuth security best current practices draft](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) becomes onerous when new or additional tokens are required.  A full page redirect or popup is needed for every single token, every time a token expires (every hour usually, for Microsoft identity platform tokens). 
+
+## Next steps
+
+* Review the [authorization code flow protocol documentation](v2-oauth2-auth-code-flow.md).
+* Try out the authorization code flow with the [MSAL.js 2.0 quickstart](quickstart-v2-javascript-auth-code.md).
