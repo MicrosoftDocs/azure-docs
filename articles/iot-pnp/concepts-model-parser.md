@@ -11,11 +11,11 @@ services: iot-pnp
 manager: peterpr
 ---
 
-# Understand the Digital Twins model parser
+# Understand the digital twins model parser
 
 The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification](https://aka.ms/DTDL). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a model defined in multiple files.
 
-## Install the DTDL Model Parser
+## Install the DTDL model parser
 
 The parser is available in NuGet.org with the ID: [Microsoft.Azure.DigitalTwins.Parser](https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser). To install the parser, use any compatible NuGet package manager such as the one in Visual Studio or in the `dotnet` CLI.
 
