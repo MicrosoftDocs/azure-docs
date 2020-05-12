@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial - Azure Active Directory single sign-on (SSO) integration with Prezi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prezi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Prezi.
 services: active-directory
 documentationCenter: na
@@ -19,7 +19,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial - Azure Active Directory single sign-on integration with Prezi
+# Tutorial: Azure Active Directory single sign-on integration with Prezi
 
 In this tutorial, you learn how to integrate Prezi with Azure Active Directory (Azure AD). When you integrate Prezi with Azure AD, you can:
 
