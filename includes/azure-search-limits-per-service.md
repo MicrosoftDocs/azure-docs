@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Storage is constrained by disk space or by a hard limit on the maximum number of indexes or indexers, whichever comes first. The following table documents storage limits. For maximum object limits, see [Limits by resource](../articles/search/search-limits-quotas-capacity.md#index-limits).
+A search service is constrained by disk space or by a hard limit on the maximum number of indexes or indexers, whichever comes first. The following table documents storage limits. For maximum object limits, see [Limits by resource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Resource | Free | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
