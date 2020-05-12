@@ -12,7 +12,7 @@ ms.date: 05/12/2020
 # Monitoring solutions in Azure Monitor
 
 > [!NOTE]
-> Monitoring solutions are based on Azure Monitor Views which are in the process of being deprecated. Solutions are being replaced with [insights](../insights/insights-overview.md) which are based on [workbooks](workbooks-overview.md). Existing solutions are fully supported and may still be available from the Azure Marketplace. As their functionality is replaced by insights, their documentation will be updated appropriately.
+> Monitoring solutions are based on Azure Monitor Views which are in the process of being deprecated. Solutions are being replaced with [insights](../insights/insights-overview.md) which are based on [workbooks](../platform/workbooks-overview.md). Existing solutions are fully supported and may still be available from the Azure Marketplace. As their functionality is replaced by insights, their documentation will be updated appropriately.
 
 Monitoring solutions leverage services in Azure to provide additional insight into the operation of a particular application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them.
 

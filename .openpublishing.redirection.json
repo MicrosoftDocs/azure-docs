@@ -41767,7 +41767,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-cli-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/cli-samples",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
       "redirect_document_id": true
     },
     {
@@ -42943,6 +42943,11 @@
     {
       "source_path": "articles/azure-monitor/platform/powershell-quickstart-samples.md",
       "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/cli-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
       "redirect_document_id": false
     },
     {
