@@ -85,7 +85,7 @@ You choose a standard statistical metric. The module computes the correlation be
 
     - If you specify fewer result columns than there are feature columns, the features are ranked by descending score. Only the top features are returned. 
 
-7.  Run the pipeline, or select the Filter Based Feature Selection module and then select **Run selected**.
+7.  Submit the pipeline, or select the Filter Based Feature Selection module and then select **Run selected**.
 
 
 ## Results

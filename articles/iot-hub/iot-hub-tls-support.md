@@ -56,6 +56,8 @@ IoT Hubs that require the use of TLS 1.2 can be created in the following regions
 * East US
 * South Central US
 * West US 2
+* US Gov Arizona
+* US Gov Virginia
 
 > [!NOTE]
 > Upon failovers, the `minTlsVersion` property of your IoT Hub will remain effective in the geo-paired region post-failover.

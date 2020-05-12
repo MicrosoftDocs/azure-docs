@@ -18,13 +18,14 @@ To back up a SQL Server database to Azure and to recover it from Azure:
 
 ## Before you start
 
-Before you begin, ensure you've met the [prerequisites](backup-azure-dpm-introduction.md#prerequisites-and-limitations) for using Azure Backup to protect workloads. Here are some of the prerequisite tasks: 
+Before you begin, ensure you've met the [prerequisites](backup-azure-dpm-introduction.md#prerequisites-and-limitations) for using Azure Backup to protect workloads. Here are some of the prerequisite tasks:
+
 * Create a backup vault.
-* Download vault credentials. 
+* Download vault credentials.
 * Install the Azure Backup agent.
 * Register the server with the vault.
 
-## Create a backup policy 
+## Create a backup policy
 
 To protect SQL Server databases in Azure, first create a backup policy:
 
@@ -68,7 +69,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
     The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server machine) to the DPM server. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
 
     After the initial backup finishes, backups continue incrementally on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
-    
+
 1. Choose when to run a consistency check. Then select **Next**.
 
     ![Choose when to run a consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
@@ -100,7 +101,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
     * The backup on Saturday at 12:00 PM is kept for 104 weeks.
     * The backup from the last Saturday of the month at 12:00 PM is kept for 60 months.
     * The backup from the last Saturday of March at 12:00 PM is kept for 10 years.
-    
+
     After you choose a retention policy, select **Next**.
 
 1. Choose how to transfer the initial backup copy to Azure.

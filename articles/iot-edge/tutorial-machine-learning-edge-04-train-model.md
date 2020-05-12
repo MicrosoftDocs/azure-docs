@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/10/2020
+ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -56,7 +56,9 @@ We will upload sample notebook files into a new Azure Notebooks project.
 
 1. From the user page of your new account, select **My Projects** from the top menu bar.
 
-1. On the **Create New Project** dialog  box, provide a **Project Name** that also automatically forms the **Project ID**.
+1. Add a new project by selecting the **+** button.
+
+1. On the **Create New Project** dialog  box, provide a **Project Name**. 
 
 1. Leave **Public** and **README** unchecked as there is no need for the project to be public or to have a readme.
 
@@ -67,6 +69,8 @@ We will upload sample notebook files into a new Azure Notebooks project.
 1. Select **Choose files**.
 
 1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
+
+1. Check the **I trust the content of these files** box.
 
 1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
 
@@ -90,7 +94,7 @@ Let's review the files you uploaded into your Azure Notebooks project. The activ
 
 * **Test\_FD003.txt:** This file contains the data we will use as our test set when validating our trained classifier. We chose to use the test data, as provided for the original contest, as our test set for its simplicity.
 
-* **RUL\_FD003.txt:** This file contains the RUL for the last cycle of each device in the Test\_FD003.txt file. See the readme.txt and the Damage Propagation Modeling.pdf files in the C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
+* **RUL\_FD003.txt:** This file contains the Remaining Useful Life (RUL) for the last cycle of each device in the Test\_FD003.txt file. See the readme.txt and the Damage Propagation Modeling.pdf files in the C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
 
 * **Utils.py:** Contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
 
@@ -104,24 +108,22 @@ Now that the project is created, you can run the notebooks.
 
     ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
-
 1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
-1. In the notebook, scroll down to the cell that follows the **Set global properties** instructions and that begins with the code `AZURE_SUBSCRIPTION_ID =` and fill in the values for your Azure subscription, settings, and resources.
+1. For best results, read the documentation for each cell and run it individually. Select **Run** on the toolbar. Later on, you will find it expedient to run multiple cells. You can disregard upgrade and deprecation warnings.
 
-    ![Set global properties in the notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+    When a cell is running, it displays an asterisk between the square brackets ([\*]). When the cell's operation is complete, the asterisk is replaced with a number and relevant output may appear. The cells in a notebook build sequentially and only one can be running at a time.
 
-1. Run that cell by selecting **Run** on the toolbar.
-
-    When a cell is running, it displays an asterisk between the square brackets  ([\*]). When the cell's operation is complete, the asterisk is replaced with a number and relevant output may appear. The cells in a notebook build sequentially and only one can be running at a time.
-
-    Follow the instructions in the notebook. You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
+    You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
 
     > [!TIP]
     > For consistent cell operations, avoid running the same notebook from multiple tabs in your browser.
 
-1. Scroll down to the cell that immediately follows the **Create a workspace** overview text and run that cell. In the cell's output, look for the link that instructs you to sign in to authenticate. 
+1. In the cell that follows the **Set global properties** instructions, write in the values for your Azure subscription, settings, and resources. Then run the cell.
+
+    ![Set global properties in the notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. In the cell previous to **Workspace details**, after it has run, look for the link that instructs you to sign in to authenticate:
 
     ![Sign in prompt for device authentication](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
@@ -129,17 +131,17 @@ Now that the project is created, you can run the notebooks.
 
     ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. At this point, you can run the rest of the cells. It is optimal to run all the cells so that the code in the cells runs sequentially. Select **Run All** from the **Cell** menu. Scroll back up through the notebook and review how the cell operations are completed.
+1. In the cell that precedes **Explore the results**, copy the value from the run ID and paste it for the run ID in the cell that follows **Reconstitute a run**.
 
-    In the **Explore the data** section, you can review cells in the **Sensor readings and RUL** subsection that render scatterplots of sensor measurements.
+   ![Copy the run ID between cells](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-    ![Sensor readings scatterplots](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
+1. Run the remaining cells in the notebook.
 
-1. Save the notebook and return to your project page by clicking your project name in the upper-right corner of the notebook or going back in your browser.
+1. Save the notebook and return to your project page.
 
-1. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this procedure to run the second notebook.
+1. Open **02-turbofan\_deploy\_model.ipynb** and run each cell. You will need to sign-into to authenticate in the cell that follows **Configure workspace**.
 
-1. Save the notebook and return to your project page by clicking your project name in the upper-right corner of the notebook or going back in your browser.
+1. Save the notebook and return to your project page.
 
 ### Verify success
 
@@ -155,11 +157,21 @@ To verify that the notebooks have completed successfully, verify that a few item
     | ./aml_config/model_config.json | Configuration file that we will need to deploy the model in the **turbofanDemo** Machine Learning workspace in Azure. |
     | myenv.yml| Provides information about the dependencies for the deployed Machine Learning model.|
 
-1. Verify in the Azure portal that the **turboFanDemo** Machine Learning workspace exists in your resource group.
+1. Verify that the following Azure resources were created. Some resources names are appended with random characters.
+
+    | Azure resource | Name |
+    | --- | --- |
+    | Machine Learning workspace | turborfanDemo |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Applications Insights | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
 
 ### Debugging
 
-You can inset Python statements into the notebook for debugging, mainly the `print()` command. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
+You can insert Python statements into the notebook for debugging, such as the `print()` command to show values. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
+
+You may have to delete previously created files and Azure resources if you need to redo the notebooks.
 
 ## Next steps
 

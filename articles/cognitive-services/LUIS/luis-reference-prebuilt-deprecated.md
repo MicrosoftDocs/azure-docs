@@ -8,7 +8,7 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
 ---
@@ -38,7 +38,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 **Encyclopedia** is available only in the `en-US` locale.
 
 #### Encyclopedia subtypes
-Encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+Encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields:
 
 ```json
 {
@@ -158,5 +158,5 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 
 ## Next steps
 
-Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md). 
+Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).
 

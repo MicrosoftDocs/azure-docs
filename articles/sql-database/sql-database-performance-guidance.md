@@ -1,18 +1,18 @@
 ---
-title: Performance tuning guidance
-description: Learn about using recommendations to manually tune your Azure SQL Database query performance.
+title: Performance tuning guidance for applications and databases
+description: Learn about tuning database applications and databases for performance in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
 ---
-# Manual tune query performance in Azure SQL Database
+# Tune applications and databases for performance in Azure SQL Database
 
 Once you have identified a performance issue that you are facing with SQL Database, this article is designed to help you:
 
@@ -226,6 +226,10 @@ You can examine **sys.resource_stats** to determine whether the resource for a t
 
 If a workload has a set of repeating queries, often it makes sense to capture and validate the optimality of your plan choices because it drives the minimum resource size unit required to host the database. After you validate it, occasionally reexamine the plans to help you make sure that they have not degraded. You can learn more about [query hints (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### Very large database architectures
+
+Before the release of [Hyperscale](sql-database-service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in elastic pools and instance database in managed instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database when you cannot use the Hyperscale service tier.
+
 ### Cross-database sharding
 
 Because Azure SQL Database runs on commodity hardware, the capacity limits for an individual database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of an individual database in Azure SQL Database. Most customers who use sharding techniques in Azure SQL Database split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
@@ -237,7 +241,7 @@ For example, if a database has customer name, order, and order details (like the
 
 Although database sharding doesn't reduce the aggregate resource capacity for a solution, it's highly effective at supporting very large solutions that are spread over multiple databases. Each database can run at a different compute size to support very large, "effective" databases with high resource requirements.
 
-### Functional partitioning
+#### Functional partitioning
 
 SQL Server users often combine many functions in an individual database. For example, if an application has logic to manage inventory for a store, that database might have logic associated with inventory, tracking purchase orders, stored procedures, and indexed or materialized views that manage end-of-month reporting. This technique makes it easier to administer the database for operations like backup, but it also requires you to size the hardware to handle the peak load across all functions of an application.
 

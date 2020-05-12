@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
 
 ---
@@ -42,19 +42,19 @@ To add a repository to your lab, first, get key information from your repository
 10. Close GitHub.   
 
 ### Get the Azure Repos clone URL and personal access token
-1. Go to the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
+1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 2. On the project home page, select **Code**.
 3. To view the clone URL, on the project **Code** page, select **Clone**.
 4. Save the URL. You use the URL later.
 5. To create a personal access token, in the user account drop-down menu, select **My profile**.
 6. On the profile information page, select **Security**.
-7. On the **Security** tab, select **Add**.
-8. On the **Create a personal access token** page:
-   1. Enter a **Description** for the token.
-   2. In the **Expires In** list, select **180 days**.
-   3. In the **Accounts** list, select **All accessible accounts**.
-   4. Select the **All scopes** option.
-   5. Select **Create Token**.
+7. On the **Security > Personal access tokens** tab, select **+ New Token**.
+8. On the **Create a new personal access token** page:
+   1. Enter a **Name** for the token.
+   2. In the **Organization** list, select **All accessible organizations**.
+   3. In the **Expiration (UTC)** list, select **90 days**, or a custom defined expiration period.
+   4. Select the **Full access** option for Scopes.
+   5. Select **Create**.
 9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 10. Continue to the Connect your lab to the repository section.
 

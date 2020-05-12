@@ -4,7 +4,7 @@ description: As a builder, learn how to configure the default Azure IoT Central 
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
@@ -69,7 +69,7 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 | Content | Application and device set dashboards |Markdown supported tiles are clickable tiles that display heading and description text. You can also use this tile as a link tile to enable a user to navigate to a URL related to your application.|
 | Image | Application and device set dashboards |Image tiles display a custom image and can be clickable. Use an image tile to add graphics to a dashboard and optionally enable a user to navigate to a URL relevant to your application.|
 | Label | Application dashboards |Label tiles display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard such descriptions, contact details, or help.|
-| Map | Application and device set dashboards |Map tiles display the location and state of a device on a map. For example, you can display where a device is and whether its fan is switched on.|
+| Map | Application and device dashboards |Map tiles display the location of a device on a map. You can also display up to 100 points of a device's location history. For example, you can a display sampled route of where a device has been on the past week.|
 | Line Chart | Application and device dashboards |Line chart tiles display a chart of aggregate measurement for a device for a time period. For example, you can display a line chart that shows the average temperature and pressure of a device for the last hour.|
 | Bar Chart | Application and device dashboards |Bar chart tiles display a chart of aggregate measurements for a device for a time period. For example, you can display a bar chart that shows the average temperature and pressure of a device for the last hour.|
 | Pie Chart | Application and device set dashboards |Pie chart tiles display a chart of aggregate measurements for a device for a time period.|

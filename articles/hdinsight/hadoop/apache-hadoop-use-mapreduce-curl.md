@@ -166,7 +166,7 @@ Either:
 
 1. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI with Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI](/cli/azure/install-azure-cli). For more information on using the Azure CLI to work with Azure Blob storage, see [Quickstart: Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## Next steps
 

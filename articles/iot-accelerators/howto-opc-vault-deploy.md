@@ -103,7 +103,7 @@ Use a short and simple resource group name. The name is also used to name resour
 
 ### Website name already in use
 
-It's possible that the name of the website is already in use. You need to use a different resource group name. The hostnames in use by the deployment script are: https://resourcegroupname.azurewebsites.net and https://resourgroupname-service.azurewebsites.net.
+It's possible that the name of the website is already in use. You need to use a different resource group name. The hostnames in use by the deployment script are: https:\//resourcegroupname.azurewebsites.net and https:\//resourgroupname-service.azurewebsites.net.
 Other names of services are built by the combination of short name hashes, and are unlikely to conflict with other services.
 
 ### Azure AD registration 

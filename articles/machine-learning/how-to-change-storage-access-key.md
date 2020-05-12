@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
+ms.date: 03/06/2020
 
 
 ---
@@ -28,6 +28,9 @@ For security purposes, you may need to change the access keys for an Azure Stora
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+
+> [!NOTE]
+> The code snippets in this document were tested with version 1.0.83 of the Python SDK.
 
 <a id="whattoupdate"></a> 
 
@@ -86,6 +89,8 @@ To update Azure Machine Learning to use the new key, use the following steps:
         ```azurecli-interactive
         az login
         ```
+
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 

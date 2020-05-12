@@ -3,14 +3,14 @@ title: Region availability and data residency
 titleSuffix: Azure AD B2C
 description: Region availability, data residency, and information about Azure Active Directory B2C preview tenants.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

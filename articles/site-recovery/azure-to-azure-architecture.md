@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
 ---
 
@@ -51,8 +51,7 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 You can manage target resources as follows:
 
 - You can modify target settings as you enable replication.
-- You can modify target settings after replication is already working. The exception is the availability type (single instance, set or zone). To change this setting you need to disable replication, modify the setting, and then reenable.
-
+- You can modify target settings after replication is already working. Please note that the default SKU for the target region VM is the same as the SKU of the source VM (or the next best available SKU in comparison to the source VM SKU). Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource which cannot be updated is the availability type (single instance, set or zone). To change this setting you need to disable replication, modify the setting, and then reenable. 
 
 
 ## Replication policy 
@@ -131,11 +130,13 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 | login.microsoftonline.com | Provides authorization and authentication to Site Recovery service URLs. |
 | *.hypervrecoverymanager.windowsazure.com | Allows the VM to communicate with the Site Recovery service. |
 | *.servicebus.windows.net | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
+| *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
 
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
-Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### Source region rules
 
@@ -145,6 +146,8 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage account
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 #### Target region rules
 
@@ -154,6 +157,8 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage account
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 
 #### Control access with NSG rules
@@ -166,7 +171,7 @@ If you control VM connectivity by filtering network traffic to and from Azure ne
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  
-Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
+Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
 
 
 ### Connectivity for multi-VM consistency

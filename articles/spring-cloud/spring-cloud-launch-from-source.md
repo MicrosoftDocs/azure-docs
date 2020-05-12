@@ -43,7 +43,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 
 Install the Azure Spring Cloud extension for the Azure CLI with the following command
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -51,7 +51,7 @@ az extension add --name spring-cloud
 
 Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-```Azure CLI
+```azurecli
 az login
 az account list -o table
 az account set --subscription

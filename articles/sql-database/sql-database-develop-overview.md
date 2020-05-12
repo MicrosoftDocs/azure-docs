@@ -4,13 +4,10 @@ description: Learn about available connectivity libraries and best practices for
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
-ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.service: sql-database
 ms.date: 11/14/2019
 ---
 # SQL Database application development overview

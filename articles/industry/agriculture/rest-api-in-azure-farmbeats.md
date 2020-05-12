@@ -26,7 +26,7 @@ The Azure FarmBeats APIs provide agricultural businesses with a standardized RES
 
 The FarmBeats APIs contain Swagger technical documentation. For information on all the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-The following table summarizes all the objects and resources in FarmBeats Datahub.
+The following table summarizes all the objects and resources in FarmBeats Datahub:
 
 | Objects and resources | Description
 --- | ---|
@@ -140,7 +140,7 @@ In this example, when a farm was created, the mandatory field "Name" wasn't spec
 
 ## Add users or app registrations to Azure Active Directory
 
-Azure FarmBeats APIs can be accessed by a user or an app registration in Azure Active Directory. To create an app registration in Azure Active Directory, follow these steps.
+Azure FarmBeats APIs can be accessed by a user or an app registration in Azure Active Directory. To create an app registration in Azure Active Directory, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com), and select **Azure Active Directory** > **App registrations** > **New registration**. Alternatively, you can use an existing account.
 2. For a new account, do the following:
@@ -157,7 +157,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
     - Go back to **Overview**, and select the link next to **Manage Application in local directory**.
     - Go to **Properties** to capture the **Object ID**.
 
-4. Go to your [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
+4. Go to your Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
     - Go to the **RoleAssignment API**.
     - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
 

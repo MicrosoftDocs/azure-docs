@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/02/2020
 ms.author: jingwang
 
 ---
@@ -19,6 +19,7 @@ ms.author: jingwang
 >
 > * [Version 1](v1/data-factory-ftp-connector.md)
 > * [Current version](connector-ftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data from FTP server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
@@ -35,6 +36,8 @@ Specifically, this FTP connector supports:
 
 - Copying files using **Basic** or **Anonymous** authentication.
 - Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+
+The FTP connector support FTP server running in passive mode. Active mode is not supported.
 
 ## Prerequisites
 
@@ -56,7 +59,7 @@ The following properties are supported for FTP linked service:
 | host | Specify the name or IP address of the FTP server. | Yes |
 | port | Specify the port on which the FTP server is listening.<br/>Allowed values are: integer, default value is **21**. | No |
 | enableSsl | Specify whether to use FTP over an SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
 | userName | Specify the user who has access to the FTP server. | No |
 | password | Specify the password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |

@@ -2,14 +2,14 @@
 title: Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -39,7 +39,9 @@ These three types of policy files are used:
 - **Extensions file** - holds the unique configuration changes for your tenant.
 - **Relying Party (RP) file** - The single task-focused file that is invoked directly by the application or service (also, known as a Relying Party). Each unique task requires its own RP and depending on branding requirements, the number might be "total of applications x total number of use cases."
 
-User flows in Azure AD B2C follow the three-file pattern depicted above, but the developer only sees the RP file, while the Azure portal makes changes in the background to the extensions file.
+User flows in Azure AD B2C follow the file pattern depicted above, but the developer only sees the RP file, while the Azure portal makes changes in the background to the extensions file.
+
+Although there are three types of policy files, you aren't restricted to only three files. You may have multiple files of each file type. For example, if you don't want to make changes to your Extensions file, you can create an Extensions2 file to further extend the Extensions file.
 
 ## Custom policy core concepts
 

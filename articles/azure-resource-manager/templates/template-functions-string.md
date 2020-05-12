@@ -2,11 +2,11 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 04/08/2020
 ---
-# String functions for Azure Resource Manager templates
+# String functions for ARM templates
 
-Resource Manager provides the following functions for working with strings:
+Resource Manager provides the following functions for working with strings in your Azure Resource Manager (ARM) templates:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -40,7 +40,6 @@ Resource Manager provides the following functions for working with strings:
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
 
 ## base64
 
@@ -1091,6 +1090,8 @@ You can only use this function within an expression for the default value of a p
 
 The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameter, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
 
+The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
+
 If you use the [option to redeploy an earlier successful deployment](rollback-on-error.md), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
 In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use newGuid with [uniqueString](#uniquestring) to create unique names.
@@ -1580,21 +1581,21 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "one two three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"substringOutput": {
-			"value": "[substring(parameters('testString'), 4, 3)]",
-			"type": "string"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "substringOutput": {
+            "value": "[substring(parameters('testString'), 4, 3)]",
+            "type": "string"
+        }
+    }
 }
 ```
 
@@ -1694,25 +1695,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -1745,25 +1746,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -1870,7 +1871,7 @@ The following example shows how to create a unique name for a storage account ba
     ...
 ```
 
-If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcnow).
+If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](template-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](template-functions-date.md#utcnow).
 
 ### Return value
 
@@ -1920,7 +1921,7 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
    * If **baseUri** has no slashes at all (aside from the "//" near
      the front) the result is simply **baseUri** followed by **relativeUri**.
 
-   * If **baseUri** has some slashes, but does not end with a slash,
+   * If **baseUri** has some slashes, but doesn't end with a slash,
      everything from the last slash onward is removed from **baseUri**
      and the result is **baseUri** followed by **relativeUri**.
      
@@ -2094,115 +2095,6 @@ The output from the preceding example with the default values is:
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## utcNow
-
-`utcNow(format)`
-
-Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHHmmssZ) format is used. **This function can only be used in the default value for a parameter.**
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| format |No |string |The URI encoded value to convert to a string. Use either [standard format strings](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-
-### Remarks
-
-You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a template returns an error. The function isn't allowed in other parts of the template because it returns a different value each time it's called. Deploying the same template with the same parameters wouldn't reliably produce the same results.
-
-If you use the [option to redeploy an earlier successful deployment](rollback-on-error.md), and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
-
-Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
-
-### Return value
-
-The current UTC datetime value.
-
-### Examples
-
-The following example template shows different formats for the datetime value.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-The output from the preceding example varies for each deployment but will be similar to:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 03/05/2019 |
-| utcCustomOutput | string | 3 5 |
-
-The next example shows how to use a value from the function when setting a tag value.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).

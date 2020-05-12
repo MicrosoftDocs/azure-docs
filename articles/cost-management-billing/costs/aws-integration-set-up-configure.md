@@ -1,14 +1,12 @@
 ---
 title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom:
 ---
 
 # Set up and configure AWS Cost and Usage report integration
@@ -16,6 +14,10 @@ ms.custom:
 With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Azure Cost Management features to analyze costs and review budgets.
 
 Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
+
+Watch the video [How to set up Connectors for AWS in Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) to learn more about how to set up AWS report integration. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## Create a Cost and Usage report in AWS
 
@@ -34,11 +36,11 @@ Use the **Cost & Usage Reports** page of the Billing and Cost Management console
 9. In the Configure S3 Bucket dialog box, do one of the following tasks:
     1. Select an existing bucket from the drop-down list and choose **Next**.
     2. Enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
-10.	Select **I have confirmed that this policy is correct**, then click **Save**.
-11.	(Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
+10.    Select **I have confirmed that this policy is correct**, then click **Save**.
+11.    (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
 If you don't specify a prefix, the default prefix is the name that you specified for the report. The date range has the `/report-name/date-range/` format.
 12. For **Time unit**, choose  **Hourly**.
-13.	For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
+13.    For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
 14. For **Enable data integration for**, no selection is required.
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.
@@ -119,8 +121,8 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-         	"ce:*",
-         	"cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

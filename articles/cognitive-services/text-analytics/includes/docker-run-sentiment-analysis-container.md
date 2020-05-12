@@ -3,12 +3,12 @@ title: Run container example of docker run command
 titleSuffix: Azure Cognitive Services
 description: Docker run command for Sentiment Analysis container
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 To run the *Sentiment Analysis* container, execute the following `docker run` command.

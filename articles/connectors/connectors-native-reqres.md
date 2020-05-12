@@ -1,27 +1,31 @@
 ---
-title: Receive and respond to HTTPS calls
-description: Handle HTTPS requests and events in real time by using Azure Logic Apps
+title: Receive and respond to calls by using HTTPS
+description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 05/06/2020
 tags: connectors
 ---
 
-# Receive and respond to incoming HTTPS calls by using Azure Logic Apps
+# Receive and respond to inbound HTTPS requests in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger and Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 * Trigger a workflow when an external webhook event happens.
 * Receive and respond to an HTTPS call from another logic app.
 
+The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
-> continue to support TLS 1.0, 1.1, and 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
+> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. 
+> Outgoing calls support TLS 1.0, 1.1, and 1.2. For more information, see 
+> [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> If you see SSL handshake errors, make sure that you use TLS 1.2. For incoming calls, here are the supported cipher suites:
+> If you get TLS handshake errors, make sure that you use TLS 1.2. 
+> For incoming calls, here are the supported cipher suites:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -42,11 +46,11 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 ## Add Request trigger
 
-This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic App Designer opens, in the search box, enter "http request" as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
+1. After Logic App Designer opens, in the search box, enter `http request` as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
 
    ![Select Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -173,13 +177,17 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
-1. When you're done, save your logic app. On the designer toolbar, select **Save**. 
+1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
    This step generates the URL to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
 
-1. To trigger your logic app, send an HTTP POST to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/).
+1. To trigger your logic app, send an HTTP POST to the generated URL.
+
+   For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP POST. If you [enabled Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) for authorizing inbound calls to the Request trigger, either call the trigger by using a [Shared Access Signature (SAS) URL](../logic-apps/logic-apps-securing-a-logic-app.md#sas) or by using an authentication token, but you can't use both. The authentication token must specify the `Bearer` type in the authorization header. For more information, see [Secure access and data in Azure Logic Apps - Access to request-based-triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ### Trigger outputs
 
@@ -198,6 +206,21 @@ Here's more information about the outputs from the Request trigger:
 You can use the Response action to respond with a payload (data) to an incoming HTTPS request but only in a logic app that's triggered by an HTTPS request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
+
+> [!IMPORTANT]
+> If a Response action includes these headers, Logic Apps removes these headers 
+> from the generated response message without showing any warning or error:
+>
+> * `Allow`
+> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Although Logic Apps won't stop you from saving logic apps that have a 
+> Response action with these headers, Logic Apps ignores these headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
 

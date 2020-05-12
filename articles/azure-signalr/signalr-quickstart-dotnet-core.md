@@ -89,7 +89,7 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     This secret is accessed with the Configuration API. A colon (:) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method for ASP.NET Core 2 only:
+4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,6 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
         services.AddSignalR().AddAzureSignalR();
     }
     ```
-    For ASP.NET Core 3+, there is no change needed for `ConfigureServices` method.
 
     By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
 
