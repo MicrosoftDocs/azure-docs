@@ -41,21 +41,6 @@ This update brings the following changes to this feature:
 [Learn more about the JIT access feature](security-center-just-in-time.md).
 
 
-### Alert suppression rules (preview)
-
-This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
-
-Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
-
-Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
-
-- suppress alerts that you've identified as false positives
-
-- suppress alerts that are being triggered too often to be useful
-
-[Learn more about suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
-
-
 ### Custom recommendations have been moved to a separate security control
 
 One of the security controls introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
