@@ -149,6 +149,11 @@ You can use a [route rule](routes.md) to map a default provider to a friendly ro
 }
 ```
 
+### Post login redirect
+
+If you want a user to return to a specific page after login, provide a URL in `post_login_redirect_uri` query string parameter.
+
+
 ## Logout
 
 The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
@@ -165,6 +170,10 @@ You can use a [route rule](routes.md) to map a friendly route like _/logout_.
   "serve": "/.auth/logout"
 }
 ```
+
+### Post logout redirect
+
+If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
 
 ## Block an authorization provider
 
