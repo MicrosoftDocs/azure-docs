@@ -63,7 +63,7 @@ Some applications using the implicit flow attempt sign-in without redirecting aw
 
 A common pattern in web apps is to use an iframe to embed one app inside another.  The top-level frame handles authenticating the user, and the iframed application can trust that the user is signed in, fetching tokens silently using the implicit flow. Silent token acquisition no longer works when third-party cookies are blocked - the iframed application must switch to using popups to access the user's session, as it cannot navigate to the login page. 
 
-## Security implication of refresh tokens in the browser
+## Security implications of refresh tokens in the browser
 
 Issuing refresh tokens to the browser is generally considered a security issue, as XSS attacks or compromised JS packages can steal the refresh token and use it remotely until it expires or is revoked. In order to minimize the risk of stolen refresh tokens, SPAs will be issued tokens valid for only 24 hours.  After 24 hours the app must acquire a new authorization code via a top-level frame visit to the login page. 
 
