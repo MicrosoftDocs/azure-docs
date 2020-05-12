@@ -13,6 +13,7 @@ ms.author: spelluru
 # Service Bus queues and topics as event handlers for Azure Event Grid events
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events and **Azure Service Bus** is one of them. 
 
+
 ## Service Bus queues
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
@@ -55,6 +56,21 @@ az eventgrid event-subscription create \
     --endpoint-type servicebustopic \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
+
+## Message headers
+Set the following message headers when sending events as messages to a Service Bus endpoint.
+
+| Property name | Description |
+| ------------- | ----------- | 
+| aeg-subscription-name | Name of event subscription. |
+| aeg-delivery-count | Number of attempts made for the event. Example: "1" |
+| aeg-data-version | Data version of the event. Example: "1" |
+| aeg-metadata-version | Metadata version of the event. Example: "1" |
+| aeg-event-type | Event type. Example: "Microsoft.Storage.blobCreated" | 
+
+
+## Duplicate detection
+When sending events to a Service Bus endpoint as brokered messages, the `messageid` of the brokered message is the event ID. This will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, which ever is longer.
 
 ## Next steps
 

@@ -24,6 +24,9 @@ To programmatically handle events, you can sort events by looking at the `operat
 
 The event subject is the resource ID of the resource that is the target of the operation. To filter events for a resource, provide that resource ID when creating the event subscription.  To filter by a resource type, use a value in following format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
+> [!NOTE]
+> Resource creation doesn't always map to a single write operation. For a lot of resources, this isn't true since resource creation is a 2 step process. An initial write when the resource creation request is accepted followed by a write when the resource is actually created (or can involve more write for cases where VMs with extension are provisioned). You should explicitly query Azure Resource Manager when processing a write event to get correct state of the resource.
+
 
 ## Event Grid event schema
 
