@@ -165,7 +165,7 @@ In the directory where you created your project, create a new *.json* file calle
 {
   "@id": "dtmi:com:contoso:SampleModel;1",
   "@type": "Interface",
-  "name": "SampleModel",
+  "displayName": "SampleModel",
   "contents": [
     {
       "@type": "Relationship",
