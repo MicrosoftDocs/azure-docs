@@ -1,5 +1,5 @@
 ---
-title: Object-level replication (preview)
+title: Object-level replication
 titleSuffix: Azure Storage
 description: 
 services: storage
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Object-level replication (preview)
 
-With object-level replication (preview), you can automatically replicate block blobs between two storage accounts.
+With object-level replication (preview), you can automatically replicate block blobs from one storage account to another in any Azure region.
 
 Object-level replication unblocks a new set of common replication scenarios:
 
@@ -23,9 +23,11 @@ Object-level replication unblocks a new set of common replication scenarios:
 - Optimize data distribution – have your data consolidated in a single location for processing/analytics and then distribute only resulting dashboards to your offices worldwide.
 - Optimize cost – tier down your data to Archive upon replication completion using Lifecycle Management policies to optimize the cost.
 
-## How object-level replication works
+## About the preview
 
-To enable Object Replication both source and destination accounts should exist or be created in those regions.
+### Regional availability
+
+At this time object replication is available in US East 2, US Central and Europe West with the remaining regions to be added in the near future. To enable Object Replication both source and destination accounts should exist or be created in those regions.
 
 ### Prerequisites
 
@@ -38,80 +40,6 @@ Object replication requires:
 - Change feed to be enabled only on the source account.
 
 These prerequisites incur additional cost – please refer to [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/) for more details. During preview there will be no additional cost associated with replicating data between storage accounts. Regional replication cost (both within the geography and across geographies) will be announced once the capability reaches general availability.
-
-
-## About the preview
-
-Object-level replication is available in the following regions in preview:
-
-- US East 2
-- US Central
-- Europe West
-
-To enable Object Replication both source and destination accounts should exist or be created in those regions.
-
-> [!IMPORTANT]
-> The object-level replication preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-### Register for the preview
-
-You can register for the object-level replication preview using PowerShell or Azure CLI. Make sure that you also register for the change feed and blob versioning previews if you haven't already.
-
-# [PowerShell](#tab/powershell)
-
-To register for the preview with PowerShell, run the following commands:
-
-```powershell
-# Register for the object-level replication preview
-Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register for the preview with Azure CLI, run the following commands:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowObjectReplication
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### Check registration status
-
-To check the status of your registration requests, run the following commands:
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowObjectReplication
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-
-
----
-
 
 ### Getting started
 
