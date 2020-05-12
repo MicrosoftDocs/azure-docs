@@ -664,8 +664,6 @@
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
-          href: create-mongodb-golang.md
-        - name: Go
           href: create-mongodb-go.md
       - name: Tutorials
         items:
