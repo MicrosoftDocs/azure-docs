@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # Deploy ML model on Azure SQL Edge using ONNX 
 
-In part two of this three-part tutorial for predicting iron ore impurities in Azure SQL Edge, you'll:
+In part three of this three-part tutorial for predicting iron ore impurities in Azure SQL Edge, you'll:
 
 1. Use Azure Data Studio to connect to SQL Database in the Azure SQL Edge instance.
 2. Predict iron ore impurities with ONNX in Azure SQL Edge.
@@ -173,7 +173,7 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
    conn.close()
    ```
 
-1. Finally, use the Azure SQL Edge model to perform prediction using the trained model.
+1. Finally, use the Azure SQL Edge model to perform predictions using the trained model.
 
    ```python
    ## Define the Connection string parameters. These connection strings will be used later also in the demo.

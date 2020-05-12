@@ -18,7 +18,9 @@ In part two of this three-part tutorial for predicting iron ore impurities in Az
 - Azure SQL Edge
 - A data generator module
 
-Before proceeding, create an Azure Stream Analytics module that will be used in the tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Database Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+## Create Azure Stream Analytics module
+
+Create an Azure Stream Analytics module that will be used in this tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Database Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 Once the Azure Stream Analytics job is created with the hosting environment set as Edge, set up the inputs and outputs for the tutorial.
 
@@ -42,7 +44,7 @@ Once the Azure Stream Analytics job is created with the hosting environment set 
 
 3. Navigate to the **Query** section and set up the query as follows:
 
-   `SELECT * INTO `*name_of_your_output_stream*` FROM `*name_of_your_input_stream*
+   `SELECT * INTO <name_of_your_output_stream> FROM <name_of_your_input_stream>`
    
 4. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Database Edge module.
 
@@ -100,7 +102,7 @@ Now, specify the container credentials in the IoT Edge module.
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
    ```
 
-For example:
+   For example:
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")
