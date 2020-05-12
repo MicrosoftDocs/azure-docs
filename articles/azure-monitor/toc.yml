@@ -1062,32 +1062,34 @@
           href: insights/vmware.md
         - name: Wire Data solution
           href: insights/wire-data.md
-  - name: Workbooks
+  - name: Visualizations
     items:
-    - name: Overview
-      href: platform/workbooks-overview.md
-    - name: Visualizations
-      href: platform/workbooks-visualizations.md
-    - name: Data sources
-      href: platform/workbooks-data-sources.md
-    - name: Deploy with Azure Resource Manager
-      href: platform/workbooks-automate.md
-    - name: Configuration
+    - name: Workbooks
       items:
-      - name: Access control
-        href: platform/workbooks-access-control.md
-      - name: Parameters
+      - name: Overview
+        href: platform/workbooks-overview.md
+      - name: Visualizations
+        href: platform/workbooks-visualizations.md
+      - name: Data sources
+        href: platform/workbooks-data-sources.md
+      - name: Deploy with Azure Resource Manager
+        href: platform/workbooks-automate.md
+      - name: Configuration
         items:
-        - name: Parameter summary
-          href: platform/workbooks-parameters.md
-        - name: Drop down parameters
-          href: platform/workbooks-dropdowns.md
-        - name: Interactive parameters
-          href: platform/workbooks-interactive.md
-        - name: Time parameters
-          href: platform/workbooks-time.md
-        - name: Text parameters
-          href: platform/workbooks-text.md
+        - name: Access control
+          href: platform/workbooks-access-control.md
+        - name: Parameters
+          items:
+          - name: Parameter summary
+            href: platform/workbooks-parameters.md
+          - name: Drop down parameters
+            href: platform/workbooks-dropdowns.md
+          - name: Interactive parameters
+            href: platform/workbooks-interactive.md
+          - name: Time parameters
+            href: platform/workbooks-time.md
+          - name: Text parameters
+            href: platform/workbooks-text.md
     - name: Power BI
       items:
       - name: Export log data
@@ -1149,12 +1151,24 @@
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
-  - name: Logs
+  - name: Data reference
     href: https://docs.microsoft.com/azure/azure-monitor/reference/
-  - name: Diagnostics extension
-    items: 
-    - name: Windows configuration schema
-      href: platform/diagnostics-extension-schema-windows.md
+  - name: Platform metrics
+    items:
+    - name: Supported metrics
+      href: platform/metrics-supported.md
+    - name: Metrics exportable with Diagnostic Settings
+      href: platform/metrics-supported-export-diagnostic-settings.md
+    - name: Supported metrics for newer alerts
+      href: platform/alerts-metric-near-real-time.md
+  - name: Platform logs
+    items:
+    - name: Resource log services
+      href: platform/diagnostic-logs-schema.md
+    - name: Activity log schema
+      href: platform/activity-log-schema.md
+  - name: Windows diagnostics extension schema
+    href: platform/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
@@ -1167,6 +1181,8 @@
       href: app/platforms.md
     - name: Endpoint overrides
       href: app/custom-endpoints.md
+    - name: Azure Functions
+      href: app/azure-functions-supported-features.md 
     - name: Data model
       items:
       - name: Overview
@@ -1189,47 +1205,31 @@
         href: app/azure-functions-supported-features.md 
       - name: Workspace-based schema
         href: app/apm-tables.md
-  - name: Metrics
-    items:
-    - name: Supported metrics
-      href: platform/metrics-supported.md
-    - name: Metrics exportable with Diagnostic Settings
-      href: platform/metrics-supported-export-diagnostic-settings.md
-    - name: Supported metrics for newer alerts
-      href: platform/alerts-metric-near-real-time.md
-  - name: Platform logs
-    items:
-    - name: Resource log services, categories, and schemas
-      href: platform/diagnostic-logs-schema.md
-    - name: Activity log schema
-      href: platform/activity-log-schema.md
-  - name: Azure CLI
-    items:
-    - name: Azure CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Azure CLI - Application Insights
-      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
-  - name: Azure Functions
-    href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
-    - name: Alerts, Metrics, Activity Log, Autoscale
+    - name: Azure Monitor
       href: /powershell/module/az.monitor
-    - name: Application Insights
-      href: /powershell/module/az.applicationinsights
-    - name: Log Analytics
+    - name: Azure Monitor Logs
       href: /powershell/module/az.operationalinsights
+      - name: Application Insights
+      href: /powershell/module/az.applicationinsights
+  - name: Azure CLI
+    items:
+    - name: Azure Monitor
+      href: /cli/azure/monitor?view=azure-cli-latest
+    - name: Application Insights
+      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
   - name: REST API
     items:
-    - name: Monitor
+    - name: Azure Monitor
       href: /rest/api/monitor/
-    - name: Logs
+    - name: Azure Monitor Logs
       href: /rest/api/loganalytics
-  - name: Resource Manager template
+  - name: Resource Manager templates
     items:
-    - name: Monitor
+    - name: Azure Monitor
       href: /azure/templates/microsoft.insights/allversions
-    - name: Logs
+    - name: Azure Monitor Logs
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Feature and API Retirement 
     items:
