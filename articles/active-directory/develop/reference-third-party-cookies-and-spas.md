@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/11/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 ## What is ITP (Intelligent Tracking Protection)
 
-Apple Safari has an on-by-default privacy protection feature called [Intelligent Tracking Protection (ITP)](https://webkit.org/tracking-prevention-policy/).  It blocks "third-party cookies", cookies on requests that cross domains. A common form of user tracking is loading an iframe in the background to a third-party site, using cookies to correlate the user across the Internet.  Unfortunately, this pattern is also the standard way of implementing the [implicit flow](v2-oauth2-implicit-grant-flow.md) for single page apps (SPAs).  When a browser blocks 3rd party cookies to prevent user tracking, SPAs are also broken.
+Apple Safari has an on-by-default privacy protection feature called [Intelligent Tracking Protection (ITP)](https://webkit.org/tracking-prevention-policy/).  It blocks "third-party cookies", cookies on requests that cross domains. A common form of user tracking is loading an iframe in the background to a third-party site, using cookies to correlate the user across the Internet.  Unfortunately, this pattern is also the standard way of implementing the [implicit flow](v2-oauth2-implicit-grant-flow.md) for single page apps (SPAs).  When a browser blocks third party cookies to prevent user tracking, SPAs are also broken.
 
 Safari is not alone in blocking third-party cookies to enhance user privacy - Brave has blocked third-party cookies by default, and Chromium (the platform behind Google Chrome and Microsoft Edge) has announced that they will stop supporting third-party cookies as well in the future.  The solution outlined in this document works in all of these browsers, or anywhere else third-party cookies are blocked.
 
@@ -31,19 +31,19 @@ In order to continue authenticating users in SPAs, app developers must use the [
 For the Microsoft identity platform, native clients and SPAs follow the same protocol guidance:
 
 * Use of a [PKCE code challenge](https://tools.ietf.org/html/rfc7636)
-    * While this is only *recommended* for native and confidential clients, Microsoft identity platform *requires* PKCE for SPAs. 
+    * While PKCE is only *recommended* for native and confidential clients, Microsoft identity platform *requires* PKCE for SPAs. 
 * No use of a client secret
 
 SPAs have two additional restrictions: 
 
 * [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) to enable CORS on login endpoints.  
-* Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather then a 90-day lifetime.
+* Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
 ## Performance and UX implications
 
-Some applications using the implicit flow attempt sign-in without redirecting away by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed in user assuming consent has already been granted.  This pattern meant applications did not need a full page redirect to sign the user in, improving performance and user experience - the user visits the web page and is signed in already.  `prompt=none` in an iframe are no longer an option when third-party cookies are blocked, so applications must visit the login page in a top-level frame to have an authorization code issued.  There are two ways of accomplishing sign-in:
+Some applications using the implicit flow attempt sign-in without redirecting away by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed in user (assuming consent has already been granted).  This pattern meant applications did not need a full page redirect to sign the user in, improving performance and user experience - the user visits the web page and is signed in already.  `prompt=none` in an iframe are no longer an option when third-party cookies are blocked, so applications must visit the login page in a top-level frame to have an authorization code issued.  There are two ways of accomplishing sign-in:
 
 1. Full page redirects
     1. On the first load of the SPA, redirect the user to the sign-in page if no session exists already (or if the session is expired).  The user's browser will visit the login page, present the cookies containing the user session, and then redirect back to the application with the code and tokens in a fragment.
@@ -65,4 +65,4 @@ A common pattern in web apps is to use an iframe to embed one app inside another
 
 Issuing refresh tokens to the browser is generally considered a security issue, as XSS attacks or compromised JS packages can steal the refresh token and use it remotely until it expires or is revoked. In order to minimize the risk of stolen refresh tokens, SPAs will be issued tokens valid for only 24 hours.  After 24 hours the app must acquire a new authorization code via a top-level frame visit to the login page. 
 
-This limited-lifetime refresh token pattern was chosen as a balance between security and degraded UX. Without refresh tokens or 3rd party cookies the authorization code flow recommended by the [OAuth security best current practices draft](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) becomes onerous when new or additional tokens are required - a full page redirect or popup for every single token, every time a token expires (every hour usually, for Microsoft identity platform tokens). 
+This limited-lifetime refresh token pattern was chosen as a balance between security and degraded UX. Without refresh tokens or third party cookies, the authorization code flow (as recommended by the [OAuth security best current practices draft](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) becomes onerous when new or additional tokens are required.  A full page redirect or popup is needed for every single token, every time a token expires (every hour usually, for Microsoft identity platform tokens). 
