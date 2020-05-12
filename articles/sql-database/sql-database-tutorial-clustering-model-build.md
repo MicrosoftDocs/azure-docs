@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Build a clustering model in R with Azure SQL Database Machine Learning Services (preview)
@@ -24,6 +25,7 @@ In part two of this three-part tutorial series, you'll build a K-Means model in 
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Define the number of clusters for a K-Means algorithm
 > * Perform clustering
 > * Analyze the results
@@ -31,8 +33,6 @@ In this article, you'll learn how to:
 In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learned how to prepare the data from an Azure SQL database to perform clustering.
 
 In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering in R based on new data.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ To determine the number of clusters for the algorithm to use, use a plot of the 
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
-# by number of clusters extracted. 
+# by number of clusters extracted.
 wss <- (nrow(customer_data) - 1) * sum(apply(customer_data, 2, var))
 for (i in 2:20)
     wss[i] <- sum(kmeans(customer_data, centers = i)$withinss)
@@ -98,13 +98,13 @@ clust
 
 ```results
 Call:
-rxKmeans(formula = ~orderRatio + itemsRatio + monetaryRatio + 
-    frequency, data = customer_returns, outFile = return_cluster, 
-    outColName = "cluster", extraVarsToWrite = c("customer"), 
+rxKmeans(formula = ~orderRatio + itemsRatio + monetaryRatio +
+    frequency, data = customer_returns, outFile = return_cluster,
+    outColName = "cluster", extraVarsToWrite = c("customer"),
     overwrite = TRUE, numClusters = 4)
 Data: customer_returns
 Number of valid observations: 37336
-Number of missing observations: 0 
+Number of missing observations: 0
 Clustering algorithm:  
 
 K-means clustering with 4 clusters of sizes 31675, 671, 2851, 2139
@@ -134,7 +134,7 @@ Here are a couple ways you could interpret these results:
 
 ## Clean up resources
 
-***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your Azure SQL Database server.
+***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your server.
 
 From the Azure portal, follow these steps:
 

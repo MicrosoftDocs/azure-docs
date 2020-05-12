@@ -1,10 +1,10 @@
 ---
 title: Query Performance Insight
-description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL database.
+description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -25,7 +25,7 @@ Query Performance Insight provides intelligent query analysis for single and poo
 
 ## Prerequisites
 
-Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all Azure SQL databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
+Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
 > If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration).
@@ -48,13 +48,13 @@ Query Performance Insight is easy to use:
 
 3. On the first tab, review the list of top resource-consuming queries.
 4. Select an individual query to view its details.
-5. Open **Intelligent Performance** > **Performance recommendations** and check if any performance recommendations are available. For more information on built-in performance recommendations, see [SQL Database Advisor](sql-database-advisor.md).
+5. Open **Intelligent Performance** > **Performance recommendations** and check if any performance recommendations are available. For more information on built-in performance recommendations, see [Azure SQL Database Advisor](sql-database-advisor.md).
 6. Use sliders or zoom icons to change the observed interval.
 
    ![Performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> For SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> For Azure SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 For database performance recommendations, select [Recommendations](sql-database-advisor.md) on the Query Performance Insight navigation blade.
@@ -185,7 +185,7 @@ A user application that uses the database might get slow, even though a high num
 
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency.
 
-For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the database server can slow performance. In general, keep round trips to a minimum.
+For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the server can slow performance. In general, keep round trips to a minimum.
 
 To identify frequently executed ("chatty") queries:
 
@@ -200,7 +200,7 @@ To identify frequently executed ("chatty") queries:
 
 While exploring your workload in Query Performance Insight, you might notice icons with a vertical line on top of the chart.
 
-These icons are annotations. They show performance recommendations from [SQL Database Advisor](sql-database-advisor.md). By hovering over an annotation, you can get summarized information on performance recommendations.
+These icons are annotations. They show performance recommendations from [Azure SQL Database Advisor](sql-database-advisor.md). By hovering over an annotation, you can get summarized information on performance recommendations.
 
    ![Query annotation](./media/sql-database-query-performance/annotation.png)
 

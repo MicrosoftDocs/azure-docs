@@ -4,7 +4,7 @@ description: Migrate to the new Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: johnpaulkee

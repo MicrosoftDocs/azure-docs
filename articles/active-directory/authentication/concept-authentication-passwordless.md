@@ -116,7 +116,7 @@ The following providers offer FIDO2 security keys of different form factors that
 | eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| OneSpan Inc. | [https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf](https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf) |
+| OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
 | IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
 
 > [!NOTE]
@@ -159,7 +159,7 @@ Use the following table to choose which method will support your requirements an
 
 ## Next steps
 
-[Enable FIDO2 security key passwordlesss options in your organization](howto-authentication-passwordless-security-key.md)
+[Enable FIDO2 security key passwordless options in your organization](howto-authentication-passwordless-security-key.md)
 
 [Enable phone-based passwordless options in your organization](howto-authentication-passwordless-phone.md)
 

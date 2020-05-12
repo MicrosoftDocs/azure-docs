@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 04/23/2020
 ms.author: tamram
 ---
 
@@ -68,7 +68,7 @@ az storage account create \
     --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
-    --encryption blob
+    --encryption-services blob
 ```
 
 ## Create a container
@@ -159,7 +159,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with blobs in Azure Storage, continue to the tutorial for working with Azure Blob storage.
+In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with Blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
 
 > [!div class="nextstepaction"]
-> [How to: Blob storage operations with the Azure CLI](storage-how-to-use-blobs-cli.md)
+> [Azure CLI samples for Blob storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

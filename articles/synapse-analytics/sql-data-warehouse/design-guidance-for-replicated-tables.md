@@ -119,7 +119,7 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 ## Performance considerations for modifying replicated tables
 
-SQL Analytics implements a replicated table by maintaining a master version of the table. It copies the master version to one distribution database on each Compute node. When there is a change, SQL Analytics first updates the master table. Then it rebuilds the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW400 has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL Analytics uses this model to support faster data modification statements and flexible scaling operations.
+SQL Analytics implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, SQL Analytics first updates the master version, then it rebuilds the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL Analytics uses this model to support faster data modification statements and flexible scaling operations.
 
 Rebuilds are required after:
 

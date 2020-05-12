@@ -1,15 +1,8 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal"
-titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
+ms.date: 04/06/2020
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint.
 ---
 
@@ -25,35 +18,13 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 * Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * If you have apps that pre-date Azure resource authentication, [migrate to an Azure resource](luis-migration-authoring.md). Some portal pages look different when email authentication is in effect.
 
-## Create the endpoint resource
+<a name="create-the-endpoint-resource"></a>
 
-You create the prediction endpoint resource in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
-
-1. Sign in and create a resource in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configure the subscription with the following settings:
-
-   |Setting|Value|Purpose|
-   |--|--|--|
-   |Name|`my-luis-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
-   |Subscription|Your subscription|Select one of the subscriptions associated with your account.|
-   |Resource group|`my-resource-group`|Create a new resource group for all your cognitive service resources. When you're done with the resources, you can delete the resource group to clean up your subscription. |
-   |Authoring location|**West US**|The Azure region for authoring.|
-   |Authoring pricing tier|**F0**|The default pricing tier for authoring.|
-   |Runtime location|**West US**|The Azure region for prediction endpoint queries.|
-   |Runtime pricing tier|**S0**|This pricing tier provides for high-traffic websites.|
-   | | | |
-
-
-   ![Azure API choice](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Select **Create** to create the Azure resource.
-
-   In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## Assign the resource key to the LUIS app in the LUIS portal
 
-Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
+Every time you create a new authoring or query prediction resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
 1. Sign in to the [preview LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
 

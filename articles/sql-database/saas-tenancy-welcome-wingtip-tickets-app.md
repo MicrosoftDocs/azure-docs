@@ -5,12 +5,12 @@ keywords: "sql database tutorial"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: billgib
+ms.reviewer: 
 ms.date: 01/25/2019
 ---
 # The Wingtip Tickets SaaS application

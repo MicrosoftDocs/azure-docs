@@ -1,27 +1,27 @@
 ---
 title: Data Sync Agent for SQL Data Sync 
-description: Learn how to install and run the Data Sync Agent for Azure SQL Data Sync to sync data with on-premises SQL Server databases
+description: Learn how to install and run the Data Sync Agent for SQL Data Sync in Azure to sync data with on-premises SQL Server databases
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
-# Data Sync Agent for Azure SQL Data Sync
+# Data Sync Agent for SQL Data Sync
 
-Sync data with on-premises SQL Server databases by installing and configuring the Data Sync Agent for Azure SQL Data Sync. For more info about SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
+Sync data with on-premises SQL Server databases by installing and configuring the Data Sync Agent for SQL Data Sync in Azure. For more info about SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
 ## Download and install
 
-To download the Data Sync Agent, go to [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+To download the Data Sync Agent, go to [SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### Install silently
 
@@ -312,7 +312,7 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 For more info about SQL Data Sync, see the following articles:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-database-sync-data.md)
 -   Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - With PowerShell
@@ -322,5 +322,5 @@ For more info about SQL Data Sync, see the following articles:
 -   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Update the sync schema
-    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With Transact-SQL - [Automate replication of schema changes with SQL Data Sync in Azure](sql-database-update-sync-schema.md)
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)

@@ -40,6 +40,6 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-- For technical questions and issues, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- For technical questions, issues and subscription whitelisting [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - For other questions not part of FAQ and feedback, comment below.

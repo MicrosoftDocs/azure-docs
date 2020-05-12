@@ -1,10 +1,10 @@
 ---
 title: "Saas app: Monitor performance of many databases"
-description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
+description: "Monitor and manage performance of Azure SQL Databases and pools in a multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 01/25/2019
 ---
-# Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
+# Monitor and manage performance of Azure SQL Databases and pools in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
@@ -48,7 +48,7 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 * To respond to longer-term fluctuations, or changes in the number of databases, **individual databases can be moved into other pools**.
 * To respond to short-term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual compute size**. Once the load is reduced, the database can then be returned to the pool. When this is known in advance, databases can be moved preemptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
 
-The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
+The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. Monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
 For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted logs gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
 

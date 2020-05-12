@@ -4,7 +4,7 @@ description: how to set up elastic queries over horizontal partitions
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
@@ -18,7 +18,7 @@ ms.date: 01/03/2019
 
 Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
 
-For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
+For a quickstart, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
 
 For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -140,17 +140,17 @@ The DISTRIBUTION clause specifies the data distribution used for this table. The
 2. **REPLICATED** means that identical copies of the table are present on each database. It is your responsibility to ensure that the replicas are identical across the databases.
 3. **ROUND\_ROBIN** means that the table is horizontally partitioned using an application-dependent distribution method.
 
-**Data tier reference**: The external table DDL refers to an external data source. The external data source specifies a shard map which provides the external table with the information necessary to locate all the databases in your data tier.
+**Data tier reference**: The external table DDL refers to an external data source. The external data source specifies a shard map that provides the external table with the information necessary to locate all the databases in your data tier.
 
 ### Security considerations
 
-Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Avoid undesired elevation of privileges through the credential of the external data source. Use GRANT or REVOKE for an external table just as though it were a regular table.  
+Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Avoid undesired elevation of privileges through the credential of the external data source. Use GRANT or REVOKE for an external table as though it were a regular table.  
 
 Once you have defined your external data source and your external tables, you can now use full T-SQL over your external tables.
 
 ## Example: querying horizontal partitioned databases
 
-The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders and order lines are sharded by the warehouse id column, and that the elastic query can co-locate the joins on the shards and process the expensive part of the query on the shards in parallel.
+The following query performs a three-way join between warehouses, orders, and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders, and order lines are sharded by the warehouse ID column, and that the elastic query can co-locate the joins on the shards and process the expensive part of the query on the shards in parallel.
 
 ```sql
     select  
@@ -190,11 +190,11 @@ Example:
 
 ## Connectivity for tools
 
-Use regular SQL Server connection strings to connect your application, your BI and data integration tools to the database with your external table definitions. Make sure that SQL Server is supported as a data source for your tool. Then reference the elastic query database like any other SQL Server database connected to the tool, and use external tables from your tool or application as if they were local tables.
+Use regular SQL Server connection strings to connect your application, your BI, and data integration tools to the database with your external table definitions. Make sure that SQL Server is supported as a data source for your tool. Then reference the elastic query database like any other SQL Server database connected to the tool, and use external tables from your tool or application as if they were local tables.
 
 ## Best practices
 
-* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL DB firewalls.  
+* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL Database firewalls.  
 * Validate or enforce the data distribution defined by the external table. If your actual data distribution is different from the distribution specified in your table definition, your queries may yield unexpected results.
 * Elastic query currently does not perform shard elimination when predicates over the sharding key would allow it to safely exclude certain shards from processing.
 * Elastic query works best for queries where most of the computation can be done on the shards. You typically get the best query performance with selective filter predicates that can be evaluated on the shards or joins over the partitioning keys that can be performed in a partition-aligned way on all shards. Other query patterns may need to load large amounts of data from the shards to the head node and may perform poorly

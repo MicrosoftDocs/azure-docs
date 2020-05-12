@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
@@ -25,11 +26,8 @@ In this quickstart, you create and run a set of R scripts using Machine Learning
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
 
 This example uses the stored procedure [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to wrap a well-formed R script.
 
@@ -101,8 +99,8 @@ Inputs to this stored procedure include:
 |-|-|
 | @language | defines the language extension to call, in this case, R |
 | @script | defines the commands passed to the R runtime. Your entire R script must be enclosed in this argument, as Unicode text. You could also add the text to a variable of type **nvarchar** and then call the variable |
-| @input_data_1 | data returned by the query, passed to the R runtime, which returns the data to SQL Server as a data frame |
-|WITH RESULT SETS | clause defines the schema of the returned data table for SQL Server, adding "Hello World" as the column name, **int** for the data type |
+| @input_data_1 | data returned by the query, passed to the R runtime, which returns the data as a data frame |
+|WITH RESULT SETS | clause defines the schema of the returned data table, adding "Hello World" as the column name, **int** for the data type |
 
 The command outputs the following text:
 

@@ -4,7 +4,7 @@ description: Provides a Transact-SQL code sample that is made easy and quick by 
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
@@ -12,7 +12,7 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ---
-# Ring Buffer target code for extended events in SQL Database
+# Ring Buffer target code for extended events in Azure SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
@@ -22,13 +22,13 @@ This topic presents a Transact-SQL code sample that:
 
 1. Creates a table with data to demonstrate with.
 2. Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.
-   
+
    * The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
    * Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 3. Starts the event session.
 4. Issues a couple of simple SQL UPDATE statements.
 5. Issues a SQL SELECT statement to retrieve event output from the Ring Buffer.
-   
+
    * **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 6. Stops the event session.
 7. Drops the Ring Buffer target, to release its resources.
@@ -40,7 +40,7 @@ This topic presents a Transact-SQL code sample that:
 * Any database you can create a table in.
   
   * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
-* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
+* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
   You can download the latest ssms.exe from:
   
   * Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -205,12 +205,11 @@ DROP TABLE tabEmployee;
 GO
 ```
 
-
 &nbsp;
 
 ## Ring Buffer contents
 
-We used ssms.exe to run the code sample.
+We used `ssms.exe` to run the code sample.
 
 To view the results, we clicked the cell under the column header **target_data_XML**.
 
@@ -307,8 +306,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 </RingBufferTarget>
 ```
 
-
-#### Release resources held by your Ring Buffer
+### Release resources held by your Ring Buffer
 
 When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
@@ -318,7 +316,6 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
     DROP TARGET package0.ring_buffer;
 GO
 ```
-
 
 The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
@@ -332,16 +329,15 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
             );
 ```
 
-
 ## More information
 
 The primary topic for extended events on Azure SQL Database is:
 
-* [Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
+* [Extended event considerations in Azure SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
 
 Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
 
-* Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
+* Code sample for Azure SQL Database: [Event File target code for extended events in Azure SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

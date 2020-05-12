@@ -16,9 +16,11 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Work remotely support
+  - name: Work remotely
     items:
-    - name: Work remotely
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Leveraging Azure VPN
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
@@ -208,7 +210,7 @@
     items:
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-    - name: Set up alerts based on diagnostic log
+    - name: Set up alerts based on resource logs
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
   - name: Configure packet captures 
     href: packet-capture.md

@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Prepare data to perform clustering in R with Azure SQL Database Machine Learning Services (preview)
@@ -30,7 +31,8 @@ In parts one and two of this series, you'll develop some R scripts in RStudio to
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Import a sample database into an Azure SQL database
+>
+> * Import a sample database into Azure SQL Database
 > * Separate customers along different dimensions using R
 > * Load the data from the Azure SQL database into an R data frame
 
@@ -38,13 +40,11 @@ In [part two](sql-database-tutorial-clustering-model-build.md), you'll learn how
 
 In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering in R based on new data.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## Prerequisites
 
 * Azure subscription - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-* Azure SQL Database Server with Machine Learning Services enabled - During the public preview, Microsoft will onboard you and enable machine learning for your existing or new databases. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+* [Azure SQL Database with Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md) enabled.
 
 * RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
 
@@ -83,7 +83,7 @@ In the **paste** function, replace **Server**, **UID**, and **PWD** with your ow
 ```r
 # Define the connection string to connect to the tpcxbb_1gb database
 connStr <- paste("Driver=SQL Server",
-               "; Server=", "<Azure SQL Database Server>",
+               "; Server=", "<Logical SQL server>",
                "; Database=tpcxbb_1gb",
                "; UID=", "<user>",
                "; PWD=", "<password>",
@@ -93,7 +93,7 @@ connStr <- paste("Driver=SQL Server",
 #Define the query to select data from SQL Server
 input_query <- "
 SELECT ss_customer_sk AS customer
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                        (orders_count = 0)
                     OR (returns_count IS NULL)
@@ -103,7 +103,7 @@ SELECT ss_customer_sk AS customer
                 THEN 0.0
             ELSE (cast(returns_count AS NCHAR(10)) / orders_count)
             END, 7) AS orderRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                      (orders_items = 0)
                   OR (returns_items IS NULL)
@@ -113,7 +113,7 @@ SELECT ss_customer_sk AS customer
             THEN 0.0
             ELSE (cast(returns_items AS NCHAR(10)) / orders_items)
             END, 7) AS itemsRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                      (orders_money = 0)
                   OR (returns_money IS NULL)
@@ -123,7 +123,7 @@ SELECT ss_customer_sk AS customer
             THEN 0.0
             ELSE (cast(returns_money AS NCHAR(10)) / orders_money)
             END, 7) AS monetaryRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (returns_count IS NULL)
             THEN 0.0
             ELSE returns_count
@@ -192,7 +192,7 @@ You should see results similar to the following.
 
 ## Clean up resources
 
-***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your Azure SQL Database server.
+***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your server.
 
 From the Azure portal, follow these steps:
 

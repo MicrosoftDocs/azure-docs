@@ -3,7 +3,7 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -39,7 +39,7 @@ To review your costs in cost analysis, open the scope in the Azure portal and se
 
 The scope you select is used throughout Cost Management to provide data consolidation and control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope, which others roll up to, and then filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
 
-Watch the video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) to learn more about how to use Cost Analysis.
+Watch the video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) to learn more about how to use Cost Analysis. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -139,6 +139,10 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 ## Understanding grouping and filtering options
 
+Cost analysis has many grouping and filtering options. To watch a video about grouping and filtering options, watch the [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 The following table lists some of the most common grouping and filtering options and when you should use them.
 
 | Property | When to use | Notes |
@@ -172,7 +176,7 @@ For more information about terms, see [Understand the terms used in the Azure us
 
 Save and share customized views with others by pinning cost analysis to the Azure portal dashboard or by copying a link to cost analysis.
 
-Watch the video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) to learn more about how to use the portal to share cost knowledge around your organization.
+Watch the video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) to learn more about how to use the portal to share cost knowledge around your organization. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

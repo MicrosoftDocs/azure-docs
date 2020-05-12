@@ -4,12 +4,12 @@ description: "Cross-tenant analytics queries using data extracted from multiple 
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh,billgib,genemi
+ms.reviewer:
 ms.date: 09/19/2018
 ---
 # Cross-tenant analytics using extracted data - multi-tenant app
@@ -82,7 +82,7 @@ Often there are numerous transactional sharded databases that together hold all 
 
 In the following steps, you deploy the analytics store, which is called **tenantanalytics**. You also deploy predefined tables that are populated later in the tutorial:
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
-2. Set the $DemoScenario variable in the script to match your choice of analytics store. For learning purposes, SQL database without columnstore is recommended.
+2. Set the $DemoScenario variable in the script to match your choice of analytics store. For learning purposes, using the database without columnstore is recommended.
     - To use SQL database without columnstore, set **$DemoScenario** = **2**
     - To use SQL database with columnstore, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 

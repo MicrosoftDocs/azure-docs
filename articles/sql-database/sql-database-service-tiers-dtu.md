@@ -1,6 +1,6 @@
 ---
 title: Service tiers - DTU-based purchase model
-description: Learn about service tiers in the  DTU-based purchase model for single and pooled databases to provide compute and storage sizes.  
+description: Learn about service tiers in the DTU-based purchase model for Azure SQL Database to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -17,9 +17,11 @@ ms.date: 11/26/2019
 Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
-> SQL Database managed instance does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> [Azure SQL Managed Instance](sql-database-managed-instance.md) does not support a DTU-based purchasing model. 
+
+
 > [!NOTE]
-> For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
+> For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [purchasing models](sql-database-purchase-models.md).
 
 ## Compare the DTU-based service tiers
 

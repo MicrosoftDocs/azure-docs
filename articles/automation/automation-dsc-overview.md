@@ -1,6 +1,6 @@
 ---
-title: Azure Automation State Configuration Overview
-description: An Overview of Azure Automation State Configuration (DSC), its terms, and known issues
+title: Azure Automation State Configuration overview
+description: An overview of Azure Automation State Configuration, its terms, and known issues
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
@@ -11,15 +11,28 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Azure Automation State Configuration Overview
+# Azure Automation State Configuration overview
 
-Azure Automation State Configuration is an Azure service that allows you to write, manage, and
-compile PowerShell Desired State Configuration (DSC)
-[configurations](/powershell/scripting/dsc/configurations/configurations). The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud.
+Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and
+compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**. 
+
+You can use Azure Automation State Configuration to manage a variety of machines:
+
+- Azure virtual machines
+- Azure virtual machines (classic)
+- Physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
+- Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
+
+If you aren't ready to manage machine configuration from the cloud, you can use Azure Automation State Configuration as a report-only endpoint. This feature allows you to set (push) configurations through DSC and view reporting details in Azure Automation.
+
+> [!NOTE]
+> Managing Azure VMs with Azure Automation State Configuration is included at no extra charge if the installed Azure VM Desired State Configuration extension version is greater than 2.70. For more information, see [**Automation pricing page**](https://azure.microsoft.com/pricing/details/automation/).
 
 ## Why use Azure Automation State Configuration
 
-Azure Automation State Configuration provides several advantages over using DSC outside of Azure.
+Azure Automation State Configuration provides several advantages over the use of DSC outside of Azure. This service enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily enable machines, assign them declarative configurations, and view reports showing each machine's compliance with the desired state you specify.
+
+The Azure Automation State Configuration service is to DSC what Azure Automation runbooks are to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. 
 
 ### Built-in pull server
 
@@ -40,7 +53,7 @@ this data to your Log Analytics workspace. See [Forward Azure Automation State C
 
 ## Prerequisites for using Azure Automation State Configuration
 
-Please consider the following requirements when using Azure Automation State Configuration for DSC.
+Consider the requirements in this section when using Azure Automation State Configuration.
 
 ### Operating system requirements
 
@@ -64,12 +77,12 @@ For nodes running Linux, the DSC Linux extension supports all the Linux distribu
 
 For all Windows nodes running in Azure,
 [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure)
-is installed during onboarding. For nodes running Windows Server 2012 and Windows 7,
+is installed when machines are enabled. For nodes running Windows Server 2012 and Windows 7,
 [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) is enabled.
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
-is installed during onboarding.
+is installed when machines are enabled.
 
 ### <a name="network-planning"></a>Configuration of private networks
 
@@ -86,7 +99,7 @@ you also need to allow traffic between nodes. See the documentation for each DSC
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)
+Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
 used to register nodes.
 
 >[!NOTE]
@@ -128,8 +141,9 @@ Azure ExpressRoute users should note that this file is used to update the Border
 ## Next steps
 
 - To get started using DSC in Azure Automation State Configuration, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn how to onboard nodes, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
+- To learn how to enable nodes, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous deployment using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

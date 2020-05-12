@@ -4,7 +4,7 @@ description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-S
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: srinia
@@ -32,7 +32,7 @@ If you have not used Elastic jobs, [learn more about the job automation concepts
 3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-manage-logins.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
 4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Add job steps using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-unplanned-execution-of-a-job).
 7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
@@ -56,7 +56,7 @@ The following image is designed to assist in understanding and setting up the pr
 A few best practice considerations for working with Elastic Jobs:
 
 - Limit usage of the APIs to trusted individuals.
-- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 ## Agent performance, capacity, and limitations

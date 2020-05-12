@@ -5,7 +5,7 @@ keywords: cloud disaster recovery,disaster recovery solutions,app data backup,ge
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960

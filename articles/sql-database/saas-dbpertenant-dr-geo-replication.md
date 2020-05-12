@@ -4,12 +4,12 @@ description: "Learn how to use Azure SQL Database geo-replicas to recover a mult
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: AyoOlubeko
-ms.author: craigg
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 01/25/2019
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
@@ -166,7 +166,7 @@ The recovery script performs the following tasks:
    > [!Note]
    > In an outage scenario, the primary databases in the original region are offline.  Force fail over on the secondary breaks the connection to the primary without trying to apply any residual queued transactions. In a DR drill scenario like this tutorial, if there is any update activity at the time of failover there could be some data loss. Later, during repatriation, when you fail over databases in the recovery region back to the original region, a normal failover is used to ensure there is no data loss.
 
-1. Monitors the SQL database service to determine when databases have been failed over. Once a tenant database is failed over, it updates the catalog to record the recovery state of the tenant database and mark the tenant as online.
+1. Monitors the service to determine when databases have been failed over. Once a tenant database is failed over, it updates the catalog to record the recovery state of the tenant database and mark the tenant as online.
 	* Tenant databases can be accessed by the application as soon as they're marked online in the catalog.
 	* A sum of rowversion values in the tenant database is stored in the catalog. This value acts as a fingerprint that allows the repatriation process to determine if the database has been updated in the recovery region.
 
@@ -293,7 +293,7 @@ Now let's imagine the outage is resolved and run the repatriation script.
 ## Designing the application to ensure app and database are colocated 
 The application is designed so that it always connects from an instance in the same region as the tenant database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases may be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server.  Redirecting to instance in the same region as the database minimizes latency between app and database. 
+Tenant databases may be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the server. Redirecting to instance in the same region as the database minimizes latency between app and database. 
 
 ## Next steps
 
@@ -306,7 +306,7 @@ In this tutorial you learned how to:
 > * Fail over the application and catalog and tenant databases to the recovery region 
 > * Fail back the application, catalog and tenant databases to the original region after the outage is resolved
 
-You can learn more about the technologies Azure SQL database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
+You can learn more about the technologies Azure SQL Database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
 
 ## Additional resources
 

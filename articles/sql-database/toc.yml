@@ -59,6 +59,12 @@
   - name: SQL managed instances
     href: sql-database-managed-instance-quickstart-guide.md
 
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
+
 - name: Concepts
   items:
   - name: Feature comparison
@@ -116,7 +122,7 @@
       items:
       - name: Azure SQL Auditing
         href: sql-database-auditing.md
-      - name: To storage behind VNet or firewall
+      - name: Audit to storage account behind VNet or firewall
         href: create-auditing-storage-account-vnet-firewall.md
       - name: Audit log format
         href: sql-database-audit-log-format.md
@@ -128,7 +134,13 @@
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
-        href: sql-vulnerability-assessment.md
+        items:
+        - name: Vulnerability assessment  
+          href: sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: sql-database-vulnerability-assessment-rules.md
+        - name: Storing VA scans behind firewalls and VNets
+          href: sql-database-vulnerability-assessment-storage.md
       - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
       - name: Security attributes
@@ -196,7 +208,7 @@
         href: /sql/connect/sql-server-drivers
         items:
         - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+          href: /sql/connect/ado-net/microsoft-ado-net-sql-server
         - name: JDBC
           href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: Node.js
@@ -487,7 +499,7 @@
       href: sql-database-single-database.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Database servers
+    - name: Logical SQL servers
       href: sql-database-servers.md
 
   - name: Quickstarts
@@ -548,7 +560,7 @@
         - name: Manage pool resources
           href: sql-database-elastic-pool-manage.md
 
-      - name: Database server resources
+      - name: Logical SQL server resources
         items:
         - name: Database resource limits
           href: sql-database-resource-limits-database-server.md
@@ -740,6 +752,8 @@
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
         href: sql-database-managed-instance-configure-p2s.md
+      - name: Long-term backup retention
+        href: sql-database-managed-instance-long-term-backup-retention-configure.md
     - name: Load data
       items:
       - name: Restore database backup
@@ -846,7 +860,7 @@
   - name: Resource Manager templates for SQL
     displayName: ARM
     href: /azure/templates/microsoft.sql/allversions
-  - name: SQL Server tools
+  - name: SQL tools
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
     href: /sql/ssms/download-sql-server-management-studio-ssms

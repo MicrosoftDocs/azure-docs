@@ -4,12 +4,12 @@ description: "Deploy and explore a standalone single-tenant SaaS application, th
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 11/07/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
@@ -65,7 +65,7 @@ Deploy the app for the three provided tenants:
 
 ## Run the applications
 
-The app showcases venues that host events.  The venues are the tenants of the application. Each venue gets a personalized web site to list their events and sell tickets. Venue types include concert halls, jazz clubs, and sports clubs. In the sample, the type of venue determines the background photograph shown on the venue's web site.   In the standalone app model, each venue has a separate application instance with its own standalone SQL database.
+The app showcases venues that host events.  The venues are the tenants of the application. Each venue gets a personalized web site to list their events and sell tickets. Venue types include concert halls, jazz clubs, and sports clubs. In the sample, the type of venue determines the background photograph shown on the venue's web site.   In the standalone app model, each venue has a separate application instance with its own standalone Azure SQL Database.
 
 1. Open the events page for each of the three tenants in separate browser tabs:
 

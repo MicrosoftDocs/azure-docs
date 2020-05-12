@@ -4,7 +4,7 @@ description: Use cross database database queries to report across multiple datab
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
@@ -15,7 +15,7 @@ ms.date: 10/10/2019
 ---
 # Report across scaled-out cloud databases (preview)
 
-You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
+You can create reports from multiple databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
 If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
 

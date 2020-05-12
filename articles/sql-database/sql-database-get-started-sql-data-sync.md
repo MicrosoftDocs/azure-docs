@@ -1,10 +1,10 @@
 ---
-title: Set up Data Sync
-description: This tutorial shows you how to set up Azure SQL Data Sync
+title: Set up SQL Data Sync
+description: This tutorial shows you how to set up SQL Data Sync for Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -14,16 +14,16 @@ ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
 
-In this tutorial, you learn how to set up Azure SQL Data Sync by creating a sync group that contains both Azure SQL Database and SQL Server instances. The sync group is custom configured and synchronizes on the schedule you set.
+In this tutorial, you learn how to set up SQL Data Sync by creating a sync group that contains both Azure SQL Database and SQL Server instances. The sync group is custom configured and synchronizes on the schedule you set.
 
 The tutorial assumes you have at least some prior experience with SQL Database and SQL Server.
 
-For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
 
-For PowerShell examples on how to configure SQL Data Sync, see [How to sync between Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+For PowerShell examples on how to configure SQL Data Sync, see [How to sync between SQL databases](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
 ## Create sync group
 
@@ -64,7 +64,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 After the new sync group is created and deployed, **Add sync members (step 2)** is highlighted on the **New sync group** page.
 
-In the **Hub Database** section, enter existing credentials for the SQL Database server on which the hub database is located. Don't enter *new* credentials in this section.
+In the **Hub Database** section, enter existing credentials for the server on which the hub database is located. Don't enter *new* credentials in this section.
 
 ![Step 2 settings](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
@@ -80,14 +80,15 @@ In the **Member Database** section, optionally add an Azure SQL Database to the 
   | ----------------------------- | ------------------------------------------------- |
   | **Sync Member Name** | Provide a name for the new sync member. This name is distinct from the database name itself. |
   | **Subscription** | Select the associated Azure subscription for billing purposes. |
-  | **Azure SQL Server** | Select the existing SQL Database server. |
+  | **Azure SQL Server** | Select the existing server. |
   | **Azure SQL Database** | Select the existing SQL database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
-  | **Username** and **Password** | Enter the existing credentials for the SQL Database server on which the member database is located. Don't enter *new* credentials in this section. |
+  | **Username** and **Password** | Enter the existing credentials for the server on which the member database is located. Don't enter *new* credentials in this section. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
 <a name="add-on-prem"></a>
+
 ### To add an on-premises SQL Server database
 
 In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
@@ -119,7 +120,7 @@ In the **Member Database** section, optionally add an on-premises SQL Server to 
 
     1. In the sync agent app, select **Submit Agent Key**. The **Sync Metadata Database Configuration** dialog box opens.
 
-    1. In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
+    1. In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the server on which the metadata database is located. (If you created a metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
 
         ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 

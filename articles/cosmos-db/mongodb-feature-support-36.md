@@ -39,7 +39,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |getPrevError | No  |
 |insert  |   Yes  |
 |parallelCollectionScan  | Yes   |
-|resetError |	No  |
+|resetError |    No  |
 |update  |   Yes  |
 |[Change streams](mongodb-change-streams.md)  |  Yes  |
 |GridFS |   Yes  |
@@ -83,18 +83,18 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|buildInfo	     |   Yes      |
+|buildInfo         |   Yes      |
 |collStats    |  Yes       |
 |connPoolStats     |  No       |
 |connectionStatus     |  No       |
 |dataSize     |   No      |
 |dbHash    |    No     |
 |dbStats     |   Yes      |
-|explain     | No        |
-|explain: executionStats     |     No    |
+|explain     |   Yes      |
+|explain: executionStats     |   Yes      |
 |features     |    No     |
 |hostInfo     |   No      |
-|listDatabases	     |   Yes      |
+|listDatabases         |   Yes      |
 |listCommands     |  No       |
 |profiler     |  No       |
 |serverStatus     |  No       |
@@ -118,31 +118,31 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|$collStats	|No|
-|$project	|Yes|
-|$match	|Yes|
-|$redact|	Yes|
-|$limit	|Yes|
-|$skip	|Yes|
-|$unwind|	Yes|
-|$group	|	Yes|
-|$sample|		Yes|
-|$sort	|Yes|
-|$geoNear|	No|
-|$lookup	|	Yes|
-|$out		|Yes|
-|$indexStats|		No|
-|$facet	|No|
-|$bucket|	No|
-|$bucketAuto|	No|
-|$sortByCount|	Yes|
-|$addFields	|Yes|
-|$replaceRoot|	Yes|
-|$count	|Yes|
-|$currentOp|	No|
-|$listLocalSessions	|No|
-|$listSessions	|No|
-|$graphLookup	|No|
+|$collStats    |No|
+|$project    |Yes|
+|$match    |Yes|
+|$redact|    Yes|
+|$limit    |Yes|
+|$skip    |Yes|
+|$unwind|    Yes|
+|$group    |    Yes|
+|$sample|        Yes|
+|$sort    |Yes|
+|$geoNear|    No|
+|$lookup    |    Yes|
+|$out        |Yes|
+|$indexStats|        No|
+|$facet    |No|
+|$bucket|    No|
+|$bucketAuto|    No|
+|$sortByCount|    Yes|
+|$addFields    |Yes|
+|$replaceRoot|    Yes|
+|$count    |Yes|
+|$currentOp|    No|
+|$listLocalSessions    |No|
+|$listSessions    |No|
+|$graphLookup    |No|
 
 ### Boolean expressions
 
@@ -169,14 +169,14 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |Command  |Supported |
 |---------|---------|
 |$cmp     |  Yes       |
-|$eq|	Yes| 
-|$gt |	Yes| 
-|$gte|	Yes| 
-|$lt	|Yes|
-|$lte|	Yes| 
-|$ne	|	Yes| 
-|$in	|	Yes| 
-|$nin	|	Yes| 
+|$eq|    Yes| 
+|$gt |    Yes| 
+|$gte|    Yes| 
+|$lt    |Yes|
+|$lte|    Yes| 
+|$ne    |    Yes| 
+|$in    |    Yes| 
+|$nin    |    Yes| 
 
 ### Arithmetic expressions
 
@@ -225,66 +225,66 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|$arrayElemAt	|	Yes|
-|$arrayToObject|	Yes|
-|$concatArrays	|	Yes|
-|$filter	|	Yes|
-|$indexOfArray	|Yes|
-|$isArray	|	Yes|
-|$objectToArray	|Yes|
-|$range	|Yes|
-|$reverseArray	|	Yes|
-|$reduce|	Yes|
-|$size	|	Yes|
-|$slice	|	Yes|
-|$zip	|	Yes|
-|$in	|	Yes|
+|$arrayElemAt    |    Yes|
+|$arrayToObject|    Yes|
+|$concatArrays    |    Yes|
+|$filter    |    Yes|
+|$indexOfArray    |Yes|
+|$isArray    |    Yes|
+|$objectToArray    |Yes|
+|$range    |Yes|
+|$reverseArray    |    Yes|
+|$reduce|    Yes|
+|$size    |    Yes|
+|$slice    |    Yes|
+|$zip    |    Yes|
+|$in    |    Yes|
 
 ### Variable operators
 
 |Command  |Supported |
 |---------|---------|
-|$map	|No|
-|$let	|Yes|
+|$map    |No|
+|$let    |Yes|
 
 ### System variables
 
 |Command  |Supported |
 |---------|---------|
-|$$CURRENT|	Yes|
-|$$DESCEND|		Yes|
-|$$KEEP		|Yes|
-|$$PRUNE	|	Yes|
-|$$REMOVE	|Yes|
-|$$ROOT		|Yes|
+|$$CURRENT|    Yes|
+|$$DESCEND|        Yes|
+|$$KEEP        |Yes|
+|$$PRUNE    |    Yes|
+|$$REMOVE    |Yes|
+|$$ROOT        |Yes|
 
 ### Literal operator
 
 |Command  |Supported |
 |---------|---------|
-|$literal	|Yes|
+|$literal    |Yes|
 
 ### Date expressions
 
 |Command  |Supported |
 |---------|---------|
-|$dayOfYear	|Yes	|
-|$dayOfMonth|	Yes	|
-|$dayOfWeek	|Yes	|
-|$year	|Yes	|
-|$month	|Yes|	
-|$week	|Yes	|
-|$hour	|Yes	|
-|$minute|	Yes|	
-|$second	|Yes	|
-|$millisecond|	Yes|	
-|$dateToString	|Yes	|
-|$isoDayOfWeek	|Yes	|
-|$isoWeek	|Yes	|
-|$dateFromParts|	No|	
-|$dateToParts	|No	|
-|$dateFromString|	No|
-|$isoWeekYear	|Yes	|
+|$dayOfYear    |Yes    |
+|$dayOfMonth|    Yes    |
+|$dayOfWeek    |Yes    |
+|$year    |Yes    |
+|$month    |Yes|    
+|$week    |Yes    |
+|$hour    |Yes    |
+|$minute|    Yes|    
+|$second    |Yes    |
+|$millisecond|    Yes|    
+|$dateToString    |Yes    |
+|$isoDayOfWeek    |Yes    |
+|$isoWeek    |Yes    |
+|$dateFromParts|    No|    
+|$dateToParts    |No    |
+|$dateFromString|    No|
+|$isoWeekYear    |Yes    |
 
 ### Conditional expressions
 
@@ -304,16 +304,16 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|$sum	|Yes	|
-|$avg	|Yes	|
-|$first|	Yes|
-|$last	|Yes	|
-|$max	|Yes	|
-|$min	|Yes	|
-|$push|	Yes|
-|$addToSet|	Yes|
-|$stdDevPop|	No	|
-|$stdDevSamp|	No|
+|$sum    |Yes    |
+|$avg    |Yes    |
+|$first|    Yes|
+|$last    |Yes    |
+|$max    |Yes    |
+|$min    |Yes    |
+|$push|    Yes|
+|$addToSet|    Yes|
+|$stdDevPop|    No    |
+|$stdDevSamp|    No|
 
 ### Merge operator
 
@@ -325,25 +325,25 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|Double	|Yes	|
-|String	|Yes	|
-|Object	|Yes	|
-|Array	|Yes	|
-|Binary Data	|Yes|	
-|ObjectId	|Yes	|
-|Boolean	|Yes	|
-|Date	|Yes	|
-|Null	|Yes	|
-|32-bit Integer (int)	|Yes	|
-|Timestamp	|Yes	|
-|64-bit Integer (long)	|Yes	|
-|MinKey	|Yes	|
-|MaxKey	|Yes	|
-|Decimal128	|Yes|	
-|Regular Expression	|Yes|
-|JavaScript	|Yes|
-|JavaScript (with scope)|	Yes	|
-|Undefined	|Yes	|
+|Double    |Yes    |
+|String    |Yes    |
+|Object    |Yes    |
+|Array    |Yes    |
+|Binary Data    |Yes|    
+|ObjectId    |Yes    |
+|Boolean    |Yes    |
+|Date    |Yes    |
+|Null    |Yes    |
+|32-bit Integer (int)    |Yes    |
+|Timestamp    |Yes    |
+|64-bit Integer (long)    |Yes    |
+|MinKey    |Yes    |
+|MaxKey    |Yes    |
+|Decimal128    |Yes|    
+|Regular Expression    |Yes|
+|JavaScript    |Yes|
+|JavaScript (with scope)|    Yes    |
+|Undefined    |Yes    |
 
 ## Indexes and index properties
 
@@ -351,24 +351,24 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|Single Field Index	|Yes	|
-|Compound Index	|Yes	|
-|Multikey Index	|Yes	|
-|Text Index	|No|
-|2dsphere	|Yes	|
-|2d Index	|No	|
-|Hashed Index	| Yes|
+|Single Field Index    |Yes    |
+|Compound Index    |Yes    |
+|Multikey Index    |Yes    |
+|Text Index    |No|
+|2dsphere    |Yes    |
+|2d Index    |No    |
+|Hashed Index    | Yes|
 
 ### Index properties
 
 |Command  |Supported |
 |---------|---------|
-|TTL|	Yes	|
-|Unique	|Yes|
-|Partial|	No|
-|Case Insensitive	|No|
-|Sparse	|No |
-|Background|	Yes |
+|TTL|    Yes    |
+|Unique    |Yes|
+|Partial|    No|
+|Case Insensitive    |No|
+|Sparse    |No |
+|Background|    Yes |
 
 ## Operators
 
@@ -376,28 +376,28 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 |Command  |Supported |
 |---------|---------|
-|$or	|	Yes|
-|$and	|	Yes|
-|$not	|	Yes|
-|$nor	|	Yes| 
+|$or    |    Yes|
+|$and    |    Yes|
+|$not    |    Yes|
+|$nor    |    Yes| 
 
 ### Element operators
 
 |Command  |Supported |
 |---------|---------|
-|$exists|	Yes|
-|$type	|	Yes|
+|$exists|    Yes|
+|$type    |    Yes|
 
 ### Evaluation query operators
 
 |Command  |Supported |
 |---------|---------|
-|$expr	|	No|
-|$jsonSchema	|	No|
-|$mod	|	Yes|
-|$regex |	Yes|
-|$text	| No (Not supported. Use $regex instead.)| 
-|$where	|No| 
+|$expr    |    No|
+|$jsonSchema    |    No|
+|$mod    |    Yes|
+|$regex |    Yes|
+|$text    | No (Not supported. Use $regex instead.)| 
+|$where    |No| 
 
 In the $regex queries, left-anchored expressions allow index search. However, using 'i' modifier (case-insensitivity) and 'm' modifier (multiline) causes the collection scan in all expressions.
 
@@ -425,9 +425,9 @@ $comment |Yes|
 
 |Command  |Supported |
 |---------|---------|
-|$elemMatch	|Yes|
-|$meta|	No|
-|$slice	| Yes|
+|$elemMatch    |Yes|
+|$meta|    No|
+|$slice    | Yes|
 
 ### Update operators
 
@@ -435,28 +435,28 @@ $comment |Yes|
 
 |Command  |Supported |
 |---------|---------|
-|$inc	|	Yes|
-|$mul	|	Yes|
-|$rename	|	Yes|
-|$setOnInsert|	Yes|
-|$set	|Yes|
+|$inc    |    Yes|
+|$mul    |    Yes|
+|$rename    |    Yes|
+|$setOnInsert|    Yes|
+|$set    |Yes|
 |$unset| Yes|
-|$min	|Yes|
-|$max	|Yes|
-|$currentDate	| Yes|
+|$min    |Yes|
+|$max    |Yes|
+|$currentDate    | Yes|
 
 #### Array update operators
 
 |Command  |Supported |
 |---------|---------|
-|$	|Yes|
-|$[]|	Yes|
-|$[<identifier>]|	Yes|
-|$addToSet	|Yes|
-|$pop	|Yes|
-|$pullAll|	Yes|
-|$pull	|Yes|
-|$push	|Yes|
+|$    |Yes|
+|$[]|    Yes|
+|$[<identifier>]|    Yes|
+|$addToSet    |Yes|
+|$pop    |Yes|
+|$pullAll|    Yes|
+|$pull    |Yes|
+|$push    |Yes|
 |$pushAll| Yes|
 
 
@@ -464,20 +464,20 @@ $comment |Yes|
 
 |Command  |Supported |
 |---------|---------|
-|$each	|	Yes|
-|$slice	|Yes|
-|$sort	|Yes|
-|$position	|Yes|
+|$each    |    Yes|
+|$slice    |Yes|
+|$sort    |Yes|
+|$position    |Yes|
 
 #### Bitwise update operator
 
 |Command  |Supported |
 |---------|---------|
-| $bit	|	Yes|	
-|$bitsAllSet	|	No|
-|$bitsAnySet	|	No|
-|$bitsAllClear	|No|
-|$bitsAnyClear	|No|
+| $bit    |    Yes|    
+|$bitsAllSet    |    No|
+|$bitsAnySet    |    No|
+|$bitsAllClear    |No|
+|$bitsAnyClear    |No|
 
 ### Geospatial operators
 
@@ -499,37 +499,37 @@ $polygon |  Yes |
 
 |Command  |Supported |
 |---------|---------|
-|cursor.batchSize()	|	Yes|
-|cursor.close()	|Yes|
-|cursor.isClosed()|		Yes|
-|cursor.collation()|	No|
-|cursor.comment()	|Yes|
-|cursor.count()	|Yes|
-|cursor.explain()|	No|
-|cursor.forEach()	|Yes|
-|cursor.hasNext()	|Yes|
-|cursor.hint()	|Yes|
-|cursor.isExhausted()|	Yes|
-|cursor.itcount()	|Yes|
-|cursor.limit()	|Yes|
-|cursor.map()	|Yes|
-|cursor.maxScan()	|Yes|
-|cursor.maxTimeMS()|	Yes|
-|cursor.max()	|Yes|
-|cursor.min()	|Yes|
-|cursor.next()|	Yes|
-|cursor.noCursorTimeout()	|No|
-|cursor.objsLeftInBatch()	|Yes|
-|cursor.pretty()|	Yes|
-|cursor.readConcern()|	Yes|
-|cursor.readPref()		|Yes|
-|cursor.returnKey()	|No|
-|cursor.showRecordId()|	No|
-|cursor.size()	|Nes|
-|cursor.skip()	|Yes|
-|cursor.sort()	|	Yes|
-|cursor.tailable()|	No|
-|cursor.toArray()	|Yes|
+|cursor.batchSize()    |    Yes|
+|cursor.close()    |Yes|
+|cursor.isClosed()|        Yes|
+|cursor.collation()|    No|
+|cursor.comment()    |Yes|
+|cursor.count()    |Yes|
+|cursor.explain()|    No|
+|cursor.forEach()    |Yes|
+|cursor.hasNext()    |Yes|
+|cursor.hint()    |Yes|
+|cursor.isExhausted()|    Yes|
+|cursor.itcount()    |Yes|
+|cursor.limit()    |Yes|
+|cursor.map()    |Yes|
+|cursor.maxScan()    |Yes|
+|cursor.maxTimeMS()|    Yes|
+|cursor.max()    |Yes|
+|cursor.min()    |Yes|
+|cursor.next()|    Yes|
+|cursor.noCursorTimeout()    |No|
+|cursor.objsLeftInBatch()    |Yes|
+|cursor.pretty()|    Yes|
+|cursor.readConcern()|    Yes|
+|cursor.readPref()        |Yes|
+|cursor.returnKey()    |No|
+|cursor.showRecordId()|    No|
+|cursor.size()    |Yes|
+|cursor.skip()    |Yes|
+|cursor.sort()    |    Yes|
+|cursor.tailable()|    No|
+|cursor.toArray()    |Yes|
 
 ## Sort operations
 
@@ -537,7 +537,7 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 
 ## Unique indexes
 
-Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique’ constraint.
+Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique' constraint.
 
 ## Time-to-live (TTL)
 

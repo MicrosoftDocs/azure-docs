@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
-description: Tutorial - Learn how to extract data from a raw CSV dataset, transform it using Interactive Query on HDInsight, and then load the transformed data into Azure SQL database by using Apache Sqoop.
+description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL database by using Apache Sqoop.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
+ms.date: 07/02/2019
 #Customer intent: As a data analyst, I need to load some data using Interactive Query, transform, and then export it to an Azure SQL database
 ---
 
 # Tutorial: Extract, transform, and load data using Interactive Query in Azure HDInsight
 
-In this tutorial, you take a raw CSV data file of publicly available flight data, import it into HDInsight cluster storage, and then transform the data using Interactive Query in Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using [Apache Sqoop](https://sqoop.apache.org/).
+In this tutorial, you download a raw CSV data file of publicly available flight data. Import it into HDInsight cluster storage, and then transform the data using Interactive Query in Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using [Apache Sqoop](https://sqoop.apache.org/).
 
 This tutorial covers the following tasks:
 
@@ -42,7 +42,7 @@ This tutorial covers the following tasks:
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
-   | Fields |Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Fields |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Select **Download**. You get a .zip file with the data fields you selected.
 
@@ -56,7 +56,7 @@ There are many ways to upload data to the storage associated with an HDInsight c
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    If you are asked to enter yes or no to proceed, type yes at the command prompt and press enter. The text is not visible in the window as you type.
+    Enter yes or no to continue if prompted. The text isn't visible in the window as you type.
 
 2. After the upload has finished, connect to the cluster by using SSH. Edit the command below by replacing `CLUSTERNAME` with the name of the HDInsight cluster. Then enter the following command:
 
@@ -202,7 +202,7 @@ There are many ways to connect to SQL Database and create a table. The following
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. After the installation finishes, use the following command to connect to the SQL Database server.
+2. After the installation finishes, use the following command to connect to SQL Database.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -280,13 +280,13 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
     GO
     ```
 
-    You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city. 
+    You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
 
     Type `exit` to exit the tsql utility.
 
 ## Clean up resources
 
-After you complete the tutorial, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
+After you complete the tutorial, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
 To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](../hdinsight-delete-cluster.md).
 
@@ -295,4 +295,4 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 In this tutorial, you took a raw CSV data file, imported it into an HDInsight cluster storage, and then transformed the data using Interactive Query in Azure HDInsight.  Advance to the next tutorial to learn about the Apache Hive Warehouse Connector.
 
 > [!div class="nextstepaction"]
->[Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](./apache-hive-warehouse-connector.md)
+> [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](./apache-hive-warehouse-connector.md)

@@ -1,16 +1,16 @@
 ---
-title: Azure Event Grid subscription event schema
+title: Azure subscription as Event Grid source
 description: Describes the properties that are provided for subscription events with Azure Event Grid
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for subscriptions
+# Azure subscription as an Event Grid source
 
 This article provides the properties and schema for Azure subscription events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
@@ -24,9 +24,10 @@ To programmatically handle events, you can sort events by looking at the `operat
 
 The event subject is the resource ID of the resource that is the target of the operation. To filter events for a resource, provide that resource ID when creating the event subscription. To filter by a resource type, use a value in following format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-For a list of sample scripts and tutorials, see [Azure subscription event source](event-sources.md#azure-subscriptions).
 
-## Available event types
+## Event Grid event schema
+
+### Available event types
 
 Azure subscriptions emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted.
 
@@ -42,7 +43,7 @@ Azure subscriptions emit management events from Azure Resource Manager, such as 
 | Microsoft.Resources.ResourceWriteFailure | Raised when create or update operation fails. |
 | Microsoft.Resources.ResourceWriteSuccess | Raised when create or update operation succeeds. |
 
-## Example event
+### Example event
 
 The following example shows the schema for a **ResourceWriteSuccess** event. The same schema is used for **ResourceWriteFailure** and **ResourceWriteCancel** events with different values for `eventType`.
 
@@ -226,7 +227,7 @@ The following example shows the schema for a **ResourceActionSuccess** event. Th
 }]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -255,6 +256,14 @@ The data object has the following properties:
 | status | string | The status of the operation. |
 | subscriptionId | string | The subscription ID of the resource. |
 | tenantId | string | The tenant ID of the resource. |
+
+## Tutorials and how-tos
+|Title |Description  |
+|---------|---------|
+| [Tutorial: Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
+| [How to: subscribe to events through portal](subscribe-through-portal.md) | Use the portal to subscribe to events for an Azure subscription. |
+| [Azure CLI: subscribe to events for an Azure subscription](./scripts/event-grid-cli-azure-subscription.md) |Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
+| [PowerShell: subscribe to events for an Azure subscription](./scripts/event-grid-powershell-azure-subscription.md)| Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 
 ## Next steps
 

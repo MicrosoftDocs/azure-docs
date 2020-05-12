@@ -4,7 +4,7 @@ description: Describes extended events (XEvents) in Azure SQL Database, and how 
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MightyPen
@@ -12,64 +12,55 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ---
-# Extended events in SQL Database
+# Extended events in Azure SQL Database
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
-
-- SQL Database V12 gained the extended events feature in the second half of calendar 2015.
-- SQL Server has had extended events since 2008.
-- The feature set of extended events on SQL Database is a robust subset of the features on SQL Server.
+The feature set of extended events in Azure SQL Database is a robust subset of the features on SQL Server and Azure SQL Managed Instance.
 
 *XEvents* is an informal nickname that is sometimes used for 'extended events' in blogs and other informal locations.
 
-Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
+Additional information about extended events is available at:
 
-- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
-- [Extended Events](https://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
+- [Extended Events](/sql/relational-databases/extended-events/extended-events)
 
 ## Prerequisites
 
 This topic assumes you already have some knowledge of:
 
-- [Azure SQL Database service](https://azure.microsoft.com/services/sql-database/).
-- [Extended events](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Extended events](/sql/relational-databases/extended-events/extended-events)
 
-- The bulk of our documentation about extended events applies to both SQL Server and SQL Database.
+- The bulk of our documentation about extended events applies to SQL Server, Azure SQL Database, and Azure SQL Managed Instance.
 
 Prior exposure to the following items is helpful when choosing the Event File as the [target](#AzureXEventsTargets):
 
 - [Azure Storage service](https://azure.microsoft.com/services/storage/)
 
-
-- PowerShell
-	- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md)
 
 ## Code samples
 
 Related topics provide two code samples:
 
+- [Ring Buffer target code for extended events in Azure SQL Database](sql-database-xevent-code-ring-buffer.md)
 
-- [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md)
-	- Short simple Transact-SQL script.
-	- We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+  - Short simple Transact-SQL script.
+  - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
+- [Event File target code for extended events in Azure SQL Database](sql-database-xevent-code-event-file.md)
 
-- [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
-	- Phase 1 is PowerShell to create an Azure Storage container.
-	- Phase 2 is Transact-SQL that uses the Azure Storage container.
+  - Phase 1 is PowerShell to create an Azure Storage container.
+  - Phase 2 is Transact-SQL that uses the Azure Storage container.
 
 ## Transact-SQL differences
 
-
-- When you execute the [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) command on SQL Server, you use the **ON SERVER** clause. But on SQL Database you use the **ON DATABASE** clause instead.
-
-
-- The **ON DATABASE** clause also applies to the [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) and [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL commands.
-
+- When you execute the [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) command on SQL Server, you use the **ON SERVER** clause. But on Azure SQL Database you use the **ON DATABASE** clause instead.
+- The **ON DATABASE** clause also applies to the [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) and [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql) Transact-SQL commands.
 
 - A best practice is to include the event session option of **STARTUP_STATE = ON** in your **CREATE EVENT SESSION**  or **ALTER EVENT SESSION** statements.
-	- The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
+  - The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
 
 ## New catalog views
 
@@ -81,7 +72,7 @@ The extended events feature is supported by several [catalog views](https://msdn
 | **sys.database_event_session_events** |Returns a row for each event in an event session. |
 | **sys.database_event_session_fields** |Returns a row for each customize-able column that was explicitly set on events and targets. |
 | **sys.database_event_session_targets** |Returns a row for each event target for an event session. |
-| **sys.database_event_sessions** |Returns a row for each event session in the SQL Database database. |
+| **sys.database_event_sessions** |Returns a row for each event session in the database. |
 
 In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
 
@@ -102,14 +93,15 @@ In Microsoft SQL Server, similar catalog views are named without the *\_database
 - **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
 
 ### DMVs common to both
-For extended events there are additional DMVs that are common to both Azure SQL Database and Microsoft SQL Server:
+
+For extended events there are additional DMVs that are common to Azure SQL Database, Azure SQL Managed Instance, and Microsoft SQL Server:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
-  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+<a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## Find the available extended events, actions, and targets
 
@@ -135,22 +127,21 @@ SELECT
         o.name;
 ```
 
-
 <a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
-## Targets for your SQL Database event sessions
+## Targets for your Azure SQL Database event sessions
 
-Here are targets that can capture results from your event sessions on SQL Database:
+Here are targets that can capture results from your event sessions on Azure SQL Database:
 
 - [Ring Buffer target](https://msdn.microsoft.com/library/ff878182.aspx) - Briefly holds event data in memory.
 - [Event Counter target](https://msdn.microsoft.com/library/ff878025.aspx) - Counts all events that occur during an extended events session.
 - [Event File target](https://msdn.microsoft.com/library/ff878115.aspx) - Writes complete buffers to an Azure Storage container.
 
-The [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API is not available for extended events on SQL Database.
+The [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API is not available for extended events on Azure SQL Database.
 
 ## Restrictions
 
-There are a couple of security-related differences befitting the cloud environment of SQL Database:
+There are a couple of security-related differences befitting the cloud environment of Azure SQL Database:
 
 - Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
 - You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
@@ -169,7 +160,7 @@ The SAS token you generate for your Azure Storage container must specify **rwl**
 
 ## Performance considerations
 
-There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore the Azure SQL Database system dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
+There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore Azure SQL Database dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
 
 If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
 
@@ -178,7 +169,7 @@ If you receive an error message that says a memory maximum was enforced, some co
 
 ### Network latency
 
-The **Event File** target might experience network latency or failures while persisting data to Azure Storage blobs. Other events in SQL Database might be delayed while they wait for the network communication to complete. This delay can slow your workload.
+The **Event File** target might experience network latency or failures while persisting data to Azure Storage blobs. Other events in Azure SQL Database might be delayed while they wait for the network communication to complete. This delay can slow your workload.
 
 - To mitigate this performance risk, avoid setting the **EVENT_RETENTION_MODE** option to **NO_EVENT_LOSS** in your event session definitions.
 
@@ -186,18 +177,13 @@ The **Event File** target might experience network latency or failures while per
 
 - [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md).
 - [Azure Storage Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md)
 - [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
-
-
 - The Azure *Service Updates* webpage, narrowed by parameter to Azure SQL Database:
-	- [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
-
-
-Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
+  - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 <!--
 ('lock_acquired' event.)

@@ -1,6 +1,6 @@
 ---
 title: Use Node.js to query a database
-description: How to use Node.js to create a program that connects to an Azure SQL database and query it using T-SQL statements.
+description: How to use Node.js to create a program that connects to an Azure SQL Database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,16 +10,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
 ---
-# Quickstart: Use Node.js to query an Azure SQL database
+# Quickstart: Use Node.js to query an Azure SQL Database
 
-In this quickstart, you use Node.js to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use Node.js to connect to an Azure SQL Database and use T-SQL statements to query data.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](sql-database-single-database-get-started.md)
+- An [Azure SQL Database](sql-database-single-database-get-started.md)
 - [Node.js](https://nodejs.org)-related software
 
   # [macOS](#tab/macos)
@@ -40,7 +40,7 @@ In this quickstart, you use Node.js to connect to an Azure SQL database and use 
 > The scripts in this article are written to use the **Adventure Works** database.
 
 > [!NOTE]
-> You can optionally choose to use an Azure SQL managed instance.
+> You can optionally choose to use an Azure SQL Managed Instance.
 >
 > To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
 >
@@ -48,13 +48,13 @@ In this quickstart, you use Node.js to connect to an Azure SQL database and use 
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Go to the **SQL databases**  or **SQL managed instances** page.
+2. Go to the **SQL Databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
 ## Create the project
 
@@ -150,4 +150,4 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
 
 - [Get started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli)
 
-- Design your first Azure SQL database using [.NET](sql-database-design-first-database-csharp.md) or [SSMS](sql-database-design-first-database.md)
+- Design your first Azure SQL Database using [.NET](sql-database-design-first-database-csharp.md) or [SSMS](sql-database-design-first-database.md)

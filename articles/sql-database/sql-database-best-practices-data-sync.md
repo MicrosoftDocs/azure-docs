@@ -1,14 +1,14 @@
 ---
-title: Best practices for Data Sync
+title: Best practices for Azure Data Sync
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: "allenwux"
-ms.author: "xiwu"
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
@@ -19,7 +19,7 @@ This article describes best practices for Azure SQL Data Sync.
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> Azure SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
 ## <a name="security-and-reliability"></a> Security and reliability
 
@@ -48,9 +48,9 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 ### <a name="database-considerations-and-constraints"></a> Database considerations and constraints
 
-#### SQL Database instance size
+#### SQL Database size
 
-When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database instance size limits.
+When you create a new SQL Database, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database size limits.
 
 > [!IMPORTANT]
 > SQL Data Sync stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.

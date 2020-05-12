@@ -8,35 +8,36 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: genemi, vanto
-ms.date: 03/12/2019
+ms.reviewer: vanto
+ms.date: 04/17/2019
+ms.custom: sqldbrb=1
 tags: azure-synapse
 ---
-# PowerShell:  Create a Virtual Service endpoint and VNet rule for SQL
+# PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database
 
-*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in Azure [SQL Database](sql-database-technical-overview.md) or for your databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks.
+*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](sql-database-servers.md) for your [Azure SQL Database]((sql-database-technical-overview.md) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
 
 > [!IMPORTANT]
-> This article applies to Azure SQL server, and to both SQL Database and data warehouse in Azure Synapse that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
+> This article applies to Azure SQL Database, including Azure Synapse (formerly SQL DW). For simplicity, the term Azure SQL Database in this article applies to databases belonging to either Azure SQL Database or Azure Synapse. This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
 
-This article provides and explains a PowerShell script that takes the following actions:
+This article demonstrates a PowerShell script that takes the following actions:
 
 1. Creates a Microsoft Azure *Virtual Service endpoint* on your subnet.
-2. Adds the endpoint to the firewall of your Azure SQL Database server, to create a *virtual network rule*.
+2. Adds the endpoint to the firewall of your server, to create a *virtual network rule*.
 
-Your motivations for creating a rule are explained in: [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+For more background, see [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
-> If all you need is to assess or add the Virtual Service endpoint *type name* for SQL Database to your subnet, you can skip ahead to our more [direct PowerShell script](#a-verify-subnet-is-endpoint-ps-100).
+> If all you need is to assess or add the Virtual Service endpoint *type name* for Azure SQL Database to your subnet, you can skip ahead to our more [direct PowerShell script](#a-verify-subnet-is-endpoint-ps-100).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the [`Az.Sql` Cmdlets](/powershell/module/az.sql). For the older module, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ## Major cmdlets
 
-This article emphasizes the **New-AzSqlServerVirtualNetworkRule** cmdlet that adds the subnet endpoint to the access control list (ACL) of your Azure SQL Database server, thereby creating a rule.
+This article emphasizes the [**New-AzSqlServerVirtualNetworkRule** cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) that adds the subnet endpoint to the access control list (ACL) of your server, thereby creating a rule.
 
 The following list shows the sequence of other *major* cmdlets that you must run to prepare for your call to **New-AzSqlServerVirtualNetworkRule**. In this article, these calls occur in [script 3 "Virtual network rule"](#a-script-30):
 
@@ -44,7 +45,7 @@ The following list shows the sequence of other *major* cmdlets that you must run
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Creates your virtual network, giving it the subnet.
 3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Assigns a Virtual Service endpoint to your subnet.
 4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Persists updates made to your virtual network.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your server.
    - This cmdlet Offers the parameter **-IgnoreMissingVNetServiceEndpoint**, starting in Azure RM PowerShell Module version 5.1.1.
 
 ## Prerequisites for running PowerShell
@@ -114,7 +115,7 @@ Write-Host 'Completed script 1, the "Variables".';
 This script prepares for the next script, where the endpoint action is. This script creates for you the following listed items, but only if they do not already exist. You can skip script 2 if you are sure these items already exist:
 
 - Azure resource group
-- Azure SQL Database server
+- Logical SQL server
 
 ### PowerShell script 2 source code
 
@@ -146,10 +147,10 @@ else { Write-Host "Good, your Resource Group already exists - $ResourceGroupName
 $gottenResourceGroup = $null;
 
 ###########################################################
-## Ensure your Azure SQL Database server already exists. ##
+## Ensure your server already exists. ##
 ###########################################################
 
-Write-Host "Check whether your Azure SQL Database server already exists.";
+Write-Host "Check whether your server already exists.";
 
 $sqlDbServer = $null;
 
@@ -159,8 +160,8 @@ $sqlDbServer = Get-AzSqlServer `
   -ErrorAction       SilentlyContinue;
 
 if ($null -eq $sqlDbServer) {
-    Write-Host "Creating the missing Azure SQL Database server - $SqlDbServerName.";
-    Write-Host "Gather the credentials necessary to next create an Azure SQL Database server.";
+    Write-Host "Creating the missing server - $SqlDbServerName.";
+    Write-Host "Gather the credentials necessary to next create a server.";
 
     $sqlAdministratorCredentials = New-Object `
       -TypeName     System.Management.Automation.PSCredential `
@@ -177,7 +178,7 @@ if ($null -eq $sqlDbServer) {
         return;
     }
 
-    Write-Host "Create your Azure SQL Database server.";
+    Write-Host "Create your server.";
 
     $sqlDbServer = New-AzSqlServer `
       -ResourceGroupName $ResourceGroupName `
@@ -188,7 +189,7 @@ if ($null -eq $sqlDbServer) {
     $sqlDbServer;
 }
 else {
-    Write-Host "Good, your Azure SQL Database server already exists - $SqlDbServerName."; 
+    Write-Host "Good, your server already exists - $SqlDbServerName.";
 }
 
 $sqlAdministratorCredentials = $null;
@@ -201,7 +202,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## Script 3: Create an endpoint and a rule
 
-This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your SQL Database server, thereby creating a rule.
+This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your logical SQL server, thereby creating a rule.
 
 ### PowerShell script 3 source code
 
@@ -261,7 +262,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig `
   -Name           $SubnetName `
   -VirtualNetwork $vnet;
 
-Write-Host "Add the subnet .Id as a rule, into the ACLs for your Azure SQL Database server.";
+Write-Host "Add the subnet .Id as a rule, into the ACLs for your server.";
 
 $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -271,7 +272,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 $vnetRuleObject1;
 
-Write-Host "Verify that the rule is in the SQL DB ACL.";
+Write-Host "Verify that the rule is in the SQL Database ACL.";
 
 $vnetRuleObject2 = Get-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -289,7 +290,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 This final script deletes the resources that the previous scripts created for the demonstration. However, the script asks for confirmation before it deletes the following:
 
-- Azure SQL Database server
+- Logical SQL server
 - Azure Resource Group
 
 You can run script 4 any time after script 1 completes.
@@ -300,12 +301,12 @@ You can run script 4 any time after script 1 completes.
 ######### Script 4 ########################################
 ##   Clean-up phase A:  Unconditional deletes.           ##
 ##                                                       ##
-##   1. The test rule is deleted from SQL DB ACL.        ##
+##   1. The test rule is deleted from SQL Database ACL.        ##
 ##   2. The test endpoint is deleted from the subnet.    ##
 ##   3. The test virtual network is deleted.             ##
 ###########################################################
 
-Write-Host "Delete the rule from the SQL DB ACL.";
+Write-Host "Delete the rule from the SQL Database ACL.";
 
 Remove-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -336,13 +337,13 @@ Remove-AzVirtualNetwork `
 ##   These might have already existed, so user might     ##
 ##   want to keep.                                       ##
 ##                                                       ##
-##   1. Azure SQL Database server                        ##
+##   1. Logical SQL server                        ##
 ##   2. Azure resource group                             ##
 ###########################################################
 
-$yesno = Read-Host 'CAUTION !: Do you want to DELETE your Azure SQL Database server AND your Resource Group?  [yes/no]';
+$yesno = Read-Host 'CAUTION !: Do you want to DELETE your server AND your resource group?  [yes/no]';
 if ('yes' -eq $yesno) {
-    Write-Host "Remove the Azure SQL DB server.";
+    Write-Host "Remove the server.";
 
     Remove-AzSqlServer `
       -ServerName        $SqlDbServerName `

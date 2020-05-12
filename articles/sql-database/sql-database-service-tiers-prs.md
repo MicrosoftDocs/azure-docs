@@ -1,10 +1,10 @@
 ---
 title: Premium RS service tier retirement
-description: The Premium RS service tier is being retired and support for it is ending - see migration options.  
+description: The Premium RS service tier for Azure SQL Database is being retired and support for it is ending - see migration options.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -77,7 +77,7 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 ## Take advantage of our new offers
 
-Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
+Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server. You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
 
 If you have any questions or concerns regarding this change or if you require migration assistance, contact [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

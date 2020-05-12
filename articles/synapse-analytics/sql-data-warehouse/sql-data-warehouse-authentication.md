@@ -49,7 +49,7 @@ By default, your connection connects to the *master* database and not your user 
 Azure Active Directory benefits include:
 
 * Provides an alternative to SQL Server authentication.
-* Helps stop the proliferation of user identities across database servers.
+* Helps stop the proliferation of user identities across servers.
 * Allows password rotation in a single place
 * Manage database permissions using external (Azure AD) groups.
 * Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
@@ -71,7 +71,7 @@ Follow these steps to configure Azure Active Directory authentication.
 5. Create contained database users in your database mapped to Azure AD identities
 6. Connect to your SQL pool by using Azure AD identities
 
-Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql??toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#azure-ad-features-and-limitations).
+Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### Find the details
 

@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -11,7 +11,7 @@ Azure Blueprints enables cloud architects and central information technology gro
 repeatable set of Azure resources that implements and adheres to an organization's standards,
 patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly
 build and stand up new environments with trust they're building within organizational compliance
-with a set of built-in components -- such as networking -- to speed up development and delivery.
+with a set of built-in components, such as networking, to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and
 other artifacts such as:
@@ -21,33 +21,34 @@ other artifacts such as:
 - Azure Resource Manager templates
 - Resource Groups
 
-The Azure Blueprints service is backed by the globally distributed [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Blueprint objects are replicated to multiple Azure regions. This replication provides low latency,
-high availability, and consistent access to your blueprint objects, regardless of which region
-Blueprints deploys your resources to.
+The Azure Blueprints service is backed by the globally distributed
+[Azure Cosmos DB](../../cosmos-db/introduction.md). Blueprint objects are replicated to multiple
+Azure regions. This replication provides low latency, high availability, and consistent access to
+your blueprint objects, regardless of which region Azure Blueprints deploys your resources to.
 
 ## How it's different from Resource Manager templates
 
 The service is designed to help with _environment setup_. This setup often consists of a set of
 resource groups, policies, role assignments, and Resource Manager template deployments. A blueprint
 is a package to bring each of these _artifact_ types together and allow you to compose and version
-that package -- including through a CI/CD pipeline. Ultimately, each is assigned to a subscription
-in a single operation that can be audited and tracked.
+that package, including through a CI/CD pipeline. Ultimately, each is assigned to a subscription in
+a single operation that can be audited and tracked.
 
-Nearly everything that you want to include for deployment in Blueprints can be accomplished with a
-Resource Manager template. However, a Resource Manager template is a document that doesn't exist
-natively in Azure – each is stored either locally or in source control. The template gets used for
-deployments of one or more Azure resources, but once those resources deploy there's no active
+Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
+with a Resource Manager template. However, a Resource Manager template is a document that doesn't
+exist natively in Azure – each is stored either locally or in source control. The template gets used
+for deployments of one or more Azure resources, but once those resources deploy there's no active
 connection or relationship to the template.
 
-With Blueprints, the relationship between the blueprint definition (what _should be_ deployed) and
-the blueprint assignment (what _was_ deployed) is preserved. This connection supports improved
-tracking and auditing of deployments. Blueprints can also upgrade several subscriptions at once that
-are governed by the same blueprint.
+With Azure Blueprints, the relationship between the blueprint definition (what _should be_ deployed)
+and the blueprint assignment (what _was_ deployed) is preserved. This connection supports improved
+tracking and auditing of deployments. Azure Blueprints can also upgrade several subscriptions at
+once that are governed by the same blueprint.
 
 There's no need to choose between a Resource Manager template and a blueprint. Each blueprint can
 consist of zero or more Resource Manager template _artifacts_. This support means that previous
-efforts to develop and maintain a library of Resource Manager templates are reusable in Blueprints.
+efforts to develop and maintain a library of Resource Manager templates are reusable in Azure
+Blueprints.
 
 ## How it's different from Azure Policy
 
@@ -68,7 +69,7 @@ support using parameters with policies and initiatives.
 
 ## Blueprint definition
 
-A blueprint is made up of _artifacts_. Blueprints currently support the following resources
+A blueprint is made up of _artifacts_. Azure Blueprints currently supports the following resources
 as artifacts:
 
 |Resource  | Hierarchy options| Description  |

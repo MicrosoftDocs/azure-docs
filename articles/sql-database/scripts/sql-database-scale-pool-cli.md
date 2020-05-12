@@ -1,10 +1,10 @@
 ---
-title: CLI example scales a SQL elastic pool-Azure SQL Database 
+title: "Az CL: Scale an elastic pool"
 description: Azure CLI example script to scale an elastic pool in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
@@ -14,7 +14,7 @@ ms.date: 06/25/2019
 ---
 # Use CLI to scale an elastic pool in Azure SQL Database
 
-This Azure CLI script example creates elastic pools, moves pooled databases, and changes elastic pool compute sizes.
+This Azure CLI script example creates elastic pools in Azure SQL Database, moves pooled databases, and changes elastic pool compute sizes.
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 

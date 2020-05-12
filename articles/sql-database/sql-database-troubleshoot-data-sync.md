@@ -1,25 +1,25 @@
 ---
 title: Troubleshoot SQL Data Sync
-description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
+description: "Learn how to identify, troubleshoot, and resolve common issues with SQL Data Sync in Azure."
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync
+ms.custom: data sync, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync
 
-This article describes how to troubleshoot known issues with Azure SQL Data Sync. If there is a resolution for an issue, it's provided here.
+This article describes how to troubleshoot known issues with SQL Data Sync in Azure. If there is a resolution for an issue, it's provided here.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
 ## Sync issues
 
@@ -104,7 +104,7 @@ This error message indicates that one of the two following issues has occurred:
 -  There's a WHERE clause in your CREATE INDEX statement. Data Sync doesn't handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
  
 ### <a name="sync-circ"></a> How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
-Data Sync doesn’t handle circular references. Be sure to avoid them. 
+Data Sync doesn't handle circular references. Be sure to avoid them. 
 
 ## Client agent issues
 
@@ -153,7 +153,7 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
 
 - **Cause**. A database is offline.
 
-- **Resolution**. Ensure that your SQL databases and SQL Server databases are all online.
+- **Resolution**. Ensure that your databases are all online.
 
 - **Cause**. The sync group is provisioning or syncing.
 
@@ -235,17 +235,17 @@ If you restore a lost or corrupted database from a backup, there might be a non-
 ## Next steps
 For more information about SQL Data Sync, see:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-database-sync-data.md)
 -   Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
--   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](sql-database-data-sync-agent.md)
+-   Best practices - [Best practices for SQL Data Sync in Azure](sql-database-best-practices-data-sync.md)
 -   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Update the sync schema
-    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](sql-database-update-sync-schema.md)
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
 
 For more information about SQL Database, see:

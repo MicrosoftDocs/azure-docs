@@ -4,7 +4,7 @@ description: Learn how to design your cloud solution for disaster recovery by ch
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: sqldbrb-1
 ms.devlang:
 ms.topic: conceptual
 author: anosov1960
@@ -12,9 +12,9 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ---
-# Disaster recovery strategies for applications using SQL Database elastic pools
+# Disaster recovery strategies for applications using Azure SQL Database elastic pools
 
-Over the years we have learned that cloud services are not foolproof and catastrophic incidents happen. SQL Database provides several capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery (DR) capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
+Azure SQL Database provides several capabilities to provide for the business continuity of your application when catastrophic incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery (DR) capabilities. This article describes several DR strategies for elastic pools that leverage these Azure SQL Database business continuity features.
 
 This article uses the following canonical SaaS ISV application pattern:
 
@@ -57,7 +57,13 @@ At this point your application is online in the primary region with all tenant d
 
 ![Figure 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-The key **benefit** of this strategy is low ongoing cost for data tier redundancy. Backups are taken automatically by the SQL Database service with no application rewrite and at no additional cost.  The cost is incurred only when the elastic databases are restored. The **trade-off** is that the complete recovery of all tenant databases takes significant time. The length of time depends on the total number of restores you initiate in the DR region and overall size of the tenant databases. Even if you prioritize some tenants' restores over others, you are competing with all the other restores that are initiated in the same region as the service arbitrates and throttles to minimize the overall impact on the existing customers' databases. In addition, the recovery of the tenant databases cannot start until the new elastic pool in the DR region is created.
+### Benefit
+
+The key benefit of this strategy is low ongoing cost for data tier redundancy. Azure SQL Database automatically backs up databases with no application rewrite at no additional cost. The cost is incurred only when the elastic databases are restored. 
+
+### Trade-off
+
+The trade-off is that the complete recovery of all tenant databases takes significant time. The length of time depends on the total number of restores you initiate in the DR region and overall size of the tenant databases. Even if you prioritize some tenants' restores over others, you are competing with all the other restores that are initiated in the same region as the service arbitrates and throttles to minimize the overall impact on the existing customers' databases. In addition, the recovery of the tenant databases cannot start until the new elastic pool in the DR region is created.
 
 ## Scenario 2. Mature application with tiered service
 
@@ -99,7 +105,13 @@ When the primary region is recovered by Azure *after* you have restored the appl
 > [!NOTE]
 > The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases.
 
-The key **benefit** of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trial DR pool is created. The **trade-off** is that this setup increases the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers experience lower performance after failover until the pool upgrade in the DR region is completed.
+### Benefit
+
+The key benefit of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trial DR pool is created. 
+
+### Trade-off
+
+The trade-off is that this setup increases the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers experience lower performance after failover until the pool upgrade in the DR region is completed.
 
 ## Scenario 3. Geographically distributed application with tiered service
 
@@ -144,13 +156,17 @@ When region A is recovered you need to decide if you want to use region B for tr
 * Copy the updated databases from the DR pool to the primary pool (13).
 * Delete the DR pool (14).
 
-The key **benefits** of this strategy are:
+### Benefit
+
+The key benefits of this strategy are:
 
 * It supports the most aggressive SLA for the paying customers because it ensures that an outage cannot impact more than 50% of the tenant databases.
 * It guarantees that the new trials are unblocked as soon as the trail DR pool is created during the recovery.
 * It allows more efficient use of the pool capacity as 50% of secondary databases in pool 1 and pool 2 are guaranteed to be less active than the primary databases.
 
-The main **trade-offs** are:
+### Trade-offs
+
+The main trade-offs are:
 
 * The CRUD operations against the management databases have lower latency for the end users connected to region A than for the end users connected to region B as they are executed against the primary of the management databases.
 * It requires more complex design of the management database. For example, each tenant record has a location tag that needs to be changed during failover and failback.  
@@ -162,7 +178,7 @@ This article focuses on the disaster recovery strategies for the database tier u
 
 ## Next steps
 
-* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+* To learn about Azure SQL Database automated backups, see [Azure SQL Database automated backups](sql-database-automated-backups.md).
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
 * To learn about faster recovery options, see [Active geo-replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md).

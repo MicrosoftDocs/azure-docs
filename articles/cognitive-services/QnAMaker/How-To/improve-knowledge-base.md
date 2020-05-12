@@ -2,7 +2,7 @@
 title: Improve knowledge base - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ---
 
 
@@ -29,7 +29,7 @@ In order to see suggested questions, you must [turn on active learning](use-acti
 
 1. Each QnA pair suggests the new question alternatives with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question.
 
-    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all** in the contextual toolbar.
 

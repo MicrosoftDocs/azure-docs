@@ -4,15 +4,15 @@ description: Set up and use Azure Monitor logs with a multitenant Azure SQL Data
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: billgib
+ms.reviewer: 
 ms.date: 01/25/2019
 ---
-# Set up and use Azure Monitor logs with a multitenant SQL Database SaaS app
+# Set up and use Azure Monitor logs with a multitenant Azure SQL Database SaaS app
 
 In this tutorial, you set up and use [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) to monitor elastic pools and databases. This tutorial builds on the [Performance monitoring and management tutorial](saas-dbpertenant-performance-monitoring.md). It shows how to use Azure Monitor logs to augment the monitoring and alerting provided in the Azure portal. Azure Monitor logs supports monitoring thousands of elastic pools and hundreds of thousands of databases. Azure Monitor logs provides a single monitoring solution, which can integrate monitoring of different applications and Azure services across multiple Azure subscriptions.
 

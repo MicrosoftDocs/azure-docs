@@ -15,6 +15,8 @@ ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You take the following steps in this tutorial:
@@ -74,7 +76,7 @@ Next, create a sink SQL table:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your Azure SQL server so that the Data Factory service can write data to your Azure SQL server. To verify and turn on this setting, do the following steps:
+2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your logical SQL server so that the Data Factory service can write data to your logical SQL server. To verify and turn on this setting, do the following steps:
 
     1. Go to the [Azure portal](https://portal.azure.com) to manage your SQL server. Search for and select **SQL servers**.
 

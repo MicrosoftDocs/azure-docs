@@ -15,6 +15,8 @@ ms.date: 01/12/2018
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source Azure SQL database to an Azure blob storage.  
 
 You perform the following steps in this tutorial:
@@ -67,7 +69,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server.
+1. Launch **SQL Server Management Studio**, and connect to your logical SQL server.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
 
@@ -209,7 +211,7 @@ In this step, you link your Azure SQL database to the data factory.
 3. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for the **Name** field.
-    2. Select your Azure SQL server for the **Server name** field.
+    2. Select your logical SQL server for the **Server name** field.
     4. Select your Azure SQL database for the **Database name** field.
     5. Enter name of the user for the **User name** field.
     6. Enter password for the user for the **Password** field.

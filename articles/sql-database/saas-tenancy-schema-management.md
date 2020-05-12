@@ -4,12 +4,12 @@ description: "Manage Schema for multiple tenants in a single-tenant app that use
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: billgib
+ms.reviewer: 
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database
@@ -34,12 +34,10 @@ To complete this tutorial, make sure the following prerequisites are met:
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The latest version of SQL Server Management Studio (SSMS) is installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-> [!NOTE]
-> This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription ID to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
 
 ## Introduction to SaaS schema management patterns
 
-The database per tenant pattern isolates tenant data effectively, but increases the number of databases to manage and maintain. [Elastic Jobs](elastic-jobs-overview.md) facilitates administration and management of SQL databases. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) against a group of databases. Jobs can deploy schema and common reference data changes across all tenant databases in an application. Elastic Jobs can also be used to maintain a *template* database used to create new tenants, ensuring it always has the latest schema and reference data.
+The database per tenant pattern isolates tenant data effectively, but increases the number of databases to manage and maintain. [Elastic Jobs](elastic-jobs-overview.md) facilitates administration and management of multiple databases. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) against a group of databases. Jobs can deploy schema and common reference data changes across all tenant databases in an application. Elastic Jobs can also be used to maintain a *template* database used to create new tenants, ensuring it always has the latest schema and reference data.
 
 ![screen](media/saas-tenancy-schema-management/schema-management-dpt.png)
 

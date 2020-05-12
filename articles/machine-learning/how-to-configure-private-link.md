@@ -42,8 +42,7 @@ When deploying a template, you must provide the following information:
 * Workspace edition (Basic or Enterprise)
 * If high confidentiality settings for the workspace should be enabled
 * If encryption for the workspace with a customer-managed key should be enabled, and associated values for the key
-* Virtual Network name and subnet
-* Subnet name
+* Virtual Network and Subnet name, template will create new virtual network and subnet
 
 Once a template has been submitted and provisioning completes, the resource group that contains your workspace will contain three new artifact types related to Private Link:
 
@@ -114,7 +113,7 @@ For information on putting the storage account in the virtual network, see [Use 
 
 To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
 
-For information on putting the key vault in the virtual network, see [Use a key vault instance with your workspace](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+For information on putting the key vault in the virtual network, see [Use a key vault instance with your workspace](how-to-enable-virtual-network.md#key-vault-instance).
 
 For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
 
@@ -127,7 +126,7 @@ To secure the Azure Kubernetes services used by your workspace, put it inside a 
 
 ## Azure Container Registry
 
-For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
@@ -201,25 +200,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -520,25 +503,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -762,25 +729,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -1039,25 +990,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."

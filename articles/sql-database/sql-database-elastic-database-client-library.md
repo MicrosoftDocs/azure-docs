@@ -4,7 +4,7 @@ description: Build scalable .NET database apps with the elastic database client 
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: stevestein

@@ -30,7 +30,7 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Private access to a SQL database server
+    - title: Private access to SQL Database
       itemType: tutorial
       url: ../private-link/create-private-endpoint-portal.md
     - title: Working remotely using Azure services

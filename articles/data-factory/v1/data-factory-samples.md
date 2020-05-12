@@ -57,7 +57,7 @@ You can use the **Sample pipelines** tile on the home page of your data factory 
 3. In the **Sample pipelines** blade, click the **sample** that you want to deploy.
 
     ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
-4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc.
+4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, logical SQL server name, database, User ID, and password, etc.
 
     ![Sample blade](./media/data-factory-samples/SampleBlade.png)
 5. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.

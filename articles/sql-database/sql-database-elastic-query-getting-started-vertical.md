@@ -4,7 +4,7 @@ description: how to use elastic database query with vertically partitioned datab
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -26,7 +26,7 @@ ALTER ANY EXTERNAL DATA SOURCE permission is required. This permission is includ
 
 ## Create the sample databases
 
-To start with, create two databases, **Customers** and **Orders**, either in the same or different SQL Database servers.
+To start with, create two databases, **Customers** and **Orders**, either in the same or different servers.
 
 Execute the following queries on the **Orders** database to create the **OrderInformation** table and input the sample data.
 

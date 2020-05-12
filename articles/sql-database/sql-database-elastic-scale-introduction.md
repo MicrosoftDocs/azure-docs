@@ -5,6 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.topic: conceptual
+ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
@@ -16,7 +17,7 @@ You can easily scale out Azure SQL databases using the **Elastic Database** tool
 * [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 * [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
-* [Elastic transactions](sql-database-elastic-transactions-overview.md): This feature allows you to run transactions that span several databases in Azure SQL Database. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Elastic transactions](sql-database-elastic-transactions-overview.md): This feature allows you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 The following graphic shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
 
@@ -38,7 +39,7 @@ Achieving elasticity and scale for cloud applications has been straightforward f
 * Growing and shrinking capacity for the relational database part of your workload.
 * Managing hotspots that may arise affecting a specific subset of data - such as a busy end-customer (tenant).
 
-Traditionally, scenarios like these have been addressed by investing in larger-scale database servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
+Traditionally, scenarios like these have been addressed by investing in larger-scale servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
 
 ## Horizontal and vertical scaling
 The following figure shows the horizontal and vertical dimensions of scaling, which are the basic ways the elastic databases can be scaled.

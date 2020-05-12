@@ -4,15 +4,15 @@ description: "Learn how to provision and catalog new tenants in an Azure SQL Dat
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: billgib,andrela,stein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 09/24/2018
 ---
-# Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database
+# Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL Database
 
 This article covers the provisioning and cataloging of new tenants, in a *multi-tenant sharded database* model or pattern.
 

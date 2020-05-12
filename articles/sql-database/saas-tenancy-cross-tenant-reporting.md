@@ -4,12 +4,12 @@ description: "Cross-tenant reporting using distributed queries."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewers: billgib,ayolubek
+ms.reviewers: 
 ms.date: 01/25/2019
 ---
 # Cross-tenant reporting using distributed queries

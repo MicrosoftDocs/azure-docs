@@ -1,10 +1,10 @@
 ---
 title: Upgrade to the latest elastic database client library
-description: Use Nuget to upgrade elastic database client library.
+description: Use NuGet to upgrade elastic database client library.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -65,7 +65,7 @@ Alternatively, create a Visual Studio application that opens your ShardMapManage
 
 These techniques for metadata upgrades can be applied multiple times without harm. For example, if an older client version inadvertently creates a shard after you have already updated, you can run upgrade again across all shards to ensure that the latest metadata version is present throughout your infrastructure.
 
-**Note:**  New versions of the client library published to-date continue to work with prior versions of the Shard Map Manager metadata on Azure SQL DB, and vice-versa.   However to take advantage of some of the new features in the latest client, metadata needs to be upgraded.   Note that metadata upgrades will not affect any user-data or application-specific data, only objects created and used by the Shard Map Manager.  And applications continue to operate through the upgrade sequence described above.
+**Note:**  New versions of the client library published to-date continue to work with prior versions of the Shard Map Manager metadata on Azure SQL Database, and vice-versa.   However to take advantage of some of the new features in the latest client, metadata needs to be upgraded.   Note that metadata upgrades will not affect any user-data or application-specific data, only objects created and used by the Shard Map Manager.  And applications continue to operate through the upgrade sequence described above.
 
 ## Elastic database client version history
 

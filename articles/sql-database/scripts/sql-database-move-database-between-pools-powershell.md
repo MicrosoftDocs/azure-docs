@@ -1,10 +1,10 @@
 ﻿---
-title: PowerShell example-move Azure SQL database-elastic pool 
-description: Azure PowerShell example script to move a SQL database between elastic pools using PowerShell
+title: "PowerShell: Move database between elastic pools" 
+description: Azure PowerShell example script to move an Azure SQL database between two elastic pools using PowerShell. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
@@ -14,7 +14,7 @@ ms.date: 03/12/2019
 ---
 # Use PowerShell to create elastic pools and move databases between elastic pools
 
-This PowerShell script example creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database compute size.
+This PowerShell script example creates two elastic pools and moves an Azure SQL Database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database compute size.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -41,9 +41,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or an elastic pool. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts databases and elastic pools. |
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic pool. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in a SQL Database server as a standalone or a pooled database. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in a server. |
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

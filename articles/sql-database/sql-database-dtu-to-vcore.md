@@ -1,22 +1,25 @@
 ---
 title: Migrate from DTU to vCore
-description: Migrate from the DTU model to the vCore model. Migrating to vCore is similar to upgrading or downgrading between the standard and premium tiers.
+description: Migrate an Azure SQL Database from the DTU model to the vCore model. Migrating to vCore is similar to upgrading or downgrading between the standard and premium tiers.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
 ms.topic: conceptual
+ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 03/09/2020
 ---
-# Migrate from the DTU-based model to the vCore-based model
+# Migrate Azure SQL Database from the DTU-based model to the vCore-based model
+
+This article describes how to migrate your Azure SQL Database from the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) to the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
 
 ## Migrate a database
 
-Migrating a database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between the standard and premium service tiers in the DTU-based purchasing model.
+Migrating an Azure SQL Database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between the standard and premium service tiers in the DTU-based purchasing model.
 
-## Migrate databases that use geo-replication
+## Migrate geo-replicated databases
 
 Migrating from the DTU-based model to the vCore-based purchasing model is similar to upgrading or downgrading the geo-replication relationships between databases in the standard and premium service tiers. During migration, you don't have to stop geo-replication, but you must follow these sequencing rules:
 

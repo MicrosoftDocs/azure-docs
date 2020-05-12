@@ -1,25 +1,48 @@
 ---
-title: Data Sync
-description: This overview introduces Azure SQL Data Sync
+title: What is SQL Data Sync for Azure? 
+description: This overview introduces SQL Data Sync for Azure, which allows you to sync data across multiple cloud and on-premises databases. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync
+ms.custom: data sync, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
 ---
-# Sync data across multiple cloud and on-premises databases with SQL Data Sync
+# What is SQL Data Sync for Azure?
 
-SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
+SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud. 
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
+> Azure SQL Data Sync does not support Azure SQL Managed Instance at this time.
 
-## When to use Data Sync
+
+## Overview 
+
+Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
+
+Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
+
+- The **Hub Database** must be an Azure SQL Database.
+- The **member databases** can be either Azure SQL Database, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
+- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
+
+> [!NOTE]
+> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
+
+A Sync Group has the following properties:
+
+- The **Sync Schema** describes which data is being synchronized.
+- The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member*, or *Member to Hub*, or both.
+- The **Sync Interval** describes how often synchronization occurs.
+- The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
+
+## When to use
 
 Data Sync is useful in cases where data needs to be kept updated across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
 
@@ -37,29 +60,9 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-## Overview of SQL Data Sync
 
-Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
 
-Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
-
-- The **Hub Database** must be an Azure SQL Database.
-- The **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
-
-> [!NOTE]
-> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
-
-A Sync Group has the following properties:
-
-- The **Sync Schema** describes which data is being synchronized.
-- The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member*, or *Member to Hub*, or both.
-- The **Sync Interval** describes how often synchronization occurs.
-- The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
-
-## How does Data Sync work
+## How it works
 
 - **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
 - **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
@@ -67,14 +70,14 @@ A Sync Group has the following properties:
   - If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
   - If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
 
-## Compare Data Sync with Transactional Replication
+## Compare with Transactional Replication
 
 | | Data Sync | Transactional Replication |
 |---|---|---|
-| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
-| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>-	High maintenance cost |
+| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
-## Get started with SQL Data Sync
+## Get started 
 
 ### Set up Data Sync in the Azure portal
 
@@ -128,6 +131,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Azure Active Directory authentication isn't supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
 - Columns with User Defined Data Types aren't supported
+- Moving servers between different subscriptions is not supported. 
 
 #### Unsupported data types
 
@@ -220,19 +224,19 @@ Federation Root Database can be used in the SQL Data Sync Service without any li
 
 Do you have to update the schema of a database in a sync group? Schema changes aren't automatically replicated. For some solutions, see the following articles:
 
-- [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+- [Automate the replication of schema changes with SQL Data Sync in Azure](sql-database-update-sync-schema.md)
 - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
 
 ### Monitor and troubleshoot
 
 Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues, see the following articles:
 
-- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### Learn more about Azure SQL Database
 
-For more info about SQL Database, see the following articles:
+For more info about Azre SQL Database, see the following articles:
 
 - [SQL Database Overview](sql-database-technical-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -1,6 +1,6 @@
 ---
 title: Use Java to query a database
-description: Shows you how to use Java to create a program that connects to an Azure SQL database and query it using T-SQL statements.
+description: Shows you how to use Java to create a program that connects to an Azure SQL D and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,16 +10,16 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-java-july2019. seo-java-august2019
+ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
 ---
-# Quickstart: Use Java to query an Azure SQL database
+# Quickstart: Use Java to query an Azure SQL Database
 
-In this quickstart, you use Java to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use Java to connect to an Azure SQL Database and use T-SQL statements to query data.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](sql-database-single-database-get-started.md)
+- An [Azure SQL Database](sql-database-single-database-get-started.md)
 - [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)-related software
 
   # [macOS](#tab/macos)
@@ -40,7 +40,7 @@ In this quickstart, you use Java to connect to an Azure SQL database and use T-S
 > The scripts in this article are written to use the **Adventure Works** database.
 
 > [!NOTE]
-> You can optionally choose to use an Azure SQL managed instance.
+> You can optionally choose to use an Azure SQL Managed Instance.
 >
 > To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
 >
@@ -48,13 +48,13 @@ In this quickstart, you use Java to connect to an Azure SQL database and use T-S
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select **SQL databases** or open the **SQL managed instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
 ## Create the project
 
@@ -164,7 +164,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL database](sql-database-design-first-database.md)  
+- [Design your first Azure SQL Database](sql-database-design-first-database.md)  
 
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

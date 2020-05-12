@@ -5,7 +5,7 @@ keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -16,7 +16,7 @@ ms.date: 04/08/2019
 
 # What is the Azure SQL Database service?
 
-Azure SQL Database is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+Azure SQL Database is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
 With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](sql-database-multi-model-features.md), such as graphs, JSON, spatial, and XML.
 
@@ -94,7 +94,7 @@ Azure SQL Database provides advanced monitoring and troubleshooting features tha
 
 [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), a built-in SQL Server monitoring feature, records the performance of your queries in real time, and enables you to identify the potential performance issues and the top resource consumers. Automatic tuning and recommendations provide advice regarding the queries with the regressed performance and missing or duplicated indexes. Automatic tuning in SQL Database enables you to either manually apply the scripts that can fix the issues, or let SQL Database apply the fix. SQL Database can also test and verify that the fix provides some benefit, and retain or revert the change depending on the outcome. In addition to Query Store and automatic tuning capabilities, you can use standard [DMVs and XEvent](sql-database-monitoring-with-dmvs.md) to monitor the workload performance.
 
-Azure provides [built-in performance monitoring](sql-database-performance-guidance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
+Azure provides [built-in performance monitoring](sql-database-performance-guidance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price.
 - **Azure Event Hubs**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.

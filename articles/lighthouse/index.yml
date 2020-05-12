@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/25/2019
+  ms.date: 04/14/2020
   
 landingContent:
   - title: About Azure Lighthouse
@@ -41,6 +41,8 @@ landingContent:
             url: ./concepts/cloud-solution-provider.md
           - text: Enterprise scenarios
             url: ./concepts/enterprise.md
+          - text: Tenants, roles, and users
+            url: ./concepts/tenants-users-roles.md
 
   - title: Marketplace offers
     linkLists:
@@ -62,15 +64,6 @@ landingContent:
           - text: Index of Azure Lighthouse samples
             url: ./samples/index.md
 
-  - title: Work with Azure services
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use Azure Monitor Logs at scale
-            url: ./how-to/monitor-at-scale.md
-          - text: Deploy Azure Policy at scale
-            url: ./how-to/policy-at-scale.md
-
   - title: Azure portal experiences
     linkLists:
       - linkListType: how-to-guide
@@ -80,16 +73,18 @@ landingContent:
           - text: View and manage service providers
             url: ./how-to/view-manage-service-providers.md
 
-  - title: Reference - Downloads
+  - title: Work with Azure services
     linkLists:
-      - linkListType: download
+      - linkListType: how-to-guide
         links:
-          - text: OpenAPI - 2019-06-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
-          - text: SDK for .NET - NuGet
-            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
-          - text: SDK for Python - PyPi
-            url: https://pypi.org/project/azure-mgmt-managedservices/
+          - text: Use Azure Monitor Logs at scale
+            url: ./how-to/monitor-at-scale.md
+          - text: Monitor delegation changes
+            url: ./how-to/monitor-at-scale.md
+          - text: Deploy Azure Policy at scale
+            url: ./how-to/policy-at-scale.md
+          - text: Deploy a policy that can be remediated
+            url: ./how-to/deploy-policy-remediation.md
 
   - title: Reference - SDKs
     linkLists:
@@ -106,6 +101,17 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
   
+  - title: Reference - Downloads
+    linkLists:
+      - linkListType: download
+        links:
+          - text: OpenAPI - 2019-06-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+          - text: SDK for .NET - NuGet
+            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+          - text: SDK for Python - PyPi
+            url: https://pypi.org/project/azure-mgmt-managedservices/
+
   - title: Get involved
     linkLists:
       - linkListType: get-started

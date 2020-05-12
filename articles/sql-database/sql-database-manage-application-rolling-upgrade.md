@@ -1,10 +1,10 @@
 ---
 title: Rolling application upgrades
-description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
+description: Learn how to use Azure SQL Database geo-replication to support rolling upgrades of your cloud application
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960

@@ -8,11 +8,12 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
@@ -43,6 +44,50 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.30.0
+
+### Release status
+05/07/2020: Released for download
+
+### Fixed issues
+- Fixed an issue where unselected domains were getting incorrectly selected from the wizard UI.
+- Fixed an issue in the ADSyncConfig PowerShell module, where invoking DSACLS command used in all the Set-ADSync* Permissions cmdlets would cause one of the following errors:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
+
+## 1.5.29.0
+
+### Release status
+04/23/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue introduced in build 1.5.20.0 where a tenant administrator with MFA was not able to enable DSSO.
+
+## 1.5.22.0
+
+### Release status
+04/20/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In from AD - Group Join** rule and have not cloned the **In from AD - Group Common** rule.
+
+## 1.5.20.0
+
+### Release status
+04/09/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+
+> [!IMPORTANT]
+> If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
+> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
+> 2. Edit the cloned join sync rule and add the following two transformations:
+>     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
+>     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
+> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+
 
 ## 1.5.18.0
 
@@ -52,7 +97,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ### Functional changes ADSyncAutoUpgrade 
 
 - Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
-- The mS-DS-ConsistencyGuid attribute is automatically set on al synced groups and you do not have to do anything to enable this feature. 
+- The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
 - Removed the Get-ADSyncRunProfile because it is no longer in use. 
 - Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
 - Added a new cmdlet to remove objects from the connector space the old CSDelete.exe tool is removed, and it is replaced with the new Remove-ADSyncCSObject cmdlet. The Remove-ADSyncCSObject cmdlet takes a CsObject as input. This object can be retrieved by using the Get-ADSyncCSObject cmdlet.
@@ -67,6 +112,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
 - Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+- Fixed a bug in the Domain/OU filtering page that would remove the Run Profiles of a domain by just partially expanding the domain tree, without making any changes.
 
 ## 1.4.38.0
 ### Release status
@@ -891,8 +937,8 @@ CBool(
 #### Issues fixed
 
 * Following URLs are new WS-Federation endpoints introduced by Azure AD to improve resiliency against authentication outage and will be added to on-premises AD FS replying party trust configuration:
-  * https://ests.login.microsoftonline.com/login.srf
-  * https://stamp2.login.microsoftonline.com/login.srf
+  * https:\//ests.login.microsoftonline.com/login.srf
+  * https:\//stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   

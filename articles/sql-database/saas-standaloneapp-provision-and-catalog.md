@@ -4,12 +4,12 @@ description: "Provision and catalog new tenants using the standalone application
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: billgib
+ms.reviewer: 
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants using the  application per tenant SaaS pattern
@@ -22,7 +22,7 @@ This article has two major parts:
 
 ## Standalone application per tenant pattern
 
-The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and a SQL database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf.
+The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and an Azure SQL Database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf.
 
    ![app-per-tenant pattern](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 

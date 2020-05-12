@@ -15,6 +15,8 @@ ms.date: 02/27/2020
 
 # Copy multiple tables in bulk by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics (formerly SQL DW)**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics (formerly SQL DW)/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
@@ -61,9 +63,9 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 ## Azure services to access SQL server
 
-For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
+For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your logical SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
 
-To verify and turn on this setting, go to your Azure SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
+To verify and turn on this setting, go to your logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
 
 ## Create a data factory
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
@@ -74,7 +76,7 @@ To verify and turn on this setting, go to your Azure SQL server > Security > Fir
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “ADFTutorialBulkCopyDF” is not available`
+       `Data factory name "ADFTutorialBulkCopyDF" is not available`
 1. Select your Azure **subscription** in which you want to create the data factory. 
 1. For the **Resource Group**, do one of the following steps:
      
@@ -108,7 +110,7 @@ at the bottom of the left column under **Factory Resources**).
 
     a. Enter **AzureSqlDatabaseLinkedService** for **Name**.
     
-    b. Select your Azure SQL server for **Server name**
+    b. Select your logical SQL server for **Server name**
     
     c. Select your Azure SQL database for **Database name**. 
     
@@ -129,7 +131,7 @@ at the bottom of the left column under **Factory Resources**).
    
     a. Enter **AzureSqlDWLinkedService** for **Name**.
      
-    b. Select your Azure SQL server for **Server name**
+    b. Select your logical SQL server for **Server name**
      
     c. Select your Azure SQL database for **Database name**. 
      
