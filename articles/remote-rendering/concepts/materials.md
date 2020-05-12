@@ -30,6 +30,10 @@ Azure Remote Rendering has two distinct material types:
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 
+## Material de-duplication
+
+During conversion multiple materials with the same properties and textures are automatically de-duplicated into a single material. You can disable this feature in the [conversion settings](../how-tos/conversion/configure-model-conversion.md), but we recommend leaving it on for best performance.
+
 ## Material classes
 
 All materials provided by the API derive from the base class `Material`. Their type can be queried through `Material.MaterialSubType` or by casting them directly:
@@ -53,10 +57,6 @@ void SetMaterialColorToGreen(Material material)
     }
 }
 ```
-
-## Material de-duplication
-
-During conversion multiple materials with the same properties and textures are automatically de-duplicated into a single material. You can disable this feature in the [conversion settings](../how-tos/conversion/configure-model-conversion.md), but we recommend leaving it on for best performance.
 
 ## Next steps
 
