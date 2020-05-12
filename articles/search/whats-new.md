@@ -22,6 +22,10 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ## Feature announcements
 
+### May 2020
+
++ Debug sessions feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions).
+
 ### March 2020
 
 + [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
