@@ -6,14 +6,16 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 05/11/2020
 ms.author: spelluru
 ---
 
 # Storage queue as an event handler for Azure Event Grid events
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
+An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events and **Azure Queue Storage** is one of them. 
 
-Use Queue storage to receive events that need to be pulled. You might use Queue storage when you have a long running process that takes too long to respond. By sending events to Queue storage, the app can pull and process events on its own schedule.
+Use **Queue Storage** to receive events that need to be pulled. You might use Queue storage when you have a long running process that takes too long to respond. By sending events to Queue storage, the app can pull and process events on its own schedule.
+
+## Examples
 
 |Title  |Description  |
 |---------|---------|

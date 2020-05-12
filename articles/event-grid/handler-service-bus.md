@@ -6,18 +6,14 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 05/11/2020
 ms.author: spelluru
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
-
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
-
-## Schema
+An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events and **Azure Service Bus** is one of them. 
 
 ## Service Bus queues
-
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
 In the Azure portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select an endpoint" in order to choose a Service Bus queue.

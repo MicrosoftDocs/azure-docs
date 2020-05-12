@@ -6,20 +6,14 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 05/11/2020
 ms.author: spelluru
 ---
 
 # Event hub as an event handler for Event Grid events
+An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Event Hubs** is one of them. 
 
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
-
-Use Event Hubs when your solution gets events faster than it can process the events. Your application processes the events from Event Hubs at it own schedule. You can scale your event processing to handle the incoming events.
-
-Event Hubs can act as either an event source or event handler. The following article shows how to use Event Hubs as a handler.
-
-## Schema
-
+Use **Event Hubs** when your solution gets events faster than it can process the events. Then, your application can process events from Event Hubs at its own schedule. You can scale your event processing to handle the incoming events.
 
 ## Examples
 
@@ -29,6 +23,4 @@ Event Hubs can act as either an event source or event handler. The following art
 | [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
 ## Next steps
-
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+For an introduction to Event Grid, see [About Event Grid](overview.md).

@@ -6,12 +6,11 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 05/11/2020
 ms.author: spelluru
 ---
 
-# Webhooks, Automation runbooks, and logic apps as event handlers for Azure Event Grid events
-
+# Webhooks and Automation runbooks as event handlers for Azure Event Grid events
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
 
 
@@ -28,23 +27,11 @@ Use webhooks for customizable endpoints that respond to events.
 
 
 ## Azure Automation
-
-Use Azure Automation to process events with automated runbooks.
+Processing of events by using automated runbooks is supported via webhooks. You create a webhook for the runbook and then use the webhook handler as mentioned in the [WebHooks](#webhooks) section. 
 
 |Title  |Description  |
 |---------|---------|
 |[Tutorial: Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
-
-
-## Logic Apps
-
-Use Logic Apps to automate business processes for responding to events.
-
-|Title  |Description  |
-|---------|---------|
-| [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
-| [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
-| [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
 
 ## Next steps

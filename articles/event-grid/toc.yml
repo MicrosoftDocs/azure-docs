@@ -141,13 +141,15 @@
   - name: Event handlers
     href: event-handlers.md  
     items:
-    - name: Webhooks, Azure Automation, Logic Apps
+    - name: Webhooks, Azure Automation
       displayName: Azure Automation, Logic Apps, Webhooks          
       href: handler-webhooks.md
     - name: Azure Functions
       href: handler-functions.md
     - name: Event Hubs 
       href: handler-event-hubs.md
+    - name: Logic Apps
+      href: handler-logic-apps.md      
     - name: Service Bus
       href: handler-service-bus.md
     - name: Relay hybrid connections

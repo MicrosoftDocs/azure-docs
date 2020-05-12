@@ -6,20 +6,17 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: spelluru
 ---
 
 # Azure function as an event handler for Event Grid events
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
 
-Use Azure Functions for serverless response to events.
+An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Functions** is one of them. 
 
-When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md).
+Use **Azure Functions** for serverless response to events. When using an Azure function as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md).
 
 For more information, see [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) for an overview of using the Event Grid trigger in functions.
-
-## Schema
 
 ## Examples
 
@@ -32,6 +29,4 @@ For more information, see [Event Grid trigger for Azure Functions](../azure-func
 
 
 ## Next steps
-
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+For an introduction to Event Grid, see [About Event Grid](overview.md).
