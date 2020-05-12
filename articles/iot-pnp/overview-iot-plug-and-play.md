@@ -56,11 +56,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 ## Regional availability
 
-During public preview, IoT Plug and Play is available in all regions.
-
-## Message quotas in IoT Hub
-
-During public preview, IoT Plug and Play devices send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
+During public preview, IoT Plug and Play is available in the Central US, Japan East, and North Europe regions.
 
 ## Next steps
 
