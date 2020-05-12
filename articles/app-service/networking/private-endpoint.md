@@ -71,7 +71,7 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 ## Limitations
 
-When you use Azure Function in Elastic Premium Plan with Private Endpoint, you cannot run or execute the function in Azure Web portal, you must have direct network access in order to run your app or you will receive an HTTP 403 error. 
+When you use Azure Function in Elastic Premium Plan with Private Endpoint, you cannot run or execute the function in Azure Web portal. You must have direct network access in order to run your app or you will receive an HTTP 403 error. 
 
 During the preview only the production slot is exposed behind the Private Endpoint, other slots are reachable by Public Endpoint only.
 
