@@ -88,7 +88,13 @@ Automated online switching between hardware generations is possible if both hard
 
 This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 
+**What if both hardware generations are not supported in the same region?**
+
 If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the wanted hardware generation is available, and manually back up and restore data between the old and new instance.
+
+**What if there are no enough IP addresses for performing update operation?**
+
+In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses alocated so future update operations will avoid similar situation (for propper subnet size, check [how to determine size of vnet subnet](sql-database-managed-instance-determine-size-vnet-subnet.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## Tune performance

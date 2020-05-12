@@ -51,5 +51,4 @@ If you want to provide your own custom terms and conditions, you can elect to en
 
 Customers are required to accept these terms before they can try your offer.
 
-Remember to **Save** before moving on to the next section.
-Remember to **Save** before moving on to the next section.
+Select **Save draft** before continuing.

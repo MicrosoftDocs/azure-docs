@@ -4,7 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/20/2020
+ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
@@ -24,12 +24,14 @@ This article provides examples that you can re-create by using the [nutrition](h
 
 ## Common SDK issues
 
-- For best performance, follow the [Performance tips](performance-tips.md).
+Before reading this guide, it is helpful to consider common SDK issues that aren't related to the query engine.
+
+- For best performance, follow these [Performance tips](performance-tips.md).
     > [!NOTE]
     > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
-- You can set a `MaxItemCount` for your queries but you can't specify a minimum item count.
+- The SDK allows setting a `MaxItemCount` for your queries but you can't specify a minimum item count.
     - Code should handle any page size, from zero to the `MaxItemCount`.
-    - The number of items in a page will always be less than the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
+    - The number of items in a page will always be less or equal to the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
@@ -37,13 +39,13 @@ This article provides examples that you can re-create by using the [nutrition](h
 
 ## Get query metrics
 
-When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal:
+When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal. Once you run your query in the Data Explorer, the query metrics are visible next to the **Results** tab:
 
 [ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to review in this article.
+After you get the query metrics, compare the **Retrieved Document Count** with the **Output Document Count** for your query. Use this comparison to identify the relevant sections to review in this article.
 
-The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
+The **Retrieved Document Count** is the number of documents that the query engine needed to load. The **Output Document Count** is the number of documents that were needed for the results of the query. If the **Retrieved Document Count** is significantly higher than the **Output Document Count**, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
 Refer to the following sections to understand the relevant query optimizations for your scenario.
 
@@ -57,7 +59,7 @@ Refer to the following sections to understand the relevant query optimizations f
 
 - [Understand which aggregate queries use the index.](#understand-which-aggregate-queries-use-the-index)
 
-- [Modify queries that have both a filter and an ORDER BY clause.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Optimize queries that have both a filter and an ORDER BY clause.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 - [Optimize JOIN expressions by using a subquery.](#optimize-join-expressions-by-using-a-subquery)
 
@@ -65,11 +67,11 @@ Refer to the following sections to understand the relevant query optimizations f
 
 #### Retrieved Document Count is approximately equal to Output Document Count
 
-- [Avoid cross partition queries.](#avoid-cross-partition-queries)
+- [Minimize cross partition queries.](#minimize-cross-partition-queries)
 
 - [Optimize queries that have filters on multiple properties.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [Modify queries that have both a filter and an ORDER BY clause.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Optimize queries that have both a filter and an ORDER BY clause.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 <br>
 
@@ -85,7 +87,7 @@ Refer to the following sections to understand the relevant query optimizations f
 
 ## Queries where Retrieved Document Count exceeds Output Document Count
 
- The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
+ The **Retrieved Document Count** is the number of documents that the query engine needed to load. The **Output Document Count** is the number of documents returned by the query. If the **Retrieved Document Count** is significantly higher than the **Output Document Count**, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
 Here's an example of scan query that wasn't entirely served by the index:
 
@@ -123,20 +125,25 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-The Retrieved Document Count (60,951) is significantly higher than the Output Document Count (7), so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) doesn't use the index.
+The **Retrieved Document Count** (60,951) is significantly higher than the **Output Document Count** (7), implying that this query resulted in a document scan. In this case, the system function [UPPER()](sql-query-upper.md) doesn't use an index.
 
 ### Include necessary paths in the indexing policy
 
-Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
+Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The desired paths specified in the index policy should match the properties in the JSON documents.
 
-If you run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you observe a much lower RU charge when the property in the `WHERE` clause is indexed:
+> [!NOTE]
+> Properties in Azure Cosmos DB indexing policy are case-sensitive
+
+If you run the following simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you will observe a much lower RU charge when the property in the `WHERE` clause is indexed:
 
 #### Original
 
 Query:
 
 ```sql
-SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+SELECT *
+FROM c
+WHERE c.description = "Malabar spinach, cooked"
 ```
 
 Indexing policy:
@@ -213,42 +220,55 @@ For example, given these two sample queries, the query with both an equality and
 Query with only `CONTAINS` filter - higher RU charge:
 
 ```sql
-SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT COUNT(1)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
 Query with both equality filter and `CONTAINS` filter - lower RU charge:
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+SELECT AVG(c._ts)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
 ```
 
-Here are additional examples of aggregates queries that will not fully use the index:
+Here are additional examples of aggregate queries that will not fully use the index:
 
 #### Queries with system functions that don't use the index
 
 You should refer to the relevant [system function's page](sql-query-system-functions.md) to see if it uses the index.
 
 ```sql
-SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT MAX(c._ts)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
 #### Aggregate queries with user-defined functions(UDF's)
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+SELECT AVG(c._ts)
+FROM c
+WHERE udf.MyUDF("Sausages and Luncheon Meats")
 ```
 
 #### Queries with GROUP BY
 
-The RU charge of `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
+The RU charge of queries with `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In the below query, for example, the RU charge of the query will increase as the number unique descriptions increases.
+
+The RU charge of an aggregate function with a `GROUP BY` clause will be higher than the RU charge of an aggregate function alone. In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
 
 ```sql
-SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+SELECT COUNT(1)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats"
+GROUP BY c.description
 ```
 
 If you plan to frequently run the same aggregate queries, it may be more efficient to build a real-time materialized view with the [Azure Cosmos DB change feed](change-feed.md) than running individual queries.
 
-### Modify queries that have both a filter and an ORDER BY clause
+### Optimize queries that have both a filter and an ORDER BY clause
 
 Although queries that have a filter and an `ORDER BY` clause will normally use a range index, they'll be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This change to the query will ensure that it uses the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset:
 
@@ -257,7 +277,10 @@ Although queries that have a filter and an `ORDER BY` clause will normally use a
 Query:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
+SELECT *
+FROM c
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
+ORDER BY c._ts ASC
 ```
 
 Indexing policy:
@@ -283,7 +306,8 @@ Indexing policy:
 Updated query (includes both properties in the `ORDER BY` clause):
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
@@ -319,6 +343,7 @@ Updated indexing policy:
 **RU charge:** 8.86 RUs
 
 ### Optimize JOIN expressions by using a subquery
+
 Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross joins in the `WHERE` clause.
 
 Consider this query:
@@ -335,7 +360,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **RU charge:** 167.62 RUs
 
-For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
+For this query, the index will match any document that has a tag with the name `infant formula`, `nutritionValue` greater than 0, and `amount` greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
 For example, if a matching document has 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. The use of subqueries here can help to filter out joined array items before joining with the next expression.
 
@@ -355,9 +380,9 @@ Assume that only one item in the tags array matches the filter and that there ar
 
 ## Queries where Retrieved Document Count is equal to Output Document Count
 
-If the Retrieved Document Count is approximately equal to the Output Document Count, the query didn't have to scan many unnecessary documents. For many queries, like those that use the TOP keyword, Retrieved Document Count might exceed Output Document Count by 1. You don't need to be concerned about this.
+If the **Retrieved Document Count** is approximately equal to the **Output Document Count**, the query engine didn't have to scan many unnecessary documents. For many queries, like those that use the `TOP` keyword, **Retrieved Document Count** might exceed **Output Document Count** by 1. You don't need to be concerned about this.
 
-### Avoid cross partition queries
+### Minimize cross partition queries
 
 Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container's partition key, you'll need to check only the relevant partition's index. This optimization reduces the total number of RUs that the query requires.
 
@@ -366,26 +391,30 @@ If you have a large number of provisioned RUs (more than 30,000) or a large amou
 For example, if you create a container with the partition key foodGroup, the following queries will need to check only a single physical partition:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-These queries would also be optimized by the addition of the partition key in the query:
+Queries that have an `IN` filter with the partition key will only check the relevant physical partition(s) and will not "fan-out":
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-Queries that have range filters on the partition key, or that don't have any filters on the partition key, will need to check every physical partition's index for results:
+Queries that have range filters on the partition key, or that don't have any filters on the partition key, will need to "fan-out" and check every physical partition's index for results:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.description = "Mushroom, oyster, raw"
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
@@ -396,12 +425,14 @@ Although queries that have filters on multiple properties will normally use a ra
 Here are some examples of queries that could be optimized with a composite index:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 

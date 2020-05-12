@@ -1,24 +1,23 @@
 ---
-title: 'Workday attribute reference | Microsoft Docs'
+title: Workday attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
+ms.reviewer: celested
 ---
+
 # Workday attribute reference
+
 This section provides a list of attributes that you can fetch from Workday using XPATH queries. Based on the Workday Web Services API version, you plan to use, refer to the appropriate section. 
 
-## XPATH values for Workday Web Services version 21.1
+## XPATH values for Workday Web Services (WWS) API v21.1
 
 
 The table below captures the list of Workday attributes and corresponding XPATH expressions that are shipped out of the box with the Workday inbound provisioning app connector. 
@@ -106,7 +105,9 @@ The table below captures the list of Workday attributes and corresponding XPATH 
 | 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Worker\_Type\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                    |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                   |
 
-## XPATH values for Workday Web Services version 30+
+## XPATH values for Workday Web Services (WWS) API v30+
+
+If you are using a WWS API v30.0 and above, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** to use the values listed below. To configure additional XPATHs, refer to the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
 | \# | Name                                  | Workday XPATH API expression                                                                                                                                                                                                                                                                                                                                                |

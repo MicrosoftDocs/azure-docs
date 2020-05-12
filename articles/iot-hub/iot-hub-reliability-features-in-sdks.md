@@ -125,7 +125,7 @@ For code samples in other languages, review the following implementation documen
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Python SDK](https://github.com/Azure/azure-iot-sdk-python)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Reliability not yet implemented)
 
 ## Next steps
 

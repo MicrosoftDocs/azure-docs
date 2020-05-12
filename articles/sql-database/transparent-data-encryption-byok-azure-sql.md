@@ -75,7 +75,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 ### Requirements for configuring TDE protector
 
-- TDE protector can be only asymmetric, RSA 2048 or RSA HSM 2048 key.
+- TDE protector can be only asymmetric, RSA or RSA HSM key. The supported key lengths are 2048 and 3072 bytes.
 
 - The key activation date (if set) must be a date and time in the past. Expiration date (if set) must be a future date and time.
 
@@ -87,7 +87,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 ### Recommendations when configuring AKV
 
-- Associate at most 500 General Purpose or 200 Business Critical databases in total with a key vault in a single subscription to ensure high availability when server accesses the TDE protector in the key vault. These figures are based on the experience and documented in the [key vault service limits](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). The intention here is to prevent issues after server failover, as it will trigger as many key operations against the vault as there are databases in that server.
+- Associate at most 500 General Purpose or 200 Business Critical databases in total with a key vault in a single subscription to ensure high availability when server accesses the TDE protector in the key vault. These figures are based on the experience and documented in the [key vault service limits](https://docs.microsoft.com/azure/key-vault/general/service-limits). The intention here is to prevent issues after server failover, as it will trigger as many key operations against the vault as there are databases in that server.
 
 - Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. Learn more about [resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 

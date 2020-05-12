@@ -12,9 +12,9 @@ ms.author: dsindona
 # Virtual hard disk deployment template
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) to manage your migrated offers.
 
-The following Azure Resource Manager template defines a new Azure virtual machine (VM) instance, created from local virtual hard disk (VHD).  This template is used in the article [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md). 
+The following Azure Resource Manager template defines a new Azure virtual machine (VM) instance, created from local virtual hard disk (VHD).  This template is used in the article [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md).
 
 ```json
 {

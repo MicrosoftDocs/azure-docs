@@ -198,7 +198,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -322,7 +322,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # waagent -force -deprovision
 
@@ -474,7 +474,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -605,7 +605,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -722,7 +722,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

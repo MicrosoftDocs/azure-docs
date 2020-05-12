@@ -31,7 +31,7 @@ In developing and deploying this app, you'll learn how to
 - Deploy the Azure Web App, which is dedicated isolated with front-end firewall access. 
 - Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
 - Enable encryption of data in transit and at rest by using Azure services. 
-- Set up the Azure policy and security center to evaluate the compliancies. 
+- Set up Azure Policy and security center to evaluate the compliance. 
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
@@ -445,17 +445,17 @@ Azure services extensively log system and user activity, as well as system healt
 2.	In the resultant screen, select the WebApp-OpenIDConnect-DotNet-code-v2 application.
 3.	In the Authentication tab
     o	In the Redirect URIs section, select Web in the combo-box and add the following redirect URIs.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc
-    o	In the Advanced settings section set Logout URL to https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc`
+    o	In the Advanced settings section set Logout URL to `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc`
 4.	In the Branding tab
-        o	Update the Home page URL to the address of your app service, for example https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
+        o	Update the Home page URL to the address of your app service, for example `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`.
         o	Save the configuration.
 5.	If your application calls a web api, make sure to apply the necessary changes on the project appsettings.json, so it calls the published API URL instead of localhost.
 Publishing the sample
     1.	From the Overview tab of the App Service, download the publish profile by clicking the Get publish profile link and save it. Other deployment mechanisms, such as from source control, can also be used.
     2.	Switch to Visual Studio and go to the WebApp-OpenIDConnect-DotNet-code-v2 project. Right click on the project in the Solution Explorer and select Publish. Click Import Profile on the bottom bar, and import the publish profile that you downloaded earlier.
-    3.	Click on Configure and in the Connection tab, update the Destination URL so that it is an https in the home page url, for example https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Click Next.
+    3.	Click on Configure and in the Connection tab, update the Destination URL so that it is an https in the home page url, for example `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`. Click Next.
     4.	On the Settings tab, make sure Enable Organizational Authentication is NOT selected. Click Save. Click on Publish on the main screen.
     5.	Visual Studio will publish the project and automatically open a browser to the URL of the project. If you see the default web page of the project, the publication was successful.
 #### Implement Multi-Factor Authentication for Azure Active Directory
