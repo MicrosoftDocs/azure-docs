@@ -46,7 +46,7 @@ Now that the instance and sample app are configured, you will use the sample pro
 
 ### Get started with the command-line app
 
-Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio 2019. Run the project with this button in the toolbar:
 
 :::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
  
@@ -61,17 +61,20 @@ Here is a screenshot of what the project console looks like:
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 > :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
 
+Keep the project running for the rest of the steps in this tutorial.
+
 ### Model a physical environment with DTDL
 
 The first step in creating an Azure Digital Twins solution is defining twin [**models**](concepts-models.md) for your environment. 
 
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
-DTDL also allows allows for the definition of *commands* on DIgital twins. However, commands are not currently supported in the Azure Digital Twins service. They are supported, however, IoT Plug  and Play for devices.
+> [!NOTE]
+> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service. They are supported, however, in IoT Plug and Play for devices.
 
-In the sample project folder, navigate to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
+Using the *Solution Explorer* pane in your Visual Studio window, navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
-Open *Room.json*, and change it in the following ways:
+Select *Room.json* to open it in the editing window, and change it in the following ways:
 
 * **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
 * **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this quickstart).
@@ -85,7 +88,7 @@ Open *Room.json*, and change it in the following ways:
       "schema": "string"
     }
     ```
-* **Add a relationship**. After the `RoomName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+* **Add a relationship**. After the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
     ```json
     ,
@@ -102,26 +105,24 @@ When you are finished, the updated model should look like this:
 Make sure to save the file before moving on.
 
 > [!TIP]
-> If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
+> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 #### Upload models to Azure Digital Twins
 
-Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. THis configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
+In the project console window, run the following command:
 
 ```cmd/sh
 CreateModels Room Floor
 ```
 
 > [!TIP]
-> If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extensionn) to the `Room Floor` list in the command above.
+> If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
 
-Verify the models were created by running the `GetModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
+Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
-:::image type="content" source="media/quickstart/output-list-models.png" alt-text="Results of listModels, showing the updated Room model":::
-
-Keep the project console window running for the following steps.
-
+:::image type="content" source="media/quickstart/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
 
 #### Errors
 
@@ -166,7 +167,7 @@ CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature do
 
 The output from these commands should indicate the twins were created successfully. 
 
-:::image type="content" source="media/quickstart/output-add-twin.png" alt-text="Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1":::
+:::image type="content" source="media/quickstart/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
 
 You can also verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
@@ -192,7 +193,7 @@ The output should reflect the updated name.
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, you use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+To add a relationship, use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
 Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
@@ -235,7 +236,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     Query
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
     :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
@@ -278,7 +279,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
-    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
+    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
     :::image type="content" source="media/quickstart/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
