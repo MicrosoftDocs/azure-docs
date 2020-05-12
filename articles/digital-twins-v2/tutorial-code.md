@@ -163,14 +163,13 @@ In the directory where you created your project, create a new *.json* file calle
 
 ```json
 {
-  "@id": "urn:example:SampleModel:1",
+  "@id": "dtmi:com:contoso:SampleModel;1",
   "@type": "Interface",
   "name": "SampleModel",
   "contents": [
     {
       "@type": "Relationship",
-      "name": "contains",
-      "target": "*"
+      "name": "contains"
     },
     {
       "@type": "Property",
@@ -178,7 +177,7 @@ In the directory where you created your project, create a new *.json* file calle
       "schema": "string"
     }
   ],
-  "@context": "http://azure.com/v3/contexts/Model.json"
+  "@context": "dtmi:dtdl:context;2"
 }
 ```
 
@@ -279,7 +278,7 @@ Date: Tue, 05 May 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
-Type name: : urn:example:SampleModel:1
+Type name: : dtmi:com:contoso:SampleModel;1
 ```
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
@@ -300,7 +299,7 @@ Then, add the following code to the end of the `Main` method to create and initi
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
 {
-    { "$model", "urn:example:SampleModel:1" },
+    { "$model", "dtmi:com:contoso:SampleModel;1" },
 };
 // Initialize the twin properties
 var initData = new Dictionary<string, object>
@@ -470,7 +469,7 @@ namespace minimal
             // Initialize twin metadata
             var meta = new Dictionary<string, object>
             {
-                { "$model", "urn:example:SampleModel:1" },
+                { "$model", "dtmi:com:contoso:SampleModel;1" },
             };
             // Initialize the twin properties
             var initData = new Dictionary<string, object>
