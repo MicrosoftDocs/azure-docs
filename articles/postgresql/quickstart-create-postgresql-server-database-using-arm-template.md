@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the ARM template
 
-<!-- The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create an Azure Database for PostgreSQL server using the Azure portal, PowerShell, or Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -36,72 +36,105 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Create an Azure Database for PostgreSQL server
 
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
+You create an Azure Database for MySQL server with a configured set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 ### Review the template
 
-The template used in this quickstart is from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet/).
+The template used in this quickstart is from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="147-229":::
+:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
-The template defines ________ Azure resources:
+The template defines five Azure resources:
 
-<!-- After the JSON codefence, a list of each resourceType from the JSON must exist with a link to the template reference starting with /azure/templates. For example:
-
-* [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create an key vault secret.
-
-The URL usually appears as, for example, https://docs.microsoft.com/en-us/azure/templates/Microsoft.Network/2019-11-01/loadBalancers for loadbalancer of Microsoft.Network. Remove the API version from the URL, the URL redirects the users to the latest version.
--->
-
-* [Azure resource type](link to the template reference)
-* [Azure resource type](link to the template reference)
+* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+* [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets)
+* [**Microsoft.DBforPostgreSQL/servers**](/azure/templates/microsoft.dbforpostgresql/servers)
+* [**Microsoft.DBforPostgreSQL/servers/virtualNetworkRules**](/azure/templates/microsoft.dbforpostgresql/servers/virtualnetworkrules)
+* [**Microsoft.DBforPostgreSQL/servers/firewallRules**](/azure/templates/microsoft.dbforpostgresql/servers/firewallrules)
 
 More Azure Database for PostgreSQL template samples can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
-<!--
- One of the following options must be included:
+# [Portal](#tab/azure-portal)
 
-  - **CLI**: In an Azure CLI Interactive codefence must contain **az group deployment create**. For example:
+Select the following link to deploy the Azure Database for PostgreSQL server template in the Azure portal:
 
-    ```azurecli-interactive
-    read -p "Enter a project name that is used for generating resource names:" projectName &&
-    read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-uri  $templateUri
-    echo "Press [ENTER] to continue ..." &&
-    read
-    ```
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-  - **PowerShell**: In an Azure PowerShell Interactive codefence must contain **New-AzResourceGroupDeployment**. For example:
+On the **Deploy Azure Database for PostgreSQL with VNet** page:
 
-    ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+1. For **Resource group**, select **Create new**, enter a name for the new resource group, and select **OK**.
 
-    $resourceGroupName = "${projectName}rg"
+2. If you created a new resource group, select a **Location** for the resource group and the new server.
 
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
+3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
 
-    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ![Deploy Azure Database for PostgreSQL with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
 
-    For an example, see Add a description. Press tab when you are done.
-    ```
+4. Change the other default settings if you want:
 
-  - **Portal**: A button with description **Deploy Resource Manager template to Azure**, with image **/media/<QUICKSTART FILE NAME>/deploy-to-azure.png*, must exist and have a link that starts with **https://portal.azure.com/#create/Microsoft.Template/uri/**:
+    * **Subscription**: the Azure subscription you want to use for the server.
+    * **Sku Capacity**: the vCore capacity, which can be *2* (the default), *4*, *8*, *16*, *32*, or *64*.
+    * **Sku Name**: the SKU tier prefix, SKU family, and SKU capacity, joined by underscores, such as *B_Gen5_1*, *GP_Gen5_2* (the default), or *MO_Gen5_32*.
+    * **Sku Size MB**: the storage size, in megabytes, of the Azure Database for PostgreSQL server (default *51200*).
+    * **Sku Tier**: the deployment tier, such as *Basic*, *GeneralPurpose* (the default), or *MemoryOptimized*.
+    * **Sku Family**: *Gen4* or *Gen5* (the default), which indicates hardware generation for server deployment.
+    * **PostgreSQL Version**: the version of PostgreSQL server to deploy, such as *9.5*, *9.6*, *10*, or *11* (the default).
+    * **Backup Retention Days**: the desired period for geo-redundant backup retention, in days (default *7*).
+    * **Geo Redundant Backup**: *Enabled* or *Disabled* (the default), depending on geo-disaster recovery (Geo-DR) requirements.
+    * **Virtual Network Name**: the name of the virtual network (default *azure_postgresql_vnet*).
+    * **Subnet Name**: the name of the subnet (default *azure_postgresql_subnet*).
+    * **Virtual Network Rule Name**: the name of the virtual network rule allowing the subnet (default *AllowSubnet*).
+    * **Vnet Address Prefix**: the address prefix for the virtual network (default *10.0.0.0/16*).
+    * **Subnet Prefix**: the address prefix for the subnet (default *10.0.0.0/16*).
 
-    ```markdown
-    [![Deploy to Azure](./media/quick-create-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
-    ```
+5. Read the terms and conditions, and then select **I agree to the terms and conditions stated above**.
 
-    To get the standard button image and find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](/azure/azure-resource-manager/templates/deploy-to-azure-button.md).
- -->
+6. Select **Purchase**.
+
+# [PowerShell](#tab/PowerShell)
+
+Use the following interactive code to create a new Azure Database for PostgreSQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for PostgreSQL server"
+$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
+$location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
+$adminUser = Read-Host -Prompt "Enter the Azure Database for PostgreSQL server's administrator account name"
+$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-postgresql-with-vnet/azuredeploy.json `
+    -serverName $serverName `
+    -administratorLogin $adminUser `
+    -administratorLoginPassword $adminPassword
+
+Read-Host -Prompt "Press [ENTER] to continue: "
+```
+
+# [CLI](#tab/CLI)
+
+Use the following interactive code to create a new Azure Database for PostgreSQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+
+```azurecli-interactive
+read -p "Enter a name for the new Azure Database for PostgreSQL server:" serverName &&
+read -p "Enter a name for the new resource group where the server will exist:" resourceGroupName &&
+read -p "Enter an Azure region (for example, centralus) for the resource group:" location &&
+read -p "Enter the Azure Database for PostgreSQL server's administrator account name:" adminUser &&
+read -p "Enter the administrator password:" adminPassword &&
+params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
+az group create --name $resourceGroupName --location $location &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-postgresql-with-vnet/azuredeploy.json &&
+read -p "Press [ENTER] to continue: "
+```
+
+---
 
 ## Review deployed resources
 
@@ -120,7 +153,7 @@ Run the following interactive code to view details about your Azure Database for
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for PostgreSQL server"
 Get-AzResource -ResourceType "Microsoft.DbForPostgreSQL/servers" -Name $serverName | ft
-Write-Host "Press [ENTER] to continue..."
+Read-Host -Prompt "Press [ENTER] to continue: "
 ```
 
 # [CLI](#tab/CLI)
@@ -128,11 +161,10 @@ Write-Host "Press [ENTER] to continue..."
 Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name and the resource group of the new server.
 
 ```azurecli-interactive
-echo "Enter your Azure Database for PostgreSQL server name:" &&
-read serverName &&
-echo "Enter the resource group where the Azure Database for PostgreSQL server exists:" &&
-read resourcegroupName &&
-az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForPostgreSQL/servers"
+read -p "Enter your Azure Database for PostgreSQL server name: " serverName &&
+read -p "Enter the resource group where the Azure Database for PostgreSQL server exists: " resourcegroupName &&
+az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForPostgreSQL/servers" &&
+read -p "Press [ENTER] to continue: "
 ```
 
 ---
@@ -156,23 +188,20 @@ When it's no longer needed, delete the resource group, which deletes the resourc
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Read-Host -Prompt "Press [ENTER] to continue: "
 ```
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
+read -p "Enter the Resource Group name: " resourceGroupName &&
 az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+read -p "Press [ENTER] to continue: "
 ```
 
 ---
 
 ## Next steps
-
-<!-- You can either make the next steps similar to the next steps in your other quickstarts, or point users to the following tutorial.-->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
