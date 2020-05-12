@@ -59,7 +59,6 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 ## File system support in SDKs, PowerShell, and Azure CLI
 
 - Get and set ACL operations are not currently recursive.
-- [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support is in public preview.
 
 
 ## Lifecycle management policies
