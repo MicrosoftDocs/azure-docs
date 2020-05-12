@@ -39,73 +39,73 @@ To create and run the sample, do the following steps:
 package main
 
 import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
+	"bytes"
+	"fmt"
+	"io/ioutil"
+	"io"
+	"log"
+	"net/http"
+	"os"
+	"strings"
+	"time"
 )
 
 func main() {
-    // Add your Computer Vision subscription key and endpoint to your environment variables.
-    subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
-    if (subscriptionKey == "") {
-        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**\n")
+	// Add your Computer Vision subscription key and endpoint to your environment variables.
+	subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
+	endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
 
-    endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
-    if ("" == endpoint) {
-        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**")
-    }
-    const uriBase = endpoint + "vision/v2.1/generateThumbnail"
-    const imageUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
+	uriBase := endpoint + "vision/v3.0/generateThumbnail"
+	const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
-    const params = "?width=100&height=100&smartCropping=true"
-    const uri = uriBase + params
-    const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
+	const params = "?width=100&height=100&smartCropping=true"
+	uri := uriBase + params
+	const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
-    reader := strings.NewReader(imageUrlEnc)
+	reader := strings.NewReader(imageUrlEnc)
 
-    // Create the HTTP client
-    client := &http.Client{
-        Timeout: time.Second * 2,
-    }
+	// Create the HTTP client
+	client := &http.Client{
+		Timeout: time.Second * 2,
+	}
 
-    // Create the POST request, passing the image URL in the request body
-    req, err := http.NewRequest("POST", uri, reader)
-    if err != nil {
-        panic(err)
-    }
+	// Create the POST request, passing the image URL in the request body
+	req, err := http.NewRequest("POST", uri, reader)
+	if err != nil {
+		panic(err)
+	}
 
-    // Add headers
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+	// Add headers
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
-    // Send the request and retrieve the response
-    resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
+	// Send the request and retrieve the response
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
 
-    defer resp.Body.Close()
+	defer resp.Body.Close()
 
-    // Read the response body.
-    // Note, data is a byte array
-    data, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        panic(err)
-    }
+	// Read the response body.
+	// Note, data is a byte array
+	data, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	
+	// Convert byte[] to io.Reader type
+	readerThumb := bytes.NewReader(data)
 
-    // Parse the JSON data
-    var f interface{}
-    json.Unmarshal(data, &f)
+	// Write the image binary to file
+	file, err := os.Create("thumb_local.png")
+	if err != nil { log.Fatal(err) }
+	defer file.Close()
+	_, err = io.Copy(file, readerThumb)
+	if err != nil { log.Fatal(err) }
 
-    // Format and display the JSON result
-    jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
-    fmt.Println(string(jsonFormatted))
+	fmt.Println("The thunbnail from local has been saved to file.")
+	fmt.Println()
 }
 ```
 
