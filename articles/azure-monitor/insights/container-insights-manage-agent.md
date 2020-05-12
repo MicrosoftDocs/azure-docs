@@ -16,7 +16,7 @@ Azure Monitor for containers uses a containerized version of the Log Analytics a
 
 If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
-### Upgrade agent on monitored AKS cluster
+### Upgrade agent on AKS cluster
 
 The process to upgrade the agent on AKS clusters consists of two straight forward steps. The first step is to disable monitoring with Azure Monitor for containers using Azure CLI. Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. Using Azure CLI allows us to remove the agent from the nodes in the cluster without impacting the solution and the corresponding data that is stored in the workspace. 
 
