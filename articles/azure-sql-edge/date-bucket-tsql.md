@@ -13,13 +13,13 @@ ms.date: 05/19/2019
 
 # Date_Bucket (Transact-SQL)
 
-This function distributes aggregate column expressions in different date or time boundaries.
+This function returns the datetime value corresponding to the start of each datetime bucket, from the default origin value of `1900-01-01 00:00:00.000`.
 
 See [Date and Time Data Types and Functions &#40;Transact-SQL&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) for an overview of all Transact-SQL date and time data types and functions.
 
 [Transact-SQL Syntax Conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET` uses a default origin date value of `1900-01-01 00:00:00.000` for example, 12 AM on Monday the 1 January 1900.
+`DATE_BUCKET` uses a default origin date value of `1900-01-01 00:00:00.000` i.e. 12:00 AM on Monday, January 1 1900.
 
 ## Syntax
 
@@ -38,20 +38,16 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
   
 |*datePart*|Abbreviations|  
 |---|---|
-|**dayofyear**|**dy**, **y**|  
 |**day**|**dd**, **d**|  
 |**week**|**wk**, **ww**|  
-|**weekday**|**dw**, **w**|  
 |**hour**|**hh**|  
 |**minute**|**mi**, **n**|  
 |**second**|**ss**, **s**|  
 |**millisecond**|**ms**|  
-|**microsecond**|**mcs**|  
-|**nanosecond**|**ns**|  
 
 *number*
 
-The integer number that decides the width of the bucket combined with *datePart* argument. This represents the width of the dataPart buckets from the origin time.
+The integer number that decides the width of the bucket combined with *datePart* argument. This represents the width of the dataPart buckets from the origin time. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -104,20 +100,26 @@ Select DATE_BUCKET(wk, 5, @date)
   
 ## number Argument
 
-The *number* argument cannot exceed the range of **int**. In the following statements, the argument for *number* exceeds the range of **int** by 1. The following statement returns the following error message: "`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`
+The *number* argument cannot exceed the range of positive **int** values. In the following statements, the argument for *number* exceeds the range of **int** by 1. The following statement returns the following error message: "`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`
   
 ```sql
 declare @date datetime2 = '2020-04-30 00:00:00'
 Select DATE_BUCKET(dd, 2147483648, @date)
 ```  
-  
-## date Argument  
 
-`DATE_BUCKET` return the base value corresponding to the data type of the `date` argument. If the expression evaluation returns in a datetime overflow, `DATE_BUCKET` will return the default origin time of `1900-01-01 00:00:00.0000000`. For example, the first statement will return an error "`Msg 517, Level 16, State 3, Line 1 Adding a value to a 'datetime2' column caused an overflow."`, while the second statement will return the value `1900-01-01 00:00:00.0000000`
+If a negative value for number is passed to the `Date_Bucket` function, the following error will be returned. 
 
 ```sql
-Select DATEADD(dd, -2147483646, SYSUTCDATETIME())
-Select DATE_BUCKET(dd, 2147483646, SYSUTCDATETIME())
+Msg 9834, Level 16, State 1, Line 1
+Invalid bucket width value passed to date_bucket function. Only positive values are allowed.
+````
+
+## date Argument  
+
+`DATE_BUCKET` return the base value corresponding to the data type of the `date` argument. In the following example, an output value with datetime2 datatype is returned. 
+
+```sql
+Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
 
 ## Remarks
