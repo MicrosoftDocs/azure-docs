@@ -53,7 +53,7 @@ Check the [Application Gateway limits](https://docs.microsoft.com/azure/azure-re
 
 ## End-to-end TLS encryption
 
-Some users may not desire unencrypted communication to the backend servers. This could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, Application Gateway supports end to end TLS encryption.
+You may not want unencrypted communication to the backend servers. You may have security requirements, compliance requirements, or the application may only accept a secure connection. Azure Application Gateway has end-to-end TLS encryption to support these requirements.
 
 End to end TLS allows you to securely transmit sensitive data to the backend encrypted while still taking advantage of the benefits of Layer 7 load-balancing features which Application Gateway provides. Some of these features are cookie-based session affinity, URL-based routing, support for routing based on sites, or ability to rewrite or inject X-Forwarded-* headers, etc.
 
