@@ -52423,6 +52423,11 @@
       "source_path": "articles/visual-studio/vs-storage-cloud-services-what-happened.md",
       "redirect_url": "/azure/storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+      "redirect_url": "/articles/virtual-network/public-ip-addresses",
+      "redirect_document_id": false
     }
  ]
 }
