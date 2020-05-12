@@ -63,7 +63,7 @@ The following table compares the uses for various kinds of access keys:
 | Call Durable Task extension APIs              | Function app<sup>1</sup> | System<sup>2</sup> |
 | Call an extension-specific Webhook (internal) | Function app<sup>1</sup> | system<sup>2</sup> |
 
-<sup>1</sup>Scope determined by the extension.
+<sup>1</sup>Scope determined by the extension.  
 <sup>2</sup>Specific names set by extension.
 
 To learn more about access keys, see the [HTTP trigger binding article](functions-bindings-http-webhook-trigger.md#obtaining-keys).
