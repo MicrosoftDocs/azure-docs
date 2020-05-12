@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: Frequently asked questions
+    href: load-balancer-faqs.md
 - name: Quickstart
   items:
   - name: Create Load Balancer - Portal
@@ -40,8 +42,8 @@
     href: components.md
   - name: Concepts
     href: concepts.md
-  - name: Types
-    href: types.md
+  - name: SKUs
+    href: skus.md
   - name: Health monitoring
     items:
     - name: Health probes
