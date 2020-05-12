@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 # SD-WAN connectivity architecture with Azure Virtual WAN
 
-Azure Virtual WAN is a networking service that brings together many cloud connectivity and security services with a single operational interface. These services include branch (via Site-to-site VPN), remote user (Point-to-site VPN), private (ExpressRoute) connectivity as well as intra-cloud transitive connectivity for Vnets, VPN and ExpressRoute interconnectivity, Routing, Azure Firewall, and encryption for private connectivity.
+Azure Virtual WAN is a networking service that brings together many cloud connectivity and security services with a single operational interface. These services include branch (via Site-to-site VPN), remote user (Point-to-site VPN), private (ExpressRoute) connectivity, intra-cloud transitive connectivity for Vnets, VPN and ExpressRoute interconnectivity, routing, Azure Firewall, and encryption for private connectivity.
 
 Although Azure Virtual WAN itself is a Software Defined WAN (SD-WAN), it is also designed to enable seamless interconnection with the premises-based SD-WAN technologies and services. Many such services are offered by our [Virtual WAN](virtual-wan-locations-partners.md) ecosystem and Azure Networking Managed Services partners [(MSPs)](../networking/networking-partners-msp.md). Enterprises that are transforming their private WAN to SD-WAN have options when interconnecting their private SD-WAN with Azure Virtual WAN. Enterprises can choose from these options:
 
