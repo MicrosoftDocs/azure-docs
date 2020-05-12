@@ -12,7 +12,7 @@ ms.date: 02/27/2020
 
 An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. This deployment model when using availability zones, ensures nodes in a given availability zone are physically separated from those defined in another availability zone. AKS clusters deployed with multiple availability zones configured across a cluster provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
-When a cluster's defines node pools across multiple zones, your workload hosted by nodes are able to tolerate a failure in a single zone. Your applications continue to be available even if there is a physical failure in a single datacenter.
+By defining node pools in a cluster to span multiple zones, nodes in a given node pool are able to continue operating even if a single zone has gone down. Your applications can continue to be available even if there is a physical failure in a single datacenter if orchestrated to tolerate failure of a subset of nodes.
 
 This article shows you how to create an AKS cluster and distribute the node components across availability zones.
 
@@ -62,9 +62,9 @@ If a single zone becomes unavailable, your applications continue to run if the c
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The backing etcd store is spread across three zones when you define the `--zones` parameter at cluster creation time. The zones which etcd is spread across are independent of what zones are selected for the initial node pool.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The control plane components such as etcd is spread across three zones if you define the `--zones` parameter at cluster creation time. The specific zones which the control plane components are spread across are independent of what explicit zones are selected for the initial node pool.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, components such as etcd will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes. These settings can only be defined at create-time.
+If you don't define any zones for the default agent pool when you create an AKS cluster, control plane components are not guaranteed to spread across availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes, but it will not change how the control plane has been spread across zones. Availability zone settings can only be defined at cluster or node pool create-time.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*.
 
