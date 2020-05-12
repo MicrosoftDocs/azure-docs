@@ -9,6 +9,7 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: has-adal-ref
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 

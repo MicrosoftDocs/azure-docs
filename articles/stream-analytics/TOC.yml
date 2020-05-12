@@ -33,6 +33,9 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Choose a streaming analytics technology
@@ -424,7 +427,7 @@
               href: /stream-analytics-query/power-azure-stream-analytics
               maintainContext: true
             - name: ROUND
-              href: /stream-analytics-query/round-azure-stream-analytics.md
+              href: /stream-analytics-query/round-azure-stream-analytics
               maintainContext: true
             - name: SIGN
               href: /stream-analytics-query/sign-azure-stream-analytics
@@ -470,7 +473,7 @@
               href: /stream-analytics-query/regexmatch-azure-stream-analytics
               maintainContext: true
             - name: REPLACE
-              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              href: /stream-analytics-query/replace-azure-stream-analytics
               maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
@@ -518,7 +521,7 @@
           href: /stream-analytics-query/case-azure-stream-analytics
           maintainContext: true
         - name: COALESCE
-          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
+          href: /stream-analytics-query/coalesce-azure-stream-analytics
           maintainContext: true
         - name: CREATE TABLE
           href: /stream-analytics-query/create-table-stream-analytics

@@ -128,7 +128,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 
 ## Service plans that cannot be assigned at the same time
 
-Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 E1* and *Office 365 E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 E1* and *Office 365 E3* in your Azure AD organization, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).

@@ -103,7 +103,15 @@
   items:
   - name: Authentication basics
     displayName: Auth basics
-    href: authentication-scenarios.md
+    items:
+    - name: Authentication vs. authorization
+      href: authentication-vs-authorization.md
+    - name: Security tokens
+      href: security-tokens.md
+    - name: Application model
+      href: application-model.md
+    - name: App sign-in flow
+      href: app-sign-in-flow.md
   - name: Authentication flows and app scenarios
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md

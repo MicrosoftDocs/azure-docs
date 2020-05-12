@@ -11,7 +11,7 @@ ms.author: spelluru
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains
-Diagnostic Settings now allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
+Diagnostic settings allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
 
 ## Prerequisites
 
@@ -70,16 +70,5 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
     }
     ```
 
-## Schema for publish/delivery failure logs
-
-| Property name | Data type | Description |
-| ------------- | --------- | ----------- | 
-| Time | DateTime | The time when the log entry was generated <p>**Example value:**  01-29-2020 09:52:02.700</p> |
-| EventSubscriptionName | String | The name of the event subscription <p>**Example value:** "EVENTSUB1"</p> <p>This property exists only for delivery failure logs.</p>  |
-| Category | String | The log category name. <p>**Example values:** "DeliveryFailures" or "PublishFailures" | 
-| OperationName | String | The name of the operation performed while encountering the failure.<p>**Example Values:** "Deliver" for delivery failures. |
-| Message | String | The log message for the user explaining the reason for the failure and other additional details. |
-| ResourceId | String | The resource ID for the topic/domain resource<p>**Example Values:** `/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
-
 ## Next steps
-See the following article: [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md)
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).
