@@ -14,7 +14,7 @@ manager: lizross
 
 In this article, you'll learn how to set up an Azure Files storage profile authenticated by a domain controller on an existing Windows Virtual Desktop host pool.
 
-## Prerequisite
+## Prerequisites
 
 Before you start, make sure you've set up Azure Active Directory (AD) authentication over SMB for Azure file shares. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
