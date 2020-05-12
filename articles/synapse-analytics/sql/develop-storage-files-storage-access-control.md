@@ -254,6 +254,58 @@ Database scoped credential is not required to allow access to publicly available
 
 ---
 
+## Examples
+
+**External table that access publicly available data source**
+
+Use the following script to create a table that access publicly available data source.
+
+```sql
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+CREATE EXTERNAL DATA SOURCE publicData
+WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
+GO
+
+CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/userdata.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+```
+
+**External table that access data source using credential**
+
+Modify the following script to create an external table that access Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
+
+```sql
+-- Create master key in databases with some password (one-off per database)
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
+GO
+
+-- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+
+CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+
+-- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
+
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+-- Uncomment one of these options depending on authentication method that you want to use to access data source:
+--,CREDENTIAL = MyIdentity 
+--,CREDENTIAL = WorkspaceIdentity 
+--,CREDENTIAL = SasCredential 
+)
+
+CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+
+```
+
 ## Next steps
 
 The articles listed below will help you learn how query different folder types, file types, and create and use views:
