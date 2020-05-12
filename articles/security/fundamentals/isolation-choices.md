@@ -268,7 +268,7 @@ Each level has one-to-many containment of levels below.
 
 The account and subscription are Microsoft Azure platform concepts to associate billing and management.
 
-Logical servers and databases are SQL Database-specific concepts and are managed by using SQL Database, provided OData and TSQL interfaces or via the Azure portal.
+Logical SQL servers and databases are SQL Database-specific concepts and are managed by using SQL Database, provided OData and TSQL interfaces or via the Azure portal.
 
 Servers in SQL Database are not physical or VM instances, instead they are collections of databases, sharing management and security policies, which are stored in so called “logical master” database.
 
@@ -279,7 +279,7 @@ Logical master databases include:
 - SQL logins used to connect to the server
 - Firewall rules
 
-Billing and usage-related information for databases from the same logical server are not guaranteed to be on the same physical instance in the cluster, instead applications must provide the target database name when connecting.
+Billing and usage-related information for databases from the same server are not guaranteed to be on the same physical instance in the cluster, instead applications must provide the target database name when connecting.
 
 From a customer perspective, a server is created in a geo-graphical region while the actual creation of the server happens in one of the clusters in the region.
 

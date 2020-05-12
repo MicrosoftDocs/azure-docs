@@ -1,7 +1,7 @@
 ---
 title: Authorize server and database access using logins and user accounts
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
-description: Learn about how Azure SQL Database, SQL Managed Instance and Azure Synapse Analytics authenticate users for access using logins and user accounts. Also learn how to database roles and explicit permissions to authorize logins and users to perform actions and query data.
+description: Learn about how Azure SQL Database, SQL Managed Instance and Azure Synapse authenticate users for access using logins and user accounts. Also learn how to database roles and explicit permissions to authorize logins and users to perform actions and query data.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 ms.service: sql-database
@@ -19,13 +19,13 @@ ms.date: 03/23/2020
 In this article, you learn about:
 
 - Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
-- The access and authorization configuration after initially creating a new logical SQL server in Azure 
+- The access and authorization configuration after initially creating a new server in Azure SQL
 - How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
 - How to add user accounts in user databases, either associated with logins or as contained user accounts
 - Configure user accounts with permissions in user databases by using database roles and explicit permissions
 
 > [!IMPORTANT]
-> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) are referred to collectively in the remainder of this article as databases, and the server is referring to the [logical SQL server](sql-database-servers.md) that hosts databases for Azure SQL Database and Azure Synapse Analytics. 
+> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](sql-database-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
 
 ## Authentication and authorization
 
@@ -48,43 +48,43 @@ When a user attempts to connect to a database, they provide a user account and a
 
 ## Existing logins and user accounts after creating a new database
 
-When you first deploy your logical SQL Server or SQL Managed Instance, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
+When you first deploy Azure SQL, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
 
-- A SQL login with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user accounts for logging on to SQL Database, SQL Managed Instance and Azure Synapse Analytics.
+- A SQL login with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user accounts for logging on to SQL Database, SQL Managed Instance and Azure Synapse.
 - This login is granted full administrative permissions on all databases as a [server-level principal](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). This login has all available permissions and cannot be limited. In a SQL Managed Instance, this login is added to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (this role does not exist in Azure SQL Database).
 - A [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) called `dbo` is created for this login in each user database. The [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) user has all database permissions in the database and is mapped to the `db_owner` fixed database role. Additional fixed database roles are discussed later in this article.
 
-To identify the administrator accounts for a database, open the Azure portal, and navigate to the **Properties** tab of your logical SQL server or SQL Managed Instance.
+To identify the administrator accounts for a database, open the Azure portal, and navigate to the **Properties** tab of your server or managed instance.
 
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins.png)
 
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
-> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
+> The admin login name cannot be changed after it has been created. To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
 ## Create additional logins and users having administrative permissions
 
-At this point, your logical SQL Server or SQL Managed Instance is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
+At this point, your server or managed instance is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
 
 - **Create an Azure Active Directory administrator account having full administrative permissions**
 
-  Enable Azure Active Directory authentication and create an Azure AD administrator login. One Azure Active Directory account can be configured as an administrator of the SQL deployment with full administrative permissions. This account can be either an individual or security group account. An Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database, SQL Managed Instance, or Azure Synapse Analytics. For detailed information on enabling Azure AD authentication for all SQL deployment types, see the following articles:
+  Enable Azure Active Directory authentication and create an Azure AD administrator login. One Azure Active Directory account can be configured as an administrator of the SQL deployment with full administrative permissions. This account can be either an individual or security group account. An Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database, SQL Managed Instance, or Azure Synapse. For detailed information on enabling Azure AD authentication for all SQL deployment types, see the following articles:
 
   - [Use Azure Active Directory Authentication for authentication with SQL](sql-database-aad-authentication.md)
   - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
 
 - **In SQL Managed Instance, create SQL logins having full administrative permissions**
 
-  - Create an additional SQL Server login in the SQL Managed Instance
+  - Create an additional SQL login in the master database
   - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
+  - Alternatively, create an [Azure AD login](sql-database-aad-authentication-configure.md)#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
 
 - **In SQL Database, create SQL logins having limited administrative permissions**
 
-  - Create an additional SQL login in the master database for an Azure SQL Database
+  - Create an additional SQL login in the master database
   - Create a user account in the master database associated with this new login
-  - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement (for Azure Synapse Analytics, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
+  - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement (for Azure Synapse, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
 
   > [!NOTE]
   > `dbmanager` and `loginmanager` roles do **not** pertain to SQL Managed Instance deployments.
@@ -117,12 +117,12 @@ For examples showing how to create logins and users, see:
 
 - [Create login for Azure SQL Database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
 - [Create login for Azure SQL Managed Instance](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Create login for Azure Synapse Analytics](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Create login for Azure Synapse](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
-> For a security tutorial that includes creating SQL Server a contained users in Azure SQL Database, see [Tutorial: Secure a single or pooled database](sql-database-security-tutorial.md).
+> For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](sql-database-security-tutorial.md).
 
 ## Using fixed and custom database roles
 
@@ -135,7 +135,7 @@ After creating a user account in a database, either based on a login or as a con
   - To add a user to a fixed database role:
 
     - In Azure SQL Database, use the [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) statement. For examples, see [ALTER ROLE examples](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse Analytics, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
+    - Azure Synapse, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
 
 - **Custom database role**
 

@@ -66,7 +66,7 @@ No special configuration needed.
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -88,7 +88,7 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 
 ## Connect to your database
 
-Use Visual Studio Code to establish a connection to your Azure SQL Database server.
+Use Visual Studio Code to establish a connection to your server.
 
 > [!IMPORTANT]
 > Before continuing, make sure that you have your server and sign in information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.

@@ -63,7 +63,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## AzureSSISLocation
-**AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) on an Azure SQL database. Set the **AzureSSISLocation** to the same location as the SQL Database server that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
+**AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) in Azure SQL Database. Set the **AzureSSISLocation** to the same location as [logical SQL server](../sql-database/sql-database-servers.md) that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
 
 ## AzureSSISNodeSize
 Data Factory, including the Azure-SSIS IR, supports the following options:

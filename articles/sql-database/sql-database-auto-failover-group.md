@@ -1,7 +1,7 @@
 ---
 title: Auto-failover groups
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Auto-failover groups allow you to manage replication and automatic / coordinated failover of a group of databases on a SQL Database server or all databases in a SQL Managed Instance.
+description: Auto-failover groups allow you to manage replication and automatic / coordinated failover of a group of databases on a server or all databases in a managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -16,16 +16,16 @@ ms.date: 2/10/2020
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Auto-failover groups allow you to manage replication and failover of a group of databases on an AzureSQL Database server or all databases in an Azure SQL Managed Instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](sql-database-active-geo-replication.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance service availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region.
+Auto-failover groups allow you to manage replication and failover of a group of databases on a server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](sql-database-active-geo-replication.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance service availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Auto-failover groups support replication of all databases in the group to only one secondary server or instance in a different region.
 
 > [!NOTE]
-> If you want multiple Azure SQL Database secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md). 
+> If you want multiple Azure SQL Database secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
 
 When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. Typically these are incidents that cannot be self-mitigated by the built-in automatic high availability operations. The examples of failover triggers include an incident caused by a SQL tenant ring or control ring being down due to an OS kernel memory leak on several compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was cut during routine hardware decommissioning.  For more information, see [SQL Database High Availability](sql-database-high-availability.md).
 
 In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
-When you are using auto-failover groups with automatic failover policy, any outage that impacts databases on the SQL Database server or SQL Managed Instance results in automatic failover. You can manage auto-failover group using:
+When you are using auto-failover groups with automatic failover policy, any outage that impacts databases on a server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - [Azure portal](sql-database-implement-geo-distributed-database.md)
 - [Azure CLI: Failover Group](scripts/sql-database-add-single-db-to-failover-group-cli.md)
@@ -40,26 +40,26 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group (FOG)**
 
-  A failover group is a named group of databases managed by a single SQL Database server or within a single SQL Managed Instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for SQL Managed Instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
+  A failover group is a named group of databases managed by a single server or within a managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for SQL Managed Instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
   
   > [!IMPORTANT]
   > The name of the failover group must be globally unique within the `.database.windows.net` domain.
 
-- **SQL Database servers**
+- **Servers**
 
-     With SQL Database servers, some or all of the user databases on a single SQL Database server can be placed in a failover group. Also, a SQL Database server supports multiple failover groups on a single SQL Database server.
+     With servers, some or all of the user databases on a server can be placed in a failover group. Also, a server supports multiple failover groups on a single server.
 
 - **Primary**
 
-  The SQL Database server or SQL Managed Instance that hosts the primary databases in the failover group.
+  The server or managed instance that hosts the primary databases in the failover group.
 
 - **Secondary**
 
-  The SQL Database server or SQL Managed Instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary.
+  The server or managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary.
 
 - **Adding single databases to failover group**
 
-  You can put several single databases on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server.  You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+  You can put several single databases on the same server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server.  You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
 
   > [!IMPORTANT]
   > Make sure that the secondary server doesn't have a database with the same name unless it is an existing secondary database. In failover groups for SQL Managed Instance all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
@@ -68,34 +68,33 @@ To achieve real business continuity, adding database redundancy between datacent
 
   You can put all or several databases within an elastic pool into the same failover group. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name (secondary pool). You must ensure that the secondary server contains an elastic pool with the same exact name and enough free capacity to host the secondary databases that will be created by the failover group. If you add a database in the pool that already has a secondary database in the secondary pool, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary pool.
   
-- **Initial Seeding** 
+- **Initial Seeding**
 
   When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seed to complete depends on the size of your data, number of replicated databases, and the speed of the link between the entities in the failover group. Under normal circumstances, typical seeding speed is 50-500 GB an hour for SQL Database, and 18-35 GB an hour for a SQL Managed Instance. Seeding is performed for all databases in parallel. You can use the stated seeding speed, along with the number of databases and the total size of data to estimate how long the initial seeding phase will take before data replication starts.
 
   For SQL Managed Instance, the speed of the Express Route link between the two instances also needs to be considered when estimating the time of the initial seeding phase. If the speed of the link between the two instances is slower than what is necessary, the time to seed is likely be notably impacted. You can use the stated seeding speed, number of databases, total size of data, and the link speed to estimate how long the initial seeding phase will take before data replication starts. For example, for a single 100 GB database, the initial seed phase would take anywhere from 2.8 - 5.5 hours if the link is capable of pushing 35 GB per hour. If the link can only transfer 10 GB per hour, then seeding a 100 GB database will take about 10 hours. If there are multiple databases to replicate, seeding will be executed in parallel, and, when combined with a slow link speed, the initial seeding phase may take considerably longer, especially if the parallel seeding of data from all databases exceeds the available link bandwidth. If the network bandwidth between two instances is limited and you are adding multiple managed instances to a failover group, consider adding multiple managed instances to the failover group sequentially, one by one.
 
-  
 - **DNS zone**
 
   A unique ID that is automatically generated when a new SQL Managed Instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone.
   
   > [!NOTE]
-  > A DNS zone ID is not required for failover groups created for SQL Database servers.
+  > A DNS zone ID is not required for failover groups created for SQL Database.
 
 - **Failover group read-write listener**
 
-  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write SQL workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
+  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write SQL workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
+  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Automatic failover policy**
 
   By default, a failover group is configured with an automatic failover policy. Azure triggers failover after the failure is detected and the grace period has expired. The system must verify that the outage cannot be mitigated by the built-in [high availability infrastructure](sql-database-high-availability.md) due to the scale of the impact. If you want to control the failover workflow from the application, you can turn off automatic failover.
   
   > [!NOTE]
-  > Because verification of the scale of the outage and how quickly it can be mitigated involves human actions by the operations team, the grace period cannot be set below one hour. This limitation applies to all databases in the failover group regardless of their data synchronization state. 
+  > Because verification of the scale of the outage and how quickly it can be mitigated involves human actions by the operations team, the grace period cannot be set below one hour. This limitation applies to all databases in the failover group regardless of their data synchronization state.
 
 - **Read-only failover policy**
 
@@ -134,19 +133,19 @@ Permissions for a failover group are managed via [role-based access control (RBA
 
 ### Create failover group
 
-To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a SQL Managed Instance, you need RBAC write access to both the primary and secondary SQL Managed Instance, but permissions on individual databases are not relevant since individual SQL Managed Instance databases cannot be added to or removed from a failover group. 
+To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a SQL Managed Instance, you need RBAC write access to both the primary and secondary SQL Managed Instance, but permissions on individual databases are not relevant since individual SQL Managed Instance databases cannot be added to or removed from a failover group.
 
 ### Update a failover group
 
-To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary SQL Database server or SQL Managed Instance.  
+To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed Instance.  
 
 ### Failover a failover group
 
-To fail over a failover group, you need RBAC write access to the failover group on the new primary SQL Database server or SQL Managed Instance.
+To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance.
 
 ## Best practices for SQL Database
 
-The auto-failover group must be configured on the primary SQL Database server and will connect it to the secondary SQL Database server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
+The auto-failover group must be configured on the primary server and will connect it to the secondary server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -185,24 +184,23 @@ If an outage is detected, SQL waits for the period you specified by `GracePeriod
 
 To illustrate the change sequence, we will assume that server A is the primary server, server B is the existing secondary server, and server C is the new secondary in the third region.  To make the transition, follow these steps:
 
-1.	Create additional secondaries of each database on server A to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server A will have two secondaries, one on server B and one on server C. This will guarantee that the primary databases remain protected during the transition.
-2.	Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
-3.  Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
-4.	Add all primary databases on server A to the new failover group.
-5.	Drop server B. All databases on B will be deleted automatically. 
-
+1. Create additional secondaries of each database on server A to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server A will have two secondaries, one on server B and one on server C. This will guarantee that the primary databases remain protected during the transition.
+2. Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
+3. Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
+4. Add all primary databases on server A to the new failover group.
+5. Drop server B. All databases on B will be deleted automatically.
 
 ### Changing primary region of the failover group
 
 To illustrate the change sequence, we will assume server A is the primary server, server B is the existing secondary server, and server C is the new primary in the third region.  To make the transition, follow these steps:
 
-1.	Perform a planned failover to switch the primary server to B. Server A will become the new secondary server. The failover may result in several minutes of downtime. The actual time will depend on the size of failover group.
-2.	Create additional secondaries of each database on server B to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server B will have two secondaries, one on server A and one on server C. This will guarantee that the primary databases remain protected during the transition.
-3.	Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
-4.  Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
-5.	Add all primary databases on B to the new failover group. 
-6.	Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C. As in step 1, the failover may result in several minutes of downtime.
-6.	Drop the server A. All databases on A will be deleted automatically.
+1. Perform a planned failover to switch the primary server to B. Server A will become the new secondary server. The failover may result in several minutes of downtime. The actual time will depend on the size of failover group.
+2. Create additional secondaries of each database on server B to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server B will have two secondaries, one on server A and one on server C. This will guarantee that the primary databases remain protected during the transition.
+3. Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
+4. Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
+5. Add all primary databases on B to the new failover group.
+6. Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C. As in step 1, the failover may result in several minutes of downtime.
+7. Drop the server A. All databases on A will be deleted automatically.
 
 > [!IMPORTANT]
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
@@ -220,7 +218,7 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
-### Creating the secondary instance 
+### Creating the secondary instance
 
 To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional `DNS Zone Partner` parameter using the Azure portal, PowerShell, or the REST API.
 
@@ -257,6 +255,7 @@ If you have a logically isolated read-only workload that is tolerant to certain 
 
 > [!NOTE]
 > In certain service tiers, SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+>
 > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
@@ -277,10 +276,10 @@ The DNS update of the read-write listener will happen immediately after the fail
 
 Let's assume that instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new secondary instance in the third region.  To make the transition, follow these steps:
 
-1.	Create instance C with same size as A and in the same DNS zone. 
-2.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
-3.	Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with SQL Managed Instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
-4.	Delete instance B if not needed to avoid unnecessary charges.
+1. Create instance C with same size as A and in the same DNS zone.
+2. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
+3. Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with SQL Managed Instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+4. Delete instance B if not needed to avoid unnecessary charges.
 
 > [!NOTE]
 > After step 2 and until step 3 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
@@ -289,13 +288,13 @@ Let's assume that instance A is the primary instance, instance B is the existing
 
 Let's assume instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new primary instance in the third region.  To make the transition, follow these steps:
 
-1.	Create instance C with same size as B and in the same DNS zone. 
-2.	Connect to instance B and manually failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
-3.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
-4.	Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
-5.	Delete instance A if not needed to avoid unnecessary charges.
+1. Create instance C with same size as B and in the same DNS zone.
+2. Connect to instance B and manually failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
+3. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
+4. Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+5. Delete instance A if not needed to avoid unnecessary charges.
 
-> [!CAUTION] 
+> [!CAUTION]
 > After step 3 and until step 4 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
 
 > [!IMPORTANT]
@@ -325,7 +324,7 @@ If your business continuity plan requires failover using groups with automatic f
 2. [Create a public load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
 3. [Create a virtual network and the virtual machines](../load-balancer/quickstart-load-balancer-standard-public-portal.md) for your front-end components
 4. [Create network security group](../virtual-network/security-overview.md) and configure inbound connections.
-5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](../virtual-network/security-overview.md#service-tags).
+5. Ensure that the outbound connections are open to Azure SQL Database by using ‘Sql’ [service tag](../virtual-network/security-overview.md#service-tags).
 6. Create a [SQL database firewall rule](sql-database-firewall-configure.md) to allow inbound traffic from the public IP address you create in step 1.
 
 For more information on how to configure outbound access and what IP to use in the firewall rules, see [Load balancer outbound connections](../load-balancer/load-balancer-outbound-connections.md).
@@ -349,7 +348,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
    > [!IMPORTANT]
    > Misconfigured NSG security rules leads to stuck database copy operations.
 
-- The secondary SQL Managed Instance is configured with the correct DNS zone ID. DNS zone is a property of a SQL Managed Instance and underlying virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first SQL Managed Instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. SQL Managed Instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
+- The secondary SQL Managed Instance is configured with the correct DNS zone ID. DNS zone is a property of a SQL Managed Instance and underlying virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first SQL Managed Instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. SQL Managed Instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance.
 
    > [!NOTE]
    > For a detailed tutorial on configuring failover groups with SQL Managed Instance, see [add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md).
@@ -379,7 +378,7 @@ For information about using point-in-time restore with failover groups, see [Poi
 Be aware of the following limitations:
 
 - Failover groups cannot be created between two servers or instances in the same Azure regions.
-- Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name. 
+- Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 
 ## Programmatically managing failover groups
@@ -460,14 +459,12 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ---
 
-
-
 ## Next steps
 
 - For detailed tutorials, see
-    - [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md)
-    - [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
-    - [Add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+  - [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md)
+  - [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+  - [Add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 - For sample scripts, see:
   - [Use PowerShell to configure active geo-replication for Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

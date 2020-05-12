@@ -16,8 +16,7 @@ ms.date: 04/14/2020
 
 # Manage Azure SQL Database long-term backup retention
 
-In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell. You can configure long-term retention for a [managed instance](sql-database-managed-instance-long-term-backup-retention-configure.md) as well,  but it is currently in limited public preview. 
-
+In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell. You can configure long-term retention for an [Azure SQL Managed Instance](sql-database-managed-instance-long-term-backup-retention-configure.md) as well,  but it is currently in limited public preview.
 
 ## Using Azure portal
 
@@ -44,7 +43,7 @@ You can configure SQL Database to [retain automated backups](sql-database-long-t
 
 View the backups that are retained for a specific database with a LTR policy, and restore from those backups.
 
-1. In the Azure portal, select your logical SQL server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
+1. In the Azure portal, select your server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
 
    ![select database](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

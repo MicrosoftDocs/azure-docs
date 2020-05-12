@@ -90,7 +90,7 @@ You will use the server ID in the next step.
 
 ## Create the Private Endpoint
 
-Create a private endpoint for the SQL Database server in your Virtual Network:
+Create a private endpoint for the logical SQL server in your Virtual Network:
 
 ```azurecli-interactive
 az network private-endpoint create \  
@@ -105,7 +105,7 @@ az network private-endpoint create \
 
 ## Configure the Private DNS Zone
 
-Create a Private DNS Zone for SQL Database server domain and create an association link with the Virtual Network.
+Create a Private DNS Zone for SQL Database domain and create an association link with the Virtual Network.
 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \
@@ -152,9 +152,9 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access SQL Database Server privately from the VM
+## Access SQL Database privately from the VM
 
-In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
+In this section, you will connect to the SQL Database from the VM using the Private Endpoint.
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 2. Enter nslookup myserver.database.windows.net

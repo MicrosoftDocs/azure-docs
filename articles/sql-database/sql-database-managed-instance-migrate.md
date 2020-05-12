@@ -17,7 +17,7 @@ ms.date: 07/11/2019
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 > [!NOTE]
-> If you want to quickly start and try Azure SQL Managed Instance, you might want to go to [Quick-start guide](sql-database-managed-instance-quickstart-guide.md) instead of this page. 
+> If you want to quickly start and try Azure SQL Managed Instance, you might want to go to [Quick-start guide](sql-database-managed-instance-quickstart-guide.md) instead of this page.
 
 At a high level, the database migration process looks like:
 
@@ -37,16 +37,15 @@ At a high level, the database migration process looks like:
 
 First, determine whether SQL Managed Instance is compatible with the database requirements of your application. The managed instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
-Use the [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality prior to migrating. DMA does not yet support managed instance as a migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review the list of reported feature parity and compatibility issues against product documentation. See [Azure SQL Database features](sql-database-features.md) to check are there some reported blocking issues that not blockers in managed instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with SQL Managed Instance. For example, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in managed instances.
-
-If there are some reported blocking issues that are not removed with the managed instance deployment option, you might need to consider an alternative option, such as [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
+Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. If there are some reported blocking issues, you might need to consider an alternative option, such as [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
 - If absolutely need to stay at a specific version of SQL Server (2012, for instance).
 - If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
 
-If you have resolved all identified migration blockers and continuing the migration to managed instance, note that some of the changes might affect performance of your workload:
+If you have resolved all identified migration blockers and continuing the migration to SQL Managed Instance, note that some of the changes might affect performance of your workload:
+
 - Mandatory full recovery model and regular automated backup schedule might impact performance of your workload or maintenance/ETL actions if you have periodically used simple/bulk-logged model or stopped backups on demand.
 - Different server or database level configurations such as trace flags or compatibility levels
 - New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
@@ -55,11 +54,12 @@ SQL Managed Instance guarantees 99.99% availability even in critical scenarios, 
 
 ### Create performance baseline
 
-If you need to compare the performance of your workload on managed instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. 
+If you need to compare the performance of your workload on managed instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison.
 
 Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO latency, throughput, IOPS, average/max page life expectancy, average max size of tempdb. You would like to have similar or even better parameters after migration, so it is important to measure and record the baseline values for these parameters. In addition to system parameters, you would need to select a set of the representative queries or the most important queries in your workload and measure min/average/max duration, CPU usage for the selected queries. These values would enable you to compare performance of workload running on managed instance to the original values on your source SQL Server.
 
-Some of the parameters that you would need to measure on your SQL Server instance are: 
+Some of the parameters that you would need to measure on your SQL Server instance are:
+
 - [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and peak CPU usage.
 - [Monitor memory usage on your SQL Server instance](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, [In-memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. In addition, you should find average and peak values of Page Life Expectancy memory performance counter.
 - Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view or [performance counters](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -73,8 +73,9 @@ As an outcome of this activity you should have documented average and peak value
 ## Deploy to an optimally-sized managed instance
 
 SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
+
 - Based on the baseline CPU usage you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where managed instance is installed](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-- Based on the baseline memory usage choose [the service tier that has matching memory](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen so you would need to select the managed instance with the amount of vCores that has matching memory (for example 5.1 GB/vCore in Gen5). 
+- Based on the baseline memory usage choose [the service tier that has matching memory](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen so you would need to select the managed instance with the amount of vCores that has matching memory (for example 5.1 GB/vCore in Gen5).
 - Based on the baseline IO latency of the file subsystem choose between General Purpose (latency greater than 5ms) and Business Critical service tiers (latency less than 3 ms).
 - Based on baseline throughput pre-allocate the size of data or log files to get expected IO performance.
 
@@ -89,7 +90,7 @@ To learn how to create the VNet infrastructure and a managed instance, see [Crea
 
 ## Select migration method and migrate
 
-The managed instance deployment option targets user scenarios requiring mass database migration from on-premises or IaaS database implementations. They are optimal choice when you need to lift and shift the back end of the applications that regularly use instance level and / or cross-database functionalities. If this is your scenario, you can move an entire instance to a corresponding environment in Azure without the need to re-architect your applications.
+The managed instance deployment option targets user scenarios requiring mass database migration from on-premises or Azure VM database implementations. They are optimal choice when you need to lift and shift the back end of the applications that regularly use instance level and / or cross-database functionalities. If this is your scenario, you can move an entire instance to a corresponding environment in Azure without the need to re-architect your applications.
 
 To move SQL instances, you need to plan carefully:
 
@@ -129,27 +130,29 @@ The following table provides more information regarding the methods you can use 
 |Restore from Azure storage to managed instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - When migrating a database protected by [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) to a managed instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to managed instance](sql-database-managed-instance-migrate-tde-certificate.md)
+>
+> - When migrating a database protected by [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to managed instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a quickstart showing how to restore a database backup to a managed instance using a SAS credential, see [Restore from backup to a managed instance](sql-database-managed-instance-get-started-restore.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-
 ## Monitor applications
 
 Once you have completed the migration to managed instance, you should track the application behavior and performance of your workload. This process includes the following activities:
+
 - [Compare performance of the workload running on the Managed Instance](#compare-performance-with-the-baseline) with the [performance baseline that you created on the source SQL Server](#create-performance-baseline).
 - Continuously [monitor performance of your workload](#monitor-performance) to identify potential issues and improvement.
 
 ### Compare performance with the baseline
 
-The first activity that you would need to take immediately after successful migration is to compare the performance of the workload with the baseline workload performance. The goal of this activity is to confirm that the workload performance on your managed instance meets your needs. 
+The first activity that you would need to take immediately after successful migration is to compare the performance of the workload with the baseline workload performance. The goal of this activity is to confirm that the workload performance on your managed instance meets your needs.
 
-Database migration to managed instance keeps database settings and its original compatibility level in majority of cases. The original settings are preserved where possible in order to reduce risk of some performance degradations compared to your source SQL Server. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in managed instance. Compatibility level of system databases is 140. Since migration to managed instance is actually migrating to the latest version of SQL Server Database Engine, you should be aware that you need to re-test performance of your workload to avoid some surprising performance issues.
+Database migration to managed instance keeps database settings and its original compatibility level in majority of cases. The original settings are preserved where possible in order to reduce risk of some performance degradations compared to your source SQL Server. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in managed instance. Compatibility level of system databases is 140. Since migration to managed instance is actually migrating to the latest version of SQL Server database engine, you should be aware that you need to re-test performance of your workload to avoid some surprising performance issues.
 
 As a prerequisite, make sure that you have completed the following activities:
+
 - Align your settings on managed instance with the settings from the source SQL Server instance by investigating various instance, database, temdb settings, and configurations. Make sure that you have not changed settings like compatibility levels or encryption before you run the first performance comparison, or accept the risk that some of the new features that you enabled might affect some queries. To reduce migration risks, change the database compatibility level only after performance monitoring.
 - Implement [storage best practice guidelines for General Purpose](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525) such as pre-allocating the size of the files to get the better performance.
 - Learn about the [key environment differences that might cause the performance differences between managed instance and SQL Server]( https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) and identify the risks that might affect the performance.
@@ -161,8 +164,9 @@ As a result, you should compare performance parameters with the baseline and ide
 > In many cases, you would not be able to get exactly matching performance on managed instance and SQL Server. Azure SQL Managed Instance is a SQL Server database engine but infrastructure and High-availability configuration on managed instance may introduce some difference. You might expect that some queries would be faster while some other might be slower. The goal of comparison is to verify that workload performance in managed instance matches the performance on SQL Server (in average), and identify are there any critical queries with the performance that don’t match your original performance.
 
 The outcome of the performance comparison might be:
+
 - Workload performance on managed instance is aligned or better that the workload performance on SQL Server. In this case you have successfully confirmed that migration is successful.
-- Majority of the performance parameters and the queries in the workload work fine, with some exceptions with degraded performance. In this case, you would need to identify the differences and their importance. If there are some important queries with degraded performance, you should investigate are the underlying SQL plans changed or the queries are hitting some resource limits. Mitigation in this case could be to apply some hints on the critical queries (for example changed compatibility level, legacy cardinality estimator) either directly or using plan guides, rebuild or create statistics and indexes that might affect the plans. 
+- Majority of the performance parameters and the queries in the workload work fine, with some exceptions with degraded performance. In this case, you would need to identify the differences and their importance. If there are some important queries with degraded performance, you should investigate are the underlying SQL plans changed or the queries are hitting some resource limits. Mitigation in this case could be to apply some hints on the critical queries (for example changed compatibility level, legacy cardinality estimator) either directly or using plan guides, rebuild or create statistics and indexes that might affect the plans.
 - Most of the queries are slower on managed instance compared to your source SQL Server. In this case try to identify the root causes of the difference such as [reaching some resource limit]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) like IO limits, memory limit, instance log rate limit, etc. If there are no resource limits that can cause the difference, try to change compatibility level of the database or change database settings like legacy cardinality estimation and re-start the test. Review the recommendations provided by managed instance or Query Store views to identify the queries that regressed performance.
 
 > [!IMPORTANT]
@@ -173,16 +177,16 @@ Make the change of the parameters or upgrade service tiers to converge to the op
 ### Monitor performance
 
 SQL Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that your would need to monitor are:
+
 - CPU usage on the instance to determine does the number of vCores that you provisioned is the right match for your workload.
 - Page-life expectancy on your managed instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
 - Wait statistics like `INSTANCE_LOG_GOVERNOR` or `PAGEIOLATCH` that will tell do you have storage IO issues, especially on General Purpose tier where you might need to pre-allocate files to get better IO performance.
 
 ## Leverage advanced PaaS features
 
-Once you are on a fully managed platform and you have verified that workload performances are matching your SQL Server workload performance, take advantages that are provided automatically as part of the service. 
+Once you are on a fully managed platform and you have verified that workload performances are matching your SQL Server workload performance, take advantages that are provided automatically as part of the service.
 
 Even if you don't make some changes in managed instance during the migration, there are high chances that you would turn on some of the new features while you are operating your instance to take an advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
-
 
 For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
 

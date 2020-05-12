@@ -14,9 +14,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/10/2020
 ---
-# Quickstart: Use SSMS to connect and query an Azure SQL database
+# Quickstart: Use SSMS to connect and query Azure SQL Database
 
-In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database or SQL Managed Instance and run some queries.
+In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to Azure SQL Database or SQL Managed Instance and run some queries.
 
 ## Prerequisites
 
@@ -30,20 +30,20 @@ If you simply want to run some ad-hoc queries without installing SSMS, see [Quic
 
 ## Get server connection information
 
-Get the connection information you need to connect to your database. You'll need the fully qualified [logical SQL server](sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
+Get the connection information you need to connect to your database. You'll need the fully qualified [server](sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Navigate to the **SQL database** or **SQL managed instance** you want to query.
 
-3. On the **Overview** page, copy the fully qualified logical SQL server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a SQL Managed Instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual logical SQL server name.
+3. On the **Overview** page, copy the fully qualified server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a SQL Managed Instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual server name.
 
 ## Connect to your database
 
-In SSMS, connect to your logical SQL server.
+In SSMS, connect to your server.
 
 > [!IMPORTANT]
-> A logical SQL server listens on port 1433. To connect to a logical SQL server from behind a corporate firewall, the firewall must have this port open.
+> A server listens on port 1433. To connect to a server from behind a corporate firewall, the firewall must have this port open.
 
 1. Open SSMS.
 
@@ -52,7 +52,7 @@ In SSMS, connect to your logical SQL server.
    | Setting      | Suggested value    | Description |
    | ------------ | ------------------ | ----------- |
    | **Server type** | Database engine | Required value. |
-   | **Server name** | The fully qualified logical SQL server name | Something like: **servername.database.windows.net**. |
+   | **Server name** | The fully qualified server name | Something like: **servername.database.windows.net**. |
    | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
    | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
    | **Password** | Server admin account password | The password from the server admin account used to create the server. |

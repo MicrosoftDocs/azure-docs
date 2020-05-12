@@ -45,8 +45,8 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
- [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates an Azure SQL Database logical server that hosts a single database or elastic pool. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts a single database or elastic pool. |
 | [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Shows the size usage information for the database.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Sets an alert rule to automatically monitor metrics in the future. |

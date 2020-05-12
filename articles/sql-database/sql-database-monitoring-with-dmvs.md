@@ -23,7 +23,7 @@ Microsoft Azure SQL Database and Azure SQL Managed Instance partially support th
 - Execution-related dynamic management views.
 - Transaction-related dynamic management views.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) in SQL Server Books Online.
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## Permissions
 
@@ -128,7 +128,7 @@ Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databas
 
 #### Identify data and log IO usage
 
-Use the following query to identify data and log IO usage. If the data or log IO is above 80%, it means users have used the available IO for the SQL DB service tier.
+Use the following query to identify data and log IO usage. If the data or log IO is above 80%, it means users have used the available IO for the SQL Database service tier.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -492,7 +492,7 @@ GO
 
 ## Monitoring connections
 
-You can use the [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) view to retrieve information about the connections established to a specific Azure SQL Database server and the details of each connection. In addition, the [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) view is helpful when retrieving information about all active user connections and internal tasks.
+You can use the [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) view to retrieve information about the connections established to a specific server and the details of each connection. In addition, the [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) view is helpful when retrieving information about all active user connections and internal tasks.
 The following query retrieves information on the current connection:
 
 ```sql
@@ -556,7 +556,7 @@ Other application types might interpret the same graph differently. For example,
 The database engine exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
 > [!NOTE]
-> You must be connected to the **master** database of your Azure SQL Database logical server or Azure SQL Managed Instance to query **sys.resource_stats** in the following examples.
+> You must be connected to the **master** database to query **sys.resource_stats** in the following examples.
 
 This example shows you how the data in this view is exposed:
 
@@ -718,7 +718,7 @@ ORDER BY 2 DESC;
 
 ### Monitoring blocked queries
 
-Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) in SQL Server Books Online.
+Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ### Monitoring query plans
 

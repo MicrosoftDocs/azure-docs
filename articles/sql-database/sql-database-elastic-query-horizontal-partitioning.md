@@ -194,7 +194,7 @@ Use regular SQL Server connection strings to connect your application, your BI, 
 
 ## Best practices
 
-* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL DB firewalls.  
+* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL Database firewalls.  
 * Validate or enforce the data distribution defined by the external table. If your actual data distribution is different from the distribution specified in your table definition, your queries may yield unexpected results.
 * Elastic query currently does not perform shard elimination when predicates over the sharding key would allow it to safely exclude certain shards from processing.
 * Elastic query works best for queries where most of the computation can be done on the shards. You typically get the best query performance with selective filter predicates that can be evaluated on the shards or joins over the partitioning keys that can be performed in a partition-aligned way on all shards. Other query patterns may need to load large amounts of data from the shards to the head node and may perform poorly

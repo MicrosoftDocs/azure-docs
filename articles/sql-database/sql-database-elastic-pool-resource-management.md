@@ -21,7 +21,7 @@ Azure SQL Database [elastic pools](https://docs.microsoft.com/azure/sql-database
 
 Resource sharing requires the system to carefully control resource usage to minimize the "noisy neighbor" effect, where a database with high resource consumption affects other databases in the same elastic pool. At the same time, the system must provide sufficient resources for features such as high availability and disaster recovery (HADR), backup and restore, monitoring, Query Store, Automatic tuning, etc. to function reliably.
 
-Azure SQL Database achieves these goals by using multiple resource governance mechanisms, including Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) for process level resource governance, Windows [File Server Resource Manager (FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) for storage quota management, and a modified and extended version of SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) to implement resource governance within each SQL Server instance running in Azure SQL Database.
+Azure SQL Database achieves these goals by using multiple resource governance mechanisms, including Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) for process level resource governance, Windows [File Server Resource Manager (FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) for storage quota management, and a modified and extended version of SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) to implement resource governance within SQL Database.
 
 The primary design goal of elastic pools is to be cost-effective. For this reason, the system intentionally allows customers to create _dense_ pools, that is pools with the number of databases approaching or at the maximum allowed, but with a moderate allocation of compute resources. For the same reason, the system doesn't reserve all potentially needed resources for its internal processes, but allows resource sharing between internal processes and user workloads.
 
@@ -29,10 +29,11 @@ This approach allows customers to use dense elastic pools to achieve adequate pe
 
 > [!IMPORTANT]
 > In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](sql-database-dtu-resource-limits-elastic-pools.md) and [vCore](sql-database-vcore-resource-limits-elastic-pools.md) elastic pools.
-> 
+>
 > The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
+
 - Tune query workload to reduce resource consumption, or spread resource consumption across multiple databases over time.
 - Reduce pool density by moving some databases to another pool, or by making them standalone databases.
 - Scale up the pool to get more resources.
@@ -41,13 +42,13 @@ For suggestions on how to implement the last two actions, see [Operational recom
 
 ## Monitoring resource consumption
 
-To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the Azure SQL Database service. 
+To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the Azure SQL Database service.
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
-|Metric name|Description|Recommended average value| 
+|Metric name|Description|Recommended average value|
 |----------|--------------------------------|------------|
-|`avg_instance_cpu_percent`|CPU utilization of the SQL Server process associated with an elastic pool, as measured by the underlying operating system. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `sqlserver_process_core_percent`, and can be viewed in Azure portal. This value is the same for every database in the same elastic pool.|Below 70%. Occasional short spikes up to 90% may be acceptable.|
+|`avg_instance_cpu_percent`|CPU utilization of the SQL process associated with an elastic pool, as measured by the underlying operating system. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `sqlserver_process_core_percent`, and can be viewed in Azure portal. This value is the same for every database in the same elastic pool.|Below 70%. Occasional short spikes up to 90% may be acceptable.|
 |`max_worker_percent`|[Worker thread]( https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide) utilization. Provided for each database in the pool, as well as for the pool itself. There are different limits on the number of worker threads at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `workers_percent`, and can be viewed in Azure portal.|Below 80%. Spikes up to 100% will cause connection attempts and queries to fail.|
 |`avg_data_io_percent`|IOPS utilization for read and write physical IO. Provided for each database in the pool, as well as for the pool itself. There are different limits on the number of IOPS at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `physical_data_read_percent`, and can be viewed in Azure portal.|Below 80%. Occasional short spikes up to 100% may be acceptable.|
 |`avg_log_write_percent`|Throughput utilizations for transaction log write IO. Provided for each database in the pool, as well as for the pool itself. There are different limits on the log throughput at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent`, and can be viewed in Azure portal. When this metric is close to 100%, all database modifications (INSERT, UPDATE, DELETE, MERGE statements, SELECT … INTO, BULK INSERT, etc.) will be slower.|Below 90%. Occasional short spikes up to 100% may be acceptable.|
@@ -83,11 +84,11 @@ Resource utilization depends on multiple factors that change over time for each 
 
 **Create new databases in a "quarantine" pool**. In scenarios where new databases are created frequently, such as applications using the tenant-per-database model, there is risk that a new database placed into an existing elastic pool will unexpectedly consume significant resources and affect other databases and internal processes in the pool. To mitigate this risk, create a separate "quarantine" pool with ample allocation of resources. Use this pool for new databases with yet unknown resource consumption patterns. Once a database has stayed in this pool for a business cycle, such as a week or a month, and its resource consumption is known, it can be moved to a pool with sufficient capacity to accommodate this additional resource usage.
 
-**Avoid overly dense logical servers**. Azure SQL Database [supports](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server) up to 5000 databases per logical server. Customers using elastic pools with thousands of databases may consider placing multiple elastic pools on a single server, with the total number of databases up to the supported limit. However, logical servers with many thousands of databases create operational challenges. Operations that require enumerating all databases on a server, for example viewing databases in the portal, will be slower. Operational errors, such as incorrect modification of server level logins or firewall rules, will affect a larger number of databases. Accidental deletion of the logical server will require assistance from Microsoft Support to recover databases on the deleted server, and will cause a prolonged outage for all affected databases.
+**Avoid overly dense servers**. Azure SQL Database [supports](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server) up to 5000 databases per server. Customers using elastic pools with thousands of databases may consider placing multiple elastic pools on a single server, with the total number of databases up to the supported limit. However, servers with many thousands of databases create operational challenges. Operations that require enumerating all databases on a server, for example viewing databases in the portal, will be slower. Operational errors, such as incorrect modification of server level logins or firewall rules, will affect a larger number of databases. Accidental deletion of the server will require assistance from Microsoft Support to recover databases on the deleted server, and will cause a prolonged outage for all affected databases.
 
-We recommend limiting the number of databases per logical server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, we recommend placing a [delete lock](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) on the logical server or its resource group.
+We recommend limiting the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, we recommend placing a [delete lock](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) on the server or its resource group.
 
-In the past, certain scenarios involving moving databases in, out, or between elastic pools on the same logical server were faster than when moving databases between logical servers. Currently, all database moves execute at the same speed regardless of source and destination logical server.
+In the past, certain scenarios involving moving databases in, out, or between elastic pools on the same server were faster than when moving databases between servers. Currently, all database moves execute at the same speed regardless of source and destination server.
 
 ## Examples
 
@@ -95,7 +96,7 @@ In the past, certain scenarios involving moving databases in, out, or between el
 
 This query calculates the `oom_per_second` metric for each resource pool, over the last 32 minutes. This query can be executed in any database in an elastic pool.
 
-```
+```sql
 SELECT pool_id,
        name AS resource_pool_name,
        IIF(name LIKE 'SloSharedPool%' OR name LIKE 'UserPool%', 'user', 'system') AS resource_pool_type,
@@ -104,16 +105,17 @@ FROM sys.dm_resource_governor_resource_pools_history_ex
 GROUP BY pool_id, name
 ORDER BY pool_id;
 ```
+
 ### Monitoring `tempdb` log space utilization
 
 This query returns the current value of the `tempdb_log_used_percent` metric. This query can be executed in any database in an elastic pool.
 
-```
+```sql
 SELECT used_log_space_in_percent AS tempdb_log_used_percent
 FROM tempdb.sys.dm_db_log_space_usage;
 ```
 
 ## Next steps
 
-* For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
-* For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning]( https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-tuning-index), and [Monitoring and performance tuning](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview).
+- For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
+- For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning]( https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-tuning-index), and [Monitoring and performance tuning](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview).

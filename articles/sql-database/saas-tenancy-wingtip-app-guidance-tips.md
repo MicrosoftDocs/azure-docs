@@ -70,7 +70,7 @@ Tips for exploring and stepping through PowerShell scripts:
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
 
-The deployment initially has tenants and catalog SQL Database logical servers to connect to. The naming of the servers depends on the database tenancy pattern (see below for specifics).
+The deployment initially has tenants and catalog servers to connect to. The naming of the servers depends on the database tenancy pattern (see below for specifics).
 
    - **Standalone application:** servers for each tenant (ex. *contosoconcerthall-&lt;User&gt;* server) and *catalog-sa-&lt;User&gt;*
    - **Database per tenant:** *tenants1-dpt-&lt;User&gt;*  and *catalog-dpt-&lt;User&gt;* servers

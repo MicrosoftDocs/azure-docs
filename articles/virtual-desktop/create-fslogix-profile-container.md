@@ -18,7 +18,7 @@ You can create FSLogix profile containers using [Azure NetApp Files](https://azu
 
 This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
 
-This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 The instructions in this guide are specifically for Windows Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Windows Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -205,7 +205,7 @@ This section is based on [Create a profile container for a host pool using a fil
 
 ## Make sure users can access the Azure NetApp File share
 
-1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Sign in with the credentials of a user assigned to the Remote Desktop group.
 

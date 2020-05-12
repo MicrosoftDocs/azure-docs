@@ -37,7 +37,7 @@ The vCore-based service tiers are differentiated based on database availability 
 |:---:|:---:|:---:|:---:|:---:|
 | **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB, fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
-| **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
+| **Compute size**|Single database / elastic pool* | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
 | |Managed instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 | **Storage size** | Single database / elastic pool *| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
@@ -64,13 +64,13 @@ The Hyperscale service tier is intended for customers who have large on-premises
 
 The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](sql-database-service-tier-hyperscale.md#regions).
 
-### Can I create multiple Hyperscale databases per logical server
+### Can I create multiple Hyperscale databases per server
 
-Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](sql-database-resource-limits-logical-server.md).
 
 ### What are the performance characteristics of a Hyperscale database
 
-The Hyperscale architecture provides high performance and throughput while supporting large database sizes. 
+The Hyperscale architecture provides high performance and throughput while supporting large database sizes.
 
 ### What is the scalability of a Hyperscale database
 
@@ -87,7 +87,7 @@ Hyperscale provides rapid scalability based on your workload demand.
 
 ## Deep Dive Questions
 
-### Can I mix Hyperscale and single databases in a single logical server
+### Can I mix Hyperscale and single databases in a single server
 
 Yes, you can.
 
@@ -260,7 +260,7 @@ Yes.
 
 ### What is the Recovery Point Objective (RPO)/Recovery Time Objective (RTO) for database restore in Hyperscale
 
-The RPO is 0 min. The RTO goal is less than 10 minutes, regardless of database size. 
+The RPO is 0 min. The RTO goal is less than 10 minutes, regardless of database size.
 
 ### Does database backup affect compute performance on my primary or secondary replicas
 
@@ -316,7 +316,7 @@ Because the storage is shared and there is no direct physical replication happen
 
 ### How do I diagnose and troubleshoot performance problems in a Hyperscale database
 
-For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](sql-database-hyperscale-performance-diagnostics.md).
+For most performance problems, particularly the ones not rooted in storage performance, common SQL diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](sql-database-hyperscale-performance-diagnostics.md).
 
 ## Scalability Questions
 

@@ -56,7 +56,7 @@ The following image is designed to assist in understanding and setting up the pr
 A few best practice considerations for working with Elastic Jobs:
 
 - Limit usage of the APIs to trusted individuals.
-- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 ## Agent performance, capacity, and limitations

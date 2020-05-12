@@ -101,7 +101,7 @@ Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Con
 To view the current DWU setting:
 
 1. Open SQL Server Object Explorer in Visual Studio.
-2. Connect to the master database associated with the logical SQL Database server.
+2. Connect to the master database associated with the logical SQL server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example:
 
 ```sql
@@ -143,7 +143,7 @@ With T-SQL you can view the current DWUsettings, change the settings, and check 
 
 To change the DWUs:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your logical SQL server.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
@@ -179,7 +179,7 @@ You cannot check the database state for scale-out operations with the Azure port
 
 To check the status of DWU changes:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your logical SQL server.
 2. Submit the following query to check database state.
 
 ```sql

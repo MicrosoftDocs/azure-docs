@@ -15,7 +15,7 @@ ms.date: 04/02/2020
 
 # What is Azure SQL Managed Instance?
 
-Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduce management overhead and TCO.
+Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduce management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions where SQL Managed Instance is currently available, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions).
@@ -46,7 +46,7 @@ The key features of SQL Managed Instance are shown in the following table:
 
 |Feature | Description|
 |---|---|
-| SQL Server version / build | SQL Server Database Engine (latest stable) |
+| SQL Server version / build | SQL Server database engine (latest stable) |
 | Managed automated backups | Yes |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
@@ -63,7 +63,7 @@ The key features of SQL Managed Instance are shown in the following table:
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server.
 
 In vCore model, you can choose between generations of hardware.
 
@@ -107,7 +107,6 @@ The following list outlines the key characteristics of the Business Critical ser
 
 Find more information about the difference between service tiers in [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-
 ## Management operations
 
 Azure SQL Managed Instance provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed. This section provides information about management operations and their typical durations.
@@ -118,7 +117,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 
 All management operations can be categorized as follows:
 
-- Instance deployment (new instance creation). 
+- Instance deployment (new instance creation).
 - Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
@@ -158,17 +157,28 @@ The following table summarizes operations and typical overall durations:
 
 \*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### Instance availability during management
+### Instance availability during management operations
 
-SQL Managed Instances are not available to client applications during deployment and deletion operations.
+SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
-SQL Managed Instances are available during update operations but there is a short downtime caused by the failover that happens at the end of updates that typically lasts up to 10 seconds. The exception to this is update of the reserved storage space in General Purpose service tier which does not incur failover nor affect instance availability.
+SQL Managed Instance is available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](sql-database-accelerated-database-recovery.md).
 
-> [!CAUTION]
-> Duration of a failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it's not recommended to scale compute or storage of the SQL Managed Instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
+> [!IMPORTANT]
+> It's not recommended to scale compute or storage of Azure SQL Managed Instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
 
 
-[Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Managed Instance. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
+### Management operations cross-impact
+
+Managed instance management operations can affect other management operations of the instances placed inside the same virtual cluster. This includes following:
+
+- **Long running restore operations** in a virtual cluster will put on hold other instance creation or scaling operation in the same subnet.<br/>**Example:** if there is long running restore operation and there is create or scale request in the same subnet, this request will take longer to complete as it will wait for restore operation to complete before it continues.
+	
+- **Subsequent instance creation or scaling** operation is put on hold by previously initiated instance creation or instance scale that initiated virtual cluster resize.<br/>**Example:** if there are multiple create and/or scale requests in the same subnet under the same virtual cluster, and one of them initiates virtual cluster resize, all requests that were submitted 5+ minutes after the one that required virtual cluster resize will last longer than expected as these requests will have to wait for the resize to complete before resuming.
+
+- **Create/scale operations submitted in 5 minute window** will be batched and executed in parallel.<br/>**Example:** Only one virtual cluster resize will be performed for all operations submitted in 5 minute window (measuring from the moment of executing the first operation request). In case that another request is submitted more than 5 minutes after submitting the first one, it will wait for virtual cluster resize to complete before execution starts.
+
+> [!IMPORTANT]
+> Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operation.
 
 ### Canceling management operations
 
@@ -187,9 +197,9 @@ Category  |Operation  |Cancelable  |Estimated cancel duration  |
 
 In order to cancel the management operation, go to the overview blade and click on notification box of ongoing operation. From the right side, a screen with ongoing operation will appear and there will be button for canceling operation. After first click, you will be asked to click again and confirm that you want to cancel the operation.
 
-[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+[![Cancel operation](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
 
-After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. 
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not.
 
 In case of cancel success, management operation will be canceled in couple of minutes resulting with a failure.
 
@@ -236,7 +246,7 @@ Migration of an encrypted database to a SQL Managed Instance is supported via th
 
 ## Azure Active Directory Integration
 
-SQL Managed Instance supports traditional SQL Server Database engine logins and logins integrated with Azure Active Directory (Azure AD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
+SQL Managed Instance supports traditional SQL Server database engine logins and logins integrated with Azure Active Directory (Azure AD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
 A new syntax is introduced to create Azure AD server principals (logins), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance) article.
 
@@ -275,7 +285,7 @@ The migration approach leverages SQL backups to Azure Blob storage. Backups stor
 
 ### Data Migration Service
 
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure SQL Database (single databases, pooled databases in elastic pools, and instance databases in a managed instance) and SQL Server in Azure VM. See [How to migrate your on-premises database to SQL Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure SQL Database, Azure SQL Managed Instance, and SQL Server in Azure VM. See [How to migrate your on-premises database to SQL Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## SQL features supported
 
@@ -289,9 +299,9 @@ The following diagram outlines surface area compatibility in SQL Managed Instanc
 
 ### Key differences on-premises and SQL Managed Instance
 
-SQL Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control. 
+SQL Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control.
 
-Some key differences: 
+Some key differences:
 
 - High-availability is built in and pre-configured using technology similar to [Always On availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - There are only automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain.

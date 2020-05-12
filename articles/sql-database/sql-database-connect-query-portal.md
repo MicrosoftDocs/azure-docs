@@ -64,7 +64,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 > * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
-#### Set an Active Directory admin for the database server
+#### Set an Active Directory admin for the server
 
 1. In the Azure portal, select your SQL server.
 
@@ -186,4 +186,4 @@ There are a few things to know when working with the query editor.
 
 ## Next steps
 
-To learn more about the Transact-SQL (T-SQL) supported in Azure SQL databases, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).

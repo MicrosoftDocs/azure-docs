@@ -26,7 +26,7 @@ ALTER ANY EXTERNAL DATA SOURCE permission is required. This permission is includ
 
 ## Create the sample databases
 
-To start with, create two databases, **Customers** and **Orders**, either in the same or different SQL Database servers.
+To start with, create two databases, **Customers** and **Orders**, either in the same or different servers.
 
 Execute the following queries on the **Orders** database to create the **OrderInformation** table and input the sample data.
 

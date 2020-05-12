@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Security - Enable Customer Managed Key Encryption
+    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -675,6 +677,8 @@
       href: how-to-fixed-width.md
     - name: Error row handling
       href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview

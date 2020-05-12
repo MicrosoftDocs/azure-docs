@@ -39,7 +39,7 @@ Achieving elasticity and scale for cloud applications has been straightforward f
 * Growing and shrinking capacity for the relational database part of your workload.
 * Managing hotspots that may arise affecting a specific subset of data - such as a busy end-customer (tenant).
 
-Traditionally, scenarios like these have been addressed by investing in larger-scale database servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
+Traditionally, scenarios like these have been addressed by investing in larger-scale servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
 
 ## Horizontal and vertical scaling
 The following figure shows the horizontal and vertical dimensions of scaling, which are the basic ways the elastic databases can be scaled.
