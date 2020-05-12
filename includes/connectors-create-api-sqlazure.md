@@ -18,7 +18,7 @@ When the SQL trigger or action prompts you for connection information, follow th
 
 1. For **Connection Name**, create a name for your connection.
 
-1. Under **SQL Server Name**, select your server. When the **SQL Database Name** list appears, select your database. Provide the user name and password for your server.
+1. Under **SQL Server Name**, select your Azure SQL server. When the **SQL Database Name** list appears, select your database. Provide the user name and password for your Azure SQL server.
 
    You can also find this information either in the Azure portal under your SQL database properties or in your connection string:
 
