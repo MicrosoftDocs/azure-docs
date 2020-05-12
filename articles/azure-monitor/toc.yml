@@ -60,11 +60,13 @@
       href: learn/tutorial-app-dashboards.md
 - name: Samples
   items:
+  - name: Azure CLI
+    href: samples/cli-samples.md
   - name: Azure PowerShell
-    href: platform/powershell-samples.md
+    href: samples/powershell-samples.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-samples.md
+    href: samples/policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -152,6 +154,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: Use PowerShell
           href: platform/powershell-workspace-configuration.md
+        - name: Use Resource Manager template
+          href: platform/template-workspace-configuration.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Move a workspace
@@ -996,52 +1000,52 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-      - name: Custom solutions
+    - name: Custom solutions
+      items:
+      - name: Design and build
+        href: insights/solutions-creating.md
+      - name: Solution file
+        href: insights/solutions-solution-file.md
+      - name: Automation resources
+        href: insights/solutions-resources-automation.md
+      - name: Log searches and alerts
+        href: insights/solutions-resources-searches-alerts.md
+      - name: Views
+        href: insights/solutions-resources-views.md
+      - name: Best practices
+        href: insights/solutions-best-practices.md
+    - name: Solutions
+      items:
+      - name: AD health assessment
+        href: insights/ad-assessment.md
+      - name: AD Replication Status
+        href: insights/ad-replication-status.md
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: Docker and Windows Container monitoring
+        href: insights/containers.md
+      - name: Key Vault Analytics
+        href: insights/azure-key-vault.md
+      - name: Networks
         items:
-        - name: Design and build
-          href: insights/solutions-creating.md
-        - name: Solution file
-          href: insights/solutions-solution-file.md
-        - name: Automation resources
-          href: insights/solutions-resources-automation.md
-        - name: Log searches and alerts
-          href: insights/solutions-resources-searches-alerts.md
-        - name: Views
-          href: insights/solutions-resources-views.md
-        - name: Best practices
-          href: insights/solutions-best-practices.md
-      - name: Solutions
-        items:
-        - name: AD health assessment
-          href: insights/ad-assessment.md
-        - name: AD Replication Status
-          href: insights/ad-replication-status.md
-        - name: Capacity and performance solution
-          href: insights/capacity-performance.md
-        - name: Docker and Windows Container monitoring
-          href: insights/containers.md
-        - name: Key Vault Analytics
-          href: insights/azure-key-vault.md
-        - name: Networks
+        - name: Networking Analytics
+          href: insights/azure-networking-analytics.md
+        - name: DNS
+          href: insights/dns-analytics.md
+        - name: Network Performance Monitor
           items:
-          - name: Networking Analytics
-            href: insights/azure-networking-analytics.md
-          - name: DNS
-            href: insights/dns-analytics.md
-          - name: Network Performance Monitor
-            items:
-            - name: Solution overview
-              href: insights/network-performance-monitor.md
-            - name: Performance Monitor
-              href: insights/network-performance-monitor-performance-monitor.md
-            - name: Service Connectivity Monitor
-              href: insights/network-performance-monitor-service-connectivity.md
-            - name: ExpressRoute
-              href: insights/network-performance-monitor-expressroute.md
-            - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.md
-            - name: FAQ
-              href: insights/network-performance-monitor-faq.md
+          - name: Solution overview
+            href: insights/network-performance-monitor.md
+          - name: Performance Monitor
+            href: insights/network-performance-monitor-performance-monitor.md
+          - name: Service Connectivity Monitor
+            href: insights/network-performance-monitor-service-connectivity.md
+          - name: ExpressRoute
+            href: insights/network-performance-monitor-expressroute.md
+          - name: Pricing
+            href: insights/network-performance-monitor-pricing-faq.md
+          - name: FAQ
+            href: insights/network-performance-monitor-faq.md
         - name: Office 365
           href: insights/solution-office-365.md
         - name: Service Map solution
@@ -1084,20 +1088,20 @@
           href: platform/workbooks-time.md
         - name: Text parameters
           href: platform/workbooks-text.md
-      - name: Power BI
-        items:
-        - name: Export log data
-          href: platform/powerbi.md
-        - name: Export application data
-          href: app/export-power-bi.md 
-      - name: Dashboards
-        items:
-        - name: Dashboard using log data
-          href: learn/tutorial-logs-dashboards.md
-        - name: Dashboard using application data
-          href: learn/tutorial-app-dashboards.md
-      - name: Send data to Grafana
-        href: platform/grafana-plugin.md
+    - name: Power BI
+      items:
+      - name: Export log data
+        href: platform/powerbi.md
+      - name: Export application data
+        href: app/export-power-bi.md 
+    - name: Dashboards
+      items:
+      - name: Dashboard using log data
+        href: learn/tutorial-logs-dashboards.md
+      - name: Dashboard using application data
+        href: learn/tutorial-app-dashboards.md
+    - name: Send data to Grafana
+      href: platform/grafana-plugin.md
   - name: Collect custom data 
     items:
     - name: Custom metrics
@@ -1123,8 +1127,6 @@
     items:   
     - name: PowerShell
       items:  
-      - name: Managing with PowerShell
-        href: platform/powershell-quickstart-samples.md
       - name: Create alerts
         href: app/powershell-alerts.md  
       - name: Application Insights
@@ -1133,10 +1135,6 @@
           href: app/powershell.md
         - name: Manage Azure Cloud Services
           href: app/powershell-azure-diagnostics.md
-    - name: Azure CLI samples
-      href: platform/cli-samples.md
-    - name: Resource Manager templates
-      href: platform/template-workspace-configuration.md
   - name: System Center integration
     items:
     - name: Connect Operations Manager
@@ -1257,21 +1255,13 @@
     href: https://azure.microsoft.com/pricing/details/log-analytics/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     items:
     - name: Application Insights service updates
       href: https://azure.microsoft.com/updates/?product=application-insights
     - name: Log Analytics service updates
       href: https://azure.microsoft.com/updates/?product=log-analytics
-    - name: SDK release notes
+    - name: Application Insights SDK release notes
       href: app/release-notes.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
-  - name: Quickstart templates
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=monitoring
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=monitor

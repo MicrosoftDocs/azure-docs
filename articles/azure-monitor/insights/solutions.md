@@ -5,22 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 
 ---
 
 # Monitoring solutions in Azure Monitor
 
+> [!NOTE]
+> Monitoring solutions are based on Azure Monitor Views which are in the process of being deprecated. Solutions are being replaced with [insights](../insights/insights-overview.md) which are based on [workbooks](workbooks-overview.md). Existing solutions are fully supported and may still be available from the Azure Marketplace. As their functionality is replaced by insights, their documentation will be updated appropriately.
+
 Monitoring solutions leverage services in Azure to provide additional insight into the operation of a particular application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them.
 
-> [!NOTE]
-> Monitoring solutions were previously referred to as management solutions.
-
-Monitoring solutions typically collect log data and provide queries and views to analyze collected data. They may also leverage other services such as Azure Automation to perform actions related to the application or service.
-
 You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Use monitoring solutions
 

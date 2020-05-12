@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor PowerShell quick start samples
+title: Azure Monitor PowerShell samples
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
 ms.subservice: ""
 ms.topic: conceptual
@@ -7,11 +7,11 @@ ms.date: 2/14/2018
 
 ---
 
-# Azure Monitor PowerShell quick start samples
+# Azure Monitor PowerShell samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features.
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word "insights."
+> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word *insights*.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
