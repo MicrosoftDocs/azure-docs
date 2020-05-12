@@ -219,8 +219,6 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpm’online
-        href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
       - name: Braze
@@ -275,6 +273,8 @@
         href: certify-tutorial.md
       - name: Cezanne HR Software
         href: cezannehrsoftware-tutorial.md
+      - name: Change Process Management
+        href: change-process-management-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
       - name: Cherwell
@@ -383,10 +383,14 @@
         href: coupa-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
+      - name: Creatio
+        href: bpmonline-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Cyara CX Assurance Platform
+        href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
@@ -413,6 +417,8 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
+      - name: Directions on Microsoft
+        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -451,6 +457,8 @@
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
+      - name: EasySSO for Bamboo
+        href: easysso-for-bamboo-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -491,6 +499,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -554,6 +564,8 @@
         href: five9-tutorial.md
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Float
+        href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
       - name: FloQast
@@ -790,6 +802,8 @@
         href: invision-tutorial.md
       - name: iWellnessNow
         href: iwellnessnow-tutorial.md
+      - name: IWT Procurement Suite
+        href: iwt-procurement-suite-tutorial.md
     - name: J - K
       items:
       - name: Jamf Pro
@@ -1000,6 +1014,8 @@
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
         href: myawardpoints-tutorial.md
+      - name: My IBISWorld
+        href: my-ibisworld-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
       - name: MyVR
@@ -1030,9 +1046,9 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
-      - name: New Relic
+      - name: New Relic by Account
         href: new-relic-tutorial.md
-      - name: New Relic (Limited Release)
+      - name: New Relic (By Organization)
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
@@ -1172,6 +1188,8 @@
         href: predictixpricereporting-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: Prezi
+        href: prezi-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
@@ -1180,7 +1198,7 @@
         href: procoresso-tutorial.md
       - name: productboard
         href: productboard-tutorial.md
-      - name: Profit.co SAML App
+      - name: Profit.co
         href: profitco-saml-app-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
@@ -1400,6 +1418,8 @@
         href: smarteru-tutorial.md
       - name: SmartFile
         href: smartfile-tutorial.md
+      - name: Smart Global Governance
+        href: smart-global-governance-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
       - name: SmartRecruiters
@@ -1538,6 +1558,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: Trelica
+        href: trelica-tutorial.md
       - name: Trello
         href: trello-tutorial.md
       - name: Trend Micro Web Security(TMWS)
@@ -1546,6 +1568,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: Torii
+        href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
       - name: TurboRater
@@ -1829,8 +1853,8 @@
       items:
       - name: Netskope Administrator Console
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: New Relic(Limited Release)
-        href: new-relic-limited-release-provisioning-tutorial.md
+      - name: New Relic by Organization
+        href: new-relic-by-organization-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software

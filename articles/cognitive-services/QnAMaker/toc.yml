@@ -76,6 +76,8 @@
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
       href: How-To/use-active-learning.md
+    - name: Change default answer
+      href: How-To/change-default-answer.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -225,6 +227,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: qna-maker-encryption-of-data-at-rest.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

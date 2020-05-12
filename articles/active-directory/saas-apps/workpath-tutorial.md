@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.workpath.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Workpath Client support team](https://help.workpath.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Workpath Client support team](https://www.workpath.com/en/company/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Workpath application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Workpath SSO
 
-To configure single sign-on on **Workpath** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Workpath support team](https://help.workpath.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Workpath** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Workpath support team](https://www.workpath.com/en/company/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Workpath test user
 

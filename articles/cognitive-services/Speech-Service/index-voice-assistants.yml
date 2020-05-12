@@ -30,6 +30,10 @@ landingContent:
           url: faq-voice-assistants.md
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - linkListType: get-started
+      links:
+        - text: Build and deploy a sample Voice Assistant to your Azure subscription (GitHub)
+          url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
 - title: Develop with Custom Commands
   linkLists:
     - linkListType: quickstart

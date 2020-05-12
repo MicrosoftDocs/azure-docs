@@ -2,7 +2,6 @@
 title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
@@ -71,11 +70,11 @@ For now, customer-managed keys have the following restrictions:
 - Only ["soft" and "hard" RSA keys](../../key-vault/keys/about-keys.md) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
-- Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
-- Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
+- Managed disks encrypted using server-side encryption with customer-managed keys cannot also be encrypted with Azure Disk Encryption and vice versa
+- For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../image-version-encryption.md).
 
 ### PowerShell
 
@@ -185,7 +184,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### Encrypt existing unattached managed disks 
+#### Encrypt existing managed disks 
 
 Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
 

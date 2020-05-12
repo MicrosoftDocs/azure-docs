@@ -30,7 +30,7 @@ Spark pools in Azure Synapse offer a fully managed Spark service. The benefits o
 | Feature | Description |
 | --- | --- |
 | Speed and efficiency |Spark instances start in approximately 2 minutes for fewer than 60 nodes and approximately 5 minutes for more than 60 nodes. The instance shuts down, by default, 5 minutes after the last job executed unless it is kept alive by a notebook connection. |
-| Ease of creation |You can create a new Spark pool in Azure Synapse in minutes using the Azure portal, Azure PowerShell, or the Synapse Analytics .NET SDK. See [Get started with Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
+| Ease of creation |You can create a new Spark pool in Azure Synapse in minutes using the Azure portal, Azure PowerShell, or the Synapse Analytics .NET SDK. See [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool.md). |
 | Ease of use |Synapse Analytics includes a custom notebook derived from [Nteract](https://nteract.io/). You can use these notebooks for interactive data processing and visualization.|
 | REST APIs |Spark in Synapse Analytics includes [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST API-based Spark job server to remotely submit and monitor jobs. |
 | Support for Azure Data Lake Storage Generation 2| Spark pools in Azure Synapse can use Azure Data Lake Storage Generation 2 as well as BLOB storage. For more information on Data Lake Storage, see [Overview of Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
@@ -73,7 +73,8 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine lear
 
 Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
-- [Quickstart: Create a Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
@@ -84,4 +85,4 @@ Use the following articles to learn more about Apache Spark in Synapse Analytics
 
 In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create a Spark pool in Azure Synapse Analytics:
 
-- [Create a Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool.md)

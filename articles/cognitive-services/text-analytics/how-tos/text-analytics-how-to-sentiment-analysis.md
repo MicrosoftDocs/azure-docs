@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
 ---
 
@@ -53,7 +53,9 @@ Sentiment Analysis v3 classifies text with sentiment labels (described below). T
 
 ### Sentiment labeling
 
-Sentiment Analysis v3 can return scores and labels at a sentence and document level. The scores and labels are `positive`, `negative`, and `neutral`. At the document level, the `mixed` sentiment label also can be returned without a score. The sentiment of the document is determined below:
+Sentiment Analysis v3 returns sentiment labels at a sentence and document level (`positive`, `negative`, and `neutral`) along with confidence scores. The `mixed` sentiment label can also be returned at the document level. 
+
+The sentiment of the document is determined below:
 
 | Sentence sentiment                                                                            | Returned document label |
 |-----------------------------------------------------------------------------------------------|-------------------------|

@@ -59,6 +59,12 @@
   - name: SQL managed instances
     href: sql-database-managed-instance-quickstart-guide.md
 
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
+
 - name: Concepts
   items:
   - name: Feature comparison
@@ -116,7 +122,7 @@
       items:
       - name: Azure SQL Auditing
         href: sql-database-auditing.md
-      - name: To storage behind VNet or firewall
+      - name: Audit to storage account behind VNet or firewall
         href: create-auditing-storage-account-vnet-firewall.md
       - name: Audit log format
         href: sql-database-audit-log-format.md
@@ -131,6 +137,8 @@
         items:
         - name: Vulnerability assessment  
           href: sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: sql-database-vulnerability-assessment-rules.md
         - name: Storing VA scans behind firewalls and VNets
           href: sql-database-vulnerability-assessment-storage.md
       - name: Advanced Threat Protection
@@ -200,7 +208,7 @@
         href: /sql/connect/sql-server-drivers
         items:
         - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+          href: /sql/connect/ado-net/microsoft-ado-net-sql-server
         - name: JDBC
           href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: Node.js

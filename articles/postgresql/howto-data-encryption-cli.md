@@ -75,7 +75,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
     az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## Using Data encryption for restore or replica servers
 
@@ -100,7 +100,7 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 

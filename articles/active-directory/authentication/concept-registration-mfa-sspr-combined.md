@@ -75,7 +75,7 @@ There are two modes of combined registration: interrupt and manage.
 - **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
 - **Manage mode** is part of the user profile and allows users to manage their security info.
 
-For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
+For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info. Users must confirm their information before continuing to use their previously registered methods. 
 
 ### Interrupt mode
 

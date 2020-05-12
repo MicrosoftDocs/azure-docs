@@ -34,7 +34,62 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
 ## Installation and import
+                           
+* **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
 
+   This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
+
+   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
+
+   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order isn't an issue here, since pip explicitly downgrades as part of the next line call. And so, the appropriate version dependencies are applied.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
+* **Explanation package not guarateed to be installed when installing the azureml-train-automl-client:** 
+   
+   When running a remote automl run with model explanation enabled you will see an error message saying ""Please install azureml-explain-model package for model explanations." This is a known issue and as a workaround please follow one of the steps below:
+  
+  1. Install azureml-explain-model locally.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Disable the explainability feature entirely by passing model_explainability=False in the automl configuration.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
+* **Panda errors: Typically seen during AutoML Experiment:**
+   
+   When manually setting up your environmnet using pip, you will notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Open an Anaconda prompt and clone the GitHub repository for a set of sample notebooks.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. cd to the how-to-use-azureml/automated-machine-learning folder where the sample notebooks were extracted and then run:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Error message: Cannot uninstall 'PyYAML'**
 
     Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
@@ -77,7 +132,7 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     * Upgrade `azureml-sdk[automl]` package to the latest version.
     * Add `azureml-dataprep` version 1.1.8 or above.
     * Add `pyarrow` version 0.11 or above.
-
+    
 ## Create and manage workspaces
 
 > [!WARNING]

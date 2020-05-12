@@ -489,10 +489,10 @@ We currently do not support GitLab for Source triggers.
 
 | Git service | Source context | Manual build | Auto build through commit trigger |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Yes | Yes |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Yes | Yes |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Yes | No |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Yes | No |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Yes |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Yes | Yes |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | No |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | No |
 
 ## Run Error Message Troubleshooting
 

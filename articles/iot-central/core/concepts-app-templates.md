@@ -36,7 +36,7 @@ Choose the **Custom application** template unless you have a specific reason to 
 
 Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
-- [Retail](../retail/overview-iot-central-retail-pnp.md)
+- [Retail](../retail/overview-iot-central-retail.md)
   - Connected logistics
   - Digital distribution center
   - In-store analytics - condition monitoring
