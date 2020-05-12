@@ -37,9 +37,7 @@ At a high level, the database migration process looks like:
 
 First, determine whether managed instance is compatible with the database requirements of your application. The managed instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
-Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support managed instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See [Azure SQL Database features](sql-database-features.md) to check are there some reported blocking issues that not blockers in managed instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with managed instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in managed instances.
-
-If there are some reported blocking issues that are not removed with the managed instance deployment option, you might need to consider an alternative option, such as [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
+Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. If there are some reported blocking issues, you might need to consider an alternative option, such as [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
@@ -47,6 +45,7 @@ If there are some reported blocking issues that are not removed with the managed
 - If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
 
 If you have resolved all identified migration blockers and continuing the migration to Managed Instance, note that some of the changes might affect performance of your workload:
+
 - Mandatory full recovery model and regular automated backup schedule might impact performance of your workload or maintenance/ETL actions if you have periodically used simple/bulk-logged model or stopped backups on demand.
 - Different server or database level configurations such as trace flags or compatibility levels
 - New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
