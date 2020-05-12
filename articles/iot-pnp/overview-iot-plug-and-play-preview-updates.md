@@ -34,7 +34,7 @@ To work with DTDL v1, you need to use the previous version of the SDK and Azure 
 
 ## Model repository
 
-There's now a single model repository that contains both public published models, and private RBAC-protected company models. Both public and private models are now available at the same endpoint. All models have a unique identifier and are immutable once created.
+There's now a single model repository that contains both public published models, and private RBAC-protected company models. All models have a unique identifier and are immutable once created.
 
 Existing company model repositories from the previous release are not supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
 
