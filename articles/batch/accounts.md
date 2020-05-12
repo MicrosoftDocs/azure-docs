@@ -7,7 +7,7 @@ ms.date: 05/12/2020
 ---
 # Batch accounts and Azure Storage accounts
 
-An Azure Batch account is a uniquely identified entity within the Batch service. Most Batch solutions use [Azure Storage](../azure/storage/index.yml) for storing resource files and output files, so each Batch account is usually associated with a corresponding storage account.
+An Azure Batch account is a uniquely identified entity within the Batch service. Most Batch solutions use [Azure Storage](../storage/index.yml) for storing resource files and output files, so each Batch account is usually associated with a corresponding storage account.
 
 ## Batch accounts
 

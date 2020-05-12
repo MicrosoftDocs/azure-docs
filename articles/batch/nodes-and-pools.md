@@ -21,13 +21,13 @@ All compute nodes in Batch also include:
 
 - A standard [folder structure](files-and-directories.md) and associated [environment variables](jobs-and-tasks.md) that are available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- [Remote access](#connecting-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
+- [Remote access](batch-retry-after-errors.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
 
 ## Pools
 
 A pool is the collection of nodes that your application runs on.
 
-Azure Batch pools build on top of the core Azure compute platform. They provide large-scale allocation, application installation, data distribution, health monitoring, and flexible adjustment ([scaling](#scaling-compute-resources)) of the number of compute nodes within a pool.
+Azure Batch pools build on top of the core Azure compute platform. They provide large-scale allocation, application installation, data distribution, health monitoring, and flexible adjustment ([scaling](#automatic-scaling-policy)) of the number of compute nodes within a pool.
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
@@ -35,15 +35,15 @@ A pool can be used only by the Batch account in which it was created. A Batch ac
 
 The pool can be created manually, or automatically by the Batch service when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
-- [Node operating system and version](compute-node-operating-system-and-version)
+- [Node operating system and version](#compute-node-operating-system-and-version)
 - [Node type and target number of nodes](#node-type-and-target)
 - [Size of the compute nodes](#node-size)
-- [Automatic scaling policy](#scaling-policy)
+- [Automatic scaling policy](#automatic-scaling-policy)
 - [Task scheduling policy](#task-scheduling-policy)
 - [Communication status](#communication-status)
 - [Start tasks for compute nodes](#start-tasks)
 - [Application packages](#application-packages)
-- [Network configuration](#network-configuration)
+- [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
 - [Lifetime](#pool-and-compute-node-lifetime)
 
 > [!IMPORTANT]
@@ -153,7 +153,7 @@ You can specify application packages to deploy to the compute nodes in the pool.
 
 For more information about using application packages to deploy your applications to your Batch nodes, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
-## Virtual network (VNet) and firewall configuration 
+## Virtual network (VNet) and firewall configuration
 
 When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).  
 

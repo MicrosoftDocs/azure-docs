@@ -26,6 +26,7 @@ Job scheduling across pools is independent. Between different pools, it is not g
 ### Job constraints
 
 You can use job constraints to specify certain limits for your jobs:
+
 - You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
 - You can specify the **maximum number of task retries** as a constraint, including whether a task is always retried or never retried. Retrying a task means that if the task fails, it will be requeued to run again.
 
@@ -79,9 +80,9 @@ By associating a start task with a pool, you can prepare the operating environme
 
 A primary benefit of the start task is that it can contain all the information necessary to configure a compute node and install the applications required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count. The start task provides the information needed for the Batch service to configure the new nodes and get them ready for accepting tasks.
 
-As with any Azure Batch task, you can specify a list of resource files in [Azure Storage](../azure/storage/index.yml), in addition to a command line to be executed. The Batch service first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
+As with any Azure Batch task, you can specify a list of resource files in [Azure Storage](../storage/index.yml), in addition to a command line to be executed. The Batch service first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
 
-However, the start task could also include reference data to be used by all tasks that are running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files (which were specified as resource files and downloaded to the node) from the start task's [working directory](files-and-directories.md#working-directory) to the [shared folder](files-and-directories.md#shared-folder), and then run an MSI or `setup.exe`.
+However, the start task could also include reference data to be used by all tasks that are running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files (which were specified as resource files and downloaded to the node) from the start task's [working directory](files-and-directories.md) to the **shared** folder, and then run an MSI or `setup.exe`.
 
 It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but you can configure this.
 
