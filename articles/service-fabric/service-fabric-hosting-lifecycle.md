@@ -19,31 +19,6 @@ Before proceeding further, be sure that you understand the various concepts and 
 > - *CodePackage* is treated as equivalent to a *ServiceHost* process that registers a *ServiceType*, and hosts Replicas of services of that *ServiceType*.
 >
 
-## Cluster Configs
-
-Configs with defaults impacting the activation/decativation. Their impacts will be discussed in details in the article ahead.
-
-### ServiceType
-**ServiceTypeDisableFailureThreshold**: Default 1. The threshold for the failure count after which FM(FailoverManager) is notified to disable the service type on that node and try a different node for placement.
-**ServiceTypeDisableGraceInterval**: Default 30 sec. Time interval after which the service type can be disabled.
-
-### Activation
-**ActivationRetryBackoffInterval**: Default 10 sec. Backoff interval on every activation failure.
-**ActivationMaxFailureCount**: Default 20. Maximum count for which system will retry failed activation before giving up. 
-**ActivationRetryBackoffExponentiationBase**: Default 1.5. 
-**ActivationMaxRetryInterval**: Default 3600 sec. Max back-off for Activation on failures.
-**CodePackageContinuousExitFailureResetInterval**: Default 300 sec. The timeout to reset the continuous exit failure count for CodePackage.
-
-### Download
-**DeploymentRetryBackoffInterval**: Default 10. Back-off interval for the deployment failure.
-**DeploymentMaxRetryInterval**: Default 3600 sec. Max back-off for the deployment on failures.
-**DeploymentMaxFailureCount**: Default 20. Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.
-
-### Deactivation
-**DeactivationScanInterval**: Default 600 sec. Minimum time given to ServicePackage to host a Replica if it has never hosted any Replica i.e if not used.
-**DeactivationGraceInterval**: Default 60 sec. The time given to a ServicePackage to host again another Replica once it has hosted any Replica in case of **Shared** Process model.
-**ExclusiveModeDeactivationGraceInterval**: Default 1 sec. The time given to a ServicePackage to host again another Replica once it has hosted any Replica in case of **Exclusive** Process model.
-
 ## Activation of Application/ServicePackage
 
 The pipeline for activation is as follows:
@@ -51,7 +26,7 @@ The pipeline for activation is as follows:
 1. Download the ApplicationPackage. For example: ApplicationManifest.xml etc.
 2. Set up environment for Application for ex: create users etc.
 3. Start tracking Application for deactivation.
-4. Download ServicePackage. For example: ServicePackage.xml, code, config, dat packages etc.
+4. Download ServicePackage. For example: ServicePackage.xml, code, config, data packages etc.
 5. Set up environment for Service Package for ex: setup firewall, allocate ports for dynamic endpoints etc.
 6. Start tracking ServicePackage for deactivation.
 7. Start your CodePackage.
@@ -71,9 +46,9 @@ The reason for enabling the ServiceType again after **ActivationMaxFailureCount*
 >
 
 ### CodePackage crash
-When a CodePackage crashes, Service Fabric uses a back-off that is calculated:
+When a CodePackage crashes, Service Fabric uses a back-off to start it again and the back-off is independent of whether the code package has registered a type with us or not.
 
-The value is  always Min(RetryTime, **ActivationMaxRetryInterval**) and this value can be constant, linear or exponential based on **ActivationRetryBackoffExponentiationBase** config.
+Back-off value is always Min(RetryTime, **ActivationMaxRetryInterval**) and this value can be constant, linear or exponential based on **ActivationRetryBackoffExponentiationBase** config.
 
 - Constant: If **ActivationRetryBackoffExponentiationBase** == 0 then RetryTime = **ActivationRetryBackoffInterval**;
 - Linear:  If  **ActivationRetryBackoffExponentiationBase** == 0  then RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** where ContinousFailureCount is the number of times a CodePackage crashes or fails to activate.
@@ -84,6 +59,9 @@ You can control the behavior as you want like quick restarts. Let's talk about L
 Your CodePackage can MAX back-off for **ActivationMaxRetryInterval**.
 	
 If your CodePackage crashes and comes back up, it needs to stay up for **CodePackageContinuousExitFailureResetInterval** for Service Fabric to consider it as healthy at which point it will overwrite the health report as OK and reset the ContinousFailureCount.
+
+### CodePackage not registering ServiceType
+If a CodePackage stays alive and is expected to register a ServiceType with us but never does, in that case Service Fabric will generate a warning HealthReport after **ServiceTypeRegistrationTimeout** saying that ServiceType has not being configured within the timeout.
 
 ### Activation Failure
 Service Fabric always uses a linear back-off (same as CodePackage crash) when it finds error during activation. It means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried and operation is untracked.
@@ -96,7 +74,7 @@ Service Fabric always uses a linear back-off when it encounters error during dow
 > [!NOTE]
 > Before you change the configs, here are a few examples you should keep in mind.
 
-1. If the CodePackage keeps crashing and backs off, ServiceType will be disabled. But if the activations config is such that it has a quick restart then the CodePackage can come up for a few times before it can see the disable of ServiceType. For ex: assume your CodePackage comes up and registers the ServiceType with us and then crashes. In that case, once Hosting receives a type registration the **ServiceTypeDisableGraceInterval** period is canceled. And this can repeat until your CodePackage backs offs to a value greater than  **ServiceTypeDisableGraceInterval**. So, it may be a while before your ServiceType is disabled on the node.
+1. If the CodePackage keeps crashing and backs off, ServiceType will be disabled. But if the activations config is such that it has a quick restart then the CodePackage can come up for a few times before it can see the disable of ServiceType. For ex: assume your CodePackage comes up, registers the ServiceType with Service Fabric and then crashes. In that case, once Hosting receives a type registration the **ServiceTypeDisableGraceInterval** period is canceled. And this can repeat until your CodePackage backs offs to a value greater than  **ServiceTypeDisableGraceInterval** and then ServiceType will be disabled on the node. So, it may be a while before your ServiceType is disabled on the node.
 
 2. In case of activations, when Service Fabric system needs to place a Replica on a node, RA(ReconfigurationAgent) asks Hosting subSystem to activate the application and retries the activation request every 15 sec(**RAPMessageRetryInterval**). For Service Fabric system to know that ServiceType has been disabled, the activation operation in hosting needs to live for a longer period than retry interval and **ServiceTypeDisableGraceInterval**. For example: let the cluster has the configs **ActivationMaxFailureCount** set to 5 and **ActivationRetryBackoffInterval** set to 1 sec. It means that the activation operation will give up after (0 + 1 + 2 + 3 + 4) = 10 sec (first retry is immediate) and after that Hosting gives up retrying and activation operation is untracked. In this case, the activation operation will get completed and untracked before next retry after 15 seconds. It happened because Service Fabric exhausted all retries within 15 seconds. So, every retry from ReconfigurationAgent creates a new activation operation in Hosting subSystem and the pattern will keep repeating and ServiceType will never be disabled on the node. Since the ServiceType will not get disabled on the node Sf System's component FM(FailoverManager) will not move the Replica to a different node.
 > 
@@ -137,6 +115,32 @@ For ex: let’s say a Decrement happens at T1 and ServicePackage is scheduled to
 ### Ctrl+C
 Once a ServicePackage passes the **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval** and is still not hosting a Replica, the deactivation is non-cancellable. CodePackage are issued a Ctrl+C handler that means that now the deactivation pipeline has to go through to bring the process down. 
 During this time if a new Replica for the same ServicePackage is trying to get places it will fail because we cannot transition from Deactivation to Activation.
+
+## Cluster Configs
+
+Configs with defaults impacting the activation/decativation.
+
+### ServiceType
+**ServiceTypeDisableFailureThreshold**: Default 1. The threshold for the failure count after which FM(FailoverManager) is notified to disable the service type on that node and try a different node for placement.
+**ServiceTypeDisableGraceInterval**: Default 30 sec. Time interval after which the service type can be disabled.
+**ServiceTypeRegistrationTimeout**: Default 300 sec. The timeout for the ServiceType to register with Service Fabric.
+
+### Activation
+**ActivationRetryBackoffInterval**: Default 10 sec. Backoff interval on every activation failure.
+**ActivationMaxFailureCount**: Default 20. Maximum count for which system will retry failed activation before giving up. 
+**ActivationRetryBackoffExponentiationBase**: Default 1.5.
+**ActivationMaxRetryInterval**: Default 3600 sec. Max back-off for Activation on failures.
+**CodePackageContinuousExitFailureResetInterval**: Default 300 sec. The timeout to reset the continuous exit failure count for CodePackage.
+
+### Download
+**DeploymentRetryBackoffInterval**: Default 10. Back-off interval for the deployment failure.
+**DeploymentMaxRetryInterval**: Default 3600 sec. Max back-off for the deployment on failures.
+**DeploymentMaxFailureCount**: Default 20. Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.
+
+### Deactivation
+**DeactivationScanInterval**: Default 600 sec. Minimum time given to ServicePackage to host a Replica if it has never hosted any Replica i.e if not used.
+**DeactivationGraceInterval**: Default 60 sec. The time given to a ServicePackage to host again another Replica once it has hosted any Replica in case of **Shared** Process model.
+**ExclusiveModeDeactivationGraceInterval**: Default 1 sec. The time given to a ServicePackage to host again another Replica once it has hosted any Replica in case of **Exclusive** Process model.
 
 ## Next steps
 [Package an application][a3] and get it ready to deploy.
