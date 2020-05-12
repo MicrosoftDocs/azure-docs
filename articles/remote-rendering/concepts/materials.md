@@ -45,17 +45,31 @@ void SetMaterialColorToGreen(Material material)
     }
 
     PbrMaterial pbrMat = material as PbrMaterial;
-    if( pbrMat!= null )
+    if (pbrMat != null)
     {
-        PbrMaterial pbrMaterial = material.PbrMaterial.Value;
-        pbrMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        pbrMat.AlbedoColor = new Color4(0, 1, 0, 1);
         return;
     }
 }
 ```
 
 ```cpp
-TODO
+void SetMaterialColorToGreen(ApiHandle<Material> material)
+{
+    if (*material->MaterialSubType() == MaterialType::Color)
+    {
+        ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
+        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+
+    if (*material->MaterialSubType() == MaterialType::Pbr)
+    {
+        ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
+        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+}
 ```
 
 

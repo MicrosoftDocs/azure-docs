@@ -38,9 +38,20 @@ public void GetBounds(Entity entity)
 ```
 
 ```cpp
-TODO
+void GetBounds(ApiHandle<Entity> entity)
+{
+    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
+    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
+    {
+        if (bounds->IsRanToCompletion())
+        {
+            Double3 aabbMin = bounds->Result()->min;
+            Double3 aabbMax = bounds->Result()->max;
+            // ...
+        }
+    });
+}
 ```
-
 
 ## Next steps
 

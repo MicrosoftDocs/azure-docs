@@ -38,7 +38,19 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 ```
 
 ```cpp
-TODO
+void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+
+    // Enable frame counter text overlay on the server side rendering
+    settings->RenderFrameCount(true);
+
+    // Enable polygon count text overlay on the server side rendering
+    settings->RenderPolygonCount(true);
+
+    // Enable wireframe rendering of object geometry on the server
+    settings->RenderWireframe(true);
+}
 ```
 
 ![Debug rendering](./media/debug-rendering.png)

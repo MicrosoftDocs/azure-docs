@@ -99,7 +99,17 @@ void QueryPerformanceAssessment(AzureSession session)
 ```
 
 ```cpp
-TODO
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = *res->Result();
+        // ...
+
+    });
+}
 ```
 
 Contrary to the `FrameStatistics` object, the `PerformanceAssessment` object contains server-side information:
@@ -120,7 +130,7 @@ This assessment metric provides a rough indication of the server's health, but i
 
 ## Statistics debug output
 
-The class `ARRServiceStats` wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
+The class `ARRServiceStats` is a C# class that wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
 
 ```cs
 ARRServiceStats _stats = null;
@@ -146,10 +156,6 @@ void Update()
         InfoLabel.text = _stats.GetStatsString();
     }
 }
-```
-
-```cpp
-TODO
 ```
 
 The code above populates the text label with the following text:

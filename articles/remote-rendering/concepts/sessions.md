@@ -131,11 +131,6 @@ await session.StopAsync().AsTask();
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-```cpp
-TODO
-```
-
-
 Multiple `AzureFrontend` and `AzureSession` instances can be maintained, manipulated, and queried from code. But only a single device may connect to an `AzureSession` at a time.
 
 The lifetime of a virtual machine isn't tied to the `AzureFrontend` instance or the `AzureSession` instance. `AzureSession.StopAsync` must be called to stop a session.
