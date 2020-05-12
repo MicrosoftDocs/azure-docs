@@ -162,6 +162,8 @@
         href: snapshots-overview.md  
       - name: Change feed
         href: storage-blob-change-feed.md
+      - name: Point-in-time restore
+        href: point-in-time-restore-overview.md  
     - name: Access and performance tiers
       items:
       - name: Access tiers
@@ -379,7 +381,7 @@
         href: storage-blob-immutability-policies-manage.md
     - name: Manage data redundancy
       items:
-      - name: Change how data is replicated
+      - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Design highly available applications
         href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -393,6 +395,8 @@
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
         href: storage-blob-change-feed-how-to.md
+      - name: Enable point-in-time restore
+        href: point-in-time-restore-manage.md  
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -702,8 +706,10 @@
     items:
     - name: Create
       items:
-      - name: Create a general purpose v2 storage account
+      - name: Create a storage account (general purpose v2)
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Create a storage account (block blob)
+        href: storage-blob-create-account-block-blob.md
     - name: Migrate
       items:
       - name: Migrate from Data Lake Storage Gen1
