@@ -160,9 +160,9 @@
         href: platform/service-providers.md
       - name: Manage access
         href: platform/manage-access.md
-    - name: Agents
+    - name: Virtual machine agents
       items:
-      - name: Agents overview
+      - name: Overview
         href: platform/agents-overview.md
       - name: FAQ
         href: faq.md#agents
@@ -972,52 +972,92 @@
       href: insights/solutions.md
     - name: Target solutions
       href: insights/solution-targeting.md
-    - name: AD health assessment
-      href: insights/ad-assessment.md
-    - name: AD Replication Status
-      href: insights/ad-replication-status.md
-    - name: Capacity and performance solution
-      href: insights/capacity-performance.md
-    - name: Docker and Windows Container monitoring
-      href: insights/containers.md
-    - name: Key Vault Analytics
-      href: insights/azure-key-vault.md
-    - name: Networks
+    - name: Views
       items:
-      - name: Networking Analytics
-        href: insights/azure-networking-analytics.md
-      - name: DNS
-        href: insights/dns-analytics.md
-      - name: Network Performance Monitor
+      - name: Convert views to workbooks
         items:
-        - name: Solution overview
-          href: insights/network-performance-monitor.md
-        - name: Performance Monitor
-          href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service Connectivity Monitor
-          href: insights/network-performance-monitor-service-connectivity.md
-        - name: ExpressRoute
-          href: insights/network-performance-monitor-expressroute.md
-        - name: Pricing
-          href: insights/network-performance-monitor-pricing-faq.md
-        - name: FAQ
-          href: insights/network-performance-monitor-faq.md
-    - name: Office 365
-      href: insights/solution-office-365.md
-    - name: Service Map solution
-      href: insights/service-map.md
-    - name: Service Map and Operations Manager
-      href: insights/service-map-scom.md
-    - name: Azure SQL
-      href: insights/azure-sql.md
-    - name: SQL Server
-      href: insights/sql-assessment.md
-    - name: Surface Hub
-      href: insights/surface-hubs.md
-    - name: VMware Analytics solution
-      href: insights/vmware.md
-    - name: Wire Data solution
-      href: insights/wire-data.md
+        - name: Conversion overview
+          href: platform/view-designer-conversion-overview.md
+        - name: Conversion options
+          href: platform/view-designer-conversion-options.md
+        - name: Overview and access
+          href: platform/view-designer-conversion-access.md
+        - name: Common tasks
+          href: platform/view-designer-conversion-tasks.md
+        - name: Tile conversions
+          href: platform/view-designer-conversion-tiles.md
+        - name: Examples
+          href: platform/view-designer-conversion-examples.md
+      - name: View Designer
+        href: platform/view-designer.md
+      - name: Tile reference
+        href: platform/view-designer-tiles.md
+      - name: Visualization part reference
+        href: platform/view-designer-parts.md
+      - name: Filters
+        href: platform/view-designer-filters.md
+      - name: Custom solutions
+        items:
+        - name: Design and build
+          href: insights/solutions-creating.md
+        - name: Solution file
+          href: insights/solutions-solution-file.md
+        - name: Automation resources
+          href: insights/solutions-resources-automation.md
+        - name: Log searches and alerts
+          href: insights/solutions-resources-searches-alerts.md
+        - name: Views
+          href: insights/solutions-resources-views.md
+        - name: Best practices
+          href: insights/solutions-best-practices.md
+      - name: Solutions
+        items:
+        - name: AD health assessment
+          href: insights/ad-assessment.md
+        - name: AD Replication Status
+          href: insights/ad-replication-status.md
+        - name: Capacity and performance solution
+          href: insights/capacity-performance.md
+        - name: Docker and Windows Container monitoring
+          href: insights/containers.md
+        - name: Key Vault Analytics
+          href: insights/azure-key-vault.md
+        - name: Networks
+          items:
+          - name: Networking Analytics
+            href: insights/azure-networking-analytics.md
+          - name: DNS
+            href: insights/dns-analytics.md
+          - name: Network Performance Monitor
+            items:
+            - name: Solution overview
+              href: insights/network-performance-monitor.md
+            - name: Performance Monitor
+              href: insights/network-performance-monitor-performance-monitor.md
+            - name: Service Connectivity Monitor
+              href: insights/network-performance-monitor-service-connectivity.md
+            - name: ExpressRoute
+              href: insights/network-performance-monitor-expressroute.md
+            - name: Pricing
+              href: insights/network-performance-monitor-pricing-faq.md
+            - name: FAQ
+              href: insights/network-performance-monitor-faq.md
+        - name: Office 365
+          href: insights/solution-office-365.md
+        - name: Service Map solution
+          href: insights/service-map.md
+        - name: Service Map and Operations Manager
+          href: insights/service-map-scom.md
+        - name: Azure SQL
+          href: insights/azure-sql.md
+        - name: SQL Server
+          href: insights/sql-assessment.md
+        - name: Surface Hub
+          href: insights/surface-hubs.md
+        - name: VMware Analytics solution
+          href: insights/vmware.md
+        - name: Wire Data solution
+          href: insights/wire-data.md
   - name: Workbooks
     items:
     - name: Overview
@@ -1044,30 +1084,6 @@
           href: platform/workbooks-time.md
         - name: Text parameters
           href: platform/workbooks-text.md
-      - name: Views
-        items:
-        - name: Convert views to workbooks
-          items:
-          - name: Conversion overview
-            href: platform/view-designer-conversion-overview.md
-          - name: Conversion options
-            href: platform/view-designer-conversion-options.md
-          - name: Overview and access
-            href: platform/view-designer-conversion-access.md
-          - name: Common tasks
-            href: platform/view-designer-conversion-tasks.md
-          - name: Tile conversions
-            href: platform/view-designer-conversion-tiles.md
-          - name: Examples
-            href: platform/view-designer-conversion-examples.md
-        - name: View Designer
-          href: platform/view-designer.md
-        - name: Tile reference
-          href: platform/view-designer-tiles.md
-        - name: Visualization part reference
-          href: platform/view-designer-parts.md
-        - name: Filters
-          href: platform/view-designer-filters.md
       - name: Power BI
         items:
         - name: Export log data
@@ -1121,22 +1137,6 @@
       href: platform/cli-samples.md
     - name: Resource Manager templates
       href: platform/template-workspace-configuration.md
-  - name: Extend
-    items:
-    - name: Monitoring solutions
-      items:
-      - name: Design and build
-        href: insights/solutions-creating.md
-      - name: Solution file
-        href: insights/solutions-solution-file.md
-      - name: Automation resources
-        href: insights/solutions-resources-automation.md
-      - name: Log searches and alerts
-        href: insights/solutions-resources-searches-alerts.md
-      - name: Views
-        href: insights/solutions-resources-views.md
-      - name: Best practices
-        href: insights/solutions-best-practices.md
   - name: System Center integration
     items:
     - name: Connect Operations Manager
