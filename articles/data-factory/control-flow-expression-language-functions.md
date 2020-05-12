@@ -57,6 +57,10 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
+
+> [!NOTE]
+> A complex example of how the parameters can be used is this, here to be able to use pipeline parameters in dot operator, '[]' is required.
+  activity('{activityName}').output.{Param1}.{Param2}[pipeline().parameters.Param3].{Param4}
   
 ## Examples
 
