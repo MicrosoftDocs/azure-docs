@@ -87,7 +87,7 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 >
 
 ```
-helm upgrade --name myrelease-1 \
+$ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
 ```
 
