@@ -146,9 +146,7 @@ Request body:
     "kty": "RSA-HSM",
     "key_ops": [
       "decrypt",
-      "encrypt",
-	:
-	:
+      "encrypt"
     ],
     "key_hsm": "<Base64 encoded BYOK_BLOB>"
   },
@@ -175,5 +173,5 @@ Request body:
 
 
 ## Next Steps
-* Step-by-step BYOK instructions: [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys.byok.md)
+* Step-by-step BYOK instructions: [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys-byok.md)
 
