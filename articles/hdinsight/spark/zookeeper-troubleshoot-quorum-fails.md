@@ -11,37 +11,80 @@ ms.date: 08/20/2019
 
 # Apache ZooKeeper server fails to form a quorum in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues related to zookeepers in Azure HDInsight clusters.
 
-## Issue
+## Symptoms
 
-Apache ZooKeeper server is unhealthy, symptoms could include: both Resource Managers/Name Nodes are in standby mode, simple HDFS operations do not work, `zkFailoverController` is stopped and cannot be started, Yarn/Spark/Livy jobs fail due to Zookeeper errors. LLAP Daemons may also fail to start on Secure Spark or Interactive Hive clusters. You may see an error message similar to:
+ * Both the resource managers go to standby mode
+ * Names nodes are both in standby mode
+ * Spark / hive / yarn jobs or hive queries fail because of zookeeper connection failures
+ * LLAP daemons fail to start on secure spark or secure interactive hive clusters
+ 
+## Sample log
+
+You may see an error message similar to:
 
 ```
-19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
-19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
+2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
+Message
+2020-05-05 03:17:07.7924490|Received RMFatalEvent of type STATE_STORE_FENCED, caused by org.apache.zookeeper.KeeperException$NoAuthException: KeeperErrorCode = NoAuth
+...
+2020-05-05 03:17:08.3890350|State store operation failed 
+2020-05-05 03:17:08.3890350|Transitioning to standby state
 ```
 
-In the Zookeeper Server logs on any Zookeeper host at /var/log/zookeeper/zookeeper-zookeeper-server-\*.out, you may also see the following error:
+## Contra indicators
 
-```
-2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
-java.nio.channels.CancelledKeyException
-```
+  * HA services like Yarn / NameNode / Livy can go down due to many reasons. 
+    * Please confirm from the logs that it is related to zookeeper connections
+    * Please make sure that the issue happens repeatedly (do not do these mitigations for one off cases)
+  * Job failures can fail temporarily due to zookeeper connection issues
+  
+## Further reading
 
-## Cause
+[ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
-When the volume of snapshot files is large or snapshot files are corrupted, ZooKeeper server will fail to form a quorum, which causes ZooKeeper related services unhealthy. ZooKeeper server will not remove old snapshot files from its data directory, instead, it is a periodic task to be performed by users to maintain the healthiness of ZooKeeper. For more information, see [ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
+## Common causes
 
-## Resolution
+* High CPU usage on the zookeeper servers
+  * In the Ambari UI, if you see near 100% sustained CPU usage on the zookeeper servers, then the sessions open during that time can expire and timeout
+* Zookeeper is busy consolidating snapshots that it doesn't respond to clients / requests on time
+* Zookeeper servers have a sustained CPU load of 5 or above (as seen in Ambari UI)
 
-Check ZooKeeper data directory `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2` to find out if the snapshots file size is large. Take the following steps if large snapshots exist:
+## Check for zookeeper status
+  * Find the zookeeper servers from the /etc/hosts file or from Ambari UI
+  * Run the following command
+    * echo stat | nc {zk_host_ip} 2181 (or 2182)  
+  * Port 2181 is the apache zookeeper instance
+  * Port 2182 is used by the HDI zookeeper (to provide HA for services that are not natively HA)
 
-1. Check the status of other ZooKeeper servers in the same quorum to make sure they are working fine with the command “`echo stat | nc {zk_host_ip} 2181 (or 2182)`”.  
-
-1. Login the problematic ZooKeeper host, backup snapshots and transaction logs in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`, then cleanup these files in the two directories. 
-
-1. Restart the problematic ZooKeeper server in Ambari or the ZooKeeper host. Then restart the service which has problems.
+## CPU load peaks up every hour
+  * Login to the zookeeper server and check the /etc/crontab
+  * Are there any hourly jobs running at this time?
+  * If so, randomize the start time across different zookeeper servers
+  
+## Purging old snapshots
+  * HDI Zookeepers are configured to auto purge old snapshots
+  * By default, last 30 snapshots are retained
+  * This controlled by the configuration key autopurge.snapRetainCount
+    * /etc/zookeeper/conf/zoo.cfg for hadoop zookeeper
+    * /etc/hdinsight-zookeeper/conf/zoo.cfg for HDI zookeeper
+  * Set this to a value >=3 and restart the zookeeper servers
+    * Hadoop zookeeper can be restarted through Ambari
+    * HDI zookeeper has to be stopped manually and restarted manually
+      * sudo lsof -i :2182 will give you the process id to kill
+      * sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py
+  * Manually purging snapshots
+    * DO NOT delete the snapshot files directly as this could result in data loss
+      * zookeeper
+        * sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/zookeeper/ /hadoop/zookeeper/ 3
+      * hdinsight-zookeeper
+        * sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/hdinsight-zookeeper/ /hadoop/hdinsight-zookeeper/ 3
+        
+## CancelledKeyException in the zookeeper server log
+  * This exception usually means that the client is no longer active and the server is unable to send a message
+  * This is indication of a symptom that the zookeeper client is terminating sessions prematurely
+  * Look for the other symptoms outlined in this document
 
 ## Next steps
 
