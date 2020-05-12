@@ -31,6 +31,8 @@ Azure Private Endpoint is a network interface that connects you privately and se
 Here are some key details about private endpoints: 
 - Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
  
+- Network connections can only be initiated by clients connecting to the Private endpoint, Service providers do not have any routing configuration to initiate connections into service consumers. Connections can only be establish in a single direction.
+
 - When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned a private IP address from the subnet that maps to the private link resource.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
