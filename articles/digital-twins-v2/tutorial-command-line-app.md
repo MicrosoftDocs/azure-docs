@@ -301,7 +301,7 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 az group delete --name <your-resource-group>
 ```
 
-Next, delete the AAD app registration you created for your client app with this command:
+Next, delete the Azure Active Directory app registration you created for your client app with this command:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
