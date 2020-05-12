@@ -58,14 +58,16 @@ To immediately see how well your organization is securing each individual attack
 
 By default, your recommendations are shown in the security controls. From this update you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
 
+The security controls - and this toggle - are part of the new secure score experience. Remember to send us your feedback from within the portal.
+
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
 ### Account security recommendations moved to "Security best practices" security control
 
-One of the security controls introduced with the enhanced secure score is "Security best practices". 
+One of the security controls introduced with the enhanced secure score is "Security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
 
-With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control.
+With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
 
 The recommendations are:
 
@@ -80,7 +82,7 @@ Learn more about security controls in [Enhanced secure score (preview) in Azure 
 
 Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
 
-Create a custom initiative in Azure policy, add it as a policy in Azure Security Center, and visualize it as recommendations.
+Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
 
 We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 
