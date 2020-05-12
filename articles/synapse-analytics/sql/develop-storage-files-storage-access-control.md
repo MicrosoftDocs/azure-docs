@@ -14,12 +14,12 @@ ms.reviewer: jrasnick, carlrab
 # Control storage account access for SQL on-demand (preview)
 
 A SQL on-demand query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
-- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to to access storage.
+- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to access storage.
 - **SQL service level** - User should have `SELECT` permission to read data from [external table](develop-tables-external-tables.md) or `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
 
-## Authorization types
+## Supported storage authorization types
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
@@ -166,7 +166,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 
 Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
 - Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
-- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
 ## Server-scoped credential
 
@@ -248,11 +248,11 @@ WITH IDENTITY = 'Managed Identity';
 GO
 ```
 
-The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
 ### [Public access](#tab/public-access)
 
-Database scoped crednetial is not required to allow access to publicly available files.
+Database scoped credential is not required to allow access to publicly available files. Create data sorce without database scoped credential to access publicly available files on Azure storage.
 
 ---
 
