@@ -1,5 +1,6 @@
 ---
-title: Register single-page apps - Microsoft identity platform | Azure
+title: Register single-page apps | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (app registration)
 services: active-directory
 author: hahamil
@@ -8,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 5/11/2020
+ms.date: 05/11/2020
 ms.author: hahamil
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
@@ -16,15 +17,17 @@ ms.custom: aaddev
 
 # Single-page application: App registration
 
-This page explains the app registration specifics for a single-page application (SPA).
+This article explains the app registration specifics for a single-page application (SPA).
 
-## Preliminary steps 
+## Getting started
 
 Follow the steps to [register a new application with the Microsoft identity platform](quickstart-register-app.md), and select the supported accounts for your application. The SPA scenario can support authentication with accounts in your organization or any organization and personal Microsoft accounts.
 
-Next, learn the specific aspects of application registration that apply to single-page applications. Note that there are slight differences in registering redirect URIs for use with MSAL.js 1.0 and MSAL.js 2.0. It's important to register a redirect URI where your application can receive tokens. Ensure that the redirect URI exactly matches the URI for your application.
+The following sections describe the aspects of application registration specific to single-page applications. Aspects of app registration differ slightly between MSAL.js 1.0 and MSAL.js 2.0.
 
 ## MSAL.js 2.0  
+
+Register a redirect URI where your application can receive tokens. Ensure that the redirect URI exactly matches the URI for your application. 
 
 The following steps apply for registering redirect URIs for apps using MSAL.js 2.0. The latest version on MSAL supports the Authorization Code Flow with PKCE and CORS support [link to docs TODO]. 
 
