@@ -77,13 +77,13 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 #### Step 2: Download the project
 
 > [!div renderon="docs"]
-> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-v2/).
+> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction" class="sxs-lookup"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-javascript-v2/)
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip)
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your JavaScript app
