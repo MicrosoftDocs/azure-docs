@@ -55,6 +55,11 @@ By running a Blob indexer over a container, you can extract text and metadata fr
 
 A common scenario that makes it easy to sort through blobs of any content type is to index both custom metadata and system properties for each blob. In this way, information for all blobs is indexed regardless of document type, stored in an index in your search service. Using your new index, you can then proceed to sort, filter, and facet across all Blob storage content.
 
+> [!NOTE]
+> Blob Index tags are natively indexed by the Blob storage and exposed for querying. If your blobs' key/value attributes require indexing and filtering capabilities, Blob Index tags leveraged instead of metadata.
+>
+> To learn more about Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index](../storage/blobs/storage-manage-find-blobs.md).
+
 ### Indexing JSON blobs
 Indexers can be configured to extract structured content found in blobs that contain JSON. An indexer can read JSON blobs and parse the structured content into the appropriate fields of an search document. Indexers can also take blobs that contain an array of JSON objects and map each element to a separate search document. You can set a parsing mode to affect the type of JSON object created by the indexer.
 
