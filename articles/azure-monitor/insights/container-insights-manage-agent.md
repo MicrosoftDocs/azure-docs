@@ -14,7 +14,7 @@ Azure Monitor for containers uses a containerized version of the Log Analytics a
 
 Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift version 3.x. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) and Azure Red Hat OpenShift version 4.x, the agent is not managed, and you need to manually upgrade the agent.
 
-If the agent upgrade fails for a cluster hosted on AKS or Azure OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS or Azure Red Hat OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### Upgrade agent on AKS cluster
 
