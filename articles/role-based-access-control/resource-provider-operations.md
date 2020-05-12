@@ -23,8 +23,6 @@ This article lists the operations available for each Azure Resource Manager reso
 
 The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
-
 ## Microsoft.AAD
 
 Azure service: [Azure Active Directory Domain Services](../active-directory-domain-services/index.yml)
