@@ -42,7 +42,7 @@ The Batch service considers a job with *no* tasks to have all of its tasks compl
 
 [Job schedules](https://docs.microsoft.com/rest/api/batchservice/jobschedule) enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. You can specify the duration of the schedule (how long and when the schedule is in effect) and how frequently jobs are created during the scheduled period.
 
-## Task
+## Tasks
 
 A task is a unit of computation that is associated with a job. It runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
 

@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 
 ---
-# Batch service workflow and resources
+# Batch service workflow
 
-In this overview of the core components of the Azure Batch service, we discuss the primary service resources that Batch developers can use to build large-scale parallel compute solutions.
+In this overview of the core components of the Azure Batch service, we discuss the high-level workflow that Batch developers can use to build large-scale parallel compute solutions, along with the primary service resources that are used.
 
-Whether you're developing a distributed computational application or service that issues direct [REST API](https://docs.microsoft.com/rest/api/batchservice/) calls or you're using another one of the [Batch SDKs](batch-apis-tools.md#batch-service-apis), you'll use many of the resources and features discussed in this article.
+Whether you're developing a distributed computational application or service that issues direct [REST API](https://docs.microsoft.com/rest/api/batchservice/) calls or you're using another one of the [Batch SDKs](batch-apis-tools.md#batch-service-apis), you'll use many of the resources and features discussed here.
 
 > [!TIP]
 > For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md). Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
-## Batch service workflow
+## Basic workflow
 
 The following high-level workflow is typical of nearly all applications and services that use the Batch service for processing parallel workloads:
 
@@ -26,11 +26,11 @@ The following high-level workflow is typical of nearly all applications and serv
 6. Monitor job progress and retrieve the task output from Azure Storage.
 
 > [!NOTE]
-> You need a [Batch account](accounts.md) to use the Batch service. Most Batch solutions also use an associated [Azure Storage][../azure/storage/index.yml] account for file storage and retrieval.
+> You need a [Batch account](accounts.md) to use the Batch service. Most Batch solutions also use an associated [Azure Storage](../azure/storage/index.yml) account for file storage and retrieval.
 
 ## Batch service resources
 
-The following sections discuss the resources of Batch that enable your distributed computational scenario. Some of these--accounts, compute nodes, pools, jobs, and tasks--are required by all solutions that use the Batch service. Others, like job schedules and application packages, are helpful but optional, features.
+The following topics discuss the resources of Batch that enable your distributed computational scenarios.
 
 - [Batch accounts and storage accounts](accounts.md)
 - [Nodes and pools](nodes-and-pools.md)
@@ -39,7 +39,7 @@ The following sections discuss the resources of Batch that enable your distribut
 
 ## Next steps
 
-* Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
-* Download and install [Batch Explorer][https://azure.github.io/BatchExplorer/] for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications.
-* See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum][https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch] on MSDN.
+- Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
+- Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+- Download and install [Batch Explorer](https://azure.github.io/BatchExplorer/) for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications.
+- See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch).
