@@ -33,7 +33,7 @@ Orchestration is needed to run the appropriate job at the appropriate time.
 
 Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie runs within an HDInsight cluster and is integrated with the Hadoop stack. Oozie supports Hadoop jobs for Apache Hadoop MapReduce, Pig, Hive, and Sqoop. You can use Oozie to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
-For more information, see [Use Apache Oozie with Apache Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md). See also, [Operationalize the Data Pipeline](../hdinsight-operationalize-data-pipeline.md).
+For more information, see [Use Apache Oozie with Apache Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md). See also, [Operationalize the data pipeline](../hdinsight-operationalize-data-pipeline.md).
 
 ### Azure Data Factory
 
@@ -93,7 +93,7 @@ Because HBase is a schemaless database, you don't need to define columns and dat
 
 The open-source code scales linearly to handle petabytes of data on thousands of nodes. HBase relies on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop environment.
 
-HBase is an excellent destination for sensor and log data for future analysis.
+HBase is a good destination for sensor and log data for future analysis.
 
 HBase adaptability is dependent on the number of nodes in the HDInsight cluster.
 
