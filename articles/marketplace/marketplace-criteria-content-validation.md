@@ -17,7 +17,7 @@ All offers must meet the requirements that are listed in the [Listing requiremen
 
 Additional requirements and checklists are provided for specific listing types, including: 
 * [Trial offer requirements](#trial-offer-requirements)
-* [SaaS app requirements](#saas-app-requirements)
+* [SaaS application requirements](#saas-application-requirements)
 * [Container offer requirements](#container-offer-requirements)
 * [Consulting offer requirements](#consulting-offer-requirements)
 
