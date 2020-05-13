@@ -73,7 +73,7 @@ To create the JSP application:
 
 1. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
-1. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing `<body>` element. The updated `<body>` content should look like the following code:
+1. When the *index.jsp* file opens in Eclipse, add text to display **Hello World!** within the existing `<body>` element. The updated `<body>` content should look like the following code:
 
    ```html
    <body>
@@ -81,7 +81,7 @@ To create the JSP application:
    </body>
    ```
 
-1. Save the index.jsp file.
+1. Save the *index.jsp* file.
 
 1. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
 
@@ -145,7 +145,7 @@ Create a Data Access Object (DAO) to abstract persisting the ToDo items to Azure
 
 1. Create a new *DocDbDao.java* file and add the `DocDbDao` class. This class defines code to persist the TodoItems into the container, retrieves your database and collection, if it exists, or create a new one if it doesn't exist. This example uses [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize the TodoItem Plain Old Java Objects (POJOs) to JSON documents. In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). This class also defines helper function to retrieve the documents by another attribute (e.g. "ID") rather than self-link. You can use the helper method to retrieve a TodoItem JSON document by ID and then deserialize it to a POJO.
 
-   You can also use the cosmosClient client object to get a collection or list of TodoItems using a SQL query. Finally, you define the delete method to delete a TodoItem from your list. The following code shows the contents of the `DocDbDao` class:
+   You can also use the `cosmosClient` client object to get a collection or list of TodoItems using a SQL query. Finally, you define the delete method to delete a TodoItem from your list. The following code shows the contents of the `DocDbDao` class:
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/DocDbDao.java":::
 
@@ -169,7 +169,7 @@ Next, create a servlet to route HTTP requests to the controller. Create the *Api
 
 Now that we've finished the fun bits, all that's left is to build a quick user interface and wire it up to your DAO.
 
-1. You need a web user interface to display to the user. Let's re-write the index.jsp we created earlier with the following code:
+1. You need a web user interface to display to the user. Let's re-write the *index.jsp* we created earlier with the following code:
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/index.jsp":::
 
