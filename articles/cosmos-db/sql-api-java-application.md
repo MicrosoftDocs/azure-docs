@@ -89,7 +89,7 @@ To create the JSP application:
 
 ## <a id="InstallSDK"></a>Install the SQL Java SDK
 
-The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](https://maven.apache.org/). To do this, you need to convert your project to a maven project by using the following steps:
+The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](https://maven.apache.org/). To do this, you need to convert your project to a Maven project by using the following steps:
 
 1. Right-click your project in the Project Explorer, click **Configure**, click **Convert to Maven Project**.
 
