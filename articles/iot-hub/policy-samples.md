@@ -10,6 +10,8 @@ ms.custom: subject-policy-samples
 ---
 # Azure Policy built-in policy definitions for Azure Internet of Things
 
+For IoT Hub sample code that shows how to implement common IoT scenarios, see the [IoT Hub quickstarts](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). There are quickstarts for multiple programming languages including C, Node.js, and Python.
+
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Internet of Things. For additional Azure Policy built-ins for other services,
 see [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
