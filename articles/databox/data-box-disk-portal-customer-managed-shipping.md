@@ -25,7 +25,7 @@ Self-managed shipping for Azure Data Box Disc is only available to the following
 4. South Korea
 5. India - self-managed shipping is the only available option
 
-For detailed information regarding prerequisites and Azure portal usage, see [Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)
+For detailed information on how to create a Data Box Disk order, see [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 
 ## Use self-managed shipping
 
@@ -59,7 +59,7 @@ Then you can complete your order.
 
    You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter. Ops will need to include this person's details so that it can be verified during pickup.
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule pickup**. The authorization code is also validated at the datacenter time of pickup.
+   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule pickup**. The authorization code is also validated at the datacenter at the time of pickup.
 
 8. After the device is picked up, the customer needs to successfully complete data copy and then drop off the device back at the datacenter.
 
@@ -73,18 +73,18 @@ Then you can complete your order.
 9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then you should now be at **Ready to receive success** state of the Azure portal. You will also need to confirm that the datacenter also has your authorization code.
    ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
-10. Customer or point of contact has dropped off the device at the datacenter and their ID and authorization cod have been verified.
+10. Customer or point of contact has dropped off the device at the datacenter and their ID and authorization code have been verified.
 
     ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 
-11. After drop-off, Microsoft will copy your data to their servers. The Azure portal should be at the **Copy in progress**.
+11. After drop-off, Microsoft will copy your data from the Data Box Disk to Azure. The Azure portal will let you know that the back up is in progress with the status message, **Copy in progress**.
 
     ![Data Copy](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-copy-data-01.png)
 
-12. When your data and finished copying successfully, Azure portal will indicate that the copy of your data is complete.
+12. After the datacenter has finished copying your data files from the Data Box Disk to Azure, the Azure portal will indicate that your data copy is complete.
 
     ![Data Copy Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-copy-data-complete-01.png)
 
 ## Next steps
 
-- [Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)
+- [Quickstart: Deploy Azure Data Box Disk using the Azure portal](data-box-disk-quickstart-portal.md)

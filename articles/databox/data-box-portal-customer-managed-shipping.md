@@ -60,9 +60,9 @@ Then you can complete your order.
 7. Your order automatically moves to the **Picked up** state once the device prep has completed. You will receive an email instructing you to contact Microsoft to schedule an appointment to come to the datacenter for pickup.
   ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-8. After the device has been picked up, you need to successfully complete the data copy and then drop off the device back at the datacenter.
+8. After the device has been picked up, you need to copy your data to your Data Box from your host computer. After all your data has been copied, then you can prepare to ship the Data Box. For more information about preparing your device to be shipped, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   After the data copy, you need to successfully complete **Prepare to ship** step on the device. This step needs to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off is shown to the customer. For more information about preparing your device to be shipped, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+   After the data copy, you need to successfully complete **Prepare to ship** step on the device. This step needs to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off is shown to the customer.
 
    > [!NOTE]
    >
@@ -79,7 +79,7 @@ Then you can complete your order.
 
     ![Data Copy](media\data-box-portal-customer-managed-shipping\data-box-copy-data-01.png)
 
-12. When your data has finished copying successfully, the Azure portal will indicate that your data copy is complete.
+12. After the datacenter has finished copying your data files from the Data Box to Azure, the Azure portal will indicate that your data copy is complete.
 
     ![Data Copy Complete](media\data-box-portal-customer-managed-shipping\data-box-copy-data-complete-01.png)
 
