@@ -24,7 +24,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, you have the new version and con proceed with the instructions in this article. If you don't have the new version, you can't complete the role assignment.
 
-  [![](media/roles-groups-pim-eligible/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-pim-eligible/pim-new-version.png#lightbox)
+   [![](media/roles-groups-pim-eligible/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-pim-eligible/pim-new-version.png#lightbox)
 
 ## Using Azure AD admin center
 
