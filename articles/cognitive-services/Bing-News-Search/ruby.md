@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/19/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 
 # Quickstart: Perform a news search using Ruby and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and processes the results.
+Use this quickstart to make your first call to the Bing News Search API. This simple JavaScript application sends a search query to the API and processes the JSON response.
 
 While this application is written in Python, the API is a RESTful Web service compatible most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
@@ -28,7 +28,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Create and initialize the application
 
-1. import the following packages into your code file.
+1. import the following packages into your code file:
 
     ```ruby
     require 'net/https'
@@ -36,7 +36,7 @@ While this application is written in Python, the API is a RESTful Web service co
     require 'json'
     ```
 
-2. Create variables for the API endpoint, News search URL, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, news search URL, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     accessKey = "enter key here"
@@ -47,7 +47,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Format and make an API request
 
-Use the variables from the last step to format a search URL for the API request. Then send the request.
+Use the variables from the last step to format a search URL for the API request. Then, send the request.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
