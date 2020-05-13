@@ -21,7 +21,7 @@ ms.localizationpriority: high
 
 ::: zone target = "chromeless"
 
-# Get started with Azure Data Box Heavy
+## Get started with Azure Data Box Heavy
 
 ::: zone-end
 
