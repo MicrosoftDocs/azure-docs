@@ -1,5 +1,5 @@
 ---
-title: Assign a role to a group frequently asked questions - Azure Active Directory | Microsoft Docs
+title: Troubleshooting roles assigned to cloud group FAQ - Azure Active Directory | Microsoft Docs
 description: Assign an Azure AD role to a role-eligible group in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
@@ -16,12 +16,12 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assigning roles to groups FAQ and troubleshooting in Azure ACtive Directory
+# Troubleshooting roles assigned to cloud groups
 
 Here are some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory (Azure AD).
 
-**Q:** I'm a Groups Administrator but I can't see 'Eligible for role assignment' toggle.
-**A:** Only Privileged role administrator or Global Administrator can create a group that is eligible for role assignment. Only users in these two roles see this control.
+**Q:** I'm a Groups Administrator but I can't see the **Eligible for role assignment** switch.
+**A:** Only Privileged role administrators or Global Administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
 
 **Q:** Who can modify the membership of groups that are assigned to Azure AD roles?
 **A:** By default, only Privileged Role Administrator and Global Administrator manage the membership of a role-eligible group, but you can delegate the management of role-eligible groups by adding group owners.
