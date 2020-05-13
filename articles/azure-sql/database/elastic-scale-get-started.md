@@ -137,8 +137,8 @@ For more information about Elastic Database Tools, see the following articles:
 [Next steps]: #next-steps
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-get-started/newProject.png
-[2]: ./media/sql-database-elastic-scale-get-started/click-online.png
-[3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
-[4]: ./media/sql-database-elastic-scale-get-started/output2.png
-[5]: ./media/sql-database-elastic-scale-get-started/java-client-library.PNG
+[1]: ./media/elastic-scale-get-started/newProject.png
+[2]: ./media/elastic-scale-get-started/click-online.png
+[3]: ./media/elastic-scale-get-started/click-CSharp.png
+[4]: ./media/elastic-scale-get-started/output2.png
+[5]: ./media/elastic-scale-get-started/java-client-library.PNG

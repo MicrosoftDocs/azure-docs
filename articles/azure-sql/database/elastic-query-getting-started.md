@@ -133,9 +133,9 @@ For pricing information see [SQL Database Pricing Details](https://azure.microso
 
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
-[2]: ./media/sql-database-elastic-query-getting-started/portal.png
-[3]: ./media/sql-database-elastic-query-getting-started/tiers.png
-[4]: ./media/sql-database-elastic-query-getting-started/details.png
-[5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
+[1]: ./media/elastic-query-getting-started/cmd-prompt.png
+[2]: ./media/elastic-query-getting-started/portal.png
+[3]: ./media/elastic-query-getting-started/tiers.png
+[4]: ./media/elastic-query-getting-started/details.png
+[5]: ./media/elastic-query-getting-started/exel-sources.png
 <!--anchors-->

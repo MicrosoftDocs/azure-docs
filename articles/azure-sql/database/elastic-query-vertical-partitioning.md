@@ -201,6 +201,6 @@ You can use regular SQL Server connection strings to connect your BI and data in
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+[1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png
 
 <!--anchors-->
