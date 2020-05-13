@@ -9,12 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/19/2020
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
-Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of words it didn't recognize, followed by suggested corrections. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of suggested corrections. 
+
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## Prerequisites
 
@@ -25,7 +27,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 ## Create and initialize the application
 
-1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements. 
+1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements: 
 
     ```ruby
     require 'net/http'
@@ -33,7 +35,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
     require 'json'
     ```
 
-2. Create variables for your subscription key, endpoint URI and path. Create your request parameters by appending the `mkt=` parameter to your market, and `&mode` to the `proof` proof mode. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, endpoint URI, and path. Create your request parameters by appending your market code to the `mkt=` parameter, and append the `proof` setting to the `&mode=` parameter. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -79,9 +81,9 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 ## Run the application
 
-Build and run your project.
+1. Build and run your project.
 
-If you're using the command line, use the following command to run the application.
+1. If you're using the command line, use the following command to run the application:
 
 ```bash
 ruby <FILE_NAME>.rb
@@ -132,7 +134,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
