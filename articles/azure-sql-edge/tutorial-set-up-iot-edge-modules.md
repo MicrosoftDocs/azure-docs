@@ -16,7 +16,7 @@ ms.date: 05/19/2020
 In part two of this three-part tutorial for predicting iron ore impurities in Azure SQL Edge, you'll set up the following IoT Edge modules:
 
 - Azure SQL Edge
-- A data generator module
+- Data generator IoT Edge module
 
 ## Create Azure Stream Analytics module
 
@@ -32,14 +32,17 @@ Once the Azure Stream Analytics job is created with the hosting environment set 
    Encoding|UTF-8
    Event compression type|None
 
-2. To create the **output**, click **+Add** and choose SQL Database. Fill the details section using the following information:
+2. To create the **output**, click **+Add** and choose SQL Database. Fill the details section using the following information.
+
+   > [!NOTE]
+   > The password specified in this section needs to be specified for SQL SA password when deploying the SQL Edge module in section **"Deploy the Azure SQL Edge module"**.
 
    Field|Value
    -----|-----
    Database|IronOreSilicaPrediction
    Server name|tcp:.,1433
    Username|sa
-   Password|YourStrongPasswrod
+   Password|Specify a strong password
    Table|IronOreMeasurements1
 
 3. Navigate to the **Query** section and set up the query as follows:
@@ -91,7 +94,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 3. CLick **Add**.
 
-## Deploythe Azure SQL Edge module
+## Deploy the Azure SQL Edge module
 
 1. Deploy the Azure SQL Edge module by following the steps listed in [Deploy Azure SQL Database Edge Preview](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge).
 
@@ -120,15 +123,6 @@ Now, specify the container credentials in the IoT Edge module.
        }
    ```
 
-   For example:
-   
-   ```json
-         {
-           "SqlPackage": "https://ASEstorage.blob.core.windows.net/sqldatabasedacpac/SQLDatabasedacpac.zip?sp=r&st=2020-04-  01T20:01:49Z&se=2021-01-01T05:01:49Z&spr=https&sv=2019-02-02&sr=b&sig=AH71glRTfULcyzJZKlgezfa0Epjfe7zv10mF%2BNzEIn0%3D",
-           "ASAJobInfo": "https://ASEstorage.blob.core.windows.net/bootdiagnostics-ironorepr-6984a2b8-6901-41a8-b3a6-49f86276e63d/ASAEdgeJobs/1278e9b9-94af-41ec-90b3-8172560340c1/e9bb25a6-d0a1-422b-9e29-4305a89e92f2/ASAEdgeJobDefinition.zip?sv=2018-03-28&sr=b&sig=KQZqR7diisByoUkCK6pEA3VJm%2FI2wHWEPDL1OwjMTJ8%3D&st=2020-04-01T20%3A21%3A20Z&se=2023-04-01T20%3A31%3A20Z&sp=r"
-         }
-   ```
-
 ## Next Steps
 
-- [Deploy ML model on Azure SQL Edge using ONNX](run-ml-model-on-sql-edge.md)
+- [Deploy ML model on Azure SQL Edge using ONNX](tutorial-run-ml-model-on-sql-edge.md)

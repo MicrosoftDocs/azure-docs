@@ -17,15 +17,14 @@ In this three-part tutorial, you'll create a machine learning model to predict i
 ## Prerequisites
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-2. Install [Visual Studio Professional/Enterprise](https://visualstudio.microsoft.com/vs/).
-3. Install [Python 3.6.8](https://www.python.org/downloads/release/python-368/).
+2. Install [Python 3.6.8](https://www.python.org/downloads/release/python-368/).
       * Use the Windows x86-x64 executable installer
       * Add `python.exe` to the PATH environment variable
-4. Install [Microsoft Visual C++ 14.0 and build tools for Visual Studio](https://visualstudio.microsoft.com/downloads/). You can find the download under "Tools For Visual Studio 2019".
-5. Install [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
-6. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-7. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
-8. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020).
+downloads/). You can find the download under "Tools For Visual Studio 2019".
+3. Install [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
+4. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+5. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
+6. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
 
 ## Deploy Azure resources using PowerShell Script
 
@@ -272,4 +271,4 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
 
 ## Next Steps
 
-- [Set up IoT Edge modules and connections](set-up-iot-edge-modules.md)
+* [Set up IoT Edge modules and connections](tutorial-set-up-iot-edge-modules.md)

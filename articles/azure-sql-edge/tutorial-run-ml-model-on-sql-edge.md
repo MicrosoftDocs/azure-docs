@@ -155,7 +155,7 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
    ```python
    ## Load the Model into a SQL Database.
    ## Define the Connection string parameters. These connection strings will be used later also in the demo.
-   server = '40.69.153.211,1600' # SQL Server IP address
+   server = '<SQL Server IP address>'
    username = 'sa' # SQL Server username
    password = '<SQL Server password>'
    database = 'IronOreSilicaPrediction'
@@ -177,7 +177,7 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
 
    ```python
    ## Define the Connection string parameters. These connection strings will be used later also in the demo.
-   server = '40.69.153.211,1600' # SQL Server IP address
+   server = '<SQL Server IP address>'
    username = 'sa' # SQL Server username
    password = '<SQL Server password>'
    database = 'IronOreSilicaPrediction'
@@ -220,5 +220,4 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
 
 ## Next steps
 
-For more information on using ONNX models in Azure SQL Edge, see 
-[Machine learning and AI with ONNX in Azure SQL Edge (Preview)](https://review.docs.microsoft.com/en-us/azure/azure-sql-edge/onnx-overview?branch=release-preview-sqldb-edge)
+For more information on using ONNX models in Azure SQL Edge, see [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md).
