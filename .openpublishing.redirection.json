@@ -40762,7 +40762,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-inventory.md",
-      "redirect_url": "/azure/azure-monitor/insights/solutions-inventory",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
       "redirect_document_id": false
     },
     {
