@@ -23,7 +23,7 @@ SaaS developers build applications on top of large scale data-tiers consisting o
 - Over-provision resources based on peak usage and over pay, or
 - Under-provision to save cost, at the expense of performance and customer satisfaction during peaks.
 
-Elastic pools solve this problem by ensuring that databases get the performance resources they need when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
+Elastic pools solve this problem by ensuring that databases get the performance resources they need when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patternss.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -222,6 +222,6 @@ For more information, see [create SQL Database alerts in Azure portal](../../sql
 
 - For pricing information, see [Elastic pool pricing](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - To scale elastic pools, see [Scaling elastic pools](../../sql-database/sql-database-elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/monitor-and-scale-pool-powershell.md)
-- To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-pattern.md).
+- To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
 - For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
 - To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md).
