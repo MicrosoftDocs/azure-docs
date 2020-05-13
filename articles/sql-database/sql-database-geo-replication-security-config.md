@@ -14,7 +14,7 @@ ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover
 
-This article describes the authentication requirements to configure and control [active geo-replication](sql-database-active-geo-replication.md) and [auto-failover groups](sql-database-auto-failover-group.md). It also provides the steps required to set up user access to the secondary database. Finally, it also describes how to enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
+This article describes the authentication requirements to configure and control [active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [auto-failover groups](sql-database-auto-failover-group.md). It also provides the steps required to set up user access to the secondary database. Finally, it also describes how to enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 ## Disaster recovery with contained users
 
@@ -92,6 +92,6 @@ The last step is to go to the target server, or servers, and generate the logins
 
 * For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 * For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
-* To learn about active geo-replication, see [Active geo-replication](sql-database-active-geo-replication.md).
+* To learn about active geo-replication, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
 * To learn about auto-failover groups, see [Auto-failover groups](sql-database-auto-failover-group.md).
 * For information about using geo-restore, see [geo-restore](sql-database-recovery-using-backups.md#geo-restore)

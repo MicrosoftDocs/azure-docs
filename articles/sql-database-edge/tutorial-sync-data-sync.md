@@ -47,7 +47,7 @@ For more info about SQL Data Sync, see these articles:
 
 * [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md)
 
-* [Best practices](../sql-database/sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](../sql-database/sql-database-troubleshoot-data-sync.md)
+* [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../sql-database/sql-database-troubleshoot-data-sync.md)
 
 * [Monitor SQL Data Sync with Azure Monitor logs](../sql-database/sql-database-sync-monitor-oms.md)
 

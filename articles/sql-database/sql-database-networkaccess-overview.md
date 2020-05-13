@@ -147,7 +147,7 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 
 - For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
+- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](../azure-sql/database/connectivity-architecture.md)
 
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
 

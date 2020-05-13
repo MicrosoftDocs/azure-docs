@@ -20,7 +20,7 @@ Once you have identified a performance issue that you are facing with Azure SQL 
 - Tune your application and apply some best practices that can improve performance.
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
-This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](sql-database-advisor.md) and the Azure SQL Database [auto-tuning recommendations](sql-database-automatic-tuning.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](sql-database-monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
+This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](../azure-sql/database/implement-database-advisor-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](sql-database-automatic-tuning.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](sql-database-monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
 
 ## Tune your application
 

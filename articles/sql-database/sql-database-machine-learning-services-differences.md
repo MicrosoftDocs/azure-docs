@@ -59,5 +59,5 @@ Memory usage depends on how much is used in your R scripts and the number of par
 ## Next steps
 
 - See the overview, [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md).
-- To learn how to use R to query Azure SQL Database Machine Learning Services (preview), see the [Quickstart guide](sql-database-connect-query-r.md).
+- To learn how to use R to query Azure SQL Database Machine Learning Services (preview), see the [Quickstart guide](../azure-sql/database/connect-query-r.md).
 - To get started with some simple R scripts, see [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md).

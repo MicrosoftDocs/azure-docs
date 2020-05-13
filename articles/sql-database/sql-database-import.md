@@ -150,7 +150,7 @@ You can also use these wizards.
 
 ## Next steps
 
-- To learn how to connect to and query an Azure SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md).
+- To learn how to connect to and query an Azure SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](../azure-sql/database/connect-query-ssms.md).
 - For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).
 - For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](sql-database-single-database-migrate.md).
 - To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

@@ -47,7 +47,7 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 ## Enable automatic tuning
 
-You can [enable automatic tuning for single and pooled databases in the Azure portal](sql-database-automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
+You can [enable automatic tuning for single and pooled databases in the Azure portal](../azure-sql/database/enable-automatic-tuning.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
 
 ## Automatic tuning options
 
@@ -61,7 +61,7 @@ Automatic tuning options available in Azure SQL Database and Azure SQL Managed I
 
 ### Automatic tuning for Azure SQL Databases
 
-Automatic tuning for Azure SQL Database uses the **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** database advisor recommendations to optimize your database performance. For more information, see [Database advisor recommendations in the Azure portal](sql-database-advisor-portal.md), in [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction), and in the [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Automatic tuning for Azure SQL Database uses the **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** database advisor recommendations to optimize your database performance. For more information, see [Database advisor recommendations in the Azure portal](../azure-sql/database/find-apply-database-advisor-recommendations-portal.md), in [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction), and in the [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
 You can either manually apply tuning recommendations using the Azure portal or you can let automatic tuning autonomously apply tuning recommendations for you. The benefits of letting the system autonomously apply tuning recommendations for you is that it automatically validates there exists a positive gain to the workload performance, and if there is no significant performance improvement detected, it will automatically revert the tuning recommendation. Please note that in case of queries affected by tuning recommendations that are not executed frequently, the validation phase can take up to 72 hrs by design.
 
@@ -78,7 +78,7 @@ Automatic tuning options can be independently enabled or disabled per database, 
 
 Configuring automatic tuning options on a server and inheriting settings for databases belonging to the parent server is a recommended method for configuring automatic tuning as it simplifies management of automatic tuning options for a large number of databases.
 
-To learn about building email notifications for automatic tuning recommendations, see [Email notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md).
+To learn about building email notifications for automatic tuning recommendations, see [Email notifications for automatic tuning](../azure-sql/database/automatic-tuning-email-notifications-configure.md).
 
 ### Automatic tuning for Azure SQL Managed Database
 

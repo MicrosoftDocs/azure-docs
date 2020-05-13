@@ -49,7 +49,7 @@ In the following steps you'll set up the training data, create a regression mode
 
 1. Open **SQL Server Management Studio** and connect to your SQL database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](../azure-sql/database/connect-query-ssms.md).
 
 1. Create the **CarSpeed** table to save the training data.
 

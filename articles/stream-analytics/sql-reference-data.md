@@ -34,7 +34,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    ![SQL Database reference configuration](./media/sql-reference-data/sql-input-config.png)
 
-3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../sql-database/sql-database-connect-query-portal.md)
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
 
 ### Specify storage account in Job config
 

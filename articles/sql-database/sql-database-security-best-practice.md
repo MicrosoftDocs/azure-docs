@@ -512,7 +512,7 @@ Best practices on how to prevent client machines and applications with well-know
 
 - For Azure SQL Database and SQL Managed Instance, encryption is enforced for both Proxy and Redirect connection types. For Azure SQL Managed Instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections.
 
-- For more information, see [Azure SQL Database Connectivity Architecture - Connection policy](sql-database-connectivity-architecture.md#connection-policy).
+- For more information, see [Azure SQL Database Connectivity Architecture - Connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy).
 
 ### Minimize Attack Surface
 

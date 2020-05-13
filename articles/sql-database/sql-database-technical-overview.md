@@ -123,7 +123,7 @@ In addition, SQL Database provides built-in [business continuity and global scal
 - [Point-in-time restores](sql-database-recovery-using-backups.md):
 
   All SQL Database deployment options support recovery to any point in time within the automatic backup retention period for any SQL database.
-- [Active geo-replication](sql-database-active-geo-replication.md):
+- [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md):
 
   The single database and pooled databases options allow you to configure up to four readable secondary databases in either the same or globally distributed Azure datacenters. For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale. This removes bottlenecks on the primary that are due to read workloads. For managed instances, use auto-failover groups.
 - [Auto-failover groups](sql-database-auto-failover-group.md):
@@ -139,7 +139,7 @@ With SQL Database, you get built-in intelligence that helps you dramatically red
 
 ### Automatic performance monitoring and tuning
 
-SQL Database provides detailed insight into the queries that you need to monitor. SQL Database learns about your database patterns, and enables you to adapt your database schema to your workload. SQL Database provides [performance tuning recommendations](sql-database-advisor.md), where you can review tuning actions and apply them.
+SQL Database provides detailed insight into the queries that you need to monitor. SQL Database learns about your database patterns, and enables you to adapt your database schema to your workload. SQL Database provides [performance tuning recommendations](../azure-sql/database/implement-database-advisor-performance-recommendations.md), where you can review tuning actions and apply them.
 
 However, constantly monitoring a database is a hard and tedious task, especially when dealing with many databases. [Intelligent Insights](sql-database-intelligent-insights.md) does this job for you by automatically monitoring SQL Database performance at scale. It informs you of performance degradation issues, it identifies the root cause of each issue, and provides performance improvement recommendations when possible.
 
