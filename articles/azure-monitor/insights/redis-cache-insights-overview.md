@@ -54,11 +54,11 @@ To view the utilization and performance of your storage accounts across all of y
 
 On **Overview**, the table displays interactive Azure Cache for Redis metrics. You can filter the results based on the options you select from the following drop-down lists:
 
-- **Subscriptions** - Only subscriptions that have an Azure Cache for Redis resource are listed.  
+- **Subscriptions**: Only subscriptions that have an Azure Cache for Redis resource are listed.  
 
-- **Azure Cache for Redis** - You can select all, a subset, or a single Azure Cache for Redis resource.
+- **Azure Cache for Redis**: You can select all, a subset, or a single Azure Cache for Redis resource.
 
-- **Time Range** - By default, the table displays the last four hours of information based on the corresponding selections.
+- **Time Range**: By default, the table displays the last four hours of information based on the corresponding selections.
 
 There's a counter tile under the drop-down lists. The tile shows the total number of Azure Cache for Redis resources in the selected subscriptions. Conditional color codes or heat maps for workbook columns report transaction metrics. The deepest color represents the highest value. Lighter colors represent lower values.
 
