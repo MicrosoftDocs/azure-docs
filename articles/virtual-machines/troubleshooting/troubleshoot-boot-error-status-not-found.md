@@ -33,7 +33,7 @@ If the file is present but refers to a driver (as is shown) or is OS related or 
  
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", **File:** as `\windows\System32\drivers\atapi.sys`, and **Info:** as "The operating system couldn’t be loaded because a critical system driver is missing or contains errors."
 
-![Windows Boot Manager showing a missing driver error](./media/troubleshoot-boot-error-status-not-found/1.png)
+![Windows Boot Manager states ‘Windows failed to start. A recent hardware or software change might be the cause.’ It also shows the Status as “0xc0000225’, the File as ‘\windows\System32\drivers\atapi.sys’, and in the Info section it states: “The operating system couldn’t be loaded because a critical system driver is missing or contains errors.”](./media/troubleshoot-boot-error-status-not-found/1.png)
 
 ### No File
 
@@ -41,7 +41,7 @@ If presented with the Status code, but no file is shown, follow the steps under 
 
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", and **Info:** as "The boot selection failed because a required device is inaccessible."
 
-![Windows Boot Manager showing an inaccessible device error](./media/troubleshoot-boot-error-status-not-found/2.png)
+![Windows Boot Manager states ‘Windows failed to start. A recent hardware or software change might be the cause.’ It also shows the Status as “0xc0000225’ and in the Info section it states: “The boot selection failed because a required device is inaccessible.”](./media/troubleshoot-boot-error-status-not-found/2.png)
 
 ### Registry File
 
@@ -49,11 +49,11 @@ If it refers to any of the registry files, such as \windows\system32\config\syst
  
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", the File as `\windows\System32\config\system`, and **Info:** as "The operating system couldn’t be loaded because the system registry file is missing or contains errors."
 
-![Windows Boot Manager showing a registry file error](./media/troubleshoot-boot-error-status-not-found/3.png)
+![Windows Boot Manager states ‘Windows failed to start. A recent hardware or software change might be the cause.’ It also shows the Status as “0xc0000225’, the File as ‘\windows\System32\config\system’, and in the Info section it states: “The operating system couldn’t be loaded because the system registry file is missing or contains errors.”](./media/troubleshoot-boot-error-status-not-found/3.png)
 
 In the following image, the recovery screen states "Your PC/Device needs to be repaired. The operating system couldn’t be loaded because the system registry file is missing or contains errors." The image also shows the Error code as "0xc0000225" and the File as `\windows\System32\config\system`.
 
-![Recovery screen showing a system registry file error](./media/troubleshoot-boot-error-status-not-found/4.png)
+![The recovery screen states ’Your PC/Device needs to be repaired. The operating system couldn’t be loaded because the system registry file is missing or contains errors. It also shows the Error code as “0xc0000225’ and the File as ‘\windows\System32\config\system’.](./media/troubleshoot-boot-error-status-not-found/4.png)
 
 ## Causes
 
@@ -104,7 +104,7 @@ A registry hive corruption could be due to:
 1. Right-click the file, select **Properties**, and then select the **Details** tab to see information on the file.
    1. Note the version of the file, as shown in the image below:
 
-      ![Properties window for file cng.sys](./media/troubleshoot-boot-error-status-not-found/5.png)
+      ![The properties window for the ‘cng.sys’ file, with the file version highlighted.](./media/troubleshoot-boot-error-status-not-found/5.png)
 
 1. Rename the file to **< BINARY.SYS >.old**, replacing **< BINARY.SYS >** with the name of the file.
 
@@ -134,7 +134,7 @@ A registry hive corruption could be due to:
 
       For example, if the binary you are looking for is **cmimcext.sys**, the faulty drive is drive **F:**, and you just ran a search for the latest version, you would see the following image, where a query in command prompt of `dir cmim* /s` locates the latest version of the cmimcext.sys file.
 
-      ![Query in the command prompt to locate the cmimcext.sys file](./media/troubleshoot-boot-error-status-not-found/6.png)
+      ![A query in command prompt of “dir cmim* /s’ to locate the latest version of the cmimcext.sys file.](./media/troubleshoot-boot-error-status-not-found/6.png)
 
       In the example image above, the query was performed on **C:**, whereas the drive letter should be that of the faulty drive, **F:**, which is the OS disk attached as a data disk on the repair VM.
 
@@ -154,7 +154,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    This image shows Windows Boot Loader in a Generation 1 VM, with the identifier attribute highlighted. The identifier attribute highlighted shows a unique alphanumeric string.
 
-   ![Windows Boot Loader in a Generation 1 virtual machine](./media/troubleshoot-boot-error-status-not-found/7.png)
+   ![Windows Boot Loader shown in a generation 1 VM with the identifier attribute highlighted. The identifier attribute highlighted shows a unique alphanumeric string.](./media/troubleshoot-boot-error-status-not-found/7.png)
 
    Note the identifier of the Windows Boot Loader, whose path is **\windows\system32\winload.exe**.
 
@@ -163,7 +163,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    In the following image, Disk 2 is the disk number attached to the Repair VM. The image also shows the EFI System Partition on Disk 2, which is 100MB in size and doesn’t have an assigned letter.
 
-   ![Disk management window listing all disks](./media/troubleshoot-boot-error-status-not-found/8.png)
+   ![Disk 2 is shown as the disk number attached to the Repair VM. It also shows the EFI System Partition on Disk 2, which is 100MB and doesn’t have a letter assigned to it.](./media/troubleshoot-boot-error-status-not-found/8.png)
 
    1. Open an elevated command prompt as an Administrator and enter the following commands:
       1. Open the **DISKPART TOOL** using the command `diskpart`.
@@ -176,7 +176,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
          The following image shows the results of listing and selecting a disk. Disk 0 (127 GB | Online), Disk 1 (32 GB | Online), and Disk 2 (127 GB | Online) are listed, with Disk 2 being selected using the command `sel disk 2`.
 
-         ![Diskpart tool listing disks and their attributes](./media/troubleshoot-boot-error-status-not-found/9.png)
+         ![The results of listing and then selecting a disk. Disk 0 (127 GB | Online), Disk 1 (32 GB | Online), and Disk 2 (127 GB | Online) are listed, with Disk 2 being selected.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
       1. List the partitions and select the EFI system partition identified in the previous step:
 	  
@@ -187,13 +187,13 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
          The following image shows the results of listing and selecting a partition. Partition 1 (Reserved | 16MB), Partition 2 (System | 100MB), and Partition 3 (Primary | 126 GB) are listed, with Partition 2 being selected using the command `sel part 2`.
 
-         ![Diskpart tool listing partitions and their attributes](./media/troubleshoot-boot-error-status-not-found/10.png)
+         ![The results of listing and then selecting a partition. Partition 1 (Reserved | 16MB), Partition 2 (System | 100MB), and Partition 3 (Primary | 126 GB) are listed, with Partition 2 being selected.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
       1. Assign a letter to the EFI partition using the command `assign`.
 
          In the following image, the `assign` command and the new drive **SYSTEM (F:)** are both viewable in File Explorer.
 
-         ![The assign command and the new EFI partition drive](./media/troubleshoot-boot-error-status-not-found/11.png)
+         ![The assign command and the new drive SYSTEM (F:) are viewable in File Explorer.](./media/troubleshoot-boot-error-status-not-found/11.png)
 
       1. List the BCD store data using the following command:
 	  
@@ -201,13 +201,13 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
          In the following image, Windows Boot Loader is in a generation 2 VM with the identifier attribute highlighted. The highlighted identifier attribute has a value of **{default}**.
 
-         ![Windows Boot Loader in a Generation 2 VM listing BCD store data](./media/troubleshoot-boot-error-status-not-found/12.png)
+         ![Windows Boot Loader is shown in a Generation 2 VM with the identifier attribute highlighted. The identifier attribute highlighted shows default as its value.](./media/troubleshoot-boot-error-status-not-found/12.png)
 
          Note the identifier of the Windows Boot Loader, whose path is **\windows\system32\winload.efi**.
 
 1. Notice that the OSDEVICE variable on the active partition is missing:
 
-   ![Windows Boot Manager and Windows Boot Loader results and attributes](./media/troubleshoot-boot-error-status-not-found/13.png)
+   ![Windows Boot Manager and Windows Boot Loader’s attributes are listed in the command prompt, with the OS Device attribute missing.](./media/troubleshoot-boot-error-status-not-found/13.png)
    
    In this image, Windows Boot Manager and Windows Boot Loader’s attributes are listed in the command prompt, but the OSDEVICE attribute is missing.
 

@@ -25,7 +25,7 @@ This article provides steps to resolve issues in an Azure virtual machine (VM) w
 
 When you use Boot diagnostics to view the screenshot of the VM, you will see that the screenshot displays Windows Update (KB) in progress, but failing with the error code: **C01A001D**. The following image shows Windows Update (KB) stuck with the message “Error C01A001D applying update operation ##### of ##### (######)”:
 
-![Windows Boot Manager showing a missing driver error](./media/troubleshoot-windows-update-installation-capacity/1.png)
+![Windows Update (KB) is stuck with the message, “Error C01A001D applying update operation X of Y (Z)”.](./media/troubleshoot-windows-update-installation-capacity/1.png)
 
 ## Cause
 
