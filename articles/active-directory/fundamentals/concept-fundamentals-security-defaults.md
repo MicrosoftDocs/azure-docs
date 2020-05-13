@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are security defaults?
 
-Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing are becoming more and more popular. Security defaults makes it easier to help protect your organization from these attacks with preconfigured security settings:
+Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing are becoming more and more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
 
 - Requiring all users to register for Azure Multi-Factor Authentication.
 - Requiring administrators to perform multi-factor authentication.
@@ -31,7 +31,7 @@ More details on why security defaults are being made available can be found in A
 
 ## Availability
 
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22nd, 2019, it’s possible security defaults are already enabled in your tenant. In an effort to protect all of our users, security defaults is being rolled out to all new tenants created.
+Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, it is possible security defaults are already enabled in your tenant. In an effort to protect all of our users, security defaults is being rolled out to all new tenants created.
 
 ### Who's it for?
 
@@ -41,7 +41,8 @@ Microsoft is making security defaults available to everyone. The goal is to ensu
 ### Who should use Conditional Access?
 
 - If you are an organization currently using Conditional Access policies to bring signals together, to make decisions, and enforce organizational policies, security defaults are probably not right for you. 
-- If you are an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you. 
+- If you are an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you.
+- If your organization has complex security requirements you should consider Conditional Access.
 
 ## Policies enforced
 
@@ -123,12 +124,12 @@ These free security defaults allow registration and use of Azure Multi-Factor Au
 | Call to phone |   | X |
 | App passwords |   | X*** |
 
-** Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option.
-*** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
+- ** Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option.
+- *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 ### Disabled MFA status
 
-If your organization is a previous user of per-user based Azure Multi-Factor Authentication do not be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure Multi-Factor Authentication.
+If your organization is a previous user of per-user based Azure Multi-Factor Authentication, do not be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure Multi-Factor Authentication.
 
 ### Conditional Access
 
@@ -136,7 +137,7 @@ You can use Conditional Access to configure policies similar to security default
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies to those enabled by security defaults:
+Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies to those policies enabled by security defaults:
 
 - [Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Require MFA for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
