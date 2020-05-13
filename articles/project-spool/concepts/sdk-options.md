@@ -50,10 +50,10 @@ Current availablity guidance and timelines for individual SDK packages are colla
 Area| Code Available on GitHub? | .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|-|
 ARM  | Yes |July |    July    |July |   TBD  |N/A|July|Azure CLI - July
-Common  |Yes    |July    |July  |September| July| July| July |-
-Data Plane Management  |Yes | July |   September |  September| TBD|    TBD|    July| CLI|    -
-Chat |  Yes    |September | TBD  |September |September    |September    |July    |-
-SMS |  Yes    |September | TBD  |September |September    |September    |July    |-
+Common  |Yes    |July    |July  |September| July| July| July |N/A
+Data Plane Management  |Yes | July |   September |  September| TBD|    TBD|    July| CLI|N/A
+Chat |  Yes    |September | TBD  |September |September    |September    |July    |N/A
+SMS |  Yes    |September | TBD  |September |September    |September    |July    |N/A
 Calling |  Yes    |September | TBD  |September |September    |September    |July    |- -
 Network Traversal |    Yes| TBD |TBD|TBD|TBD|TBD|TBD|TBD|
 
