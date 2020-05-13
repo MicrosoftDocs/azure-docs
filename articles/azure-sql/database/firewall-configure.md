@@ -261,4 +261,4 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 - For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+[1]: ./media/firewall-configure/sqldb-firewall-1.png

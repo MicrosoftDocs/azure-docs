@@ -104,7 +104,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Develop applications
 
-- [Connectivity](sql-database-libraries.md)
+- [Connectivity](../../sql-database/sql-database-connect-query.md#libraries)
 - [Use Spark Connector](../../sql-database/sql-database-spark-connector.md)
 - [Authenticate app](../../sql-database/sql-database-client-id-keys.md)
 - [Use batching for better performance](../../sql-database/sql-database-use-batching-to-improve-performance.md)
