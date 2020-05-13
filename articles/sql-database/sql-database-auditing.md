@@ -191,7 +191,6 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
 ## <a id="production-practices"></a>Production practices
 
-<!--The description in this section refers to preceding screen captures.-->
 
 ### Auditing geo-replicated databases
 
