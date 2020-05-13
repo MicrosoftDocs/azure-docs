@@ -42,10 +42,7 @@ This article describes how to achieve these goals using [private endpoints](../p
 
 ## Ingress connectivity to IoT Hub using private endpoints
 
-A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-premises can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
-
-> [!NOTE]
-> The main focus of this setup is for devices inside an on-premises network. This setup is not advised for devices deployed in a wide-area network.
+A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-premises can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub IP filter](./iot-hub-ip-filtering.md) and [configuring routing to not send any data to the built-in endpoint](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). This approach retains connectivity to their Hub using the private endpoint for devices. The main focus of this setup is for devices inside an on-premises network. This setup is not advised for devices deployed in a wide-area network.
 
 ![IoT Hub public endpoint](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -91,8 +88,19 @@ To set up a private endpoint, follow these steps:
 
 6. Click **Next: Tags**, and optionally provide any tags for your resource.
 
-7. Click **Review + create** to create your private endpoint resource.
+7. Click **Review + create** to create your private link resource.
 
+### Built-in Event Hub compatible endpoint doesn't support access over private endpoint
+
+The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support access over private endpoint. When configured, an IoT hub's private endpoint is for ingress connectivity only. Consuming data from built-in Event Hub compatible endpoint can only be done over the public internet. 
+
+IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
+
+1. Configure private endpoint access for IoT Hub
+1. Turn off public network access by using IP filter to block all IP
+1. Turn off the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
+1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
+1. Configure egress to other Azure resources using [Azure first party trusted services](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### Pricing (private endpoints)
 
