@@ -22,7 +22,7 @@ The RecoveryManager class is part of the [Elastic Database client library](elast
 
 ![Shard map][1]
 
-For term definitions, see [Elastic Database tools glossary](../../sql-database/sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md).
+For term definitions, see [Elastic Database tools glossary](elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](elastic-scale-shard-map-management.md).
 
 ## Why use the recovery manager
 
@@ -38,7 +38,7 @@ For more information about Azure SQL Database Elastic Database tools, geo-replic
 
 * [Overview: Cloud business continuity and database disaster recovery with SQL Database](../../sql-database/sql-database-business-continuity.md)
 * [Get started with elastic database tools](elastic-scale-get-started.md)  
-* [ShardMap Management](../../sql-database/sql-database-elastic-scale-shard-map-management.md)
+* [ShardMap Management](elastic-scale-shard-map-management.md)
 
 ## Retrieving RecoveryManager from a ShardMapManager
 
@@ -52,7 +52,7 @@ The first step is to create a RecoveryManager instance. The [GetRecoveryManager 
 
 In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized.
 
-Since this application code manipulates the shard map itself, the credentials used in the factory method (in the preceding example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](../../sql-database/sql-database-elastic-scale-manage-credentials.md).
+Since this application code manipulates the shard map itself, the credentials used in the factory method (in the preceding example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](elastic-scale-manage-credentials.md).
 
 ## Removing a shard from the ShardMap after a shard is deleted
 

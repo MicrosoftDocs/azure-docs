@@ -14,7 +14,7 @@ ms.date: 01/25/2019
 ---
 # Get started with Elastic Database Tools
 
-This document introduces you to the developer experience for the [elastic database client library](elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database Tools feature of Azure SQL Database. It focuses on use cases for [shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](elastic-scale-data-dependent-routing.md), and [multi-shard querying](../../sql-database/sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java.
+This document introduces you to the developer experience for the [elastic database client library](elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database Tools feature of Azure SQL Database. It focuses on use cases for [shard map management](elastic-scale-shard-map-management.md), [data-dependent routing](elastic-scale-data-dependent-routing.md), and [multi-shard querying](elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java.
 
 ## Elastic Database Tools for Java
 
@@ -105,9 +105,9 @@ Congratulations! You have successfully built and run your first sharded applicat
 
 ## Other elastic scale operations
 
-* **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](../../sql-database/sql-database-elastic-scale-overview-split-and-merge.md).
+* **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](elastic-scale-overview-split-and-merge.md).
 
-* **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](../../sql-database/sql-database-elastic-scale-overview-split-and-merge.md).
+* **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](elastic-scale-overview-split-and-merge.md).
 
 ## Cost
 

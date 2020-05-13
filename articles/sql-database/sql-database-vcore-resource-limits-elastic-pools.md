@@ -19,7 +19,7 @@ This article provides the detailed resource limits for Azure SQL Database elasti
 For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
 
 > [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../azure-sql/database/file-space-manage.md).
 
 You can set the service tier, compute size, and storage amount using the [Azure portal](../azure-sql/database/elastic-pool-manage.md#azure-portal), [PowerShell](../azure-sql/database/elastic-pool-manage.md#powershell), the [Azure CLI](../azure-sql/database/elastic-pool-manage.md#azure-cli), or the [REST API](../azure-sql/database/elastic-pool-manage.md#rest-api).
 

@@ -24,7 +24,7 @@ For non-sharded databases, see [Query across cloud databases with different sche
 
 ## Prerequisites
 
-* Create a shard map using the elastic database client library. see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](elastic-scale-get-started.md).
+* Create a shard map using the elastic database client library. see [Shard map management](elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](elastic-scale-get-started.md).
 * Alternatively, see [Migrate existing databases to scaled-out databases](elastic-convert-to-use-elastic-tools.md).
 * The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission.
 * ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.

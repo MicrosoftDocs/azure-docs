@@ -189,4 +189,4 @@ The following errors can be encountered while copying a database in Azure SQL Da
 ## Next steps
 
 * For information about logins, see [Manage logins](../../sql-database/sql-database-manage-logins.md) and [How to manage Azure SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).
-* To export a database, see [Export the database to a BACPAC](../../sql-database/sql-database-export.md).
+* To export a database, see [Export the database to a BACPAC](database-export.md).

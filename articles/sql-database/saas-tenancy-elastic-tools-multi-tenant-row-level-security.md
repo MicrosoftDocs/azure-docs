@@ -37,7 +37,7 @@ The goal is to use the elastic database client library [data-dependent routing](
 - Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](https://go.microsoft.com/?linkid=9888163)
   - Fill in the information for your databases at the beginning of **Program.cs**
 
-This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. The project builds a simple console application for creating blogs and posts. The project includes four tenants, plus two multi-tenant shard databases. This configuration is illustrated in the preceding diagram.
+This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](../azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. The project builds a simple console application for creating blogs and posts. The project includes four tenants, plus two multi-tenant shard databases. This configuration is illustrated in the preceding diagram.
 
 Build and run the application. This run bootstraps the elastic database tools’ shard map manager, and performs the following tests:
 
@@ -58,7 +58,7 @@ An alternative to SESSION\_CONTEXT is to use [CONTEXT\_INFO](https://docs.micros
 
 ### Entity Framework
 
-For applications using Entity Framework, the easiest approach is to set the SESSION\_CONTEXT within the ElasticScaleContext override described in [Data-dependent routing using EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Create and execute a SqlCommand that sets TenantId in the SESSION\_CONTEXT to the shardingKey specified for the connection. Then return the connection brokered through data-dependent routing. This way, you only need to write code once to set the SESSION\_CONTEXT.
+For applications using Entity Framework, the easiest approach is to set the SESSION\_CONTEXT within the ElasticScaleContext override described in [Data-dependent routing using EF DbContext](../azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Create and execute a SqlCommand that sets TenantId in the SESSION\_CONTEXT to the shardingKey specified for the connection. Then return the connection brokered through data-dependent routing. This way, you only need to write code once to set the SESSION\_CONTEXT.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -344,7 +344,7 @@ Elastic database tools and row-level security can be used together to scale out 
 ## Additional resources
 
 - [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
-- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Scaling out with Azure SQL Database](../azure-sql/database/elastic-scale-introduction.md)
 - [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)

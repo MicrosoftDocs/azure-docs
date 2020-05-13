@@ -132,7 +132,7 @@ The following steps can help you estimate whether a pool is more cost-effective 
 
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](../../sql-database/elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases.
 
-For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](../../sql-database/sql-database-elastic-scale-introduction.md).
+For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](elastic-scale-introduction.md).
 
 ### Business continuity options for databases in an elastic pool
 

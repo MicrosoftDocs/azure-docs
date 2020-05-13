@@ -348,7 +348,7 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-MSDTC and [elastic transactions](sql-database-elastic-transactions-overview.md) currently aren't supported in SQL Managed Instances.
+MSDTC and [elastic transactions](../azure-sql/database/elastic-transactions-overview.md) currently aren't supported in SQL Managed Instances.
 
 ### Extended Events
 
