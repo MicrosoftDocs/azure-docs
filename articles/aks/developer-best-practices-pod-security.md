@@ -66,15 +66,14 @@ Work with your cluster operator to determine what security context settings you 
 
 To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Credentials or keys shouldn't be included directly in your code. If these credentials are exposed, the application needs to be updated and redeployed. A better approach is to give pods their own identity and way to authenticate themselves, or automatically retrieve credentials from a digital vault.
 
-### Open-source solutions for dev/test
+### Use Azure Container Compute Upstream projects
 
 > [!IMPORTANT]
-> Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use, but are evaluated for inclusion into AKS as a first class feature over time.
+> Associated AKS open source projects are not supported by Azure technical support. They are provided for users to self-install into clusters and gather feedback from our community.
 
-The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault.
+The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault. These projects are maintained by the Azure Container Compute Upstream team and are part of a [broader list of projects available for use](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
 
- * Managed identities for Azure resources
- * [AAD Pod Identity][aad-pod-identity]
+ * [Azure Active Directory Pod Identity][aad-pod-identity]
  * [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 #### Use pod managed identities
