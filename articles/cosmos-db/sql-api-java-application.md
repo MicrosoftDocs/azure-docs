@@ -133,37 +133,37 @@ Create a Data Access Object (DAO) to abstract persisting the ToDo items to Azure
 
 1. To invoke the Azure Cosmos DB service, you must instantiate a new `cosmosClient` object. In general, it is best to reuse the `cosmosClient` object rather than constructing a new client for each subsequent request. You can reuse the client by defining it within the `cosmosClientFactory` class. Update the HOST and MASTER_KEY values that you saved in [step 1](#CreateDB). Replace the HOST variable with with your URI and replace the MASTER_KEY with your PRIMARY KEY. Use the following code to create the `CosmosClientFactory` class within the *CosmosClientFactory.java* file:
 
-   [!INCLUDE[CosmosClientFactory class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/dao/CosmosClientFactory.java)]
+   [!INCLUDE[CosmosClientFactory class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/CosmosClientFactory.java)]
 
 1. Create a new *TodoDao.java* file and add the `TodoDao` class to create, update, read, and delete the todo items:
 
-   [!INCLUDE[TodoDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/dao/TodoDao.java)]
+   [!INCLUDE[TodoDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDao.java)]
 
 1. Create a new *MockDao.java* file and add the `MockDao` class, this class implements the `TodoDao` class to perform CRUD operations on the items:
 
-   [!INCLUDE[MockDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/dao/MockDao.java)]
+   [!INCLUDE[MockDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/MockDao.java)]
 
 1. Create a new *DocDbDao.java* file and add the `DocDbDao` class. This class defines code to persist the TodoItems into the container, retrieves your database and collection, if it exists, or create a new one if it doesn't exist. This example uses [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize the TodoItem Plain Old Java Objects (POJOs) to JSON documents. In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). This class also defines helper function to retrieve the documents by another attribute (e.g. "ID") rather than self-link. You can use the helper method to retrieve a TodoItem JSON document by ID and then deserialize it to a POJO.
 
    You can also use the cosmosClient client object to get a collection or list of TodoItems using a SQL query. Finally, you define the delete method to delete a TodoItem from your list. The following code shows the contents of the `DocDbDao` class:
 
-   [!INCLUDE[DocDbDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/dao/DocDbDao.java)]
+   [!INCLUDE[DocDbDao class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/DocDbDao.java)]
 
 1. Next, create a new *TodoDaoFactory.java* file and add the `TodoDaoFactory` class that creates a new DocDbDao object:
 
-   [!INCLUDE[TodoDaoFactory class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/dao/TodoDaoFactory.java)]
+   [!INCLUDE[TodoDaoFactory class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDaoFactory.java)]
 
 ### Add a controller
 
 Add the *TodoItemController* controller to your application. In this project, you are using [Project Lombok](https://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.:
 
-[!INCLUDE[TodoItemController class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/controller/TodoItemController.java)]
+[!INCLUDE[TodoItemController class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/controller/TodoItemController.java)]
 
 ### Create a servlet
 
 Next, create a servlet to route HTTP requests to the controller. Create the *ApiServlet.java* file and define the following code under it:
 
-[!INCLUDE[ApiServlet class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/ApiServlet.java)]
+[!INCLUDE[ApiServlet class](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/ApiServlet.java)]
 
 ## <a id="Wire"></a>Wire the rest of the of Java app together
 
