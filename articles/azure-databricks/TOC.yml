@@ -1632,7 +1632,7 @@
           - name: Troubleshoot Azure AD access tokens
             href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
           maintainContext: true
-        - name: Azure Active Directory (Azure AD) tokens
+        - name: Azure Active Directory tokens
           items:
           - name: Azure AD token authentication overview
             href: /azure/databricks/dev-tools/api/latest/aad/index
@@ -1864,20 +1864,23 @@
         - name: Runtime releases
           href: /azure/databricks/release-notes/runtime/releases
           maintainContext: true
-        - name: Databricks Runtime 7.0 Genomics (Beta)
-          href: /azure/databricks/release-notes/runtime/7.0genomics
+        - name: Databricks Runtime 7.0 (Beta)
+          href: /azure/databricks/release-notes/runtime/7.0
           maintainContext: true
         - name: Databricks Runtime 7.0 ML (Beta)
           href: /azure/databricks/release-notes/runtime/7.0ml
           maintainContext: true
-        - name: Databricks Runtime 7.0 (Beta)
-          href: /azure/databricks/release-notes/runtime/7.0
-          maintainContext: true
-        - name: Databricks Runtime 6.6 Genomics (Beta)
-          href: /azure/databricks/release-notes/runtime/6.6genomics
+        - name: Databricks Runtime 7.0 Genomics (Beta)
+          href: /azure/databricks/release-notes/runtime/7.0genomics
           maintainContext: true
         - name: Databricks Runtime 6.6 (Beta)
           href: /azure/databricks/release-notes/runtime/6.6
+          maintainContext: true
+        - name: Databricks Runtime 6.6 ML (Beta)
+          href: /azure/databricks/release-notes/runtime/6.6ml
+          maintainContext: true
+        - name: Databricks Runtime 6.6 Genomics (Beta)
+          href: /azure/databricks/release-notes/runtime/6.6genomics
           maintainContext: true
         - name: Databricks Runtime 6.5
           href: /azure/databricks/release-notes/runtime/6.5
