@@ -380,7 +380,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 
 # [PowerShell](#tab/azure-powershell)
 
-[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

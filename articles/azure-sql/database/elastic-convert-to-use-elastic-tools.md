@@ -165,6 +165,6 @@ For information on common data architecture patterns of multi-tenant software-as
 For questions, use the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
-[2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
-[3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
+[1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png
+[2]: ./media/elastic-convert-to-use-elastic-tools/rangemapping.png
+[3]: ./media/elastic-convert-to-use-elastic-tools/multipleonsingledb.png

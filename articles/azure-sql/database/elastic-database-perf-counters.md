@@ -19,7 +19,7 @@ Performance counters are used to track the performance of [data dependent routin
 You can capture the performance of a [shard map manager](../../sql-database/sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](../../sql-database/sql-database-elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
 
 
-**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](sql-database-elastic-scale-upgrade-client-library.md).
+**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](../../sql-database/sql-database-elastic-scale-upgrade-client-library.md).
 
 ## Prerequisites
 

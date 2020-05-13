@@ -79,4 +79,3 @@ https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12
 * [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](../../sql-database/sql-database-develop-overview.md)
 * [Azure SQL Database firewall](../../sql-database/sql-database-firewall-configure.md)
-* [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)

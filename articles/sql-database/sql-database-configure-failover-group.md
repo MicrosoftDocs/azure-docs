@@ -207,7 +207,7 @@ Create your failover group and add your elastic pool to it using the Azure porta
 1. Select the elastic pool you want to add to the failover group.
 1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
   
-   ![Open server for elastic pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+   ![Open server for elastic pool](../azure-sql/database/media/tutorial-add-elastic-pool-failover-group//server-for-elastic-pool.png)
 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group.
 
@@ -217,7 +217,7 @@ Create your failover group and add your elastic pool to it using the Azure porta
 
 1. Select **Databases within the group** then choose the elastic pool you want to add to the failover group. If an elastic pool does not already exist on the secondary server, a warning appears prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server.
 
-   ![Add elastic pool to failover group](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+   ![Add elastic pool to failover group](../azure-sql/database/media/tutorial-add-elastic-pool-failover-group//add-elastic-pool-to-failover-group.png)
 
 1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the elastic pool to the failover group will automatically start the geo-replication process.
 
@@ -279,7 +279,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 1. Select the elastic pool you want to add to the failover group.
 1. On the **Overview** pane, select the name of the server under **Server name** to open the settings for the server.
 
-   ![Open server for elastic pool](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+   ![Open server for elastic pool](../azure-sql/database/media/tutorial-add-elastic-pool-failover-group//server-for-elastic-pool.png)
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2.
   
    ![Select the failover group from the portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
