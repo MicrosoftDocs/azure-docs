@@ -87,4 +87,3 @@ The Calling library has tuned platform specific code for voice and video that re
 |iOS Xamarin|TBD|
 |Android Xamarin|TBD|
 
-When available, the .NET 5.0 library will support modern Unity and though Xamarain-targeted assemblies, iOS and Android apps.
