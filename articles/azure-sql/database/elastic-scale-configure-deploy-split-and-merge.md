@@ -14,7 +14,7 @@ ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
 
-The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
+The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](../../sql-database/sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
 
@@ -63,7 +63,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 ### Configure security
 
-For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](../../sql-database/sql-database-elastic-scale-split-merge-security-configuration.md).
 
 For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
@@ -130,7 +130,7 @@ For the web role:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](../../sql-database/sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## Deploy your service
 
@@ -335,7 +335,7 @@ If you cannot submit requests you may see this:
 
 In this case, check your configuration file, in particular the setting for **WorkerRoleSynchronizationStorageAccountConnectionString**. This error typically indicates that the worker role could not successfully initialize the metadata database on first use.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/allowed-services.png

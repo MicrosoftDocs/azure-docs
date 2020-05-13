@@ -52,7 +52,7 @@ For single databases resource storage sizes, refer to either [DTU-based resource
 When database compute utilization (measured by DTUs and eDTUs, or vCores) becomes high, query latency increases, and queries can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resources become free.
 When encountering high compute utilization, mitigation options include:
 
-- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
+- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
 - Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
@@ -61,7 +61,7 @@ When database space used reaches the max size limit, database inserts and update
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
+- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
 - Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md)
 
@@ -71,7 +71,7 @@ The maximum numbers of sessions and workers are determined by the service tier a
 
 When encountering high session or worker utilization, mitigation options include:
 
-- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
+- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
 - Optimizing query workload to reduce number of occurrences and duration of query blocking.
@@ -88,7 +88,7 @@ A more detailed breakdown of recent resource consumption by user workloads and i
 
 In the context of performance monitoring and troubleshooting, it is important to consider both **user CPU consumption** (`avg_cpu_percent`, `cpu_percent`), and **total CPU consumption** by user workloads and internal processes (`avg_instance_cpu_percent`,`sqlserver_process_core_percent`).
 
-**User CPU consumption** is calculated as a percentage of the user workload limits in each service objective. **User CPU utilization** at 100% indicates that the user workload has reached the limit of the service objective. However, when **total CPU consumption** reaches the 70-100% range, it is possible to see user workload throughput flattening out and query latency increasing, even if reported **user CPU consumption** remains significantly below 100%. This is more likely to occur when using smaller service objectives with a moderate allocation of compute resources, but relatively intense user workloads, such as in [dense elastic pools](sql-database-elastic-pool-resource-management.md). This can also occur with smaller service objectives when internal processes temporarily require additional resources, for example when creating a new replica of the database.
+**User CPU consumption** is calculated as a percentage of the user workload limits in each service objective. **User CPU utilization** at 100% indicates that the user workload has reached the limit of the service objective. However, when **total CPU consumption** reaches the 70-100% range, it is possible to see user workload throughput flattening out and query latency increasing, even if reported **user CPU consumption** remains significantly below 100%. This is more likely to occur when using smaller service objectives with a moderate allocation of compute resources, but relatively intense user workloads, such as in [dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md). This can also occur with smaller service objectives when internal processes temporarily require additional resources, for example when creating a new replica of the database.
 
 When **total CPU consumption** is high, mitigation options are the same as noted earlier, and include service objective increase and/or user workload optimization.
 

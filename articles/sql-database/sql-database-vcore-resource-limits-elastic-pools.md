@@ -24,7 +24,7 @@ For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic
 You can set the service tier, compute size, and storage amount using the [Azure portal](../azure-sql/database/elastic-pool-manage.md#azure-portal), [PowerShell](../azure-sql/database/elastic-pool-manage.md#powershell), the [Azure CLI](../azure-sql/database/elastic-pool-manage.md#azure-cli), or the [REST API](../azure-sql/database/elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)
+> For scaling guidance and considerations, see [Scale an elastic pool](../azure-sql/database/elastic-pool-scale.md)
 
 ## General purpose - provisioned compute - Gen4
 
@@ -57,7 +57,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -89,7 +89,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).    
 
@@ -123,7 +123,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -155,7 +155,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -189,7 +189,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|
 |Included backup storage|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -226,7 +226,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -258,7 +258,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -292,7 +292,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -324,7 +324,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
@@ -358,7 +358,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|
 |Included backup storage|1X DB size|
 
-<sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 

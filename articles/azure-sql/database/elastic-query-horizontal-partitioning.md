@@ -18,14 +18,14 @@ ms.date: 01/03/2019
 
 Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
 
-For a quickstart, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
+For a quickstart, see [Reporting across scaled-out cloud databases](elastic-query-getting-started.md).
 
-For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md).
+For non-sharded databases, see [Query across cloud databases with different schemas](elastic-query-vertical-partitioning.md).
 
 ## Prerequisites
 
-* Create a shard map using the elastic database client library. see [Shard map management](sql-database-elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](sql-database-elastic-scale-get-started.md).
-* Alternatively, see [Migrate existing databases to scaled-out databases](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
+* Create a shard map using the elastic database client library. see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](elastic-scale-get-started.md).
+* Alternatively, see [Migrate existing databases to scaled-out databases](elastic-convert-to-use-elastic-tools.md).
 * The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission.
 * ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
@@ -201,12 +201,12 @@ Use regular SQL Server connection strings to connect your application, your BI, 
 
 ## Next steps
 
-* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
-* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
-* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](sql-database-elastic-query-vertical-partitioning.md)
-* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
+* For an overview of elastic query, see [Elastic query overview](elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
+* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](elastic-query-vertical-partitioning.md)
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](elastic-query-getting-started.md).
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
+[1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->

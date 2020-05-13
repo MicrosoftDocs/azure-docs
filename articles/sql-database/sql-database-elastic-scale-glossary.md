@@ -14,15 +14,15 @@ ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary
 
-The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](../azure-sql/database/elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](../azure-sql/database/elastic-pool-overview.md), and [queries](sql-database-elastic-query-overview.md). 
+The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](../azure-sql/database/elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](../azure-sql/database/elastic-pool-overview.md), and [queries](../azure-sql/database/elastic-query-overview.md). 
 
-These terms are used in [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
+These terms are used in [Adding a shard using Elastic Database tools](../azure-sql/database/elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
 
 ![Elastic Scale terms][1]
 
 **Database**: An Azure SQL database. 
 
-**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Global shard map**: The map between sharding keys and their respective shards within a **shard set**. The global shard map is stored in the **shard map manager**. Compare to **local shard map**.
 

@@ -28,7 +28,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](sql-database-data-discovery-and-classification.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
-| Elastic queries | For information, see [Elastic query overview](sql-database-elastic-query-overview.md). |
+| Elastic queries | For information, see [Elastic query overview](../azure-sql/database/elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md). |
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md).|

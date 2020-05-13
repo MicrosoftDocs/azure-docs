@@ -194,13 +194,13 @@ You can use regular SQL Server connection strings to connect your BI and data in
 
 ## Next steps
 
-* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
-* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
-* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
-* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* For an overview of elastic query, see [Elastic query overview](elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](elastic-query-getting-started.md).
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](elastic-query-horizontal-partitioning.md)
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+[1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png
 
 <!--anchors-->

@@ -68,9 +68,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Query distributed data
 
-- [Query vertically partitioned data](sql-database-elastic-query-getting-started-vertical.md) across multiple databases.
-- [Report across scaled-out data tier](sql-database-elastic-query-horizontal-partitioning.md).
-- [Query across tables with different schemas](sql-database-elastic-query-vertical-partitioning.md).
+- [Query vertically partitioned data](../azure-sql/database/elastic-query-getting-started-vertical.md) across multiple databases.
+- [Report across scaled-out data tier](../azure-sql/database/elastic-query-horizontal-partitioning.md).
+- [Query across tables with different schemas](../azure-sql/database/elastic-query-vertical-partitioning.md).
 
 ### Data sync
 
@@ -90,12 +90,12 @@ In this article you can find a content reference of various guides, scripts, and
 ## Database sharding
 
 - [Upgrade elastic database client library](sql-database-elastic-scale-upgrade-client-library.md).
-- [Create sharded app](sql-database-elastic-scale-get-started.md).
-- [Query horizontally sharded data](sql-database-elastic-query-getting-started.md).
+- [Create sharded app](../azure-sql/database/elastic-scale-get-started.md).
+- [Query horizontally sharded data](../azure-sql/database/elastic-query-getting-started.md).
 - Run [Multi-shard queries](sql-database-elastic-scale-multishard-querying.md).
-- [Move sharded data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+- [Move sharded data](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
 - [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
-- [Add a shard](sql-database-elastic-scale-add-a-shard.md) to the current set of database shards.
+- [Add a shard](../azure-sql/database/elastic-scale-add-a-shard.md) to the current set of database shards.
 - [Fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
 - [Migrate sharded DB](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
 - [Create counters](../azure-sql/database/elastic-database-perf-counters.md).

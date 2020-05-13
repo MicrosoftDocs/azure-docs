@@ -20,7 +20,7 @@ The schema info object is only used to split merge scenarios. If an application 
 
 ## I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard
 
-Please see [Adding a shard to an application using the elastic database client library](sql-database-elastic-scale-add-a-shard.md).
+Please see [Adding a shard to an application using the elastic database client library](elastic-scale-add-a-shard.md).
 
 ## How much do elastic database tools cost
 
@@ -51,4 +51,4 @@ Yes, a shard is an individual database, and thus one shard could be a Premium ed
 No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge**
 operations, you must delete the shard from the shard map manager and then delete the database.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

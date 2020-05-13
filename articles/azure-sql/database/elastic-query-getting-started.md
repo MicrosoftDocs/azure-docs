@@ -15,20 +15,20 @@ ms.date: 10/10/2019
 ---
 # Report across scaled-out cloud databases (preview)
 
-You can create reports from multiple databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
+You can create reports from multiple databases from a single connection point using an [elastic query](elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
-If you have an existing database, see [Migrating existing databases to scaled-out databases](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
+If you have an existing database, see [Migrating existing databases to scaled-out databases](elastic-convert-to-use-elastic-tools.md).
 
-To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
+To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](elastic-query-horizontal-partitioning.md).
 
 ## Prerequisites
 
-Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
+Download and run the [Getting started with Elastic Database tools sample](elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app
 Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started with Elastic Database tools** sample application by following the steps in the article section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Once you finish all the steps, you will see the following command prompt:
+1. Build and run the **Getting started with Elastic Database tools** sample application by following the steps in the article section [Download and run the sample app](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Once you finish all the steps, you will see the following command prompt:
 
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
@@ -63,7 +63,7 @@ These are used to connect to the shard map manager and the shards:
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" and "password" should be the same as login information used in step 3 of section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in the **Getting started with Elastic Database tools** article.
+    "username" and "password" should be the same as login information used in step 3 of section [Download and run the sample app](elastic-scale-get-started.md#download-and-run-the-sample-app) in the **Getting started with Elastic Database tools** article.
 
 ### External data sources
 To create an external data source, execute the following command on the ElasticDBQuery database:
@@ -125,17 +125,17 @@ For pricing information see [SQL Database Pricing Details](https://azure.microso
 
 ## Next steps
 
-* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
-* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
-* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](sql-database-elastic-query-vertical-partitioning.md)
-* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* For an overview of elastic query, see [Elastic query overview](elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
+* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](elastic-query-vertical-partitioning.md)
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](elastic-query-horizontal-partitioning.md)
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
-[2]: ./media/sql-database-elastic-query-getting-started/portal.png
-[3]: ./media/sql-database-elastic-query-getting-started/tiers.png
-[4]: ./media/sql-database-elastic-query-getting-started/details.png
-[5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
+[1]: ./media/elastic-query-getting-started/cmd-prompt.png
+[2]: ./media/elastic-query-getting-started/portal.png
+[3]: ./media/elastic-query-getting-started/tiers.png
+[4]: ./media/elastic-query-getting-started/details.png
+[5]: ./media/elastic-query-getting-started/exel-sources.png
 <!--anchors-->

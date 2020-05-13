@@ -18,7 +18,7 @@ This article describes how to scale the compute and storage resources available 
 
 ## Change compute resources (vCores or DTUs)
 
-After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the [Azure portal](../azure-sql/database/elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 ### Impact of changing service tier or rescaling compute size
 
@@ -30,7 +30,7 @@ Changing the service tier or compute size of an elastic pool follows a similar p
 
 2. Switch routing of connections to new compute instance
 
-    Existing connections to the databases in the original compute instance are dropped. Any new connections are established to the databases in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when databases are unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
+    Existing connections to the databases in the original compute instance are dropped. Any new connections are established to the databases in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when databases are unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](../../sql-database/sql-database-accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
 
 > [!IMPORTANT]
 > No data is lost during any step in the workflow.
@@ -65,7 +65,7 @@ You are billed for each hour a database exists using the highest service tier + 
 ## Change elastic pool storage size
 
 > [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../../sql-database/sql-database-file-space-management.md).
 
 ### vCore-based purchasing model
 
@@ -77,17 +77,17 @@ You are billed for each hour a database exists using the highest service tier + 
 - The price of storage for an elastic pool is the storage amount multiplied by the storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../../sql-database/sql-database-file-space-management.md).
 
 ### DTU-based purchasing model
 
-- The eDTU price for an elastic pool includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Elastic pool: storage sizes and compute sizes](../azure-sql/database/resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](../azure-sql/database/elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- The eDTU price for an elastic pool includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Elastic pool: storage sizes and compute sizes](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - The price of extra storage for an elastic pool is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../../sql-database/sql-database-file-space-management.md).
 
 ## Next steps
 
-For overall resource limits, see [SQL Database vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) and [SQL Database DTU-based resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
+For overall resource limits, see [SQL Database vCore-based resource limits - elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md) and [SQL Database DTU-based resource limits - elastic pools](resource-limits-dtu-elastic-pools.md).

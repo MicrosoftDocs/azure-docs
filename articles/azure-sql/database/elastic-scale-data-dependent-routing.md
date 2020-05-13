@@ -16,7 +16,7 @@ ms.date: 01/25/2019
 
 **Data-dependent routing** is the ability to use the data in a query to route the request to an appropriate database. Data-dependant routing is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data-dependent routing is restricted to accessing one database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) class.
 
-The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request.
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](../../sql-database/sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request.
 
 For more information, see [Scaling Out SQL Server with Data-Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx).
 
@@ -43,7 +43,7 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 
 ### Use lowest privilege credentials possible for getting the shard map
 
-If an application is not manipulating the shard map itself, the credentials used in the factory method should have read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
+If an application is not manipulating the shard map itself, the credentials used in the factory method should have read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](../../sql-database/sql-database-elastic-scale-manage-credentials.md).
 
 ## Call the OpenConnectionForKey method
 
@@ -170,6 +170,6 @@ Transactional properties are guaranteed for all operations local to a shard. For
 
 ## Next steps
 
-To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md)
+To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](elastic-database-recovery-manager.md)
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

@@ -14,7 +14,7 @@ ms.date: 01/25/2019
 ---
 # Get started with Elastic Database Tools
 
-This document introduces you to the developer experience for the [elastic database client library](../azure-sql/database/elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database Tools feature of Azure SQL Database. It focuses on use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java.
+This document introduces you to the developer experience for the [elastic database client library](elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database Tools feature of Azure SQL Database. It focuses on use cases for [shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](elastic-scale-data-dependent-routing.md), and [multi-shard querying](../../sql-database/sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java.
 
 ## Elastic Database Tools for Java
 
@@ -105,9 +105,9 @@ Congratulations! You have successfully built and run your first sharded applicat
 
 ## Other elastic scale operations
 
-* **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](../../sql-database/sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](../../sql-database/sql-database-elastic-scale-overview-split-and-merge.md).
 
 ## Cost
 
@@ -128,7 +128,7 @@ For more information about Elastic Database Tools, see the following articles:
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* To measure performance: [Performance counters for shard map manager](../azure-sql/database/elastic-database-client-library.md)
+* To measure performance: [Performance counters for shard map manager](elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application
@@ -137,8 +137,8 @@ For more information about Elastic Database Tools, see the following articles:
 [Next steps]: #next-steps
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-get-started/newProject.png
-[2]: ./media/sql-database-elastic-scale-get-started/click-online.png
-[3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
-[4]: ./media/sql-database-elastic-scale-get-started/output2.png
-[5]: ./media/sql-database-elastic-scale-get-started/java-client-library.PNG
+[1]: ./media/elastic-scale-get-started/newProject.png
+[2]: ./media/elastic-scale-get-started/click-online.png
+[3]: ./media/elastic-scale-get-started/click-CSharp.png
+[4]: ./media/elastic-scale-get-started/output2.png
+[5]: ./media/elastic-scale-get-started/java-client-library.PNG

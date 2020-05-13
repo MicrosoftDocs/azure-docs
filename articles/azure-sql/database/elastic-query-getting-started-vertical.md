@@ -14,11 +14,11 @@ ms.date: 01/25/2019
 ---
 # Get started with cross-database queries (vertical partitioning) (preview)
 
-Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. This article applies to [vertically partitioned databases](sql-database-elastic-query-vertical-partitioning.md).  
+Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. This article applies to [vertically partitioned databases](elastic-query-vertical-partitioning.md).  
 
 When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span multiple related databases.
 
-For more information about the elastic database query feature, see  [Azure SQL Database elastic database query overview](sql-database-elastic-query-overview.md).
+For more information about the elastic database query feature, see  [Azure SQL Database elastic database query overview](elastic-query-overview.md).
 
 ## Prerequisites
 
@@ -106,8 +106,8 @@ For pricing information, see [SQL Database Pricing](https://azure.microsoft.com/
 
 ## Next steps
 
-* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
-* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](sql-database-elastic-query-vertical-partitioning.md)
-* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
-* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* For an overview of elastic query, see [Elastic query overview](elastic-query-overview.md).
+* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](elastic-query-vertical-partitioning.md)
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](elastic-query-getting-started.md).
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](elastic-query-horizontal-partitioning.md)
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
