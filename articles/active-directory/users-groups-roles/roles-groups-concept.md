@@ -29,7 +29,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, you have the new version and con proceed with the instructions in this article. If you don't have the new version, you can't complete the tasks.
 
-  [![](media/roles-groups-concept/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-concept/pim-new-version.png#lightbox)
+    [![](media/roles-groups-concept/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-concept/pim-new-version.png#lightbox)
 
 After you have verified your version, create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by turning on **Eligible for role assignment** when creating a new group. Then you can assign this group to one or more Azure AD roles in the same way as you assign roles to users.
 
