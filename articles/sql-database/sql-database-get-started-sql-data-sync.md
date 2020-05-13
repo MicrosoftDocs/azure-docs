@@ -222,7 +222,7 @@ After you export a database as a *.bacpac* file and import the file to create a 
 
 **Where can I find information on the client agent?**
 
-For frequently asked questions about the client agent, see [Agent FAQ](sql-database-data-sync-agent.md#agent-faq).
+For frequently asked questions about the client agent, see [Agent FAQ](../azure-sql/database/data-sync-agent.md#agent-faq).
 
 ## Next steps
 
@@ -230,7 +230,7 @@ Congratulations. You've created a sync group that includes both a SQL Database i
 
 For more info about SQL Data Sync, see:
 
-- [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+- [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/data-sync-agent.md)
 - [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Update the sync schema with Transact-SQL](sql-database-update-sync-schema.md) or [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)

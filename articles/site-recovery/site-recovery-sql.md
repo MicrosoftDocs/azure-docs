@@ -67,7 +67,7 @@ After the database tier is running in the target Azure region, ensure that you h
 To understand how you can design applications for connectivity considerations, see these examples:
 
 * [Design an application for cloud disaster recovery](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* [Elastic pool Disaster Recovery strategies](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [Elastic pool Disaster Recovery strategies](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
 ### Step 3: Interoperate with Always On, active geo-replication, and auto-failover groups
 

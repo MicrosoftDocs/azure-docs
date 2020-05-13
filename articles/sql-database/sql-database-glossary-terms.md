@@ -23,14 +23,14 @@ ms.date: 01/22/2020
 |Purchasing model|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
 |Deployment option |Single database|[Single databases](sql-database-single-database.md)|
-||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
+||Elastic pool|[Elastic pool](../azure-sql/database/elastic-pool-overview.md)|
 |Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [SQL Database service tiers](sql-database-service-tiers-vcore.md#service-tiers). For service tiers in the DTU model, see [DTU model](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Compute tier|Serverless compute|[Serverless compute](sql-database-service-tiers-vcore.md#compute-tiers)
 ||Provisioned compute|[Provisioned compute](sql-database-service-tiers-vcore.md#compute-tiers)
 |Compute generation|Gen5, M-series, Fsv2-series|[Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
 |Server entity| Server |[Logical SQL servers](sql-database-servers.md)|
 |Resource type|vCore|A CPU core provided to the compute resource for a single database, elastic pool. |
-||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, or elastic pool.  Storage size is the maximum amount of storage available for a single database, or elastic pool. For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), and [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).  (sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](sql-database-dtu-resource-limits-single-databases.md) and [DTU elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, or elastic pool.  Storage size is the maximum amount of storage available for a single database, or elastic pool. For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), and [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).  (sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](../azure-sql/database/resource-limits-dtu-single-databases.md) and [DTU elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
 
 ## Azure SQL Managed Instance
 

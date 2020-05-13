@@ -17,7 +17,7 @@ ms.date: 04/03/2019
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version.
 
 > [!IMPORTANT]
-> For information about connectivity architecture, see [Azure SQL Database connectivity architecture](../azure-sql/database/connectivity-architecture.md).
+> For information about connectivity architecture, see [Azure SQL Database connectivity architecture](connectivity-architecture.md).
 >
 
 ## Outside vs inside
@@ -77,6 +77,5 @@ https://www.microsoft.com/download/details.aspx?id=56567
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
-* [SQL Database Development Overview](sql-database-develop-overview.md)
-* [Azure SQL Database firewall](sql-database-firewall-configure.md)
-* [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
+* [SQL Database Development Overview](../../sql-database/sql-database-develop-overview.md)
+* [Azure SQL Database firewall](../../sql-database/sql-database-firewall-configure.md)

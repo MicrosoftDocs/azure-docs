@@ -41,7 +41,7 @@ The catalog also can store additional tenant or database metadata, such as the s
 
 Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials.
 
-In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map.
+In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](../azure-sql/database/elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map.
 
 A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards. EDCL functions are used during tenant provisioning to create the entries in the shard map. They're used at run time by applications to connect to the correct database. EDCL caches connection information to minimize traffic to the catalog database and speed up the application.
 
@@ -170,5 +170,5 @@ Try the [Performance monitoring tutorial](saas-dbpertenant-performance-monitorin
 ## Additional resources
 
 * Additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Elastic database client library](sql-database-elastic-database-client-library.md)
+* [Elastic database client library](../azure-sql/database/elastic-database-client-library.md)
 * [Debug scripts in the Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

@@ -170,6 +170,6 @@ Transactional properties are guaranteed for all operations local to a shard. For
 
 ## Next steps
 
-To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md)
+To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -17,7 +17,7 @@ ms.date: 04/08/2019
 The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [server](sql-database-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
-> Single database is one deployment option for Azure SQL Database. The other is [elastic pools](sql-database-elastic-pool.md).
+> Single database is one deployment option for Azure SQL Database. The other is [elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 > [!NOTE]
 > For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](sql-database-glossary-terms.md)
@@ -28,7 +28,7 @@ You can build your first app on a small, single database at low cost in the serv
 
 ## Single databases and elastic pools
 
-A single database can be moved into or out of an [elastic pool](sql-database-elastic-pool.md) for resource sharing. For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. Elastic pools are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database and pay for the collective performance resources of the pool rather than for single database performance.
+A single database can be moved into or out of an [elastic pool](../azure-sql/database/elastic-pool-overview.md) for resource sharing. For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. Elastic pools are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database and pay for the collective performance resources of the pool rather than for single database performance.
 
 ## Monitoring and alerting
 

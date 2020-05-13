@@ -85,14 +85,14 @@ In this article you can find a content reference to various guides, scripts, and
 - [Connectivity guidance](sql-database-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)
 - [Setup DNS alias PowerShell](dns-alias-powershell.md)
-- [Ports - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
+- [Ports - ADO.NET](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
 - [C and C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 
 ## Design applications
 
 - [Design for disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Design for elastic pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Design for elastic pools](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Design for app upgrades](sql-database-manage-application-rolling-upgrade.md)
 
 ### Design Multi-tenant SaaS applications

@@ -38,7 +38,7 @@ The tenant catalog holds a mapping between a tenant identifier and a tenant data
 
 ## Elastic Database Client Library
 
-In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](sql-database-elastic-database-client-library.md) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
+In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](../azure-sql/database/elastic-database-client-library.md) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
 
 EDCL functions can be called from applications or PowerShell scripts to create and manage the entries in the shard map. Other EDCL functions can be used to retrieve the set of shards or connect to the correct database for given tenant key.
 

@@ -108,7 +108,7 @@ Data Sync doesn't handle circular references. Be sure to avoid them.
 
 ## Client agent issues
 
-To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent issues](sql-database-data-sync-agent.md#agent-tshoot).
+To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent issues](../azure-sql/database/data-sync-agent.md#agent-tshoot).
 
 ## Setup and maintenance issues
 
@@ -241,7 +241,7 @@ For more information about SQL Data Sync, see:
     - With PowerShell
         -  [Use PowerShell to sync between multiple Azure SQL databases](../azure-sql/database/scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](../azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../azure-sql/database/data-sync-agent.md)
 -   Best practices - [Best practices for SQL Data Sync in Azure](../azure-sql/database/sql-data-sync-best-practices.md)
 -   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Update the sync schema

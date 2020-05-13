@@ -28,7 +28,7 @@ The primary design goal of elastic pools is to be cost-effective. For this reaso
 This approach allows customers to use dense elastic pools to achieve adequate performance and major cost savings. However, if the workload against many databases in a dense pool is sufficiently intense, resource contention becomes significant. Resource contention reduces user workload performance, and can negatively impact internal processes.
 
 > [!IMPORTANT]
-> In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](sql-database-dtu-resource-limits-elastic-pools.md) and [vCore](sql-database-vcore-resource-limits-elastic-pools.md) elastic pools.
+> In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](../azure-sql/database/resource-limits-dtu-elastic-pools.md) and [vCore](sql-database-vcore-resource-limits-elastic-pools.md) elastic pools.
 >
 > The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
 

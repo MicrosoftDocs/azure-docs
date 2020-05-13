@@ -159,7 +159,7 @@ You should familiarize yourself with the following features that can be used to 
 
 - [Impersonation](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) and [module-signing](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) can be used to securely elevate permissions temporarily.
 - [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) can be used limit which rows a user can access.
-- [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
+- [Data Masking](../azure-sql/database/dynamic-data-masking-overview.md) can be used to limit exposure of sensitive data.
 - [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) can be used to limit the actions that can be taken on the database.
 
 ## Next steps

@@ -108,8 +108,8 @@ In-Memory OLTP includes memory-optimized tables, which are used for storing user
 
 Each supported single database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage.
 
-- [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md)
-- [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU-based resource limits - single database](../azure-sql/database/resource-limits-dtu-single-databases.md)
+- [DTU-based resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
 - [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
 - [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
 - [vCore-based resource limits - managed instance](sql-database-managed-instance-resource-limits.md)

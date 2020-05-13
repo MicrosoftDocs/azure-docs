@@ -343,7 +343,7 @@ Elastic database tools and row-level security can be used together to scale out 
 
 ## Additional resources
 
-- [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+- [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
 - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
@@ -357,4 +357,4 @@ For questions, contact us on the [SQL Database forum](https://social.msdn.micros
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 [rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
-[s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
+[s-d-elastic-database-client-library]:../azure-sql/database/elastic-database-client-library.md

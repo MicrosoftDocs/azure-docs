@@ -119,7 +119,7 @@ After selecting **+ Add**, view additional information about the different optio
 For details, see:
 
 - [Create a single database](../../../sql-database/sql-database-single-database-get-started.md)
-- [Create an elastic pool](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create an elastic pool](../../../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
 - [Create a managed instance](../../../sql-database/sql-database-managed-instance-get-started.md)
 - [Create a SQL virtual machine](quickstart-sql-vm-create-portal.md)
 

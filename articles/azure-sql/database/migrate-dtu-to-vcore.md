@@ -13,7 +13,7 @@ ms.date: 03/09/2020
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model
 
-This article describes how to migrate your Azure SQL Database from the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) to the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
+This article describes how to migrate your Azure SQL Database from the [DTU-based purchasing model](../../sql-database/sql-database-service-tiers-dtu.md) to the [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md). 
 
 ## Migrate a database
 
@@ -60,5 +60,5 @@ You can copy any database with a DTU-based compute size to a database with a vCo
 
 ## Next steps
 
-- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
-- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md).
+- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).

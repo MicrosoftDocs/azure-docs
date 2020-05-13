@@ -114,7 +114,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 
 ### Elastic database transaction units (eDTUs)
 
-For SQL Databases that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](sql-database-elastic-pool.md). The databases in an elastic pool are on a single server and share a pool of resources.
+For SQL Databases that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](../azure-sql/database/elastic-pool-overview.md). The databases in an elastic pool are on a single server and share a pool of resources.
 
 The shared resources in an elastic pool are measured by elastic database transaction units (eDTUs). Elastic pools provide a simple, cost-effective solution to manage performance goals for multiple databases that have widely varying and unpredictable usage patterns. An elastic pool guarantees that all the resources can't be consumed by one database in the pool, while ensuring that each database in the pool always has a minimum amount of necessary resources available.
 
@@ -139,7 +139,7 @@ The input values for this formula can be obtained from [sys.dm_db_resource_stats
 
 ### Workloads that benefit from an elastic pool of resources
 
-Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
+Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](../azure-sql/database/elastic-pool-overview.md).
 
 ### Hardware generations in the DTU-based purchasing model
 
@@ -159,11 +159,11 @@ Customers with workloads that are sensitive to hardware changes, or customers wh
 
 ### Do I need to take my application offline to convert from a DTU-based service tier to a vCore-based service tier?
 
-No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ### Can I convert a database from a service tier in the vCore-based purchasing model to a service tier in the DTU-based purchasing model?
 
-Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ## Next steps
 

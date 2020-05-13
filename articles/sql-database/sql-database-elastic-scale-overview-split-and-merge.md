@@ -30,7 +30,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 2. [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Shard map management](sql-database-elastic-scale-shard-map-management.md)
-5. [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+5. [Migrate existing databases to scale-out](../azure-sql/database/elastic-convert-to-use-elastic-tools.md)
 6. [Elastic database tools](sql-database-elastic-scale-introduction.md)
 7. [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
 

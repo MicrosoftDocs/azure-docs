@@ -18,11 +18,11 @@ The [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqld
 
 The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
 
-The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md).
+The RecoveryManager class is part of the [Elastic Database client library](elastic-database-client-library.md).
 
 ![Shard map][1]
 
-For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
+For term definitions, see [Elastic Database tools glossary](../../sql-database/sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md).
 
 ## Why use the recovery manager
 
@@ -30,15 +30,15 @@ In a sharded database environment, there is one tenant per database, and many da
 
 The GSM and LSM may become out of sync for the following reasons:
 
-1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similarly, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a deleted database](sql-database-recovery-using-backups.md).
-2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard-mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database if there is a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
-3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery using backups, see [Recovery using backups](sql-database-recovery-using-backups.md).
+1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similarly, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a deleted database](../../sql-database/sql-database-recovery-using-backups.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard-mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database if there is a data center outage, see [Business Continuity](../../sql-database/sql-database-business-continuity.md) and [Disaster Recovery](../../sql-database/sql-database-disaster-recovery.md).
+3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery using backups, see [Recovery using backups](../../sql-database/sql-database-recovery-using-backups.md).
 
 For more information about Azure SQL Database Elastic Database tools, geo-replication and Restore, see the following:
 
-* [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md)
-* [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
-* [ShardMap Management](sql-database-elastic-scale-shard-map-management.md)
+* [Overview: Cloud business continuity and database disaster recovery with SQL Database](../../sql-database/sql-database-business-continuity.md)
+* [Get started with elastic database tools](../../sql-database/sql-database-elastic-scale-get-started.md)  
+* [ShardMap Management](../../sql-database/sql-database-elastic-scale-shard-map-management.md)
 
 ## Retrieving RecoveryManager from a ShardMapManager
 
@@ -52,7 +52,7 @@ The first step is to create a RecoveryManager instance. The [GetRecoveryManager 
 
 In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized.
 
-Since this application code manipulates the shard map itself, the credentials used in the factory method (in the preceding example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](sql-database-elastic-scale-manage-credentials.md).
+Since this application code manipulates the shard map itself, the credentials used in the factory method (in the preceding example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](../../sql-database/sql-database-elastic-scale-manage-credentials.md).
 
 ## Removing a shard from the ShardMap after a shard is deleted
 
@@ -70,7 +70,7 @@ This example removes shards from the shard map.
    rm.DetachShard(s.Location, customerMap);
    ```
 
-The shard map reflects the shard location in the GSM before the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If not, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the following section to detect shard inconsistencies.) To recover, see [Point in time recovery](sql-database-recovery-using-backups.md).
+The shard map reflects the shard location in the GSM before the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If not, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the following section to detect shard inconsistencies.) To recover, see [Point in time recovery](../../sql-database/sql-database-recovery-using-backups.md).
 
 Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range that is not expected.
 
@@ -158,7 +158,7 @@ This example performs the following steps:
     }
    ```
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
+[1]: ./media/elastic-database-recovery-manager/recovery-manager.png

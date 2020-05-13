@@ -19,7 +19,7 @@ Because SQL Database Edge is built on the latest versions of the [SQL Server Dat
 
 ## Prerequisites
 
-This tutorial requires a Windows computer configured with the [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md).
+This tutorial requires a Windows computer configured with the [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/data-sync-agent.md).
 
 ## Before you begin
 
@@ -45,7 +45,7 @@ After you complete the preceding steps, you'll have a sync group that includes a
 
 For more info about SQL Data Sync, see these articles:
 
-* [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md)
+* [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/data-sync-agent.md)
 
 * [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../sql-database/sql-database-troubleshoot-data-sync.md)
 

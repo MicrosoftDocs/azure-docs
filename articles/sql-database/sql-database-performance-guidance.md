@@ -236,7 +236,7 @@ Before the release of [Hyperscale](sql-database-service-tier-hyperscale.md) serv
 Because Azure SQL Database and Azure SQL Managed Instance runs on commodity hardware, the capacity limits for an individual database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of an individual database in Azure SQL Database and Azure SQL Managed Instance. Most customers who use sharding techniques in Azure SQL Database and Azure SQL Managed Instance split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
 
 > [!NOTE]
-> Azure SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](sql-database-elastic-database-client-library.md).
+> Azure SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](../azure-sql/database/elastic-database-client-library.md).
 
 For example, if a database has customer name, order, and order details (like the traditional example Northwind database that ships with SQL Server), you could split this data into multiple databases by grouping a customer with the related order and order detail information. You can guarantee that the customer's data stays in an individual database. The application would split different customers across databases, effectively spreading the load across multiple databases. With sharding, customers not only can avoid the maximum database size limit, but Azure SQL Database and Azure SQL Managed Instance also can process workloads that are significantly larger than the limits of the different compute sizes, as long as each individual database fits into its service tier limits.
 
@@ -262,5 +262,5 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 - For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
 - For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+- For more information about elastic pools, see [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
 - For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)

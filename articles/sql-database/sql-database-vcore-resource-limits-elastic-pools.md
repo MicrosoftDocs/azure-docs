@@ -16,12 +16,12 @@ ms.date: 03/03/2020
 
 This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore purchasing model.
 
-For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-You can set the service tier, compute size, and storage amount using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal), [PowerShell](sql-database-elastic-pool-manage.md#powershell), the [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli), or the [REST API](sql-database-elastic-pool-manage.md#rest-api).
+You can set the service tier, compute size, and storage amount using the [Azure portal](../azure-sql/database/elastic-pool-manage.md#azure-portal), [PowerShell](../azure-sql/database/elastic-pool-manage.md#powershell), the [Azure CLI](../azure-sql/database/elastic-pool-manage.md#azure-cli), or the [REST API](../azure-sql/database/elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)
@@ -383,8 +383,8 @@ The following table describes the properties for pooled databases.
 ## Next steps
 
 - For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
-- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
-- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
+- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-single-databases.md)
+- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
 - For resource limits for managed instances, see [managed instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about resource limits on a logical SQL server, see [overview of resource limits on a logical SQL server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

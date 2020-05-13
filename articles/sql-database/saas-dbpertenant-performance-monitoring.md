@@ -240,6 +240,6 @@ In this tutorial you learn how to:
 ## Additional resources
 
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Database Per Tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [SQL Elastic pools](sql-database-elastic-pool.md)
+* [SQL Elastic pools](../azure-sql/database/elastic-pool-overview.md)
 * [Azure automation](../automation/automation-intro.md)
 * [Azure Monitor logs](saas-dbpertenant-log-analytics.md) - Setting up and using Azure Monitor logs tutorial

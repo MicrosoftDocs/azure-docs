@@ -40,7 +40,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure Azure Automation](sql-database-manage-automation.md)
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](sql-database-threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
-- [Configure dynamic data masking](sql-database-dynamic-data-masking-get-started-portal.md) to protect your sensitive data.
+- [Configure dynamic data masking](../azure-sql/database/dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](sql-database-long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. As an alternative there is [Configure backup retention using Azure vault (deprecated)](sql-database-long-term-backup-retention-configure-vault.md) approach.
 - [Configure geo-replication](sql-database-geo-replication-portal.md) to keep a replica of your database in another region.
 - [Configure security for geo-replicas](sql-database-geo-replication-security-config.md).
@@ -75,7 +75,7 @@ In this article you can find a content reference of various guides, scripts, and
 ### Data sync
 
 - [SQL Data Sync](sql-database-sync-data.md)
-- [Data Sync Agent](sql-database-data-sync-agent.md)
+- [Data Sync Agent](../azure-sql/database/data-sync-agent.md)
 - [Replicate schema changes](sql-database-update-sync-schema.md)
 - [Monitor with OMS](sql-database-sync-monitor-oms.md)
 - [Best practices for Data Sync](../azure-sql/database/sql-data-sync-best-practices.md)
@@ -96,9 +96,9 @@ In this article you can find a content reference of various guides, scripts, and
 - [Move sharded data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
 - [Add a shard](sql-database-elastic-scale-add-a-shard.md) to the current set of database shards.
-- [Fix shard map problems](sql-database-elastic-database-recovery-manager.md).
-- [Migrate sharded DB](sql-database-elastic-convert-to-use-elastic-tools.md).
-- [Create counters](sql-database-elastic-database-perf-counters.md).
+- [Fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
+- [Migrate sharded DB](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
+- [Create counters](../azure-sql/database/elastic-database-perf-counters.md).
 - [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) to query sharded data.
 - [Use Dapper framework](sql-database-elastic-scale-working-with-dapper.md) to query sharded data.
 
@@ -111,14 +111,14 @@ In this article you can find a content reference of various guides, scripts, and
 - [Connectivity guidance](sql-database-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)
 - [Setup DNS alias PowerShell](dns-alias-powershell.md)
-- [Ports - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
+- [Ports - ADO.NET](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
 - [C and C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 
 ## Design applications
 
 - [Design for disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Design for elastic pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Design for elastic pools](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Design for app upgrades](sql-database-manage-application-rolling-upgrade.md)
 
 ### Design Multi-tenant SaaS applications

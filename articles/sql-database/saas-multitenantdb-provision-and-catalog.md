@@ -63,7 +63,7 @@ The catalog can also be used to enable cross-tenant reporting, schema management
 
 ### Elastic Database Client Library
 
-In Wingtip, the catalog is implemented in the *tenantcatalog* database. The *tenantcatalog* is created using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a *shard map* that is stored in a database. A shard map cross-references the tenant key with its shard, meaning its sharded database.
+In Wingtip, the catalog is implemented in the *tenantcatalog* database. The *tenantcatalog* is created using the Shard Management features of the [Elastic Database Client Library (EDCL)](../azure-sql/database/elastic-database-client-library.md). The library enables an application to create, manage, and use a *shard map* that is stored in a database. A shard map cross-references the tenant key with its shard, meaning its sharded database.
 
 During tenant provisioning, EDCL functions can be used from applications or PowerShell scripts to create the entries in the shard map. Later the EDCL functions can be used to connect to the correct database. The EDCL caches connection information to minimize the traffic on the catalog database and speed up the process of connecting.
 
@@ -257,7 +257,7 @@ This type of automated service could be simple or complex. For example, the auto
 ## Additional resources
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-- [Elastic database client library](sql-database-elastic-database-client-library.md)
+- [Elastic database client library](../azure-sql/database/elastic-database-client-library.md)
 - [How to Debug Scripts in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 

@@ -185,7 +185,7 @@ For example, when your client program is hosted on a Windows computer, you can u
 1. Open Control Panel.
 2. Select **All Control Panel Items** > **Windows Firewall** > **Advanced Settings** > **Outbound Rules** > **Actions** > **New Rule**.
 
-If your client program is hosted on an Azure virtual machine (VM), read [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+If your client program is hosted on an Azure virtual machine (VM), read [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 For background information about configuration of ports and IP addresses, see
 [Azure SQL Database firewall](sql-database-firewall-configure.md).

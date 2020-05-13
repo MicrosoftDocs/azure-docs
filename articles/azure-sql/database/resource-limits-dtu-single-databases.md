@@ -16,14 +16,14 @@ ms.date: 03/20/2019
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU purchasing model.
 
-For DTU purchasing model resource limits for elastic pools, see [DTU resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md). For vCore resource limits, see [vCore resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-purchase-models.md).
+For DTU purchasing model resource limits for elastic pools, see [DTU resource limits - elastic pools](resource-limits-dtu-elastic-pools.md). For vCore resource limits, see [vCore resource limits - single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits - elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](../../sql-database/sql-database-purchase-models.md).
 
 ## Single database: Storage sizes and compute sizes
 
-The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-t-sql), [PowerShell](sql-database-single-databases-manage.md#powershell), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli), or the [REST API](sql-database-single-databases-manage.md#rest-api).
+The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](../../sql-database/sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](../../sql-database/sql-database-single-databases-manage.md#transact-sql-t-sql), [PowerShell](../../sql-database/sql-database-single-databases-manage.md#powershell), the [Azure CLI](../../sql-database/sql-database-single-databases-manage.md#azure-cli), or the [REST API](../../sql-database/sql-database-single-databases-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md)
+> For scaling guidance and considerations, see [Scale a single database](../../sql-database/sql-database-single-database-scale.md)
 
 ### Basic service tier
 
@@ -88,15 +88,15 @@ The following tables show the resources available for a single database at each 
 \* From 1024 GB up to 4096 GB in increments of 256 GB
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](../../sql-database/sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
 > For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## Next steps
 
-- For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
-- For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
-- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
-- For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
-- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about resource limits on a logical SQL server, see [overview of resource limits on a logical SQL server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+- For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](../../sql-database/sql-database-vcore-resource-limits-single-databases.md)
+- For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)
+- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md)
+- For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](../../sql-database/sql-database-managed-instance-resource-limits.md).
+- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- For information about resource limits on a logical SQL server, see [overview of resource limits on a logical SQL server](../../sql-database/sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

@@ -433,4 +433,4 @@ In this tutorial, you added an Azure SQL Database to a failover group, and teste
 Advance to the next tutorial on how to add your elastic pool to a failover group.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add an Azure SQL Database elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+> [Tutorial: Add an Azure SQL Database elastic pool to a failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md)

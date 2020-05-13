@@ -35,7 +35,7 @@ Azure SQL Database provides the following deployment options for an Azure SQL da
 
 - [Single database](sql-database-single-database.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Managed instance](sql-database-managed-instance.md) is a fully managed instance of the [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). It contains a set of databases that can be used together. Use this option for easy migration of on-premises SQL Server databases to the Azure cloud, and for applications that need to use the database features that SQL Server Database Engine provides.
-- [Elastic pool](sql-database-elastic-pool.md) is a collection of [single databases](sql-database-single-database.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
+- [Elastic pool](../azure-sql/database/elastic-pool-overview.md) is a collection of [single databases](sql-database-single-database.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
 > [!IMPORTANT]
 > To understand the feature differences between SQL Database and SQL Server, as well as the differences among different Azure SQL Database deployment options, see [SQL Database features](sql-database-features.md).
@@ -69,7 +69,7 @@ Azure SQL Database offers three service tiers that are designed for different ty
 
 ### Elastic pools to maximize resource utilization
 
-For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. Unpredictable usage patterns can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. You allocate performance resources to a pool rather than an individual database. You pay for the collective performance resources of the pool rather than for single database performance.
+For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. Unpredictable usage patterns can make it hard to manage costs and your business model. [Elastic pools](../azure-sql/database/elastic-pool-overview.md) are designed to solve this problem. You allocate performance resources to a pool rather than an individual database. You pay for the collective performance resources of the pool rather than for single database performance.
 
    ![Graphic that shows elastic pools in basic, standard, and premium editions](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
