@@ -29,6 +29,8 @@ I'll then be notified, and I'll merge your changes into the docs.
 
 To preview your markdown, you can use Visual Studio Code.
 
+Note that links between docs within our docset should be [relative paths](https://review.docs.microsoft.com/en-us/help/contribute/links-how-to?branch=master#links-to-articles-in-the-same-docset).
+
 For a list of available docs UI components and Markdown features, see [the Docs Markdown Reference](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
 
 For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.com/en-us/help/contribute/writing-principles?branch=master) and [this](https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700).
@@ -118,3 +120,4 @@ Finally, click the sync button to push your changes up and kick off the staging:
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
 
 ---------
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
