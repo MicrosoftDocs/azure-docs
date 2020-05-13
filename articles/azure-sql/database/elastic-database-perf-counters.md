@@ -16,10 +16,10 @@ ms.date: 02/07/2019
 
 Performance counters are used to track the performance of [data dependent routing](elastic-scale-data-dependent-routing.md) operations. These counters are accessible in the Performance Monitor, under the "Elastic Database: Shard Management" category.
 
-You can capture the performance of a [shard map manager](../../sql-database/sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
+You can capture the performance of a [shard map manager](elastic-scale-shard-map-management.md), especially when using [data dependent routing](elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
 
 
-**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](../../sql-database/sql-database-elastic-scale-upgrade-client-library.md).
+**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](elastic-scale-upgrade-client-library.md).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ The performance counters will be updated by all cache operations performed on th
 
 ### See also
 
-[Elastic Database features overview](../../sql-database/sql-database-elastic-scale-introduction.md)  
+[Elastic Database features overview](elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

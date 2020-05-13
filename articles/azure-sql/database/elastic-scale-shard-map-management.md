@@ -16,9 +16,9 @@ ms.date: 01/25/2019
 
 To easily scale out databases on Azure SQL Database, use a shard map manager. The shard map manager is a special database that maintains global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**).
 
-![Shard map management](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+![Shard map management](./media/elastic-scale-shard-map-management/glossary.png)
 
-Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), found in the [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md) to manage shard maps.  
+Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), found in the [Elastic Database client library](elastic-database-client-library.md) to manage shard maps.  
 
 ## Shard maps and shard mappings
 
@@ -210,19 +210,19 @@ Applications that administer and manipulate shard maps are different from those 
 
 To administer shard maps (add or change shards, shard maps, shard mappings, etc.) you must instantiate the **ShardMapManager** using **credentials that have read/write privileges on both the GSM database and on each database that serves as a shard**. The credentials must allow for writes against the tables in both the GSM and LSM as shard map information is entered or changed, as well as for creating LSM tables on new shards.  
 
-See [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
+See [Credentials used to access the Elastic Database client library](elastic-scale-manage-credentials.md).
 
 ### Only metadata affected
 
-Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) See [Scaling using the Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md).
+Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) See [Scaling using the Elastic Database split-merge tool](elastic-scale-overview-split-and-merge.md).
 
 ## Data dependent routing
 
 The shard map manager is used in applications that require database connections to perform the app-specific data operations. Those connections must be associated with the correct database. This is known as **Data Dependent Routing**. For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for later connections supply credentials necessary for connecting to the appropriate shard database.
 
-Note that these applications (using **ShardMapManager** opened with read-only credentials) cannot make changes to the maps or mappings. For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier. See [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
+Note that these applications (using **ShardMapManager** opened with read-only credentials) cannot make changes to the maps or mappings. For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier. See [Credentials used to access the Elastic Database client library](elastic-scale-manage-credentials.md).
 
-For more information, see [Data dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md).
+For more information, see [Data dependent routing](elastic-scale-data-dependent-routing.md).
 
 ## Modifying a shard map
 
@@ -257,13 +257,13 @@ Mappings are immutable objects in .NET.  All of the methods above that change ma
 
 Applications often need to add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month.
 
-If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](../azure-sql/database/elastic-scale-add-a-shard.md).
+If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](elastic-scale-add-a-shard.md).
 
-For scenarios that require data movement, however, the split-merge tool is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the split-merge tool, see [Overview of split-merge](sql-database-elastic-scale-overview-split-and-merge.md)
+For scenarios that require data movement, however, the split-merge tool is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the split-merge tool, see [Overview of split-merge](elastic-scale-overview-split-and-merge.md)
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
-[2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
-[3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
+[1]: ./media/elastic-scale-shard-map-management/listmapping.png
+[2]: ./media/elastic-scale-shard-map-management/rangemapping.png
+[3]: ./media/elastic-scale-shard-map-management/multipleonsingledb.png

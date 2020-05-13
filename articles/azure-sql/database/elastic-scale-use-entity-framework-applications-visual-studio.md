@@ -14,7 +14,7 @@ ms.date: 01/04/2019
 ---
 # Elastic Database client library with Entity Framework
 
-This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](https://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as the running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
+This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](elastic-scale-introduction.md). The focus is on composing [shard map management](elastic-scale-shard-map-management.md) and [data-dependent routing](elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](https://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as the running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
 
 ## Downloading and Running the Sample Code
 
@@ -47,7 +47,7 @@ All these approaches rely on the DbContext class to transparently manage databas
 
 ## Elastic database tools assumptions
 
-For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md).
+For term definitions, see [Elastic Database tools glossary](elastic-scale-glossary.md).
 
 With elastic database client library, you define partitions of your application data called shardlets. Shardlets are identified by a sharding key and are mapped to specific databases. An application may have as many databases as needed and distribute the shardlets to provide enough capacity or performance given current business requirements. The mapping of sharding key values to the databases is stored by a shard map provided by the elastic database client APIs. This capability is called **Shard Map Management**, or SMM for short. The shard map also serves as the broker of database connections for requests that carry a sharding key. This capability is known as **data-dependent routing**.
 
@@ -271,7 +271,7 @@ The approaches outlined in this document entail a couple of limitations:
 
 Through the steps outlined in this document, EF applications can use the elastic database client library's capability for data-dependent routing by refactoring constructors of the **DbContext** subclasses used in the EF application. This limits the  changes required to those places where **DbContext** classes already exist. In addition, EF applications can continue to benefit from automatic schema deployment by combining the steps that invoke the necessary EF migrations with the registration of new shards and mappings in the shard map.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png

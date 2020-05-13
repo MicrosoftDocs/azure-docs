@@ -13,7 +13,7 @@ ms.reviewer:
 ms.date: 12/04/2018
 ---
 # Using elastic database client library with Dapper
-This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](sql-database-elastic-scale-introduction.md) to create applications that implement sharding to scale out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data-dependent routing with Dapper. 
+This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](elastic-scale-introduction.md) to create applications that implement sharding to scale out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data-dependent routing with Dapper. 
 
 **Sample Code**: [Elastic database tools for Azure SQL Database - Dapper integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
@@ -155,7 +155,7 @@ The approaches outlined in this document entail a couple of limitations:
 ## Conclusion
 Applications using Dapper and DapperExtensions can easily benefit from elastic database tools for Azure SQL Database. Through the steps outlined in this document, those applications can use the tool's capability for data-dependent routing by changing the creation and opening of new [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objects to use the [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) call of the elastic database client library. This limits the application changes required to those places where new connections are created and opened. 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
+[1]: ./media/elastic-scale-working-with-dapper/dapperimage1.png

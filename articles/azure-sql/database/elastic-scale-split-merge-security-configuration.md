@@ -14,7 +14,7 @@ ms.date: 12/18/2018
 ---
 # Split-merge security configuration
 
-To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configuring certificates
 
@@ -481,5 +481,5 @@ The TLS settings described in this document encrypt communication between the se
 
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

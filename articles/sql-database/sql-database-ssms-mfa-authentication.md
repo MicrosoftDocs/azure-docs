@@ -75,6 +75,6 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [Import a BACPAC file to a new Azure SQL Database](../sql-database/sql-database-import.md)  
-- [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md)  
+- [Export an Azure SQL database to a BACPAC file](../azure-sql/database/database-export.md)  
 - C# interface [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.  

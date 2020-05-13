@@ -14,17 +14,17 @@ ms.date: 01/03/2019
 ---
 # Credentials used to access the Elastic Database client library
 
-The [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
+The [Elastic Database client library](elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
 
-* **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](sql-database-elastic-scale-glossary.md).)
+* **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](elastic-scale-glossary.md).)
 * **Access credentials**: to access an existing shard map manager to obtain information about shards.
 * **Connection credentials**: to connect to shards.
 
-See also [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md).
+See also [Managing databases and logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md).
 
 ## About management credentials
 
-Management credentials are used to create a **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](../azure-sql/database/elastic-scale-add-a-shard.md) and [data-dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md)). The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object (using **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
+Management credentials are used to create a **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](elastic-scale-add-a-shard.md) and [data-dependent routing](elastic-scale-data-dependent-routing.md)). The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object (using **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.
@@ -41,7 +41,7 @@ Do not use values in the form of "username@server"—instead just use the "usern
 
 ## Access credentials
 
-When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials is used for [data-dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager**:
+When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials is used for [data-dependent routing](elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager**:
 
 ```java
 // Obtain shard map manager.
@@ -68,10 +68,10 @@ As with the admin credentials, do not use values in the form of "username@server
 
 ## See also
 
-[Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
+[Managing databases and logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md)
 
-[Securing your SQL Database](sql-database-security-overview.md)
+[Securing your SQL Database](../../sql-database/sql-database-security-overview.md)
 
-[Elastic Database jobs](elastic-jobs-overview.md)
+[Elastic Database jobs](../../sql-database/elastic-jobs-overview.md)
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

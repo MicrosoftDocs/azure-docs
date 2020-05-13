@@ -61,7 +61,7 @@ Understanding the following storage space quantities are important for managing 
 
 The following diagram illustrates the relationship between the different types of storage space for a database.
 
-![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
+![storage space types and relationships](./media/file-space-manage/storage-types.png)
 
 ## Query a single database for storage space information
 
@@ -176,7 +176,7 @@ Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocated
 
 The following screenshot is an example of the output of the script:
 
-![elastic pool allocated space and unused allocated space example](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
+![elastic pool allocated space and unused allocated space example](./media/file-space-manage/elastic-pool-allocated-unused.png)
 
 ### Elastic pool data max size
 
@@ -228,9 +228,9 @@ After database data files are shrunk, indexes may become fragmented and lose the
 ## Next steps
 
 - For information about database max sizes, see:
-  - [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md)
-  - [Resource limits for single databases using the DTU-based purchasing model](../azure-sql/database/resource-limits-dtu-single-databases.md)
-  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
-  - [Resources limits for elastic pools using the DTU-based purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
+  - [Azure SQL Database vCore-based purchasing model limits for a single database](../../sql-database/sql-database-vcore-resource-limits-single-databases.md)
+  - [Resource limits for single databases using the DTU-based purchasing model](resource-limits-dtu-single-databases.md)
+  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Resources limits for elastic pools using the DTU-based purchasing model](resource-limits-dtu-elastic-pools.md)
 - For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 - For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

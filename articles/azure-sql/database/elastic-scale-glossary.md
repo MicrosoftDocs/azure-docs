@@ -14,15 +14,15 @@ ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary
 
-The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](../azure-sql/database/elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](../azure-sql/database/elastic-pool-overview.md), and [queries](../azure-sql/database/elastic-query-overview.md). 
+The following terms are defined for the [Elastic Database tools](elastic-scale-introduction.md). The tools are used to manage [shard maps](elastic-scale-shard-map-management.md), and include the [client library](elastic-database-client-library.md), the [split-merge tool](elastic-scale-overview-split-and-merge.md), [elastic pools](elastic-pool-overview.md), and [queries](elastic-query-overview.md). 
 
-These terms are used in [Adding a shard using Elastic Database tools](../azure-sql/database/elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
+These terms are used in [Adding a shard using Elastic Database tools](elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](elastic-database-recovery-manager.md).
 
 ![Elastic Scale terms][1]
 
 **Database**: An Azure SQL database. 
 
-**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](elastic-scale-multishard-querying.md)**.
 
 **Global shard map**: The map between sharding keys and their respective shards within a **shard set**. The global shard map is stored in the **shard map manager**. Compare to **local shard map**.
 
@@ -34,11 +34,11 @@ These terms are used in [Adding a shard using Elastic Database tools](../azure-s
 
 **Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
 
-![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+![Single and multi-tenant databases](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Here is a representation of **sharded** single and multi-tenant databases. 
 
-![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
+![Single and multi-tenant databases](./media/elastic-scale-glossary/shards-single-multi.png)
 
 **Range shard map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 
@@ -77,10 +77,10 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Vertical Scaling**: The act of scaling up (or down) the compute size of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-glossary/glossary.png
-[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
-[3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
+[1]: ./media/elastic-scale-glossary/glossary.png
+[2]: ./media/elastic-scale-glossary/mappings.png
+[3]: ./media/elastic-scale-glossary/h_versus_vert.png
 

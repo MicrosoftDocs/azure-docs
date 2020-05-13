@@ -22,7 +22,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Migrate to an Azure SQL Managed Instance](sql-database-managed-instance-migrate.md) – Learn about the recommended migration process and tools for migration to an Azure SQL Managed Instance.
 - [Migrate TDE cert to an Azure SQL Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md) – If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that a SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
 - [Import a DB from a BACPAC](sql-database-import.md)
-- [Export a DB to BACPAC](sql-database-export.md)
+- [Export a DB to BACPAC](../azure-sql/database/database-export.md)
 - [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
 - [Load data with ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 

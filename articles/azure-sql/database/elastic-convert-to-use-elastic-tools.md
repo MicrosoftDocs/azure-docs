@@ -15,20 +15,20 @@ ms.date: 01/25/2019
 ---
 # Migrate existing databases to scale out
 
-Easily manage your existing scaled-out sharded databases using tools (such as the [Elastic Database client library](elastic-database-client-library.md)). First convert an existing set of databases to use the [shard map manager](../../sql-database/sql-database-elastic-scale-shard-map-management.md).
+Easily manage your existing scaled-out sharded databases using tools (such as the [Elastic Database client library](elastic-database-client-library.md)). First convert an existing set of databases to use the [shard map manager](elastic-scale-shard-map-management.md).
 
 ## Overview
 
 To migrate an existing sharded database:
 
-1. Prepare the [shard map manager database](../../sql-database/sql-database-elastic-scale-shard-map-management.md).
+1. Prepare the [shard map manager database](elastic-scale-shard-map-management.md).
 2. Create the shard map.
 3. Prepare the individual shards.  
 4. Add mappings to the shard map.
 
 These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL Database - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-For more information about the ShardMapManager, see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](../../sql-database/sql-database-elastic-scale-introduction.md).
+For more information about the ShardMapManager, see [Shard map management](elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](elastic-scale-introduction.md).
 
 ## Prepare the shard map manager database
 
@@ -57,7 +57,7 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<passw
 
 Select the type of shard map to create. The choice depends on the database architecture:
 
-1. Single tenant per database (For terms, see the [glossary](../../sql-database/sql-database-elastic-scale-glossary.md).)
+1. Single tenant per database (For terms, see the [glossary](elastic-scale-glossary.md).)
 2. Multiple tenants per database (two types):
    1. List mapping
    2. Range mapping
@@ -146,7 +146,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## Summary
 
-Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data-dependent routing](elastic-scale-data-dependent-routing.md) and [multi-shard query](../../sql-database/sql-database-elastic-scale-multishard-querying.md).
+Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data-dependent routing](elastic-scale-data-dependent-routing.md) and [multi-shard query](elastic-scale-multishard-querying.md).
 
 ## Next steps
 

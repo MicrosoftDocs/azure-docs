@@ -26,13 +26,13 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 ## Documentation
 
-1. [Elastic database Split-Merge tool tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md)
-2. [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
-4. [Shard map management](sql-database-elastic-scale-shard-map-management.md)
-5. [Migrate existing databases to scale-out](../azure-sql/database/elastic-convert-to-use-elastic-tools.md)
-6. [Elastic database tools](sql-database-elastic-scale-introduction.md)
-7. [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
+1. [Elastic database Split-Merge tool tutorial](elastic-scale-configure-deploy-split-and-merge.md)
+2. [Split-Merge security configuration](elastic-scale-split-merge-security-configuration.md)
+3. [Split-merge security considerations](elastic-scale-split-merge-security-configuration.md)
+4. [Shard map management](elastic-scale-shard-map-management.md)
+5. [Migrate existing databases to scale-out](elastic-convert-to-use-elastic-tools.md)
+6. [Elastic database tools](elastic-scale-introduction.md)
+7. [Elastic Database tools glossary](elastic-scale-glossary.md)
 
 ## Why use the split-merge tool
 
@@ -56,7 +56,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 - **Customer-hosted services**
 
-  The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure TLS, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+  The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure TLS, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](elastic-scale-split-merge-security-configuration.md).
 
   The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons.
 
@@ -206,11 +206,11 @@ The split-merge Service provides the **RequestStatus** table in the metadata sto
 
 ### Azure Diagnostics
 
-The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations - one for the web role and one for the worker role. It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs.
+The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations - one for the web role and one for the worker role. It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs.
 
 ## Deploy Diagnostics
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
@@ -233,7 +233,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
     -Slot Production -Role "SplitMergeWorker"
 ```
 
-You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
+You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Retrieve diagnostics
 
@@ -255,7 +255,7 @@ In addition, a uniqueness property with the sharding key as the leading column w
 
 ## How to upgrade
 
-1. Follow the steps in [Deploy a split-merge service](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
+1. Follow the steps in [Deploy a split-merge service](elastic-scale-configure-deploy-split-and-merge.md).
 2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
 3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
 4. Update your existing cloud service deployment for split-merge in your Azure subscription with the new package and your updated service configuration file.
@@ -270,10 +270,10 @@ You do not need to provision a new metadata database for split-merge to upgrade.
 - The sharding key should be the leading column in your primary key or unique index definition. That ensures the best performance for the split or merge validation queries, and for the actual data movement and deletion operations which always operate on sharding key ranges.
 - Collocate your split-merge service in the region and data center where your databases reside.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
-[2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
-[3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
+[1]:./media/elastic-scale-overview-split-and-merge/split-merge-overview.png
+[2]:./media/elastic-scale-overview-split-and-merge/diagnostics.png
+[3]:./media/elastic-scale-overview-split-and-merge/diagnostics-config.png

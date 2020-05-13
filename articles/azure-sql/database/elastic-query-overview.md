@@ -90,7 +90,7 @@ After running the DDL statements, you can access the remote table “mytable” 
 
 ## Horizontal partitioning - sharding
 
-Using elastic query to perform reporting tasks over a sharded, that is, horizontally partitioned, data tier requires an [elastic database shard map](../../sql-database/sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities (head node) serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 4 illustrates this topology and its configuration with the elastic query database and shard map. For more information about the elastic database client library and creating shard maps, see [Shard map management](../../sql-database/sql-database-elastic-scale-shard-map-management.md).
+Using elastic query to perform reporting tasks over a sharded, that is, horizontally partitioned, data tier requires an [elastic database shard map](elastic-scale-shard-map-management.md) to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities (head node) serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 4 illustrates this topology and its configuration with the elastic query database and shard map. For more information about the elastic database client library and creating shard maps, see [Shard map management](elastic-scale-shard-map-management.md).
 
 **Figure 4** Horizontal partitioning - Using elastic query for reporting over sharded data tiers
 
@@ -104,7 +104,7 @@ The following steps configure elastic database queries for horizontal partitioni
 
 * [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
 * [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
-* Create a [shard map](../../sql-database/sql-database-elastic-scale-shard-map-management.md) representing your data tier using the elastic database client library.
+* Create a [shard map](elastic-scale-shard-map-management.md) representing your data tier using the elastic database client library.
 * [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource of type **SHARD_MAP_MANAGER**
 * [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 

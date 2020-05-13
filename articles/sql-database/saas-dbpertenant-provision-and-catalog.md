@@ -94,7 +94,7 @@ Trace the script's execution by using the **Debug** menu options. Press F10 and 
 
 You don't need to explicitly follow this workflow. It explains how to debug the script.
 
-* **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
+* **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](../azure-sql/database/elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
 * **Import the SubscriptionManagement.psm1 module.** It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
 * **Get configuration details.** Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
 * **Get the catalog object.** Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:

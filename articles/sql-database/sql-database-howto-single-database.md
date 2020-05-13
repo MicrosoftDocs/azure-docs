@@ -22,7 +22,7 @@ In this article you can find a content reference of various guides, scripts, and
 - Learn how to [manage SQL database after migration](sql-database-manage-after-migration.md).
 - [Copy a database](../azure-sql/database/database-copy.md)
 - [Import a DB from a BACPAC](sql-database-import.md)
-- [Export a DB to BACPAC](sql-database-export.md)
+- [Export a DB to BACPAC](../azure-sql/database/database-export.md)
 - [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
 - [Load data with ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
@@ -56,7 +56,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Create alerts](sql-database-insights-alerts-portal.md) to get notifications from Azure SQL Database.
 - [Troubleshoot connectivity](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](sql-database-resource-health.md).
 - [Troubleshoot performance with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Manage file space](sql-database-file-space-management.md) to monitor storage usage in your database.
+- [Manage file space](../azure-sql/database/file-space-manage.md) to monitor storage usage in your database.
 - [Use Intelligent Insights diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-memory OLTP space](sql-database-in-memory-oltp-monitoring.md)
 
@@ -89,18 +89,18 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Database sharding
 
-- [Upgrade elastic database client library](sql-database-elastic-scale-upgrade-client-library.md).
+- [Upgrade elastic database client library](../azure-sql/database/elastic-scale-upgrade-client-library.md).
 - [Create sharded app](../azure-sql/database/elastic-scale-get-started.md).
 - [Query horizontally sharded data](../azure-sql/database/elastic-query-getting-started.md).
-- Run [Multi-shard queries](sql-database-elastic-scale-multishard-querying.md).
+- Run [Multi-shard queries](../azure-sql/database/elastic-scale-multishard-querying.md).
 - [Move sharded data](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
-- [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
+- [Configure security](../azure-sql/database/elastic-scale-split-merge-security-configuration.md) in database shards.
 - [Add a shard](../azure-sql/database/elastic-scale-add-a-shard.md) to the current set of database shards.
 - [Fix shard map problems](../azure-sql/database/elastic-database-recovery-manager.md).
 - [Migrate sharded DB](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
 - [Create counters](../azure-sql/database/elastic-database-perf-counters.md).
-- [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) to query sharded data.
-- [Use Dapper framework](sql-database-elastic-scale-working-with-dapper.md) to query sharded data.
+- [Use entity framework](../azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio.md) to query sharded data.
+- [Use Dapper framework](../azure-sql/database/elastic-scale-working-with-dapper.md) to query sharded data.
 
 ## Develop applications
 

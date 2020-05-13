@@ -29,7 +29,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 | Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](sql-database-data-discovery-and-classification.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](../azure-sql/database/elastic-query-overview.md). |
-| Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md). |
+| Elastic transactions | [Distributed transactions across cloud databases](../azure-sql/database/elastic-transactions-overview.md). |
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md).|
 | R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|

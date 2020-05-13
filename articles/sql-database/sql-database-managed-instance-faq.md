@@ -67,7 +67,7 @@ To use another DNS zone instead of the default, for example, *.contoso.com*:
 
 **How can I move database from SQL Managed Instance back to SQL Server or Azure SQL Database?**
 
-You can [export database to BACPAC](sql-database-export.md) and then [import the BACPAC file]( sql-database-import.md). This is the recommended approach if your database is smaller than 100 GB.
+You can [export database to BACPAC](../azure-sql/database/database-export.md) and then [import the BACPAC file]( sql-database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
 Transactional replication can be used if all tables in the database have primary keys.
 
@@ -77,7 +77,7 @@ Native `COPY_ONLY` backups taken from SQL Managed Instance cannot be restored to
 
 **How can I migrate my instance database to a single Azure SQL Database?**
 
-One option is to [export the database to a BACPAC](sql-database-export.md) and then [import the BACPAC file](sql-database-import.md). 
+One option is to [export the database to a BACPAC](../azure-sql/database/database-export.md) and then [import the BACPAC file](sql-database-import.md). 
 
 This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
 

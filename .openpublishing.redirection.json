@@ -52381,6 +52381,71 @@
             "source_path": "articles/sql-database/sql-database-elastic-scale-get-started.md",
             "redirect_url": "/azure/azure-sql/database/elastic-scale-get-started",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-glossary.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-glossary",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-manage-credentials.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-manage-credentials",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-introduction.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-multishard-querying.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-multishard-querying",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-overview-split-and-merge.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-overview-split-and-merge",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-shard-map-management.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-shard-map-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-split-merge-security-configuration.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-split-merge-security-configuration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-upgrade-client-library.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-upgrade-client-library",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-working-with-dapper.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-working-with-dapper",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-transactions-overview.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-transactions-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-export.md",
+            "redirect_url": "/azure/azure-sql/database/database-export",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-file-space-management.md",
+            "redirect_url": "/azure/azure-sql/database/file-space-manage",
+            "redirect_document_id": true
         }
     ]
 }

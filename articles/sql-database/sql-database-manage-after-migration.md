@@ -313,7 +313,7 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 - **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
 
-   ![database export](./media/sql-database-export/database-export1.png)
+   ![database export](../azure-sql/database/media/database-export/database-export1.png)
 
 - **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
 
