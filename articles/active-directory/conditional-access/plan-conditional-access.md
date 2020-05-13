@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) Conditional Access (CA) analyses signals such 
 
 ![Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft provides standard conditional policies called [security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) that ensure a basic level of security. However, your organization may need more flexibility than security defaults offer. You can use Conditional Access to customize security defaults with more granularity and to configure new policies that meet your requirements.
+Microsoft provides standard conditional policies called [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) that ensure a basic level of security. However, your organization may need more flexibility than security defaults offer. You can use Conditional Access to customize security defaults with more granularity and to configure new policies that meet your requirements.
 
 ## Learn
 
@@ -56,9 +56,9 @@ If additional features are required, you might also need related licenses. For m
 
 * An account with Conditional Access administrator privileges.
 
-* A non-administrator user with a password you know, such as testuser. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/add-users-azure-active-directory).
+* A non-administrator user with a password you know, such as testuser. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal).
 
 ### Training resources
 
@@ -92,9 +92,9 @@ When technology projects fail, they typically do so due to mismatched expectatio
 Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
 
 ### Plan a pilot
-When new policies are ready for your environment, deploy them in phases in the production environment. First apply a policy to a small set of users in a test environment and verify if the policy behaves as expected. See [Best practices for a pilot](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-deployment-plans).
+When new policies are ready for your environment, deploy them in phases in the production environment. First apply a policy to a small set of users in a test environment and verify if the policy behaves as expected. See [Best practices for a pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
 
-> [!Note]
+> [!NOTE]
 > For rolling out new policies not specific to administrators, exclude all administrators. This ensures that administrators can still access the policy and make changes or revoke it if there's a significant impact. Always validate the policy with smaller user groups before you apply to all users.
 
 ## Understand CA policy components
@@ -105,7 +105,7 @@ CA policies are if-then statements: If an assigned condition is met, then apply 
 
 When configuring CA policies, conditions are called *assignments*. CA policies allow you to enforce access controls on your organization’s apps based on certain assignments.
 
-![ ](media/plan-conditional-access/ca-policy-access.png)
+![assignments and access controls ](media/plan-conditional-access/ca-policy-access.png)
 
 
 For more information, see [Building a CA policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies).
@@ -119,9 +119,7 @@ For more information, see [Building a CA policy](https://docs.microsoft.com/azur
 * [conditions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions) under which the policy will apply. 
 <p>
 
-[ ](media/plan-conditional-access/create-policy.png)
-
- 
+![create policy screen](media/plan-conditional-access/create-policy.png)
 
 [Access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) settings determine how to enforce a policy:
 
@@ -143,7 +141,7 @@ Document the answers to questions for each policy before building it out.
 
 * Does this policy include all users, specific group of users, directory roles, or external users?
 
-[Cloud apps or action](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
+[Cloud apps or actions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
 
 * What application(s) will the policy apply to?
 
@@ -163,7 +161,7 @@ Document the answers to questions for each policy before building it out.
 
 * If using [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), do you want to incorporate sign-in risk protection?
 
-Common questions about access controls
+#### Common questions about access controls
 
 [Grant or Block ](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) 
 
@@ -195,7 +193,7 @@ Do you want to enforce any of the following access controls on cloud apps?
 
 It’s important to understand how access tokens are issued. 
 
-![Picture 5](media/plan-conditional-access/CA-policy-token-issuance.png)
+![Access token issuance diagram](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 **Especially note that if no assignment is required, and no CA policy is in effect, that the default behavior is to issue an access token**. 
 
@@ -213,7 +211,7 @@ The Conditional Access framework provides you with a great configuration flexibi
 
 Access tokens are by default issued if a CA Policy condition does not trigger an access control. Ensure that every app has at least one conditional access policy applied
 
-> [Important!]
+> [!IMPORTANT]
 > Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure Administration Portal, and exclusions cannot be configured for important end-points such as Microsoft Graph.
 
 ### Minimize the number of CA policies
@@ -333,7 +331,7 @@ The proliferation of supported devices to access your cloud resources helps to i
 
 ### Require approved client apps
 
-Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. if managing only data and access, you can [require approved cloud apps](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
+Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. if managing only data and access, you can [require approved cloud apps](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
 
 ### Block access
 
