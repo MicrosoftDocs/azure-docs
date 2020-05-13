@@ -183,7 +183,7 @@ This template creates an Azure Cosmos account in two regions with options for co
         {
             "type": "Microsoft.DocumentDB/databaseAccounts",
             "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "kind": "GlobalDocumentDB",
             "location": "[parameters('location')]",
             "properties": {
@@ -196,7 +196,7 @@ This template creates an Azure Cosmos account in two regions with options for co
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
             "properties":{
                 "resource":{
@@ -208,7 +208,7 @@ This template creates an Azure Cosmos account in two regions with options for co
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
             "properties":
             {
@@ -369,7 +369,7 @@ This template creates an Azure Cosmos account in one region with a container wit
         {
             "type": "Microsoft.DocumentDB/databaseAccounts",
             "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "location": "[parameters('location')]",
             "properties": {
                 "consistencyPolicy": {"defaultConsistencyLevel": "Session"},
@@ -381,7 +381,7 @@ This template creates an Azure Cosmos account in one region with a container wit
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
             "properties":{
                 "resource":{
@@ -392,7 +392,7 @@ This template creates an Azure Cosmos account in one region with a container wit
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
             "properties":
             {

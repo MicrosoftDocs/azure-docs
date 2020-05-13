@@ -189,7 +189,7 @@ This template will create an Azure Cosmos account for Gremlin API with a databas
         {
             "type": "Microsoft.DocumentDB/databaseAccounts",
             "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "location": "[parameters('location')]",
             "kind": "GlobalDocumentDB",
             "properties": {
@@ -207,7 +207,7 @@ This template will create an Azure Cosmos account for Gremlin API with a databas
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/gremlinDatabases",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]"
             ],
@@ -220,7 +220,7 @@ This template will create an Azure Cosmos account for Gremlin API with a databas
         {
             "type": "Microsoft.DocumentDb/databaseAccounts/gremlinDatabases/graphs",
             "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('graphName'))]",
-            "apiVersion": "2020-03-01",
+            "apiVersion": "2020-04-01",
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts/gremlinDatabases', variables('accountName'),  parameters('databaseName'))]"
             ],

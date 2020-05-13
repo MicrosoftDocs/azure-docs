@@ -181,7 +181,7 @@ This template creates an Azure Cosmos account in two regions with options for co
       {
         "type": "Microsoft.DocumentDB/databaseAccounts",
         "name": "[variables('accountName')]",
-        "apiVersion": "2020-03-01",
+        "apiVersion": "2020-04-01",
         "location": "[parameters('location')]",
         "kind": "GlobalDocumentDB",
         "properties": {
@@ -195,7 +195,7 @@ This template creates an Azure Cosmos account in two regions with options for co
       {
         "type": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces",
         "name": "[concat(variables('accountName'), '/', parameters('keyspaceName'))]",
-        "apiVersion": "2020-03-01",
+        "apiVersion": "2020-04-01",
         "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]" ],
         "properties":{
             "resource":{
@@ -206,7 +206,7 @@ This template creates an Azure Cosmos account in two regions with options for co
       {
         "type": "Microsoft.DocumentDb/databaseAccounts/cassandraKeyspaces/tables",
         "name": "[concat(variables('accountName'), '/', parameters('keyspaceName'), '/', parameters('tableName'))]",
-        "apiVersion": "2020-03-01",
+        "apiVersion": "2020-04-01",
         "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces', variables('accountName'), parameters('keyspaceName'))]" ],
         "properties":
         {

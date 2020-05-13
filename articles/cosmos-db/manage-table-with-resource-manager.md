@@ -178,7 +178,7 @@ This template will create an Azure Cosmos account for Table API with one table w
        {
           "type": "Microsoft.DocumentDB/databaseAccounts",
           "name": "[variables('accountName')]",
-          "apiVersion": "2020-03-01",
+          "apiVersion": "2020-04-01",
           "location": "[parameters('location')]",
           "kind": "GlobalDocumentDB",
           "properties": {
@@ -192,7 +192,7 @@ This template will create an Azure Cosmos account for Table API with one table w
        {
           "type": "Microsoft.DocumentDB/databaseAccounts/tables",
           "name": "[concat(variables('accountName'), '/', parameters('tableName'))]",
-          "apiVersion": "2020-03-01",
+          "apiVersion": "2020-04-01",
           "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]" ],
           "properties":{
              "resource":{
