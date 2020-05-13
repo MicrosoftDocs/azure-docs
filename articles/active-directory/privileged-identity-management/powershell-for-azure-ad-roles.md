@@ -122,7 +122,7 @@ There are four main objects in the setting. Only three of these objects are curr
 To update the role setting, you must get the existing setting object for a particular role and make changes to it:
 
     $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-    $setting.UserMemberSetting.justificationRule = "{'required':false}"
+    $setting.UserMemberSetting.justificationRule = '{"required":false}'
 
 You can then go ahead and apply the setting to one of the objects for a particular role as shown below. The ID here is the role setting ID that can be retrieved from the result of the list role settings cmdlet.
 
