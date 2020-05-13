@@ -14,6 +14,8 @@ manager: daveba
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
+
+ms.custom: contperfq4
 ---
 # What are security defaults?
 
