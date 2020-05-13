@@ -42,7 +42,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-You need to create database-scoped or server-scoped crednential to enable access using SAS token.
+You need to create database-scoped or server-scoped credential to enable access using SAS token.
 
 ### [User Identity](#tab/user-identity)
 
@@ -132,7 +132,7 @@ To allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY C
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
 
-Database users who access external storage must have permission to use crednetials.
+Database users who access external storage must have permission to use credentials.
 
 ### Grant permissions to use credential
 
@@ -166,7 +166,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 > [!NOTE]
 > There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](?tabs=user-identity#force-azure-ad-pass-through).
 
-Server-scoped credentials enable access to Azure storage using the following authenticaiton types:
+Server-scoped credentials enable access to Azure storage using the following authentication types:
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -184,7 +184,7 @@ GO
 
 ### [User Identity](#tab/user-identity)
 
-The following script creates a server-level credential that enables user to impersonate using his Azure AD identity.
+The following script creates a server-level credential that enables user to impersonate using Azure AD identity.
 
 ```sql
 CREATE CREDENTIAL [UserIdentity]
@@ -218,7 +218,7 @@ GO
 
 Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
-Database-scoped credentials enable access to Azure storage using the following authenticaiton types:
+Database-scoped credentials enable access to Azure storage using the following authentication types:
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -284,7 +284,7 @@ CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000),
 WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
-Database user can the content of the files from the data source using external table or OEPNROWSET function that references the data source:
+Database user can read the content of the files from the data source using external table or [OPENROWSET](develop-openrowset.md) function that references the data source:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
@@ -328,7 +328,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_
 
 ```
 
-Database user can the content of the files from the data source using external table or OEPNROWSET function that references the data source:
+Database user can read the content of the files from the data source using [external table](develop-tables-external-tables.md) or [OPENROWSET](develop-openrowset.md)  function that references the data source:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
