@@ -68,7 +68,12 @@ User | Catalog owner | Only if group owner | Only if group owner | Only if app o
 
 **Q:** How do I see all groups that are role-eligible?
 
-**A:** Navigate to Azure portal --> Azure Active Directory --> Groups --> All Groups --> Add filters --> Role assignable.
+**A:** Follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
+1. Select **Groups** > **All groups**.
+1. Select **Add filters**.
+1. Filter to **Role assignable**.
 
 **Q:** How do I know which role are assigned to a principal directly and indirectly?
 
