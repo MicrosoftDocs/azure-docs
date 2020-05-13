@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 05/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -19,11 +19,16 @@ ms.collection: M365-identity-device-management
 
 # Assign a role to a group using Privileged Identity Management
 
-This article describes how an IT admin can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management.
+This article describes how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management. Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version. You can assign a role to a group only in the new version. While the new version is being rolled out, you need to make sure you're in the new version to use the procedures in this article depend on version of Privileged Identity Management you currently have.
 
-## Using Azure AD Admin Center
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, you have the new version and con proceed with the instructions in this article. If you don't have the new version, you can't complete the role assignment.
 
-1. Open https://aka.ms//assignrolestogroups. Sign in with Privileged role administrator or Global administrator permissions in the Azure AD organization.  
+  [![](media/roles-groups-pim-eligible/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-pim-eligible/pim-new-version.png#lightbox)
+
+## Using Azure AD admin center
+
+1. Open Azure AD [Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) and sign in with Privileged role administrator or Global administrator permissions in the Azure AD organization.  
 
 1. Select Privileged Identity Management > Azure AD roles > Roles > Add member
 

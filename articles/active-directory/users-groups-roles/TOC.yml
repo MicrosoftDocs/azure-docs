@@ -191,6 +191,8 @@
         href: roles-groups-view-assignments.md
       - name: Make an Azure AD role PIM-eligible
         href: roles-groups-pim-eligible.md
+      - name: FAQ and troubleshooting
+        href: roles-groups-faq-troubleshooting.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
     - name: Microsoft 365 roles

@@ -24,9 +24,16 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by turning on **Eligible for role assignment** when creating a new group. Then you can assign this group to one or more Azure AD roles in the same way as you assign roles to users.
+Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version. You can assign a role to a group only in the new version. While the new version is being rolled out, make sure you're in the new version of Privileged Identity Management to use the procedures in this article:
 
-If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group an eligible member of an Azure AD role. Each member of the group will be then be eligible to have their assignment activated for the role that the group is assigned to. They can, then, activate their role assignment for a fixed time duration.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, you have the new version and con proceed with the instructions in this article. If you don't have the new version, you can't complete the tasks.
+
+  [![](media/roles-groups-concept/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-concept/pim-new-version.png#lightbox)
+
+After you have verified your version, create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in UI by turning on **Eligible for role assignment** when creating a new group. Then you can assign this group to one or more Azure AD roles in the same way as you assign roles to users.
+
+If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can, then, activate their role assignment for a fixed time duration.
 
 ## Why we enforce creation of a special group for assigning it to a role
 
@@ -37,8 +44,31 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 - Only Global admins and Privileged role admins can create a role-eligible group (with the "isAssignableToRole" property enabled).
 - It can't be an Azure AD dynamic group; that is, it must have a membership type of "Assigned." Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
+-  To prevent elevation of privilege, the credentials of the owner of a role-eligible group can be changed only by a Privileged authentication administrator or a Global administrator.
 - By default, only Global admins and Privileged role admins can manage the membership of a role-eligible group, but you can delegate the management of role-eligible groups by adding group owners.
 - No nesting. A group can't be added as a member of a role-eligible group.
+
+## Limitations
+
+Following scenarios are not supported right now:  
+
+- Assign cloud groups to Azure AD custom roles
+- Assign cloud groups to Azure AD roles (built-in or custom) over an Admin Unit
+- Assign on-premises groups to Azure AD roles (built-in or custom)
+
+We are working on these capabilities.
+
+## Known Issues
+
+*Azure AD P2 license customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Indentity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
+
+End time of the assignment might end up showing incorrectly
+
+In the PIM UI, My Roles can only show one role assignment regardless of how many methods the assignment is granted (through one or more groups and directly)
+
+[Azure AD P2 license customers only] Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionality wise, there is no problem; it's just a cache issue in UI.
+
+We are fixing these issues.
 
 ## Required license plan
 

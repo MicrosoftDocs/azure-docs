@@ -52,7 +52,7 @@ For more information on assigning role permissions, see [Assign administrator an
 
 ### Create a role assignment
 
-    $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.objectId 
+    $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 
 ## Using Microsoft Graph API
 
