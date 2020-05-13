@@ -14,7 +14,7 @@ ms.author: aahi
 # Language support for the Text Analytics API
 
 > [!NOTE]
-> This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-2-language-support).
+> This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-21-language-support).
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
