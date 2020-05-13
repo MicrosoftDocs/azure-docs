@@ -87,7 +87,7 @@
       href: azure-stack-edge-limits.md
     - name: Security overview
       href: azure-stack-edge-security.md
-      name: Review specifications
+    - name: Review specifications
       items:
       - name: Device specifications
         href: azure-stack-edge-technical-specifications-compliance.md
