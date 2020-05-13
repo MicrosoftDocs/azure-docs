@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/13/2020
 ms.reviewer: sngun
 ---
 
