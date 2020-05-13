@@ -59,7 +59,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
 
-* Move data between Synapse and 85+ on-premises data sources
+* Move data between Azure Synapse and 90+ on-premises data sources
 * Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
 * Code-Free ETL with Data flow activities
 

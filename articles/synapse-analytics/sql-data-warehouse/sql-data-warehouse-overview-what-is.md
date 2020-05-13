@@ -15,7 +15,7 @@ ms.reviewer: igorstan
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
 > [!NOTE] 
-> Try the latest Azure Synapse features such as workspaces, Spark, SQL on demand, and the integrated Synapse Studio experience 
+> Try the latest Azure Synapse features such as workspaces, Spark, SQL on-demand, and the integrated Synapse Studio experience 
 > by [requesting access to Azure Synapse (workspaces preview)](https://aka.ms/synapsepreview). 
 >
 >Explore the [Azure Synapse (workspaces preview) documentation](../overview-what-is.md).
