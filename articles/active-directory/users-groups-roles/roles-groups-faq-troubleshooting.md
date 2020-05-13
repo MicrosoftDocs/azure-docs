@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 Here are some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory (Azure AD).
 
 **Q:** I'm a Groups Administrator but I can't see 'Eligible for role assignment' toggle.
-**A:** Only Privileged role administrator or Global Administrator can create a group that is eligible for role assignment. Only in these two roles can see this control.
+**A:** Only Privileged role administrator or Global Administrator can create a group that is eligible for role assignment. Only users in these two roles see this control.
 
-**Q:** Who can modify the membership of groups that is assigned to Azure AD role?
-**A:** By default, only  Privileged Role Administrator and Global Administrator can manage the membership of a role-eligible group, but you can delegate the management of role-eligible groups by adding group owners.
+**Q:** Who can modify the membership of groups that are assigned to Azure AD roles?
+**A:** By default, only Privileged Role Administrator and Global Administrator manage the membership of a role-eligible group, but you can delegate the management of role-eligible groups by adding group owners.
 
 **Q:** I can't update password of a user. They don't have any higher privileged role assigned. Why is it happening?
-**A:** It might be because the user could be an owner of a role-eligible group. We protect owners of role-eligible groups to avoid elevation of privilege. For example, suppose there is a group Contoso_Security_Admins that is assigned to Security Administrator built-in role. Bob is owner of this group. Alice is Password Administrator in the organization. If this protection is not present, Alice can reset Bob's credentials and take over their identity. After that, Alice can add anyone she likes to the group Contoso_Security_Admins and become Security Administrator in the organization. In this scenario, get the list of owned objects of that user and see if any of the groups have isAssignableToRole set to true. If yes, then that user is protected and the behavior is by design. Refer to these documentations for getting owned objects:
+**A:** The user could be an owner of a role-eligible group. We protect owners of role-eligible groups to avoid elevation of privilege. An example might be if a group Contoso_Security_Admins is assigned to Security Administrator built-in role, where Bob is an owner of this group, and Alice is Password administrator in the organization. If this protection weren't present, Alice could reset Bob's credentials and take over their identity. After that, Alice could herself to the group Contoso_Security_Admins and become Security administrator in the organization. To find out if a user is a group owner, get the list of owned objects of that user and see if any of the groups have isAssignableToRole set to true. If yes, then that user is protected and the behavior is by design. Refer to these documentations for getting owned objects:
 
 - [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
 - [List ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
@@ -36,7 +36,7 @@ Here are some common questions and troubleshooting tips for assigning roles to g
 **A:** Yes, you can. If you are on newest version of Access Review, then your reviewers are directed to My Access by default, and only Global administrators can create access reviews on role-eligible groups. However, if you are on the older version of Access Review, then your reviewers are directed to the Access Panel by default, and both Global administrators and User administrator can create access reviews on role-eligible groups. The new experience will be rolled out to all customers on July 28, 2020 but if you’d like to upgrade sooner, make a request to [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
 
 **Q:** Can I create an access package and put groups that can be assigned to Azure AD roles in it?
-**A:** Yes, you can. Earlier Global Administrator and User Administrator had unfettered power to put any group in an access package. Nothing changes for Global Administrator but there is a slight change in User Administrator behavior. To put a role-eligible group into an access package, you must be a User Administrator plus owner of that role-eligible group. Here's the full table showing who can create access package in Enterprise License Management  
+**A:** Yes, you can. Earlier Global Administrator and User Administrator had unfettered power to put any group in an access package. Nothing changes for Global Administrator but there's a slight change in User Administrator behavior. To put a role-eligible group into an access package, you must be a User Administrator plus owner of that role-eligible group. Here's the full table showing who can create access package in Enterprise License Management  
 
 Azure AD directory role | Entitlement management role | Can add security group\* | Can add Office 365 Group\* | Can add app | Can add SharePoint Online site
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
@@ -50,10 +50,10 @@ Application administrator | Catalog owner  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 Cloud application administrator | Catalog owner  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 User | Catalog owner | Only if group owner | Only if group owner | Only if app owner  | &nbsp;
 
-\*Group is not role-eligible; that is, isAssignableToRole = false. If group is role-eligible, then the person creating the access package must also be owner of that role-eligible group.
+\*Group isn't role-eligible; that is, isAssignableToRole = false. If a group is role-eligible, then the person creating the access package must also be owner of that role-eligible group.
 
-**Q:** I cannot find "Remove assignment" option in "Assigned Roles". How do I delete role assignment to a user?
-**A:** Applicable only to P1 organizations. Navigate to Azure portal --> Azure Active Directory --> Users --> {user} --> Assigned roles. Tap on one of the roles entries, it brings up a drawer from the bottom of the screen. This drawer has the information of if it has been assigned directly or indirectly. There is a "Remove" button besides direct assignment. To remove indirect role assignment, remove the user from the group that has been assigned the role.
+**Q:** I can't find "Remove assignment" option in "Assigned Roles". How do I delete role assignment to a user?
+**A:** Applicable only to P1 organizations. Navigate to Azure portal --> Azure Active Directory --> Users --> {user} --> Assigned roles. Tap on one of the roles entries, it brings up a drawer from the bottom of the screen. This drawer has the information of if it has been assigned directly or indirectly. There's a "Remove" button besides direct assignment. To remove indirect role assignment, remove the user from the group that has been assigned the role.
 
 **Q:** How do I see all groups that are role-eligible?
 **A:** Navigate to Azure portal --> Azure Active Directory --> Groups --> All Groups --> Add filters --> Role assignable.
