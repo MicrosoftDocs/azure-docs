@@ -837,7 +837,6 @@
           href: app/powershell.md
         - name: Manage Azure Cloud Services
           href: app/powershell-azure-diagnostics.md
-
     - name: Export
       items:
       - name: Continuous export
