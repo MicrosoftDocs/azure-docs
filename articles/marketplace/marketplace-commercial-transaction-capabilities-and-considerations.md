@@ -1,5 +1,5 @@
 ---
-title: Microosft commercial marketplace transact capabilities
+title: Microsoft commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
 author: dsindona
 ms.service: marketplace

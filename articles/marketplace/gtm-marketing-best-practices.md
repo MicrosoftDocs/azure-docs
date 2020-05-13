@@ -15,6 +15,6 @@ ms.author: dsindona
 
 ## Next steps
 
-To learn more about how the Microsoft Partner Network can hel oyu grow your business, see [Go to market with Microsoft](https://partner.microsoft.com/reach-customers/gtm).
+To learn more about how the Microsoft Partner Network can help you grow your business, see [Go to market with Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 
 Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/) to create and configure your offer.
