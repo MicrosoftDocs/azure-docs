@@ -635,7 +635,7 @@ CORS is fully supported for Python function apps.
 
 Thanks to your valuable feedbacks, we are able to maintain a list of troubleshooting guides for common issues:
 
-* [ModuleNotFoundError and ImportError](functions-recover-module-not-found.md)
+* [ModuleNotFoundError and ImportError](recover-module-not-found.md)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

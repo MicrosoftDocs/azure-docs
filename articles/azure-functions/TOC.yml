@@ -329,7 +329,7 @@
     - name: Troubleshoot storage
       href: functions-recover-storage-account.md
     - name: Troubleshoot Python dependencies
-      href: functions-recover-module-not-found.md
+      href: recover-module-not-found.md
 - name: Reference
   items:
   - name: API references

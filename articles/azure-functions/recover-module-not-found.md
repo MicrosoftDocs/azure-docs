@@ -16,8 +16,8 @@ This article helps you troubleshoot module-related errors in your Python functio
 
 This error issue occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
-- [The package can't be found](#the-package-cannot-be-found)
-- [The package isn't resolved with proper Linux wheel](#the-package-is-not-resolved-with-proper-linux-wheel)
+- [The package can't be found](#the-package-cant-be-found)
+- [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
 - [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
 - [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
 - [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
@@ -33,9 +33,9 @@ To identify the actual cause of your issue, you need to get the Python project f
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
-## Diagnose ModuleNotFoundError 
+## Diagnose ModuleNotFoundError
 
-This section details potential root causes of module-related errors. After you figure out which is the likely root cause, you can go to the related mitigation. 
+This section details potential root causes of module-related errors. After you figure out which is the likely root cause, you can go to the related mitigation.
 
 ### The package can't be found
 
@@ -57,13 +57,13 @@ See [Enable Remote Build](#enable-remote-build) or [Build Native Dependencies](#
 
 Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`, this means the package version is either too old, or most likely, the package is already out of maintenance.
 
-You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**. 
+You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**.
 
 :::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Open the Resource Explorer for the function app in the portal":::
 
 After the explorer loads, search for **LinuxFxVersion**, which shows the Python version.
 
-See [Update Package To The Latest Version](#update-package-to-the-latest-version) or [Replace Package With Equivalents](#replace-package-with-equivalents) for mitigation.
+See [Update Your Package To The Latest Version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
 ### The package conflicts with other packages
 
@@ -73,9 +73,9 @@ If you have verified that the package is resolved correctly with the proper Linu
 If you installed azure-storage, or if you installed azure 1.x/2.x and didn’t uninstall azure-storage,
 you must uninstall azure-storage first.</pre>
 
-You can find the documentation for your package version in `https://pypi.org/project/<package-name>/<package-version>`. 
+You can find the documentation for your package version in `https://pypi.org/project/<package-name>/<package-version>`.
 
-See [Update Package To The Latest Version](#update-package-to-the-latest-version) or [Replace Package With Equivalents](#replace-package-with-equivalents) for mitigation.
+See [Update Your Package To The Latest Version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
 ### The package only supports Windows or macOS platforms
 
@@ -83,20 +83,20 @@ Open the `requirements.txt` with a text editor and check the package in `https:/
 
 The `Module Not Found` error may not occur when you're using Windows or macOS for local development. However, the package fails to import on Azure Functions, which uses Linux at runtime. This is likely to be caused by using `pip freeze` to export virtual environment into requirements.txt from your Windows or macOS machine during project initialization.
 
-See [Replace Package With Equivalents](#replace-package-with-equivalents) or [Handcraft Requirements.txt](#handcraft-requirementstxt) for mitigation.
+See [Replace the package with equivalents](#replace-the-package-with-equivalents) or [Handcraft Requirements.txt](#handcraft-requirementstxt) for mitigation.
 
 ## Mitigate ModuleNotFoundError
 
-The following are potential mitigations for module-related issues. Use the [diagnoses above](#diagnose-the-root-cause) to determine which of these mitigations to try.
+The following are potential mitigations for module-related issues. Use the [diagnoses above](#diagnose-modulenotfounderror) to determine which of these mitigations to try.
 
 ### Enable remote build
 
 Make sure that remote build is enabled. The way that you do this depends on your deployment method.
 
-# [Visual Studio Code](#tab/vscode) 
+# [Visual Studio Code](#tab/vscode)
 Make sure that the latest version of the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) is installed. Verify that `.vscode/settings.json` exists and it contains the setting `"azureFunctions.scmDoBuildDuringDeployment": true`. If not, please create this file with the `azureFunctions.scmDoBuildDuringDeployment` setting enabled and redeploy the project.
 
-# [Azure Functions Core Tools](#tab/coretools) 
+# [Azure Functions Core Tools](#tab/coretools)
 
 Make sure that the latest version of [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) is installed. Go to your local function project folder, and use `func azure functionapp publish <app-name>` for deployment.
 
@@ -118,7 +118,7 @@ If these are correct, you can update the package to the latest version by changi
 
 ### Handcraft requirements.txt
 
-Some developers use `pip freeze > requirements.txt` to generate the list of Python packages for their developing environments. Although this convenience should work in most cases, there can be issues in cross-platform deployment scenarios, such as developing functions locally on Windows or macOS, but publishing to a function app, which runs on Linux. In this scenario, `pip freeze` can introduce unexpected operating system-specific dependencies or dependencies for your local development environment. These dependencies can break the Python function app when running on Linux. 
+Some developers use `pip freeze > requirements.txt` to generate the list of Python packages for their developing environments. Although this convenience should work in most cases, there can be issues in cross-platform deployment scenarios, such as developing functions locally on Windows or macOS, but publishing to a function app, which runs on Linux. In this scenario, `pip freeze` can introduce unexpected operating system-specific dependencies or dependencies for your local development environment. These dependencies can break the Python function app when running on Linux.
 
 The best practice is to check the import statement from each .py file in your project source code and only check-in those modules in requirements.txt file. This guarantees the resolution of packages can be handled properly on different operating systems.
 
