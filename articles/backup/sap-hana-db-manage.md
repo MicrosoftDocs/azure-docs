@@ -77,7 +77,7 @@ These on-demand backups will also show up in the list of restore points for rest
 
 #### Restore
 
-Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) from the Backup jobs page.
+Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
 
 ### Run SAP HANA native client backup on a database with Azure backup enabled
 
