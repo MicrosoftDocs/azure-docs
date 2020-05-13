@@ -71,7 +71,7 @@ If the certificates of the members in the backend pool are not signed by well-kn
 >
 > The certificate added to **Backend HTTP Setting** to authenticate the backend servers can be the same as the certificate added to the **listener** for TLS termination at application gateway or different for enhanced security.
 
-![end to end tls scenario][1]
+![end to end TLS scenario][1]
 
 In this example, requests using TLS1.2 are routed to backend servers in Pool1 using end to end TLS.
 
