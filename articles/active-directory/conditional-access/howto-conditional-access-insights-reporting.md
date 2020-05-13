@@ -33,9 +33,6 @@ The following roles can access insights and reporting:
 
 Users also need one of the following Log Analytics workspace roles:  
 
-- Reader 
-- Monitoring reader 
-- Log Analytics reader 
 - Contributor  
 - Owner 
 
