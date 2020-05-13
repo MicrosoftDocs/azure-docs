@@ -73,7 +73,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 After you generate a SAS token, you can use it to make an HTTP POST request. For example:
 
-```text
+```rest
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
