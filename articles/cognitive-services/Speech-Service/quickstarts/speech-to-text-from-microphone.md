@@ -57,6 +57,16 @@ zone_pivot_groups: programming-languages-set-two-with-js-go
 
 ::: zone-end
 
+::: zone pivot="programming-language-spx"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [Python Header](../includes/quickstarts/from-microphone/spx/header.md)]
+
+[!INCLUDE [python](../includes/quickstarts/from-microphone/spx/spx.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
