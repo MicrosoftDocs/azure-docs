@@ -18,7 +18,7 @@ Azure SQL Database are automatically managed data services that constantly monit
 
 Automatic tuning can be enabled at the server or the database level through:
 
-- The [Azure portal](automatic-tuning-enable.md#azure-portal
+- The [Azure portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) calls
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands
 
