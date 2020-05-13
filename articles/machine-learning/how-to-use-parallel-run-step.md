@@ -294,8 +294,8 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `append_row`: For all inputs, only one file will be created in the output folder to append all outputs separated by line. The file name is configurable, default fail name is `parallel_run_step.txt`.
-- `append_row_file_name`: To customize the output file name for append_row output_action (optional).
+    - `append_row`: For all inputs, only one file will be created in the output folder to append all outputs separated by line.
+- `append_row_file_name`: To customize the output file name for append_row output_action (optional; default value is `parallel_run_step.txt`).
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
 - `node_count`: The number of compute nodes to be used for running the user script.
@@ -303,7 +303,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
-- `run_max_try`: Max call count for `run()` method against a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
+- `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
 You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
 
@@ -329,8 +329,8 @@ parallel_run_config = ParallelRunConfig(
 Create the ParallelRunStep by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for your inference script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
 - `name`: The name of the step, with the following naming restrictions: unique, 3-32 characters, and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
-- `inputs`: One or more single-typed Azure Machine Learning datasets.
-- `side_inputs`: One or more reference data used as side inputs. Support for datasets.
+- `inputs`: One or more single-typed Azure Machine Learning datasets to be partitioned for parallel processing.
+- `side_inputs`: One or more reference data or datasets used as side inputs. No need to be partitioned.
 - `output`: A `PipelineData` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
