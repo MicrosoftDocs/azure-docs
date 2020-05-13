@@ -26,7 +26,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 ## Documentation
 
-1. [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+1. [Elastic database Split-Merge tool tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md)
 2. [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Shard map management](sql-database-elastic-scale-shard-map-management.md)
@@ -56,7 +56,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 - **Customer-hosted services**
 
-  The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure TLS, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+  The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure TLS, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons.
 
@@ -255,7 +255,7 @@ In addition, a uniqueness property with the sharding key as the leading column w
 
 ## How to upgrade
 
-1. Follow the steps in [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+1. Follow the steps in [Deploy a split-merge service](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
 2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
 3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
 4. Update your existing cloud service deployment for split-merge in your Azure subscription with the new package and your updated service configuration file.

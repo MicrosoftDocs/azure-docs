@@ -222,7 +222,7 @@ The shard map manager is used in applications that require database connections 
 
 Note that these applications (using **ShardMapManager** opened with read-only credentials) cannot make changes to the maps or mappings. For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier. See [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
 
-For more information, see [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md).
+For more information, see [Data dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md).
 
 ## Modifying a shard map
 
@@ -257,7 +257,7 @@ Mappings are immutable objects in .NET.  All of the methods above that change ma
 
 Applications often need to add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month.
 
-If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](sql-database-elastic-scale-add-a-shard.md).
+If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](../azure-sql/database/elastic-scale-add-a-shard.md).
 
 For scenarios that require data movement, however, the split-merge tool is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the split-merge tool, see [Overview of split-merge](sql-database-elastic-scale-overview-split-and-merge.md)
 

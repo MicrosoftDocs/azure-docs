@@ -13,10 +13,10 @@ ms.date: 01/25/2019
 # Scaling out with Azure SQL Database
 You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
 
-* [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
-* [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+* [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](../azure-sql/database/elastic-scale-get-started.md).
+* [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](../azure-sql/database/elastic-scale-configure-deploy-split-and-merge.md).
 * [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
-* [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
+* [Elastic Database query](../azure-sql/database/elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
 * [Elastic transactions](sql-database-elastic-transactions-overview.md): This feature allows you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 The following graphic shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
@@ -78,7 +78,7 @@ Others scenarios pack multiple tenants together into databases, rather than isol
 When creating a SaaS application, it is typical to offer prospective customers a trial version of the software. In this case, it is cost-effective to use a multi-tenant database for the data. However, when a prospect becomes a customer, a single-tenant database is better since it provides better performance. If the customer had created data during the trial period, use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to move the data from the multi-tenant to the new single-tenant database.
 
 ## Next steps
-For a sample app that demonstrates the client library, see [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
+For a sample app that demonstrates the client library, see [Get started with Elastic Database tools](../azure-sql/database/elastic-scale-get-started.md).
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale out](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
 

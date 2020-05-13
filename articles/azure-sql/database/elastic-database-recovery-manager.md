@@ -37,7 +37,7 @@ The GSM and LSM may become out of sync for the following reasons:
 For more information about Azure SQL Database Elastic Database tools, geo-replication and Restore, see the following:
 
 * [Overview: Cloud business continuity and database disaster recovery with SQL Database](../../sql-database/sql-database-business-continuity.md)
-* [Get started with elastic database tools](../../sql-database/sql-database-elastic-scale-get-started.md)  
+* [Get started with elastic database tools](elastic-scale-get-started.md)  
 * [ShardMap Management](../../sql-database/sql-database-elastic-scale-shard-map-management.md)
 
 ## Retrieving RecoveryManager from a ShardMapManager

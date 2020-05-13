@@ -124,7 +124,7 @@ The following steps can help you estimate whether a pool is more cost-effective 
 5. Compare the pool price from Step 5 to the price of using the appropriate compute sizes for single databases.
 
 > [!IMPORTANT]
-> If the number of databases in a pool approaches the maximum supported, make sure to consider [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md).
+> If the number of databases in a pool approaches the maximum supported, make sure to consider [Resource management in dense elastic pools](elastic-pool-resource-management.md).
 
 ## Using other SQL Database features with elastic pools
 
@@ -221,7 +221,7 @@ For more information, see [create SQL Database alerts in Azure portal](../../sql
 ## Next steps
 
 - For pricing information, see [Elastic pool pricing](https://azure.microsoft.com/pricing/details/sql-database/elastic).
-- To scale elastic pools, see [Scaling elastic pools](../../sql-database/sql-database-elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/monitor-and-scale-pool-powershell.md)
+- To scale elastic pools, see [Scaling elastic pools](elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/monitor-and-scale-pool-powershell.md)
 - To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
 - For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
-- To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md).
+- To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](elastic-pool-resource-management.md).

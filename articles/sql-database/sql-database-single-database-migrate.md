@@ -52,7 +52,7 @@ The following list contains recommendations for best performance during the impo
 - Disable auto-statistics during migration
 - Partition tables and indexes
 - Drop indexed views, and recreate them once finished
-- Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL Database. You can then query this historical data using [elastic queries](sql-database-elastic-query-overview.md).
+- Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL Database. You can then query this historical data using [elastic queries](../azure-sql/database/elastic-query-overview.md).
 
 ### Optimize performance after the migration completes
 

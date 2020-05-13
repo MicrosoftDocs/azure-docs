@@ -29,7 +29,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 * [REST API](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale an elastic pool](../../sql-database/sql-database-elastic-pool-scale.md)
+> For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md)
 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
@@ -51,7 +51,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 | Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
-<sup>1</sup> See [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
@@ -70,7 +70,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 | Max storage per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-<sup>1</sup> See [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
@@ -89,7 +89,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 | Max storage choices per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> See [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
@@ -108,7 +108,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 | Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> See [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
@@ -127,7 +127,7 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 | Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> See [Resource management in dense elastic pools](../../sql-database/sql-database-elastic-pool-resource-management.md) for additional considerations.
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
 <sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 

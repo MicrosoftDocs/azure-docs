@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resolving T-SQL differences-migration
 description: Transact-SQL statements that are less than fully supported in Azure SQL Database
 services: sql-database
@@ -40,7 +40,7 @@ In addition to Transact-SQL statements related to the unsupported features descr
 
 - Collation of system objects
 - Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
+- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](../azure-sql/database/elastic-query-overview.md).)
 - Cross database ownership chaining, `TRUSTWORTHY` setting
 - `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
 - Encryption is supported except for extensible key management

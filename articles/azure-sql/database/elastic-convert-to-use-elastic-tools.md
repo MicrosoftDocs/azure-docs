@@ -146,7 +146,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## Summary
 
-Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data-dependent routing](../../sql-database/sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](../../sql-database/sql-database-elastic-scale-multishard-querying.md).
+Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data-dependent routing](elastic-scale-data-dependent-routing.md) and [multi-shard query](../../sql-database/sql-database-elastic-scale-multishard-querying.md).
 
 ## Next steps
 
@@ -154,7 +154,7 @@ Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scrip
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](../../sql-database/sql-database-elastic-scale-get-started.md).
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-get-started.md).
 
 ## Additional resources
 
