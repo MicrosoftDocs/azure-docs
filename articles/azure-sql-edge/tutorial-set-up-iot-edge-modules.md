@@ -108,4 +108,4 @@ FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEnd
 
 ## Next Steps
 
-* [Deploying ML model on Azure SQL Edge using ONNX ](run-ml-model-on-sql-edge.md)
+* [Deploying ML model on Azure SQL Edge using ONNX ](tutorial-run-ml-model-on-sql-edge.md)
