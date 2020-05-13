@@ -189,7 +189,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > [!TIP]
 > For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 >
-> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
+> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](../azure-sql/database/scripts/create-and-configure-database-powershell.md).
 
 ### Use CLI to manage server-level IP firewall rules
 
@@ -211,7 +211,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > [!TIP]
 > For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 >
-> For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a server-level IP firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md).
+> For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a server-level IP firewall rule using the Azure CLI](../azure-sql/database/scripts/create-and-configure-database-cli.md).
 
 ### Use a REST API to manage server-level IP firewall rules
 

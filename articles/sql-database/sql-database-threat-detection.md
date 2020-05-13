@@ -32,7 +32,7 @@ You can receive notifications about the detected threats via [email notification
 
 ## Set up Advanced Threat Protection using PowerShell
 
-For a script example, see [Configure auditing and Advanced Threat Protection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+For a script example, see [Configure auditing and Advanced Threat Protection using PowerShell](../azure-sql/database/scripts/configure-auditing-threat-detection-powershell.md).
 
 ## Next steps
 

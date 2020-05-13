@@ -134,7 +134,7 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 * * *
 
 > [!TIP]
-> For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
+> For another script example, see [Import a database from a BACPAC file](../azure-sql/database/scripts/import-from-bacpac-powershell.md).
 
 ## Limitations
 
