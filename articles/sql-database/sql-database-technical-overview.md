@@ -77,7 +77,7 @@ With elastic pools, you don't need to focus on dialing database performance up a
 
 You can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. You can also control the minimum and maximum resources available to databases in the pool, to ensure that no database in the pool uses all the pool resources, and that every pooled database has a guaranteed minimum amount of resources. To learn more about design patterns for software as a service (SaaS) applications that use elastic pools, see [Design patterns for multi-tenant SaaS applications with SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Scripts can help with monitoring and scaling elastic pools. For an example, see [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
+Scripts can help with monitoring and scaling elastic pools. For an example, see [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](../azure-sql/database/scripts/monitor-and-scale-pool-powershell.md).
 
 > [!IMPORTANT]
 > A managed instance doesn't support elastic pools. Rather, a managed instance is a collection of instance databases that share managed instance resources.

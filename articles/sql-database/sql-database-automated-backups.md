@@ -239,6 +239,6 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
 - Get more information about how to [restore a database to a point in time by using the Azure portal](sql-database-recovery-using-backups.md).
-- Get more information about how to [restore a database to a point in time by using PowerShell](scripts/sql-database-restore-database-powershell.md).
+- Get more information about how to [restore a database to a point in time by using PowerShell](../azure-sql/database/scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](sql-database-long-term-backup-retention-configure.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](sql-database-long-term-backup-retention-configure.md).

@@ -30,26 +30,26 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |---|---|
 |**Create and configure single databases, and elastic pools**||
 | [Create a single database and configure a server-level firewall rule](../azure-sql/database/scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a single database and configures a server-level ip firewall rule. |
-| [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates elastic pools, and moves pooled databases, and changes compute sizes.|
+| [Create elastic pools and move pooled databases](../azure-sql/database/scripts/move-database-between-elastic-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates elastic pools, and moves pooled databases, and changes compute sizes.|
 |**Configure geo-replication and failover**||
-| [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a single database and fails it over to the secondary replica. |
-| [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a database in an elastic pool, and fails it over to the secondary replica. |
+| [Configure and failover a single database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a single database and fails it over to the secondary replica. |
+| [Configure and failover a pooled database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a database in an elastic pool, and fails it over to the secondary replica. |
 |**Configure a failover group**||
 | [Configure a failover group for a single database](../azure-sql/database/scripts/add-database-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a database, and a failover group, adds the database to the failover group and tests failover to the secondary server. |
 | [Configure a failover group for an elastic pool](../azure-sql/database/scripts/add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a database, adds it to an elastic pool, adds the elastic pool to the failover group  and tests failover to the secondary server. |
 |**Scale a single database and an elastic pool**||
 | [Scale a single database](../azure-sql/database/scripts/monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of a single database, scales it to a higher compute size and creates an alert rule on one of the performance metrics. |
-| [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an elastic pool, scales it to a higher compute size, and creates an alert rule on one of the performance metrics. |
+| [Scale an elastic pool](../azure-sql/database/scripts/monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an elastic pool, scales it to a higher compute size, and creates an alert rule on one of the performance metrics. |
 | **Auditing and threat detection** |
 | [Configure auditing and threat-detection](../azure-sql/database/scripts/configure-auditing-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures auditing and threat detection policies for a database. |
 | **Restore, copy, and import a database**||
-| [Restore a database](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script restores a database from a geo-redundant backup and restores a deleted database to the latest backup. |
+| [Restore a database](../azure-sql/database/scripts/restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script restores a database from a geo-redundant backup and restores a deleted database to the latest backup. |
 | [Copy a database to new server](../azure-sql/database/scripts/copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script creates a copy of an existing database in a new server. |
 | [Import a database from a bacpac file](../azure-sql/database/scripts/import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script imports a database into Azure SQL Database from a bacpac file. |
 | **Sync data between databases**||
-| [Sync data between SQL databases](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between multiple databases in Azure SQL Database. |
-| [Sync data between SQL Database and SQL Server on-premises](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between a database in Azure SQL Database and a SQL Server on-premises database. |
-| [Update the SQL Data Sync sync schema](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
+| [Sync data between SQL databases](../azure-sql/database/scripts/sql-data-sync-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between multiple databases in Azure SQL Database. |
+| [Sync data between SQL Database and SQL Server on-premises](../azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between a database in Azure SQL Database and a SQL Server on-premises database. |
+| [Update the SQL Data Sync sync schema](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
 |||
 
 Learn more about the [Single Database Azure PowerShell API](sql-database-single-databases-manage.md#powershell).

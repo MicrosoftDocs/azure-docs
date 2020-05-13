@@ -52,7 +52,7 @@ To simulate the outage, you can disable the web application or virtual machine c
 ### Recovery
 
 * Make sure the application configuration in the DR region points to the former secondary, which becomes the fully accessible new primary.
-* Initiate [planned failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) of the failover group from the secondary server.
+* Initiate [planned failover](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md) of the failover group from the secondary server.
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 ### Validation

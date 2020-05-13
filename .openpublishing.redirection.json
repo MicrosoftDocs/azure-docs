@@ -52136,6 +52136,56 @@
             "source_path": "articles/sql-database/scripts/sql-database-monitor-and-scale-database-powershell.md",
             "redirect_url": "/azure/azure-sql/database/scripts/monitor-and-scale-database-powershell",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/monitor-and-scale-pool-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-move-database-between-pools-cli.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/move-database-between-elastic-pools-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-move-database-between-pools-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/move-database-between-elastic-pools-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-restore-database-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/restore-database-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-scale-pool-cli.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/scale-pool-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-and-failover-database-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-setup-geodr-and-failover-pool-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-sync-data-between-azure-onprem.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-sync-data-between-sql-databases.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/sql-data-sync-sync-data-between-sql-databases",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/scripts/sql-database-sync-update-schema.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/update-sync-schema-in-sync-group",
+            "redirect_document_id": true
         }
     ]
 }
