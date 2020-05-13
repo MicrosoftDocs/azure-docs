@@ -32,7 +32,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ### Client libraries
 
-[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
+[!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 #### [NER and entity linking](#tab/named-entity-recognition)
 
@@ -56,7 +56,7 @@ You will also need to update your application to use the [entity categories](nam
 
 ### Client libraries
 
-[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
+[!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
 ### NER v2 entity categories
@@ -107,7 +107,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ### Client libraries
 
-[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
+[!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
@@ -124,7 +124,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ### Client libraries
 
-[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
+[!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ---
 
