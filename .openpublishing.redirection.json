@@ -52199,12 +52199,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-advisor-portal.md",
-            "redirect_url": "/azure/azure-sql/database/find-apply-database-advisor-recommendations-portal",
+            "redirect_url": "/azure/azure-sql/database/database-advisor-find-recommendations-portal",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-database/sql-database-advisor.md",
-            "redirect_url": "/azure/azure-sql/database/implement-database-advisor-performance-recommendations",
+            "redirect_url": "/azure/azure-sql/database/database-advisor-implement-performance-recommendations",
             "redirect_document_id": true
         },
         {
@@ -52214,7 +52214,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-automatic-tuning-enable.md",
-            "redirect_url": "/azure/azure-sql/database/enable-automatic-tuning",
+            "redirect_url": "/azure/azure-sql/database/automatic-tuning-enable",
             "redirect_document_id": true
         },
         {
