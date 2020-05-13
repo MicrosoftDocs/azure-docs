@@ -104,7 +104,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](../../sql-database/sql-database-security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
 |Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](../../sql-database/sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](../../sql-database/sql-database-ssms-mfa-authentication.md).|
-|Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](../../sql-database/sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
+|Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](../../sql-database/sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](../../sql-database/sql-database-aad-authentication-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](../../sql-database/sql-database-aad-authentication-configure.md).|
 |Have middle-tier services which need to connect to SQL Database or SQL Data Warehouse|Use [Azure AD integrated authentication](../../sql-database/sql-database-aad-authentication-configure.md).|
@@ -134,7 +134,7 @@ Service endpoints (SE) allow you to expose your critical Azure resources only to
 
 #### Reserved IPs
 
-Another option is to provision [reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md) for your VMs, and add those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.
+Another option is to provision [reserved IPs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) for your VMs, and add those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.
 
 ### What port do I connect to SQL Database on
 
@@ -324,7 +324,7 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 You have several ways to achieve this:
 
 - **[Data Sync](../../sql-database/sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](../../sql-database/sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 

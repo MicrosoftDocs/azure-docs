@@ -41,8 +41,8 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](../../sql-database/sql-database-threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
-- [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. As an alternative there is [Configure backup retention using Azure vault (deprecated)](sql-database-long-term-backup-retention-configure-vault.md) approach.
-- [Configure geo-replication](sql-database-geo-replication-portal.md) to keep a replica of your database in another region.
+- [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
+- [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
 - [Configure security for geo-replicas](../../sql-database/sql-database-geo-replication-security-config.md).
 
 ## Monitor and tune your database
