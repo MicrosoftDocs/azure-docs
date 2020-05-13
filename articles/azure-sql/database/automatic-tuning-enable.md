@@ -120,5 +120,5 @@ See [automatic tuning e-mail notifications](automatic-tuning-email-notifications
 ## Next steps
 
 - Read the [Automatic tuning article](../../sql-database/sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.
-- See [Performance recommendations](implement-database-advisor-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
+- See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
 - See [Query Performance Insights](../../sql-database/sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.

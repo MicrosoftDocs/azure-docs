@@ -158,7 +158,7 @@ Azure SQL Database provides recommendations for improving SQL database performan
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. Azure SQL Database continues to monitor and provide recommendations that can potentially improve your database's performance.
 
 * See [Automatic tuning](../../sql-database/sql-database-automatic-tuning.md) to learn more about the automatic tuning in Azure SQL Database.
-* See [Performance recommendations](implement-database-advisor-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
+* See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
 * See [Query Performance Insights](../../sql-database/sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
 
 ## Additional resources

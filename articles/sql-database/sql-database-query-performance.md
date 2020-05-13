@@ -19,7 +19,7 @@ Query Performance Insight provides intelligent query analysis for single and poo
 * Deeper insight into your databases resource (DTU) consumption
 * Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements)
 * The ability to drill down into details of a query, to view the query text and history of resource utilization
-* Annotations that show performance recommendations from [database advisors](../azure-sql/database/implement-database-advisor-performance-recommendations.md)
+* Annotations that show performance recommendations from [database advisors](../azure-sql/database/database-advisor-implement-performance-recommendations.md)
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
 
@@ -48,7 +48,7 @@ Query Performance Insight is easy to use:
 
 3. On the first tab, review the list of top resource-consuming queries.
 4. Select an individual query to view its details.
-5. Open **Intelligent Performance** > **Performance recommendations** and check if any performance recommendations are available. For more information on built-in performance recommendations, see [Azure SQL Database Advisor](../azure-sql/database/implement-database-advisor-performance-recommendations.md).
+5. Open **Intelligent Performance** > **Performance recommendations** and check if any performance recommendations are available. For more information on built-in performance recommendations, see [Azure SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
 6. Use sliders or zoom icons to change the observed interval.
 
    ![Performance dashboard](./media/sql-database-query-performance/performance.png)
@@ -57,7 +57,7 @@ Query Performance Insight is easy to use:
 > For Azure SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
-For database performance recommendations, select [Recommendations](../azure-sql/database/implement-database-advisor-performance-recommendations.md) on the Query Performance Insight navigation blade.
+For database performance recommendations, select [Recommendations](../azure-sql/database/database-advisor-implement-performance-recommendations.md) on the Query Performance Insight navigation blade.
 
 ![The Recommendations tab](./media/sql-database-query-performance/ia.png)
 
@@ -200,7 +200,7 @@ To identify frequently executed ("chatty") queries:
 
 While exploring your workload in Query Performance Insight, you might notice icons with a vertical line on top of the chart.
 
-These icons are annotations. They show performance recommendations from [Azure SQL Database Advisor](../azure-sql/database/implement-database-advisor-performance-recommendations.md). By hovering over an annotation, you can get summarized information on performance recommendations.
+These icons are annotations. They show performance recommendations from [Azure SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md). By hovering over an annotation, you can get summarized information on performance recommendations.
 
    ![Query annotation](./media/sql-database-query-performance/annotation.png)
 

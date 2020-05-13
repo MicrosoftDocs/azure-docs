@@ -139,7 +139,7 @@ With SQL Database, you get built-in intelligence that helps you dramatically red
 
 ### Automatic performance monitoring and tuning
 
-SQL Database provides detailed insight into the queries that you need to monitor. SQL Database learns about your database patterns, and enables you to adapt your database schema to your workload. SQL Database provides [performance tuning recommendations](../azure-sql/database/implement-database-advisor-performance-recommendations.md), where you can review tuning actions and apply them.
+SQL Database provides detailed insight into the queries that you need to monitor. SQL Database learns about your database patterns, and enables you to adapt your database schema to your workload. SQL Database provides [performance tuning recommendations](../azure-sql/database/database-advisor-implement-performance-recommendations.md), where you can review tuning actions and apply them.
 
 However, constantly monitoring a database is a hard and tedious task, especially when dealing with many databases. [Intelligent Insights](sql-database-intelligent-insights.md) does this job for you by automatically monitoring SQL Database performance at scale. It informs you of performance degradation issues, it identifies the root cause of each issue, and provides performance improvement recommendations when possible.
 
