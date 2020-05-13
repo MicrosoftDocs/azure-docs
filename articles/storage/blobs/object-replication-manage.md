@@ -1,5 +1,5 @@
 ---
-title: Object-level replication
+title: Configure object-level replication
 titleSuffix: Azure Storage
 description: 
 services: storage
@@ -23,39 +23,7 @@ Object-level replication unblocks a new set of common replication scenarios:
 - Optimize data distribution – have your data consolidated in a single location for processing/analytics and then distribute only resulting dashboards to your offices worldwide.
 - Optimize cost – tier down your data to Archive upon replication completion using Lifecycle Management policies to optimize the cost.
 
-## About the preview
-
-### Regional availability
-
-At this time object replication is available in US East 2, US Central and Europe West with the remaining regions to be added in the near future. To enable Object Replication both source and destination accounts should exist or be created in those regions.
-
-### Prerequisites
-
-Object replication requires:
-
-- [General purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and is available for block blobs only.
-
-- Versioning to be enabled on both source and destination accounts.
-
-- Change feed to be enabled only on the source account.
-
-These prerequisites incur additional cost – please refer to [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/) for more details. During preview there will be no additional cost associated with replicating data between storage accounts. Regional replication cost (both within the geography and across geographies) will be announced once the capability reaches general availability.
-
-### Getting started
-
-Make sure you’re already registered for Change feed and Versioning capabilities. To enroll in object replication preview, submit a request to register this feature to your subscription, and once approved (within few business days) you can enable object replication for any new or existing storage accounts in the aforementioned regions.
-
-Enroll by using PowerShell:
-
-Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespace Microsoft.Storage
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-
-Enroll by using Azure CLI:
-
-az feature register --namespace Microsoft.Storage --name AllowObjectReplication
-
-az provider register --namespace 'Microsoft.Storage'
+## Getting started
 
 ### Configuration
 
