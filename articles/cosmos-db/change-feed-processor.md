@@ -70,7 +70,9 @@ In addition, you can use the [change feed estimator](how-to-use-change-feed-esti
 
 ## Deployment unit
 
-A single change feed processor deployment unit consists of one or more instances with the same `processorName` and lease container configuration. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. When a change happens in the monitored container, all deployment units will get notified.
+A single change feed processor deployment unit consists of one or more instances with the same `processorName` and lease container configuration. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. 
+
+For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real-time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
 
 ## Dynamic scaling
 
