@@ -52186,6 +52186,66 @@
             "source_path": "articles/sql-database/scripts/sql-database-sync-update-schema.md",
             "redirect_url": "/azure/azure-sql/database/scripts/update-sync-schema-in-sync-group",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-active-geo-replication-portal.md",
+            "redirect_url": "/azure/azure-sql/database/active-geo-replication-configure-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-active-geo-replication.md",
+            "redirect_url": "/azure/azure-sql/database/active-geo-replication-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-advisor-portal.md",
+            "redirect_url": "/azure/azure-sql/database/database-advisor-find-recommendations-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-advisor.md",
+            "redirect_url": "/azure/azure-sql/database/database-advisor-implement-performance-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-automatic-tuning-email-notifications.md",
+            "redirect_url": "/azure/azure-sql/database/automatic-tuning-email-notifications-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-automatic-tuning-enable.md",
+            "redirect_url": "/azure/azure-sql/database/automatic-tuning-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-best-practices-data-sync.md",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-portal.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-r.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-r",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-ssms.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-ssms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connectivity-architecture.md",
+            "redirect_url": "/azure/azure-sql/database/connectivity-architecture",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-copy.md",
+            "redirect_url": "/azure/azure-sql/database/database-copy",
+            "redirect_document_id": true
         }
     ]
 }

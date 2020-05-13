@@ -41,7 +41,7 @@ There are two simple patterns for restoring an individual tenant's data. Because
 
 * **Restore in place**: The second pattern is useful if data was lost or corrupted and the tenant wants to revert to an earlier point. The tenant is taken off line while the database is restored. The original database is deleted, and the restored database is renamed. The backup chain of the original database remains accessible after the deletion, so you can restore the database to an earlier point in time, if necessary.
 
-If the database uses [active geo-replication](sql-database-active-geo-replication.md) and restoring in parallel, we recommend that you copy any required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize geo-replication.
+If the database uses [active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and restoring in parallel, we recommend that you copy any required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize geo-replication.
 
 ## Get the Wingtip Tickets SaaS database-per-tenant application scripts
 
@@ -84,7 +84,7 @@ To demonstrate these recovery scenarios, first "accidentally" delete an event in
 
 This exercise restores the Contoso Concert Hall database to a point in time before the event was deleted. This scenario assumes that you want to review the deleted data in a parallel database.
 
- The *Restore-TenantInParallel.ps1* script creates a parallel tenant database named *ContosoConcertHall\_old*, with a parallel catalog entry. This pattern of restore is best suited for recovering from a minor data loss. You also can use this pattern if you need to review data for compliance or auditing purposes. It's the recommended approach when you use [active geo-replication](sql-database-active-geo-replication.md).
+ The *Restore-TenantInParallel.ps1* script creates a parallel tenant database named *ContosoConcertHall\_old*, with a parallel catalog entry. This pattern of restore is best suited for recovering from a minor data loss. You also can use this pattern if you need to review data for compliance or auditing purposes. It's the recommended approach when you use [active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
 
 1. Complete the [Simulate a tenant accidentally deleting data](#simulate-a-tenant-accidentally-deleting-data) section.
 2. In the PowerShell ISE, open ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.

@@ -187,6 +187,6 @@ Run the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delet
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Quickstart: Use SQL Server Management Studio to connect to an Azure SQL Database and query data](sql-database-connect-query-ssms.md).
-- To connect and query using the Azure portal, see [Quickstart: Use the SQL Query editor in the Azure portal to connect and query data](sql-database-connect-query-portal.md).
+- To connect and query using SQL Server Management Studio, see [Quickstart: Use SQL Server Management Studio to connect to an Azure SQL Database and query data](../azure-sql/database/connect-query-ssms.md).
+- To connect and query using the Azure portal, see [Quickstart: Use the SQL Query editor in the Azure portal to connect and query data](../azure-sql/database/connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

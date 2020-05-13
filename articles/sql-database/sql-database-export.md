@@ -18,7 +18,7 @@ When you need to export a database for archiving or for moving to another platfo
 
 ## Considerations
 
-- For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your database.
+- For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](../azure-sql/database/database-copy.md) of your database.
 - If you are exporting to blob storage, the maximum size of a BACPAC file is 200 GB. To archive a larger BACPAC file, export to local storage.
 - Exporting a BACPAC file to Azure premium storage using the methods discussed in this article is not supported.
 - Storage behind a firewall is currently not supported.

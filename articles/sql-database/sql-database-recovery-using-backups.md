@@ -243,4 +243,4 @@ Automatic backups protect your databases from user and application errors, accid
 - [Business continuity overview](sql-database-business-continuity.md)
 - [SQL Database automated backups](sql-database-automated-backups.md)
 - [Long-term retention](sql-database-long-term-retention.md)
-- To learn about faster recovery options, see [Active geo-replication](sql-database-active-geo-replication.md) or [Auto-failover groups](sql-database-auto-failover-group.md).
+- To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) or [Auto-failover groups](sql-database-auto-failover-group.md).

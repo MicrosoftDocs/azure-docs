@@ -14,14 +14,14 @@ ms.date: 02/24/2020
 ---
 # Copy a transactionally consistent copy of an Azure SQL Database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing [Azure SQL database](sql-database-single-database.md) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing [Azure SQL database](../../sql-database/sql-database-single-database.md) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
 
 ## Overview
 
-A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently. The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
+A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently. The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](active-geo-replication-overview.md) for details.
 
 > [!NOTE]
-> [Automated database backups](sql-database-automated-backups.md) are used when you create a database copy.
+> [Automated database backups](../../sql-database/sql-database-automated-backups.md) are used when you create a database copy.
 
 ## Logins in the database copy
 
@@ -29,15 +29,15 @@ When you copy a database to the same server, the same logins can be used on both
 
 When you copy a database to a different server, the security principal that initiated the copy operation on the target server becomes the owner of the new database.
 
-Regardless of the target server, all database users, their permissions, and their security identifiers (SIDs) are copied to the database copy. Using [contained database users](sql-database-manage-logins.md) for data access ensures that the copied database has the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
+Regardless of the target server, all database users, their permissions, and their security identifiers (SIDs) are copied to the database copy. Using [contained database users](../../sql-database/sql-database-manage-logins.md) for data access ensures that the copied database has the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
 
-If you use server level logins for data access and copy the database to a different server, the login-based access might not work. This can happen because the logins do not exist on the target server, or because their passwords and security identifiers (SIDs) are different. To learn about managing logins when you copy a database to a different server, see [How to manage Azure SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). After the copy operation to a different server succeeds, and before other users are remapped, only the login associated with the database owner, or the server administrator can log in to the copied database. To resolve logins and establish data access after the copying operation is complete, see [Resolve logins](#resolve-logins).
+If you use server level logins for data access and copy the database to a different server, the login-based access might not work. This can happen because the logins do not exist on the target server, or because their passwords and security identifiers (SIDs) are different. To learn about managing logins when you copy a database to a different server, see [How to manage Azure SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md). After the copy operation to a different server succeeds, and before other users are remapped, only the login associated with the database owner, or the server administrator can log in to the copied database. To resolve logins and establish data access after the copying operation is complete, see [Resolve logins](#resolve-logins).
 
 ## Copy using the Azure portal
 
 To copy a database by using the Azure portal, open the page for your database, and then click **Copy**.
 
-   ![Database copy](./media/sql-database-copy/database-copy.png)
+   ![Database copy](./media/database-copy/database-copy.png)
 
 ## Copy using PowerShell or Azure CLI
 
@@ -57,7 +57,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourcese
 
 The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
-For a complete sample PowerShell script, see [Copy a database to a new server](../azure-sql/database/scripts/copy-database-to-new-server-powershell.md).
+For a complete sample PowerShell script, see [Copy a database to a new server](scripts/copy-database-to-new-server-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -72,7 +72,7 @@ The database copy is an asynchronous operation but the target database is create
 
 ## Copy using Transact-SQL
 
-Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copy to succeed, logins that are not the server administrator must be members of the `dbmanager` role. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
+Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copy to succeed, logins that are not the server administrator must be members of the `dbmanager` role. For more information about logins and connecting to the server, see [Manage logins](../../sql-database/sql-database-manage-logins.md).
 
 Start copying the source database with the [CREATE DATABASE ... AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) statement. The T-SQL statement continues running until the database copy operation is complete.
 
@@ -123,7 +123,7 @@ Monitor the copying process by querying the [sys.databases](https://docs.microso
 > If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) statement on the new database.
 
 > [!IMPORTANT]
-> If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more information.
+> If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](../../sql-database/sql-database-recovery-using-backups.md#geo-restore) for more information.
 
 ## RBAC roles to manage database copy
 
@@ -160,15 +160,15 @@ If you want to see the operations under deployments in the resource group on the
 
 ## Resolve logins
 
-After the new database is online on the target server, use the [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) statement to remap the users from the new database to logins on the target server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). See also [How to manage Azure SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+After the new database is online on the target server, use the [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) statement to remap the users from the new database to logins on the target server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). See also [How to manage Azure SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).
 
 All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database. After the copying succeeds and before other users are remapped, only the database owner can log in to the new database.
 
-To learn about managing users and logins when you copy a database to a different server, see [How to manage Azure SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+To learn about managing users and logins when you copy a database to a different server, see [How to manage Azure SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).
 
 ## Database copy errors
 
-The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
+The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](database-copy.md).
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
@@ -188,5 +188,5 @@ The following errors can be encountered while copying a database in Azure SQL Da
 
 ## Next steps
 
-* For information about logins, see [Manage logins](sql-database-manage-logins.md) and [How to manage Azure SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
-* To export a database, see [Export the database to a BACPAC](sql-database-export.md).
+* For information about logins, see [Manage logins](../../sql-database/sql-database-manage-logins.md) and [How to manage Azure SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).
+* To export a database, see [Export the database to a BACPAC](../../sql-database/sql-database-export.md).

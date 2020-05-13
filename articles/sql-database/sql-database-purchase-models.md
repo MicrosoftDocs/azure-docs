@@ -110,7 +110,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 
 - Identify the top queries by CPU/duration/execution count that can potentially be tuned for improved performance. For example, an I/O-intensive query might benefit from [in-memory optimization techniques](sql-database-in-memory.md) to make better use of the available memory at a certain service tier and compute size.
 - Drill down into the details of a query to view its text and its history of resource usage.
-- Access performance-tuning recommendations that show actions taken by [SQL Database Advisor](sql-database-advisor.md).
+- Access performance-tuning recommendations that show actions taken by [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
 
 ### Elastic database transaction units (eDTUs)
 

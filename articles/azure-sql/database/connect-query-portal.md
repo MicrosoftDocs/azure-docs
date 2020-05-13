@@ -24,14 +24,14 @@ In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) quer
 
 Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
 
-- [Quickstart: Create an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
+- [Quickstart: Create an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](../../sql-database/sql-database-single-database-get-started.md) 
 
 ### Configure network settings
 
 If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*, the following important information should help resolve:
 
 > [!IMPORTANT]
-> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
+> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](../../sql-database/sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
 
 
 ## Open the SQL Database Query Editor
@@ -40,7 +40,7 @@ If you get one of the following errors in the query editor: *Your local network 
 
 2. In the **SQL Database** menu, select **Query editor (preview)**.
 
-    ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
+    ![find query editor](./media/connect-query-portal/find-query-editor.PNG)
 
 
 ## Establish a connection to the database
@@ -51,7 +51,7 @@ Even though you're signed into the portal, you still need to provide credentials
 
 1. In the **Login** page, under **SQL server authentication**, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
-    ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
+    ![sign in](./media/connect-query-portal/login-menu.png)
 
 2. Select **OK**.
 
@@ -72,7 +72,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
 3. On the SQL server **Active Directory admin** page toolbar, select **Set admin** and choose the user or group as your Azure AD admin.
 
-    ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
+    ![select active directory](./media/connect-query-portal/select-active-directory.png)
 
 4. On the **Add admin** page, in the search box, enter a user or group to find, select it as an admin, and then choose the **Select** button.
 
@@ -101,7 +101,7 @@ The following example queries should run successfully against the AdventureWorks
 
 2. Select **Run** and then review the output in the **Results** pane.
 
-   ![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![query editor results](./media/connect-query-portal/query-editor-results.png)
 
 3. Optionally, you can save the query as a .sql file, or export the returned data as a .json, .csv, or .xml file.
 
@@ -186,4 +186,4 @@ There are a few things to know when working with the query editor.
 
 ## Next steps
 
-To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](../../sql-database/sql-database-transact-sql-information.md).

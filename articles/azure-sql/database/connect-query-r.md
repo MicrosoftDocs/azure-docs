@@ -20,13 +20,13 @@ ROBOTS: NOINDEX
 
 In this quickstart, you use R with Machine Learning Services to connect to an Azure SQL Database and use T-SQL statements to query data.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](sql-database-single-database-get-started.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled.
+- An [Azure SQL Database](../../sql-database/sql-database-single-database-get-started.md)
+- [Machine Learning Services](../../sql-database/sql-database-machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 1. Open **SQL Server Management Studio** and connect to your SQL Database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL Database](sql-database-connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL Database](connect-query-ssms.md).
 
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
@@ -75,7 +75,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](sql-database-design-first-database.md)
-- [Azure SQL Database Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md)
-- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Design your first Azure SQL Database](../../sql-database/sql-database-design-first-database.md)
+- [Azure SQL Database Machine Learning Services (with R)](../../sql-database/sql-database-machine-learning-services-overview.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](../../sql-database/sql-database-quickstart-r-create-script.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](../../sql-database/sql-database-machine-learning-services-functions.md)

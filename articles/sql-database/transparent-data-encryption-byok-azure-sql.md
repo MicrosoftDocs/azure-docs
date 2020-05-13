@@ -176,7 +176,7 @@ Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from
 
 ## Geo-DR and customer-managed TDE
 
-In both [active geo-replication](sql-database-active-geo-replication.md) and [failover groups](sql-database-auto-failover-group.md) scenarios, each server involved requires a separate key vault, that must be co-located with the server in the same Azure region. Customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its local key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) is not supported.
+In both [active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [failover groups](sql-database-auto-failover-group.md) scenarios, each server involved requires a separate key vault, that must be co-located with the server in the same Azure region. Customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its local key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) is not supported.
 
 To avoid issues while establishing or during geo-replication due to incomplete key material, it's important to follow these rules when configuring customer-managed TDE:
 

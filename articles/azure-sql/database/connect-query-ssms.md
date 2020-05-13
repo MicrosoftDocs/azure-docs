@@ -23,14 +23,14 @@ In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) 
 Completing this quickstart requires the following items:
 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
-- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](sql-database-single-database-get-started.md) quickstart.
+- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](../../sql-database/sql-database-single-database-get-started.md) quickstart.
     - The scripts in this article are written to use the AdventureWorksLT database. If you are using a SQL Managed Instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](sql-database-connect-query-portal.md).
+If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](connect-query-portal.md).
 
 ## Get server connection information
 
-Get the connection information you need to connect to your database. You'll need the fully qualified [server](sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
+Get the connection information you need to connect to your database. You'll need the fully qualified [server](../../sql-database/sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -58,17 +58,17 @@ In SSMS, connect to your server.
    | **Password** | Server admin account password | The password from the server admin account used to create the server. |
    ||||
 
-   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
+   ![connect to server](./media/connect-query-ssms/connect.png)  
 
 3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. Completing the quickstart in the [Prerequisites section](#prerequisites) creates an AdventureWorksLT database named mySampleDatabase. If your working copy of the AdventureWorks database has a different name than mySampleDatabase, then select it instead.
 
-   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+   ![connect to db on server](./media/connect-query-ssms/options-connect-to-db.png)  
 
 4. Select **Connect**. The Object Explorer window opens.
 
 5. To view the database's objects, expand **Databases** and then expand your database node.
 
-   ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase objects](./media/connect-query-ssms/connected.png)  
 
 ## Query data
 
@@ -87,7 +87,7 @@ Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL
 
 3. On the toolbar, select **Execute** to run the query and retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query to retrieve data from table Product and ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from table Product and ProductCategory](./media/connect-query-ssms/query2.png)
 
 ### Insert data
 
@@ -127,7 +127,7 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 
 2. Select **Execute**. The following result appears.
 
-   ![result of Product table query](./media/sql-database-connect-query-ssms/result.png)
+   ![result of Product table query](./media/connect-query-ssms/result.png)
 
 ### Update data
 
@@ -159,11 +159,11 @@ Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL
 ## Next steps
 
 - For information about SSMS, see [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](connect-query-portal.md).
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](../../sql-database/sql-database-connect-query-dotnet-visual-studio.md).
+- To connect and query using PHP, see [Connect and query with PHP](../../sql-database/sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](../../sql-database/sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](../../sql-database/sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](../../sql-database/sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](../../sql-database/sql-database-connect-query-ruby.md).

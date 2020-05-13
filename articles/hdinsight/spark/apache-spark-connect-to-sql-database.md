@@ -24,7 +24,7 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
     * Azure SQL Database name.
     * Azure SQL Database admin user name / password.
 
-* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
+* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](../../azure-sql/database/connect-query-ssms.md).
 
 ## Create a Jupyter Notebook
 

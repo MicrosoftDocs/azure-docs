@@ -20,12 +20,12 @@ Azure SQL Database learns and adapts with your application. Azure SQL Database h
 
 Performance overview provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
 
-![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
+![Performance overview for Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendation options](sql-database-advisor-portal.md#viewing-recommendations)**.
+- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendation options](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
 - The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the **[auto-tuning configuration](sql-database-automatic-tuning-enable.md)** for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
-- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](sql-database-query-performance.md)**.
+- The **Auto-tuning** tile shows the **[auto-tuning configuration](automatic-tuning-enable.md)** for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
+- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](../../sql-database/sql-database-query-performance.md)**.
 
 ## Performance recommendation options
 
@@ -38,9 +38,9 @@ Performance recommendation options available in Azure SQL Database are:
 | **Parameterize queries recommendations (preview)** - Recommends forced parameterization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
 | **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
 
-![Performance recommendations for Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)
+![Performance recommendations for Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
-To apply performance recommendations, see [applying recommendations](sql-database-advisor-portal.md#applying-recommendations). To view the status of recommendations, see [Monitoring operations](sql-database-advisor-portal.md#monitoring-operations).
+To apply performance recommendations, see [applying recommendations](database-advisor-find-recommendations-portal.md#applying-recommendations). To view the status of recommendations, see [Monitoring operations](database-advisor-find-recommendations-portal.md#monitoring-operations).
 
 You can also find complete history of tuning actions that were applied in the past.
 
@@ -88,7 +88,7 @@ After you apply this recommendation, it enables forced parameterization within m
 ## Fix schema issues recommendations (preview)
 
 > [!IMPORTANT]
-> Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
+> Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 
 **Fix schema issues** recommendations appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
@@ -111,6 +111,6 @@ Developers might consider developing custom applications using performance recom
 
 ## Next steps
 
-- For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
-- For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md).
-- See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
+- For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](../../sql-database/sql-database-automatic-tuning.md).
+- For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md).
+- See [Query Performance Insights](../../sql-database/sql-database-query-performance.md) to learn about and view the performance impact of your top queries.

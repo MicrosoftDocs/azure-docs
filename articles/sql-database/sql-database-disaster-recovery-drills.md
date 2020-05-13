@@ -64,4 +64,4 @@ Complete the drill by verifying the application integrity post recovery (includi
 * To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md).
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-* To learn about faster recovery options, see [Active geo-replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md).
+* To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [Auto-failover groups](sql-database-auto-failover-group.md).

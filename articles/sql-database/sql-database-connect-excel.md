@@ -93,6 +93,6 @@ To save the connection details permanently, you can create an .odc file and make
 
 ## Next steps
 
-* Learn how to [Connect to SQL Database with SQL Server Management Studio](sql-database-connect-query-ssms.md) for advanced querying and analysis.
+* Learn how to [Connect to SQL Database with SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) for advanced querying and analysis.
 * Learn about the benefits of [elastic pools](sql-database-elastic-pool.md).
 * Learn how to [create a web application that connects to SQL Database on the back-end](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

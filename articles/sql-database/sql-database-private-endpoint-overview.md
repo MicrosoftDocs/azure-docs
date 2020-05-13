@@ -143,7 +143,7 @@ The result shows that one IP address is up; which corresponds to the IP address 
 > [!NOTE]
 > Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
 
-Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
+Follow the steps here to use [SSMS to connect to the SQL Database](../azure-sql/database/connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
 ````
 select client_net_address from sys.dm_exec_connections 
@@ -151,7 +151,7 @@ where session_id=@@SPID
 ````
 
 ## Limitations 
-Connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
+Connections to private endpoint only support **Proxy** as the [connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy)
 
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
@@ -177,7 +177,7 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 ## Next steps
 
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
-- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
+- For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](../azure-sql/database/connectivity-architecture.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/pe-connect-overview.png

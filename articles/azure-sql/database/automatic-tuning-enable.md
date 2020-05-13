@@ -18,8 +18,8 @@ Azure SQL Database are automatically managed data services that constantly monit
 
 Automatic tuning can be enabled at the server or the database level through:
 
-- The [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal
-- [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls
+- The [Azure portal](automatic-tuning-enable.md#azure-portal)
+- [REST API](automatic-tuning-enable.md#rest-api) calls
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands
 
 > [!NOTE]
@@ -41,9 +41,9 @@ On the server level you can choose to inherit automatic tuning configuration fro
 
 ### Azure portal
 
-To enable automatic tuning on a [server](sql-database-servers.md) in Azure SQL Database, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
+To enable automatic tuning on a [server](../../sql-database/sql-database-servers.md) in Azure SQL Database, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
 
-![Server](./media/sql-database-automatic-tuning-enable/server.png)
+![Server](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
@@ -69,7 +69,7 @@ To enable automatic tuning on a **single database**, navigate to the database in
 
 Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
-![Database](./media/sql-database-automatic-tuning-enable/database.png)
+![Database](./media/automatic-tuning-enable/database.png)
 
 Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
 
@@ -98,7 +98,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 Setting the individual tuning option to ON, will override any setting that database inherited and enable the tuning option. Setting it to OFF, will also override any setting that database inherited and disable the tuning option. Automatic tuning option, for which DEFAULT is specified, will inherit the automatic tuning configuration from the server level settings.  
 
 > [!IMPORTANT]
-> In case of [active geo-replication](sql-database-auto-failover-group.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such are for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
+> In case of [active geo-replication](../../sql-database/sql-database-auto-failover-group.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such are for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
 >
 
 Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
@@ -111,14 +111,14 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
 
-To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
 
 ## Configure automatic tuning e-mail notifications
 
-See [automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
+See [automatic tuning e-mail notifications](automatic-tuning-email-notifications-configure.md) guide.
 
 ## Next steps
 
-- Read the [Automatic tuning article](sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.
-- See [Performance recommendations](sql-database-advisor.md) for an overview of Azure SQL Database performance recommendations.
-- See [Query Performance Insights](sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
+- Read the [Automatic tuning article](../../sql-database/sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.
+- See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
+- See [Query Performance Insights](../../sql-database/sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.

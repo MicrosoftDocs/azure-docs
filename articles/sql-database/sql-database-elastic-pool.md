@@ -148,7 +148,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 - **Active geo-replication**
 
-  For applications that have more aggressive recovery requirements than geo-restore can offer, configure [Active geo-replication](sql-database-active-geo-replication.md) or an [auto-failover group](sql-database-auto-failover-group.md).
+  For applications that have more aggressive recovery requirements than geo-restore can offer, configure [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) or an [auto-failover group](sql-database-auto-failover-group.md).
 
 ## Creating a new SQL Database elastic pool using the Azure portal
 

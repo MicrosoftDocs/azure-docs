@@ -60,4 +60,4 @@ Application rules with SQL FQDNs is currently available in all regions via the A
 
 ## Next steps
 
-To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../sql-database/sql-database-connectivity-architecture.md).
+To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../azure-sql/database/connectivity-architecture.md).

@@ -18,13 +18,13 @@ ms.date: 03/09/2020
 This article explains architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](sql-database-managed-instance-connectivity-architecture.md).
+> This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../../sql-database/sql-database-managed-instance-connectivity-architecture.md).
 
 ## Connectivity architecture
 
 The following diagram provides a high-level overview of the connectivity architecture.
 
-![architecture overview](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![architecture overview](./media/connectivity-architecture/connectivity-overview.png)
 
 The following steps describe how a connection is established to Azure SQL Database:
 
@@ -44,19 +44,19 @@ Servers in SQL Database and Azure Synapse support the following three options fo
 
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and `Proxy`for all client connections originating outside (for example, connections from your local workstation).
 
-We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
+We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## Connectivity from within Azure
 
 If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that after the TCP session is established to Azure SQL Database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
-![architecture overview](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+![architecture overview](./media/connectivity-architecture/connectivity-azure.png)
 
 ## Connectivity from outside of Azure
 
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
-![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![architecture overview](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -65,7 +65,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 The table below lists the IP Addresses of Gateways by region. To connect to SQL Database or Azure Synapse, you need to allow network traffic to & from **all** Gateways for the region.
 
-Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
+Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](../../sql-database/sql-database-gateway-migration.md)
 
 | Region Name          | Gateway IP Addresses |
 | --- | --- |
@@ -115,5 +115,5 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 ## Next steps
 
 - For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-- For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
-- For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).
+- For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+- For general application development overview information, see [SQL Database Application Development Overview](../../sql-database/sql-database-develop-overview.md).

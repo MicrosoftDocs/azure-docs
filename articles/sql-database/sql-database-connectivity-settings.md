@@ -75,7 +75,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ## Connection policy
 
-[Connection policy](sql-database-connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Database.
+[Connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Database.
 
 ## Change Connection policy via PowerShell
 
@@ -139,7 +139,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 ## Next steps
 
-- For an overview of how connectivity works in Azure SQL Database, refer to [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
+- For an overview of how connectivity works in Azure SQL Database, refer to [Azure SQL Connectivity Architecture](../azure-sql/database/connectivity-architecture.md)
 - For information on how to change the connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->

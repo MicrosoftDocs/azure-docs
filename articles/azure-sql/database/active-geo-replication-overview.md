@@ -18,7 +18,7 @@ ms.date: 04/28/2020
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
 
 > [!NOTE]
-> Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of SQL Managed Instances, use [Auto-failover groups](sql-database-auto-failover-group.md).
+> Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of SQL Managed Instances, use [Auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
 
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
@@ -27,22 +27,22 @@ Active geo-replication is designed as a business continuity solution that allows
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using Active geo-replication.
 
-![active geo-replication](./media/sql-database-active-geo-replication/geo-replication.png )
+![active geo-replication](./media/active-geo-replication-overview/geo-replication.png )
 
 > [!IMPORTANT]
-> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md).
+> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
 You can manage replication and failover of an individual database or a set of databases on a server or in an elastic pool using active geo-replication. You can do that using:
 
-- The [Azure portal](sql-database-geo-replication-portal.md)
-- [PowerShell: Single database](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md)
-- [PowerShell: Elastic pool](../azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
+- The [Azure portal](active-geo-replication-configure-portal.md)
+- [PowerShell: Single database](scripts/setup-geodr-and-failover-database-powershell.md)
+- [PowerShell: Elastic pool](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the SQL database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](sql-database-business-continuity.md).
+Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the SQL database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](../../sql-database/sql-database-business-continuity.md).
 
 > [!NOTE]
 > If there is a network failure between two regions, we retry every 10 seconds to re-establish connections.
@@ -52,7 +52,7 @@ Active geo-replication leverages the [Always On availability group](https://docs
 
 The following figure shows an example of active geo-replication configured with a primary in the North Central US region and secondary in the South Central US region.
 
-![geo-replication relationship](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
+![geo-replication relationship](./media/active-geo-replication-overview/geo-replication-relationship.png)
 
 Because the secondary databases are readable, they can be used to offload read-only workloads such as reporting jobs. If you are using active geo-replication, it is possible to create the secondary database in the same region with the primary, but it does not increase the application's resilience to catastrophic failures. If you are using auto-failover groups, your secondary database is always created in a different region.
 
@@ -61,7 +61,7 @@ In addition to disaster recovery active geo-replication can be used in the follo
 - **Database migration**: You can use active geo-replication to migrate a database from one server to another online with minimum downtime.
 - **Application upgrades**: You can create an extra secondary as a fail back copy during application upgrades.
 
-To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](../../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 ## Active geo-replication terminology and capabilities
 
@@ -76,7 +76,7 @@ To achieve real business continuity, adding database redundancy between datacent
 > [!NOTE]
 > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
 > [!IMPORTANT]
-> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee availability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration) to achieve availability zone isolation.
+> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee availability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](../../sql-database/sql-database-high-availability.md#zone-redundant-configuration) to achieve availability zone isolation.
 >
 
 - **Planned failover**
@@ -104,25 +104,25 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Preparing secondary database for failover
 
-To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
+To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](../../sql-database/sql-database-automated-backups.md).
 
 > [!IMPORTANT]
-> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](sql-database-auto-failover-group.md) for details.
+> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](../../sql-database/sql-database-auto-failover-group.md) for details.
 
 ## Configuring secondary database
 
 Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up.
 
-Another consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](sql-database-high-availability.md) failover at the end of the scale up process.
+Another consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](../../sql-database/sql-database-high-availability.md) failover at the end of the scale up process.
 
 If you decide to create the secondary with lower compute size, the log IO percentage chart in Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your primary database is P6 (1000 DTU) and its log write percent is 50%, the secondary needs to be at least P4 (500 DTU). To retrieve historical log IO data, use the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view. To retrieve recent log write data with higher granularity that better reflects short-term spikes in log rate, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view.
 
 Transaction log rate throttling on the primary due to lower compute size on a secondary is reported using the HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait type, visible in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views.
 
 > [!NOTE]
-> Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
+> Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](../../sql-database/sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
-For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](sql-database-purchase-models.md).
+For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](../../sql-database/sql-database-purchase-models.md).
 
 ## Cross-subscription geo-replication
 
@@ -135,7 +135,7 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the primary server
 
-1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](sql-database-firewall-configure.md)).
+1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](../../sql-database/sql-database-firewall-configure.md)).
 1. Create a login dedicated to setup active geo-replication (and adjust the credentials as needed):
 
    ```sql
@@ -198,7 +198,7 @@ After the initial setup, the users, logins, and firewall rules created can be re
 
 ## Keeping credentials and firewall rules in sync
 
-We recommend using [database-level IP firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
+We recommend using [database-level IP firewall rules](../../sql-database/sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](../../sql-database/sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
 
 ## Upgrading or downgrading primary database
 
@@ -231,7 +231,7 @@ To measure lag with respect to changes on the primary database that have been ap
 
 ## Programmatically managing active geo-replication
 
-As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../../role-based-access-control/overview.md).
 
 ### T-SQL: Manage failover of single and pooled databases
 
@@ -251,7 +251,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 
 ### PowerShell: Manage failover of single and pooled databases
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -265,7 +265,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 |  | |
 
 > [!IMPORTANT]
-> For sample scripts, see [Configure and failover a single database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md).
+> For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/setup-geodr-and-failover-elastic-pool-powershell.md).
 
 ### REST API: Manage failover of single and pooled databases
 
@@ -283,10 +283,10 @@ As discussed previously, active geo-replication can also be managed programmatic
 ## Next steps
 
 - For sample scripts, see:
-  - [Configure and failover a single database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md)
-  - [Configure and failover a pooled database using active geo-replication](../azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
-- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md).
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
-- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+  - [Configure and failover a single database using active geo-replication](scripts/setup-geodr-and-failover-database-powershell.md)
+  - [Configure and failover a pooled database using active geo-replication](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
+- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
+- For a business continuity overview and scenarios, see [Business continuity overview](../../sql-database/sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](../../sql-database/sql-database-automated-backups.md).
+- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).

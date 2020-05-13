@@ -16,7 +16,7 @@ ms.date: 06/21/2019
 
 Azure SQL Database offers the following capabilities for recovering from an outage:
 
-- [Active geo-replication](sql-database-active-geo-replication.md)
+- [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md)
 - [Auto-failover groups](sql-database-auto-failover-group.md)
 - [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [Zone-redundant databases](sql-database-high-availability.md)
@@ -26,7 +26,7 @@ To learn about business continuity scenarios and the features supporting these s
 > [!NOTE]
 > If you are using zone-redundant Premium or Business Critical databases or pools, the recovery process is automated and the rest of this material does not apply.
 >
-> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see [Upgrading or downgrading as primary database](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see [Upgrading or downgrading as primary database](../azure-sql/database/active-geo-replication-overview.md#upgrading-or-downgrading-primary-database).
 >
 > Use one or several failover groups to manage failover of multiple databases.
 > If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary. For more information, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).

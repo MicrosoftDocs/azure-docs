@@ -47,7 +47,7 @@ print(c(c, d))
 
 1. Open **SQL Server Management Studio** and connect to your SQL database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](../azure-sql/database/connect-query-ssms.md).
 
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
