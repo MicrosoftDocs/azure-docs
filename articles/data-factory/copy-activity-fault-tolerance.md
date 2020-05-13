@@ -23,11 +23,17 @@ ms.author: yexu
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When you copy data from source to destination store, Azure Data Factory copy activity provides certain level of fault tolerances to prevent interruption from a sort of failures or mismatches in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key is defined in the destination database.  When you happened to copy duplicated rows to the destination, you will hit the failure due to PK violation. The copy activity offers you two ways to handle errors like these: 
-- You can abort the copy activity when the first failure is encountered. 
+When you copy data from source to destination store, Azure Data Factory copy activity provides certain level of fault tolerances to prevent interruption from a sort of failures in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key has been created in the destination database, but source database does not have any primary keys. When you happen to copy duplicated rows from source to the destination, you will hit the PK violation failure on the destination database. At this moments, copy activity offers you two ways to handle such errors: 
+- You can abort the copy activity once any failure is encountered. 
 - You can continue to copy the rest by enabling fault tolerance to skip the incompatible data. For example, skip the duplicated row in this case. In addition, you can log the skipped data by enabling session log in copy activity. 
 
-## Fault tolerance for copying binary files 
+## Copying binary files 
+
+ADF supports the following fault tolerance scenario when copying binary files. You can choose to abort the copy activity or continue to copy the rest in the following scenario:
+
+1. The files to be copied by ADF are under deleting via other applications at the same time.
+2. Some particular folders or files do not allow ADF to access because ACLs of those files or folders require higher permission level than the connection configured in ADF.
+3. One or more files are not verified to be consistent between source and destination store when ADF check their file size or MD5 after copying.
 
 ### Configuration 
 When you copy binary files between storage stores, you can enable fault tolerance as followings: 
@@ -65,17 +71,17 @@ When you copy binary files between storage stores, you can enable fault toleranc
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | A group of properties to specify the types of failures you want to skip during the data movement. | | No
-fileMissing | It is one of the key-value pairs for skipErrorFile property bag to determine if you want to skip files which are being deleted by other applications when ADF is copying in the meanwhile. <br/> -True: you want to copy the rest by skipping the files being deleted by other applications. <br/> - False: you want to abort the copy activity once any files are being deleted from source store in the middle of data movement. <br/>Be aware this property is set to true as default. | True(default) <br/>False | No
-fileForbidden | It is one of the key-value pairs for skipErrorFile property bag to determine if you want to skip the particular files which you do not have permission to access, read or write.  <br/> -True: you want to copy the rest by skipping the files which you do not have permission to access, read or write. <br/> - False: you want to abort the copy activity once you met any file which you do not have permission to access, read or write. | True <br/>False(default) | No
-dataInconsistency | It is one of the key-value pairs for skipErrorFile property bag to determine if you want to skip the inconsistent data between source and destination store. <br/> -True: you want to copy the rest by skipping inconsistent data. <br/> - False: you want to abort the copy activity once inconsistent data found. <br/>Be aware this property is only valid when you set validateDataConsistency as True. | True <br/>False(default) | No
+fileMissing | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip files which are being deleted by other applications when ADF is copying in the meanwhile. <br/> -True: you want to copy the rest by skipping the files being deleted by other applications. <br/> - False: you want to abort the copy activity once any files are being deleted from source store in the middle of data movement. <br/>Be aware this property is set to true as default. | True(default) <br/>False | No
+fileForbidden | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files which you do not have permission to access, read or write.  <br/> -True: you want to copy the rest by skipping the files which you have the permission issue to access, read or write. <br/> - False: you want to abort the copy activity once meeting the permission issue to access, read or write files. | True <br/>False(default) | No
+dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent data between source and destination store. <br/> -True: you want to copy the rest by skipping inconsistent data. <br/> - False: you want to abort the copy activity once inconsistent data found. <br/>Be aware this property is only valid when you set validateDataConsistency as True. | True <br/>False(default) | No
 logStorageSettings  | A group of properties that can be specified when you want to log the skipped object names. | &nbsp; | No
-linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you want to use to store the log file. | No
+linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log file. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you want to use to store the log file. | No
 path | The path of the log file. | Specify the path that you want to use to store the log file. If you do not provide a path, the service creates a container for you. | No
 
 ### Monitoring 
 
-#### Activity output
-You can get the number of read files, written files and skipped file via the output of each copy activity run. 
+#### Output from copy activity
+You can get the number of files being read, written and skipped via the output of each copy activity run. 
 
 ```json
 "output": {
@@ -95,21 +101,19 @@ You can get the number of read files, written files and skipped file via the out
 
 ```
 
-#### Activity session log
+#### Session log from copy activity
 
 If you configure to log the skipped file names, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-The log files can only be the csv files. The schema of the log file is as following:
-
-The schema of the log file is as following:
+The log files have to be the csv files. The schema of the log file is as following:
 
 Column | Description 
 -------- | -----------  
 Timestamp | The timestamp when ADF skips the particular file
-Level | The level of log information for this item. It will be in 'Warning' level if this item shows the skipped file names.
-OperationName | The type of ADF copy activity operation against data. It will be 'FileSkip' to specify that particular file has been skipped
-OperationItem | The skipped file names from the source data store
-Message | More information to illustrate why the file got skipped
+Level | The log level for this item. It can be the 'Warning' for file skipping operational log.
+OperationName | ADF copy activity operational behavior on each object. It can be 'FileSkip' or 'TabularRowSkip' to specify the file or row to be skipped.
+OperationItem | The object names to be skipped.
+Message | More information to illustrate why the file was skipped.
 
 The example of a log file is as following: 
 ```
@@ -117,13 +121,13 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-From the sample log, you can see bigfile.csv has been skipped due to another application deleted this file when ADF was copying it. And 3_nopermission.txt has been skipped due to ADF is not allowed to access it for permission issue.
+From the log above, you can see bigfile.csv has been skipped due to another application deleted this file when ADF was copying it. And 3_nopermission.txt has been skipped because ADF is not allowed to access it due to permission issue.
 
 
-## Fault tolerance for copying non-binary data 
+## Copying tabular data 
 
 ### Supported scenarios
-Copy Activity supports three scenarios for detecting, skipping, and logging incompatible data:
+Copy Activity supports three scenarios for detecting, skipping, and logging incompatible tabular data:
 
 - **Incompatibility between the source data type and the sink native type**. 
 
@@ -171,7 +175,7 @@ redirectIncompatibleRowSettings | A group of properties that can be specified wh
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log that contains the skipped rows. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you want to use to store the log file. | No
 path | The path of the log file that contains the skipped rows. | Specify the path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
 
-## Monitor skipped rows
+### Monitor skipped rows
 After the copy activity run completes, you can see the number of skipped rows in the output of the copy activity:
 
 ```json
@@ -212,7 +216,7 @@ Timestamp, Level, OperationName, OperationItem, Message
 From the sample log file above, you can see one row "data1, data2, data3" has been skipped due to type conversion issue from source to destination store. Another row "data4, data5, data6" has been skipped due to PK violation issue from source to destination store. 
 
 
-## Fault tolerance for copying non-binary data (Legacy):
+## Copying tabular data (Legacy):
 
 The following is the legacy way to enable fault tolerance for copying non-binary data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#fault-tolerance-for-copying-non-binary-data) instead.
 
