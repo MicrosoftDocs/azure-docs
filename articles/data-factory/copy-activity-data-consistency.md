@@ -98,7 +98,7 @@ path | The path of the log file. | Specify the path that you want to store the l
 ## Monitoring
 
 ### Output from copy activity
-After the copy activity run completely, you can see the result of data consistency verification from the output of each copy activity run:
+After the copy activity runs completely, you can see the result of data consistency verification from the output of each copy activity run:
 
 ```json
 "output": {
@@ -148,7 +148,7 @@ The example of a log file is as following:
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-From the log file above, you can see sample1.csv has been skipped because it failed to be verified to be consistent between source and destination store. You can get more details about why sample1.csv becomes inconsistent is because it was under changing by other applications when ADF copy activity is copying at the same time. 
+From the log file above, you can see sample1.csv has been skipped because it failed to be verified to be consistent between source and destination store. You can get more details about why sample1.csv becomes inconsistent is because it was underchanging by other applications when ADF copy activity is copying at the same time. 
 
 
 
