@@ -47,7 +47,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Handle and parse the response
 
-1. Define a function, named `response_handler`, that takes an HTTP call, `response`, as a parameter. 
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
 
 2. Within this function, define a variable to contain the body of the JSON response.  
 

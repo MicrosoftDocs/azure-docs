@@ -46,17 +46,18 @@ Although this application is written in C#, the API is a RESTful Web service com
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-   ## Create a struct to format the Bing News Search response
+   
+## Create a struct to format the Bing News Search response
 
-1. Define a `SearchResult` struct to contain the image search results and JSON header information.
+Define a `SearchResult` struct to contain the image search results and JSON header information.
 
-    ```csharp
-    struct SearchResult
-    {
-        public String jsonResult;
-        public Dictionary<String, String> relevantHeaders;
-    }
-    ```
+```csharp
+struct SearchResult
+{
+    public String jsonResult;
+    public Dictionary<String, String> relevantHeaders;
+}
+```
 
 ## Create and handle a news search request
 
@@ -101,7 +102,7 @@ Create a method named `BingNewsSearch` to perform the call to the API, and set t
 
 ## Process the response
 
-In the main method, call `BingNewsSearch()` and store the returned response. Then deserialize the JSON into an object. You can then view the values of the response.
+In the main method, call `BingNewsSearch()` and store the returned response. Then, deserialize the JSON into an object where you can view the values of the response.
 
     ```csharp
     SearchResult result = BingNewsSearch(searchTerm);

@@ -31,7 +31,7 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
 
 To run this application, follow these steps:
 
-1. Make sure that secure HTTP support is enabled in your `php.ini` file as described in the code comment.
+1. Make sure that secure HTTP support is enabled in your `php.ini` file, as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.

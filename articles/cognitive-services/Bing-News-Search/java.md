@@ -24,8 +24,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks)
-* The [Gson library](https://github.com/google/gson)
+* The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks).
+* The [Gson library](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]

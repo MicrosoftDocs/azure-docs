@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 # Quickstart: Perform a news search using Python and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API. This simple JavaScript application sends a search query to the API and processes the JSON result. 
+Use this quickstart to make your first call to the Bing News Search API. This simple Python application sends a search query to the API and processes the JSON result. 
 
 Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
@@ -25,8 +25,6 @@ To run this code sample as a Jupyter notebook on [MyBinder](https://mybinder.org
 [![launch binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
 The source code for this sample is also available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
-
-## Prerequisites
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -42,7 +40,7 @@ search_term = "Microsoft"
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 ```
 
-### Create parameters for the request
+## Create parameters for the request
 
 Add your subscription key to a new dictionary, using `"Ocp-Apim-Subscription-Key"` as the key. Do the same for your search parameters.
 
@@ -67,7 +65,7 @@ params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
     descriptions = [article["description"] for article in search_results["value"]]
     ```
 
-## Displaying the results
+## Display the results
 
 These descriptions can then be rendered as a table with the search keyword highlighted in **bold**.
 

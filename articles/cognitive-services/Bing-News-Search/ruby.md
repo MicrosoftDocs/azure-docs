@@ -16,9 +16,9 @@ ms.custom: seodec2018
 
 # Quickstart: Perform a news search using Ruby and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API. This simple JavaScript application sends a search query to the API and processes the JSON response.
+Use this quickstart to make your first call to the Bing News Search API. This simple Ruby application sends a search query to the API and processes the JSON response.
 
-While this application is written in Python, the API is a RESTful Web service compatible most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Create and initialize the application
 
-1. import the following packages into your code file:
+1. Import the following packages into your code file:
 
     ```ruby
     require 'net/https'
@@ -60,7 +60,7 @@ end
 
 ## Process and print the JSON response
 
-After the response is received, you can parse the JSON, and print both the response body, and its headers:
+After the response is received, you can parse the JSON, and print both the response body, and its headers.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -173,4 +173,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a signle-page app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
