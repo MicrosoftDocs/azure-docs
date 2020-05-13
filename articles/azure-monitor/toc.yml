@@ -1064,34 +1064,34 @@
           href: insights/vmware.md
         - name: Wire Data solution
           href: insights/wire-data.md
-  - name: Visualizations
+  - name: Workbooks
     items:
-    - name: Workbooks
+    - name: Overview
+      href: platform/workbooks-overview.md
+    - name: Visualizations
+      href: platform/workbooks-visualizations.md
+    - name: Data sources
+      href: platform/workbooks-data-sources.md
+    - name: Deploy with Azure Resource Manager
+      href: platform/workbooks-automate.md
+    - name: Configuration
       items:
-      - name: Overview
-        href: platform/workbooks-overview.md
-      - name: Visualizations
-        href: platform/workbooks-visualizations.md
-      - name: Data sources
-        href: platform/workbooks-data-sources.md
-      - name: Deploy with Azure Resource Manager
-        href: platform/workbooks-automate.md
-      - name: Configuration
+      - name: Access control
+        href: platform/workbooks-access-control.md
+      - name: Parameters
         items:
-        - name: Access control
-          href: platform/workbooks-access-control.md
-        - name: Parameters
-          items:
-          - name: Parameter summary
-            href: platform/workbooks-parameters.md
-          - name: Drop down parameters
-            href: platform/workbooks-dropdowns.md
-          - name: Interactive parameters
-            href: platform/workbooks-interactive.md
-          - name: Time parameters
-            href: platform/workbooks-time.md
-          - name: Text parameters
-            href: platform/workbooks-text.md
+        - name: Parameter summary
+          href: platform/workbooks-parameters.md
+        - name: Drop down parameters
+          href: platform/workbooks-dropdowns.md
+        - name: Interactive parameters
+          href: platform/workbooks-interactive.md
+        - name: Time parameters
+          href: platform/workbooks-time.md
+        - name: Text parameters
+          href: platform/workbooks-text.md
+  - name: Other visualizations
+    items:
     - name: Power BI
       items:
       - name: Export log data
@@ -1106,18 +1106,20 @@
         href: learn/tutorial-app-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
-  - name: Collect custom data 
+  - name: Custom data collection and analysis
     items:
     - name: Custom metrics
-      href: platform/metrics-custom-overview.md   
-    - name: Metrics REST API
-      href: platform/metrics-store-custom-rest-api.md
-    - name: Log Analytics Data collector API 
-      href: platform/data-collector-api.md
-    - name: Log Analytics Data Collector API Pipeline example
-      href: platform/create-pipeline-datacollector-api.md
-  - name: Analyze data
-    items:
+      items:
+      - name: Custom metrics
+        href: platform/metrics-custom-overview.md   
+      - name: Metrics REST API
+        href: platform/metrics-store-custom-rest-api.md
+    - name: Custom logs
+      items: 
+      - name: Log Analytics Data collector API 
+        href: platform/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: platform/create-pipeline-datacollector-api.md
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
@@ -1143,22 +1145,23 @@
     href: terminology.md
   - name: Data reference
     href: https://docs.microsoft.com/azure/azure-monitor/reference/
-  - name: Platform metrics
+  - name: Supported metrics
     items:
-    - name: Supported metrics
+    - name: Platform metrics
       href: platform/metrics-supported.md
-    - name: Metrics exportable with Diagnostic Settings
+    - name: Metrics in diagnostic settings
       href: platform/metrics-supported-export-diagnostic-settings.md
-    - name: Supported metrics for newer alerts
+    - name: Metrics in alerts
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Resource log services
+    - name: Resource log schemas
       href: platform/diagnostic-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
-  - name: Windows diagnostics extension schema
-    href: platform/diagnostics-extension-schema-windows.md
+  - name: Diagnostic extension schemas
+    - name: Windows diagnostics extension
+      href: platform/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
