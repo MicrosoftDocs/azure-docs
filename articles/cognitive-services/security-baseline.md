@@ -4,7 +4,7 @@ description: Azure security baseline for Cognitive Services
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
