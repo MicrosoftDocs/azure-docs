@@ -978,7 +978,7 @@
       href: insights/solutions.md
     - name: Target solutions
       href: insights/solution-targeting.md
-    - name: Avaialble solutions
+    - name: Available solutions
       items:
       - name: AD health assessment
         href: insights/ad-assessment.md
