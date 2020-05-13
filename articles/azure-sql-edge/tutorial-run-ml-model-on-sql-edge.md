@@ -35,7 +35,7 @@ In this tutorial we will,
 4. In the file section, open a new notebook or use the keyboard shortcut Alt + Windows + N. Set the kernel to Python 3 before executing the below section.
 
 ## Predict Iron Ore Impurities (% of Silica) with ONNX in Azure SQL Edge
-The following python code can be collated in jupyter notebook and run on Azure Data Studio. Before we begin with the experiment, we need to install and import the below packages.
+The following python code can be collated in Jupyter notebook and run on Azure Data Studio. Before we begin with the experiment, we need to install and import the below packages.
 ```python
 !pip install azureml.core -q
 !pip install azureml.train.automl -q
@@ -131,7 +131,7 @@ We proceed with loading the model in Azure SQL Edge database for local scoring
 ```python
 ## Load the Model into a SQL Database.
 ## Define the Connection string parameters. These connection strings will be used later also in the demo.
-server = '40.69.153.211,1600' # SQL Server IP address
+server = '<SQL Server IP address>'
 username = 'sa' # SQL Server username
 password = '<SQL Server password>'
 database = 'IronOreSilicaPrediction'
@@ -151,7 +151,7 @@ conn.close()
 Finally, we use the Azure SQL Edge model to perform prediction using the trained model
 ```python
 ## Define the Connection string parameters. These connection strings will be used later also in the demo.
-server = '40.69.153.211,1600' # SQL Server IP address
+server = '<SQL Server IP address>'
 username = 'sa' # SQL Server username
 password = '<SQL Server password>'
 database = 'IronOreSilicaPrediction'

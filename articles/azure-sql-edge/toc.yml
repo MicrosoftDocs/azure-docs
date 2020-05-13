@@ -21,12 +21,12 @@
     href: tutorial-sync-data-sync.md
   - name: Build an end-to-end IoT solution with SQL Edge
     items: 
-    - name: Set up resources for the tutorial
-      href: deploy-azure-resources.md
-    - name: Set up IoT Edge Modules and connections
-      href: set-up-iot-edge-modules.md
-    - name: Deploy ML model on SQL Edge using ONNX 
-      href: run-ml-model-on-sql-edge.md
+    - name: Set up Azure resources
+      href: tutorial-deploy-azure-resources.md
+    - name: Set up IoT Edge Modules
+      href: tutorial-set-up-iot-edge-modules.md
+    - name: Deploy model to SQL Edge 
+      href: tutorial-run-ml-model-on-sql-edge.md
 - name: How to
   items:
   - name: DAC packages and Stream Analytics jobs
