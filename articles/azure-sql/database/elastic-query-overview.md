@@ -155,10 +155,10 @@ Share feedback on your experience with elastic queries with us below, on the MSD
 * See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-overview/overview.png
-[2]: ./media/sql-database-elastic-query-overview/topology1.png
-[3]: ./media/sql-database-elastic-query-overview/vertpartrrefdata.png
-[4]: ./media/sql-database-elastic-query-overview/verticalpartitioning.png
-[5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
+[1]: ./media/elastic-query-overview/overview.png
+[2]: ./media/elastic-query-overview/topology1.png
+[3]: ./media/elastic-query-overview/vertpartrrefdata.png
+[4]: ./media/elastic-query-overview/verticalpartitioning.png
+[5]: ./media/elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
