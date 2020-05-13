@@ -59,7 +59,12 @@ User | Catalog owner | Only if group owner | Only if group owner | Only if app o
 
 **Q:** I can't find "Remove assignment" option in "Assigned Roles". How do I delete role assignment to a user?
 
-**A:** Applicable only to P1 organizations. Navigate to Azure portal --> Azure Active Directory --> Users --> {user} --> Assigned roles. Tap on one of the roles entries, it brings up a drawer from the bottom of the screen. This drawer has the information of if it has been assigned directly or indirectly. There's a "Remove" button besides direct assignment. To remove indirect role assignment, remove the user from the group that has been assigned the role.
+**A:** This answer is applicable only to Azure AD Premium P1 organizations.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
+1. Select users and open a user profile.
+1. Select **Assigned roles**.
+1. Select the gear icon. A pane opens that can give this information. There's a "Remove" button beside direct assignments. To remove indirect role assignment, remove the user from the group that has been assigned the role.
 
 **Q:** How do I see all groups that are role-eligible?
 
