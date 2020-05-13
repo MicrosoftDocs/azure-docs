@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace and AppSource Roadmap
-description: A roadmap to what's happening in the Marketplace
+title: Microsoft commercial marketplace roadmap
+description: This roadmap highlights new and upcoming features and other releases for the commercial marketplace
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
@@ -11,7 +11,7 @@ ms.date: 11/02/2019
 
 # Microsoft commercial marketplace roadmap
 
-This document provides a view into what's next for Microsoft's commercial marketplace for publishers, sellers, and customers. It captures some of the significant features we have committed, a rough time frame for when you can expect to see them and will be refreshed monthly. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
+This articles outlines recent releases and what's next for Microsoft commercial marketplace for publishers, sellers, and customers. It captures some of the significant features we have committed to and a rough time frame for when you can expect to see them, and will be refreshed monthly. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
 

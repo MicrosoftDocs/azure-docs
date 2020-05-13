@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace IoT Edge Modules 
-description: The IoT Edge Module Offer in the Azure Marketplace for app and service publishers.
+title: Azure Marketplace IoT Edge module offers 
+description: Learn about publishing IoT Edge module offers in Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,11 +11,11 @@ ms.author: dsindona
 
 # IoT Edge modules
 
-The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Azure Cloud.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutions.
+The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Microsoft Azure.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutions.
 
-By introducing the [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT audience. IoT developers can ultimately find and purchase capabilities to accelerate their solution development.  
+With [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT audience. IoT developers can ultimately find and purchase capabilities to accelerate their solution development.  
 
-## Key benefits of IoT Edge modules in Azure Marketplace:
+## Key benefits of IoT Edge modules in Azure Marketplace
 
 | **For publishers**    | **For customers (IoT developers)**  |
 | :------------------- | :-------------------|
