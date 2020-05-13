@@ -12,28 +12,39 @@ ms.date: 03/31/2020
 ms.author: aahi
 ---
 
-# Migrate to version 3.0 of the Text Analytics API
+# Migrate to version 3 of the Text Analytics API
 
-In this article, we'll discuss major changes in version 3 of the API, and considerations when migrating your applications. Text analytics v3 adds new features such as [model versioning](concepts/model-versioning.md) and expanded [entity recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3. Version 3 introduces new features such as [model versioning](concepts/model-versioning.md) and expanded [entity recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 
-Looking for example code that uses v2 of the API? There are several samples available on GitHub for the following SDKs: [C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics), [Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/cognitiveservices/textanalytics.go), [JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), [Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), and [Ruby](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
-
-
-## Feature related changes
+Looking for example code that uses v2.1 of the API? There are several samples available on GitHub for the following v2.1 SDKs: [C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics), [Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/cognitiveservices/textanalytics.go), [JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), [Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), and [Ruby](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
-While sentiment analysis in v3 returns sentiment labels, version 2 returns a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. Sentiment analysis is performed on the entire document, instead of individual entities in the text.
+## Feature changes 
 
-To migrate your application, update its request endpoint to the v3 endpoint for sentiment analysis. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
+Sentiment Analysis version 2.1 returns sentiment scores between 0 and 1, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative") with their associated confidence scores. 
 
-You will also need to update your application to use the [sentiment labels](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-scoring-and-labeling) returned by the API.
+## Steps to migrate
+
+### REST API
+
+If your application uses the REST API, update its request endpoint to the v3 endpoint for sentiment analysis. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`. You will also need to update the application to use the sentiment labels returned in the [JSON response](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+
+### Client libraries
+
+[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
 
 #### [NER and entity linking](#tab/named-entity-recognition)
 
-## Named Entity recognition (NER) and entity linking
+## Feature changes
 
-Version 3.0 of the API uses provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests. Version 2 uses a single endpoint. To migrate your application, update its request endpoint to the v3 endpoints for entity linking and NER where appropriate. For example:
+In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3.0 of the API provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests.
+
+## Steps to migrate
+
+### REST API
+
+If your application uses the REST API, update its request endpoint to the v3 endpoints for NER and/or entity linking.
 
 Entity Linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
@@ -41,7 +52,11 @@ Entity Linking
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-You will also need to update your application to use the entity categories returned in v3. See the [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) article, and [supported v3 entity categories](named-entity-types.md) for more information.
+You will also need to update your application to use the [entity categories](named-entity-types.md) returned in the [JSON response](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+
+### Client libraries
+
+[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
 
 
 ### NER v2 entity categories
@@ -80,19 +95,36 @@ NER v2 is limited to the entity categories below.
 
 #### [Language detection](#tab/language-detection)
 
-## Language detection
+## Feature changes 
 
-Language detection has not changed in v3. To migrate your application, update its request endpoint to the v3 endpoint for this feature. For example:
+The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+## Steps to migrate
+
+### REST API
+
+If your application uses the REST API, update its request endpoint to the v3 endpoint for language detection. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`. You will also need to update the application to use `ConfidenceScore` instead of `score` in the [JSON response](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+
+### Client libraries
+
+[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
+
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-## Key phrase extraction
+## Feature changes 
 
-Key phrase extraction has not changed in v3. To migrate your application, update its request endpoint to the v3 endpoint for this feature. For example:
+The key phrase extraction feature has not changed in v3 outside of the endpoint version.
 
-`https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+## Steps to migrate
+
+### REST API
+
+If your application uses the REST API, update its request endpoint to the v3 endpoint for key phrase extraction. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+
+### Client libraries
+
+[!INCLUDE [Client library migration information](../includes/client-library-migration-section.md)]
 
 ---
 
@@ -190,35 +222,6 @@ If you have content expressed in a less frequently used language, you can try La
 | Swedish               |     `sv`      |                    |
 
 ---
-
-## General changes
-
-### SDK support
-
-The Text Analytics client library is available in the following programming languages, as part of the Azure SDK.
-
-| Programming language | Available for v2 | Available for v3.0 |
-|----------------------|--------------------|--------------------|
-| C#                   | ✔                  | ✔                  |
-| Go                   | ✔                   |                    |
-| Java                 | ✔                  | ✔                  |
-| JavaScript           | ✔                  | ✔                  |
-| Python               | ✔                  | ✔                  |
-| Ruby                 | ✔                   |                    |
-
-### Data limits
-
-The limits on the number of documents you can send at once have changed. The limits for v2 of the API are below.  
-
-| Endpoint | Max Documents Per Request | 
-|----------|-----------|
-| Language Detection | 1000 |
-| Sentiment Analysis | 1000 |
-| Key Phrase Extraction | 1000 |
-| Named Entity Recognition | 1000 |
-| Entity Linking | 1000 |
-
-Your rate limit will vary with your pricing tier. See the [data and rate limits](concepts/data-limits.md) article for more information.
 
 ## See also
 

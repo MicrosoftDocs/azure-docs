@@ -8,21 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 ms.author: aahi
 ---
 
 # How to: Detect sentiment using the Text Analytics API
 
+> [!NOTE]
+> * The Text Analytics API offers multiple versions of Sentiment Analysis. This article only covers versions 3.0 and 3.1-preview.1. See the [migration guide](../migration-guide.md) for v2.1 information.
+
 The Text Analytics API's Sentiment Analysis feature evaluates text and returns sentiment scores and labels for each sentence. This is useful for detecting positive and negative sentiment in social media, customer reviews, discussion forums and more. The AI models used by the API are provided by the service, you just have to send content for analysis.
 
 After sending a sentiment analysis request, the API returns sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level.
-
-> [!NOTE]
-> * The Text Analytics API offers multiple versions of Sentiment Analysis. This article only covers versions 3.0 and 3.1.
->   * v3.1 offers a public preview of [opinion mining](#opinion-mining).
-> * There is a Linux-based Docker container image that you can use on-premises. See [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) for more information.
-> * Sentiment Analysis v3 is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
 
 Sentiment Analysis supports a wide range of languages, with more in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
 
@@ -32,13 +29,14 @@ Sentiment Analysis supports a wide range of languages, with more in preview. For
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Methods for single, and batch requests    | X                     | X                                 |
 | Sentiment scores and labeling             | X                     | X                                 |
+| Linux-based [Docker container](text-analytics-how-to-install-containers.md) | X  |  |
 | Opinion mining                            |                       | X                                 |
 
 ### Sentiment scoring and labeling
 
 Sentiment Analysis in v3 applies sentiment labels to text, which are returned at a sentence and document level, with a confidence score for each. 
 
-The labels are `positive`, `negative`, and `neutral`. At the document level, the `mixed` sentiment label also can be returned without a score. The sentiment of the document is determined below:
+The labels are `positive`, `negative`, and `neutral`. At the document level, the `mixed` sentiment label also can be returned. The sentiment of the document is determined below:
 
 | Sentence sentiment                                                                            | Returned document label |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -47,11 +45,11 @@ The labels are `positive`, `negative`, and `neutral`. At the document level, the
 | At least one `negative` sentence and at least one `positive` sentence are in the document.    | `mixed`                 |
 | All sentences in the document are `neutral`.                                                  | `neutral`               |
 
-Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
+Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. The confidence scores within each document or sentence add up to 1.
 
 ### Opinion mining
 
-Opinion mining is a feature of Sentiment Analysis, starting in version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+Opinion mining is a feature of Sentiment Analysis, starting in version 3.1-preview.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 
 For example, if a customer leaves feedback about a hotel such as "the room was great, but the staff was unfriendly", opinion mining will locate aspects in the text, and their associated opinions and sentiments:
 
@@ -99,11 +97,11 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 #### [Version 3.1-preview](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
 
 To get opinion mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 
 This parameter is set to `false` by default. 
 
@@ -148,27 +146,33 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 
 ```json
 {
-  "documents": [{
-    "id": "1",
-    "sentiment": "positive",
-    "documentScores": {
-      "positive": 1.0,
-      "neutral": 0.0,
-      "negative": 0.0
-    },
-    "sentences": [{
-      "sentiment": "positive",
-      "confidenceScores": {
-        "positive": 1.0,
-        "neutral": 0.0,
-        "negative": 0.0
-      },
-      "offset": 0,
-      "length": 58
-    }]
-  }],
-  "errors": [],
-  "modelVersion": "2019-10-01"
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
@@ -274,7 +278,7 @@ Sentiment Analysis v3.1 offers opinion mining in addition to the response object
 
 In this article, you learned concepts and workflow for sentiment analysis using the Text Analytics API. In summary:
 
-+ Sentiment Analysis is available for selected languages in two versions.
++ Sentiment Analysis is available for selected languages.
 + JSON documents in the request body include an ID, text, and language code.
 + The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON. For example, Excel and Power BI.

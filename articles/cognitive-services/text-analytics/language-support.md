@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/13/2020
 ms.author: aahi
 ---
 # Language support for the Text Analytics API
 
 > [!NOTE]
-> This article only describes v3 of the Text Analytics API. If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-2-language-support).
+> This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-2-language-support).
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
@@ -38,12 +38,11 @@ ms.author: aahi
 | English               |     `en`      |              04-01-2020              |                    |
 
 
-#### [Named Entity Recognition(NER)](#tab/named-entity-recognition)
+#### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
 
 | Language              | Language code | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:---------------------------------------:|:------------------:|
 | English               |     `en`      |               10-01-2019                |                    |
-| Spanish               |     `es`      |               10-01-2019                |                    |
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
@@ -84,5 +83,4 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## See also
 
-[Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
-[Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
+* [What is the Text Analytics API?](overview.md)   

@@ -10,6 +10,8 @@ ms.date: 04/29/2020
 ms.author: aahi
 ---
 
+This entity category includes financial information and official forms of identification. Available starting with model version `2019-10-01`. Subtypes are listed below. 
+
 ### Financial Account Identification
 
 | Subtype name               | Description                                                                |
@@ -21,6 +23,11 @@ ms.author: aahi
 
 
 ### Government and country-specific Identification
+
+> [!NOTE]
+> The following financial and country-specific entities are not returned with the `domain=phi` parameter:
+> * Passport numbers
+> * Tax IDs
 
 The entities below are grouped and listed by country:
 

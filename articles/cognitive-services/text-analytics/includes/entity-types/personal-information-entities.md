@@ -13,9 +13,9 @@ ms.author: aahi
 > [!NOTE]
 > To detect `PHI`, use the `domain=phi` parameter and model version `2020-04-01` or later.
 >
-> For example: `<resource-url>/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
-The following entity categories are returned when sending requests to the `/entities/recognition/pii` endpoint, available in the v3.1 preview of the API.
+The following entity categories are returned when sending requests to the `/v3.1-preview.1/entities/recognition/pii` endpoint.
 
 | Category   | Subcategory | Description                          | Starting model version | Notes |
 |------------|-------------|--------------------------------------|------------------------|---|
@@ -57,12 +57,5 @@ This entity category includes identifiable Azure information including authentic
 | SQL Server Connection String          | Connection string for a SQL server.                                         |
 
 ## Identification
-
-> [!NOTE]
-> The following financial and country-specific entities are not returned with the `domain=phi` parameter:
-> * Passport numbers
-> * Tax IDs
-
-This entity category includes financial information and official forms of identification. Available starting with model version `2019-10-01`. Subtypes are listed below. 
 
 [!INCLUDE [supported identification entities](./identification-entities.md)]
