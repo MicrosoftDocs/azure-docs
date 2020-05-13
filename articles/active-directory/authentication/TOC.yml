@@ -80,7 +80,7 @@
       href: howto-mfa-userstates.md
     - name: Configure authentication providers
       href: concept-mfa-authprovider.md
-    - name: Configure app passwords
+    - name: Use app passwords
       href: howto-mfa-app-passwords.md
     - name: Directory Federation
       items:
