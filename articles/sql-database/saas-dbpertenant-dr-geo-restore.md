@@ -56,8 +56,8 @@ Disaster recovery (DR) is an important consideration for many applications, whet
 This tutorial uses features of Azure SQL Database and the Azure platform to address these challenges:
 
 * [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants.
-* [Elastic Database Client Library](sql-database-elastic-database-client-library.md) (EDCL), to create and maintain a tenant database catalog. The extended catalog includes periodically refreshed pool and database configuration information.
-* [Shard management recovery features](sql-database-elastic-database-recovery-manager.md) of the EDCL, to maintain database location entries in the catalog during recovery and repatriation.  
+* [Elastic Database Client Library](../azure-sql/database/elastic-database-client-library.md) (EDCL), to create and maintain a tenant database catalog. The extended catalog includes periodically refreshed pool and database configuration information.
+* [Shard management recovery features](../azure-sql/database/elastic-database-recovery-manager.md) of the EDCL, to maintain database location entries in the catalog during recovery and repatriation.  
 * [Geo-restore](sql-database-disaster-recovery.md), to recover the catalog and tenant databases from automatically maintained geo-redundant backups. 
 * [Asynchronous restore operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), sent in tenant-priority order, are queued for each pool by the system and processed in batches so the pool isn't overloaded. These operations can be canceled before or during execution if necessary.   
 * [Geo-replication](sql-database-geo-replication-overview.md), to repatriate databases to the original region after the outage. There is no data loss and minimal impact on the tenant when you use geo-replication.

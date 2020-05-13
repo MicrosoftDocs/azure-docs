@@ -293,7 +293,7 @@ For more info about SQL Data Sync, see:
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../../../sql-database/sql-database-get-started-sql-data-sync.md)
     - With PowerShell
         - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-data-sync-sync-data-between-azure-onprem.md)
-- Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../../../sql-database/sql-database-data-sync-agent.md)
+- Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../data-sync-agent.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
 - Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../../../sql-database/sql-database-sync-monitor-oms.md)
 - Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../../../sql-database/sql-database-troubleshoot-data-sync.md)

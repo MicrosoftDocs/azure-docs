@@ -226,7 +226,7 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](sql-database-advanced-data-security.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](sql-database-advanced-data-security.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](../azure-sql/database/dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
 
 ### Advanced data security
 

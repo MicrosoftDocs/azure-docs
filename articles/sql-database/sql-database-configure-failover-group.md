@@ -677,7 +677,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 For detailed steps configuring a failover group, see the following tutorials:
 
 - [Add a single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
-- [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
+- [Add an elastic pool to a failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md)
 - [Add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 
 For an overview of Azure SQL Database high availability options, see [geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [auto-failover groups](sql-database-auto-failover-group.md).

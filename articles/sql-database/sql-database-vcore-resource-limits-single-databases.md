@@ -476,9 +476,9 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ## Next steps
 
-- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
+- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
-- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
+- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
 - For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about resource limits on a server, see [overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

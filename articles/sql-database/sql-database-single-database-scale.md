@@ -125,7 +125,7 @@ You are billed for each hour a database exists using the highest service tier + 
 
 ### DTU-based purchasing model
 
-- The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and compute sizes](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and compute sizes](../azure-sql/database/resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
 - Extra storage for a single database can be provisioned by increasing its max size using the Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -148,4 +148,4 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 
 ## Next steps
 
-For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](sql-database-dtu-resource-limits-single-databases.md).
+For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](../azure-sql/database/resource-limits-dtu-single-databases.md).

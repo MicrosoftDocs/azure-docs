@@ -22,7 +22,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Azure SQL Database deployment offers covered in this guide
 
-- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](sql-database-elastic-pool.md) in [servers](sql-database-servers.md)
+- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md) in [servers](sql-database-servers.md)
 - [Azure SQL Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
 ### SQL deployment offers not covered in this guide

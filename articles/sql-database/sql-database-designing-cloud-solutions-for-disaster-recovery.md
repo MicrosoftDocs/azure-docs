@@ -159,4 +159,4 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about active geo-replication, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
 * To learn about auto-failover groups, see [Auto-failover groups](sql-database-auto-failover-group.md).
-* For information about active geo-replication with elastic pools, see [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* For information about active geo-replication with elastic pools, see [Elastic pool disaster recovery strategies](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md).

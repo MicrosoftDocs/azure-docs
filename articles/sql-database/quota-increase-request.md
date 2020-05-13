@@ -69,7 +69,7 @@ Use the following steps to request an increase in the DTUs per server.
 
    ![DTU quota details](./media/quota-increase-request/quota-details-dtus.png)
 
-For more information, see [Resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md).
+For more information, see [Resource limits for single databases using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
 
 ### Servers per subscription
 

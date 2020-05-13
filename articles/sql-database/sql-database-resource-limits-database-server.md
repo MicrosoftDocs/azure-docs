@@ -43,7 +43,7 @@ This article provides an overview of the resource limits for Azure SQL Database 
 
 ### Storage size
 
-For single databases resource storage sizes, refer to either [DTU-based resource limits](sql-database-dtu-resource-limits-single-databases.md) or [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
+For single databases resource storage sizes, refer to either [DTU-based resource limits](../azure-sql/database/resource-limits-dtu-single-databases.md) or [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
 
 ## What happens when database resource limits are reached
 

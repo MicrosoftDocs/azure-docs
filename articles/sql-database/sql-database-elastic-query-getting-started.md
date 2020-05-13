@@ -17,7 +17,7 @@ ms.date: 10/10/2019
 
 You can create reports from multiple databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
-If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
+If you have an existing database, see [Migrating existing databases to scaled-out databases](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
 
 To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
 

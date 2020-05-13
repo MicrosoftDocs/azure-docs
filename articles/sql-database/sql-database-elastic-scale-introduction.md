@@ -13,7 +13,7 @@ ms.date: 01/25/2019
 # Scaling out with Azure SQL Database
 You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
 
-* [Elastic Database client library](sql-database-elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
+* [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
 * [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 * [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
@@ -25,7 +25,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 
 1. A set of **Azure SQL databases** is hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
-3. A subset of the databases is put into an **elastic pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
+3. A subset of the databases is put into an **elastic pool**. (See [What is a pool?](../azure-sql/database/elastic-pool-overview.md)).
 4. An **Elastic Database job** runs scheduled or ad hoc T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
@@ -52,7 +52,7 @@ Vertical scaling refers to increasing or decreasing the compute size of an indiv
 
 Most cloud-scale database applications use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer's database to grow or shrink resources as needed by the workload.
 
-* Horizontal scaling is managed using the [Elastic Database client library](sql-database-elastic-database-client-library.md).
+* Horizontal scaling is managed using the [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md).
 * Vertical scaling is accomplished using Azure PowerShell cmdlets to change the service tier, or by placing databases in an elastic pool.
 
 ## Sharding
@@ -80,9 +80,9 @@ When creating a SaaS application, it is typical to offer prospective customers a
 ## Next steps
 For a sample app that demonstrates the client library, see [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
 
-To convert existing databases to use the tools, see [Migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
+To convert existing databases to use the tools, see [Migrate existing databases to scale out](../azure-sql/database/elastic-convert-to-use-elastic-tools.md).
 
-To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md), or create a new pool with [elastic pools](sql-database-elastic-pool-manage-portal.md).  
+To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](../azure-sql/database/elastic-pool-overview.md), or create a new pool with [elastic pools](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

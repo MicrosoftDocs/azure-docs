@@ -228,7 +228,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 - **Local firewall configuration:**
 
-  Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. To make connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and Azure SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. To make connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and Azure SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 - **Network address translation:**
 
@@ -257,7 +257,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 - Confirm that your corporate network environment allows inbound communication from the compute IP address ranges (including SQL ranges) that are used by the Azure datacenters. You might have to add those IP addresses to the allow list. See [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).  
 - For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](sql-database-single-database-get-started.md).
 - For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](sql-database-connect-query.md#libraries).
-- For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md).
 
 <!--Image references-->

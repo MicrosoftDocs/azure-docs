@@ -229,7 +229,7 @@ For more information, see [Introduction to memory-optimized tables](https://docs
 
 This detectable performance pattern indicates a degradation in the current database workload performance compared to the past seven-day baseline. It's due to the shortage of available DTUs in the elastic pool of your subscription.
 
-[Azure elastic pool resources](sql-database-elastic-pool.md) are used as a pool of available resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
+[Azure elastic pool resources](../azure-sql/database/elastic-pool-overview.md) are used as a pool of available resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
 
 ### Troubleshooting
 

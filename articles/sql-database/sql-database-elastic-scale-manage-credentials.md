@@ -14,7 +14,7 @@ ms.date: 01/03/2019
 ---
 # Credentials used to access the Elastic Database client library
 
-The [Elastic Database client library](sql-database-elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
+The [Elastic Database client library](../azure-sql/database/elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
 
 * **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](sql-database-elastic-scale-glossary.md).)
 * **Access credentials**: to access an existing shard map manager to obtain information about shards.

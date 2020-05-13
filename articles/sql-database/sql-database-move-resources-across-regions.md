@@ -105,7 +105,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 ### Prepare to move
 
-1. Create a separate [failover group](sql-database-elastic-pool-failover-group-tutorial.md#3---create-the-failover-group) between each elastic pool on the source server and its counterpart elastic pool on the target server.
+1. Create a separate [failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md#3---create-the-failover-group) between each elastic pool on the source server and its counterpart elastic pool on the target server.
 1. Add all the databases in the pool to the failover group.
     - Replication of the added databases will be initiated automatically. For more information, see [best practices for failover groups with elastic pools](sql-database-auto-failover-group.md#best-practices-for-sql-database).
 
