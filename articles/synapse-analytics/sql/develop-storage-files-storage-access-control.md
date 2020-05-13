@@ -252,9 +252,9 @@ Database scoped credential is not required to allow access to publicly available
 
 ## Examples
 
-**External table that access publicly available data source**
+**External table on publicly available data source**
 
-Use the following script to create a table that access publicly available data source.
+Use the following script to create a table that accesses publicly available data source.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -267,9 +267,9 @@ CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000),
 WITH ( LOCATION = 'parquet/user-data/userdata.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
-**External table that access data source using credential**
+**External table on data source accessed using credential**
 
-Modify the following script to create an external table that access Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
+Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 
 ```sql
 -- Create master key in databases with some password (one-off per database)
