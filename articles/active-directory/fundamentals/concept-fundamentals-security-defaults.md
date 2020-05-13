@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/13/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,6 +89,8 @@ After security defaults are enabled in your tenant, all authentication requests 
 
 > [!WARNING]
 > Before you enable security defaults, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
+
+- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
 
 ### Protecting privileged actions
 
