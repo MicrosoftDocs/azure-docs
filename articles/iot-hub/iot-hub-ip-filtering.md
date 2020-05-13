@@ -28,7 +28,7 @@ The IP filter rules are applied at the IoT Hub service level. Therefore, the IP 
 Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
 
 > [!NOTE]
-> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs.md) in the ASA.
+> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
 
 ## Default setting
 
