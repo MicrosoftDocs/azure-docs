@@ -332,7 +332,182 @@ foreach($ipFqdn in $privateEndpointIpFqdnMappings) {
 ```
 
 # [Azure CLI](#tab/azure-cli)
+```bash
+storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
+storageSyncServiceName="<storage-sync-service>"
 
+# storageSyncService=$(az resource show \
+#         --resource-group $storageSyncServiceResourceGroupName \
+#         --name $storageSyncServiceName \
+#         --resource-type "Microsoft.StorageSync/storageSyncServices" \
+#         --query "id" | \
+#     tr -d '"')
+
+storageSyncService=$(az resource show \
+        --resource-group $storageSyncServiceResourceGroupName \
+        --name $storageSyncServiceName \
+        --resource-type "Microsoft.StorageSyncInt/storageSyncServices" \
+        --query "id" | \
+    tr -d '"')
+
+storageSyncServiceRegion=$(az resource show \
+        --resource-group $storageSyncServiceResourceGroupName \
+        --name $storageSyncServiceName \
+        --resource-type "Microsoft.StorageSyncInt/storageSyncServices" \
+        --query "location" | \
+    tr -d '"')
+```
+
+```bash
+# Disable private endpoint network policies
+az network vnet subnet update \
+        --ids $subnet \
+        --disable-private-endpoint-network-policies \
+        --output none
+
+# Get virtual network location
+region=$(az network vnet show \
+        --ids $virtualNetwork \
+        --query "location" | \
+    tr -d '"')
+
+# Create a private endpoint
+privateEndpoint=$(az network private-endpoint create \
+        --resource-group $storageSyncServiceResourceGroupName \
+        --name "$storageSyncServiceName-PrivateEndpoint" \
+        --location $region \
+        --subnet $subnet \
+        --private-connection-resource-id $storageSyncService \
+        --group-ids "Afs" \
+        --connection-name "$storageSyncServiceName-Connection" \
+        --query "id" | \
+    tr -d '"')
+```
+
+```bash
+# Get the desired storage account suffix (afs.azure.net for public cloud).
+# This is done like this so this script will seamlessly work for non-public Azure.
+azureEnvironment=$(az cloud show \
+        --query "name" |
+    tr -d '"')
+
+storageSyncSuffix=""
+if [ $azureEnvironment == "AzureCloud" ]
+then
+    # storageSyncSuffix="afs.azure.net"
+    storageSyncSuffix="afsint.azure.net"
+elif [ $azureEnvironment == "AzureUSGovernment" ]
+then
+    storageSyncSuffix="afs.azure.us"
+else
+    echo "Unsupported Azure environment $azureEnvironment."
+fi
+
+# For public cloud, this will generate the following DNS suffix:
+# privatelinke.afs.azure.net.
+dnsZoneName="privatelink.$storageSyncSuffix"
+
+# Find a DNS zone matching desired name attached to this virtual network.
+possibleDnsZones=$(az network private-dns zone list \
+        --query "[?name == '$dnsZoneName'].id" \
+        --output tsv)
+
+for possibleDnsZone in $possibleDnsZones
+do
+    possibleResourceGroupName=$(az resource show \
+            --ids $possibleDnsZone \
+            --query "resourceGroup" | \
+        tr -d '"')
+    
+    link=$(az network private-dns link vnet list \
+            --resource-group $possibleResourceGroupName \
+            --zone-name $dnsZoneName \
+            --query "[?virtualNetwork.id == '$virtualNetwork'].id" \
+            --output tsv)
+    
+    if [ -z $link ]
+    then
+        echo "1" > /dev/null
+    else 
+        dnsZoneResourceGroup=$possibleResourceGroupName
+        dnsZone=$possibleDnsZone
+        break
+    fi  
+done
+
+if [ -z $dnsZone ]
+then
+    # No matching DNS zone attached to virtual network, so create a new one
+    dnsZone=$(az network private-dns zone create \
+            --resource-group $virtualNetworkResourceGroupName \
+            --name $dnsZoneName \
+            --query "id" | \
+        tr -d '"')
+    
+    az network private-dns link vnet create \
+            --resource-group $virtualNetworkResourceGroupName \
+            --zone-name $dnsZoneName \
+            --name "$virtualNetworkName-DnsLink" \
+            --virtual-network $virtualNetwork \
+            --registration-enabled false \
+            --output none
+    
+    dnsZoneResourceGroup=$virtualNetworkResourceGroupName
+fi
+```
+
+
+```bash
+privateEndpointNIC=$(az network private-endpoint show \
+        --ids $privateEndpoint \
+        --query "networkInterfaces[0].id" | \
+    tr -d '"')
+
+privateIpAddresses=$(az network nic show \
+        --ids $privateEndpointNIC \
+        --query "ipConfigurations[].privateIpAddress" \
+        --output tsv) 
+
+hostNames=$(az network nic show \
+        --ids $privateEndpointNIC \
+        --query "ipConfigurations[].privateLinkConnectionProperties.fqdns[]" \
+        --output tsv)
+
+i=0
+for privateIpAddress in $privateIpAddresses
+do
+    j=0
+    targetHostName=""
+    for hostName in $hostNames
+    do
+        if [ $i == $j ]
+        then
+            targetHostName=$hostName
+            break
+        fi
+
+        j=$(expr $j + 1)
+    done
+
+    endpointName=$(echo $targetHostName | \
+        cut -c1-$(expr $(expr index $targetHostName ".") - 1))
+
+    az network private-dns record-set a create \
+        --resource-group $dnsZoneResourceGroup \
+        --zone-name $dnsZoneName \
+        --name "$endpointName.$storageSyncServiceRegion" \
+        --output none
+    
+    az network private-dns record-set a add-record \
+        --resource-group $dnsZoneResourceGroup \
+        --zone-name $dnsZoneName \
+        --record-set-name "$endpointName.$storageSyncServiceRegion" \
+        --ipv4-address $privateIpAddress \
+        --output none
+
+    i=$(expr $i + 1)
+done
+```
 ---
 
 ## Restrict access to the public endpoints

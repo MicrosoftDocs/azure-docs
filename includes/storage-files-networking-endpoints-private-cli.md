@@ -58,7 +58,7 @@ region=$(az network vnet show \
 
 # Create a private endpoint
 privateEndpoint=$(az network private-endpoint create \
-        --resource-group $virtualNetworkResourceGroupName \
+        --resource-group $storageAccountResourceGroupName \
         --name "$storageAccountName-PrivateEndpoint" \
         --location $region \
         --subnet $subnet \
@@ -102,7 +102,7 @@ do
     
     if [ -z $link ]
     then
-        1 > /dev/null
+        echo "1" > /dev/null
     else 
         dnsZoneResourceGroup=$possibleResourceGroupName
         dnsZone=$possibleDnsZone
@@ -120,12 +120,14 @@ then
         tr -d '"')
     
     az network private-dns link vnet create \
-            --resource-group $resourceGroupName \
-            --zone-name $zoneName \
+            --resource-group $virtualNetworkResourceGroupName \
+            --zone-name $dnsZoneName \
             --name "$virtualNetworkName-DnsLink" \
             --virtual-network $virtualNetwork \
             --registration-enabled false \
             --output none
+    
+    dnsZoneResourceGroup=$virtualNetworkResourceGroupName
 fi
 ```
 
