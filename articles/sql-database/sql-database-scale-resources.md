@@ -64,7 +64,7 @@ Scaling resources is the easiest and the most effective way to improve performan
 
 ## Next steps
 
-- For information about improving database performance by changing database code, see [Find and apply performance recommendations](../azure-sql/database/database-advisor-find-apply-recommendations-portal.md).
+- For information about improving database performance by changing database code, see [Find and apply performance recommendations](../azure-sql/database/database-advisor-find-recommendations-portal.md).
 - For information about letting built-in database intelligence optimize your database, see [Automatic tuning](sql-database-automatic-tuning.md).
 - For information about Read Scale-out in the Azure SQL Database service, see how to [use read-only replicas to load balance read-only query workloads](sql-database-read-scale-out.md).
 - For information about a Database sharding, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
