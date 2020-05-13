@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
+ms.date: 05/12/2020
 ms.author: radeltch
 
 ---
@@ -136,6 +136,9 @@ The architecture would look like:
 >[!TIP]
 >Where possible, use [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) to reduce the complexity of the Azure Firewall rules.  
 
+>[!TIP]
+>If using third party firewall, make sure the firewall configuration allows outbound connectivity to Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`  
+
 ### Deployment steps
 
 1. The deployment steps assume that you already have Virtual network and subnet defined for your VMs.  
@@ -174,7 +177,7 @@ You could use proxy to allow Pacemaker calls to the Azure management API public 
 ### Important considerations
 
   - If there is already corporate proxy in place, you could route outbound calls to public end points through it. Outbound calls to public end points will go through the corporate control point.  
-  - Make sure the proxy configuration allows outbound connectivity to Azure management API: `https://management.azure.com`  
+  - Make sure the proxy configuration allows outbound connectivity to Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`  
   - Make sure there is a route from the VMs to the Proxy  
   - Proxy will handle only HTTP/HTTPS calls. If there is additional need to make outbound calls to public end point over different protocols (like RFC), alternative solution will be needed  
   - The Proxy solution must be highly available, to avoid instability in the Pacemaker cluster  
