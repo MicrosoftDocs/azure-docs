@@ -84,8 +84,8 @@
       #  href: concepts/video/data-channels.md
   - name: Chat
     items: 
-      #- name: About Chat
-      #  href: concepts/chat/chat.md
+      - name: About Chat
+        href: concepts/chat/chat.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
   #- name: How Voice, Video, and Messaging Relate
