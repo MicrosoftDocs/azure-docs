@@ -42,20 +42,21 @@ Then you can complete your order.
 
 4. Ready for Pick-up in progress. You need to click on **Schedule Pickup**.
 
-   ![Ordering a Data Box device for pickup](media\data-box-disk-portal-customer-managed-shipping\pendingUserPickup-disk-01b.png)
+   ![Ordering a Data Box device for pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
 5. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authorization code, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's datacenter.
-   ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\pendingUserPickup-disk-02b.png)
+   ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
 6. After you have made contact with ADBOPs, you will be able to view your **Authorization Code** for your device in the **Schedule pickup for Azure**.
-   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\selfManageDBDReadyToDisp-disk-01-b-Auth.png)
+
+   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Write this number down or print it.
 
 7. Ready for pickup in progress.
    Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the datacenter for pickup.
 
-   ![Picked up](media\data-box-disk-portal-customer-managed-shipping\selfManageDBDReadyToRece-disk-01.png)
+   ![Picked up](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01a.png)
 
    You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter. Ops will need to include this person's details so that it can be verified during pickup.
 
@@ -71,11 +72,11 @@ Then you can complete your order.
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop off.
 
 9. You should now be at **Ready to receive** success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. You will also need to confirm that the datacenter also has the authorization code available.
-   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\receiveAzureDatacenterAuthCode-disk-02b.png)
+   ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. Customer or point of contact has dropped off the device at the DC and their ID and authorization cod have been verified.
 
-    ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\selfManageDB-Received-disk-01.png)
+    ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 
 11. After drop-off, Microsoft will copy your data to their servers. The Azure portal should be at the **Copy in progress**.
 
