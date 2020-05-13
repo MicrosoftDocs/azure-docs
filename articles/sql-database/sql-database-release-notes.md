@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -72,6 +72,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail|May 2020|Has Workaround| |
 |[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Automatically mitigated| |
 |[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround| |
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround| |
@@ -97,6 +98,12 @@ The following features are enabled in Managed instance deployment model in H1 20
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.| |Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection| |Resolved|Oct 2019|
 |Contained databases not supported in managed instance| |Resolved|Aug 2019|
+
+### Restoring manual backup without CHECKSUM might fail
+
+In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored.
+
+**Workaround**: Take manual backups of databases on managed instance with CHECKSUM enabled.
 
 ### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
 
