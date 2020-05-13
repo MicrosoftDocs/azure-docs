@@ -11,15 +11,16 @@ ms.author: spelluru
 ---
 
 # Relay Hybrid connection as an event handler for Azure Event Grid events
-An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events and **Azure Relay** is one of them. Use Azure **Relay Hybrid Connections** to send events to applications that are within an enterprise network and don't have a publicly accessible endpoint.
+An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events and **Azure Relay** is one of them. 
+
+Use Azure **Relay Hybrid Connections** to send events to applications that are within an enterprise network and don't have a publicly accessible endpoint.
 
 ## Tutorials
+See the following tutorial for an example of using an Azure Relay hybrid connection as an event handler. 
 
 |Title  |Description  |
 |---------|---------|
 | [Tutorial: send events to hybrid connection](custom-event-to-hybrid-connection.md) | Sends a custom event to an existing hybrid connection for processing by a listener application. |
 
 ## Next steps
-
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

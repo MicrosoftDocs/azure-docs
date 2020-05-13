@@ -1,6 +1,6 @@
 ---
 title: Webhooks as event handlers for Azure Event Grid events
-description: Describes how you can use Webhooks (Azure Automation runbooks and logic apps) as event handlers for Azure Event Grid events.
+description: Describes how you can use Webhooks as event handlers for Azure Event Grid events. Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
 services: event-grid
 author: spelluru
 
@@ -14,11 +14,10 @@ ms.author: spelluru
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
 
 > [!NOTE]
-> Using Azure Automation runbooks or logic apps as event handlers is supported via webhooks. 
+> Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
 
 ## WebHooks
-
-Use webhooks for customizable endpoints that respond to events.
+See the following articles for an overview and examples of using webhooks as event handlers. 
 
 |Title  |Description  |
 |---------|---------|
@@ -29,7 +28,7 @@ Use webhooks for customizable endpoints that respond to events.
 
 
 ## Azure Automation
-Processing of events by using automated runbooks is supported via webhooks. You create a webhook for the runbook and then use the webhook handler as mentioned in the [WebHooks](#webhooks) section. 
+You can process events by using Azure Automation runbooks. Processing of events by using automated runbooks is supported via webhooks. You create a webhook for the runbook and then use the webhook handler. See the following tutorial for an example: 
 
 |Title  |Description  |
 |---------|---------|
@@ -37,19 +36,13 @@ Processing of events by using automated runbooks is supported via webhooks. You 
 
 
 ## Logic Apps
-Use **Logic Apps** to implement business processes to process Event Grid events. 
+Use **Logic Apps** to implement business processes to process Event Grid events. You don't create a webhook explicitly in this scenario. The webhook is created for you automatically when you configure the logic app to handle events from Event Grid. See the following tutorials for examples: 
 
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
-| [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
-| [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
+| [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
+| [Tutorial: Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
+| [Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
 ## Next steps
-For an introduction to Event Grid, see [About Event Grid](overview.md).
-
-
-## Next steps
-
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 
