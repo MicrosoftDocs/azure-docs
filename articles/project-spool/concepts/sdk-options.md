@@ -30,7 +30,7 @@ Data Plane Management|REST|Azure.Communication|    Phone numbers, Rooms, Users, 
 Chat |    REST |Azure.Communication.Chat|   Create and connect to system-to-person or person-to-person text interactions.
 SMS |     REST | Azure.Communication.SMS|    Send and receive SMS messages.
 Calling |     Proprietary transport |Azure.Communication.Calling | Create and connect to system-to-person or person-to-person voice, video, screen-sharing, and other real-time data communication.
-Network Traversal    | REST, RFC 5389 STUN, RFC 5766 TURN | Azure.Communication.Networking   Create STUN and TURN servers and access their traversal capabilities  
+Network Traversal    | REST, RFC 5389 STUN, RFC 5766 TURN | Azure.Communication.Networking | Create STUN and TURN servers and access their traversal capabilities  
 
 ACS provides SDKs for several languages, and where applicable publishes built libraries for those languages in an appropriate public repository.
 
