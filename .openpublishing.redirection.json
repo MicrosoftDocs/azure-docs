@@ -52321,6 +52321,66 @@
             "source_path": "articles/sql-database/sql-database-elastic-pool.md",
             "redirect_url": "/azure/azure-sql/database/elastic-pool-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-pool-resource-management.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-pool-resource-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-pool-scale.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-pool-scale",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-query-getting-started-vertical.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-query-getting-started-vertical",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-query-getting-started.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-query-getting-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-query-horizontal-partitioning.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-query-horizontal-partitioning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-query-overview.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-query-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-query-vertical-partitioning.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-query-vertical-partitioning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-add-a-shard.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-add-a-shard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-configure-deploy-split-and-merge.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-configure-deploy-split-and-merge",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-data-dependent-routing.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-data-dependent-routing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-faq.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-scale-get-started.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-scale-get-started",
+            "redirect_document_id": true
         }
     ]
 }
