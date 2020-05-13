@@ -33,8 +33,13 @@ You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) statement to store the query
 USE [mydbname];
 GO
 
+CREATE DATABASE SCOPED CREDENTIAL [SasTokenWrite]
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+GO
+
 CREATE EXTERNAL DATA SOURCE [MyDataSource] WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
+    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL [SasTokenWrite]
 );
 GO
 
