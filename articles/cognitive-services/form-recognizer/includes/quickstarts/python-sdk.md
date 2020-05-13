@@ -128,7 +128,6 @@ for idx, content in enumerate(contents):
                 cell.text,
                 format_bounding_box(cell.bounding_box)
             ))
-            # [END recognize_content]
     for line_idx, line in enumerate(content.lines):
         print("Line # {} has word count '{}' and text '{}' within bounding box '{}'".format(
             line_idx,
