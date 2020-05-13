@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Synapse Link for Cosmos DB
-description: How to connect a Cosmos DB to a Synapse workspace with Azure Synapse Link
+title: Connect to Azure Synapse Link for Azure Cosmos DB
+description: How to connect an Azure Cosmos DB to a Synapse workspace with Azure Synapse Link
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -17,9 +17,9 @@ This article describes how to access an Azure Cosmos DB database from Azure Syna
 
 ## Prerequisites
 
-Before you connect an Azure Cosmos DB account to your workspace, you'll need the following:
+Before you connect an Azure Cosmos DB database to your workspace, you'll need the following:
 
-* Existing Azure Cosmos DB account or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
+* Existing Azure Cosmos DB database or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
 * Existing Synapse workspace or create a new workspace following this [quickstart](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
 
 ## Enable Azure Cosmos DB analytical store
@@ -32,16 +32,16 @@ From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse St
 
 ## Connect an Azure Cosmos DB database to a Synapse workspace 
 
-Connecting an Azure Cosmos DB database is done as a linked service. A Cosmos DB linked service enables users to browse and explore data, read, and write from Synapse Spark or SQL into Azure Cosmos DB. 
+Connecting an Azure Cosmos DB database is done as a linked service. An Azure Cosmos DB linked service enables users to browse and explore data, read, and write from Synapse Spark or SQL into Azure Cosmos DB. 
 
 From the Data Object Explorer, you can directly connect to an Azure Cosmos DB database by doing the following steps:
 1. Select ***+*** icon near Data
 2. Select **Connect to external data**
-3. Select the API that you want to connect to: SQL API or MongoDB API
+3. Select the API that you want to connect to: SQL API or API for MongoDB
 4. Select ***Continue***
 5. Name the linked service. The name will be displayed in the Object Explorer and used by Synapse run-times to connect to the database and containers. We recommend using a friendly name.
-6. Select the **Cosmos DB account name** and **database name**
-7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However, you can set manually which region you want your users to access Cosmos DB analytical store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
+6. Select the **Azure Cosmos DB account name** and **database name**
+7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However, you can set manually which region you want your users to access Azure Cosmos DB Analytical Store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
 8. Select ***Create***
 
 Azure Cosmos DB databases are visible under the tab **Linked** in the Azure Cosmos DB section. With Azure Cosmos DB, you can differentiate an HTAP enabled container from an OLTP only container through the following icons:

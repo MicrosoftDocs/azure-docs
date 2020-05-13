@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Link for Azure Cosmos DB supported features
-description: Understand the current list of actions supported by Azure Synapse Link for Cosmos DB
+description: Understand the current list of actions supported by Azure Synapse Link for Azure Cosmos DB
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -26,7 +26,7 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link, i
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Run-time Support** |Support for read or write by Azure Synapse run-time| ✓ | [Contact Us](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
-| **Cosmos DB API support** |API support as a Synapse Link| SQL / Mongo DB | SQL / Mongo DB |
+| **Azure Cosmos DB API support** |API support as a Synapse Link| SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Objects such as a table that can be created, pointing directly to Azure Cosmos DB container| View, Table | View |
 | **Read**    |Read data from an Azure Cosmos DB container| OLTP / HTAP | HTAP  |
 | **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP | n/a |
