@@ -106,8 +106,8 @@ Once the deployment completes successfully, the Apache Spark pool will be availa
 
 Follow the steps in our quickstarts:
 
-- [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool.md)
-- [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool.md)
+- [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool-portal.md)
+- [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool-portal.md)
 
 ## Adding an additional storage account
 

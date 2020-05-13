@@ -69,4 +69,4 @@ The running jobs will continue to run and finish. The pending jobs will wait to 
 
 ## Next steps
 
-Quickstart to set up a new Spark pool [Create a Spark pool](..\quickstart-create-apache-spark-pool.md)
+Quickstart to set up a new Spark pool [Create a Spark pool](../quickstart-create-apache-spark-pool-portal.md)
