@@ -1,6 +1,6 @@
 ---
-title: Manage IoT Plug and Play Preview models in the repository| Microsoft Docs'
-description: How to manage device capability models in the repository using the Azure Certified for IoT portal, the Azure CLI, and Visual Studio code.
+title: Manage IoT Plug and Play Preview models in the repository| Microsoft Docs
+description: How to manage device capability models in the repository using the Azure IoT Model Repository portal.
 author: JimacoMS3
 manager: philmea
 ms.service: iot-pnp
@@ -12,7 +12,7 @@ ms.author: v-jambra
 
 # Manage models in the repository
 
-The IoT Plug and Play Preview model repository stores the interfaces that define and compose models. The repository makes the models and interfaces discoverable and consumable by solution developers.
+The Azure IoT Model Repository stores the interfaces that define and compose models. The model repository makes the models and interfaces discoverable and consumable by solution developers.
 
 You use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo) to manage models in the repository.  
 
@@ -24,7 +24,7 @@ Private interfaces are maintained by your company. Access to private interfaces 
 
 Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal. The [common interfaces](./concepts-common-interfaces.md) published by Microsoft are examples of public interfaces.
 
-For an overview of the model repository including RBAC, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
+For an overview of the model repository including RBAC, see [Understand the Azure IoT Model Repository](concepts-model-repository.md).
 
 ## Model repository sign-in
 

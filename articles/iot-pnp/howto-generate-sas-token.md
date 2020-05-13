@@ -1,6 +1,6 @@
 ---
-title: Generate security token to access IoT Plug and Play Preview repository | Microsoft Docs
-description: Generate a shared access signature token to use when you access an IoT Plug and Play Preview model repository programmatically.
+title: Generate security token to access Azure IoT Model Repository | Microsoft Docs
+description: Generate a shared access signature token to use when you access the Azure IoT Model Repository programmatically.
 author: Philmea
 ms.author: philmea
 ms.date: 12/27/2019
@@ -14,7 +14,7 @@ manager: philmea
 
 # Generate SAS token
 
-This how-to guide shows you how to programmatically generate a shared access signature (SAS) token to use with the IoT Plug and Play Preview model repository APIs.
+This how-to guide shows you how to programmatically generate a shared access signature (SAS) token to use with the Azure IoT Model Repository APIs.
 
 ## Python
 
