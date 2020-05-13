@@ -44,6 +44,13 @@ Or using CLI to import certificate:
 ```
 az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
+>[!IMPORTANT] 
+> Please ensure you grant Azure Spring Cloud to access your key vault before executing the above import certificate CLI. If you haven't, please execute the follow CLI to grant the access right.
+
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
+``` 
+
 When you have successfully imported your certificate, you'll see it on the list of **Private Key Certificates**.
 
 ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
