@@ -1,6 +1,6 @@
 ---
 title: Deploy ML model on Azure SQL Edge using ONNX 
-description: In part two of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll run the ONNX machine learning models on SQL Edge.
+description: In part three of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll run the ONNX machine learning models on SQL Edge.
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
