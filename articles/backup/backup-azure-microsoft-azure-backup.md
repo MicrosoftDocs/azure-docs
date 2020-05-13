@@ -36,6 +36,9 @@ Azure Backup Server inherits much of the workload backup functionality from Data
 
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
+* To protect on-premises workloads, the MABS server must be located on-premises.
+* To protect workloads running on Azure VMs, the MABS server must be located in Azure, running as an Azure VM.
+
 ### Using a server in Azure
 
 When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2016 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
