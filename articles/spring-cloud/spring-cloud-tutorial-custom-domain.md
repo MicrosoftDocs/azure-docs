@@ -40,9 +40,18 @@ To import certificate to Azure Spring Cloud:
 
 ![Import certificate](./media/custom-dns-tutorial/import-certificate.png)
 
+Or using CLI to import certificate:
+```
+az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+```
 When you have successfully imported your certificate, you'll see it on the list of **Private Key Certificates**.
 
 ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
+
+Or using CLI to show a list of certificates:
+```
+az spring-cloud certificate list
+```
 
 >[!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in this document under the heading **Add SSL Binding**.
@@ -75,9 +84,19 @@ Go to application page.
 
 ![Add custom domain](./media/custom-dns-tutorial/add-custom-domain.png)
 
+Or using CLI to add a custom domain:
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+```
+
 One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
+
+Or using CLI to show a list of custom domains:
+```
+az spring-cloud app custom-domain list --app <app name> 
+```
 
 >[!NOTE]
 > A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning.
@@ -89,6 +108,11 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 
 ![Add SSL binding](./media/custom-dns-tutorial/add-ssl-binding.png)
 
+Or using CLI to **Add ssl binding**:
+```
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+```
+
 After you successfully add SSL binding, the domain state will be secure: **Healthy**. 
 
 ![Add SSL binding](./media/custom-dns-tutorial/secured-domain-state.png)
@@ -99,6 +123,11 @@ By default, anyone can still access your app using HTTP, but you can redirect al
 In your app page, in the left navigation, select **Custom Domain**. Then, set **HTTPS Only**, to *True*.
 
 ![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
+
+Or using CLI to enforce HTTPS:
+```
+az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+```
 
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
