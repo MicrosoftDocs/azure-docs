@@ -21,7 +21,7 @@ This article describes the types of credentials you can use and how credential l
 
 ## Supported storage authorization types
 
-A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
+A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. Three authorization types are supported:
 
 - [User Identity](?tabs=user-identity)
 - [Shared access signature](?tabs=shared-access-signature)
@@ -41,6 +41,8 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 > When an SAS token is generated, it includes a question mark ('?') at the beginning of the token. To use the token in SQL on-demand, you must remove the question mark ('?') when creating a credential. For example:
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
+
+You need to create database-scoped or server-scoped credential to enable access using SAS token.
 
 ### [User Identity](#tab/user-identity)
 
@@ -94,7 +96,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ### [Anonymous access](#tab/public-access)
 
-You can access publicly available files placed on Azure storage accounts that allow anonymous access. 
+You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
 ---
 
@@ -124,29 +126,13 @@ To query a file located in Azure Storage, your SQL on-demand end point needs a c
 - Server-level CREDENTIAL is used for ad-hoc queries executed using `OPENROWSET` function. Credential name must match the storage URL.
 - DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to access storage.
 
-A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
-
-> [!NOTE]
-> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
-
-For all supported authorization types, credentials can point to an account or a container.
-
-Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`
-
-| External Data Source       | Prefix | Storage account path                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
-
-> [!NOTE]
-> There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through).
-
-Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
+To allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
 
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
+
+Database users who access external storage must have permission to use credentials.
 
 ### Grant permissions to use credential
 
@@ -164,11 +150,28 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 
 ## Server-scoped credential
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+
+> [!NOTE]
+> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
+
+Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`. Storage account paths are described in the following table:
+
+| External Data Source       | Prefix | Storage account path                                |
+| -------------------------- | ------ | --------------------------------------------------- |
+| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+
+> [!NOTE]
+> There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](?tabs=user-identity#force-azure-ad-pass-through).
+
+Server-scoped credentials enable access to Azure storage using the following authentication types:
 
 ### [Shared access signature](#tab/shared-access-signature)
 
-The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected 
+with SAS key on the Azure storage that matches URL in credential name.
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -181,7 +184,7 @@ GO
 
 ### [User Identity](#tab/user-identity)
 
-The following script creates a server-level credential that enables user to impersonate using his Azure AD identity.
+The following script creates a server-level credential that enables user to impersonate using Azure AD identity.
 
 ```sql
 CREATE CREDENTIAL [UserIdentity]
@@ -215,6 +218,7 @@ GO
 
 Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
+Database-scoped credentials enable access to Azure storage using the following authentication types:
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -254,11 +258,20 @@ Database scoped credential is not required to allow access to publicly available
 
 ---
 
+Database scoped credentials are used in external data sources to specify what authentication method will be used to access this storage:
+
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+          CREDENTIAL = <name of database scoped credential> 
+)
+```
+
 ## Examples
 
-**External table that access publicly available data source**
+**Accessing publicly available data source**
 
-Use the following script to create a table that access publicly available data source.
+Use the following script to create a table that accesses publicly available data source.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -268,12 +281,21 @@ WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/userdata.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
-**External table that access data source using credential**
+Database user can read the content of the files from the data source using external table or [OPENROWSET](develop-openrowset.md) function that references the data source:
 
-Modify the following script to create an external table that access Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
+```sql
+SELECT TOP 10 * FROM dbo.userPublicData;
+GO
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+GO
+```
+
+**Accessing data source using credential**
+
+Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 
 ```sql
 -- Create master key in databases with some password (one-off per database)
@@ -294,7 +316,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
 GO
 
 CREATE EXTERNAL DATA SOURCE mysample
-WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
@@ -304,6 +326,15 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
 WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
 
+```
+
+Database user can read the content of the files from the data source using [external table](develop-tables-external-tables.md) or [OPENROWSET](develop-openrowset.md)  function that references the data source:
+
+```sql
+SELECT TOP 10 * FROM dbo.userdata;
+GO
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+GO
 ```
 
 ## Next steps

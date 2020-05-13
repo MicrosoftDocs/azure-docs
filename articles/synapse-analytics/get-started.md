@@ -106,8 +106,8 @@ Once the deployment completes successfully, the Apache Spark pool will be availa
 
 Follow the steps in our quickstarts:
 
-- [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool.md)
-- [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool.md)
+- [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool-portal.md)
+- [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool-portal.md)
 
 ## Adding an additional storage account
 
@@ -378,14 +378,238 @@ This results in a chart like the following;
 
 Finally if you want to understand more details about what happened when you were running the Spark SQL and PySpark code select the monitoring view or the Spark UI view highlighted in red.
 
-<!--### Analyze with SQL script--->
-<!--- Josh 
+### Analyze with SQL script
+These same Parquet files can be analyzed using T-SQL with the Synapse SQL Serverless preview. Use the same SQL script that you created in the **Discover and Explore Data** section of this article. You can now extend that query to some more interesting like below.
 
-<!--### Analyze with Power BI--->
-<!--- Josh 
+```sql
+SELECT
+    DateId
+    ,PickupGeographyID
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [t]
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    DateId
+    ,PickupGeographyID
+ORDER BY
+    DateId
+```
 
-<!--## Serve via Power BI--->
-<!--- Josh 
+If you are a user of T-SQL, this syntax will be identical to what you are used to using. This query selects three aggregations from the **Trip** Parquet file and groups them by DateId and PickupGeographyId. After running the query, you should see and output like this;
+![Simple aggregation query](./media/get-started-synapse-analytics/sql-simple-agg-output.PNG)
+
+You can make the results easier to read, by replacing DateId and PickupGeographyId with the actual date and pickup city. This values can be obtained by joining to the **Date** and **Geography** files. 
+
+```sql
+SELECT
+    d.[Date]
+    ,g.City
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [t]
+        JOIN OPENROWSET(
+            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
+            FORMAT='PARQUET'
+        ) AS [d]
+            ON t.DateId = d.dateId
+        JOIN OPENROWSET(
+            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
+            FORMAT='PARQUET'
+        ) AS [g]
+            ON t.PickupGeographyID = g.GeographyId
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    d.[Date]
+    ,g.City
+ORDER BY
+    d.[Date]
+    ,g.City
+
+```
+After running this query, your output should look like this;
+![Aggregation query with joins](./media/get-started-synapse-analytics/sql-joins-agg-output.PNG)
+
+As you can see, multiple Parquet files can be joined almost as if they were actual SQL views. If you find the **OPENROWSET** syntax a little harder to user to use than regular SQL views, you can solve this by creating a virtual SQL database with SQL views.
+## Create a virtual SQL database.
+
+On the **Develop** hub click the **+** to add a new SQL **script**.
+![Create new SQL script](./media/get-started-synapse-analytics/sql-new-script.PNG)
+
+To create the database run the following script;
+
+```sql
+CREATE DATABASE NYCTaxiVirtual;
+```
+
+Now, if you flip to the data hub, you will see the newly created database.
+![See created database](./media/get-started-synapse-analytics/sql-data-see-db.PNG)
+
+## Create SQL views
+
+Create a new SQL script which uses the NYCTaxiVirtual database by right clicking on the database name and selecting **New SQL script**. 
+
+![Create new SQL script from database](./media/get-started-synapse-analytics/sql-new-script-from-db.PNG)
+
+Run SQL statements like the following for each view that you wish to create.
+
+```sql
+CREATE VIEW Trips AS
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+```sql
+CREATE VIEW dimDate AS
+SELECT
+     *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+```sql
+CREATE VIEW dimGeography AS
+SELECT
+     *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+After the views are created, you can expand the NYCTaxiVirtual database in the data hub to see the views and their schema.
+![View database schema](./media/get-started-synapse-analytics/sql-expand-db.PNG)
+
+## Query the SQL views
+
+Your original queries can now be updated to use the views instead of **OPENROWSET** to each file.
+
+```sql
+SELECT
+    d.[Date]
+    ,g.City
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    Trips [t]
+        JOIN dimDate [d]
+            ON t.DateId = d.dateId
+        JOIN dimGeography [g]
+            ON t.PickupGeographyID = g.GeographyId
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    d.[Date]
+    ,g.City
+ORDER BY
+    d.[Date]
+    ,g.City
+```
+
+Ensure that when you run the query, that you are running it using the NYCTaxiVirtual database.
+![Run updated query in correct database](./media/get-started-synapse-analytics/sql-run-query-in-db.PNG)
+
+### Visualize with Power BI
+ Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before going forward, follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
+On the **Develop** hub, expand your linked workspace under **Power BI** and click on **Power BI Datasets**.
+
+![View Power BI datasets](./media/get-started-synapse-analytics/pbi-view-datasets.PNG)
+
+Any existing datasets from you linked Power BI workspace will be displayed here. You can create new reports in Synapse Studio using these Power BI datasets. Let’s create a new Power BI dataset for the virtual database which we created in the last section. Click **+ New Power BI dataset**. 
+
+![New Power BI datasets](./media/get-started-synapse-analytics/pbi-new-dataset.PNG)
+
+While Power BI reports can be created in Synapse Studio, Power BI datasets must be created in the Power BI Desktop. Install the Power BI Desktop if you have not already and then click **Start** once the installation is complete.
+
+![Download Power BI Desktop](./media/get-started-synapse-analytics/pbi-download-desktop.PNG)
+
+Select **NYCTaxiVirtual** and click continue.
+
+![Select database to use](./media/get-started-synapse-analytics/pbi-select-database.PNG)
+
+Click **Download** to download the Power BI dataset file (pbids). Open the file when the download is complete to launch the Power BI Desktop. Once the Power BI Desktop has been launched, sign into Synapse by using your Azure Active Directory user account. Then click **Connect**.
+
+![Sign into Synapse](./media/get-started-synapse-analytics/pbi-sign-in.PNG)
+
+Select all the views to include in your Power BI dataset and click **Load**.
+
+![Select all views in the navigator](./media/get-started-synapse-analytics/pbi-navigator.PNG)
+
+Select **DirectQuery** and click **OK**.
+
+![Select DirectQuery](./media/get-started-synapse-analytics/pbi-directquery.PNG)
+
+Click on the **Model** view and create relationships between the three tables by dragging **DateID** from **Trips** and dropping it on **DateID** in **dimDate**. 
+
+![Create relationships](./media/get-started-synapse-analytics/pbi-create-relationship.PNG)
+
+Click **Assume referential integrity** and click **OK**.
+
+![Setup relationship](./media/get-started-synapse-analytics/pbi-ref-integrity.PNG)
+
+Create another relationship by dragging **PickupGepgraphyID** from **Trips** and dropping it on **GeographyID** on **dimGeography**. Select **Assume referential integrity** like in the last step. Your model diagram should now look something like below.
+
+![Relationship diagram](./media/get-started-synapse-analytics/pbi-diagram.PNG)
+
+Go back to the **Report** view and right-click on the **Trips** table and click on **New Measure**.
+
+![New measure](./media/get-started-synapse-analytics/pbi-new-measure.PNG)
+
+Enter the following DAX formula into the formula bar and press enter.
+```dax
+Average fair per trip = DIVIDE(
+                                SUM(Trips[TotalAmount])
+                                ,COUNTROWS(Trips)
+                            )
+```
+
+![Formula bar](./media/get-started-synapse-analytics/pbi-formula.PNG)
+
+Save the Power BI File and publish it to the Power BI workspace that you linked to Synapse.
+
+![Publish to workspace](./media/get-started-synapse-analytics/pbi-publish.PNG)
+
+After publishing, go to the **Settings** page for your Power BI dataset inside of your Power BI workspace.
+
+![Dataset settings](./media/get-started-synapse-analytics/pbi-find-dataset-settings.PNG)
+
+Under **Data source credentials** hit **Edit credentials**.
+
+![Edit credentials](./media/get-started-synapse-analytics/pbi-edit-credentials.PNG)
+
+Change the **Authentication method** to **OAuth2** and click **Sign in**. Sign in with your Azure Active Directory Account.
+
+![Sign into Synapse](./media/get-started-synapse-analytics/pbi-web-sign-in.PNG)
+
+After publishing, switch back to Synapse Studio and click **Close and refresh**.
+
+![Close and refresh](./media/get-started-synapse-analytics/pbi-close-refresh.PNG)
+
+Click **New Power BI report** next to the name of the Power BI dataset that you just published. Now you can build out your Power BI report direction in Synapse Studio. Don’t forget to save the report when you are finished creating it.
+
+![Save report](./media/get-started-synapse-analytics/pbi-save-report.PNG)
 
 <!--## Serve via SQL pool--->
 <!--- Matthew

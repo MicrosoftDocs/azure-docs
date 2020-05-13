@@ -25,7 +25,13 @@
     - name: Create Apache Spark notebook using web tools
       href: quickstart-apache-spark-notebook.md
     - name: Create Apache Spark pool using Azure portal
-      href: quickstart-create-apache-spark-pool.md
+      href: quickstart-create-apache-spark-pool-portal.md
+    - name: Create Apache Spark pool using Synapse Studio
+      href: quickstart-create-apache-spark-pool-studio.md
+    - name: Create SQL pool using Azure portal
+      href: quickstart-create-sql-pool-portal.md
+    - name: Create SQL pool using Synapse Studio
+      href: quickstart-create-sql-pool-studio.md
     - name: Create SQL pool
       href: quickstart-create-sql-pool.md
   - name: Load data with SQL pools

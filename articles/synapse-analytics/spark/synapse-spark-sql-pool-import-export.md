@@ -12,19 +12,21 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pool (preview) and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
+The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pool (preview) and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it doesn't work with SQL on-Demand.
 
 ## Design
 
 Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
-The Spark pools to SQL Analytics Connector are a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
+The Spark pool to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
 ## Authentication in Azure Synapse Analytics
 
-Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server. For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server. 
+
+For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
 
 ## Constraints
 
@@ -114,7 +116,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 #### Read API
 
-Currently the connector does not support token-based auth to a SQL pool that is outside of the workspace. You need to use SQL Auth.
+Currently the connector doesn't support token-based auth to a SQL pool that is outside of the workspace. You'll need to use SQL Auth.
 
 ```Scala
 val df = spark.read.
@@ -141,13 +143,13 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Assume you have a dataframe "pyspark_df" that you want to write into the DW.
 
-Create a temp table using the dataframe in PySpark
+Create a temp table using the dataframe in PySpark:
 
 ```Python
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
-Run a Scala cell in the PySpark notebook using magics
+Run a Scala cell in the PySpark notebook using magics:
 
 ```Scala
 %%spark
@@ -160,7 +162,7 @@ Similarly, in the read scenario, read the data using Scala and write it into a t
 
 ## Allowing other users to use the DW Connector in your workspace
 
-To alter missing permissions for others, you need to be the Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace. Ensure the user has access to the workspace and permissions to run notebooks.
+You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
 
 ### Option 1
 
@@ -170,21 +172,22 @@ To alter missing permissions for others, you need to be the Storage Blob Data Ow
 
 - Specify the following ACLs on the folder structure:
 
-| Folder | / | synapse | workspaces  | "workspacename" | sparkpools | "sparkpoolname"  | sparkpoolinstances  |
+| Folder | / | synapse | workspaces  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
-| Access Permissions |--X |--X |--X |--X |--X |--X |-WX |
-| Default Permissions |---|---|---|---|---|---|---|
+| Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
+| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
 
-- You should be able to ACL all folders from "synapse" and downward from Azure portal. In order to ACL the root "/" folder, follow the instructions below.
+- You should be able to ACL all folders from "synapse" and downward from Azure portal. To ACL the root "/" folder, please follow the instructions below.
 
 - Connect to the storage account connected with the workspace from Storage Explorer using AAD
 - Select your Account and give the ADLS Gen2 URL and default file system for the workspace
 - Once you can see the storage account listed, right-click on the listing workspace and select "Manage Access"
 - Add the User to the / folder with "Execute" Access Permission. Select "Ok"
 
-**Make sure you don't select "Default" if you don't intend to**
+> [!IMPORTANT]
+> Make sure you don't select "Default" if you don't intend to.
 
 ## Next steps
 
-- [Create a SQL pool](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
-- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Create a SQL pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Create a new Apache Spark pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 
