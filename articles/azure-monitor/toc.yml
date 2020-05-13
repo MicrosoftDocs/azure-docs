@@ -71,8 +71,6 @@
   items:
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: Azure management
-    href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
   - name: Data sources
@@ -835,6 +833,11 @@
           href: app/separate-resources.md
         - name: How do I ... in Application Insights?
           href: app/how-do-i.md
+        - name: Manage Application Insights
+          href: app/powershell.md
+        - name: Manage Azure Cloud Services
+          href: app/powershell-azure-diagnostics.md
+
     - name: Export
       items:
       - name: Continuous export
@@ -1125,18 +1128,6 @@
     - name: REST API
       displayname: metrics, analyze
       href: platform/rest-api-walkthrough.md
-  - name: Automate 
-    items:   
-    - name: PowerShell
-      items:  
-      - name: Create alerts
-        href: app/powershell-alerts.md  
-      - name: Application Insights
-        items:
-        - name: Manage Application Insights
-          href: app/powershell.md
-        - name: Manage Azure Cloud Services
-          href: app/powershell-azure-diagnostics.md
   - name: System Center integration
     items:
     - name: Connect Operations Manager
