@@ -47,15 +47,15 @@ JavaScript |    Browser client applications and Node |    Npm
 
 Current availablity guidance and timelines for individual SDK packages are collated below. During the private preview these timelines will change signficiantly as we incorporate customer feedback and balance engineering priorities.
 
-Area| Code Available on GitHub? | .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
--|-|-|-|-|-|-|-|-|
-ARM  | Yes |July |    July    |July |   TBD  |N/A|July|Azure CLI - July
-Common  |Yes    |July    |July  |September| July| July| July |N/A
-Data Plane Management  |Yes | July |   September |  September| TBD|    TBD|    July| CLI|N/A
-Chat |  Yes    |September | TBD  |September |September    |September    |July    |N/A
-SMS |  Yes    |September | TBD  |September |September    |September    |July    |N/A
-Calling |  Yes    |September | TBD  |September |September    |September    |July    |- -
-Network Traversal |    Yes| TBD |TBD|TBD|TBD|TBD|TBD|TBD|
+Area|  .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
+-|-|-|-|-|-|-|-|
+ARM  |July |    July    |July |   TBD  |N/A|July|Azure CLI - July
+Common     |July    |July  |September| July| July| July |N/A
+Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|N/A
+Chat   |September | TBD  |September |September    |September    |July    |N/A
+SMS     |September | TBD  |September |September    |September    |July    |N/A
+Calling   |September | TBD  |September |September    |July    |July    |iOS Objective C in July
+Network Traversal | TBD |TBD|TBD|TBD|TBD|TBD|TBD|
 
 ## Details of .NET Support
 
