@@ -50,27 +50,19 @@ const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-rec
 const fs = require("fs");
 ```
 
-Also load the environment variables.
+Also load the environment variable file.
 
 ```javascript
 // Load the .env file if it exists
 require("dotenv").config();
 ```
 
-In the `main` function, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable.
-
-```javascript
-// You will need to set these environment variables or edit the following values
-const endpoint = process.env["FORM_RECOGNIZER_ENDPOINT"] || "<cognitive services endpoint>";
-const apiKey = process.env["FORM_RECOGNIZER_API_KEY"] || "<api key>";
-```
-
 ### Install the client library
 
-Install the `ms-rest-azure` and `ai-form-recognizer` NPM packages:
+Install the `ai-form-recognizer` and `dotenv` NPM packages:
 
 ```console
-npm install @azure/ai-form-recognizer ms-rest-azure
+npm install @azure/ai-form-recognizer dotenv
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -85,7 +77,7 @@ Your app's `package.json` file will be updated with the dependencies.
 These code snippets show you how to do the following tasks with the Form Recognizer client library for JavaScript:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form contents](#recognize-form-contents)
+* [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
@@ -93,10 +85,18 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-In the `Main` function, authenticate a client object using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
+In the `main` function, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable.
 
 ```javascript
-const client = new FormRecognizerClient("<endpoint>", new AzureKeyCredential("<API key>"));
+// You will need to set these environment variables or edit the following values
+const endpoint = process.env["FORM_RECOGNIZER_ENDPOINT"] || "<cognitive services endpoint>";
+const apiKey = process.env["FORM_RECOGNIZER_KEY"] || "<api key>";
+```
+
+Then authenticate a client object using the subscription variables you defined. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
+
+```javascript
+const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 
 const trainingClient = client.getFormTrainingClient();
 ```
@@ -121,19 +121,19 @@ const receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-rec
 
 
 // Call Form Recognizer scenarios:
-await GetContents(recognizerClient, formUrl);
+await GetContent(recognizerClient, formUrl);
 await AnalyzeReceipt(recognizerClient, receiptUrl);
 modelId = await TrainModel(trainingClient, trainingDataUrl);
 await AnalyzePdfForm(recognizerClient, modelId, formUrl);
 await ManageModels(trainingClient, trainingDataUrl);
 ```
 
-## Recognize form contents
+## Recognize form content
 
-You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. To recognize the contents of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
+You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. To recognize the content of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
 
 ```javascript
-async function Task<Guid> GetContents( recognizerClient, invoiceUri)
+async function GetContent( recognizerClient, invoiceUri)
 {
     const poller = await client.beginRecognizeContentFromUrl(invoiceUri);
     await poller.pollUntilDone();
@@ -165,7 +165,7 @@ This section demonstrates how to recognize and extract common fields from US rec
 To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following code processes a receipt at the given URI and prints the major fields and values to the console.
 
 ```javascript
-async function AnalyzeReceipt( recognizerClient, receiptUri)
+async function AnalyzeReceipt( client, receiptUri)
 {
     const poller = await client.beginRecognizeReceiptsFromUrl(url, {
         includeTextDetails: true,
@@ -303,14 +303,14 @@ This section demonstrates how to extract key/value information and other content
 You'll use the **beginRecognizeFormsFromUrl** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
 
 ```javascript
-// Analyze PDF form data
+// Analyze PDF form document at an accessible URL
 async function AnalyzePdfForm(client, modelId, formUrl)
 {    
     const poller = await client.beginRecognizeFormsFromUrl(modelId, formUrl, {
         onProgress: (state) => {
             console.log(`status: ${state.status}`);
         }
-        });
+    });
     await poller.pollUntilDone();
     const response = poller.getResult();
 ```
@@ -395,6 +395,7 @@ The following code block uses the model ID saved from the previous section and u
 You can also delete a model from your account by referencing its ID. This code deletes the model used in the previous section.
 
 ```javascript
+    await client.deleteModel(firstModel.modelId);
     try {
         const deleted = await trainingClient.deleteModel(firstModel.modelId);
         console.log(deleted);

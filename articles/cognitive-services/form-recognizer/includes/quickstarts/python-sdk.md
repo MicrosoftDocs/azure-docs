@@ -65,7 +65,7 @@ tbd object model
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form contents](#recognize-form-contents)
+* [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
@@ -98,14 +98,14 @@ formUrl = "<SAS-URL-of-a-form-in-blob-storage>"
 receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png"
 ```
 
-## Recognize form contents
+## Recognize form content
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the contents of a file at a given URL, use the **begin_recognize_content** method.
+To recognize the content of a file at a given URL, use the **begin_recognize_content** method.
 
 ```Python
-poller = form_recognizer_client.begin_recognize_content_from_url(url=formUrl)
+poller = form_recognizer_client.begin_recognize_content_from_url(formUrl)
 contents = poller.result()
 ```
 
@@ -128,7 +128,6 @@ for idx, content in enumerate(contents):
                 cell.text,
                 format_bounding_box(cell.bounding_box)
             ))
-            # [END recognize_content]
     for line_idx, line in enumerate(content.lines):
         print("Line # {} has word count '{}' and text '{}' within bounding box '{}'".format(
             line_idx,
@@ -139,16 +138,25 @@ for idx, content in enumerate(contents):
     print("----------------------------------------")
 ```
 
+The above code uses a helper function `format_bounding_box` to simplify the coordinates of a bounding box. Define it separately:
+
+```python
+def format_bounding_box(bounding_box):
+    if not bounding_box:
+        return "N/A"
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+```
+
 ## Recognize receipts
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the **begin_recognize_receipts_from_url** method. 
 
 ```python
-poller = form_recognizer_client.begin_recognize_receipts_from_url(url=receiptUrl)
+poller = form_recognizer_client.begin_recognize_receipts_from_url(receiptUrl)
 receipts = poller.result()
 ```
 
-The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following block of code prints basic receipt information to the console.
+The returned value is a collection of **USReceipt** objects: one for each page in the submitted document. The following block of code prints basic receipt information to the console.
 
 ```python
 for idx, receipt in enumerate(receipts):
@@ -178,7 +186,6 @@ Finally, the last block of code prints the rest of the major receipt details.
     print("Tip: {} has confidence: {}".format(receipt.tip.value, receipt.tip.confidence))
     print("Total: {} has confidence: {}".format(receipt.total.value, receipt.total.confidence))
     print("--------------------------------------")
-# [END recognize_receipts_from_url]
 ```
 
 
@@ -193,10 +200,9 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
 
-The following code uses the **begin_train_model** function to train a model on a given set of documents.
+The following code uses the training client with the **begin_train_model** function to train a model on a given set of documents.
 
 ```python
-# Default for begin_train_model is `use_labels=False`
 poller = form_training_client.begin_train_model(self.trainingDataUrl)
 model = poller.result()
 ```
@@ -218,7 +224,6 @@ for submodel in model.models:
         print("...The model found field '{}' to have label '{}'".format(
             name, field.label
         ))
-# [END training]
 ```
 
 ### Train a model with labels
@@ -291,7 +296,6 @@ for idx, form in enumerate(forms):
                 field.confidence
             ))
     print("-----------------------------------")
-# [END recognize_custom_forms]
 ```
 
 ## Manage your custom models
@@ -308,7 +312,6 @@ account_properties = form_training_client.get_account_properties()
 print("Our account has {} custom models, and we can have at most {} custom models".format(
     account_properties.custom_model_count, account_properties.custom_model_limit
 ))
-# [END get_account_properties]
 ```
 
 ### List the models currently stored in the resource account
@@ -317,7 +320,6 @@ The following code block lists the current models in your account and prints the
 
 ```python
 # Next, we get a paged list of all of our custom models
-# [START list_model_infos]
 custom_models = form_training_client.list_model_infos()
 
 print("We have models with the following ids:")
@@ -327,7 +329,6 @@ first_model = next(custom_models)
 print(first_model.model_id)
 for model in custom_models:
     print(model.model_id)
-# [END list_model_infos]
 ```
 
 ### Get a specific model using the model's ID
@@ -336,13 +337,11 @@ The following code block uses the model ID saved from the previous section and u
 
 ```python
 # Now we'll get the first custom model in the paged list
-# [START get_custom_model]
 custom_model = form_training_client.get_custom_model(model_id=first_model.model_id)
 print("Model ID: {}".format(custom_model.model_id))
 print("Status: {}".format(custom_model.status))
 print("Created on: {}".format(custom_model.created_on))
 print("Last modified: {}".format(custom_model.last_modified))
-# [END get_custom_model]
 ```
 
 ### Delete a model from the resource account
@@ -350,7 +349,6 @@ print("Last modified: {}".format(custom_model.last_modified))
 You can also delete a model from your account by referencing its ID. This code deletes the model used in the previous section.
 
 ```python
-# [START delete_model]
 form_training_client.delete_model(model_id=custom_model.model_id)
 
 # Confirm deletion:
@@ -358,7 +356,6 @@ try:
     form_training_client.get_custom_model(model_id=custom_model.model_id)
 except ResourceNotFoundError:
     print("Successfully deleted model with id {}".format(custom_model.model_id))
-# [END delete_model]
 }
 ```
 

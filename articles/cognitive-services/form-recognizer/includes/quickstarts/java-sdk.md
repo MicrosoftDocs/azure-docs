@@ -58,6 +58,10 @@ Navigate to the new folder and create a file called *formrecognizer-quickstart.j
 ```java
 import Azure.AI.FormRecognizer;
 import Azure.AI.FormRecognizer.Models;
+
+import java.util.concurrent.atomic.AtomicReference;
+import com.azure.core.http.rest.PagedIterable;
+import com.azure.core.util.Context;
 ```
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable. You'll define the methods later.
@@ -66,8 +70,8 @@ In the application's `main` method, create variables for your resource's Azure e
 ```java
 public static void Main(string[] args)
 {
-    String key = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
+    String key = System.getenv("FORM_RECOGNIZER_KEY");
+    String endpoint = System.getenv("FORM_RECOGNIZER_ENDPOINT");
 }
 ```
 
@@ -92,7 +96,7 @@ dependencies {
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form contents](#recognize-form-contents)
+* [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
@@ -108,10 +112,7 @@ FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
     .endpoint("{endpoint}")
     .buildClient();
     
-FormTrainingClient trainingClient = new FormRecognizerClientBuilder()
-    .credential(new AzureKeyCredential("{key}"))
-    .endpoint("{endpoint}")
-    .buildClient();
+FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
 ```
 
 ### Call client-specific methods
@@ -133,14 +134,14 @@ You'll also need to add references to the URLs for your training and testing dat
     + "/contoso-allinone.jpg";
 
     // Call Form Recognizer scenarios:
-    System.out.println("Get form contents...");
-    GetContents(recognizerClient, formUrl);
+    System.out.println("Get form content...");
+    GetContent(recognizerClient, formUrl);
 
     System.out.println("Analyze receipt...");
     AnalyzeReceipt(recognizerClient, receiptUrl);
 
     System.out.println("Train Model with training data...");
-    modelId = await TrainModel(trainingClient, trainingDataUrl);
+    modelId = TrainModel(trainingClient, trainingDataUrl);
 
     System.out.println("Analyze PDF form...");
     AnalyzePdfForm(recognizerClient, modelId, formUrl);
@@ -150,27 +151,27 @@ You'll also need to add references to the URLs for your training and testing dat
 ```
 
 
-## Recognize form contents
+## Recognize form content
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the contents of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
+To recognize the content of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
 
 ```java
-private static void GetContents(
-    FormRecognizerClient recognizerClient, string invoiceUri)
+private static void GetContent(
+    FormRecognizerClient recognizerClient, String invoiceUri)
 {
-    String analyzeFilePath = "{invoiceUri}";
-    SyncPoller<OperationResult, IterableStream<FormPage>> recognizeLayoutPoller =
+    String analyzeFilePath = invoiceUri;
+    SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller =
         recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
     
-    IterableStream<FormPage> layoutPageResults = recognizeLayoutPoller.getFinalResult();
+    IterableStream<FormPage> contentResult = recognizeContentPoller.getFinalResult();
 ```
 
 The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```java
-    layoutPageResults.forEach(formPage -> {
+    contentResult.forEach(formPage -> {
         // Table information
         System.out.println("----Recognizing content ----");
         System.out.printf("Has width: %d and height: %d, measured with unit: %s.%n", formPage.getWidth(),
@@ -208,15 +209,30 @@ The next block of code iterates through the receipts and prints their details to
 ```java
     receiptPageResults.forEach(recognizedReceipt -> {
         USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
-        System.out.printf("Page Number: %s%n", usReceipt.getMerchantName().getPageNumber());
-        System.out.printf("Merchant Name %s%n", usReceipt.getMerchantName().getName());
-        System.out.printf("Merchant Name Value: %s%n", usReceipt.getMerchantName().getFieldValue());
-        System.out.printf("Merchant Address %s%n", usReceipt.getMerchantAddress().getName());
-        System.out.printf("Merchant Address Value: %s%n", usReceipt.getMerchantAddress().getFieldValue());
-        System.out.printf("Merchant Phone Number %s%n", usReceipt.getMerchantPhoneNumber().getName());
-        System.out.printf("Merchant Phone Number Value: %s%n", usReceipt.getMerchantPhoneNumber().getFieldValue());
-        System.out.printf("Total: %s%n", usReceipt.getTotal().getName());
-        System.out.printf("Total Value: %s%n", usReceipt.getTotal().getFieldValue());
+        System.out.printf("Page Number: %d%n", usReceipt.getMerchantName().getPageNumber());
+        System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getFieldValue(), usReceipt.getMerchantName().getConfidence());
+        System.out.printf("Merchant Address: %s, confidence: %.2f%n", usReceipt.getMerchantAddress().getName(), usReceipt.getMerchantAddress().getConfidence());
+        System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
+        System.out.printf("Total: %s confidence: %.2f%n", usReceipt.getTotal().getName(), usReceipt.getTotal().getConfidence());
+```
+The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
+
+```java
+        System.out.printf("Receipt Items: %n");
+        usReceipt.getReceiptItems().forEach(receiptItem -> {
+            if (receiptItem.getName() != null) {
+                System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
+            }
+            if (receiptItem.getQuantity() != null) {
+                System.out.printf("Quantity: %s, confidence: %.2f%n", receiptItem.getQuantity().getFieldValue(), receiptItem.getQuantity().getConfidence());
+            }
+            if (receiptItem.getPrice() != null) {
+                System.out.printf("Price: %s, confidence: %.2f%n", receiptItem.getPrice().getFieldValue(), receiptItem.getPrice().getConfidence());
+            }
+            if (receiptItem.getTotalPrice() != null) {
+                System.out.printf("Total Price: %s, confidence: %.2f%n", receiptItem.getTotalPrice().getFieldValue(), receiptItem.getTotalPrice().getConfidence());
+            }
+        });
     });
 }
 ```
@@ -235,7 +251,7 @@ Train custom models to recognize all fields and values found in your custom form
 The following method trains a model on a given set of documents and prints the model's status to the console. 
 
 ```java
-private static Guid TrainModel(
+private static String TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
@@ -273,11 +289,11 @@ Finally, this method returns the unique ID of the model.
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **StartTrainingAsync** method with the *uselabels* parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **beginTraining** method with the *uselabels* parameter set to `true`.
 
 ```java
-private static Guid TrainModelWithLabelsAsync(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
+private static String TrainModelWithLabels(
+    FormRecognizerClient trainingClient, String trainingDataUrl)
 {
     // Train custom model
     String trainingSetSource = trainingDataUrl;
@@ -321,12 +337,11 @@ You'll use the **beginRecognizeCustomFormsFromUrl** method. The returned value i
 ```java
 // Analyze PDF form data
 private static void AnalyzePdfForm(
-    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
+    FormRecognizerClient formClient, String modelId, String pdfFormUrl)
 {    
-    String analyzeFilePath = "{file_source_url}";
-    String modelId = "{custom_trained_model_id}";
+    String modelId = modelId;
     SyncPoller<OperationResult, IterableStream<RecognizedForm>> recognizeFormPoller =
-        client.beginRecognizeCustomFormsFromUrl(analyzeFilePath, modelId);
+        client.beginRecognizeCustomFormsFromUrl(pdfFormUrl, modelId);
 
     IterableStream<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 ```
@@ -353,7 +368,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ```java
 private static void ManageModels(
-    FormRecognizerClient trainingClient, string trainingFileUrl)
+    FormRecognizerClient trainingClient, String trainingFileUrl)
 {
 ```
 
@@ -362,6 +377,8 @@ private static void ManageModels(
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
 ```java
+    AtomicReference<String> modelId = new AtomicReference<>();
+
     // First, we see how many custom models we have, and what our limit is
     AccountProperties accountProperties = client.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
@@ -372,7 +389,7 @@ The following code block checks how many models you have saved in your Form Reco
 
 The following code block lists the current models in your account and prints their details to the console.
 
-```java
+```java    
     // Next, we get a paged list of all of our custom models
     PagedIterable<CustomFormModelInfo> customModels = client.getModelInfos();
     System.out.println("We have following models in the account:");

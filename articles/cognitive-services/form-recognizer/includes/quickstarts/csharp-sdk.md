@@ -95,7 +95,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form contents](#recognize-form-contents)
+* [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
@@ -112,7 +112,7 @@ static async Task RunFormRecognizerClient()
     string endpoint = Environment.GetEnvironmentVariable(
         "FORM_RECOGNIZER_ENDPOINT");
     string apiKey = Environment.GetEnvironmentVariable(
-        "FORM_RECOGNIZER_SUBSCRIPTION_KEY");
+        "FORM_RECOGNIZER_KEY");
     var credential = new AzureKeyCredential(apiKey);
     
     var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
@@ -138,8 +138,8 @@ You'll also need to add references to the URLs for your training and testing dat
     + "/contoso-allinone.jpg";
 
     // Call Form Recognizer scenarios:
-    Console.WriteLine("Get form contents...");
-    await GetContents(recognizerClient, formUrl);
+    Console.WriteLine("Get form content...");
+    await GetContent(recognizerClient, formUrl);
 
     Console.WriteLine("Analyze receipt...");
     await AnalyzeReceipt(recognizerClient, receiptUrl);
@@ -155,14 +155,14 @@ You'll also need to add references to the URLs for your training and testing dat
 }
 ```
 
-## Recognize form contents
+## Recognize form content
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the contents of a file at a given URI, use the **StartRecognizeContentFromUri** method.
+To recognize the content of a file at a given URI, use the **StartRecognizeContentFromUri** method.
 
 ```csharp
-private static async Task<Guid> GetContents(
+private static async Task<Guid> GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
     Response<IReadOnlyList<FormPage>> formPages = await recognizerClient

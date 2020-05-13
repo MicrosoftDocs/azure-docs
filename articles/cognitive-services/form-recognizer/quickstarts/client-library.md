@@ -18,7 +18,7 @@ Get started with the Form Recognizer client library. Form Recognizer is a Cognit
 
 Use the Form Recognizer client library to:
 
-* [Recognize form contents](#recognize-form-contents)
+* [Recognize form content](#recognize-form-content)
 * [Recognize receipts](#recognize-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
