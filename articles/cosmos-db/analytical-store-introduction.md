@@ -47,7 +47,7 @@ Analytical store, which is a column store, is better suited for such queries bec
 
 The following image shows transactional row store vs. analytical column store in Azure Cosmos DB:
 
-![Transactional row store Vs analytical column store in Azure Cosmos DB](./media/analytical-store-introduction/transcational-analytical-data-stores.png)
+![Transactional row store Vs analytical column store in Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
 
 ### Decoupled performance for analytical workloads
 
