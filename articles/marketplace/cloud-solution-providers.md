@@ -1,6 +1,6 @@
 ---
-title: Cloud Solution Providers - Microsoft commercial marketplace
-description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) partner channel in the commercial marketplace.
+title: Cloud Solution Provider - Microsoft commercial marketplace
+description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) program partner channel in the commercial marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

@@ -11,7 +11,7 @@ ms.date: 11/02/2019
 
 # Microsoft commercial marketplace roadmap
 
-This articles outlines recent releases and what's next for Microsoft commercial marketplace for publishers, sellers, and customers. It captures some of the significant features we have committed to and a rough time frame for when you can expect to see them, and will be refreshed monthly. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
+This article outlines recent releases and what's next for Microsoft commercial marketplace for publishers, sellers, and customers. It captures some of the features we have committed to and gives a rough time frame for when you can expect to see them. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
 
@@ -22,7 +22,7 @@ We welcome your suggestions! Join the conversation in the [Microsoft Partner Com
 
 Once a capability is live, it will be removed from the roadmap. Functionality that has been added to the marketplace can be found in the following documentation.
 
-* [Marketplace + CSP Update Blog](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
+* [Marketplace and Cloud Solution Provider (CSP) Update Blog](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
 * [Publish offerings into CSP channel (ISV)](./cloud-solution-providers.md)
 * [Resell Marketplace offerings (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
 * [Standard Contract for the Microsoft commercial marketplace](./standard-contract.md)

@@ -24,7 +24,7 @@ SaaS applications are available in Microsoft AppSource and Azure Marketplace.  B
 | SaaS Apps Offer | Business Requirements | Technical Requirements |  
 | --- | --- | --- |  
 | **Contact Us** | Yes | No |  
-| **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
+| **Power BI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
 ## SaaS List
