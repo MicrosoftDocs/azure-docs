@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 
 ---
 # Azure Monitor customer-managed key 
@@ -14,53 +14,37 @@ This article provides background information and steps to configure customer-Man
 
 We recommend you review [Limitations and constraints](#limitations-and-constraints) below before configuration.
 
-## Disclaimers
-
-- The CMK capability is delivered on a dedicated Log Analytics cluster, which is a physical cluster and a data store that is suitable for customers sending 1TB per day or more
-
-- The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated Log Analytics cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
 
 ## Customer-managed key (CMK) overview
 
-[Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-is a common privacy and security requirement in organizations. You can
-let Azure completely manage Encryption at Rest, while you have various
-options to closely manage encryption or encryption keys.
+Encryption at Rest(https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
-Azure Monitor storage ensures that all data encrypted at
-rest using Azure-managed keys while stored in Azure Storage. Azure Monitor also
-provides an option for data encryption using your own key that is stored
-in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview),
-which is accessed using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM
-protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-The Azure Monitor use of encryption is identical to the way 
-[Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)
-operates.
+Azure Monitor ensures that all data is encrypted at rest using Azure-managed keys. Azure Monitor also provides an option for data encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by Storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
 
-The frequency that Azure Monitor Storage accesses Key Vault for wrap and
-unwrap operations is between 6 to 60 seconds. Azure Monitor Storage always respects changes in key permissions within an hour.
+Azure Monitor use of encryption is identical to the way [Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) operates.
 
-Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to a [key revocation](#cmk-kek-revocation) and is inaccessible. We are working to have the SSD data encrypted with CMK in the second half of 2020.
+The CMK capability is delivered on dedicated Log Analytics clusters. The [Log Analytics clusters pricing model](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
+
+Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/customer-managed-keys#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
+
+The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds. Azure Monitor Storage always respects changes in key permissions within an hour.
 
 ## How CMK works in Azure Monitor
 
 Azure Monitor leverages system-assigned managed identity to grant access
 to your Azure Key Vault. System-assigned managed identity can only be
-associated with a single Azure resource. The identity of the dedicated Log Analytics cluster is supported at the cluster level and this
-dictates that the CMK capability is delivered on dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics
+associated with a single Azure resource. The identity of the Log Analytics cluster is supported at the cluster level and this
+dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics
 *Cluster* resource performs as an intermediate identity connection
-between your Key Vault and your Log Analytics workspaces. This concept
-maintains the identity between the dedicated Log Analytics cluster and the Log Analytics *Cluster*
-resource, while the data of associated workspaces is protected
-with your Key Vault key. The dedicated Log Analytics cluster storage uses the
+between your Key Vault and your Log Analytics workspaces, which maintains the identity between the Log Analytics cluster and your Key Vault. The Log Analytics cluster storage uses the
 managed identity that\'s associated with the *Cluster* resource to
 authenticate and access your Azure Key Vault via Azure Active Directory.
 
 ![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Customer's Key Vault.
-2.    Customer's Log Analytics *Cluster* resource having managed identity with permissions to Key Vault – The identity is supported at the dedicated Log Analytics cluster level.
-3.    Dedicated Log Analytics cluster.
-4.    Customer's workspaces associated to *Cluster* resource for CMK encryption.
+1.    Key Vault
+2.    Log Analytics *Cluster* resource having managed identity with permissions to Key Vault -- The identity is propagated to the underlay dedicated Log Analytics cluster storage
+3.    Dedicated Log Analytics cluster
+4.    Workspaces associated to *Cluster* resource for CMK encryption
 
 ## Encryption keys operation
 
@@ -72,7 +56,7 @@ There are 3 types of keys involved in Storage data encryption:
 
 The following rules apply:
 
-- The dedicated Log Analytics cluster storage accounts generate unique encryption key for every Storage account, which is known as the AEK.
+- The Log Analytics cluster storage accounts generate unique encryption key for every Storage account, which is known as the AEK.
 
 - The AEK is used to derive DEKs, which are the keys that are used to
     encrypt each block of data written to disk.
@@ -88,7 +72,7 @@ The following rules apply:
 
 ## CMK provisioning procedure
 
-1. Subscription whitelisting -- To assure that we have the required capacity in your region for dedicated Log Analytics cluster, we need to verify and whitelist your subscription beforehand
+1. Subscription whitelisting -- To assure that we have the required capacity in your region to provision a Log Analytics cluster, we need to verify and whitelist your subscription beforehand
 2. Creating Azure Key Vault and storing key
 3. Creating a *Cluster* resource
 5. Granting permissions to your Key Vault
@@ -227,7 +211,7 @@ The identity is assigned to the *Cluster* resource at creation time.
 
 200 OK and header.
 
-While it takes the provisioning of the dedicated Log Analytics cluster a while to complete, you can check the provisioning state in two ways:
+While it takes the provisioning of the Log Analytics cluster a while to complete, you can check the provisioning state in two ways:
 
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
@@ -372,7 +356,7 @@ You need to have 'write' permissions to both your workspace and *Cluster* resour
 - In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 > [!IMPORTANT]
-> This step should be performed only after the completion of the dedicated Log Analytics cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
+> This step should be performed only after the completion of the Log Analytics cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
 **Associate a workspace**
 
@@ -437,7 +421,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## CMK (KEK) revocation
 
-You can revoke access to data by disabling your key, or deleting the *Cluster* resource access policy in your Key Vault. The dedicated Log Analytics cluster storage will always respect changes in key permissions within an hour or sooner, and Storage will become unavailable. Any data ingested to workspaces associated with your *Cluster* resource gets dropped and queries will fail. Previously ingested data remains inaccessible in storage as while your *Cluster* resource and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. 
+You can revoke access to data by disabling your key, or deleting the *Cluster* resource access policy in your Key Vault. The Log Analytics cluster storage will always respect changes in key permissions within an hour or sooner and Storage will become unavailable. Any new data ingested to workspaces associated with your *Cluster* resource gets dropped and won't be recoverable, data is inaccessible and queries to these workspaces fail. Previously ingested data remains in storage as long as your *Cluster* resource and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. 
 
 Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible as well.
 
@@ -445,19 +429,19 @@ Storage periodically polls your Key Vault to attempt to unwrap the encryption ke
 
 ## CMK (KEK) rotation
 
-Rotation of CMK requires explicit update to the *Cluster* resource with the new key version in Azure Key Vault. Follow the instructions in "Update *Cluster* resource with Key identifier details" step. If you don't update the new key identifier details in the *Cluster* resource, the dedicated Log Analytics cluster storage will keep using your previous key.
+Rotation of CMK requires explicit update to the *Cluster* resource with the new key version in Azure Key Vault. Follow the instructions in "Update *Cluster* resource with Key identifier details" step. If you don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the *Cluster* resource, you will get into [key revocation](#cmk-kek-revocation) state.
 
 All your data remains accessible after the key rotation operation including data ingested before the rotation and after it, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
 ## Limitations and constraints
 
-- The CMK is supported on dedicated Log Analytics cluster suitable for customers sending 1TB per day or more.
+- The CMK is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
 
 - The max number of *Cluster* resources per region and subscription is 2
 
-- You can associate a workspace to your *Cluster* resource and then de-associate it when CMK for its data is no longer needed or any other reason. The number of workspace association that you can perform on a workspace in a period of 30 days is limited to 2
+- You can associate a workspace to your *Cluster* resource and then disassociate it when CMK for its data is no longer needed or any other reason. The number of workspace association that you can perform on a workspace in a period of 30 days is limited to 2
 
-- Workspace association to *Cluster* resource should be carried ONLY after you have verified that the dedicated Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
+- Workspace association to *Cluster* resource should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
 
 - CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
@@ -564,9 +548,9 @@ All your data remains accessible after the key rotation operation including data
   }
   ``` 
 
-- **De-associate workspace**
+- **Disassociate workspace**
 
-  You need 'write' permissions on the workspace and *Cluster* resource to perform this operation. You can de-associate a workspace from your *Cluster* resource at any time. New ingested data after the de-association operation is stored in Log Analytics storage and encrypted with Microsoft key. You can query you data that was ingested to your workspace before and after the de-association seamlessly as long as the *Cluster* resource is provisioned and configured with valid Key Vault key.
+  You need 'write' permissions on the workspace and *Cluster* resource to perform this operation. You can disassociate a workspace from your *Cluster* resource at any time. New ingested data after the de-association operation is stored in Log Analytics storage and encrypted with Microsoft key. You can query you data that was ingested to your workspace before and after the de-association seamlessly as long as the *Cluster* resource is provisioned and configured with valid Key Vault key.
 
   This Resource Manager request is asynchronous operation.
 
@@ -581,12 +565,12 @@ All your data remains accessible after the key rotation operation including data
   Ingested data after the de-association operation is stored in Log Analytics storage, this can take 90 minutes to complete. You can check the workspace de-association state in two ways:
 
   1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-  2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, de-associated workspace will won't have the *clusterResourceId* under *features*.
+  2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, disassociated workspace won't have the *clusterResourceId* under *features*.
 
 
 - **Delete your *Cluster* resource**
 
-  You need 'write' permissions on the *Cluster* resource to perform this operation. A soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, the *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets de-associated from the *Cluster* resource on delete operation. New ingested data is stored in Log Analytics storage and encrypted with Microsoft key. The workspaces de-associated operation is asynchronous and can take up to 90 minutes to complete.
+  You need 'write' permissions on the *Cluster* resource to perform this operation. A soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, the *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets disassociated from the *Cluster* resource on delete operation. New ingested data is stored in Log Analytics storage and encrypted with Microsoft key. The workspaces disassociated operation is asynchronous and can take up to 90 minutes to complete.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -599,7 +583,7 @@ All your data remains accessible after the key rotation operation including data
 
 - **Recover your *Cluster* resource and your data** 
   
-  A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got de-associated from the *Cluster* resource on deletion, you need to re-associate your workspaces after the recovery for CMK encryption. The recovery operation is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
+  A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got disassociated from the *Cluster* resource with *Cluster* resource deletion, you need to re-associate your workspaces after the recovery for CMK encryption. The recovery operation is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
 
 ## Troubleshooting
 - Behavior with Key Vault availability
