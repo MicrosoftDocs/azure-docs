@@ -1,7 +1,7 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint sample controls
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
@@ -37,9 +37,6 @@ definitions that audit insecure connections to storage accounts and Redis Cache.
 - Secure transfer to storage accounts should be enabled
 - Show audit results from Windows web servers that are not using secure communication protocols
 - Deploy prerequisites to audit Windows web servers that are not using secure communication protocols
-- Latest TLS version should be used in your API App
-- Latest TLS version should be used in your Web App
-- Latest TLS version should be used in your Function App
 
 ## 2.3 Data at rest protection
 
@@ -172,8 +169,8 @@ help you take corrective actions to ensure access Azure resources is restricted 
 
 - \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- \[Preview\]: Audit Linux VMs that have accounts without passwords
-- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that have accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
 - Virtual machines should be migrated to new Azure Resource Manager resources
 - Audit VMs that do not use managed disks
@@ -188,12 +185,10 @@ also assigns a policy that enables adaptive application controls on virtual mach
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
-- The NSGs rules for web applications on IaaS should be hardened
 - Access through Internet facing endpoint should be restricted
-- Network Security Group Rules for Internet facing virtual machines should be hardened
+- Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
 - Endpoint protection solution should be installed on virtual machine scale sets
 - Just-In-Time network access control should be applied on virtual machines
-- Audit unrestricted network access to storage accounts
 - Remote debugging should be turned off for Function App
 - Remote debugging should be turned off for Web Application
 - Remote debugging should be turned off for API App
@@ -246,7 +241,7 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 ## 13 Audit Information for Users
 
@@ -254,7 +249,7 @@ This blueprint helps you ensure system events are logged by assigning [Azure Pol
 definitions that audit log settings on Azure resources. An assigned policy also audits if virtual
 machines aren't sending logs to a specified log analytics workspace.
 
-- Auditing should be enabled on advanced data security settings on SQL Server
+- Advanced data security should be enabled on your SQL servers
 - Audit diagnostic setting
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs

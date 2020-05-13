@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 02/10/2020
 ---
 
-# Receive and send B2B messages by using Azure Logic Apps and Enterprise Integration Pack
+# Receive and confirm  B2B AS2 messages by using Azure Logic Apps and Enterprise Integration Pack
 
 When you have an integration account that defines trading partners and agreements, you can create an automated business to business (B2B) workflow that exchanges messages between trading partners by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps works with connectors that support AS2, X12, EDIFACT, and RosettaNet industry-standard protocols. You can also combine these connectors with other [connectors available in Logic Apps](../connectors/apis-list.md), for example, Salesforce and Office 365 Outlook.
 

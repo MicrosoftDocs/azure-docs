@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/21/2020
+ms.date: 05/04/2020
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -39,7 +39,7 @@ The following are the questions that you must answer when planning to install HD
 
 * Do you want to restrict/redirect inbound or outbound traffic to HDInsight?
 
-    HDInsight must have unrestricted communication with specific IP addresses in the Azure data center. There are also several ports that must be allowed through firewalls for client communication. For more information, see the [controlling network traffic](#networktraffic) section.
+    HDInsight must have unrestricted communication with specific IP addresses in the Azure data center. There are also several ports that must be allowed through firewalls for client communication. For more information, see [Control network traffic](./control-network-traffic.md).
 
 ## <a id="existingvnet"></a>Add HDInsight to an existing virtual network
 
@@ -196,61 +196,9 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-## <a id="networktraffic"></a> Controlling network traffic
-
-### Techniques for controlling inbound and outbound traffic to HDInsight clusters
-
-Network traffic in an Azure Virtual Networks can be controlled using the following methods:
-
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
-
-* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
-
-As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
-
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
-
-### HDInsight with network security groups
-
-If you plan on using **network security groups** to control network traffic, perform the following actions before installing HDInsight:
-
-1. Identify the Azure region that you plan to use for HDInsight.
-
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
-
-3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
-
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
-
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
-
-### Controlling outbound traffic from HDInsight clusters
-
-For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
-
-#### Forced tunneling to on-premises
-
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network or Firewall. Forced tunneling of all data transfer back to on-premise is _not_ recommended due to large volumes of data transfer and potential performance impact.
-
-Customers who are interested to setup forced tunneling, should use [custom metastores](./hdinsight-use-external-metadata-stores.md) and setup the approperiate connectivity from the cluster subnet or on-premise network to these custom metastores.
-
-To see an example of the UDR setup with Azure Firewall, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
-
-## <a id="hdinsight-ip"></a> Required IP addresses
-
-If you use network security groups or user-defined routes to control traffic, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
-
-## <a id="hdinsight-ports"></a> Required ports
-
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
-
-For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
-
-For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
-
 ## Load balancing
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/types.md#skus), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/skus.md), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
 
 ## Next steps
 
@@ -259,3 +207,4 @@ When you create an HDInsight cluster, a load balancer is created as well. The ty
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 * For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* For more information on controlling traffic, see [Control network traffic](./control-network-traffic.md).

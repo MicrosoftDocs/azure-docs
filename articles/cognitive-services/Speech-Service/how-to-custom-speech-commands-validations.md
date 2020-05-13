@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add validations to Custom Command parameters (Preview)'
+title: 'How To: Add validations to Custom Command parameters'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
@@ -14,36 +14,47 @@ ms.author: donkim
 
 # How To: Add validations to Custom Command parameters (Preview)
 
-In this article, you'll learn how to add validations to parameters and prompt for correction.
+In this article, you will add validations to parameters and prompts for correction.
 
 ## Prerequisites
 
 You must have completed the steps in the following articles:
 
-- [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class="checklist"]
+> * [Quickstart: Create a Custom Command](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Command with Parameters](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## Create a SetTemperature Command
 
-To demonstrate validations, let's create a new Command allowing the user to set the temperature.
+To demonstrate validations, let's create a new Command allowing users to set temperature.
 
 1. Open your previously created Custom Commands application in [Speech Studio](https://speech.microsoft.com/)
-1. Create a new Command **SetTemperature**
-1. Add a parameter for the target temperature
-1. Add a validation for the temperature parameter
-   > [!div class="mx-imgBorder"]
-   > ![Add a range validation](media/custom-speech-commands/validations-add-temperature.png)
+1. Create a new Command `SetTemperature`
+1. Add a parameter for the target temperature.
 
-   | Setting           | Suggested value                                          | Description                                                                                      |
-   | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Name              | Temperature                                              | A descriptive name for your Command parameter                                                    |
-   | Required          | true                                                     | Checkbox indicating whether a value for this parameter is required before completing the Command |
-   | Response template | "- What temperature would you like?"                     | A prompt to ask for the value of this parameter when it isn't known                              |
-   | Type              | Number                                                   | The type of parameter, such as Number, String, or Date Time                                      |
-   | Validation        | Min Value: 60, Max Value: 80                             | For Number parameters, the allowed range of values for the parameter                             |
-   | Response template | "- Sorry, I can only set between 60 and 80 degrees"      | Prompt to ask for an updated value if the validation fails                                       |
+   | Parameter Configuration           | Suggested value    |Description                 |                                    
+   | ----------------- | ----------------------------------| -------------|
+   | Name              | Temperature                       | A descriptive name for parameter                                |
+   | Required          | checked                           | Checkbox indicating whether a value for this parameter is required before completing the Command |
+   | Response for required parameter     | Simple editor -> What temperature would you like?  | A prompt to ask for the value of this parameter when it isn't known |
+   | Type              | Number                            | Type of parameter, such as Number, String, Date Time or Geography   |
 
-1. Add some sample sentences
+1. Add a validation for the temperature parameter.
+
+    - In the **Parameters** configuration page for `Temperature` parameter, select `Add a validation` from the Validations section.
+    - Fill in the values in the **New validation** pop-up as follows, and select **Create**.
+
+  
+       | Parameter Configuration         | Suggested value                                          | Description                                                                        |
+       | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+       | Min Value        | 60               | For Number parameters, the minimum value this parameter can assume |
+       | Max Value        | 80               | For Number parameters, the maximum value this parameter can assume |
+       | Failure response - Simple editor| First Variation - Sorry, I can only set between 60 and 80 degrees      | Prompt to ask for a new value if the validation fails                                       |
+
+       > [!div class="mx-imgBorder"]
+       > ![Add a range validation](media/custom-speech-commands/validations-add-temperature.png)
+
+1. Add some example sentences
 
    ```
    set the temperature to {Temperature} degrees
@@ -54,27 +65,28 @@ To demonstrate validations, let's create a new Command allowing the user to set 
 
 1. Add a Completion rule to confirm result
 
-   | Setting    | Suggested value                                           | Description                                        |
-   | ---------- | --------------------------------------------------------- | -------------------------------------------------- |
-   | Rule Name  | Confirmation Message                                      | A name describing the purpose of the rule          |
-   | Conditions | Required Parameter - Temperature                          | Conditions that determine when the rule can run    |
-   | Actions    | SpeechResponse - "- Ok, setting to {Temperature} degrees" | The action to take when the rule condition is true |
+   | Setting    | Suggested value                                           |Description                                     |
+   | ---------- | --------------------------------------------------------- |-----|
+   | Name       | Confirmation Message                                      |A name describing the purpose of the rule |
+   | Conditions | Required Parameters - `Temperature`                       |Conditions that determine when the rule can run    |   
+   | Actions    | Send speech response - `Ok, setting temperature to {Temperature} degrees` | The action to take when the rule condition is true |
 
 > [!TIP]
 > This example uses a speech response to confirm the result. For examples on completing the Command with a client action see:
-> [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How To: Fulfill Commands on the client with the Speech SDK](./how-to-custom-speech-commands-fulfill-sdk.md)
+
 
 ## Try it out
+1. Select `Train` icon present on top of the right pane.
 
-Select the Test panel and try a few interactions.
+1. Once, training completes, select `Test` and try a few interactions.
 
-- Input: Set the temperature to 72 degrees
-- Output: "Ok, setting to 72 degrees"
-
-- Input: Set the temperature to 45 degrees
-- Output: "Sorry, I can only set between 60 and 80 degrees"
-- Input: make it 72 degrees instead
-- Output: "Ok, setting to 72 degrees"
+    - Input: Set the temperature to 72 degrees
+    - Output: Ok, setting temperature to 72 degrees
+    - Input: Set the temperature to 45 degrees
+    - Output: Sorry, I can only set between 60 and 80 degrees
+    - Input: make it 72 degrees instead
+    - Output: Ok, setting temperature to 72 degrees
 
 ## Next steps
 

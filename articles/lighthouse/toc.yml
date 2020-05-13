@@ -36,6 +36,9 @@
   - name: Azure Lighthouse in enterprise scenarios
     displayName: corporation, IT, consolidate
     href: ./concepts/enterprise.md
+  - name: Azure Lighthouse and Azure managed applications 
+    displayName: managed apps, ama
+    href: ./concepts/managed-applications.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure delegated resource management

@@ -1,6 +1,6 @@
 ---
-title: List deny assignments for Azure resources with the REST API
-description: Learn how to list deny assignments for users, groups, and applications using role-based access control (RBAC) for Azure resources and the REST API.
+title: List Azure deny assignments using the REST API - Azure RBAC
+description: Learn how to list Azure deny assignments for users, groups, and applications using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -18,18 +18,18 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# List deny assignments for Azure resources using the REST API
+# List Azure deny assignments using the REST API
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the REST API.
+[Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the REST API.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
 To get information about a deny assignment, you must have:
 
-- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md).
 
 ## List a single deny assignment
 
@@ -87,7 +87,7 @@ To get information about a deny assignment, you must have:
 
 ## List deny assignments at the root scope (/)
 
-1. Elevate your access as described in [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md).
+1. Elevate your access as described in [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md).
 
 1. Use the following request:
 
@@ -107,6 +107,6 @@ To get information about a deny assignment, you must have:
 
 ## Next steps
 
-- [Understand deny assignments for Azure resources](deny-assignments.md)
-- [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md)
+- [Understand Azure deny assignments](deny-assignments.md)
+- [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/)

@@ -25,8 +25,6 @@
     items:
     - name: Performance considerations for Azure NetApp Files
       href: azure-netapp-files-performance-considerations.md    
-    - name: Performance benchmark test results for Azure NetApp Files
-      href: azure-netapp-files-performance-benchmarks.md
     - name: Performance benchmark test recommendations for Azure NetApp Files
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux

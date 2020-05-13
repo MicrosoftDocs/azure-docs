@@ -24,6 +24,11 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Create a Python runbook
       href: learn/automation-tutorial-runbook-textual-python2.md
+- name: Samples
+  items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -230,7 +235,7 @@
           href: updatemgmt-mecmintegration.md
         - name: Configure Windows Update client
           href: automation-configure-windows-update.md
-        - name: Using dynamic groups
+        - name: Use dynamic groups
           href: automation-update-management-groups.md
         - name: Query Update Management logs
           href: automation-update-management-query-logs.md

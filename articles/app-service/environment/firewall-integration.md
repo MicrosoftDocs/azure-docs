@@ -170,6 +170,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |azglobal-red.azglobal.metrics.nsatc.net:443 |
 |antares-black.antares.metrics.nsatc.net:443 |
 |antares-red.antares.metrics.nsatc.net:443 |
+|prod.microsoftmetrics.com:443 |
 |maupdateaccount.blob.core.windows.net:443 |
 |clientconfig.passport.net:443 |
 |packages.microsoft.com:443 |
@@ -186,6 +187,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |admin.core.windows.net:443 |
 |prod.warmpath.msftcloudes.com:443 |
 |prod.warmpath.msftcloudes.com:80 |
+|gcs.prod.monitoring.core.windows.net:80|
+|gcs.prod.monitoring.core.windows.net:443|
 |azureprofileruploads.blob.core.windows.net:443 |
 |azureprofileruploads2.blob.core.windows.net:443 |
 |azureprofileruploads3.blob.core.windows.net:443 |

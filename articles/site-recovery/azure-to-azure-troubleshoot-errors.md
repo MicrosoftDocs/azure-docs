@@ -168,8 +168,6 @@ Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate l
 
 For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
-### Issue 1: Failed to register Azure VM with Site Recovery (151195)
-
 #### Possible causes
 
 - A connection can't be established to Site Recovery endpoints because of a Domain Name System (DNS) resolution failure.

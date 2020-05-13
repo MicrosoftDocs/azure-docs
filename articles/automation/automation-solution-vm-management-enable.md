@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Automation Start/Stop VMs during off hours solution
-description: This article describes how to enable the Azure Automation Start/Stop VM solution for your Azure virtual machines.
+title: Enable Azure Automation Start/Stop VMs during off-hours solution
+description: This article describes how to enable the Azure Automation Start/Stop VM during off-hours solution for your Azure virtual machines.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020

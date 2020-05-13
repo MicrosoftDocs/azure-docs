@@ -4,7 +4,7 @@ description: Learn how to use Multi-Factored Authentication with SSMS for SQL Da
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom:
+ms.custom: has-adal-ref
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
