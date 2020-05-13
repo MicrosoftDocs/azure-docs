@@ -111,11 +111,11 @@ Starting with versions released after August 2018, we are making the following c
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) and 7 (x64)  
-* Oracle Linux 6 and 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) and 7 (x64)
-* Debian GNU/Linux 8 and 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64)
+* CentOS Linux 6 (x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
+* Debian GNU/Linux 8 and 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
 
 >[!NOTE]
