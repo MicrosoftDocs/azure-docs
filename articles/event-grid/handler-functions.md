@@ -18,7 +18,7 @@ Use **Azure Functions** in a serverless architecture to respond to events from E
 
 For more information, see [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) for an overview of using the Event Grid trigger in functions.
 
-## Examples
+## Tutorials
 
 |Title  |Description  |
 |---------|---------|

@@ -15,7 +15,7 @@ An event handler is the place where the event is sent. The handler takes some fu
 
 Use **Queue Storage** to receive events that need to be pulled. You might use Queue storage when you have a long running process that takes too long to respond. By sending events to Queue storage, the app can pull and process events on its own schedule.
 
-## Examples
+## Tutorials
 See the following tutorial for an example of using Queue storage as an event handler. 
 
 |Title  |Description  |

@@ -15,7 +15,7 @@ An event handler is the place where the event is sent. The handler takes an acti
 
 Use **Event Hubs** when your solution gets events from Event Grid faster than it can process the events. Once the events are in an event hub, your application can process events from the event hub at its own schedule. You can scale your event processing to handle the incoming events.
 
-## Examples
+## Tutorials
 See the following examples: 
 
 |Title  |Description  |
