@@ -39,7 +39,7 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 
 2.    In **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
 
-    ![setup new connection](./media/connect-workbench/2-setup-new-connection.png)
+![setup new connection](./media/connect-workbench/2-setup-new-connection.png)
 
 | **Setting** | **Suggested value** | **Field description** |
 |---|---|---|
