@@ -56,6 +56,12 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Use self-managed shipping
+        items:
+          - name: Azure Data Box
+            href: data-box-portal-customer-managed-shipping.md
+          - name: Azure Data Box Disk
+            href: data-box-disk-portal-customer-managed-shipping.md
       - name: Enable customer managed key
         href: data-box-customer-managed-encryption-key-portal.md 
       - name: Move data to a blob tier
