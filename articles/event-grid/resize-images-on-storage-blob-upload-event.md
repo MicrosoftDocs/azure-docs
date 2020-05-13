@@ -187,13 +187,11 @@ The function project code is deployed directly from the public sample repository
 
 An event subscription indicates which provider-generated events you want sent to a specific endpoint. In this case, the endpoint is exposed by your function. Use the following steps to create an event subscription that sends notifications to your function in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), select **All Services** on the left menu, and then select **Function Apps**.
+1. In the [Azure portal](https://portal.azure.com), at the top of the page search for and select `Function App` and choose the function app that you just created.
 
-    ![Navigate to Function Apps in the Azure portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+2. Select **Functions**, choose the **Thumbnail** function, and then select **Add Event Grid subscription**.
 
-2. Expand your function app, choose the **Thumbnail** function, and then select **Add Event Grid subscription**.
-
-    ![Navigate to Add Event Grid subscription in the Azure portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navigate to Add Event Grid subscription in the Azure portal" :::
 
 3. Use the event subscription settings as specified in the table.
     
