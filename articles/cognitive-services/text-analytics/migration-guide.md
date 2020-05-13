@@ -12,9 +12,9 @@ ms.date: 03/31/2020
 ms.author: aahi
 ---
 
-# Migrate to version 3 of the Text Analytics API
+# Migrate to version 3.x of the Text Analytics API
 
-If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3. Version 3 introduces new features such as [model versioning](concepts/model-versioning.md) and expanded [entity recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3.x. Version 3.0 is generally available and introduces new features such as [model versioning](concepts/model-versioning.md) and expanded [Named Entity Recognition (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). A preview version of v3.1 (v3.1-preview.x) is also available, which adds features such as [opinion mining](how-tos/text-analytics-how-to-sentiment-analysis.md#named-entity-recognition-versions-and-features).
 
 Looking for example code that uses v2.1 of the API? There are several samples available on GitHub for the following v2.1 SDKs: [C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics), [Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/cognitiveservices/textanalytics.go), [JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), [Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), and [Ruby](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
 
@@ -22,7 +22,7 @@ Looking for example code that uses v2.1 of the API? There are several samples av
 
 ## Feature changes 
 
-Sentiment Analysis version 2.1 returns sentiment scores between 0 and 1, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative") with their associated confidence scores. 
+Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative") with their associated confidence scores. 
 
 ## Steps to migrate
 
@@ -38,7 +38,10 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ## Feature changes
 
-In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3.0 of the API provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests.
+> [!IMPORTANT]
+> NER v3 is currently limited to the English language. A list of languages supported in v2.1 is provided later in the article.
+
+In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
 ## Steps to migrate
 
@@ -59,9 +62,9 @@ You will also need to update your application to use the [entity categories](nam
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-### NER v2 entity categories
+## NER v2.1 entity categories
 
-NER v2 is limited to the entity categories below.
+NER v2.1 is limited to the entity categories below.
 
 > [!NOTE] 
 > The full set of supported NER entities listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages. Only the "Person", "Location" and "Organization" entities are returned for the other languages.
@@ -128,9 +131,9 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ---
 
-### Version 2 language support
+## Version 2.1 language support
 
-Language support has changed between v2 and v3. If you don't see your language supported in [version 3](language-support.md), consider using v2 for your application.   
+Language support has changed between v2 and v3. If you don't see your language supported in [version 3](language-support.md), consider using v2.1 for your application.   
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
