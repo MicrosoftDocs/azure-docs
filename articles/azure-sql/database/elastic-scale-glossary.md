@@ -80,7 +80,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-glossary/glossary.png
-[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
-[3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
+[1]: ./media/elastic-scale-glossary/glossary.png
+[2]: ./media/elastic-scale-glossary/mappings.png
+[3]: ./media/elastic-scale-glossary/h_versus_vert.png
 

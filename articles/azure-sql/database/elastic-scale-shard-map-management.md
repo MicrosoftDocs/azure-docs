@@ -264,6 +264,6 @@ For scenarios that require data movement, however, the split-merge tool is neede
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
-[2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
-[3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
+[1]: ./media/elastic-scale-shard-map-management/listmapping.png
+[2]: ./media/elastic-scale-shard-map-management/rangemapping.png
+[3]: ./media/elastic-scale-shard-map-management/multipleonsingledb.png

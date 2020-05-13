@@ -154,4 +154,4 @@ The following limitations currently apply to elastic database transactions in SQ
 For questions, please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
+[1]: ./media/elastic-transactions-overview/distributed-transactions.png

@@ -274,6 +274,6 @@ You do not need to provision a new metadata database for split-merge to upgrade.
 
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
-[2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
-[3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
+[1]:./media/elastic-scale-overview-split-and-merge/split-merge-overview.png
+[2]:./media/elastic-scale-overview-split-and-merge/diagnostics.png
+[3]:./media/elastic-scale-overview-split-and-merge/diagnostics-config.png

@@ -88,8 +88,8 @@ To see the specifics of the elastic pool, see [Price and performance considerati
 
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-scale-introduction/tools.png
-[2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
-[3]:./media/sql-database-elastic-scale-introduction/overview.png
-[4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
+[1]:./media/elastic-scale-introduction/tools.png
+[2]:./media/elastic-scale-introduction/h_versus_vert.png
+[3]:./media/elastic-scale-introduction/overview.png
+[4]:./media/elastic-scale-introduction/single_v_multi_tenant.png
 
