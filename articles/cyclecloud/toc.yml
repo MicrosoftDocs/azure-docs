@@ -169,6 +169,8 @@
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
+  - name: CycleServer Configuration
+    href: cycleserver-configuration-reference.md
   - name: Schedulers
     items:
     - name: PBS Professional OSS

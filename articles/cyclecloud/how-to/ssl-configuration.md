@@ -91,6 +91,7 @@ webServerEnableHttps = true
 webServerUseNativeHttps = true
 ```
 
+::: moniker range="=cyclecloud-7"
 ## Backwards compatibility for TLS 1.0 and 1.1
 
 By default, the Java and Native HTTPS connectors will be configured to use only the
@@ -109,6 +110,7 @@ Change the attribute to a `+` delimited list of protocols you wish to support.
 ``` properties
 sslEnabledProtocols="TLSv1.0+TLSv1.1+TLSv1.2"
 ```
+::: moniker-end
 
 ## Turning Off Unencrypted Communications
 
