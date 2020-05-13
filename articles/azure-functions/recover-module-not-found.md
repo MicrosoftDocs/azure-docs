@@ -102,7 +102,7 @@ Make sure that the latest version of [Azure Functions Core Tools](https://github
 
 # [Manual publishing](#tab/manual)
 
-If you're manually publishing your package into the `https://<app-name>.scm.azurewebsites.net/api/zipdeploy` endpoint, make sure that both **SCM_DO_BUILD_DURING_DEPLOYMENT** and **ENABLE_ORYX_BUILD** are set to **true**. To learn more, see [how to work with application settings](functions-how-to-use-azure-function-app-settings#settings).
+If you're manually publishing your package into the `https://<app-name>.scm.azurewebsites.net/api/zipdeploy` endpoint, make sure that both **SCM_DO_BUILD_DURING_DEPLOYMENT** and **ENABLE_ORYX_BUILD** are set to **true**. To learn more, see [how to work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ---
 
