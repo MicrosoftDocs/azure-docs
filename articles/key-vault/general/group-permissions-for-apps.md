@@ -104,6 +104,9 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
 
+> [!WARNING]
+> Azure AD Groups with Managed Identities require up to 8hr to refresh token and become effective.
+
 #### Users
 
 You can also add an individual user to an key vault's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
