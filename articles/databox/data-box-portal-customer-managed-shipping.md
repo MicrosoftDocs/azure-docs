@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box self managed shipping | Microsoft Docs in data 
-description: Describes self managed shipping workflow for Azure Data Box devices
+description: Describes self-managed shipping workflow for Azure Data Box devices
 services: databox
 author: priestlg
 
@@ -11,7 +11,7 @@ ms.date: 04/27/2020
 ms.author: v-grpr
 ---
 
-# Use self managed shipping for Azure Data Box in the Azure portal
+# Use self-managed shipping for Azure Data Box in the Azure portal
 
 This article describes self managed shipping tasks to order, pickup, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of designating a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter. You need to follow the datacenter's security procedures as sign off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact will be assigned an authorization code. This authorization code needs to be presented during device pick up and drop-off at the datacenter.
 
@@ -27,10 +27,10 @@ Make sure your Azure Data Box order was created for one of the following regions
 
 For detailed information on how to create a Data Box order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-## Use self managed shipping
+## Use self-managed shipping
 
 When you place a Data Box order, you can choose self managed shipping option.
-ll
+
 1. In **Azure Data Box**>**Select your Azure Data Box**>**Order** Click on **Contact details**, then click **+ Add Shipping Address**.
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
@@ -62,7 +62,7 @@ Then you can complete your order.
 
 8. After the device has been picked up, you need to prepare the data copy and then drop off the device back at the datacenter.
 
-   Once you finish copying data, you need to successfully complete **Prepare to ship** step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer.
+   Once you finish copying data, you need to successfully complete **Prepare to ship** step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer. For more information about preparing your device to be shipped, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
    > [!NOTE]
    >

@@ -18,6 +18,7 @@ Azure Data Box is a hybrid solution that allows you to import your on-premises d
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
 > [!div class="checklist"]
+>
 > * Prerequisites to deploy Data Box
 > * Order a Data Box
 > * Track the order
@@ -84,16 +85,17 @@ Perform the following steps in the Azure portal to order a device.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Customers using the service in Japan, Singapore, Korea, and West Europe have the option to select self-managed shipping while placing the order. After the order is placed successfully, you will receive an email with instructions to pick up the device from the designated Azure Datacenter. Click **Next** once the shipping details have been validated successfully.
+7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Customers using the service in Japan, Singapore, Korea, and West Europe have the option to select self-managed shipping while placing the order. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+8. After the order is placed successfully, you will receive an email with instructions to pick up the device from the designated Azure Datacenter. Click **Next** once the shipping details have been validated successfully.
+
+9. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-9. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+10. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-10. Click **Order**. The order takes a few minutes to be created.
-
+11. Click **Order**. The order takes a few minutes to be created.
 
 ## Track the order
 
