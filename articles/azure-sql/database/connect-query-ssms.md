@@ -161,7 +161,7 @@ Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL
 - For information about SSMS, see [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using .NET, see [Connect and query with .NET](../../sql-database/sql-database-connect-query-dotnet-visual-studio.md).
 - To connect and query using PHP, see [Connect and query with PHP](../../sql-database/sql-database-connect-query-php.md).
 - To connect and query using Node.js, see [Connect and query with Node.js](../../sql-database/sql-database-connect-query-nodejs.md).
 - To connect and query using Java, see [Connect and query with Java](../../sql-database/sql-database-connect-query-java.md).
