@@ -55,7 +55,7 @@ You may need to [configure the target resource to allow access from your applica
 
 Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machine. See [How to use VM token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
 
-Recommended: use Java SDK or spring boot starters to get tokens.  See the samples in the [Next Steps](#Next-steps).
+Recommended: use Java SDK or spring boot starters to get tokens.  See the samples in the [Next Steps](#next-steps).
 
 ## Disable system-assigned identity from an app
 Removing a system-assigned identity will also delete it from Azure AD. Deleting the app resource automatically removes system-assigned identities from Azure AD.
