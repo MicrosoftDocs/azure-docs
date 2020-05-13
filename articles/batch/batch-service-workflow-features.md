@@ -26,7 +26,7 @@ The following high-level workflow is typical of nearly all applications and serv
 6. Monitor job progress and retrieve the task output from Azure Storage.
 
 > [!NOTE]
-> You need a [Batch account](accounts.md) to use the Batch service. Most Batch solutions also use an associated [Azure Storage](../azure/storage/index.yml) account for file storage and retrieval.
+> You need a [Batch account](accounts.md) to use the Batch service. Most Batch solutions also use an associated [Azure Storage](../storage/index.yml) account for file storage and retrieval.
 
 ## Batch service resources
 

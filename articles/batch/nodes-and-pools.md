@@ -35,13 +35,13 @@ A pool can be used only by the Batch account in which it was created. A Batch ac
 
 The pool can be created manually, or automatically by the Batch service when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
-- [Node operating system and version](#compute-node-operating-system-and-version)
+- [Node operating system and version](#operating-system-and-version)
 - [Node type and target number of nodes](#node-type-and-target)
-- [Size of the compute nodes](#node-size)
+- [Node size](#node-size)
 - [Automatic scaling policy](#automatic-scaling-policy)
 - [Task scheduling policy](#task-scheduling-policy)
 - [Communication status](#communication-status)
-- [Start tasks for compute nodes](#start-tasks)
+- [Start tasks](#start-tasks)
 - [Application packages](#application-packages)
 - [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
 - [Lifetime](#pool-and-compute-node-lifetime)
@@ -145,7 +145,7 @@ Enabling internode communication also impacts the placement of the nodes within 
 
 ## Start tasks
 
-The optional *start task* executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
+If desired, you can add a [start task](jobs-and-tasks.md#start-task) that will executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
 
 ## Application packages
 
