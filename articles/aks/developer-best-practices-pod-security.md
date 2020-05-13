@@ -66,14 +66,17 @@ Work with your cluster operator to determine what security context settings you 
 
 To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Credentials or keys shouldn't be included directly in your code. If these credentials are exposed, the application needs to be updated and redeployed. A better approach is to give pods their own identity and way to authenticate themselves, or automatically retrieve credentials from a digital vault.
 
-The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault:
+### Open-source solutions for dev/test
 
-* Managed identities for Azure resources, and
-* [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+> [!NOTE] Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use, but are evaluated for inclusion into AKS as a first class feature over time.
 
-Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use.
+The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault.
 
-### Use pod managed identities
+ * Managed identities for Azure resources
+ * [AAD Pod Identity][aad-pod-identity]
+ * [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+
+#### Use pod managed identities
 
 A managed identity for Azure resources lets a pod authenticate itself against Azure services that support it, such as Storage or SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:
 
@@ -83,7 +86,7 @@ With a managed identity, your application code doesn't need to include credentia
 
 For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications][aad-pod-identity]
 
-### Use Azure Key Vault with Secrets Store CSI Driver
+#### Use Azure Key Vault with Secrets Store CSI Driver
 
 Using the pod identity project enables authentication against supporting Azure services. For your own services or applications without managed identities for Azure resources, you can still authenticate using credentials or keys. A digital vault can be used to store these secret contents.
 
