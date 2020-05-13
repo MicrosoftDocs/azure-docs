@@ -43,7 +43,7 @@ This error can be caused by any of the following conditions:
 
 ## Solution
 
-### Process Overview:
+### Process overview:
 
 1. Create and Access a Repair VM.
 1. Free space on disk.
@@ -56,12 +56,12 @@ This error can be caused by any of the following conditions:
 > [!NOTE]
 > When encountering this error, the Guest OS isn't operational. You will be troubleshooting in offline mode to resolve the issue.
 
-### Create and Access a Repair VM
+### Create and access a repair VM
 
 1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
-### Free Up Space on Disk
+### Free up space on disk
 
 As the disk is now attached to a repair VM, verify that the disk holding the Active Directory internal database has enough space to perform correctly.
 
@@ -81,7 +81,7 @@ As the disk is now attached to a repair VM, verify that the disk holding the Act
 
 If there's enough space on the disk, continue to the next task.
 
-### Check that the Drive containing the Active Directory database is attached
+### Check that the drive containing the Active Directory database is attached
 
 1. Open an elevated CMD instance and run the following commands:
 
@@ -134,7 +134,7 @@ Set up the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypa
 
    ![The screenshot shows an elevated CMD instance after enabling the safeboot DsRepair flag.](./media/troubleshoot-directory-service-initialization-failure/3.png)
 
-### Recommended: Before you rebuild the VM, enable serial console and memory dump collection
+### Recommended: before you rebuild the VM, enable serial console and memory dump collection
 
 To enable memory dump collection and Serial Console, run the following script by opening an elevated command prompt session (Run as administrator), and run the following commands.
 
@@ -151,7 +151,7 @@ To enable memory dump collection and Serial Console, run the following script by
 
      To change the location, replace `%SystemRoot%` with the drive letter (such as, `F:`) of the data disk in the following commands.
 
-  #### The following configuration is suggested to enable OS Dump:
+  #### The following configuration is suggested to enable OS dump:
 
   **Load Broken OS Disk**:
 
@@ -181,7 +181,7 @@ To enable memory dump collection and Serial Console, run the following script by
 
 1. Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
 
-### Reconfigure the Storage Area Network Policy
+### Reconfigure the Storage Area Network policy
 
 1. When booting in DSRM mode, the only user available to log in is the recovery administrator, which was used when the VM was promoted to a domain controller. All other users will show an authentication error.
 
