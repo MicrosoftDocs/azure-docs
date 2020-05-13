@@ -9,7 +9,7 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-# Enable AD DS authentication for your storage account 
+# Part one: enable AD DS authentication for your storage account 
 
 This article describes the process required for enabling AD DS on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
