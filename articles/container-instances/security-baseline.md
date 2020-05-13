@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,11 +30,16 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21765).
 
-**Guidance**: Azure Virtual Network provides secure, private networking for your Azure and on-premises resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can limit access to your private registry from an Azure virtual network by ensuring that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses. From behind a firewall, configure firewall access rules and service tags to access your container registry.
+**Guidance**: Azure Virtual Network provides secure, private networking for your Azure and on-premises resources. Integrate your container groups in Azure Container Instances with an Azure virtual network. 
 
-* [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](https://docs.microsoft.com/azure/container-registry/container-registry-vnet)
+* [Virtual network scenarios and resources - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-virtual-network-concepts)
 
-* [Configure rules to access an Azure container registry behind a firewall](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules)
+* [Deploy container instances into an Azure virtual network](https://docs.microsoft.com/azure/container-instances/container-instances-vnet)
+
+* [How to create an NSG with a security configuration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
+* [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -60,8 +65,10 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21767).
 
-**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications hosted in Azure Container Instances for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
-How to deploy Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
+**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications hosted in Azure Container Instances for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.
+
+* [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -73,11 +80,7 @@ How to deploy Azure WAF: https://docs.microsoft.com/azure/web-application-firewa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21768).
 
-**Guidance**: Enable DDoS Standard protection on your virtual networks for protections from DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses. Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
-
-You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period. Also , use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.
-
-* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+**Guidance**: Enable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses. Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic. Use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period. Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence. 
 
 * [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
@@ -96,7 +99,7 @@ You may use Azure Security Center Just In Time Network access to configure NSGs 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21769).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure container registry. You can record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
+**Guidance**: If using Network Security Groups (NSGs) with your virtual network implementation, enable NSG flow logs for the NSG attached to the subnet delegated to Azure Container Instances. Record the NSG flow logs into an Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
 * [How to enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -121,6 +124,10 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 * [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) 
+
+
+
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
@@ -130,7 +137,15 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21771).
 
-**Guidance**: Not applicable. Benchmark is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. * [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) * [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal) 
+
+* [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)
+
+* [Expose a static IP address for a container group](https://docs.microsoft.com/azure/container-instances/container-instances-application-gateway)
+
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet)
+
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -141,9 +156,11 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21772).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, for resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. You may also use Application Security Groups to help simplify complex security configuration. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. * [Understand and use Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) * [Understand and use Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
 
-* [Allow access by service tag](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet)
+
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -154,13 +171,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21773).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries.
-
-You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
-
-* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
-
-* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+**Guidance**: Define and implement standard security configurations for network resources with Azure Policy. You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)* [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -171,9 +182,7 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21774).
 
-**Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
-
-* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+**Guidance**: Use Tags for Network Security Groups (NSGs) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need, duration, or other information for any rules that allow traffic to/from a network. Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources. You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags. * [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) * [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) * [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -203,9 +212,13 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21776).
 
-**Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources.
+**Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources. For example, run a time synchronization command in a running container instance.
 
 * [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+
+* [Execute a command in a running Azure container instance](https://docs.microsoft.com/azure/container-instances/container-instances-exec)
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -216,9 +229,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21777).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, ingest logs via Azure Monitor to aggregate security data generated by an Azure container registry. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
+**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by an Azure container group. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 
-* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -229,9 +242,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21778).
 
-**Guidance**: Azure Monitor collects resource logs (formerly called diagnostic logs) for user-driven events in your registry. Collect and consume this data to audit registry authentication events and provide a complete activity trail on registry artifacts such as pull and push events so you can diagnose security issues with your registry.
+**Guidance**: Azure Monitor collects resource logs (formerly called diagnostic logs) for user-driven events in your registry. Azure Container Instances includes built-in support for sending container group logs and event data, and container logs, to Azure Monitor logs.
 
-* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -242,7 +255,8 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21779).
 
-**Guidance**: Not applicable. Benchmark is intended for compute resources.
+**Guidance**: Not applicable. Benchmark is intended for IaaS compute resources.
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -266,9 +280,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21781).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. 
 
-* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 * [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
@@ -283,9 +297,9 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21782).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure container registry.
+**Guidance**: Use Log Analytics Workspace for monitoring and alerting on anomalous activity found in security logs and events. 
 
-* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 * [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
@@ -298,7 +312,8 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21783).
 
-**Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry does not process or produce anti-malware related logs.
+**Guidance**: Provide your own antimalware solution if needed to run in container instances. 
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -309,7 +324,7 @@ You may use Azure Blueprints to simplify large-scale Azure deployments by packag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21784).
 
-**Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry is an endpoint and does not initiate communication, and the service does not query DNS.
+**Guidance**: Implement a third-party solution if needed for DNS logging in container instances.
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -377,7 +392,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 * [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
-**Azure Security Center monitoring**: Not Applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -388,11 +403,8 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual login integrated with Azure Active Directory.
-
 * [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-* [Individual login to a container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -439,7 +451,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 * [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -465,7 +477,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 * [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -480,7 +492,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 * [How to use Azure identity access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
-**Azure Security Center monitoring**: Not Applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
