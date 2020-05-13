@@ -80,9 +80,9 @@
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Troubleshoot boot error - Status not found
-      href: troubleshoot-boot-error-status-not-found.md
+      href: boot-error-status-not-found.md
     - name: Troubleshoot Windows Update installation capacity
-      href: troubleshoot-windows-update-installation-capacity.md
+      href: windows-update-installation-capacity.md
     - name: VM is unresponsive when applying local users and groups policy
       href: troubleshoot-vm-unresponsive-group-policy-local-users.md
     - name: Not a bootable disk
