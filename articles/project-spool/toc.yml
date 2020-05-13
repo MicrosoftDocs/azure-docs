@@ -18,37 +18,37 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get Started
-    href: quickstarts/get-started.md
-  - name: Get Started With Voice
-    href: quickstarts/get-started-with-voice.md
-  - name: Get Started With SMS
-    href: quickstarts/get-started-with-sms.md
-  - name: Get Started With Video
-    href: quickstarts/get-started-with-video.md
-  - name: Get Started With Chat
-    href: quickstarts/get-started-with-chat.md
+  #- name: Get Started
+  #  href: quickstarts/get-started.md
+  #- name: Get Started With Voice
+  #  href: quickstarts/get-started-with-voice.md
+  #- name: Get Started With SMS
+  #  href: quickstarts/get-started-with-sms.md
+  #- name: Get Started With Video
+  #  href: quickstarts/get-started-with-video.md
+  #- name: Get Started With Chat
+  #  href: quickstarts/get-started-with-chat.md
   - name: Get Started With Phone Numbers
     href: quickstarts/get-started-with-phone.md
-- name: Tutorials 
+- name: Tutorials
   expanded: true
   items:
   - name: Add SMS To Your Web App
     href: tutorials/add-sms-to-your-web-app.md
-  - name: Add Calling To Your App
-    href: tutorials/add-calling-to-your-app.md  
-  - name: Add Signaling To Your App
-    href: tutorials/add-signaling-to-your-app.md
-  - name: Add Chat To Your App
-    href: tutorials/add-chat-to-your-app.md
-  - name: Add Network Traversal To Your App
-    href: tutorials/add-network-traversal-to-your-app.md
+  # - name: Add Calling To Your App
+  #  href: tutorials/add-calling-to-your-app.md  
+  # - name: Add Signaling To Your App
+  #  href: tutorials/add-signaling-to-your-app.md
+  #- name: Add Chat To Your App
+  #  href: tutorials/add-chat-to-your-app.md
+  #- name: Add Network Traversal To Your App
+  #  href: tutorials/add-network-traversal-to-your-app.md
   - name: Add Video To Your UWP App
     href: tutorials/add-video-to-your-uwp-app.md
-  - name: Provision and Release Phone Numbers
-    href: tutorials/provision-and-release-phone-numbers.md
-  - name: Configure Call Routing and Number Assignment
-    href: tutorials/configure-call-routing.md
+  #- name: Provision and Release Phone Numbers
+  #  href: tutorials/provision-and-release-phone-numbers.md
+  #- name: Configure Call Routing and Number Assignment
+  #  href: tutorials/configure-call-routing.md
 - name: Samples
   items:
   - name: Samples Overview
@@ -60,56 +60,56 @@
     items:
       - name: About Voice
         href: concepts/voice/voice.md
-      - name: Phone Numbers
-        href: concepts/voice/phone-numbers.md
+      #- name: Phone Numbers
+      #  href: concepts/voice/phone-numbers.md
       - name: SIP, VOIP, and PSTN
         href: concepts/voice/sip-voip-pstn.md
-      - name: Phone Trees
-        href: concepts/voice/phone-trees.md
-      - name: Call Detail Records
-        href: concepts/voice/call-detail-records.md
-      - name: Call Analytics
-        href: concepts/voice/call-analytics.md
-      - name: Spam and Robocall Protection
-        href: concepts/voice/spam-robocall.md
+      #- name: Phone Trees
+      #  href: concepts/voice/phone-trees.md
+      #- name: Call Detail Records
+      #  href: concepts/voice/call-detail-records.md
+      #- name: Call Analytics
+      #  href: concepts/voice/call-analytics.md
+      #- name: Spam and Robocall Protection
+      #  href: concepts/voice/spam-robocall.md
   - name: Video
     items: 
       - name: About Video
         href: concepts/video/video.md
-      - name: About WebRTC
-        href: concepts/video/about-webrtc.md
+      #- name: About WebRTC
+      #  href: concepts/video/about-webrtc.md
       - name: ICE, STUN, NAT, TURN, and SDP
         href: concepts/video/ice-stun-nat-turn-sdp.md
-      - name: Data Channels
-        href: concepts/video/data-channels.md
+      #- name: Data Channels
+      #  href: concepts/video/data-channels.md
   - name: Chat
     items: 
-      - name: About Chat
-        href: concepts/chat/chat.md
+      #- name: About Chat
+      #  href: concepts/chat/chat.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
-  - name: How Voice, Video, and Messaging Relate
-    href: concepts/voice-video-messaging.md
-  - name: Signaling
-    href: concepts/signaling.md
-  - name: Spaces
-    href: concepts/spaces.md
-  - name: Media and Media Devices
-    href: concepts/media-devices.md
+  #- name: How Voice, Video, and Messaging Relate
+  #  href: concepts/voice-video-messaging.md
+  #- name: Signaling
+  #  href: concepts/signaling.md
+  #- name: Spaces
+  #  href: concepts/spaces.md
+  #- name: Media and Media Devices
+  #  href: concepts/media-devices.md
   - name: SDK Options
     href: concepts/sdk-options.md
-  - name: Security Model
-    href: concepts/security-model.md
+  #- name: Security Model
+  #  href: concepts/security-model.md
   - name: Authentication and Authorization
     href: concepts/authentication.md
-  - name: Testing Model
-    href: concepts/testing.md
-  - name: Patterns and Practices
-    href: concepts/patterns-practices.md
-  - name: Fraud Detection
-    href: concepts/fraud-detection.md
-  - name: Logging and Diagnostics
-    href: concepts/logging-diagnostics.md
+  #- name: Testing Model
+  #  href: concepts/testing.md
+  #- name: Patterns and Practices
+  #  href: concepts/patterns-practices.md
+  #- name: Fraud Detection
+  #  href: concepts/fraud-detection.md
+  #- name: Logging and Diagnostics
+  #  href: concepts/logging-diagnostics.md
   - name: ACS As An Event Grid Source
     href: concepts/acs-event-grid.md
   - name: User Access Tokens
