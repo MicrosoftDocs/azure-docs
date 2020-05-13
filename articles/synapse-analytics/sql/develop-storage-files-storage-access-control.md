@@ -44,7 +44,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 
 You need to create database-scoped or server-scoped credential to enable access using SAS token.
 
-### [User Identity](#tab/user-identity)
+### User Identity
 
 **User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
