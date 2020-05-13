@@ -255,8 +255,9 @@ There are a number of properties that the certificate must have in order to func
 
 4. The Enhanced Key Usage extension has values of **Server Authentication** (OID: 1.3.6.1.5.5.7.3.1) and **Client Authentication** (OID: 1.3.6.1.5.5.7.3.2)
 
-
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
+
+For additional questions, consult [frequently asked certificate questions](https://docs.microsoft.com/en-us/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## Optional: Create a self-signed certificate
 One way to create a self-signed certificate that can be secured correctly is to use the CertSetup.ps1 script in the Service Fabric SDK folder in the directory C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edit this file to change the default name of the certificate. (Look for the value CN=ServiceFabricDevClusterCert.) Run this script as `.\CertSetup.ps1 -Install`.
