@@ -11,20 +11,20 @@ ms.date: 05/13/2020
 # How to enable system managed identity for application
 Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your Azure Spring Cloud application. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
-In this article, you learn how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.3).
+This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.3).
 
 ## Prerequisites
 If you're unfamiliar with managed identities for Azure resources, see [overview section](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
-A deployed Azure Spring Cloud instance. Follow our [quickstart to deploy by using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
 
 ## Add a system-assigned identity
 Creating an app with a system-assigned identity requires setting an additional property on the application.
 
 ### Using Azure Portal
-To set up a managed identity in the [Azure portal](https://portal.azure.com/) , first create an app, and then enable the feature.
+To set up a managed identity in the [Azure portal](https://portal.azure.com/), first create an app, and then enable the feature.
 
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
-2. Scroll down to the **Settings** group in the left navigation.
+2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Identity**.
 4. Within the **System assigned** tab, switch **Status** to *On*. Click **Save**.
 
@@ -36,12 +36,14 @@ You can enable system-assigned managed identity during app creation or on an exi
 **Enable system-assigned managed identity during creation of an app**
 
 The following example creates an app named *app_name* with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+
 ```azurecli
 az spring-cloud app create -n app_name -s service_name -g resource_group_name --assign-identity
 ```
 
 **Enable system-assigned managed identity on an existing app**
-Use az spring-cloud app identity assign with the identity assign command enable the system-assigned identity to an existing app
+Use `az spring-cloud app identity assign` command to enable the system-assigned identity on an existing app.
+
 ```azurecli
 az spring-cloud app identity assign -n app_name -s service_name -g resource_group_name
 ```
