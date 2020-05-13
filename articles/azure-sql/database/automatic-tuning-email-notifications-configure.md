@@ -243,5 +243,5 @@ You might further customize the solution to build email notifications based on a
 ## Next steps
 
 - Learn more on how automatic tuning can help you improve database performance, see [Automatic tuning in Azure SQL Database](../../sql-database/sql-database-automatic-tuning.md).
-- To enable automatic tuning in Azure SQL Database to manage your workload, see [Enable automatic tuning](enable-automatic-tuning.md).
+- To enable automatic tuning in Azure SQL Database to manage your workload, see [Enable automatic tuning](automatic-tuning-enable.md).
 - To manually review and apply Automatic tuning recommendations, see [Find and apply performance recommendations](database-advisor-find-apply-recommendations-portal.md).

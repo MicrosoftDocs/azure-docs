@@ -24,7 +24,7 @@ Performance overview provides a summary of your database performance, and helps 
 
 - The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendation options](database-advisor-find-apply-recommendations-portal.md#viewing-recommendations)**.
 - The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the **[auto-tuning configuration](enable-automatic-tuning.md)** for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
+- The **Auto-tuning** tile shows the **[auto-tuning configuration](automatic-tuning-enable.md)** for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
 - The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](../../sql-database/sql-database-query-performance.md)**.
 
 ## Performance recommendation options

@@ -50,7 +50,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Manual tuning](sql-database-performance-guidance.md)
 - [Use DMVs to monitor performance](sql-database-monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
-- [Enable automatic tuning](../azure-sql/database/enable-automatic-tuning.md) to let Azure SQL Database optimize performance of your workload.
+- [Enable automatic tuning](../azure-sql/database/automatic-tuning-enable.md) to let Azure SQL Database optimize performance of your workload.
 - [Enable e-mail notifications for automatic tuning](../azure-sql/database/automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
 - [Apply performance recommendations](../azure-sql/database/database-advisor-find-apply-recommendations-portal.md) and optimize your database.
 - [Create alerts](sql-database-insights-alerts-portal.md) to get notifications from Azure SQL Database.

@@ -47,7 +47,7 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 ## Enable automatic tuning
 
-You can [enable automatic tuning for single and pooled databases in the Azure portal](../azure-sql/database/enable-automatic-tuning.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
+You can [enable automatic tuning for single and pooled databases in the Azure portal](../azure-sql/database/automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
 
 ## Automatic tuning options
 
