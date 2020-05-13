@@ -49,11 +49,11 @@ The following diagram is a high-level overview of the connected solution. For si
 ## Region Availability 
 
 Cross-cloud connectivity is limited to the following regions:
-* Azure East US (eastus) & OCI Ashburn (US East)
-* Azure UK South (uksouth) & OCI London (UK South)
-* Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
-* Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
-* Azure Japan East (japaneast) & OCI Tokyo (Japan East)
+* Azure East US (EastUS) & OCI Ash&#98;urn (US East)
+* Azure UK South (UKSouth) & OCI London (UK South)
+* Azure Canada Central (CanadaCentral) & OCI Toronto (Canada Southeast)
+* Azure West Europe (WestEurope) & OCI Amsterdam (Netherlands Northwest)
+* Azure Japan East (JapanEast) & OCI Tokyo (Japan East)
 
 ## Networking
 
@@ -73,7 +73,7 @@ The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a netwo
  
 ## Identity
 
-Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is Microsoft’s cloud-based identity and access management service. It helps your users sign in and access various resources. Azure AD also allows you to manage your users and their permissions.
+Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is Microsoft’s cloud-based identity and access management service. Your users can sign in and access various resources with help from Azure AD. Azure AD also allows you to manage your users and their permissions.
 
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
