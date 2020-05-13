@@ -18,7 +18,7 @@ The Spark SQL Analytics Connector is designed to efficiently transfer data betwe
 
 Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
-The Spark pool to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
+The Spark pool to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -51,7 +51,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 ## Usage
 
-You don't need to provide import statements, they are pre-imported for the notebook experience.
+The import statements are not required, they are pre-imported for the notebook experience.
 
 ### Transferring data to or from a SQL pool in the Logical Server (DW Instance) attached with the workspace
 
@@ -162,7 +162,7 @@ Similarly, in the read scenario, read the data using Scala and write it into a t
 
 ## Allowing other users to use the DW Connector in your workspace
 
-You need to be Storage Blob Data Owner on the ADLS Gen 2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
+You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
 
 ### Option 1
 
