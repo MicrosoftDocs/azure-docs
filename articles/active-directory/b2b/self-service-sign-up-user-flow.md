@@ -95,7 +95,7 @@ Now you can associate applications with the user flow.
 
 8. Select the application from the list. Or use the search box to find the application, and then select it.
 9. Click **Select**.
-10. 
+
 ## Next steps
 
 - [Add Google to your list of social identity providers](google-federation.md)
