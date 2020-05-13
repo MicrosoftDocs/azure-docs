@@ -68,11 +68,7 @@
       href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage your directory
     items:
-<<<<<<< HEAD
-    - name: Administer your Azure AD organization  
-=======
     - name: Azure AD organizations    
->>>>>>> fee10349027e875815822251f58ec5a4508b29cf
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage domain names
       href: domains-manage.md
