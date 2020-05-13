@@ -16,7 +16,7 @@ Pre-scripts and post-scripts are runbooks to run in your Azure Automation accoun
 
 ## Pre-script and post-script requirements
 
-For a runbook to be used as a pre-script or post-script, you must import it into your Automation account and [publish the runbook](manage-runbooks.md#publishing-a-runbook).
+For a runbook to be used as a pre-script or post-script, you must import it into your Automation account and [publish the runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Pre-script and post-script parameters
 
