@@ -89,48 +89,51 @@ To create the JSP application:
 
 ## <a id="InstallSDK"></a>Install the SQL Java SDK
 
-The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](https://maven.apache.org/).
-
-To do this, you will need to convert your project to a maven project by completing the following steps:
+The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](https://maven.apache.org/). To do this, you need to convert your project to a maven project by using the following steps:
 
 1. Right-click your project in the Project Explorer, click **Configure**, click **Convert to Maven Project**.
-2. In the **Create new POM** window, accept the defaults, and click **Finish**.
-3. In **Project Explorer**, open the pom.xml file.
-4. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
-5. In the **Select Dependency** window, do the following:
-   
-   * In the **Group Id** box, enter com.microsoft.azure.
-   * In the **Artifact Id** box, enter azure-documentdb.
-   * In the **Version** box, enter 1.5.1.
-     
-   ![Install SQL Java Application SDK](./media/sql-api-java-application/image13.png)
-     
-   * Or add the dependency XML for Group ID and Artifact ID directly to the pom.xml via a text editor:
-        ```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-documentdb</artifactId>
-            <version>1.9.1</version>
-        </dependency>
-        ```
-6. Click **OK** and Maven will install the SQL Java SDK.
-7. Save the pom.xml file.
 
-## <a id="UseService"></a>Using the Azure Cosmos DB service in a Java application
+1. In the **Create new POM** window, accept the defaults, and click **Finish**.
 
-1. First, let's define the TodoItem object in TodoItem.java:
+1. In **Project Explorer**, open the pom.xml file.
+
+1. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
+
+1. In the **Select Dependency** window, do the following:
    
-        @Data
-        @Builder
-        public class TodoItem {
-            private String category;
-            private boolean complete;
-            private String id;
-            private String name;
-        }
-   
-    In this project, you are using [Project Lombok](https://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.
-2. To invoke the Azure Cosmos DB service, you must instantiate a new **DocumentClient**. In general, it is best to reuse the **DocumentClient** - rather than construct a new client for each subsequent request. We can reuse the client by wrapping the client in a **DocumentClientFactory**. In DocumentClientFactory.java, you need to paste the URI and PRIMARY KEY value you saved to your clipboard in [step 1](#CreateDB). Replace [YOUR\_ENDPOINT\_HERE] with your URI and replace [YOUR\_KEY\_HERE] with your PRIMARY KEY.
+   * In the **Group Id** box, enter `com.azure`.
+   * In the **Artifact Id** box, enter `azure-cosmos`.
+   * In the **Version** box, enter `4.0.1-beta.1`.
+  
+   Or you can add the dependency XML for Group ID and Artifact ID directly to the *pom.xml* file:
+
+  ```xml
+  	<dependency>
+  		<groupId>com.azure</groupId>
+  		<artifactId>azure-cosmos</artifactId>
+  		<version>4.0.1-beta.1</version>
+  	</dependency>
+  ```
+
+1. Click **OK** and Maven will install the SQL Java SDK or save the pom.xml file.
+
+## <a id="UseService"></a>Use the Azure Cosmos DB service in your Java application
+
+Now let's add the models, the views, and the controllers to your web application.
+
+### Add a model
+
+First, let's define a model within a new file *TodoItem.java*. The `TodoItem` class defines the schema of an item along with the getter and setter methods:
+
+[!INCLUDE[Release notes](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java)]
+
+### Add the Data Access Object(DAO) classes
+
+Create a Data Access Object (DAO) to abstract persisting the ToDo items to Azure Cosmos DB. In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
+
+The following code illustrates how to retrieve our database and collection, if it exists, or create a new one if it doesn't exist:
+
+To invoke the Azure Cosmos DB service, you must instantiate a new **DocumentClient**. In general, it is best to reuse the **DocumentClient** - rather than construct a new client for each subsequent request. We can reuse the client by wrapping the client in a **DocumentClientFactory**. In DocumentClientFactory.java, you need to paste the URI and PRIMARY KEY value you saved to your clipboard in [step 1](#CreateDB). Replace [YOUR\_ENDPOINT\_HERE] with your URI and replace [YOUR\_KEY\_HERE] with your PRIMARY KEY.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -141,11 +144,27 @@ To do this, you will need to convert your project to a maven project by completi
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Now let's create a Data Access Object (DAO) to abstract persisting our ToDo items to Azure Cosmos DB.
-   
-    In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
-   
-    The following code illustrates how to retrieve our database and collection, if it exists, or create a new one if it doesn't exist:
+
+### Add a controller
+
+Add the *TodoItemController* controller to your application. In this project, you are using [Project Lombok](https://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.:
+
+[!INCLUDE[Release notes](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/controller/TodoItemController.java)]
+
+### Create a servlet
+
+Next, create a servlet to route HTTP requests to the controller:
+
+[!INCLUDE[Release notes](~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/sample/ApiServlet.java)]
+
+
+
+
+
+Now that we've finished the fun bits - all that's left is to build a quick user interface and wire it up to our DAO.
+
+
+3. Now 
    
         public class DocDbDao implements TodoDao {
             // The name of our database.
@@ -352,113 +371,7 @@ To do this, you will need to convert your project to a maven project by completi
         }
 
 ## <a id="Wire"></a>Wiring the rest of the of Java application development project together
-Now that we've finished the fun bits - all that's left is to build a quick user interface and wire it up to our DAO.
 
-1. First, let's start with building a controller to call our DAO:
-   
-        public class TodoItemController {
-            public static TodoItemController getInstance() {
-                if (todoItemController == null) {
-                    todoItemController = new TodoItemController(TodoDaoFactory.getDao());
-                }
-                return todoItemController;
-            }
-   
-            private static TodoItemController todoItemController;
-   
-            private final TodoDao todoDao;
-   
-            TodoItemController(TodoDao todoDao) {
-                this.todoDao = todoDao;
-            }
-   
-            public TodoItem createTodoItem(@NonNull String name,
-                    @NonNull String category, boolean isComplete) {
-                TodoItem todoItem = TodoItem.builder().name(name).category(category)
-                        .complete(isComplete).build();
-                return todoDao.createTodoItem(todoItem);
-            }
-   
-            public boolean deleteTodoItem(@NonNull String id) {
-                return todoDao.deleteTodoItem(id);
-            }
-   
-            public TodoItem getTodoItemById(@NonNull String id) {
-                return todoDao.readTodoItem(id);
-            }
-   
-            public List<TodoItem> getTodoItems() {
-                return todoDao.readTodoItems();
-            }
-   
-            public TodoItem updateTodoItem(@NonNull String id, boolean isComplete) {
-                return todoDao.updateTodoItem(id, isComplete);
-            }
-        }
-   
-    In a more complex application, the controller may house complicated business logic on top of the DAO.
-2. Next, we'll create a servlet to route HTTP requests to the controller:
-   
-        public class TodoServlet extends HttpServlet {
-            // API Keys
-            public static final String API_METHOD = "method";
-   
-            // API Methods
-            public static final String CREATE_TODO_ITEM = "createTodoItem";
-            public static final String GET_TODO_ITEMS = "getTodoItems";
-            public static final String UPDATE_TODO_ITEM = "updateTodoItem";
-   
-            // API Parameters
-            public static final String TODO_ITEM_ID = "todoItemId";
-            public static final String TODO_ITEM_NAME = "todoItemName";
-            public static final String TODO_ITEM_CATEGORY = "todoItemCategory";
-            public static final String TODO_ITEM_COMPLETE = "todoItemComplete";
-   
-            public static final String MESSAGE_ERROR_INVALID_METHOD = "{'error': 'Invalid method'}";
-   
-            private static final long serialVersionUID = 1L;
-            private static final Gson gson = new Gson();
-   
-            @Override
-            protected void doGet(HttpServletRequest request,
-                    HttpServletResponse response) throws ServletException, IOException {
-   
-                String apiResponse = MESSAGE_ERROR_INVALID_METHOD;
-   
-                TodoItemController todoItemController = TodoItemController
-                        .getInstance();
-   
-                String id = request.getParameter(TODO_ITEM_ID);
-                String name = request.getParameter(TODO_ITEM_NAME);
-                String category = request.getParameter(TODO_ITEM_CATEGORY);
-                boolean isComplete = StringUtils.equalsIgnoreCase("true",
-                        request.getParameter(TODO_ITEM_COMPLETE)) ? true : false;
-   
-                switch (request.getParameter(API_METHOD)) {
-                case CREATE_TODO_ITEM:
-                    apiResponse = gson.toJson(todoItemController.createTodoItem(name,
-                            category, isComplete));
-                    break;
-                case GET_TODO_ITEMS:
-                    apiResponse = gson.toJson(todoItemController.getTodoItems());
-                    break;
-                case UPDATE_TODO_ITEM:
-                    apiResponse = gson.toJson(todoItemController.updateTodoItem(id,
-                            isComplete));
-                    break;
-                default:
-                    break;
-                }
-   
-                response.getWriter().println(apiResponse);
-            }
-   
-            @Override
-            protected void doPost(HttpServletRequest request,
-                    HttpServletResponse response) throws ServletException, IOException {
-                doGet(request, response);
-            }
-        }
 3. We'll need a web user interface to display to the user. Let's re-write the index.jsp we created earlier:
     ```html
         <html>
