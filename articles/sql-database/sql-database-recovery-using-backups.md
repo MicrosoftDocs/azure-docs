@@ -117,7 +117,7 @@ Use the following sample scripts to restore a deleted database for either SQL Da
 
 #### SQL Database
 
-For a sample PowerShell script showing how to restore a deleted Azure SQL database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+For a sample PowerShell script showing how to restore a deleted Azure SQL database, see [Restore a SQL database using PowerShell](../azure-sql/database/scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
@@ -168,7 +168,7 @@ Complete the process of creating a new database. When you create the instance da
 
 #### SQL Database
 
-For a PowerShell script that shows how to perform geo-restore for a single SQL database, see [Use PowerShell to restore an Azure SQL single database to an earlier point in time](scripts/sql-database-restore-database-powershell.md).
+For a PowerShell script that shows how to perform geo-restore for a single SQL database, see [Use PowerShell to restore an Azure SQL single database to an earlier point in time](../azure-sql/database/scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
@@ -203,7 +203,7 @@ To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powersh
   | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restores a SQL database. |
 
   > [!TIP]
-  > For a sample PowerShell script that shows how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+  > For a sample PowerShell script that shows how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](../azure-sql/database/scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 

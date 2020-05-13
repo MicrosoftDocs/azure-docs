@@ -466,8 +466,8 @@ As discussed previously, auto-failover groups and active geo-replication can als
   - [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
   - [Add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 - For sample scripts, see:
-  - [Use PowerShell to configure active geo-replication for Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Use PowerShell to configure active geo-replication for Azure SQL Database](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md)
+  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](../azure-sql/database/scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
   - [Use PowerShell to add an Azure SQL Database to a failover group](../azure-sql/database/scripts/add-database-to-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
