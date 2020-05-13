@@ -4103,13 +4103,7 @@ And return these results:
 
 ### ticks
 
-Return the `ticks` property value for a specified timestamp. A *tick* is a 100-nanosecond interval.
-
-> [!NOTE]
-> Contrary to the function's tooltip description, this function returns the number of 100-nanosecond 
-> intervals since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#), and *not January 1, 1601*. 
-> For more information, see this topic: 
-> [DateTime.Ticks Property (System)](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
 
 ```
 ticks('<timestamp>')
