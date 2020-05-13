@@ -242,7 +242,7 @@ This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) w
        {
           "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
           "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('collection2Name'))]",
-          "apiVersion": "2020-03-01",
+          "apiVersion": "2020-04-01",
           "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('accountName'),  parameters('databaseName'))]" ],
           "properties":
           {
