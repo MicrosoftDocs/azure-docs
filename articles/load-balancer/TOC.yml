@@ -141,7 +141,7 @@
     href: load-balancer-troubleshoot.md
   - name: Troubleshoot common deployment errors
     href: load-balancer-common-deployment-errors.md
-  - name: Troubleshoot common outbound connection issues
+  - name: Resolve common outbound connection issues
     href: troubleshoot-outbound-connection.md
 - name: Reference
   items:
