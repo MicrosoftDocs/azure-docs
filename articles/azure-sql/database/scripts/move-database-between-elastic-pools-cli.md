@@ -26,7 +26,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
 
 ### Clean up deployment
 
