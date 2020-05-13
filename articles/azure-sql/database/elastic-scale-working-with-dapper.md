@@ -158,4 +158,4 @@ Applications using Dapper and DapperExtensions can easily benefit from elastic d
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
+[1]: ./media/elastic-scale-working-with-dapper/dapperimage1.png
