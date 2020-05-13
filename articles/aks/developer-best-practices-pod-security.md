@@ -68,7 +68,8 @@ To limit the risk of credentials being exposed in your application code, avoid t
 
 ### Open-source solutions for dev/test
 
-> [!IMPORTANT] Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use, but are evaluated for inclusion into AKS as a first class feature over time.
+> [!IMPORTANT]
+> Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use, but are evaluated for inclusion into AKS as a first class feature over time.
 
 The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault.
 
