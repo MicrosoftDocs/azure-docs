@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshoot error: Python Functions ModuleNotFoundError'
-description: Learn how to troubleshoot module not found error in Python function apps.
+title: Troubleshoot Python ModuleNotFoundError in Azure Functions
+description: Learn how to troubleshoot Azure Functions module not found errors in Python functions.
 author: Hazhzeng
 
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 05/12/2020
 ms.author: hazeng
 ---
 
-# Troubleshoot Python module errors in Azure Function
+# Troubleshoot Python module errors in Azure Functions
 
 This article helps you troubleshoot module-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
 
@@ -85,7 +85,7 @@ The `Module Not Found` error may not occur when you're using Windows or macOS fo
 
 See [Replace Package With Equivalents](#replace-package-with-equivalents) or [Handcraft Requirements.txt](#handcraft-requirementstxt) for mitigation.
 
-## Mitigate the issue
+## Mitigate ModuleNotFoundError
 
 The following are potential mitigations for module-related issues. Use the [diagnoses above](#diagnose-the-root-cause) to determine which of these mitigations to try.
 
