@@ -175,7 +175,7 @@ Now that we've finished the fun bits, all that's left is to build a quick user i
 
 1. Finally, write some client-side JavaScript to tie the web user interface and the servlet together:
 
-   [!INCLUDE[client-side JavaScript code](~/samples-cosmosdb-java-v4-web-app/assets/todo.js)]
+   [!INCLUDE[client-side JavaScript code](~/samples-cosmosdb-java-v4-web-app/WebContent/assets/todo.js)]
 
 1. Now all that's left is to test the application. Run the application locally, and add some Todo items by filling in the item name and category and clicking **Add Task**. After the item appears, you can update whether it's complete by toggling the checkbox and clicking **Update Tasks**.
 
