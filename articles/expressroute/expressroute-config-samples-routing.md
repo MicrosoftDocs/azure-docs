@@ -237,7 +237,7 @@ Configure BFD under the protocol BGP section only.
     }
 
 ### Configure MACSec
-For MACSec configuration Connectivity Association Key (CAK) and Connectivity Association Key Name (CKN) must match with configured via PowerShell commands.
+For MACSec configuration, Connectivity Association Key (CAK) and Connectivity Association Key Name (CKN) must match with configured values via PowerShell commands.
 
     security {
         macsec {
