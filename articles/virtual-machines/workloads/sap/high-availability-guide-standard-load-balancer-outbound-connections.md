@@ -136,9 +136,6 @@ The architecture would look like:
 >[!TIP]
 >Where possible, use [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) to reduce the complexity of the Azure Firewall rules.  
 
->[!TIP]
->If using third party firewall, make sure the firewall configuration allows outbound connectivity to Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`  
-
 ### Deployment steps
 
 1. The deployment steps assume that you already have Virtual network and subnet defined for your VMs.  
@@ -220,6 +217,10 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
      ```
+
+## Other solutions
+
+If outbound traffic is routed via third party firewall, make sure the firewall configuration allows outbound connectivity to the Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`.  
 
 ## Next steps
 
