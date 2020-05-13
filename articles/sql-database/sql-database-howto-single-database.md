@@ -52,7 +52,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Enable automatic tuning](../azure-sql/database/enable-automatic-tuning.md) to let Azure SQL Database optimize performance of your workload.
 - [Enable e-mail notifications for automatic tuning](../azure-sql/database/automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
-- [Apply performance recommendations](../azure-sql/database/find-apply-database-advisor-recommendations-portal.md) and optimize your database.
+- [Apply performance recommendations](../azure-sql/database/database-advisor-find-apply-recommendations-portal.md) and optimize your database.
 - [Create alerts](sql-database-insights-alerts-portal.md) to get notifications from Azure SQL Database.
 - [Troubleshoot connectivity](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](sql-database-resource-health.md).
 - [Troubleshoot performance with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
