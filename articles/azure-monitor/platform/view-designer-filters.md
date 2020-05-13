@@ -1,7 +1,6 @@
 ---
 title: Filters in Azure Monitor views | Microsoft Docs
 description: A filter in an Azure Monitor view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

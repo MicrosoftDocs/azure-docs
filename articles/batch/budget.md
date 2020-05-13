@@ -1,16 +1,8 @@
 ---
-title: Cost analysis and budget - Azure Batch
-description: Learn how to get a cost analysis and set a budget for your Batch workload.
-services: batch
-author: ju-shim
-manager: gwallace
-
-ms.service: batch
+title: Cost analysis and budget
+description: Learn how to get a cost analysis and set a budget for the underlying compute resources and software licenses used to run your Batch workloads.
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: jushiman
 ---
 
 # Cost analysis and budgets for Azure Batch

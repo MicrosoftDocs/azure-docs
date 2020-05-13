@@ -1,7 +1,6 @@
 ---
 title: Views in management solutions | Microsoft Docs
 description: 'Management solutions will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a management solution. '
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

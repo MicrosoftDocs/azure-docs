@@ -1,10 +1,9 @@
 ---
-title: Check your Kubernetes deployments on Azure for implementation of best practices
+title: Check deployments for best practices
+titleSuffix: Azure Kubernetes Service
 description: Learn how to check for implementation of best practices in your deployments on Azure Kubernetes Service using kube-advisor
 services: container-service
 author: seanmck
-
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck

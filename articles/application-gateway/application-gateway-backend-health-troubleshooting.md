@@ -195,7 +195,7 @@ session on the port specified, the probe is marked as Unhealthy with this messag
 **Message:** Status code of the backend\'s HTTP response did not match
 the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**Cause:** After the TCP connection has been established and an SSL handshake is done (if SSL is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to \<protocol\>://127.0.0.1:\<port\>/, and it
+**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to \<protocol\>://127.0.0.1:\<port\>/, and it
 considers response status codes in the rage 200 through 399 as Healthy. If the server returns any other status code, it will be marked as Unhealthy with this message.
 
 **Solution:** Depending on the backend server's response code, you can
@@ -243,7 +243,7 @@ a well-known Certificate Authority (CA). Whitelist the backend on the Applicatio
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
-For an SSL certificate to be trusted, that certificate of the backend
+For a TLS/SSL certificate to be trusted, that certificate of the backend
 server must be issued by a CA that's included in the trusted
 store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
 
@@ -283,7 +283,7 @@ whitelist the backend
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
-For an SSL certificate to be trusted, the backend
+For a TLS/SSL certificate to be trusted, the backend
 server certificate must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
 
 The certificate that has been uploaded to Application Gateway HTTP settings must match the root certificate of the backend server certificate.
@@ -325,7 +325,7 @@ If the output doesn't show the complete chain of the certificate being returned,
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
-**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s Server Name Indication (SNI) is set as the FQDN in the backend pool address.
+**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s Server Name Indication (SNI) is set as the FQDN in the backend pool address.
 
 In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the host name mentioned in the HTTP settings. Or, if “Pick host name from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be applied.
 
@@ -367,10 +367,10 @@ For Linux using OpenSSL:
 
 **Message:** Backend certificate is invalid. Current date is not within the \"Valid from\" and \"Valid to\" date range on the certificate.
 
-**Cause:** Every certificate comes with a validity range, and the HTTPS connection won't be secure unless the server's SSL certificate is valid. The current data must be within the **valid from** and **valid to** range. If it's not, the certificate is considered invalid, and that will create a
+**Cause:** Every certificate comes with a validity range, and the HTTPS connection won't be secure unless the server's TLS/SSL certificate is valid. The current data must be within the **valid from** and **valid to** range. If it's not, the certificate is considered invalid, and that will create a
 security issue in which Application Gateway marks the backend server as Unhealthy.
 
-**Solution:** If your SSL certificate has expired, renew the certificate
+**Solution:** If your TLS/SSL certificate has expired, renew the certificate
 with your vendor and update the server settings with the new
 certificate. If it's a self-signed certificate, you must generate a valid certificate and upload the root certificate to the Application Gateway HTTP settings. To do that, follow these steps:
 
@@ -383,7 +383,7 @@ certificate. If it's a self-signed certificate, you must generate a valid certif
 #### Certificate verification failed
 
 **Message:** The validity of the backend certificate could not be
-verified. To find out the reason, check Open SSL diagnostics for the
+verified. To find out the reason, check OpenSSL diagnostics for the
 message associated with error code {errorCode}
 
 **Cause:** This error occurs when Application Gateway can't verify the validity of the certificate.

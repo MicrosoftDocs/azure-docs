@@ -14,6 +14,8 @@ ms.reviewer: sadodd
 
 The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 The change feed is stored as [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
 You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files, which let you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
@@ -35,7 +37,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 ## Enable and disable the change feed
 
-You must enable the change feed on your storage account to begin capturing and recording changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
+You must enable the change feed on your storage account to begin capturing and recording changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or PowerShell.
 
 Here's a few things to keep in mind when you enable the change feed.
 
@@ -54,15 +56,15 @@ Here's a few things to keep in mind when you enable the change feed.
 
 Enable change feed on your storage account by using Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+1. In the [Azure portal](https://portal.azure.com/), select your storage account.
 
 2. Navigate to the **Data Protection** option under **Blob Service**.
 
-3. Click **Enabled** under **Blob change feed**
+3. Click **Enabled** under **Blob change feed**.
 
-4. Choose the **Save** button to confirm your Data Protection settings
+4. Choose the **Save** button to confirm your **Data Protection** settings.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -74,7 +76,7 @@ Enable change feed by using PowerShell:
    Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
-2. Close, and then reopen the Powershell console.
+2. Close, and then reopen the PowerShell console.
 
 3. Install the **Az.Storage** preview module.
 
@@ -293,7 +295,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 In Azure Cloud Shell, run these commands:
 
-```cli
+```azurecli
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```

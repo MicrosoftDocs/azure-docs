@@ -89,6 +89,9 @@ If you can create a Remote Desktop connection with a computer directly attached 
 Work with your network administrator to correct the settings of your organization intranet edge device to allow HTTPS-based Remote Desktop connections to the Internet.
 
 ## Source 3: Cloud service endpoint and ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 For VMs created using the Classic deployment model, verify that another Azure VM that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure VM.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)

@@ -11,7 +11,7 @@ ms.author: victorh
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -78,7 +78,7 @@ A virtual network is needed for communication between the resources that you cre
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
-   - *10.0.1.0/24* - for the subnet address space.
+   - *10.0.0.0/24* - for the subnet address space.
 
      ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 

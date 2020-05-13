@@ -3,15 +3,15 @@ title: Redeploy SSIS packages to SQL single database
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate or redeploy SQL Server Integration Services packages and projects to Azure SQL Database single database using the Azure Database Migration Service and Data Migration Assistant.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 06/08/2019
+ms.date: 02/20/2020
 ---
 
 # Redeploy SSIS packages to Azure SQL Database with Azure Database Migration Service

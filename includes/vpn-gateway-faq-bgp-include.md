@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
-No, BGP is supported on Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+BGP is supported on all Azure VPN Gateawy SKUs except Basic SKU.
 
 ### Can I use BGP with Azure Policy-Based VPN gateways?
 No, BGP is supported on Route-Based VPN gateways only.
@@ -18,8 +18,8 @@ No, BGP is supported on Route-Based VPN gateways only.
 ### Can I use private ASNs (Autonomous System Numbers)?
 Yes, you can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks.
 
-### Can I use 32-bit ASNs (Autonomous System Numbers)?
-No, the Azure VPN Gateways support 16-Bit ASNs today.
+### Can I use 32-bit (4-byte) ASNs (Autonomous System Numbers)?
+Yes, Azure VPN Gateways now support 32-bit (4-byte) ASNs. Please use PowerShell/CLI/SDK to configure using ASN in decimal format.
 
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:

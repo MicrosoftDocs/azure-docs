@@ -1,7 +1,7 @@
 ---
 title: Video moderation with human review - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use machine-assisted video moderation and human review tools to moderate inappropriate content
+description: Use machine-assisted video moderation and the Review tool to moderate inappropriate content
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
 # Video moderation with human review
 
-Use Content Moderator's machine-assisted [video moderation](video-moderation-api.md) and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
+Use Content Moderator's machine-assisted [video moderation](video-moderation-api.md) and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
 ## Video-trained classifier (preview)
 

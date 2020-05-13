@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs FAQ | Microsoft Docs
-description: Find answers to common questions about Azure DevTest Labs.
+description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
@@ -206,6 +206,9 @@ To copy your existing VMs to DevTest Labs:
 ### Can I attach multiple disks to my VMs?
 
 Yes, you can attach multiple disks to your VMs.
+
+### Are Gen 2 images supported by DevTest Labs?
+No. The DevTest Labs service doesn't support [Gen 2 images](../virtual-machines/windows/generation-2.md). If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You won't see an image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:

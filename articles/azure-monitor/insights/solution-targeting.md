@@ -1,7 +1,6 @@
 ---
 title: Targeting monitoring solutions in Azure Monitor | Microsoft Docs
 description: Targeting monitoring solutions allows you to limit monitoring solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Service Bus queues | Microsoft Docs
-description: Write a C# console application that uses Service Bus messaging queues.
+description: In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/27/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -200,6 +200,7 @@ To receive the messages you sent, create another **Console App (.NET Core)** app
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
@@ -216,18 +217,23 @@ To receive the messages you sent, create another **Console App (.NET Core)** app
 
     Enter your connection string for the namespace as the `ServiceBusConnectionString` variable. Enter your queue name.
 
-1. Replace the default contents of `Main()` with the following line of code:
+1. Replace the `Main()` method with the following code:
 
     ```csharp
-    public static async Task Main(string[] args)
-    {    
+    static void Main(string[] args)
+    {
+        MainAsync().GetAwaiter().GetResult();
+    }
+
+    static async Task MainAsync()
+    {
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
         Console.WriteLine("======================================================");
 
-        // Register the queue message handler and receive messages in a loop
+        // Register QueueClient's MessageHandler and receive messages in a loop
         RegisterOnMessageHandlerAndReceiveMessages();
 
         Console.ReadKey();

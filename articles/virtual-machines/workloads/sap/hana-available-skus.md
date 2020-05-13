@@ -3,8 +3,8 @@ title: SKUs for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: SKUs for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -52,6 +52,7 @@ SAP HANA on Azure (Large Instances) service based on Revision 4 stamps is availa
 | Optimized for OLTP: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU cores and 72 CPU threads |  1.5 TB |  6 TB | Not offered anymore |
 |---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU cores and 144 CPU threads |  3.0 TB |  12 TB | Not offered anymore |
 |---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads  |  4.0 TB |  16 TB | Not offered anymore |
+| --- | SAP HANA on Azure S224m<br /> – 4 x Intel® Xeon® Platinum 8276 processor (also known as Cascade lake)<br /> 112 CPU cores and 224 CPU threads |  6.0 TB |  10.5 TB | Available in Revision3 and Revision4 stamps  |
 |---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  6.0 TB |  18 TB | Available  in Revision4 stamps|
 |---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  8.0 TB |  22 TB |  Available  in Revision4 stamps |
 |---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Available  in Revision4 stamps|
@@ -87,7 +88,7 @@ The specific configurations chosen are dependent on workload, CPU resources, and
 
 The hardware base for the offers, except units for customer-specific sizing projects, are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
 
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, and S224, which are referred to as the "Type I class" of SKUs.
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, and S224m which are referred to as the "Type I class" of SKUs.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm, and S960m, which are referred to as the "Type II class" of SKUs.
 - If you are interested in other S224 SKUs offering from 4.5TB to 9TB with Optane, contact your Microsoft account team to get more information. 
 

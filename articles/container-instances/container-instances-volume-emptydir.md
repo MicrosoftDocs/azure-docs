@@ -2,7 +2,7 @@
 title: Mount emptyDir volume to container group
 description: Learn how to mount an emptyDir volume to share data between the containers in a container group in Azure Container Instances
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 01/31/2020
 ---
 
 # Mount an emptyDir volume in Azure Container Instances
@@ -24,18 +24,20 @@ Some example uses for an *emptyDir* volume:
 
 Data in an *emptyDir* volume is persisted through container crashes. Containers that are restarted, however, are not guaranteed to persist the data in an *emptyDir* volume. If you stop a container group, the *emptyDir* volume is not persisted.
 
+The maximum size of a Linux *emptyDir* volume is 50 GB.
+
 ## Mount an emptyDir volume
 
-To mount an emptyDir volume in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+To mount an emptyDir volume in a container instance, you can deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), a [YAML file](container-instances-reference-yaml.md), or other programmatic methods to deploy a container group.
 
-First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *emptyDir* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
+First, populate the `volumes` array in the container group `properties` section of the file. Next, for each container in the container group in which you'd like to mount the *emptyDir* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
 For example, the following Resource Manager template creates a container group consisting of two containers, each of which mounts the *emptyDir* volume:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
-To see an example of container instance deployment with an Azure Resource Manager template, see [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md).
+To see examples of container group deployment, see [Deploy a multi-container group using a Resource Manager template](container-instances-multi-container-group.md) and [Deploy a multi-container group using a YAML file](container-instances-multi-container-yaml.md).
 
 ## Next steps
 

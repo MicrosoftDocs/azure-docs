@@ -9,8 +9,8 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.custom: seodec18
+ms.date: 05/05/2020
+ms.custom: seodec18~~~~
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal
@@ -75,7 +75,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
    [![Choose data types on the column headings.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. 
+1. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source.
 
    > [!IMPORTANT]
    > Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.

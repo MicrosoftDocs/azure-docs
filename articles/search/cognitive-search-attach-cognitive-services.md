@@ -43,7 +43,7 @@ There is no way to move a service across regions. If you get this error, you sho
 
 You can use a limited, free processing option to complete the AI enrichment tutorial and quickstart exercises.
 
-Free (Limited enrichments) resources are restricted to 20 documents per day, per subscription.
+Free (Limited enrichments) resources are restricted to 20 documents per day, per indexer. You can delete and recreate the indexer to reset the counter.
 
 1. Open the Import data wizard:
 

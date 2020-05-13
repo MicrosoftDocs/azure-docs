@@ -53,6 +53,10 @@ If you are using endpoints with the classic deployment model, remove any endpoin
 
 Finally, consider enabling encrypted connections for the instance of the SQL Server Database Engine in your Azure virtual machine. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
+## Encryption
+
+Managed disks offer Server Side Encryption, and Azure Disk Encryption. [Server Side Encryption](/azure/virtual-machines/windows/disk-encryption) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
+
 ## Use a non-default port
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
@@ -89,9 +93,14 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
   - If you must use the **SA** login, enable the login after provisioning and assign a new strong password.
 
-## Follow on-premises best practices
+## Additional best practices
 
-In addition to the practices described in this topic, we recommend that you review and implement the traditional on-premises security practices where applicable. For more information, see [Security Considerations for a SQL Server Installation](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
+In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
+
+For more information about on-premises security practices, see [Security Considerations for a SQL Server Installation](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) and the [Security center](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+
+For more information about virtual machine security, see the [virtual machines security overview](/azure/security/fundamentals/virtual-machines-overview).
+
 
 ## Next Steps
 

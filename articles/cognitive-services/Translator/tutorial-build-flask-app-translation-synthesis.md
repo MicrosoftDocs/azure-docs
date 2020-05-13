@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
 ---
 
@@ -124,7 +124,7 @@ Requests is a popular module that is used to send HTTP 1.1 requests. There’s n
    ```
 
 > [!NOTE]
-> If you'd like to learn more about requests, see [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> If you'd like to learn more about requests, see [Requests: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### Install and configure Flask
 
@@ -235,7 +235,7 @@ While these samples illustrate how to render html pages for a user, routes can a
    flask run
    ```
 
-4. Open a browser and navigate to the URL provided. You should see your single page app. Press **Ctrl + c** to kill the app.
+4. Open a browser and navigate to the URL provided. You should see your single page app. Press **Ctrl + C** to kill the app.
 
 ## Translate text
 
@@ -776,7 +776,7 @@ Now that you have a function to convert text-to-speech, and a route in your Flas
        <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
-       <option value="(en-US, Jessa24kRUS)">English (US) | Female | Jessa24kRUS</option>
+       <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
        <option value="(en-US, Guy24kRUS)">English (US) | Male | Guy24kRUS</option>
        <option value="(en-IE, Sean)">English (IE) | Male | Sean</option>
        <option value="(fr-FR, Julie, Apollo)">French | Female | Julie, Apollo</option>

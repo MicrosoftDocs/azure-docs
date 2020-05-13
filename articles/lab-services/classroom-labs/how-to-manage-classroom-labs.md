@@ -11,8 +11,8 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2019
+ms.topic: how-to
+ms.date: 04/10/2020
 ms.author: spelluru
 
 ---
@@ -33,10 +33,15 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     1. Specify a **name** for your lab. 
     2. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section. 
     3. Select the **virtual machine image** that you want to use for the classroom lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+
+        If you signed in using lab account owner credentials, you will see an option to enable more images for the lab. For more information, see [Enable images at the time of lab creation](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Review the **total price per hour** displayed on the page. 
     6. Select **Save**.
 
         ![New lab window](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > You see an option to select a location for your lab if the lab account was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
 4. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
     1. Specify the **name of the user** for all VMs in the lab.
     2. Specify the **password** for the user. 
@@ -48,12 +53,14 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
         A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
 
         ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Make a note of user name and password. They won't be shown again.    
     4. Then, select **Next** on the **Virtual machine credentials** page. 
-5. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
+5. On the **Lab policies** page, do the following steps:
+    1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab. 
+    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
+    3. Then, select **Finish**. 
 
-    ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -93,13 +100,15 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 | Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
 | Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
 | Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Teachers can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
-| Large | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization |  
+| Small GPU (Compute) | 6 | 56 GB | <p>This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications.</p><p>Azure Lab Services automatically installs and configures the necessary GPU drivers for you when you create a lab with GPU images. </p> | 
 | Small GPU (Visualization) | 6 | 56 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
-| Small GPU (Compute) | 6 | 56 GB | This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications. | 
+| Large | 8 | 16 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Large (Nested virtualization) | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization. |  
 | Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 
 > [!NOTE]
-> Azure Lab Services automatically installs and configures the necessary GPU drivers for you when you create a lab with GPU images.  
+> You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab account creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. 
+
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).

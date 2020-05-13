@@ -9,7 +9,7 @@ ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
 
@@ -129,7 +129,7 @@ Azure AD DS creates additional resources to function properly, such as public IP
 
 This alert is generated when one of these required resources is deleted. If the resource was deleted less than 4 hours ago, there is a chance that the Azure platform can automatically recreate the deleted resource. The following steps outline how to check the health status and timestamp for resource deletion:
 
-1. In the Azure portal, search for and select **Domain Services**. Choose your Azure AD DS managed domain, such as *aadds.contoso.com*.
+1. In the Azure portal, search for and select **Domain Services**. Choose your Azure AD DS managed domain, such as *aaddscontoso.com*.
 1. In the left-hand navigation, select **Health**.
 1. In the health page, select the alert with the ID *AADDS109*.
 1. The alert has a timestamp for when it was first found. If that timestamp is less than 4 hours ago, the Azure platform may be able to automatically recreate the resource and resolve the alert by itself.

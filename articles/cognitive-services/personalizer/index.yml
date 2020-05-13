@@ -64,7 +64,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Develop Personalizer loop with Node.js
-            url: sdk-learning-loop.md?pivots=programming-language-nodejs
+            url: sdk-learning-loop.md?pivots=programming-language-javascript
           - text: NPM package
             url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
       - linkListType: get-started
@@ -119,4 +119,3 @@ landingContent:
             url: https://stackoverflow.com/questions/tagged/personalizer
           - text: Influence service with UserVoice
             url: https://cognitive.uservoice.com/forums/921562-personalizer
-

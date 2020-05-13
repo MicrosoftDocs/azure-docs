@@ -1,9 +1,9 @@
 ---
 title: Drawing tools module | Microsoft Azure Maps
-description: In this article, you will learn how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: walsehgal
-ms.author: v-musehg
-ms.date: 09/04/2019
+description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
+author: philmea
+ms.author: philmea
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse our touch screen. The core class of this module is the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) and provides all the capabilities needed to draw and edit shapes on the map. The drawing manager can be used directly and integrated with a custom toolbar UI or you can make use of the built-in [drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) class. 
+The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) class. 
 
 ## Loading the drawing tools module in a webpage
 
@@ -21,11 +21,11 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
     - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
-    - Alternatively, load the drawing tools module for the Azure Maps Web SDK source code locally by using the [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
+    - Or, you can load the drawing tools module for the Azure Maps Web SDK source code locally by using the [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
     
         > **npm install azure-maps-drawing-tools**
     
@@ -38,7 +38,7 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
 ## Use the drawing manager directly
 
-Now that the drawing tools module has been loaded into your application you can use the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) to enable drawing and editing capabilities within the map. You can specify options for the drawing manager while instantiating it or alternatively use the `drawingManager.setOptions()` function.
+Once the drawing tools module is loaded in your application, you can enable drawing and editing capabilities using the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). You can specify options for the drawing manager while instantiating it or alternatively use the `drawingManager.setOptions()` function.
 
 ### Set the drawing mode
 
@@ -79,7 +79,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-Below is the code sample implementing the functionality that lets you draw a polygon on the map freely, while holding down the left mouse button and dragging it around. 
+ This code sample implements the functionality of drawing a polygon on the map. Just hold down the left mouse button and dragging it around, freely.
 
 <br/>
 

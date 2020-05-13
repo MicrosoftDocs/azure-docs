@@ -21,7 +21,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Send location-based push notifications with Azure Notification Hubs and Bing Spatial Data
+# Tutorial: Send location-based push notifications with Notification Hubs and Bing Spatial Data
 
 In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data.
 
@@ -103,7 +103,7 @@ In this tutorial, you take the following steps:
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-    Once the project creation is complete, you should have the harness for the app itself. Now let’s set up everything for the geo-fencing infrastructure. Because you are going to use Bing services for this solution, there is a public REST API endpoint that allows you to query specific location frames:
+    Once the project creation is complete, you should have the harness for the app itself. Now let's set up everything for the geo-fencing infrastructure. Because you are going to use Bing services for this solution, there is a public REST API endpoint that allows you to query specific location frames:
 
     ```text
     http://spatial.virtualearth.net/REST/v1/data/
@@ -160,7 +160,7 @@ In this tutorial, you take the following steps:
     }
     ```
 
-    To learn more about getting the user’s location in UWP apps, see[Get the user's location](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    To learn more about getting the user's location in UWP apps, see[Get the user's location](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 5. To check that the location acquisition is actually working, open the code side of your main page (`MainPage.xaml.cs`). Create a new event handler for the `Loaded` event in the `MainPage` constructor.
 
     ```csharp
@@ -192,7 +192,7 @@ In this tutorial, you take the following steps:
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-    Now you know that location acquisition works, you can remove the Loaded event handler if you like because you won’t be using it anymore.
+    Now you know that location acquisition works, you can remove the Loaded event handler if you like because you won't be using it anymore.
 8. The next step is to capture location changes. In the `LocationHelper` class, add the event handler for `PositionChanged`:
 
     ```csharp
@@ -213,7 +213,7 @@ In this tutorial, you take the following steps:
 
 ## Set up the backend
 
-1. Download the [.NET Backend Sample from GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+1. Download the [.NET Backend Sample from GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 2. Once the download completes, open the `NotifyUsers` folder, and then open `NotifyUsers.sln` file in Visual Studio.
 3. Set the `AppBackend` project as the **StartUp Project** and launch it.
 
@@ -344,7 +344,7 @@ In this tutorial, you take the following steps:
     ```
 
     > [!NOTE]
-    > Set the `POST_URL` to the location of your deployed web application. For now, it’s OK to run it locally, but as you work on deploying a public version, you need to host it with an external provider.
+    > Set the `POST_URL` to the location of your deployed web application. For now, it's OK to run it locally, but as you work on deploying a public version, you need to host it with an external provider.
 2. Register the UWP app for push notifications. In Visual Studio, choose **Project** > **Store** > **Associate app with the store**.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

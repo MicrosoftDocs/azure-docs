@@ -23,12 +23,12 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Dedicated hosts preview
+          - text: Spot VMs
+            url: spot-vms.md
+          - text: Dedicated hosts
             url: dedicated-hosts.md
-          - text: Proximity placement groups preview
+          - text: Proximity placement groups
             url: proximity-placement-groups.md
-          - text: Ephemeral disks
-            url: ephemeral-os-disks.md
 
   # Card (optional)
   - title: Get started

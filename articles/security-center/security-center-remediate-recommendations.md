@@ -21,7 +21,7 @@ Recommendations give you suggestions on how to better secure your resources. You
 
 ## Remediation steps <a name="remediation-steps"></a>
 
-After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize what to do first.
+After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [Secure Score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize what to do first.
 
 1. From the list, click the recommendation.
 
@@ -33,7 +33,7 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 ## Quick Fix remediation<a name="one-click"></a>
 
-Quick Fix enables you to quickly remediate a recommendation on multiple resources. It's only available for specific recommendations. Quick Fix simplifies remediation and enables you to quickly increase your secure score, improving your environment's security.
+Quick Fix enables you to quickly remediate a recommendation on multiple resources. It's only available for specific recommendations. Quick Fix simplifies remediation and enables you to quickly increase your Secure Score, improving your environment's security.
 
 To implement Quick Fix remediation:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Explore data using the explorer - Azure Time Series Insights  | Microsoft Docs'
+title: 'Explore data using the explorer - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to use the Azure Time Series Insights explorer to view your IoT data.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
 ---
 
@@ -56,7 +56,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. Next, a chart that shows a count of all events during the selected timespan is displayed. Here you have a number of controls:
 
-    - **Terms Editor panel**: The term space is where you query your environment. It’s found on the left side of the screen:
+    - **Terms Editor panel**: The term space is where you query your environment. It's found on the left side of the screen:
       - **MEASURE**: This drop-down list shows all numeric columns (**Doubles**).
       - **SPLIT BY**: This drop-down list shows categorical columns (**Strings**).
       - You can enable step interpolation, show minimum and maximum, and adjust the y-axis from the control panel next to **MEASURE**. You also can adjust whether data shown is a count, average, or sum of the data.
@@ -77,7 +77,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
          [![Example GA queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
+1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
 1. The **Time brush** tool makes it easy to navigate from one timespan to another.
 

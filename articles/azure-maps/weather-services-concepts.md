@@ -1,8 +1,8 @@
 ---
 title: Weather Services concepts | Microsoft Azure Maps
 description: In this article, you will learn about the concepts that apply to Microsoft Azure Maps Weather Services.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -16,7 +16,7 @@ This article introduces concepts that apply to the [Azure Maps Weather Services]
 
 ## Unit types
 
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned response for these APIs will also includes unitType, a numeric value that can be used for unit translations. Please see table below to interpret these values.
+Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -47,7 +47,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return icon codes (iconCode) in the response, a numeric value that can be used to define the icon. Please do not link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -95,7 +95,7 @@ Some of the Weather service APIs return icon codes (iconCode) in the response, a
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. Please see below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 

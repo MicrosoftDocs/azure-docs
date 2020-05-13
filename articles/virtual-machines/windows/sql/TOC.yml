@@ -97,6 +97,8 @@
         href: virtual-machines-windows-sql-availability-group-quickstart-template.md
       - name: Multiple regions
         href: virtual-machines-windows-portal-sql-availability-group-dr.md
+      - name: Domain-independent (workgroup)
+        href: virtual-machines-windows-sql-workgroup-availability-group.md
       - name: Configure manually
         items:
         - name: Prerequisites

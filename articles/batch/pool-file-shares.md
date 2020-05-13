@@ -1,20 +1,8 @@
 ---
-title: Azure file share for Azure Batch pools | Microsoft Docs
+title: Azure file share for Azure Batch pools
 description: How to mount an Azure Files share from compute nodes in a Linux or Windows pool in Azure Batch.
-services: batch
-documentationcenter: ''
-author: ju-shim
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: jushiman
-ms.custom: 
 ---
 
 # Use an Azure file share with a Batch pool

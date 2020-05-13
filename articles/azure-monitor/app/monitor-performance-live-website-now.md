@@ -1,11 +1,7 @@
 ---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
 
 ---
@@ -315,7 +311,7 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
 

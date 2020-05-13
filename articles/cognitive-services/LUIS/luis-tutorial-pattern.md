@@ -1,22 +1,14 @@
 ---
 title: "Tutorial: Patterns - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 04/14/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
 # Tutorial: Add common pattern template utterance formats to improve predictions
 
-In this tutorial, use patterns to increase intent and entity prediction, which allows you to provide fewer example utterances. The pattern is template utterance assigned to an intent, containing syntax to identify entities and ignorable text.
+In this tutorial, use patterns to increase intent and entity prediction, which allows you to provide fewer example utterances. The pattern is a template utterance assigned to an intent, which contains syntax to identify entities and ignorable text.
 
 **In this tutorial, you learn how to:**
 
@@ -37,7 +29,7 @@ There are two types of utterances stored in the LUIS app:
 
 Adding template utterances as a pattern allows you to provide fewer example utterances overall to an intent.
 
-A pattern is applied as a combination of expression matching and machine learning.  The template utterance, along with the example utterances, give LUIS a better understanding of what utterances fit the intent.
+A pattern is applied as a combination of text matching and machine learning.  The template utterance in the pattern, along with the example utterances in the intent, give LUIS a better understanding of what utterances fit the intent.
 
 ## Import example app and clone to new version
 
@@ -45,11 +37,13 @@ Use the following steps:
 
 1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Import the JSON into a new app into the [preview LUIS portal](https://preview.luis.ai).
+1. Import the JSON into a new app into the [preview LUIS portal](https://preview.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step.
 
-1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+1. From the **Manage** section, on the **Versions** tab, select the active version, then select **Clone**. Name the cloned version `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Create new intents and their utterances
+
+The two intents find the manager or the manager's direct reports, based on the utterance text. The difficulty is that the two intents _mean_ different things but most of the words are the same. Only the word order is different. In order for the intent to be predicted correctly, it would have to have many examples.
 
 1. Select **Build** from the navigation bar.
 
@@ -101,7 +95,7 @@ Use the following steps:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is the utterance `query`.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -191,16 +185,16 @@ Use the following steps:
     }
     ```
 
-Did this query succeed? For this training cycle it did succeed. The scores of the two top intents are close but the highest intent isn't significantly high (over 60%) and isn't far enough above the next intent's score.
+The scores of the two top intents are close but the highest intent isn't significantly high (over 60%) and isn't far enough above the next intent's score.
 
-Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned.
+Because LUIS training is not exactly the same each time (there is a bit of variation), these top two scores could invert on the next training cycle. The result is that the wrong intent could be returned.
 
 Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
 
 Leave this second browser window open. You use it again later in the tutorial.
 
 ## Template utterances
-Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
+Because of the nature of the Human Resource subject domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
 |Utterances|
 |--|
@@ -216,11 +210,11 @@ Template utterance examples for this intent include:
 |`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 |`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 
-The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or [punctuation](luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
 
-In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. This means the entities have to have enough examples in example utterances with a high degree of prediction before patterns with entities are successful. However, the template doesn't help predict entities, only intents.
+In order for a pattern to be matched to an utterance, _first_ the entities within the utterance have to match the entities in the template utterance. This means the entities have to have enough examples in example utterances with a high degree of prediction before patterns with entities are successful. However, the template doesn't help predict entities, only intents.
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
@@ -241,6 +235,8 @@ In order for a pattern to be matched to an utterance, the entities within the ut
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    These template utterances include the **Employee** entity with the curly bracket notation.
+
 1. While still on the Patterns page, select the **OrgChart-Reports** intent, then enter the following template utterances:
 
     |Template utterances|
@@ -260,7 +256,7 @@ Now that the patterns are added to the app, train, publish and query the app at 
 
 1. After publishing is complete, switch browser tabs back to the endpoint URL tab.
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is the `query`.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -371,7 +367,7 @@ Example template utterances that allow for this optional information:
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -385,14 +381,6 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 **Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
 
 **Remember: entities are found first, then the pattern is matched.**
-
-### Edit the existing pattern template utterance
-
-1. In the preview LUIS portal, select **Build** in the top menu then select **Patterns** in the left menu.
-
-1. Search for the existing template utterance, `Who is {Employee}['s] manager[?]`, and select the ellipsis (***...***) to the right, then select **Edit** from the pop-up menu.
-
-1. Change the template utterance to: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ### Add new pattern template utterances
 
@@ -424,9 +412,9 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 All of these utterances found the entities inside, therefore they match the same pattern, and have a high prediction score. You added a few patterns that will match many variations of utterances. You didn't need to add any example utterances in the intent to have the template utterance work in the pattern.
 
 This use of patterns provided:
-* higher prediction scores
-* with the same example utterances in the intent
-* with just a few welll-constructed template utterances in the pattern
+* Higher prediction scores
+* With the same example utterances in the intent
+* With just a few well-constructed template utterances in the pattern
 
 ### Use the OR operator and groups
 
@@ -468,7 +456,7 @@ This uses a **group** around the required verb tense and the optional `in` and `
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-By using more pattern syntax, you could reduce the number of template utterances you have to maintain in your app, while still having a high prediction score.
+By using more pattern syntax, you reduce the number of template utterances you have to maintain in your app, while still having a high prediction score.
 
 ### Use the utterance beginning and ending anchors
 
@@ -510,7 +498,7 @@ The varying length includes words that may confuse LUIS about where the entity e
 
 1. Select **FindForm** from the intents list.
 
-1. Add some example utterances:
+1. Add some example utterances. The text that should be predicted as a Pattern.any is in **bold text**. The form name is difficult to determine from the other words around it in the utterance. The Pattern.any will help by marking the boundaries of the entity.
 
     |Example utterance|Form name|
     |--|--|

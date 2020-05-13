@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
@@ -57,7 +57,9 @@ Applications can create dataframes directly from files or folders on the remote 
 
     ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-2. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code.
+1. Note the session id returned. From the picture above, the session id is 0. If desired, you can retrieve the session details by navigating to `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` where CLUSTERNAME is the name of your Spark cluster and ID is your session id number.
+
+1. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code.
 
     ```python
     # Create a dataframe and table from sample data

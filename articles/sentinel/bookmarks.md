@@ -1,8 +1,8 @@
 ---
 title: Use hunting bookmarks for data investigations in Azure Sentinel 
 description: This article describes how to use the Azure Sentinel hunting bookmarks to keep track of data.
-author: cabailey
-ms.author: cabailey
+author: yelevin
+ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel

@@ -1,5 +1,5 @@
 ---
-title: Tutorial to copy data to Azure Data Box Heavy device via data copy service | Microsoft Docs
+title: "Tutorial: Copy data to Azure Data Box Heavy via data copy service"
 description: In this tutorial, you learn how to copy data to your Azure Data Box Heavy device via the data copy service
 services: databox
 author: alkohli

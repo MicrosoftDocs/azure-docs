@@ -1,78 +1,79 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure CDN Documentation
+summary: Azure Content Delivery Network (CDN) is a global CDN solution for delivering high-bandwidth content. It can be hosted in Azure or any other location. With Azure CDN, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations. # < 160 chars
+
 metadata:
-  title: Azure CDN Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure CDN Documentation - Tutorials, API Reference
   description: Azure Content Delivery Network (CDN) is a global CDN solution for delivering high-bandwidth content. It can be hosted in Azure or any other location. With Azure CDN, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.
-  services: cdn
-  author: twooley
-  manager: twooley
   ms.service: azure-cdn
-  ms.topic: landing-page
-  ms.date: 06/08/2018
-  ms.author: twooley
-abstract:
-  description: Azure Content Delivery Network (CDN) is a global CDN solution for delivering high-bandwidth content. It can be hosted in Azure or any other location. With Azure CDN, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations.
-sections:
-- title: 
-  items:
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/cdn.svg
-      text: Learn about Azure CDN
-      href: /azure/cdn/cdn-overview
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to enable Azure CDN by creating a CDN profile and a CDN endpoint.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/get-started.svg
-      text: Get started with Azure CDN
-      href: /azure/cdn/cdn-create-new-endpoint
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to configure Azure CDN for your needs.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Add a custom domain to your CDN endpoint</a>
-    - html: <a href="/azure/cdn/cdn-custom-ssl">Configure HTTPS on a custom domain</a>
-    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Set caching rules</a>
-- title: Videos
-  items:
-  - type: paragraph
-    text: Watch videos that show how Azure CDN works.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/video-library.svg
-      text: Azure CDN video library
-      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find scripts to manage common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Code samples</a>    
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/cdn/">REST API reference</a></p>
+  ms.topic: landing-page # Required
+  author: asudbring #Required; your GitHub user alias, with correct capitalization.
+  ms.author: allensu #Required; microsoft alias of author; optional team alias.
+  ms.date: 02/24/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure CDN
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a content delivery network on Azure?
+            url: cdn-overview.md
+      - linkListType: video
+        links:
+          - text: Azure CDN video library
+            url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+          - text: How to use HTTP overrides on Azure CDN from Microsoft
+            url: https://channel9.msdn.com/Shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure CDN profile and endpoint
+            url: cdn-create-new-endpoint.md
+          - text: Integrate an Azure storage account with Azure CDN
+            url: cdn-create-a-storage-account-with-cdn.md
+      - linkListType: tutorial
+        links:
+          - text: Add a custom domain to your Azure CDN endpoint
+            url: cdn-map-content-to-custom-domain.md
+          - text: Configure HTTPS on an Azure CDN custom domain
+            url: cdn-custom-ssl.md
+          - text: Add Azure CDN to an Azure App Service web app
+            url: cdn-add-to-web-app.md
+      - linkListType: learn
+        links:
+          - text: Create a Content Delivery Network for your Website with Azure CDN and Blob Services
+            url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor the health of Azure CDN resources
+            url: cdn-resource-health.md
+          - text: Azure diagnostic logs - Azure CDN
+            url: cdn-azure-diagnostic-logs.md
+
+  # Card
+  - title: Reporting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze Azure CDN usage patterns
+            url: cdn-log-analysis.md
+          - text: Core Reports from Verizon
+            url: cdn-analyze-usage-patterns.md
+          - text: Custom Reports from Verizon
+            url: cdn-verizon-custom-reports.md
+          - text: Analyze usage statistics with Azure CDN advanced HTTP reports
+            url: cdn-advanced-http-reports.md
+     

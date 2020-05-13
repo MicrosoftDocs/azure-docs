@@ -2,7 +2,7 @@
 title: Set up your phone number as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity using your phone number and mobile device as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up a phone number as your verification method
@@ -50,7 +49,7 @@ Depending on your organization’s settings, you might be able to use phone call
 
 ### To set up phone calls
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 

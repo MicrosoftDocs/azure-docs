@@ -45,6 +45,9 @@ To get the URL to enable local Git deployment for an existing app, run [`az weba
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> If you are using a linux app-service-plan, you need to add this parameter: --runtime python|3.7
+
 
 Or, to create a new Git-enabled app, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter. Replace \<app-name>, \<group-name>, and \<plan-name> with the names for your new Git app, its Azure resource group, and its Azure App Service plan.
 

@@ -2,7 +2,7 @@
 title: Resource Manager and classic deployment
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/06/2020
 ---
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 

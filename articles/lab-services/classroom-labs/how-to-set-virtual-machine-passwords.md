@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -55,6 +55,9 @@ The second way is to select one or more VMs in the list, and toggle the button i
 
 Similarly, you can stop one or more VMs by toggling the button in the **State** column or selecting **Stop** on the toolbar. 
 
+> [!NOTE]
+> When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+
 ## Reset VMs
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar. 
 
@@ -92,6 +95,16 @@ The lab creator (instructor/professor) can connect to a student VM if the follow
  To connect to the student VM, hover the mouse on the VM in the list and select the computer button.  
 
 ![Connect to student VM button](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> When the professor starts the VM and connects to it, the student quota is unaffected. 
+
+## Export list of virtual machines to a CSV file
+
+1. Switch to the **Virtual machine pool** tab.
+2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**. 
+
+    ![Export list of virtual machines](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).

@@ -9,7 +9,7 @@ ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
 
@@ -25,7 +25,7 @@ This article shows you how to view the Azure AD DS health status and understand 
 The health status for an Azure AD DS managed domain is viewed using the Azure portal. Information on the last backup time and synchronization with Azure AD can be seen, along with any alerts that indicate a problem with the managed domain's health. To view the health status for an Azure AD DS managed domain, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
-1. Select your Azure AD DS managed domain, such as *aadds.contoso.com*.
+1. Select your Azure AD DS managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side of the Azure AD DS resource window, select **Health**. The following example screenshot shows a healthy Azure AD DS managed domain and the status of the last backup and Azure AD synchronization:
 
     ![Health page overview in the Azure portal showing the Azure Active Directory Domain Services status](./media/check-health/health-page.png)

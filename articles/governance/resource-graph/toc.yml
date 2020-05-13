@@ -17,6 +17,9 @@
   - name: Run your first query - PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: first-query-powershell.md
+  - name: Deploy a shared query - ARM template
+    displayName: resource manager, queries
+    href: shared-query-template.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
@@ -77,7 +80,11 @@
   - name: REST
     href: /rest/api/azure-resourcegraph/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.resourcegraph/allversions
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
   - name: Azure roadmap

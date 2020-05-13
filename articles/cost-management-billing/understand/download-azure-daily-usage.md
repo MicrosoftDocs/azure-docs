@@ -7,7 +7,7 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/19/2020
 ---
 
 # View and download your Azure usage and charges
@@ -16,30 +16,31 @@ You can download a daily breakdown of your Azure usage and charges in the Azure 
 
 If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
 
+Based on the type of subscription that you use, options to download your usage and charges vary. 
+
 ## Download usage from the Azure portal (.csv)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for *Cost Management + Billing*.
-
+1. Search for *Cost Management + Billing*.  
     ![Screenshot that shows Azure portal search](./media/download-azure-daily-usage/portal-cm-billing-search.png)
-
 1. Depending on your access, you might need to select a Billing account or Billing profile.
 1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
-1. Select the **download icon** or the ellipsis (`...`) on the right.
-1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.
+1. Select the **download icon** or the ellipsis (`...`) on the right.  
+  ![Screenshot showing Usage + charges download location](./media/download-azure-daily-usage/download-usage-others.png)  
+1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.  
+
 
 ## Download usage for EA customers
 
 To view and download usage data as a EA customer, you must be an Enterprise Administrator, Account Owner, or Department Admin with the view charges policy enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for *Cost Management + Billing*.
-
+1. Search for *Cost Management + Billing*.  
     ![Screenshot that shows Azure portal search](./media/download-azure-daily-usage/portal-cm-billing-search.png)
-
 1. Select **Usage + charges**.
-1. For the month you want to download, select **Download**.
+1. For the month you want to download, select **Download**.  
+    ![Screenshot showing Usage + charges download location](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## Download usage for pending charges
 

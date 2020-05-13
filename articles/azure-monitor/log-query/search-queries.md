@@ -1,7 +1,6 @@
 ---
 title: Search queries in Azure Monitor logs | Microsoft Docs
 description: This article provides a tutorial for getting started using search in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -9,11 +9,9 @@ ms.author: zhshang
 ---
 # Azure SignalR Service internals
 
-Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR as a preview feature.
+Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR by reimplementing ASP.NET SignalR's data protocol on top of the ASP.NET Core framework.
 
-> To support ASP.NET SignalR, Azure SignalR Service reimplements ASP.NET SignalR's data protocol on top of the ASP.NET Core framework
-
-You can easily migrate a local ASP.NET Core SignalR application to work with SignalR Service, with a few lines of code change.
+You can easily migrate a local ASP.NET Core SignalR application or ASP.NET SignalR application to work with SignalR Service, with a few lines of code change.
 
 The diagram below describes the typical architecture when you use the SignalR Service with your application server.
 

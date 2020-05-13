@@ -4,7 +4,7 @@ description: Learn about how the ATN2 SQL system function in Azure Cosmos DB ret
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -39,6 +39,10 @@ SELECT ATN2(35.175643, 129.44) AS atn2
 ```json
 [{"atn2": 1.3054517947300646}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

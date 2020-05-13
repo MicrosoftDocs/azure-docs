@@ -2,8 +2,6 @@
 title: Overview of Linkerd
 description: Obtain an overview of Linkerd
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer

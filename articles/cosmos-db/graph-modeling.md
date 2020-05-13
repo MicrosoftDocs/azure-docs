@@ -4,7 +4,7 @@ description: Learn how to model a graph database by using Azure Cosmos DB Gremli
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ---
