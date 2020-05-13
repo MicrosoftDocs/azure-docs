@@ -30,7 +30,7 @@ For detailed information on how to create a Data Box order, see [Tutorial: Order
 ## Use self managed shipping
 
 When you place a Data Box order, you can choose self managed shipping option.
-
+ll
 1. In **Azure Data Box**>**Select your Azure Data Box**>**Order** Click on **Contact details**, then click **+ Add Shipping Address**.
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
@@ -62,7 +62,7 @@ Then you can complete your order.
 
 8. After the device has been picked up, you need to prepare the data copy and then drop off the device back at the datacenter.
 
-   Once you finish copying data, you need to successfully complete **** <!-- Where is this Prepare to ship dialog???--> step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer.
+   Once you finish copying data, you need to successfully complete **'Prepare to ship'** <!-- Where is this Prepare to ship dialog???--> step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer.
 
    > [!NOTE]
    >
