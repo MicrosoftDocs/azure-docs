@@ -52,7 +52,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 1. Define the device model and interfaces. You author a set of JSON files that define your device's capabilities using the [DTDL](https://aka.ms/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
-1. Author device software or firmware that implements the capabilities declared in the interfaces. The Azure IoT SDK includes preview Iot Plug and Play APIs to help you implement device models.
+1. Author device software or firmware that implements the capabilities declared in the interfaces. The Azure IoT SDK includes preview IoT Plug and Play APIs to help you implement device models.
 
 ## Regional availability
 
