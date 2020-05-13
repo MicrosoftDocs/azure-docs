@@ -84,25 +84,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	   | | |
 	   |-|-|
-	   | `https://www.amazon.com`|
-	   | `https://www.amazon.co.jp`|
-	   | `https://www.amazon.de`|
+	   | `https://www.amazon.com`| North America
+	   | `https://www.amazon.co.jp`| Asia / Far East
+	   | `https://www.amazon.de`| Europe
 
 	1. In the **Reply URL** text box, type a URL using one of the following patterns:
 	
 	   | | |
 	   |-|-|
-	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| North America
+	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Asia / Far East
+	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europe
 
 	   > [!NOTE]
        > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon Business SSO configuration section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign-on URL** text box, type a URL:
-    `https://www.amazon.com/`
+1. If you wish to configure the application in **SP** initiated mode, you will need to add the full URL provided in the Amazon Business configuration to the **Sign-on URL** in the **Set additional URLs** section.
 
 1. The following screenshot shows the list of default attributes. Edit the attributes by clicking on the **Edit** icon in the **User Attributes & Claims** section.
 
@@ -195,7 +192,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Finally in the **SSO Connection details** section the **Status** is shown as **Active**.
 
 	![Connection](media/amazon-business-tutorial/sso-connection5.png)
-
+	
+	 > [!NOTE]
+       > If you wish to configure the application in **SP** initiated mode perform the following step, paste the Sign on URL from the screenshot above in the **Sign-on URL** text box of the **Set additional URLs** section in the Azure portal.
+    `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
