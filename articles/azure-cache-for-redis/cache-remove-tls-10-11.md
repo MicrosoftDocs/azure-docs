@@ -16,7 +16,7 @@ There's an industry-wide push toward the exclusive use of Transport Layer Securi
 
 As a part of this effort, we'll be making the following changes to Azure Cache for Redis:
 
-* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances. (This used to be TLS 1.0.) Existing cache instances won't be updated at this point. You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed. This change can be done through the Azure portal or other management APIs.
+* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances (previously TLS 1.0).  Existing cache instances won't be updated at this point. You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed. This change can be done through the Azure portal or other management APIs.
 * **Phase 2:** We'll stop supporting TLS versions 1.0 and 1.1. After this change, your application will be required to use TLS 1.2 or later to communicate with your cache.
 
 Additionally, as a part of this change, we'll be removing support for older, insecure cypher suites.  Our supported cypher suites will be restricted to the following when the cache is configured with a minimum TLS version of 1.2.
@@ -30,7 +30,7 @@ The dates when these changes take effect are:
 
 | Cloud               | Phase 1 Start Date | Phase 2 Start Date      |
 |---------------------|--------------------|-------------------------|
-| Azure (global)      |  January 13, 2020  | May 11, 2020 (extended) |
+| Azure (global)      |  January 13, 2020  | May 11, 2020            |
 | Azure Government    |  March 13, 2020    | May 11, 2020            |
 | Azure Germany       |  March 13, 2020    | May 11, 2020            |
 | Azure China         |  March 13, 2020    | May 11, 2020            |

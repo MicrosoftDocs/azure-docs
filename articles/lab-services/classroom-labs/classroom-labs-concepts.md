@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/08/2020
 ms.author: spelluru
 
 ---
@@ -47,7 +47,7 @@ This article describes different user profiles in Azure Lab Services.
 
 ### Lab account owner
 
-Typically, and IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:
+Typically, an IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:
 
 - Sets up a lab account for your organization.
 - Manages and configures policies across all labs.

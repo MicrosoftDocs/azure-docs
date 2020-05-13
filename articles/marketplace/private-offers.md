@@ -1,6 +1,6 @@
 ---
-title: Private offers | Azure Marketplace
-description: Private offers in the Azure Marketplace for app and service publishers.
+title: Private offers in Microsoft commercial marketplace
+description: Private offers in the Microsoft commercial marketplace for app and service publishers.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,9 +9,9 @@ ms.date: 04/19/2020
 ms.author: dsindona
 ---
 
-# Private offers
+# Private offers in the Microsoft commercial marketplace
 
-Private offers on [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) enable publishers to create SKUs that are only visible to targeted customers.
+Private offers in [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) enable publishers to create plans that are only visible to targeted customers. In this article, you'll learn about the options and benefits of private offers.
 
 ## Unlock enterprise deals with private offers
 
