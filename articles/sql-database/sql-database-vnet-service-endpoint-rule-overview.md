@@ -289,7 +289,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 [arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 [rbac-what-is-813s]:../role-based-access-control/overview.md
-[sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
+[sql-db-firewall-rules-config-715d]:../azure-sql/database/firewall-configure.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md

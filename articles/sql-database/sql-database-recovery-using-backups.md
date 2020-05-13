@@ -22,7 +22,7 @@ By default, Azure SQL Database and Azure SQL Managed Instance backups are stored
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
 - Create a new database on any server in any other region, recovered to the point of the most recent replicated backups.
 
-If you configured [backup long-term retention](sql-database-long-term-retention.md), you can also create a new database from any long-term retention backup on any server.
+If you configured [backup long-term retention](../azure-sql/database/long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
 > [!IMPORTANT]
 > You can't overwrite an existing database during restore.
@@ -242,5 +242,5 @@ Automatic backups protect your databases from user and application errors, accid
 
 - [Business continuity overview](sql-database-business-continuity.md)
 - [SQL Database automated backups](sql-database-automated-backups.md)
-- [Long-term retention](sql-database-long-term-retention.md)
+- [Long-term retention](../azure-sql/database/long-term-retention-overview.md)
 - To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) or [Auto-failover groups](sql-database-auto-failover-group.md).

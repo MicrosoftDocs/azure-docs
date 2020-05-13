@@ -135,7 +135,7 @@ The client performing the changes needs network access to the primary server. Al
 
 ### On the master of the primary server
 
-1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](../../sql-database/sql-database-firewall-configure.md)).
+1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](firewall-configure.md)).
 1. Create a login dedicated to setup active geo-replication (and adjust the credentials as needed):
 
    ```sql
@@ -198,7 +198,7 @@ After the initial setup, the users, logins, and firewall rules created can be re
 
 ## Keeping credentials and firewall rules in sync
 
-We recommend using [database-level IP firewall rules](../../sql-database/sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](../../sql-database/sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
+We recommend using [database-level IP firewall rules](firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](../../sql-database/sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
 
 ## Upgrading or downgrading primary database
 

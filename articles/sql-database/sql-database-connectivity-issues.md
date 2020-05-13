@@ -188,7 +188,7 @@ For example, when your client program is hosted on a Windows computer, you can u
 If your client program is hosted on an Azure virtual machine (VM), read [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 For background information about configuration of ports and IP addresses, see
-[Azure SQL Database firewall](sql-database-firewall-configure.md).
+[Azure SQL Database firewall](../azure-sql/database/firewall-configure.md).
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 

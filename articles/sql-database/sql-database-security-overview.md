@@ -25,7 +25,7 @@ Microsoft Azure SQL Database and SQL Managed Instance provide a relational datab
 
 ### IP firewall rules
 
-IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and Azure Synapse Analytics firewall rules](sql-database-firewall-configure.md).
+IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and Azure Synapse Analytics firewall rules](../azure-sql/database/firewall-configure.md).
 
 ### Virtual network firewall rules
 

@@ -218,6 +218,6 @@ In part three of this tutorial series, you completed these steps:
 
 To learn more about using R in Azure SQL Database Machine Learning Services (preview), see:
 
-* [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
-* [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
-* [Add an R package to Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-add-r-packages.md)
+* [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-functions.md)
+* [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-data-issues.md)
+* [Add an R package to Azure SQL Database Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-add-r-packages.md)

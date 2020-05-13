@@ -40,7 +40,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance.
 
 > [!IMPORTANT]
-> If you copy data by using Azure Data Factory Integration Runtime, configure a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) so that Azure services can access the [logical SQL server](../sql-database/sql-database-servers.md).
+> If you copy data by using Azure Data Factory Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../sql-database/sql-database-servers.md).
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
 
 ## Get started

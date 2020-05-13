@@ -186,4 +186,4 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 ## Next steps
 
-[Manage](sql-database-manage-after-migration.md) your Azure SQL Database once it's been migrated.
+[Manage](../azure-sql/database/manage-data-after-migrating-to-database.md) your Azure SQL Database once it's been migrated.

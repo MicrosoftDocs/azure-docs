@@ -234,7 +234,7 @@ Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 
-To access the server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+To access the server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 In the Azure portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You'll see two tables imported into the database.
 

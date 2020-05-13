@@ -42,7 +42,7 @@ SQL Database and SQL Managed Instance also provide several business continuity f
 - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
-- [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
+- [Long-term backup retention](../azure-sql/database/long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
 - [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
 - [Auto-failover group](sql-database-auto-failover-group.md#terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
 
@@ -50,7 +50,7 @@ SQL Database and SQL Managed Instance also provide several business continuity f
 
 You can use automatic database backups to restore a database to a point in time in the past. This way you can recover from data corruptions caused by human errors. The point-in-time restore allows you to create a new database in the same server that represents the state of data prior to the corrupting event. For most databases the restore operations takes less than 12 hours. It may take longer to recover a very large or very active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time).
 
-If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
+If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](../azure-sql/database/long-term-retention-overview.md).
 
 ## Compare geo-replication with failover groups
 
@@ -133,7 +133,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate
