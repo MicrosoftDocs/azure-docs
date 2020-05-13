@@ -234,13 +234,6 @@ az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShe
 ```powershell
 az ml workspace create -w $MyWorkSpace -g $ResourceGroup
 ```
-<<<<<<< HEAD
 ## Next Steps
 
 * [Set up IoT Edge Modules](set-up-iot-edge-modules.md)
-=======
-
-## Next Steps
-
-- [Setting up IoT Edge modules and connections](set-up-iot-edge-modules.md)
->>>>>>> 50f5ab686ad02827c22552bc296bc47031d7d113
