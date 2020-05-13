@@ -158,7 +158,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    Note the identifier of the Windows Boot Loader, whose path is **\windows\system32\winload.exe**.
 
-1. For Generation 2 VMs, verify both that the OS disk is online, and that its partition drive letters have been assigned. Whne this has been verified, collect the boot setup information.
+1. For Generation 2 VMs, verify both that the OS disk is online, and that its partition drive letters have been assigned. When this has been verified, collect the boot setup information.
    1. In **Windows search**, type **Disk Management** and open the disk management console. Use this console to identify the disk number attached on your repair VM and the Extensible Firmware Interface (EFI) partition which holds the BCD store.
 
    In the following image, Disk 2 is the disk number attached to the Repair VM. The image also shows the EFI System Partition on Disk 2, which is 100MB in size and doesn’t have an assigned letter.
