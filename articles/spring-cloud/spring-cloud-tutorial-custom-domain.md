@@ -16,7 +16,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 ## Prerequisites
 * An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
-* A private certificate from a third-party provider. The certificate must match the domain.
+* A private certificate (e.g. your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## Import certificate 
