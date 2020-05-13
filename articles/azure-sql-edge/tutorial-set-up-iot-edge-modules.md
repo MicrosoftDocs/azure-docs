@@ -31,6 +31,7 @@ Event compression type|None
 2. For creating the **output**, click '+Add' and choose SQL Database. For the purpose of this tutorial, fill the details section as indicated below, 
 > [!NOTE]
 > The password specified in this sections need to be specified for SQL SA password when deploying the SQL Edge module in section **"Deploying the Azure SQL Edge module"**
+
 Field|Value
 -----|-----
 Database|IronOreSilicaPrediction
