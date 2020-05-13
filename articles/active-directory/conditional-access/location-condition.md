@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,6 +15,8 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
+
+ms.custom: contperfq4
 ---
 # Using the location condition in a Conditional Access policy 
 
