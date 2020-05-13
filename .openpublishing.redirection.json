@@ -52246,6 +52246,81 @@
             "source_path": "articles/sql-database/sql-database-copy.md",
             "redirect_url": "/azure/azure-sql/database/database-copy",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-data-sync-agent.md",
+            "redirect_url": "/azure/azure-sql/database/data-sync-agent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-develop-direct-route-ports-adonet-v12.md",
+            "redirect_url": "/azure/azure-sql/database/adonet-v12-develop-direct-route-ports",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md",
+            "redirect_url": "/azure/azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-dtu-resource-limits-elastic-pools.md",
+            "redirect_url": "/azure/azure-sql/database/resource-limits-dtu-elastic-pools",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-dtu-resource-limits-single-databases.md",
+            "redirect_url": "/azure/azure-sql/database/resource-limits-dtu-single-databases",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-dtu-to-vcore.md",
+            "redirect_url": "/azure/azure-sql/database/migrate-dtu-to-vcore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-dynamic-data-masking-get-started-portal.md",
+            "redirect_url": "/azure/azure-sql/database/dynamic-data-masking-configure-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-dynamic-data-masking-get-started.md",
+            "redirect_url": "/azure/azure-sql/database/dynamic-data-masking-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-convert-to-use-elastic-tools.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-convert-to-use-elastic-tools",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-database-client-library.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-database-client-library",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-database-perf-counters.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-database-perf-counters",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-database-recovery-manager.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-database-recovery-manager",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-pool-failover-group-tutorial.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-add-elastic-pool-failover-group",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-pool-manage.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-pool-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-pool.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-pool-overview",
+            "redirect_document_id": true
         }
     ]
 }
