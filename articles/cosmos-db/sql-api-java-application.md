@@ -105,15 +105,15 @@ The easiest way to pull in the SQL Java SDK and its dependencies is through [Apa
    * In the **Artifact Id** box, enter `azure-cosmos`.
    * In the **Version** box, enter `4.0.1-beta.1`.
   
-   Or you can add the dependency XML for Group ID and Artifact ID directly to the *pom.xml* file:
+   Or, you can add the dependency XML for Group ID and Artifact ID directly to the *pom.xml* file:
 
-  ```xml
-  	<dependency>
-  		<groupId>com.azure</groupId>
-  		<artifactId>azure-cosmos</artifactId>
-  		<version>4.0.1-beta.1</version>
-  	</dependency>
-  ```
+   ```xml
+   <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-cosmos</artifactId>
+      <version>4.0.1-beta.1</version>
+   </dependency>
+   ```
 
 1. Click **OK** and Maven will install the SQL Java SDK or save the pom.xml file.
 
@@ -199,49 +199,49 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
 
 All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
 
-* Install [Project Lombok](https://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line.
+1. Install [Project Lombok](https://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line.
 
-* If Eclipse is open, close it and restart it to load Lombok.
+1. If Eclipse is open, close it and restart it to load Lombok.
 
-* In Eclipse, on the **File** menu, click **Import**.
+1. In Eclipse, on the **File** menu, click **Import**.
 
-* In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
+1. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
 
-* On the **Select Repository Source** screen, click **Clone URI**.
+1. On the **Select Repository Source** screen, click **Clone URI**.
 
-* On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
+1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 
-* On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
+1. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
 
-* On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
+1. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 
-* On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
+1. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
 
-* On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
+1. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
 
-* In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
+1. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
 
-* In **Project Explorer**, right-click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
+1. In **Project Explorer**, right-click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
 
-* On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
+1. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
 
-* Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.
+1. Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.
 
-* On the **Targeted Runtimes** screen, click **New**, select **Apache Tomcat v7.0**, and then click **OK**.
+1. On the **Targeted Runtimes** screen, click **New**, select **Apache Tomcat v7.0**, and then click **OK**.
 
-* Use step 12 to open the **Properties** window again, and then in the left pane click **Project Facets**.
+1. Use step 12 to open the **Properties** window again, and then in the left pane click **Project Facets**.
 
-* On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then click **OK**.
+1. On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then click **OK**.
 
-* On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
+1. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
 
-* On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**.
+1. On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**.
 
-* In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
+1. In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
 
-* In a browser, navigate to `http://localhost:8080/azure-documentdb-java-sample/` and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
+1. In a browser, navigate to `http://localhost:8080/azure-documentdb-java-sample/` and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 
-* To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
+1. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
 
 ## Next steps
 
