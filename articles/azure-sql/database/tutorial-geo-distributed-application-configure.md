@@ -18,7 +18,7 @@ Configure an Azure SQL database and application for failover to a remote region 
 
 > [!div class="checklist"]
 >
-> - Create a [failover group](sql-database-auto-failover-group.md)
+> - Create a [failover group](../../sql-database/sql-database-auto-failover-group.md)
 > - Run a Java application to query an Azure SQL database
 > - Test failover
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
@@ -35,9 +35,9 @@ To complete the tutorial, make sure you've installed the following items:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - A single database in Azure SQL Database. To create one use,
-  - [Portal](sql-database-single-database-get-started.md)
-  - [CLI](sql-database-cli-samples.md)
-  - [PowerShell](sql-database-powershell-samples.md)
+  - [Portal](../../sql-database/sql-database-single-database-get-started.md)
+  - [CLI](../../sql-database/sql-database-cli-samples.md)
+  - [PowerShell](../../sql-database/sql-database-powershell-samples.md)
 
   > [!NOTE]
   > The tutorial uses the *AdventureWorksLT* sample database.
@@ -47,16 +47,16 @@ To complete the tutorial, make sure you've installed the following items:
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../../sql-database/sql-database-server-level-firewall-rule.md).  
 
 ## Create a failover group
 
-Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
+Using Azure PowerShell, create [failover groups](../../sql-database/sql-database-auto-failover-group.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
 
 # [PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+> [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 To create a failover group, run the following script:
 
@@ -115,7 +115,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.
 
-![Geo-replication settings](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
+![Geo-replication settings](./media/tutorial-geo-distributed-application-configure/geo-replication.png)
 
 ## Run the sample project
 
@@ -374,4 +374,4 @@ In this tutorial, you configured an Azure SQL Database and application for failo
 Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group:
 
 > [!div class="nextstepaction"]
-> [Add an Azure SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+> [Add an Azure SQL Managed Instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md)

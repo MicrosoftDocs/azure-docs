@@ -19,7 +19,7 @@ ms.date: 05/04/2020
 This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
 
 > [!NOTE]
-> For SQL managed instance specific instructions, see [Create alerts for Azure SQL Managed Instance](sql-database-managed-instance-alerts.md).
+> For SQL managed instance specific instructions, see [Create alerts for Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-alerts.md).
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -34,9 +34,9 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using
 
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [command-line interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
+* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
+* [command-line interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
@@ -44,20 +44,20 @@ You can configure and get information about alert rules using
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
 2. Select **Alerts** in the Monitoring section. The text and icon may vary slightly for different resources.  
 
-   ![Monitoring](media/sql-database-insights-alerts-portal/Alerts.png)
+   ![Monitoring](./media/alerts-insights-configure-portal/Alerts.png)
   
 3. Select the **New alert rule** button to open the **Create rule** page.
-  ![Create rule](media/sql-database-insights-alerts-portal/create-rule.png)
+  ![Create rule](./media/alerts-insights-configure-portal/create-rule.png)
 
 4. In the **Condition** section, click **Add**.
-  ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
+  ![Define condition](./media/alerts-insights-configure-portal/create-rule.png)
 5. In the **Configure signal logic** page, select a signal.
-  ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png).
+  ![Select signal](./media/alerts-insights-configure-portal/select-signal.png).
 6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
-  ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+  ![Configure signal logic](./media/alerts-insights-configure-portal/configure-signal-logic.png)
 7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.
 8. On the **Create rule**, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs.
-  ![Define action group](media/sql-database-insights-alerts-portal/action-group.png)
+  ![Define action group](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Define a name for the rule, provide an optional description, choose a severity level for the rule, choose whether to enable the rule upon rule creation, and then click **Create rule alert** to create the metric rule alert.
 
@@ -65,4 +65,4 @@ Within 10 minutes, the alert is active and triggers as previously described.
 
 ## Next steps
 
-* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
+* Learn more about [configuring webhooks in alerts](../../azure-monitor/platform/alerts-webhooks.md).

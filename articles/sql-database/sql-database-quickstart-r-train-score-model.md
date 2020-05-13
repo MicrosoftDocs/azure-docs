@@ -26,7 +26,7 @@ In this quickstart, you create and train a predictive model using R, save the mo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled.
+- [Machine Learning Services](../azure-sql/database/machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 This example uses a simple regression model to predict the stopping distance of a car based on speed using the **cars** dataset included with R.
@@ -243,7 +243,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
 For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
-- [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services with R (preview)](../azure-sql/database/machine-learning-services-overview.md)
 - [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-data-issues.md)

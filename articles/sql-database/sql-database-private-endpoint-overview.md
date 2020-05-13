@@ -25,7 +25,7 @@ Data exfiltration in Azure SQL Database is when an authorized user, such as a da
 Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure VM connecting to a SQL Database. This SQL Database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
 1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](sql-database-networkaccess-overview.md).
-1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](sql-database-firewall-configure.md).
+1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](../azure-sql/database/firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../virtual-network/manage-network-security-group.md) and Service Tags as follows
     - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
     - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions

@@ -32,7 +32,7 @@ A single database can be moved into or out of an [elastic pool](../azure-sql/dat
 
 ## Monitoring and alerting
 
-You use the built-in [performance monitoring](sql-database-performance-guidance.md) and [alerting tools](sql-database-insights-alerts-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring.
+You use the built-in [performance monitoring](sql-database-performance-guidance.md) and [alerting tools](../azure-sql/database/alerts-insights-configure-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring.
 
 ## Availability capabilities
 

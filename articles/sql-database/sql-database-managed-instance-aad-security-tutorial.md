@@ -54,7 +54,7 @@ It is also possible to configure a service endpoint on a SQL Managed Instance, w
 For more information, see the following article, [Configure public endpoint in Azure SQL Managed Instance](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE]
-> Even with service endpoints enabled, [Azure SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Azure SQL Managed Instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
+> Even with service endpoints enabled, [Azure SQL Database firewall rules](../azure-sql/database/firewall-configure.md) do not apply. Azure SQL Managed Instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
 
 ## Create an Azure AD server principal (login) using SSMS
 

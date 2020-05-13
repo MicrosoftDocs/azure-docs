@@ -80,7 +80,7 @@ To resolve these issues, try the steps (in the order presented) in the [Steps to
 
 ### Error 40615: Cannot connect to < servername >
 
-To resolve this issue, [configure firewall settings on SQL Database through the Azure portal](sql-database-firewall-configure.md).
+To resolve this issue, [configure firewall settings on SQL Database through the Azure portal](../azure-sql/database/firewall-configure.md).
 
 ### Error 5: Cannot connect to < servername >
 

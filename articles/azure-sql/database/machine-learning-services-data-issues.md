@@ -18,9 +18,9 @@ ROBOTS: NOINDEX
 
 # Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)
 
-This article discusses some of the common issues you may encounter when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
+This article discusses some of the common issues you may encounter when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 Common issues that you may encounter include:
 
@@ -33,7 +33,7 @@ Common issues that you may encounter include:
 
 - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-- To run the example code in these exercises, you must first have [Azure SQL Database with Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md) enabled.
+- To run the example code in these exercises, you must first have [Azure SQL Database with Machine Learning Services (with R)](machine-learning-services-overview.md) enabled.
 
 - Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run R scripts using other database management or query tools, but in this quickstart you'll use SSMS.
 

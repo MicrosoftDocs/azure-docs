@@ -24,7 +24,7 @@ To help improve security, Azure Database includes a number of built-in security 
 
 These include:
 
--    A firewall that enables you to create [firewall rules](../../sql-database/sql-database-firewall-configure.md) limiting connectivity by IP address,
+-    A firewall that enables you to create [firewall rules](../../azure-sql/database/firewall-configure.md) limiting connectivity by IP address,
 -    Server-level firewall accessible from the Azure portal
 -    Database-level firewall rules accessible from SSMS
 -    Secure connectivity to your database using secure connection strings
@@ -58,7 +58,7 @@ Azure Database is a robust database platform, with a full range of security feat
 ## Next steps
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to:
 
-- Set up [firewall rules](../../sql-database/sql-database-firewall-configure.md) for your server and or database.
+- Set up [firewall rules](../../azure-sql/database/firewall-configure.md) for your server and or database.
 - Protect your data with [encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Enable [SQL Database auditing](../../sql-database/sql-database-auditing.md).
 

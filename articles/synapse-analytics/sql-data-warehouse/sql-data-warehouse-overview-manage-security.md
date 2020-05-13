@@ -32,7 +32,7 @@ Firewall rules are used by both the [logical SQL server](../../sql-database/sql-
 
 As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access SQL pool from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Azure Synapse Analytics uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Azure Synapse Analytics uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Connections to your SQL pool are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 

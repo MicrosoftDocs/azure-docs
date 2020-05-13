@@ -202,7 +202,7 @@ By default, the chart in the **Database Resource Utilization** blade will show t
 
 You can also select more metrics to view side by side in this database table to get a more complete view of your databases performance.
 
-For more information, see [create SQL Database alerts in Azure portal](../../sql-database/sql-database-insights-alerts-portal.md).
+For more information, see [create SQL Database alerts in Azure portal](alerts-insights-configure-portal.md).
 
 ## Customer case studies
 

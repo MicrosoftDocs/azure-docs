@@ -18,7 +18,7 @@ ms.date: 03/18/2019
 When you create a new server in Azure SQL Database or Azure Synapse named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
-> This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md).
+> This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-connect-app.md).
 >
 > Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
@@ -50,7 +50,7 @@ Database-level IP firewall rules enable clients to access certain (secure) datab
 We recommend that you use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually.
 
 > [!NOTE]
-> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
+> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](../../sql-database/sql-database-geo-replication-security-config.md).
 
 ## Server-level versus database-level IP firewall rules
 
@@ -106,26 +106,26 @@ You create the first server-level firewall setting by using the [Azure portal](h
 To improve performance, server-level IP firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
-> You can use [Database Auditing](sql-database-auditing.md) to audit server-level and database-level firewall changes.
+> You can use [Database Auditing](../../sql-database/sql-database-auditing.md) to audit server-level and database-level firewall changes.
 
 ### Use the Azure portal to manage server-level IP firewall rules
 
 To set a server-level IP firewall rule in the Azure portal, go to the overview page for your database or your server.
 
 > [!TIP]
-> For a tutorial, see [Create a database using the Azure portal](sql-database-single-database-get-started.md).
+> For a tutorial, see [Create a database using the Azure portal](../../sql-database/sql-database-single-database-get-started.md).
 
 #### From the database overview page
 
 1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows.
 
-    ![Server IP firewall rule](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
+    ![Server IP firewall rule](./media/firewall-configure/sql-database-server-set-firewall-rule.png)
 
     The **Firewall settings** page for the server opens.
 
 2. Select **Add client IP** on the toolbar to add the IP address of the computer that you're using, and then select **Save**. A server-level IP firewall rule is created for your current IP address.
 
-    ![Set server-level IP firewall rule](./media/sql-database-get-started-portal/sql-database-server-firewall-settings.png)
+    ![Set server-level IP firewall rule](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### From the server overview page
 
@@ -167,7 +167,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ### Use PowerShell to manage server-level IP firewall rules
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all development is now for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az and AzureRm modules are substantially identical.
 
@@ -189,7 +189,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > [!TIP]
 > For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 >
-> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](../azure-sql/database/scripts/create-and-configure-database-powershell.md).
+> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](../../sql-database/sql-database-powershell-samples.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](scripts/create-and-configure-database-powershell.md).
 
 ### Use CLI to manage server-level IP firewall rules
 
@@ -211,7 +211,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > [!TIP]
 > For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 >
-> For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a server-level IP firewall rule using the Azure CLI](../azure-sql/database/scripts/create-and-configure-database-cli.md).
+> For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](../../sql-database/sql-database-cli-samples.md) and [Create a single database and configure a server-level IP firewall rule using the Azure CLI](scripts/create-and-configure-database-cli.md).
 
 ### Use a REST API to manage server-level IP firewall rules
 
@@ -228,7 +228,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 - **Local firewall configuration:**
 
-  Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. To make connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and Azure SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
+  Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. To make connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and Azure SQL Database](adonet-v12-develop-direct-route-ports.md).
 
 - **Network address translation:**
 
@@ -243,7 +243,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 - **The login isn't authorized, or an incorrect password was used:**
 
-  If a login doesn't have permissions on the server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access](sql-database-manage-logins.md).
+  If a login doesn't have permissions on the server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access](../../sql-database/sql-database-manage-logins.md).
 
 - **Dynamic IP address:**
 
@@ -255,10 +255,10 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 ## Next steps
 
 - Confirm that your corporate network environment allows inbound communication from the compute IP address ranges (including SQL ranges) that are used by the Azure datacenters. You might have to add those IP addresses to the allow list. See [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).  
-- For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](sql-database-single-database-get-started.md).
-- For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](sql-database-connect-query.md#libraries).
-- For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
-- For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md).
+- For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](../../sql-database/sql-database-single-database-get-started.md).
+- For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](../../sql-database/sql-database-connect-query.md#libraries).
+- For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
+- For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+[1]: ./media/firewall-configure/sqldb-firewall-1.png

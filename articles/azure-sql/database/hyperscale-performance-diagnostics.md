@@ -14,11 +14,11 @@ ms.date: 10/18/2019
 
 # SQL Hyperscale performance troubleshooting diagnostics
 
-To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](sql-database-monitor-tune-overview.md) on the Azure SQL Database compute node is the starting point of a performance investigation. However, given the [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
+To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](../../sql-database/sql-database-monitor-tune-overview.md) on the Azure SQL Database compute node is the starting point of a performance investigation. However, given the [distributed architecture](../../sql-database/sql-database-service-tier-hyperscale.md#distributed-functions-architecture) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
 
 ## Log rate throttling waits
 
-Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service level. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This throttling happens when a [page server or another compute replica](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) is significantly behind applying new log records from the Log service.
+Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](../../sql-database/sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service level. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This throttling happens when a [page server or another compute replica](../../sql-database/sql-database-service-tier-hyperscale.md#distributed-functions-architecture) is significantly behind applying new log records from the Log service.
 
 The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) describe the reasons why log rate can be throttled on the primary compute replica:
 
@@ -61,7 +61,7 @@ Several DMVs and extended events have columns and fields that specify the number
 
 ## Virtual file stats and IO accounting
 
-In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Database IO. IO characteristics in Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache, that is a non-covering cache on the compute replica.
+In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Database IO. IO characteristics in Hyperscale are different due to its [distributed architecture](../../sql-database/sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache, that is a non-covering cache on the compute replica.
 
 ### Local RBPEX cache usage
 
@@ -93,13 +93,13 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in the `avg_data_io_percent` column. The same value is reported in the portal as _Data IO Percentage_.
 
-In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local storage on compute replica only, specifically IO against RBPEX and `tempdb`. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase database service objective to increase the resource governance _Max Data IOPS_ [limit](sql-database-vcore-resource-limits-single-databases.md). For resource governance of RBPEX reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the SQL database engine.
+In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local storage on compute replica only, specifically IO against RBPEX and `tempdb`. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase database service objective to increase the resource governance _Max Data IOPS_ [limit](../../sql-database/sql-database-vcore-resource-limits-single-databases.md). For resource governance of RBPEX reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the SQL database engine.
 
 Data IO against remote page servers is not reported in resource utilization views or in the portal, but is reported in the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, as noted earlier.
 
 ## Additional resources
 
-- For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
-- For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](sql-database-performance-guidance.md)
+- For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
+- For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](../../sql-database/sql-database-performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
-- For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+- For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](../../sql-database/sql-database-monitoring-with-dmvs.md)

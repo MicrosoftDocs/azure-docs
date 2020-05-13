@@ -52446,6 +52446,81 @@
             "source_path": "articles/sql-database/sql-database-file-space-management.md",
             "redirect_url": "/azure/azure-sql/database/file-space-manage",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-firewall-configure.md",
+            "redirect_url": "/azure/azure-sql/database/firewall-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-gateway-migration.md",
+            "redirect_url": "/azure/azure-sql/database/gateway-migration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-get-started-sql-data-sync.md",
+            "redirect_url": "/azure/azure-sql/database/data-sync-sql-server-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-howto-single-database.md",
+            "redirect_url": "/azure/azure-sql/database/how-to-content-reference-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-hyperscale-performance-diagnostics.md",
+            "redirect_url": "/azure/azure-sql/database/hyperscale-performance-diagnostics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-implement-geo-distributed-database.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-geo-distributed-application-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-insights-alerts-portal.md",
+            "redirect_url": "/azure/azure-sql/database/alerts-insights-configure-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-long-term-backup-retention-configure.md",
+            "redirect_url": "/azure/azure-sql/database/long-term-backup-retention-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-long-term-retention.md",
+            "redirect_url": "/azure/azure-sql/database/long-term-retention-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-machine-learning-services-add-r-packages.md",
+            "redirect_url": "/azure/azure-sql/database/machine-learning-services-add-r-packages",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-machine-learning-services-data-issues.md",
+            "redirect_url": "/azure/azure-sql/database/machine-learning-services-data-issues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-machine-learning-services-differences.md",
+            "redirect_url": "/azure/azure-sql/database/machine-learning-services-differences",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-machine-learning-services-functions.md",
+            "redirect_url": "/azure/azure-sql/database/machine-learning-services-functions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-manage-after-migration.md",
+            "redirect_url": "/azure/azure-sql/database/manage-data-after-migrating-to-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-machine-learning-services-overview.md",
+            "redirect_url": "/azure/azure-sql/database/machine-learning-services-overview",
+            "redirect_document_id": true
         }
     ]
 }

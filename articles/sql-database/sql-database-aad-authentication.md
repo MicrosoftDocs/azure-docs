@@ -159,7 +159,7 @@ The following authentication methods are supported for Azure AD server principal
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For syntax on creating Azure AD server principals (logins) for SQL Managed Instances, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
-- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
+- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](../azure-sql/database/firewall-configure.md).
 
 <!--Image references-->
 

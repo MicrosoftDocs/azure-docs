@@ -541,7 +541,7 @@ In a SQL Managed Instance:
   - Users connected to their on-premises network should use site-to-site VPN connection or ExpressRoute to connect over the data path.
 
 - You can access Azure SQL Database and SQL Managed Instance by connecting to a public endpoint (for example, using a public data path). The following best practices should be considered:
-  - For a server in SQL Database, use [IP firewall rules](sql-database-firewall-configure.md) to restrict access to only authorized IP addresses.
+  - For a server in SQL Database, use [IP firewall rules](../azure-sql/database/firewall-configure.md) to restrict access to only authorized IP addresses.
   - For an instance in SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use an Azure SQL Managed Instance securely with public endpoints](sql-database-managed-instance-public-endpoint-securely.md).
 
 > [!NOTE]

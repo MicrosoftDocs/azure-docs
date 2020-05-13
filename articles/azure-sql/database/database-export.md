@@ -98,7 +98,7 @@ $exportStatus
 
 ## Next steps
 
-- To learn about long-term backup retention of a single databases and pooled databases as an alternative to exported a database for archive purposes, see [Long-term backup retention](../../sql-database/sql-database-long-term-retention.md). You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to long-term backup retention.
+- To learn about long-term backup retention of a single databases and pooled databases as an alternative to exported a database for archive purposes, see [Long-term backup retention](long-term-retention-overview.md). You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to long-term backup retention.
 - For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - To learn about importing a BACPAC to a SQL Server database, see [Import a BACPAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx).
 - To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)

@@ -87,7 +87,7 @@ For more info about SQL Data Sync, see:
 
 - Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../../../sql-database/sql-database-sync-data.md)
 - Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../../../sql-database/sql-database-get-started-sql-data-sync.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../data-sync-sql-server-configure.md)
     - With PowerShell
         - [Use PowerShell to sync between multiple Azure SQL databases](sql-data-sync-sync-data-between-sql-databases.md)
         - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-data-sync-sync-data-between-azure-onprem.md)

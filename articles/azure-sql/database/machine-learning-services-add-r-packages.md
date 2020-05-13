@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 This article explains how to add an R package to Azure SQL Database Machine Learning Services (preview).
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The output should look similar to the following.
 
 **Results**
 
-![Installed packages in R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
+![Installed packages in R](./media/machine-learning-services-add-r-packages/r-installed-packages.png)
 
 ## Add a package with sqlmlutils
 
@@ -117,7 +117,7 @@ View(r)
 
 **Results**
 
-![Contents of the RTestData table](./media/sql-database-machine-learning-services-add-r-packages/r-verify-package-install.png)
+![Contents of the RTestData table](./media/machine-learning-services-add-r-packages/r-verify-package-install.png)
 
 ### Use the package
 
@@ -166,6 +166,6 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 
 For more information about Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
-- [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
+- [Azure SQL Database Machine Learning Services with R (preview)](machine-learning-services-overview.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](machine-learning-services-data-issues.md)

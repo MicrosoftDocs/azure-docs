@@ -127,7 +127,7 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 ### Verify server-level firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](../azure-sql/database/firewall-configure.md) for help.
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
