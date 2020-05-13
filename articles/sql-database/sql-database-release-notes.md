@@ -87,12 +87,12 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround| |
 |[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround| |
 |[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround| |
-|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround| |
-|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround| |
-|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround| |
+|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)| |No Workaround| |
+|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)| |Has Workaround| |
+|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names) ||Has Workaround| |
 |[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround| |
-|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround|Mar 2020|
-|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround| |
+|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Has Workaround| |
+|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Resolved|Mar 2020|
 |Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.| |Resolved|Nov 2019|
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.| |Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection| |Resolved|Oct 2019|

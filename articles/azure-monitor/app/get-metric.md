@@ -15,7 +15,7 @@ The Azure Monitor Application Insights .NET and .NET Core SDKs have two differen
 
 ## TrackMetric versus GetMetric
 
-`TrackMetric()` sends raw telemetry denoting a metric. It is inefficient to send a single telemetry item for each value. `TrackMetric()` sends raw telemetry denoting a metric. It is inefficient to send a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance since every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. So if you need to closely monitor some custom metric at the second or even millisecond level you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This also greatly reduces the risk of throttling occurring since the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
+`TrackMetric()` sends raw telemetry denoting a metric. It is inefficient to send a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance since every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. So if you need to closely monitor some custom metric at the second or even millisecond level you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This also greatly reduces the risk of throttling occurring since the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
 
 In Application Insights, custom metrics collected via `TrackMetric()` and `GetMetric()` are not subject to [sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Sampling important metrics can lead to scenarios where alerting you may have built around those metrics could become unreliable. By never sampling your custom metrics, you can generally be confident that when your alert thresholds are breached, an alert will fire.  But since custom metrics aren't sampled, there are some potential concerns.
 
@@ -182,7 +182,22 @@ However, you will notice that you aren't able to split the metric by your new cu
 
 ![Splitting support](./media/get-metric/splitting-support.png)
 
-By default multi-dimensional metrics within the Metric explorer experience are not turned on in Application Insights resources. To turn on this behavior go to the usage and estimated cost tab by checking ["Enable alerting on custom metric dimensions"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+By default multi-dimensional metrics within the Metric explorer experience are not turned on in Application Insights resources.
+
+### Enable multi-dimensional metrics
+
+To enable multi-dimensional metrics for an Application Insights resource, Select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**. More details about this can be found [here](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+
+Once you have made that change and send new multi-dimensional telemetry, you will be able to **Apply splitting**.
+
+> [!NOTE]
+> Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
+
+![Apply splitting](./media/get-metric/apply-splitting.png)
+
+And view your metric aggregations for each _FormFactor_ dimension:
+
+![Form factors](./media/get-metric/formfactor.png)
 
 ### How to use MetricIdentifier when there are more than three dimensions
 
@@ -195,21 +210,6 @@ MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 ```
-
-### Enable multi-dimensional metrics
-
-To enable multi-dimensional metrics for an Application Insights resource, Select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**.
-
-Once you have made that change and send new multi-dimensional telemetry, you will be able to **Apply splitting**.
-
-> [!NOTE]
-> Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
-
-![Apply splitting](./media/get-metric/apply-splitting.png)
-
-And view your metric aggregations for each _FormFactor_ dimension:
-
-![Form factors](./media/get-metric/formfactor.png)
 
 ## Custom metric configuration
 
