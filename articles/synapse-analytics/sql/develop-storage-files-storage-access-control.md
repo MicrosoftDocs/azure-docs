@@ -124,21 +124,6 @@ To query a file located in Azure Storage, your SQL on-demand end point needs a c
 - Server-level CREDENTIAL is used for ad-hoc queries executed using `OPENROWSET` function. Credential name must match the storage URL.
 - DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to access storage.
 
-A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
-
-> [!NOTE]
-> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
-
-For all supported authorization types, credentials can point to an account or a container.
-
-Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`
-
-| External Data Source       | Prefix | Storage account path                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
-
 > [!NOTE]
 > There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through).
 
@@ -164,7 +149,18 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 
 ## Server-scoped credential
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+
+> [!NOTE]
+> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
+
+Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`. Storage account paths are described in the following table:
+
+| External Data Source       | Prefix | Storage account path                                |
+| -------------------------- | ------ | --------------------------------------------------- |
+| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
 ### [Shared access signature](#tab/shared-access-signature)
 
