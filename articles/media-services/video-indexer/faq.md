@@ -98,7 +98,7 @@ If you want to get insights on your new video, index it with Video Indexer and i
 
 ### Can I index multiple audio streams or channels?
 
-Not currently. If there are multiple audio streams, Video Indexer takes the first one it encounters and will process only this stream. In any audio stream Video Indexer processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
+If there are multiple audio streams, Video Indexer takes the first one it encounters and will process only this stream. In any audio stream Video Indexer processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
 
 ### What is the SLA for Video Indexer?
 
