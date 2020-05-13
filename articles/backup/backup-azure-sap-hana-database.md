@@ -19,6 +19,8 @@ In this article, you will learn how to:
 > * Configure backups
 > * Run an on-demand backup job
 
+To try out the SAP HANA backup preview for RHEL (7.4, 7.6 or 8.1) write to us at AskAzureBackupTeam@microsoft.com.
+
 >[!NOTE]
 >**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
 >To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
