@@ -146,7 +146,7 @@ For example, follow the steps below to authenticate using a Windows VM,
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Use the [Marketplace metering service API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis) to emit usage.
+1. Use the [Marketplace metering service API](./marketplace-metering-service-apis.md) to emit usage.
 
 ## Next steps
 
