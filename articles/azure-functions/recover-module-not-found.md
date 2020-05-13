@@ -43,7 +43,7 @@ Browse to `.python_packages/lib/python3.6/site-packages/<package-name>` or `.pyt
 
 Using third-party or outdated tools during deployment may cause this issue.
 
-See [Enable Remote Build](#enable-remote-build) or [Build Native Dependencies](#build-native-dependencies) for mitigation.
+See [Enable remote build](#enable-remote-build) or [Build native dependencies](#build-native-dependencies) for mitigation.
 
 ### The package isn't resolved with proper Linux wheel
 
@@ -51,7 +51,7 @@ Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dis
 
 Python functions run only on Linux in Azure: Functions runtime v2.x runs on Debian Stretch and the v3.x runtime on Debian Buster. The artifact is expected to contain the correct Linux binaries. Using `--build local` flag in Core Tools, third-party, or outdated tools may cause older binaries to be used.
 
-See [Enable Remote Build](#enable-remote-build) or [Build Native Dependencies](#build-native-dependencies) for mitigation.
+See [Enable remote build](#enable-remote-build) or [Build native dependencies](#build-native-dependencies) for mitigation.
 
 ### The package is incompatible with the Python interpreter version
 
@@ -63,7 +63,7 @@ You can check the Python version of your function app from the [Azure portal](ht
 
 After the explorer loads, search for **LinuxFxVersion**, which shows the Python version.
 
-See [Update Your Package To The Latest Version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
+See [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
 ### The package conflicts with other packages
 
@@ -75,7 +75,7 @@ you must uninstall azure-storage first.</pre>
 
 You can find the documentation for your package version in `https://pypi.org/project/<package-name>/<package-version>`.
 
-See [Update Your Package To The Latest Version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
+See [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
 ### The package only supports Windows or macOS platforms
 
@@ -83,7 +83,7 @@ Open the `requirements.txt` with a text editor and check the package in `https:/
 
 The `Module Not Found` error may not occur when you're using Windows or macOS for local development. However, the package fails to import on Azure Functions, which uses Linux at runtime. This is likely to be caused by using `pip freeze` to export virtual environment into requirements.txt from your Windows or macOS machine during project initialization.
 
-See [Replace the package with equivalents](#replace-the-package-with-equivalents) or [Handcraft Requirements.txt](#handcraft-requirementstxt) for mitigation.
+See [Replace the package with equivalents](#replace-the-package-with-equivalents) or [Handcraft requirements.txt](#handcraft-requirementstxt) for mitigation.
 
 ## Mitigate ModuleNotFoundError
 
