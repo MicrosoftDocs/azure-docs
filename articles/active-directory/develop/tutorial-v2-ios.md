@@ -151,7 +151,7 @@ The only value you need to modify above is the value assigned to `kClientID`to b
 
 Add a new keychain group to your project **Signing & Capabilities**. Keychain group should be **com.microsoft.adalcache** on iOS and **com.microsoft.identity.universalstorage** on macOS.
 
-![Shows how the the keychain group should be set up](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
+![Xcode UI displaying how the the keychain group should be set up](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 
 ## For iOS only, configure URL schemes
 
