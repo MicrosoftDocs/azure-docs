@@ -101,7 +101,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 ### Restoring manual backup without CHECKSUM might fail
 
-In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored.
+In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored. In such case please retry restoring the backup until successful.
 
 **Workaround**: Take manual backups of databases on managed instance with CHECKSUM enabled.
 
