@@ -141,7 +141,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 - IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
 - You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
-- Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
 ## Next steps
 
