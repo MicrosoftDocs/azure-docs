@@ -7301,7 +7301,6 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.OperationalInsights/register/action | Register a subscription to a resource provider. |
-> | Action | microsoft.operationalinsights/register/action | Rergisters the subscription. |
 > | Action | microsoft.operationalinsights/unregister/action | Unregisters the subscription. |
 > |  | **availableservicetiers** |  |
 > | Action | microsoft.operationalinsights/availableservicetiers/read | Get the available service tiers. |
