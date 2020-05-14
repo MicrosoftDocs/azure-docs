@@ -277,10 +277,9 @@ Follow the steps in [Single-page application: App registration](scenario-spa-app
 
 For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port `3000`, but you can use any other available port.
 
-To set up a redirect URL in the application registration, switch back to the **Application registration** pane and register a new **SPA** with either of the following:
+To configure a redirect URL in your app registration, select **App registrations** in the Azure portal, and then the app registration you created earlier.
 
-- Set *`http://localhost:3000/`* as the **Redirect URL**.
-- If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
+Next, add a **Redirect URI**. To use the tutorial code's default port of `3000`, enter `http://localhost:3000/`. If you'd like to use a different port, enter `http://localhost:<port>/`, where `<port>` is your preferred TCP port number.
 
 ### Configure your JavaScript SPA
 
