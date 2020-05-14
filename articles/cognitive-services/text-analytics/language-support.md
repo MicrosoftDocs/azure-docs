@@ -15,7 +15,7 @@ ms.author: aahi
 
 > [!IMPORTANT]
 > * This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-21-language-support).
-> * v3 of the API is limited to the following regions: Central India, UAE North, South Africa North.
+> * v3.x of the Text Analytics API is currently unavailable in the following regions: Central India, UAE North, South Africa North.
 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)

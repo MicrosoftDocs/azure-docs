@@ -25,6 +25,8 @@ Sentiment Analysis supports a wide range of languages, with more in preview. For
 
 ## Sentiment Analysis versions and features
 
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
 | Feature                                   | Sentiment Analysis v3 | Sentiment Analysis v3.1 (Preview) |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Methods for single, and batch requests    | X                     | X                                 |

@@ -28,6 +28,8 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 ## Named Entity Recognition versions and features
 
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
 | Feature                                                         | NER v3.0 | NER v3.1-preview.1 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
