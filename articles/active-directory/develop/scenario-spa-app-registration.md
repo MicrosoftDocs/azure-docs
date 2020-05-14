@@ -38,7 +38,7 @@ Next, configure the app registration with a **Redirect URI** to specify where th
 
 ## Redirect URI: MSAL.js 2.0 with auth code flow
 
-Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or later. MSAL.js versions 2.0 and later support the authorization code flow with PKCE and CORS in response to [browser third party cookie restrictions](reference-third-party-cookies-spa.md) (the implicit grant flow is not supported).
+Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or later. MSAL.js versions 2.0 and later support the authorization code flow with PKCE and CORS in response to [browser third party cookie restrictions](reference-third-party-cookies-spas.md) (the implicit grant flow is not supported).
 
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant**.
 1. Select **Configure** to finish adding the redirect URI.
