@@ -20,7 +20,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 SQL Managed Instance provides high compatibility with the on-premises SQL Server Database Engine, and most features are supported in a SQL Managed Instance.
 
-![Migration](./media/sql-database-managed-instance/migration.png)
+![Migration](../azure-sql/managed-instance/media/sql-managed-instance-paas-overview/migration.png)
 
 There are some PaaS limitations that are introduced in SQL Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 

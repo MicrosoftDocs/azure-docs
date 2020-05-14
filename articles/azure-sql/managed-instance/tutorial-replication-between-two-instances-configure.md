@@ -45,7 +45,7 @@ Use the [Azure portal](https://portal.azure.com) to create a resource group with
 
 ## 2 - Create SQL Managed Instances
 
-Use the [Azure portal](https://portal.azure.com) to create two [SQL Managed Instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network and subnet. For example, name the two SQL Managed Instances:
+Use the [Azure portal](https://portal.azure.com) to create two [SQL Managed Instances](../../sql-database/sql-database-managed-instance-get-started.md) on the same virtual network and subnet. For example, name the two SQL Managed Instances:
 
 - `sql-mi-pub` (along with some characters for randomization)
 - `sql-mi-sub` (along with some characters for randomization)

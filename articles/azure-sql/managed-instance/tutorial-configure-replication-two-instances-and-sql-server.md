@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over.
 
-To learn more, see the [Azure SQL Managed Instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-managed-instance-paas-overview.md), and [SQL Transactional Replication](../database/transactional-replication-overview.md) articles.
+To learn more, see the [Azure SQL Managed Instance overview](sql-managed-instance-paas-overview.md), and [SQL Transactional Replication](../database/transactional-replication-overview.md) articles.
 
 To configure replication between a managed instance publisher and a managed instance subscriber, see [Configure transactional replication between two managed instances](tutorial-replication-between-two-instances-configure.md).
 
@@ -171,7 +171,7 @@ A private DNS zone allows DNS routing between the managed instances and the SQL 
 
 ## 6 - Create Azure Storage Account
 
-[Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account.
+[Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account.
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
