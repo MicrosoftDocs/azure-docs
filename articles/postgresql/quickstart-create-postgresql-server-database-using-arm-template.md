@@ -9,9 +9,9 @@ ms.author: mblythe
 ms.date: 05/14/2020
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL server by using the ARM template
+# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - single server
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create an Azure Database for PostgreSQL server using the Azure portal, PowerShell, or Azure CLI.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. In this quickstart, you use an ARM template to create an Azure Database for PostgreSQL - single server in the Azure portal, PowerShell, or Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
