@@ -279,56 +279,64 @@ For Node.js, you can set the web server port in the *server.js* file. This tutor
 
 To configure a redirect URL in your app registration, select **App registrations** in the Azure portal, and then the app registration you created earlier.
 
-Next, add a **Redirect URI**. To use the tutorial code's default port of `3000`, enter `http://localhost:3000/`. If you'd like to use a different port, enter `http://localhost:<port>/`, where `<port>` is your preferred TCP port number.
+Next, add a **Redirect URI**. To use the tutorial default port of `3000`, enter `http://localhost:3000`. If you'd like to use a different port, enter `http://localhost:<port>`, where `<port>` is your preferred TCP port number.
 
 ### Configure your JavaScript SPA
 
 Create a file named *authConfig.js* in the *app* folder to contain your configuration parameters for authentication, and then add the following code:
 
 ```javascript
-  const msalConfig = {
-    auth: {
-      clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
-      redirectUri: "Enter_the_Redirect_Uri_Here",
-    },
-    cache: {
-      cacheLocation: "sessionStorage", // This configures where your cache will be stored
-      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-    }
-  };
+const msalConfig = {
+  auth: {
+    clientId: "Enter_the_Application_Id_Here",
+    authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+    redirectUri: "Enter_the_Redirect_Uri_Here",
+  },
+  cache: {
+    cacheLocation: "sessionStorage", // This configures where your cache will be stored
+    storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+  }
+};
 
-  // Add here scopes for ID token to be used at MS identity platform endpoints.
-  const loginRequest = {
-   scopes: ["openid", "profile", "User.Read"]
-  };
+// Add scopes here for ID token to be used at Microsoft identity platform endpoints.
+const loginRequest = {
+ scopes: ["openid", "profile", "User.Read"]
+};
 
-   // Add here scopes for access token to be used at MS Graph API endpoints.
-  const tokenRequest = {
-   scopes: ["User.Read", "Mail.Read"]
-  };
-
+// Add scopes here for access token to be used at Microsoft Graph API endpoints.
+const tokenRequest = {
+ scopes: ["User.Read", "Mail.Read"]
+};
 ```
 
- Where:
- - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
- - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
-   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
-   - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
-   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
-- *\<Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
+Modify the values in the `msalConfig` section as described here:
 
+- `Enter_the_Application_Id_Here`: The **Application (client) ID** for the application you registered.
+- `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
+  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
+  - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
+- `Enter_the_Tenant_info_here` should be one of the following:
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com`.
+  - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
+  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
+  - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+- `Enter_the_Redirect_Uri_Here` is `http://localhost:3000`
 
-Create a new .js file named `graphConfig.js`, which will contain your configuration parameters calling Microsoft Graph API, and add the following code:
+In the *app* folder, create a file named *graphConfig.js*. Add the following code to provide your application the configuration parameters for calling the Microsoft Graph API:
+
 ```javascript
-// Add here the endpoints for MS Graph API services you would like to use.
+// Add the endpoints here for MS Graph API services you'd like to use.
 const graphConfig = {
     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
 };
 ```
-- *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
+
+Modify the values in the `graphConfig` section as described here:
+
+- `<Enter_the_Graph_Endpoint_Here>` is the instance of the Microsoft Graph API the application should communicate with.
+  - For the **global** Microsoft Graph API endpoint, replace this string with `https://graph.microsoft.com`.
+  - To find endpoints for **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
 
 ## Use MSAL to sign in the user
 

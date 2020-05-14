@@ -109,7 +109,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 
 > [!div renderon="docs"]
 >
-> Here are the details of each setting:
+> Modify the values in the `msalConfig` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter https://login.microsoftonline.com/. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
