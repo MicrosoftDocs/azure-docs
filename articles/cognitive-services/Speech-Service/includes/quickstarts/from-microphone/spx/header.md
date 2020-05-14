@@ -12,4 +12,7 @@ ms.date: 5/13/2020
 ms.author: v-demjoh
 ---
 
-If you prefer to jump right in, view or download all <a href="https://aka.ms/speech/github-python">Speech SDK Python Samples</a> on GitHub. Otherwise, let's get started.
+In this quickstart, you use the SPX tool to interactively recognize speech from a microphone input, and get the text transcription from captured audio. It's easy to use the SPX tool to perform common recognition tasks, such as transcribing conversations. After a one-time configuration, the SPX tool lets you transcribe audio into text interactively with a microphone or from files using a batch script.
+
+[!INCLUDE ../../../includes/spx.setup.md]
+
