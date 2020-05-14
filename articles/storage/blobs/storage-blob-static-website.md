@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/29/2019
+ms.date: 05/14/2020
 ms.subservice: blobs
 ---
 
@@ -50,8 +50,15 @@ Users can view site content from a browser by using the public URL of the websit
 |Tool| Guidance |
 |----|----|
 |**Azure portal** | [Find the website URL by using the Azure portal](storage-blob-static-website-how-to.md#portal-find-url) |
-|**Azure CLI** | [Find the website URL by using the Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Azure PowerShell module** | [Find the website URL by using PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+|**Azure CLI** | [Find the website URL by using the Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli#portal-find-url) |
+|**Azure PowerShell module** | [Find the website URL by using PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell#portal-find-url) |
+
+If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
+
+### Regional codes
 
 The URL of your site contains a regional code. For example the URL `https://contosoblobaccount.z22.web.core.windows.net/` contains regional code `z22`.
 
@@ -59,10 +66,9 @@ While that code must remain in the URL, it is only for internal use, and you won
 
 The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
-If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
+### Secondary endpoints
 
-> [!NOTE]
-> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
+If you set up [redundancy in a secondary region](../common/storage-redundancy.md#redundancy-in-a-secondary-region), you can also access website content by using a secondary endpoint. Because data is replicated to secondary regions asynchronously, the files that are available at the secondary endpoint aren't always in sync with the files that are available on the primary endpoint. 
 
 ## Impact of the setting the public access level of the web container
 
