@@ -20,7 +20,7 @@ The single database deployment option creates a database in Azure SQL Database w
 > Single database is one deployment option for Azure SQL Database. The other is [elastic pools](elastic-pool-overview.md).
 
 > [!NOTE]
-> For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](../../sql-database/sql-database-glossary-terms.md)
+> For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](glossary-terms.md)
 
 ## Dynamic scalability
 

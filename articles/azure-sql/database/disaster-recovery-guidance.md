@@ -19,7 +19,7 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 - [Active geo-replication](active-geo-replication-overview.md)
 - [Auto-failover groups](auto-failover-group-overview.md)
 - [Geo-restore](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore)
-- [Zone-redundant databases](../../sql-database/sql-database-high-availability.md)
+- [Zone-redundant databases](high-availability-sla.md)
 
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
@@ -85,7 +85,7 @@ If you are using geo-restore to recover from an outage, you must make sure that 
 
 Because your recovered database resides in a different server, you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see the appropriate development language for your [connection library](../../sql-database/sql-database-connect-query.md#libraries).
+For more information about changing connection strings, see the appropriate development language for your [connection library](connect-query-content-reference-guide.md#libraries).
 
 ### Configure Firewall Rules
 

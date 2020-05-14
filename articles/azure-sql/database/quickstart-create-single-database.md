@@ -89,7 +89,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 ## Next steps
 
-[Connect and query](../../sql-database/sql-database-connect-query.md) your database using different tools and languages:
+[Connect and query](connect-query-content-reference-guide.md) your database using different tools and languages:
 > [!div class="nextstepaction"]
 > [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
 > [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

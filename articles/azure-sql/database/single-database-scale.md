@@ -38,7 +38,7 @@ Changing the service tier or compute size of mainly involves the service perform
     Existing connections to the database in the original compute instance are dropped. Any new connections are established to the database in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when the database is unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](../../sql-database/sql-database-accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
 
 > [!IMPORTANT]
-> No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](../../sql-database/sql-database-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
+> No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](troubleshoot-common-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
 
 ## Latency
 
@@ -144,7 +144,7 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 - For active geo-replication scenarios:
   - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower compute size are rejected as secondaries since they are not capable of supporting more than 1 TB.
   - Upgrading the primary database in a geo-replication relationship: Changing the maximum size to more than 1 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the more than 1-TB option apply. If the secondary is in a region that does not support more than 1 TB, the primary is not upgraded.
-- Using the Import/Export service for loading P11/P15 databases with more than 1 TB is not supported. Use SqlPackage.exe to [import](../../sql-database/sql-database-import.md) and [export](database-export.md) data.
+- Using the Import/Export service for loading P11/P15 databases with more than 1 TB is not supported. Use SqlPackage.exe to [import](database-import.md) and [export](database-export.md) data.
 
 ## Next steps
 

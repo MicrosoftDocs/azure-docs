@@ -27,7 +27,7 @@ Reconfigurations/failovers generally complete within 30 seconds – the average 
 
 ## Retry Logic
 
-Any client production application that connects to a cloud database service should implement a robust connection [retry logic](sql-database-connectivity-issues.md#retry-logic-for-transient-errors). This will help mitigate these situations and should generally make the errors transparent to the end user.
+Any client production application that connects to a cloud database service should implement a robust connection [retry logic](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Frequency
 
@@ -40,4 +40,4 @@ If your database is experiencing login failures, check the [Resource Health](../
 ## Next steps
 
 - Learn more about [Resource Health](sql-database-resource-health.md) for Azure SQL Database
-- For more information about retry logic, see [Retry logic for transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors).
+- For more information about retry logic, see [Retry logic for transient errors](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).

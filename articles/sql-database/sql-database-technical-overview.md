@@ -25,7 +25,7 @@ It's based on the latest stable version of the [Microsoft SQL Server database en
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
 > [!NOTE]
-> For relevant terms and their definitions, see the [SQL Database terms glossary](sql-database-glossary-terms.md).
+> For relevant terms and their definitions, see the [SQL Database terms glossary](../azure-sql/database/glossary-terms.md).
 
 ## Deployment models
 
@@ -108,11 +108,11 @@ Azure SQL Database enables your business to continue operating during disruption
 
 Disaster recovery assumes that a catastrophic event is geographically localized enough to have another machine or set of machines with a copy of your data far away. In SQL Server, you can use Always On Availability Groups running in async mode to get this capability. People often don't want to wait for replication to happen that far away before committing a transaction, so there's potential for data loss when you do unplanned failovers.
 
-Databases in the premium and business critical service tiers already [do something similar](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage by using a [different but equivalent mechanism](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Built-in logic helps protect against a single machine failure. The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
+Databases in the premium and business critical service tiers already [do something similar](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage by using a [different but equivalent mechanism](../azure-sql/database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). Built-in logic helps protect against a single machine failure. The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
 
 Azure Availability Zones tries to protect against the outage of a single datacenter building within a single region. It helps you protect against the loss of power or network to a building. In SQL Database, you place the different replicas in different availability zones (different buildings, effectively).
 
-In fact, the service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/) of Azure, powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database, and it guarantees no data loss and a high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance, and then implementing technology similar to Always On Availability Groups. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](sql-database-high-availability.md). 
+In fact, the service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/) of Azure, powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database, and it guarantees no data loss and a high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance, and then implementing technology similar to Always On Availability Groups. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](../azure-sql/database/high-availability-sla.md). 
 
 In addition, SQL Database provides built-in [business continuity and global scalability](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) features. These include:
 
@@ -129,7 +129,7 @@ In addition, SQL Database provides built-in [business continuity and global scal
 - [Auto-failover groups](../azure-sql/database/auto-failover-group-overview.md):
 
   All SQL Database deployment options allow you to use failover groups to enable high availability and load balancing at global scale. This includes transparent geo-replication and failover of large sets of databases, elastic pools, and managed instances. Failover groups enable the creation of globally distributed SaaS applications, with minimal administration overhead. This leaves all the complex monitoring, routing, and failover orchestration to SQL Database.
-- [Zone-redundant databases](sql-database-high-availability.md):
+- [Zone-redundant databases](../azure-sql/database/high-availability-sla.md):
 
   SQL Database allows you to provision premium or business critical databases or elastic pools across multiple availability zones. Because these databases and elastic pools have multiple redundant replicas for high availability, placing these replicas into multiple availability zones provides higher resilience. This includes the ability to recover automatically from the datacenter scale failures, without data loss.
 
@@ -167,7 +167,7 @@ SQL Database provides a range of [built-in security and compliance features](sql
 
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
-- [Data discovery and classification](sql-database-data-discovery-and-classification.md):
+- [Data discovery and classification](../azure-sql/database/data-discovery-and-classification-overview.md):
 
   This feature provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
@@ -263,7 +263,7 @@ SQL Database customers have the following rights associated with Azure Hybrid Be
   - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 
 - For a set of Azure CLI and PowerShell samples, see:
-  - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
+  - [Azure CLI samples for SQL Database](../azure-sql/database/az-cli-script-samples-content-guide.md)
   - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
 
 - For information about new capabilities as they're announced, see [Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases).

@@ -15,7 +15,7 @@ ms.date: 04/28/2020
 ---
 # Tutorial: Configure replication between two Azure SQL Managed Instances
 
-Transactional replication allows you to replicate data from one database to another hosted on either SQL Server, or an [Azure SQL Managed Instance](sql-database-managed-instance.md) (public preview). A SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
+Transactional replication allows you to replicate data from one database to another hosted on either SQL Server, or an [Azure SQL Managed Instance](sql-database-managed-instance.md) (public preview). A SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](../azure-sql/database/transactional-replication-overview.md#common-configurations) for available configurations.
 
 > [!NOTE]
 > This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to active geo-replication or [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances.
@@ -316,5 +316,5 @@ You can clean up your Azure resources by [deleting the SQL Managed Instance reso
    
 ## Next steps
 
-You can also learn more information about [transactional replication with Azure SQL Managed Instance](sql-database-managed-instance-transactional-replication.md) or learn to 
+You can also learn more information about [transactional replication with Azure SQL Managed Instance](../azure-sql/database/transactional-replication-overview.md) or learn to 
 configure replication between a [SQL Managed Instance Publisher/Distributor and a SQL on Azure VM subscriber](sql-database-managed-instance-configure-replication-tutorial.md). 

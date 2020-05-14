@@ -41,7 +41,7 @@ The following list contains the general workflow for a SQL Server database migra
 5. [Migrate](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) the database copy to a new Azure SQL Database by using the Data Migration Assistant.
 
 > [!NOTE]
-> Rather than using DMA, you can also use a BACPAC file. See [Import a BACPAC file to a new Azure SQL Database](../../sql-database/sql-database-import.md).
+> Rather than using DMA, you can also use a BACPAC file. See [Import a BACPAC file to a new Azure SQL Database](database-import.md).
 
 ### Optimizing data transfer performance during migration
 

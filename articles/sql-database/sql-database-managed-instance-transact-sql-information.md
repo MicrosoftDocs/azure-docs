@@ -38,7 +38,7 @@ Temporary known issues that are discovered in SQL Managed Instance and will be r
 
 ### <a name="always-on-availability-groups"></a>Always On Availability Groups
 
-[High availability](sql-database-high-availability.md) is built into SQL Managed Instance and can't be controlled by users. The following statements aren't supported:
+[High availability](../azure-sql/database/high-availability-sla.md) is built into SQL Managed Instance and can't be controlled by users. The following statements aren't supported:
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -137,7 +137,7 @@ A SQL Managed Instance can't access files, so cryptographic providers can't be c
     Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
-- The Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md).
+- The Azure AD user who created the instance has [unrestricted admin privileges](../azure-sql/database/logins-create-manage.md).
 - Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](../azure-sql/database/aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 - Azure AD server principals (logins) support SQL features within one SQL Managed Instance only. Features that require cross-instance interaction, no matter whether they're within the same Azure AD tenant or different tenants, aren't supported for Azure AD users. Examples of such features are:
 
@@ -403,10 +403,10 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 ### Replication
 
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
-- [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on SQL Managed Instance with some constraints:
+- [Transactional Replication](../azure-sql/database/transactional-replication-overview.md) is available for public preview on SQL Managed Instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on SQL Managed Instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](sql-database-managed-instance-transactional-replication.md#supportability-matrix) for more information.
-    - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
+    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](../azure-sql/database/transactional-replication-overview.md#supportability-matrix) for more information.
+    - Transactional Replication has some [additional networking requirements](../azure-sql/database/transactional-replication-overview.md#requirements).
 
 For more information about configuring transactional replication, see the following tutorials:
 - [Replication between a SQL MI publisher and SQL MI subscriber](replication-with-sql-database-managed-instance.md)

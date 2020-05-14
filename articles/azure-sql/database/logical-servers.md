@@ -15,11 +15,11 @@ ms.date: 03/12/2019
 ---
 # What is a logical SQL server in Azure SQL Database and Azure Synapse?
 
-In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](../../sql-database/sql-database-manage-logins.md), [firewall rules](firewall-configure.md), [auditing rules](../../sql-database/sql-database-auditing.md), [threat detection policies](../../sql-database/sql-database-threat-detection.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
+In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../sql-database/sql-database-auditing.md), [threat detection policies](../../sql-database/sql-database-threat-detection.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 
-When you create a server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database and Synapse Analytics supports SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md). Windows Authentication is not supported.
+When you create a server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database and Synapse Analytics supports SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](logins-create-manage.md). Windows Authentication is not supported.
 
 A server in SQL Database and Azure Synapse:
 
@@ -37,7 +37,7 @@ A server in SQL Database and Azure Synapse:
 - Provides the scope for database quota and DTU or vCore quota for the resources it contains (such as 45,000 DTU)
 - Is the versioning scope for capabilities enabled on contained resources
 - Server-level principal logins can manage all databases on a server
-- Can contain logins similar to those in instances of SQL Server in your on-premises environment that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](../../sql-database/sql-database-manage-logins.md).
+- Can contain logins similar to those in instances of SQL Server in your on-premises environment that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](logins-create-manage.md).
 - The default collation for all databases created on a server is `SQL_LATIN1_GENERAL_CP1_CI_AS`, where `LATIN1_GENERAL` is English (United States), `CP1` is code page 1252, `CI` is case-insensitive, and `AS` is accent-sensitive.
 
 ## Manage servers, databases, and firewalls using the Azure portal
@@ -128,7 +128,7 @@ To create and manage servers, databases, and firewalls with the [Azure CLI](/cli
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create an Azure SQL single database using the Azure CLI](../../sql-database/sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL single database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL single database](scripts/monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create an Azure SQL single database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL single database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL single database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## Manage servers, databases, and firewalls using Transact-SQL
@@ -158,7 +158,7 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Removes database-level firewall setting for a database from your Azure SQL Database. |
 
 > [!TIP]
-> For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](../../sql-database/sql-database-connect-query-vscode.md).
+> For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](connect-query-vscode.md).
 
 ## Manage servers, databases, and firewalls using the REST API
 

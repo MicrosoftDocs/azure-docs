@@ -119,9 +119,9 @@ az group delete --name $resourceGroupName
 ## Next steps
 
 - Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](quickstart-firewall-create-server-level-portal.md).
-- After you create a server-level firewall rule, [connect and query](../../sql-database/sql-database-connect-query.md) your database using several different tools and languages.
+- After you create a server-level firewall rule, [connect and query](connect-query-content-reference-guide.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To create a single database using Azure CLI, see [Azure CLI samples](../../sql-database/sql-database-cli-samples.md).
+- To create a single database using Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](../../sql-database/sql-database-powershell-samples.md).
 - To learn how to create Resource Manager templates, see [Create your first template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

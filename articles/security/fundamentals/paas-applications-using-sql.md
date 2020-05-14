@@ -65,7 +65,7 @@ SQL Database default source IP address restrictions allow access from any Azure 
 
 To learn more about Azure SQL Firewall and IP restrictions, see:
 
-- [Azure SQL Database and SQL Data Warehouse access control](../../sql-database/sql-database-manage-logins.md)
+- [Azure SQL Database and SQL Data Warehouse access control](../../azure-sql/database/logins-create-manage.md)
 - [Azure SQL Database and SQL Data Warehouse firewall rules](../../azure-sql/database/firewall-configure.md)
 
 ## Encrypt data at rest

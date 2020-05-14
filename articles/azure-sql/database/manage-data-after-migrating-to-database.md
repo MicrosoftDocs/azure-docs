@@ -83,7 +83,7 @@ To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recover
 
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
 
-- Identity & authentication ([SQL authentication and Azure Active Directory [AAD] authentication](../../sql-database/sql-database-manage-logins.md)).
+- Identity & authentication ([SQL authentication and Azure Active Directory [AAD] authentication](logins-create-manage.md)).
 - Monitoring activity ([Auditing](../../sql-database/sql-database-auditing.md) and [threat detection](../../sql-database/sql-database-threat-detection.md)).
 - Protecting actual data ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) and [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlling Access to sensitive and privileged data ([Row Level security](/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
@@ -103,7 +103,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 |---|---|
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](../../sql-database/sql-database-security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
-|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](../../sql-database/sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](../../sql-database/sql-database-ssms-mfa-authentication.md).|
+|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](conditional-access-confugre.md), and use [Azure AD Universal authentication with MFA support](../../sql-database/sql-database-ssms-mfa-authentication.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](../../sql-database/sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](aad-authentication-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](aad-authentication-configure.md).|

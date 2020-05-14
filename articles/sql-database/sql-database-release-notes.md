@@ -26,7 +26,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
-| Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](sql-database-data-discovery-and-classification.md).|
+| Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](../azure-sql/database/data-discovery-and-classification-overview.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](../azure-sql/database/elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](../azure-sql/database/elastic-transactions-overview.md). |
@@ -43,7 +43,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
-| [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on SQL Managed Instances, SQL Databases, or SQL Server instances, or update your tables when some rows are changed in other SQL Managed Instances or SQL Server instance. For information, see [Configure replication in Azure SQL Managed Instance](replication-with-sql-database-managed-instance.md). |
+| [Transactional Replication](../azure-sql/database/transactional-replication-overview.md) | Replicate the changes from your tables into other databases placed on SQL Managed Instances, SQL Databases, or SQL Server instances, or update your tables when some rows are changed in other SQL Managed Instances or SQL Server instance. For information, see [Configure replication in Azure SQL Managed Instance](replication-with-sql-database-managed-instance.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](sql-database-managed-instance-threat-detection.md).|
 | Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](sql-database-managed-instance-long-term-backup-retention-configure.md), which is currently in limited public preview.. | 
 

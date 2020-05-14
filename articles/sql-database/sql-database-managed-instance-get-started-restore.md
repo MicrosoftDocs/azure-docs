@@ -91,4 +91,4 @@ In SQL Server Management Studio (SSMS), follow these steps to restore the Wide W
 
 - For troubleshooting a backup to a URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - For an overview of app connection options, see [Connect your applications to SQL Managed Instance](sql-database-managed-instance-connect-app.md).
-- To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](sql-database-connect-query.md).
+- To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](../azure-sql/database/connect-query-content-reference-guide.md).

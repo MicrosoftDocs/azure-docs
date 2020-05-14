@@ -53,7 +53,7 @@ All three flavors of Azure SQL Database offer some ability to dynamically scale 
 Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](../azure-sql/database/single-database-scale.md#impact).
 
 > [!NOTE]
-> You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.
+> You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.
 
 ## Alternative scale methods
 

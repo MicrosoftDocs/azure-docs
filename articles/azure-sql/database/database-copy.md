@@ -29,7 +29,7 @@ When you copy a database to the same server, the same logins can be used on both
 
 When you copy a database to a different server, the security principal that initiated the copy operation on the target server becomes the owner of the new database.
 
-Regardless of the target server, all database users, their permissions, and their security identifiers (SIDs) are copied to the database copy. Using [contained database users](../../sql-database/sql-database-manage-logins.md) for data access ensures that the copied database has the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
+Regardless of the target server, all database users, their permissions, and their security identifiers (SIDs) are copied to the database copy. Using [contained database users](logins-create-manage.md) for data access ensures that the copied database has the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
 
 If you use server level logins for data access and copy the database to a different server, the login-based access might not work. This can happen because the logins do not exist on the target server, or because their passwords and security identifiers (SIDs) are different. To learn about managing logins when you copy a database to a different server, see [How to manage Azure SQL Database security after disaster recovery](geo-replication-security-configure.md). After the copy operation to a different server succeeds, and before other users are remapped, only the login associated with the database owner, or the server administrator can log in to the copied database. To resolve logins and establish data access after the copying operation is complete, see [Resolve logins](#resolve-logins).
 
@@ -72,7 +72,7 @@ The database copy is an asynchronous operation but the target database is create
 
 ## Copy using Transact-SQL
 
-Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copy to succeed, logins that are not the server administrator must be members of the `dbmanager` role. For more information about logins and connecting to the server, see [Manage logins](../../sql-database/sql-database-manage-logins.md).
+Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copy to succeed, logins that are not the server administrator must be members of the `dbmanager` role. For more information about logins and connecting to the server, see [Manage logins](logins-create-manage.md).
 
 Start copying the source database with the [CREATE DATABASE ... AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) statement. The T-SQL statement continues running until the database copy operation is complete.
 
@@ -188,5 +188,5 @@ The following errors can be encountered while copying a database in Azure SQL Da
 
 ## Next steps
 
-* For information about logins, see [Manage logins](../../sql-database/sql-database-manage-logins.md) and [How to manage Azure SQL Database security after disaster recovery](geo-replication-security-configure.md).
+* For information about logins, see [Manage logins](logins-create-manage.md) and [How to manage Azure SQL Database security after disaster recovery](geo-replication-security-configure.md).
 * To export a database, see [Export the database to a BACPAC](database-export.md).

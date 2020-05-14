@@ -52856,6 +52856,131 @@
             "source_path": "articles/sql-database/sql-database-temporal-tables-retention-policy.md",
             "redirect_url": "/azure/azure-sql/database/temporal-tables-retention-policy",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-conditional-access.md",
+            "redirect_url": "/azure/azure-sql/database/conditional-access-confugre",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-cli-samples.md",
+            "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-configure-failover-group.md",
+            "redirect_url": "/azure/azure-sql/database/auto-failover-group-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-excel.md",
+            "redirect_url": "/azure/azure-sql/database/connect-excel",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-dotnet-core.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-dotnet-core",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-dotnet-visual-studio.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-dotnet-visual-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-go.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-go",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-java.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-nodejs.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-nodejs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-php.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-php",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-ruby.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-ruby",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-python.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query-vscode.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-vscode",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connect-query.md",
+            "redirect_url": "/azure/azure-sql/database/connect-query-content-reference-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connectivity-issues.md",
+            "redirect_url": "/azure/azure-sql/database/troubleshoot-common-connectivity-issues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-data-discovery-and-classification.md",
+            "redirect_url": "/azure/azure-sql/database/data-discovery-and-classification-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-design-first-database-csharp.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-design-first-database-csharp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-design-first-database.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-design-first-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-develop-cplusplus-simple.md",
+            "redirect_url": "/azure/azure-sql/database/develop-cplusplus-simple",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-glossary-terms.md",
+            "redirect_url": "/azure/azure-sql/database/glossary-terms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-high-availability.md",
+            "redirect_url": "/azure/azure-sql/database/high-availability-sla",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-import.md",
+            "redirect_url": "/azure/azure-sql/database/database-import",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-job-automation-overview.md",
+            "redirect_url": "/azure/azure-sql/database/job-automation-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-manage-logins.md",
+            "redirect_url": "/azure/azure-sql/database/logins-create-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-transactional-replication.md",
+            "redirect_url": "/azure/azure-sql/database/transactional-replication-overview",
+            "redirect_document_id": true
         }
     ]
 }

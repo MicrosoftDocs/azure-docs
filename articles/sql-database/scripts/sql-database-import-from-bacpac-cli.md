@@ -1,4 +1,4 @@
-﻿---
+---
 title: CLI example import BACPAC file Azure SQL database 
 description: Azure CLI example script to import a BACPAC file into a SQL database
 services: sql-database
@@ -49,4 +49,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

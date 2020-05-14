@@ -34,7 +34,7 @@ A status of **Available** means that Resource Health has not detected logins fai
 
 ### Degraded
 
-A status of **Degraded** means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, please implement [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
+A status of **Degraded** means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, please implement [retry logic](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
 
 ![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -60,16 +60,16 @@ When your database experiences downtime, analysis is performed to determine a re
 
 #### Planned maintenance
 
-The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
+The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
 
 #### Reconfiguration
 
-Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
+Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next steps
 
-- Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)
+- Learn more about [retry logic for transient errors](../azure-sql/database/troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
+- [Troubleshoot, diagnose, and prevent SQL connection errors](../azure-sql/database/troubleshoot-common-connectivity-issues.md)
 - Learn more about [configuring Resource Health alerts](../service-health/resource-health-alert-arm-template-guide.md)
 - Get an overview of [Resource Health](../service-health/resource-health-overview.md)
 - [Resource Health FAQ](../service-health/resource-health-faq.md)

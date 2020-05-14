@@ -43,7 +43,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - A [server](logical-servers.md) and a single database
-  - Create them with [Azure portal](quickstart-create-single-database.md), [CLI](../../sql-database/sql-database-cli-samples.md), or [PowerShell](../../sql-database/sql-database-powershell-samples.md)
+  - Create them with [Azure portal](quickstart-create-single-database.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](../../sql-database/sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -144,7 +144,7 @@ For information about configuring Azure AD, see:
 
 ## Manage database access
 
-Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](../../sql-database/sql-database-manage-logins.md) and [AD authentication](aad-authentication-overview.md).
+Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](logins-create-manage.md) and [AD authentication](aad-authentication-overview.md).
 
 To add users, choose the database authentication type:
 
@@ -212,7 +212,7 @@ To ensure a secure, encrypted connection between the client application and SQL 
 - Request an encrypted connection
 - Not trust the server certificate
 
-The connection is established using Transport Layer Security (TLS) and reduces the risk of a man-in-the-middle attack. Connection strings are available per database and are pre-configured to support client drivers such as ADO.NET, JDBC, ODBC, and PHP. For information about TLS and connectivity, see [TLS considerations](../../sql-database/sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+The connection is established using Transport Layer Security (TLS) and reduces the risk of a man-in-the-middle attack. Connection strings are available per database and are pre-configured to support client drivers such as ADO.NET, JDBC, ODBC, and PHP. For information about TLS and connectivity, see [TLS considerations](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
 
 To copy a secure connection string:
 
