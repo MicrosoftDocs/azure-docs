@@ -98,6 +98,8 @@
   #  href: concepts/media-devices.md
   - name: SDK Options
     href: concepts/sdk-options.md
+  - name: Pricing
+    href: concepts/pricing.md
   #- name: Security Model
   #  href: concepts/security-model.md
   - name: Authentication and Authorization

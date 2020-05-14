@@ -5,7 +5,7 @@ summary: Azure Communication Services is a cloud-based communications service th
 
 metadata:
   title: Azure Communication Services 
-  description: ACS is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
+  description: ACS is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. (Note - this page is under construction.)
   ms.service: azure-functions 
   ms.topic: landing-page # Required
   author: mikben 
@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Communication Services?
-            url: functions-overview.md 
+            url: overview.md 
       - linkListType: concept
         links:
           - text: Hosting options
