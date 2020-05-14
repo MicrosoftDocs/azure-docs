@@ -38,13 +38,16 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
+Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). 
 
-In this flow, the app receives tokens directly from the Microsoft identity platform authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
+In this flow, the app receives a code from the Microsoft identity platform authorize endpoint, and redeems it for tokens and refresh tokens using cross-site web requests.  Every 24 hours the refresh token expires and the app must request another code.
 
-![Shows the implicit authentication flow](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
 To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
+
+> [!NOTE]
+> For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single page apps. With the removal of [3rd party cookies](reference-third-party-cookies-spas.md), and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we have moved to the authorization code flow for single page apps. To ensure compatibility of your app in Safari and other privacy-conscious browsers, we do not recommend the implicit flow any longer.  
 
 ## Web apps
 
@@ -73,7 +76,8 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try one of the web app sign-in code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md). For more information about this scenario, read about [getting started with web apps and web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
 
 ## Web APIs
 

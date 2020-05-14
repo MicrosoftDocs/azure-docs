@@ -481,6 +481,10 @@
       href: active-directory-optional-claims.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
+    - name: Handle SameSite cookie changes in Chrome browser
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Handle ITP in Safari 
+      href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
     items:
