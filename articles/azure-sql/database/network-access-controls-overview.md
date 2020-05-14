@@ -16,20 +16,20 @@ ms.date: 03/09/2020
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
 
-When you create a logical SQL server from the [Azure portal](sql-database-single-database-get-started.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
+When you create a logical SQL server from the [Azure portal](../../sql-database/sql-database-single-database-get-started.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
 You can use the following network access controls to selectively allow access to a database via the public endpoint:
 
 - Allow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 - IP firewall rules: Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines
 
-You can also allow private access to the database from [Virtual Networks](../virtual-network/virtual-networks-overview.md) via:
+You can also allow private access to the database from [Virtual Networks](../../virtual-network/virtual-networks-overview.md) via:
 
 - Virtual Network firewall rules: Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
-- Private Link: Use this feature to create a private endpoint for [logical SQL server](sql-database-servers.md) within a specific Virtual Network
+- Private Link: Use this feature to create a private endpoint for [logical SQL server](logical-servers.md) within a specific Virtual Network
 
 > [!IMPORTANT]
-> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md) .
+> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-connect-app.md) .
 
 See the below video for a high level explanation of these access controls and what they do:
 
@@ -37,7 +37,7 @@ See the below video for a high level explanation of these access controls and wh
 
 ## Allow Azure services
 
-During creation of a new logical SQL server [from the Azure portal](sql-database-single-database-get-started.md), this setting is left unchecked.
+During creation of a new logical SQL server [from the Azure portal](../../sql-database/sql-database-single-database-get-started.md), this setting is left unchecked.
 
 You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   
@@ -55,7 +55,7 @@ Import Export Service does not work when **Allow access to Azure services** is s
 
 ### Data Sync
 
-To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
+To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](quickstart-firewall-create-server-level-portal.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server-level firewall rules to the servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
 Use the following PowerShell script to generate IP addresses corresponding to the SQL service tag for West US region
@@ -101,12 +101,12 @@ You can now add these as distinct firewall rules and then set **Allow Azure serv
 
 ## IP firewall rules
 
-Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
+Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](quickstart-firewall-create-server-level-portal.md) of the client machines.
 
 ## Virtual Network firewall rules
 
 In addition to IP rules, the server firewall allows you to define *virtual network rules*.  
-To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
+To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
@@ -118,7 +118,7 @@ Be aware of the following Azure Networking terms as you explore Virtual Network 
 
 **Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
 
-**Virtual Network service endpoint:** A [Virtual Network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
+**Virtual Network service endpoint:** A [Virtual Network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
 
 **Virtual network rule:** A virtual network rule for your server is a subnet that is listed in the access control list (ACL) of your server. To be in the ACL for your SQL Database, the subnet must contain the **Microsoft.Sql** type name. A virtual network rule tells your server to accept communications from every node that is on the subnet.
 
@@ -126,7 +126,7 @@ Be aware of the following Azure Networking terms as you explore Virtual Network 
 
 The Azure SQL Database firewall allows you to specify IP address ranges from which communications are accepted into SQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. However, virtual machines (VMs) within the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses can change when your VM is restarted and in turn invalidate the IP-based firewall rule. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
 
-You can work around this limitation by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). However, the static IP approach can become difficult to manage, and it is costly when done at scale.
+You can work around this limitation by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). However, the static IP approach can become difficult to manage, and it is costly when done at scale.
 
 Virtual network rules are easier alternative to establish and to manage access from a specific subnet that contains your VMs.
 
@@ -135,22 +135,22 @@ Virtual network rules are easier alternative to establish and to manage access f
 
 ## Private Link
 
-Private Link allows you to connect to a server via a **private endpoint**. A private endpoint is a private IP address within a specific [Virtual Network](../virtual-network/virtual-networks-overview.md) and Subnet.
+Private Link allows you to connect to a server via a **private endpoint**. A private endpoint is a private IP address within a specific [Virtual Network](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
 ## Next steps
 
-- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](sql-database-single-database-get-started.md).
+- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](../../sql-database/sql-database-single-database-get-started.md).
 
-- For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+- For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 - For help with connecting to an Azure SQL database from open source or third-party applications, see [Client quickstart code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
+- For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
 
-- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](../azure-sql/database/connectivity-architecture.md)
+- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
 
-- For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
+- For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md)
 
 <!--Image references-->
-[1]: ./media/sql-database-get-started-portal/new-server2.png
-[2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+[1]: ../../sql-database/media/sql-database-get-started-portal/new-server2.png
+[2]: ../../sql-database/media/sql-database-get-started-portal/manage-server-firewall.png

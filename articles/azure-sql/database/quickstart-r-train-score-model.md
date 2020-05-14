@@ -20,13 +20,13 @@ ROBOTS: NOINDEX
 
 In this quickstart, you create and train a predictive model using R, save the model to a table in your database, then use the model to predict values from new data using Machine Learning Services (with R) in Azure SQL Database.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](../azure-sql/database/machine-learning-services-overview.md) with R enabled.
+- An [Azure SQL database](../../sql-database/sql-database-single-database-get-started.md) with a [server-level firewall rule](quickstart-firewall-create-server-level-portal.md)
+- [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 This example uses a simple regression model to predict the stopping distance of a car based on speed using the **cars** dataset included with R.
@@ -49,7 +49,7 @@ In the following steps you'll set up the training data, create a regression mode
 
 1. Open **SQL Server Management Studio** and connect to your SQL database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](../azure-sql/database/connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](connect-query-ssms.md).
 
 1. Create the **CarSpeed** table to save the training data.
 
@@ -164,7 +164,7 @@ VALUES (
 
 **Results**
 
-![Trained model with additional output](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
+![Trained model with additional output](./media/quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## Score new data using the trained model
 
@@ -232,7 +232,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
    **Results**
 
-   ![Result set for predicting stopping distance](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
+   ![Result set for predicting stopping distance](./media/quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > In this example script, the `str` function is added during the testing phase to check the schema of data being returned from R. You can remove the statement later.
@@ -243,7 +243,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
 For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
-- [Azure SQL Database Machine Learning Services with R (preview)](../azure-sql/database/machine-learning-services-overview.md)
-- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-data-issues.md)
+- [Azure SQL Database Machine Learning Services with R (preview)](machine-learning-services-overview.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](quickstart-r-create-script.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](machine-learning-services-data-issues.md)

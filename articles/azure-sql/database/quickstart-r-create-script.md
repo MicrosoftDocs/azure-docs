@@ -20,13 +20,13 @@ ROBOTS: NOINDEX
 
 In this quickstart, you create and run a set of R scripts using Machine Learning Services (with R) in Azure SQL Database.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](../azure-sql/database/machine-learning-services-overview.md) with R enabled.
+- An [Azure SQL database](../../sql-database/sql-database-single-database-get-started.md) with a [server-level firewall rule](quickstart-firewall-create-server-level-portal.md)
+- [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 This example uses the stored procedure [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to wrap a well-formed R script.
@@ -47,7 +47,7 @@ print(c(c, d))
 
 1. Open **SQL Server Management Studio** and connect to your SQL database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](../azure-sql/database/connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](connect-query-ssms.md).
 
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
@@ -139,7 +139,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     **Results**
 
-    ![Contents of the RTestData table](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
+    ![Contents of the RTestData table](./media/quickstart-r-create-script/select-rtestdata.png)
 
 1. Run the following R script. It retrieves the data from the table using the `SELECT` statement, passes it through the R runtime, and returns the data as a data frame. The `WITH RESULT SETS` clause defines the schema of the returned data table for SQL Database, adding the column name *NewColName*.
 
@@ -152,7 +152,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     **Results**
 
-    ![Output from R script that returns data from a table](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
+    ![Output from R script that returns data from a table](./media/quickstart-r-create-script/r-output-rtestdata.png)
 
 1. Now let's change the names of the input and output variables. The default input and output variable names are **InputDataSet** and **OutputDataSet**, this script changes the names to **SQL_in** and **SQL_out**:
 
@@ -186,7 +186,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     **Results**
 
-    ![Query results using @script as input](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
+    ![Query results using @script as input](./media/quickstart-r-create-script/r-data-generated-output.png)
 
 ## Check R version
 
@@ -244,17 +244,17 @@ The output is from `installed.packages()` in R and is returned as a result set.
 
 **Results**
 
-![Installed packages in R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
+![Installed packages in R](./media/quickstart-r-create-script/r-installed-packages.png)
 
 ## Next steps
 
 To create a machine learning model using R in SQL Database, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
+> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](quickstart-r-train-score-model.md)
 
 For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
-- [Azure SQL Database Machine Learning Services with R (preview)](../azure-sql/database/machine-learning-services-overview.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](../azure-sql/database/machine-learning-services-data-issues.md)
+- [Azure SQL Database Machine Learning Services with R (preview)](machine-learning-services-overview.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](machine-learning-services-data-issues.md)

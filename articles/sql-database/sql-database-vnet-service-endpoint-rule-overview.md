@@ -17,7 +17,7 @@ ms.date: 11/14/2019
 *Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-technical-overview.md) or for your databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
 
 > [!NOTE]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](sql-database-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](../azure-sql/database/logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 

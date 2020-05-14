@@ -53,4 +53,4 @@ For questions about Azure SQL Database and Azure Synapse regarding multi-factor 
 
 ## Next steps  
 
-For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+For a tutorial, see [Secure your Azure SQL Database](../azure-sql/database/tutorial-secure-database.md).

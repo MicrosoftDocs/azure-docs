@@ -11,7 +11,7 @@ ms.author: jgao
 
 Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
-In this tutorial, you create a template to deploy a [logical SQL server](../../sql-database/sql-database-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
+In this tutorial, you create a template to deploy a [logical SQL server](../../azure-sql/database/logical-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 

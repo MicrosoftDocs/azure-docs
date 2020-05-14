@@ -16,7 +16,7 @@ ms.date: 03/11/2020
 
 This article provides the detailed resource limits for single Azure SQL databases using the vCore purchasing model.
 
-For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](sql-database-resource-limits-database-server.md).
+For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](../azure-sql/database/resource-limits-logical-server.md).
 
 You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-t-sql), [PowerShell](sql-database-single-databases-manage.md#powershell), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli), or the [REST API](sql-database-single-databases-manage.md#rest-api).
 
@@ -25,7 +25,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ## General purpose - serverless compute - Gen5
 
-The [serverless compute tier](sql-database-serverless.md) is currently available on Gen5 hardware only.
+The [serverless compute tier](../azure-sql/database/serverless-tier-overview.md) is currently available on Gen5 hardware only.
 
 ### Gen5 compute generation (part 1)
 
@@ -51,7 +51,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -77,7 +77,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## Hyperscale - provisioned compute - Gen4
 
@@ -88,7 +88,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](../azure-sql/database/service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100|
@@ -113,7 +113,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|49|56|63|70|112|159.5|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](../azure-sql/database/service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |
@@ -131,7 +131,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## Hyperscale - provisioned compute - Gen5
 
@@ -142,7 +142,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](../azure-sql/database/service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100|
@@ -160,7 +160,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -169,7 +169,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|[RBPEX](../azure-sql/database/service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |
@@ -187,11 +187,11 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 #### Notes
 
-**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](../azure-sql/database/service-tier-hyperscale.md#distributed-functions-architecture)
 
 **Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
 
@@ -225,7 +225,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen4 compute generation (part 2)
 
@@ -250,7 +250,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## General purpose - provisioned compute - Gen5
 
@@ -277,7 +277,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -302,7 +302,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## General purpose - provisioned compute - Fsv2-series
 
@@ -330,7 +330,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|
 |Included backup storage|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## Business critical - provisioned compute - Gen4
 
@@ -361,7 +361,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen4 compute generation (part 2)
 
@@ -387,7 +387,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## Business critical - provisioned compute - Gen5
 
@@ -415,7 +415,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -441,7 +441,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 ## Business critical - provisioned compute - M-series
 
@@ -469,7 +469,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|
 |Included backup storage|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](../azure-sql/database/resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../azure-sql/database/file-space-manage.md).
@@ -481,4 +481,4 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 - For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
 - For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about resource limits on a server, see [overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+- For information about resource limits on a server, see [overview of resource limits on a server](../azure-sql/database/resource-limits-logical-server.md) for information about limits at the server and subscription levels.

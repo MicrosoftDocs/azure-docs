@@ -41,7 +41,7 @@ On the server level you can choose to inherit automatic tuning configuration fro
 
 ### Azure portal
 
-To enable automatic tuning on a [server](../../sql-database/sql-database-servers.md) in Azure SQL Database, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
+To enable automatic tuning on a [server](logical-servers.md) in Azure SQL Database, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
 
 ![Server](./media/automatic-tuning-enable/server.png)
 
@@ -121,4 +121,4 @@ See [automatic tuning e-mail notifications](automatic-tuning-email-notifications
 
 - Read the [Automatic tuning article](../../sql-database/sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.
 - See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
-- See [Query Performance Insights](../../sql-database/sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
+- See [Query Performance Insights](query-performance-insight.md) to learn about viewing the performance impact of your top queries.

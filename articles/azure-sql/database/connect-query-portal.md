@@ -31,7 +31,7 @@ Completing this quickstart requires the AdventureWorksLT sample database. If you
 If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*, the following important information should help resolve:
 
 > [!IMPORTANT]
-> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](../../sql-database/sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
+> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](quickstart-firewall-create-server-level-portal.md) to access your databases and data warehouses.
 
 
 ## Open the SQL Database Query Editor

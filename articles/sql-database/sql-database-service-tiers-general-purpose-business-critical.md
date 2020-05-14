@@ -22,7 +22,7 @@ Azure SQL Database and Azure SQL Managed Instance are based on SQL Server databa
 
 Azure SQL Database has an additional service tier: 
 
-- [Hyperscale](sql-database-service-tier-hyperscale.md), which is designed for most business workloads, providing highly scalable storage, read scale-out, and fast database restore capabilities.
+- [Hyperscale](../azure-sql/database/service-tier-hyperscale.md), which is designed for most business workloads, providing highly scalable storage, read scale-out, and fast database restore capabilities.
 
 This article discusses differences between the service tiers, storage and backup considerations for the general purpose and business critical service tiers in the vCore-based purchasing model.
 
@@ -57,11 +57,11 @@ The following table describes the key differences between service tiers for the 
 For more information, see the detailed differences between the service tiers in [Azure SQL Database (vCore)](sql-database-vcore-resource-limits-single-databases.md), [single Azure SQL Database (DTU)](../azure-sql/database/resource-limits-dtu-single-databases.md), [pooled Azure SQL Database (DTU)](../azure-sql/database/resource-limits-dtu-single-databases.md), and [Azure SQL Managed Instance](sql-database-managed-instance-resource-limits.md) pages.
 
 > [!NOTE]
-> For information about the hyperscale service tier in the vCore-based purchasing model, see [hyperscale service tier](sql-database-service-tier-hyperscale.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [purchasing models and resources](sql-database-purchase-models.md).
+> For information about the hyperscale service tier in the vCore-based purchasing model, see [hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [purchasing models and resources](sql-database-purchase-models.md).
 
 ## Data and log storage
 
-The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
+The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md).
 
 - The allocated storage is used by data files (MDF) and log files (LDF).
 - Each single database compute size supports a maximum database size, with a default maximum size of 32 GB.

@@ -18,7 +18,7 @@ ms.date: 11/19/2019
 This article provides an overview of the resource limits for Azure SQL Database and Azure Synapse Analytics servers. It provides information on what happens when those resource limits are hit or exceeded, and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
-> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](sql-database-managed-instance-resource-limits.md).
+> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
 
 ## Maximum resource limits
 
@@ -39,11 +39,11 @@ This article provides an overview of the resource limits for Azure SQL Database 
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 > [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
+> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../../sql-database/quota-increase-request.md).
 
 ### Storage size
 
-For single databases resource storage sizes, refer to either [DTU-based resource limits](../azure-sql/database/resource-limits-dtu-single-databases.md) or [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
+For single databases resource storage sizes, refer to either [DTU-based resource limits](resource-limits-dtu-single-databases.md) or [vCore-based resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
 
 ## What happens when database resource limits are reached
 
@@ -52,18 +52,18 @@ For single databases resource storage sizes, refer to either [DTU-based resource
 When database compute utilization (measured by DTUs and eDTUs, or vCores) becomes high, query latency increases, and queries can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resources become free.
 When encountering high compute utilization, mitigation options include:
 
-- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
-- Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
 
-When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT and DELETE statements continue to succeed.
+When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT and DELETE statements continue to succeed.
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
+- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
-- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](../azure-sql/database/file-space-manage.md)
+- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md)
 
 ### Sessions and workers (requests)
 
@@ -71,8 +71,8 @@ The maximum numbers of sessions and workers are determined by the service tier a
 
 When encountering high session or worker utilization, mitigation options include:
 
-- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md).
-- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
 - Optimizing query workload to reduce number of occurrences and duration of query blocking.
 
@@ -88,7 +88,7 @@ A more detailed breakdown of recent resource consumption by user workloads and i
 
 In the context of performance monitoring and troubleshooting, it is important to consider both **user CPU consumption** (`avg_cpu_percent`, `cpu_percent`), and **total CPU consumption** by user workloads and internal processes (`avg_instance_cpu_percent`,`sqlserver_process_core_percent`).
 
-**User CPU consumption** is calculated as a percentage of the user workload limits in each service objective. **User CPU utilization** at 100% indicates that the user workload has reached the limit of the service objective. However, when **total CPU consumption** reaches the 70-100% range, it is possible to see user workload throughput flattening out and query latency increasing, even if reported **user CPU consumption** remains significantly below 100%. This is more likely to occur when using smaller service objectives with a moderate allocation of compute resources, but relatively intense user workloads, such as in [dense elastic pools](../azure-sql/database/elastic-pool-resource-management.md). This can also occur with smaller service objectives when internal processes temporarily require additional resources, for example when creating a new replica of the database.
+**User CPU consumption** is calculated as a percentage of the user workload limits in each service objective. **User CPU utilization** at 100% indicates that the user workload has reached the limit of the service objective. However, when **total CPU consumption** reaches the 70-100% range, it is possible to see user workload throughput flattening out and query latency increasing, even if reported **user CPU consumption** remains significantly below 100%. This is more likely to occur when using smaller service objectives with a moderate allocation of compute resources, but relatively intense user workloads, such as in [dense elastic pools](elastic-pool-resource-management.md). This can also occur with smaller service objectives when internal processes temporarily require additional resources, for example when creating a new replica of the database.
 
 When **total CPU consumption** is high, mitigation options are the same as noted earlier, and include service objective increase and/or user workload optimization.
 
@@ -143,12 +143,12 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
 
-- Scale up to a higher service level in order to get the maximum 96 MB/s log rate, or switch to a different service tier. The [Hyperscale](sql-database-service-tier-hyperscale.md) service tier provides 100 MB/s log rate regardless of chosen service level.
+- Scale up to a higher service level in order to get the maximum 96 MB/s log rate, or switch to a different service tier. The [Hyperscale](service-tier-hyperscale.md) service tier provides 100 MB/s log rate regardless of chosen service level.
 - If data being loaded is transient, such as staging data in an ETL process, it can be loaded into tempdb (which is minimally logged).
 - For analytic scenarios, load into a clustered columnstore covered table. This reduces the required log rate due to compression. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes.
 
 ## Next steps
 
-- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
+- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](../../sql-database/sql-database-purchase-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

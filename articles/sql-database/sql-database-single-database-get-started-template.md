@@ -15,7 +15,7 @@ ms.date: 06/28/2019
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template
 
-Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
+Creating a [single database](../azure-sql/database/single-database-overview.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ None
 
 ## Create a single database
 
-A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [server](../azure-sql/database/logical-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
 
 ### Review the template
 
@@ -118,7 +118,7 @@ az group delete --name $resourceGroupName
 
 ## Next steps
 
-- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
+- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](../azure-sql/database/quickstart-firewall-create-server-level-portal.md).
 - After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

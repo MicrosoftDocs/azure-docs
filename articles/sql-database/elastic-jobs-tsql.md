@@ -22,7 +22,7 @@ Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Cre
 
 ## Create a credential for job execution
 
-The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using a [logical SQL server](sql-database-servers.md) and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
+The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using a [logical SQL server](../azure-sql/database/logical-servers.md) and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
 
 ```sql
 --Connect to the job database specified when creating the job agent

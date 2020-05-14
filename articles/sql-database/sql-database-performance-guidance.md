@@ -229,7 +229,7 @@ If a workload has a set of repeating queries, often it makes sense to capture an
 
 ### Very large database architectures
 
-Before the release of [Hyperscale](sql-database-service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in Azure SQL Database elastic pools and instance databases in Azure SQL Managed Instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database and Azure SQL Managed Instance when you cannot use the Hyperscale service tier.
+Before the release of [Hyperscale](../azure-sql/database/service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in Azure SQL Database elastic pools and instance databases in Azure SQL Managed Instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database and Azure SQL Managed Instance when you cannot use the Hyperscale service tier.
 
 ### Cross-database sharding
 
@@ -260,7 +260,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 
-- For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
+- For more information about DTU-based service tiers, see [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md).
 - For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 - For more information about elastic pools, see [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
 - For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)

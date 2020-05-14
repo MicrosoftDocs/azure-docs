@@ -227,7 +227,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edit the code below to replace `<serverName>` with your [logical SQL server](../sql-database/sql-database-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
+2. Edit the code below to replace `<serverName>` with your [logical SQL server](../azure-sql/database/logical-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest

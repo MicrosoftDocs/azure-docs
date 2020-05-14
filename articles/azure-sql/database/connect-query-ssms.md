@@ -30,7 +30,7 @@ If you simply want to run some ad-hoc queries without installing SSMS, see [Quic
 
 ## Get server connection information
 
-Get the connection information you need to connect to your database. You'll need the fully qualified [server](../../sql-database/sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
+Get the connection information you need to connect to your database. You'll need the fully qualified [server](logical-servers.md) name or host name, database name, and login information to complete this quickstart.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

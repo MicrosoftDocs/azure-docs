@@ -83,7 +83,7 @@ Use the following steps to request an increase in the number of servers per subs
 
    ![Servers quota details](./media/quota-increase-request/quota-details-servers.png)
 
-For more information, see [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md).
+For more information, see [SQL Database resource limits and resource governance](../azure-sql/database/resource-limits-logical-server.md).
 
 ### <a id="other"></a> Enable subscription access to a region
 

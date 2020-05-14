@@ -17,7 +17,7 @@ ms.date: 03/03/2020
 This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, referred to as just Hyperscale in the remainder of this FAQ. This article describes the scenarios that Hyperscale supports and the features that are compatible with Hyperscale.
 
 - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier and are looking to have their specific questions and concerns answered.
-- This FAQ isn’t meant to be a guidebook or answer questions on how to use a Hyperscale database. For an introduction to Hyperscale, we recommend you refer to the [Azure SQL Database Hyperscale](sql-database-service-tier-hyperscale.md) documentation.
+- This FAQ isn’t meant to be a guidebook or answer questions on how to use a Hyperscale database. For an introduction to Hyperscale, we recommend you refer to the [Azure SQL Database Hyperscale](../azure-sql/database/service-tier-hyperscale.md) documentation.
 
 ## General Questions
 
@@ -62,7 +62,7 @@ The Hyperscale service tier is intended for customers who have large on-premises
 
 ### What regions currently support Hyperscale
 
-The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](sql-database-service-tier-hyperscale.md#regions).
+The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](../azure-sql/database/service-tier-hyperscale.md#regions).
 
 ### Can I create multiple Hyperscale databases per server
 
@@ -386,4 +386,4 @@ Data latency from the time a transaction is committed on the primary to the time
 
 ## Next Steps
 
-For more information about the Hyperscale service tier, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
+For more information about the Hyperscale service tier, see [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md).

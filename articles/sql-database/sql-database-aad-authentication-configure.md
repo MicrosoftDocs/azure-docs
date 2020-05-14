@@ -55,7 +55,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 ## Azure AD admin with a server in SQL Database
 
-Each [server](sql-database-servers.md) in Azure (which hosts SQL Database or Azure Synapse) starts with a single server administrator account that is the administrator of the entire server. Create a second administrator account as an Azure AD account. This principal is created as a contained database user in the master database of the server. Administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about administrator accounts, see [Managing Databases and Logins](sql-database-manage-logins.md).
+Each [server](../azure-sql/database/logical-servers.md) in Azure (which hosts SQL Database or Azure Synapse) starts with a single server administrator account that is the administrator of the entire server. Create a second administrator account as an Azure AD account. This principal is created as a contained database user in the master database of the server. Administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about administrator accounts, see [Managing Databases and Logins](sql-database-manage-logins.md).
 
 When using Azure Active Directory with geo-replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users receive a `Cannot connect` to server error.
 
@@ -224,7 +224,7 @@ For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 ## Provision Azure AD admin (SQL Database)
 
 > [!IMPORTANT]
-> Only follow these steps if you are provisioning a [server](sql-database-servers.md) for SQL Database or Azure Synapse.
+> Only follow these steps if you are provisioning a [server](../azure-sql/database/logical-servers.md) for SQL Database or Azure Synapse.
 
 The following two procedures show you how to provision an Azure Active Directory administrator for your server in the Azure portal and by using PowerShell.
 
