@@ -655,13 +655,96 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    items:
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Agents
+      items:
+      - name: Agents overview
+        href: ../../azure-monitor/platform/agents-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: FAQ
+        href: ../../azure-monitor/faq.md?context=azure/virtual-machines/linux/context/linux-vm-context#agents
+      - name: Azure Diagnostics extension
+        items:
+        - name: Overview
+          href: ../../azure-monitor/platform/diagnostics-extension-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Linux diagnostics extension
+          displayname: diagnostics extension
+          items: 
+          - name: Overview
+            href: ../../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context?toc=/azure/azure-monitor/toc.json
+          - name: Collect metrics with Telegraf
+            href: ../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=azure/virtual-machines/linux/context/linux-vm-context   
+      - name: Log Analytics agent
+        items:
+        - name: Overview
+          href: ../../azure-monitor/platform/log-analytics-agent.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Linux agents
+          href: ../../azure-monitor/platform/agent-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Log Analytics gateway
+          href: ../../azure-monitor/platform/gateway.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Agent management
+          href: ../../azure-monitor/platform/agent-manage.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Agent Health
+          href: ../../azure-monitor/insights/solution-agenthealth.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Data sources
+          items:
+          - name: Overview
+            href: ../../azure-monitor/platform/agent-data-sources.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Custom JSON data
+            href: ../../azure-monitor/platform/data-sources-json.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: CollectD performance data
+            href: ../../azure-monitor/platform/data-sources-collectd.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Syslog
+            href: ../../azure-monitor/platform/data-sources-syslog.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Performance counters
+            href: ../../azure-monitor/platform/data-sources-performance-counters.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Linux application performance
+            href: ../../azure-monitor/platform/data-sources-linux-applications.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Custom logs
+            href: ../../azure-monitor/platform/data-sources-custom-logs.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          - name: Custom fields
+            href: ../../azure-monitor/platform/custom-fields.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Troubleshoot
+        items:
+        - name: Log Analytics VM Extension
+          displayname: troubleshoot, troubleshooting
+          href: ../../azure-monitor/platform/vmext-troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Log Analytics Linux agent
+          displayname: troubleshoot, troubleshooting
+          href: ../../azure-monitor/platform/agent-linux-troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Azure Monitor for VMs
-      href: ../../azure-monitor/insights/vminsights-overview.md
-    - name: Create metric alerts
-      href: ../../azure-monitor/platform/alerts-metric.md
-    - name: Create log alerts
-      href: ../../azure-monitor/platform/alerts-log.md
+      items:
+      - name: Overview
+        href: ../../azure-monitor/insights/vminsights-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: General Availability FAQ
+        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?context=azure/virtual-machines/linux/context/linux-vm-context  
+      - name: FAQ
+        href: ../../azure-monitor/faq.md?context=azure/virtual-machines/linux/context/linux-vm-context#azure-monitor-for-vms
+      - name: Enable monitoring
+        items:
+        - name: Enable monitoring overview
+          href: ../../azure-monitor/insights/vminsights-enable-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Enable for single Azure VM
+          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Enable using Azure Policy
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Enable using Azure PowerShell
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: Enable for Hybrid environment
+          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Map dependencies
+        href: ../../azure-monitor/insights/vminsights-maps.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Monitor performance
+        href: ../../azure-monitor/insights/vminsights-performance.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Analyze data with log queries
+        href: ../../azure-monitor/insights/vminsights-log-search.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Visualize data with workbooks
+        href: ../../azure-monitor/insights/vminsights-workbooks.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Create alert rules
+        href: ../../azure-monitor/insights/vminsights-alerts.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Upgrade Dependency agent
+        href: ../../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Disable monitoring
+        href: ../../azure-monitor/insights/vminsights-optout.md?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Availability and scale
     items:
     - name: Autoscale
