@@ -88,13 +88,13 @@ DROP CREDENTIAL [UserIdentity];
 
 If you want to re-enable it again, refer to the [force Azure AD pass-through](#force-azure-ad-pass-through) section.
 
-### [Managed Identity](#tab/managed-identity)
+### Managed Identity
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
 
-### [Anonymous access](#tab/public-access)
+### Anonymous access
 
 You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
@@ -191,7 +191,7 @@ CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity';
 ```
 
-### [Managed Identity](#tab/managed-identity)
+### Managed Identity
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace managed identity.
 
@@ -200,7 +200,7 @@ CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystora
 WITH IDENTITY='Managed Identity'
 ```
 
-### [Public access](#tab/public-access)
+### Public access
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -230,7 +230,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-### [Azure AD Identity](#tab/user-identity)
+### Azure AD Identity
 
 The following script creates a database-scoped credential that is used by [external table](develop-tables-external-tables.md) and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
@@ -240,7 +240,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-### [Managed Identity](#tab/managed-identity)
+### Managed Identity
 
 The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
