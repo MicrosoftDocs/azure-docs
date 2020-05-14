@@ -43,7 +43,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
 - [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
-- [Configure security for geo-replicas](../../sql-database/sql-database-geo-replication-security-config.md).
+- [Configure security for geo-replicas](geo-replication-security-configure.md).
 
 ## Monitor and tune your database
 
