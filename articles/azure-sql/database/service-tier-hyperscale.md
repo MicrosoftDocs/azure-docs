@@ -25,7 +25,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 
 > [!NOTE]
 >
-> - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](../../sql-database/sql-database-service-tier-general-purpose.md) and [Business Critical](../../sql-database/sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](../../sql-database/sql-database-service-tier-general-purpose.md) and [Business Critical](../../sql-database/sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](../../sql-database/sql-database-purchase-models.md).
 > - The hyperscale service tier is currently only available for Azure SQL Database, and not Azure SQL Managed Instance.
 
 ## What are the Hyperscale capabilities
@@ -221,7 +221,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 ## Next steps
 
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](../../sql-database/sql-database-service-tier-hyperscale-faq.md).
-- For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
+- For information about service tiers, see [Service tiers](../../sql-database/sql-database-purchase-models.md)
 - See [Overview of resource limits on a server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](../../sql-database/sql-database-vcore-resource-limits-single-databases.md).
 - For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).

@@ -30,9 +30,9 @@ Azure SQL Database secures data by allowing you to:
 - Enable security features
 
 > [!NOTE]
-> Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+> Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance) and [connectivity architecture](../../sql-database/sql-database-managed-instance-connectivity-architecture.md).
 
-To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
+To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](../../sql-database/sql-database-security-overview.md) articles.
 
 > [!TIP]
 > The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
@@ -55,7 +55,7 @@ For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.co
 
 SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected. To learn more, see [server-level and database-level firewall rules](firewall-configure.md).
 
-Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
+Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
 > SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the server unless your administrator opens port 1433.
@@ -136,9 +136,9 @@ To set the Azure AD administrator:
 For information about configuring Azure AD, see:
 
 - [Integrate your on-premises identities with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)
-- [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
+- [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Administer your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md)
+- [Administer your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md)
 - [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../../active-directory/hybrid/reference-connect-ports.md)
 
@@ -180,7 +180,7 @@ To add a user with SQL authentication:
 
 ### Azure AD authentication
 
-Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](https://msdn.microsoft.com/library/ff929188.aspx) and review the [Azure AD tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure AD.
+Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](../../sql-database/sql-database-aad-authentication-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
 > Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.

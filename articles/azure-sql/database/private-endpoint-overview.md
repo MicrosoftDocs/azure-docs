@@ -13,7 +13,7 @@ ms.date: 03/09/2020
 
 # Private Link for Azure SQL Database and Azure Synapse Analytics
 
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and subnet.
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
 > This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
@@ -180,9 +180,9 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 - For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
 
 <!--Image references-->
-[1]: ./media/sql-database-get-started-portal/pe-connect-overview.png
-[2]: ./media/sql-database-get-started-portal/telnet-result.png
-[3]: ./media/sql-database-get-started-portal/pec-list-before.png
-[4]: ./media/sql-database-get-started-portal/pec-approve.png
-[5]: ./media/sql-database-get-started-portal/pec-list-after.png
-[6]: ./media/sql-database-get-started-portal/pec-select.png
+[1]: ../../sql-database/media/sql-database-get-started-portal/pe-connect-overview.png
+[2]: ../../sql-database/media/sql-database-get-started-portal/telnet-result.png
+[3]: ../../sql-database/media/sql-database-get-started-portal/pec-list-before.png
+[4]: ../../sql-database/media/sql-database-get-started-portal/pec-approve.png
+[5]: ../../sql-database/media/sql-database-get-started-portal/pec-list-after.png
+[6]: ../../sql-database/media/sql-database-get-started-portal/pec-select.png
