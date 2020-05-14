@@ -1,13 +1,12 @@
 ---
 title: Create an Azure DB for PostgreSQL using an ARM template
 description: In this article, learn how to create an Azure Database for PostgreSQL server by using an Azure Resource Manager template.
-services: azure-resource-manager
 author: mgblythe
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 05/11/2020
+ms.date: 05/14/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the ARM template
