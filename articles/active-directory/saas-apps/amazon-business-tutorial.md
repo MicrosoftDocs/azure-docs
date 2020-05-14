@@ -148,6 +148,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up SSO** wizard, select the provider according to your Organizational requirements and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/default-group1.png)
+	> [!NOTE]
+      >Be aware that Microsoft ADFS is also a listed option but will not work with Azure AD SSO.
 
 1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in your Organization and click **Next**.
 
