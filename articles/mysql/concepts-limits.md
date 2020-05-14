@@ -155,7 +155,6 @@ MySQL stores the InnoDB table in difference tablespace based on the configuratio
 
 The Azure Database for MySQL supports the biggest **1TB** in a single data file. If your database size is bigger than 1TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 1TB, you should use the partition table.
 
-
 ## Storage engine support
 
 ### Supported
