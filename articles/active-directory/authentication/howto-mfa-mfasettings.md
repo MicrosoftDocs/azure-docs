@@ -18,15 +18,15 @@ ms.custom: contperfq4
 ---
 # Configure Azure Multi-Factor Authentication settings
 
-This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
+To customize the end-user experience for Azure Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure Multi-Factor Authentication portal.]
 
 The following Azure Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
-| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
+| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
+| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
+| [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
@@ -101,7 +101,7 @@ Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. T
  
 ## Notifications
 
-Email notifications can be configured when users report fraud alerts. These notifications should typically be sent to identity administrators, as the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
+Email notifications can be configured when users report fraud alerts. These notifications are typically sent to identity administrators, as the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
 
 ![Example fraud alert notification email](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
@@ -220,7 +220,7 @@ To use your own custom messages, complete the following steps:
 1. Select **Add greeting**.
 1. Choose the **Type** of greeting, such as *Greeting (standard)* or  *Authentication successful*.
 1. Select the **Language**, based on the previous section on [custom message language behavior](#custom-message-language-behavior).
-1. Browse for an select an *.mp3* or *.wav* sound file to upload.
+1. Browse for and select an *.mp3* or *.wav* sound file to upload.
 1. When ready, select **Add**, then **Save**.
 
 ## MFA service settings
