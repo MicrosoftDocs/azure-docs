@@ -1,5 +1,5 @@
 ---
-title: Bring Your Own Key Specification - Azure Key Vault | Microsoft Docs
+title: Bring your own key specification - Azure Key Vault | Microsoft Docs
 description: This document described bring your own key specification. 
 services: key-vault
 author: amitbapat
@@ -14,15 +14,15 @@ ms.author: ambapat
 
 ---
 
-# Bring Your Own Key Specification
+# Bring your own key specification
 
 ## Scenario
 
 A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure, into the HSM backing Azure Key Vault. The process of importing a key generated outside Key Vault is generally referred to as Bring Your Own Key (BYOK).
 
 The following are the requirements:
-1. The key to be transferred never exists outside an HSM in plain text form.
-2. Outside an HSM, the key to be transferred is always protected by a key held in the Azure Key Vault HSM
+* The key to be transferred never exists outside an HSM in plain text form.
+* Outside an HSM, the key to be transferred is always protected by a key held in the Azure Key Vault HSM
 
 ## Terminology
 
@@ -34,11 +34,11 @@ Target Key|RSA, EC, AES|Vendor HSM|The key to be transferred to the Azure Key Va
 
 **Key Exchange Key**: An HSM-backed key that customer generates in the key vault where the BYOK key will be imported. This KEK must have following properties:
 
-1. It’s an RSA-HSM key (4096-bit or 3072-bit or 2048-bit)
-2. It will have fixed key_ops (ONLY ‘import’), that will allow it to be used ONLY during BYOK
-3. Must be in the same vault where the Target Key will be imported
+* It’s an RSA-HSM key (4096-bit or 3072-bit or 2048-bit)
+* It will have fixed key_ops (ONLY ‘import’), that will allow it to be used ONLY during BYOK
+* Must be in the same vault where the Target Key will be imported
 
-## User Steps
+## User steps
 
 To perform a key transfer, a user performs following steps:
 
@@ -53,7 +53,7 @@ To perform a key transfer, a user performs following steps:
 Customers use the BYOK tool and documentation provided by HSM vendor to complete Steps 3. It produces a Key Transfer Blob (a ".byok" file).
 
 
-## HSM Constraints
+## HSM constraints
 
 Existing HSM may apply constraints on key that they manage, including:
 * The HSM may need to be configured to allow key wrap-based export
@@ -81,7 +81,7 @@ Download the public key portion of the KEK and store it into a PEM file.
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
 
-### Steps 3: Generate Key Transfer Blob using HSM Vendor provided BYOK tool
+### Steps 3: Generate key transfer blob using HSM vendor provided BYOK tool
 
 Customer will use HSM Vendor provided BYOK tool to create a key transfer blob (stored as a ".byok" file). KEK public key (as a .pem file) will be one of the inputs to this tool.
 
@@ -124,7 +124,7 @@ If CKM_RSA_AES_KEY_WRAP_PAD is used, the JSON serialization of the transfer blob
 
 The JSON blob is stored in a file with a ".byok" extension so that the Azure PowerShell/CLI clients treats it correctly when ‘Add-AzKeyVaultKey’ (PSH) or ‘az keyvault key import’ (CLI) commands are used.
 
-### Step 4: Upload Key Transfer Blob to import HSM-key
+### Step 4: Upload key transfer blob to import HSM-key
 
 Customer will transfer the Key Transfer Blob (".byok" file) to an online workstation and then run a **az keyvault key import** command to import this blob as a new HSM-backed key into Key Vault. 
 
@@ -158,7 +158,7 @@ Request body:
 
 ## References
 
-### Azure Key Vault Rest API
+### Azure Key Vault REST API
 
 * [Create key](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
 * [Get key (key attributes and public key only)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
@@ -171,6 +171,6 @@ Request body:
 * [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
 
 
-## Next Steps
+## Next steps
 * Step-by-step BYOK instructions: [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys-byok.md)
 
