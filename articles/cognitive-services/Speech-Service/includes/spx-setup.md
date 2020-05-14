@@ -1,32 +1,33 @@
 ---
-author: trevorbye
+author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/22/2020
-ms.author: trbye
+ms.date: 05/15/2020
+ms.author: v-demjoh
 ---
 
-## Speech modes
+## Prerequisites
 
-**Interactive**
-- Meant for command and control scenarios.
-- Has a segmentation time out value of X.
-- At the end of one recognized utterance, the service stops processing audio from that request ID and ends the turn. The connection is not closed.
-- Maximum limit for recognition is 20s.
-- Typical Carbon call to invoke is `RecognizeOnceAsync`.
+The only prerequisite is an Azure Speech subscription. See the [guide](get-started.md#new-resource) on creating a new subscription if you don't already have one.
 
-**Conversation**
-- Meant for longer running recognitions.
-- Has a segmentation time out value of Y. (Y != X)
-- Will process multiple complete utterances without ending the turn.
-- Will end the turn for too much silence.
-- Carbon will continue with a new request ID and replaying audio as needed.
-- The service will forcibly disconnect after 10 minutes of speech recognition.
-- Carbon will reconnect and replay unacknowledged audio.
-- Invoked in Carbon with `StartContinuousRecognition`.
+## Download and install
 
-**Dictation**
-- Allows users to specify punctuation by speaking it.
-- Invoked in Carbon by specifying `EnableDictation` on the `SpeechConfig` object regardless of the API call that starts recognition.
-- The 1<sup>st</sup> party cluster returns `speech.fragment` messages for intermediate results, the 3<sup>rd</sup> party return `speech.hypothesis` messages.
+SPX is available on Windows and Linux. Start by downloading the [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it. SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
+
+* Windows: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* Linux: [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+
+After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then run `spx` to start the application.
+
+## Create subscription config
+
+To start using SPX, you first need to enter your Speech subscription key and region information. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
+
+```shell
+spx config @key --set YOUR-SUBSCRIPTION-KEY
+spx config @region --set YOUR-REGION-ID
+```
+
+Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
+
