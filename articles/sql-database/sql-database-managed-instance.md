@@ -312,7 +312,7 @@ Some key differences:
 
 ### Administration features
 
-SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](sql-database-high-availability.md), [dynamic instance resizing and configuration](../azure-sql/database/scale-single-database.md), [backups](sql-database-automated-backups.md), [database replication](replication-with-sql-database-managed-instance.md) (including system databases), [high availability configuration](sql-database-high-availability.md), and configuration of health and [performance monitoring](../azure-monitor/insights/azure-sql.md) data streams.
+SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](sql-database-high-availability.md), [dynamic instance resizing and configuration](../azure-sql/database/single-database-scale.md), [backups](sql-database-automated-backups.md), [database replication](replication-with-sql-database-managed-instance.md) (including system databases), [high availability configuration](sql-database-high-availability.md), and configuration of health and [performance monitoring](../azure-monitor/insights/azure-sql.md) data streams.
 
 For more information see [a list of supported and unsupported SQL Managed Instance features](sql-database-features.md), and [T-SQL differences between SQL Managed Instance and SQL Server](sql-database-managed-instance-transact-sql-information.md)
 

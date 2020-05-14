@@ -46,11 +46,11 @@ You can change [DTU service tiers](../azure-sql/database/dtu-service-tiers.md) o
 
 All three flavors of Azure SQL Database offer some ability to dynamically scale your databases:
 
-- With a [single database](../azure-sql/database/scale-single-database.md), you can use either [DTU](../azure-sql/database/resource-limits-dtu-single-databases.md) or [vCore](../azure-sql/database/resource-limits-vcore-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
+- With a [single database](../azure-sql/database/single-database-scale.md), you can use either [DTU](../azure-sql/database/resource-limits-dtu-single-databases.md) or [vCore](../azure-sql/database/resource-limits-vcore-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
 - A [Managed Instance](sql-database-managed-instance.md) uses [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
 - [Elastic pools](../azure-sql/database/elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
 
-Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](../azure-sql/database/scale-single-database.md#impact).
+Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](../azure-sql/database/single-database-scale.md#impact).
 
 > [!NOTE]
 > You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.

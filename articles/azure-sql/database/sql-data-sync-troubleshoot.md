@@ -16,7 +16,7 @@ ms.date: 12/20/2018
 
 This article describes how to troubleshoot known issues with SQL Data Sync in Azure. If there is a resolution for an issue, it's provided here.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
 > SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
@@ -235,7 +235,7 @@ If you restore a lost or corrupted database from a backup, there might be a non-
 ## Next steps
 For more information about SQL Data Sync, see:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database)
+-   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](data-sync-sql-server-configure.md)
     - With PowerShell

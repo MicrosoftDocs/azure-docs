@@ -18,7 +18,7 @@ In this tutorial, you learn how to set up SQL Data Sync by creating a sync group
 
 The tutorial assumes you have at least some prior experience with SQL Database and SQL Server.
 
-For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-data-sync-data-sql-server-sql-database).
+For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
 For PowerShell examples on how to configure SQL Data Sync, see [How to sync between SQL databases](scripts/sql-data-sync-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 

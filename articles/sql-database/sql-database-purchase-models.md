@@ -93,7 +93,7 @@ In the DTU-based purchasing model, you can choose between the basic, standard, a
 
 ### Database transaction units (DTUs)
 
-For a single database at a specific compute size within a [service tier](../azure-sql/database/scale-single-database.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
+For a single database at a specific compute size within a [service tier](../azure-sql/database/single-database-scale.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
 
 The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
 
@@ -159,11 +159,11 @@ Customers with workloads that are sensitive to hardware changes, or customers wh
 
 ### Do I need to take my application offline to convert from a DTU-based service tier to a vCore-based service tier?
 
-No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/scale-single-database.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
+No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ### Can I convert a database from a service tier in the vCore-based purchasing model to a service tier in the DTU-based purchasing model?
 
-Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/scale-single-database.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
+Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ## Next steps
 

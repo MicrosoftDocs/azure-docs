@@ -74,7 +74,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 ### Data sync
 
-- [SQL Data Sync](sql-data-sync-data-sql-server-sql-database)
+- [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Data Sync Agent](data-sync-agent.md)
 - [Replicate schema changes](sql-data-sync-update-sync-schema.md)
 - [Monitor with OMS](sql-data-sync-monitor-sync)
