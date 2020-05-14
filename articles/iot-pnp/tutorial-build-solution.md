@@ -66,8 +66,8 @@ This model shows that the sample device implements three IoT Plug and Play inter
 
 The last two, are public interfaces and are published in the global repository:
 
-1. [DeviceInfo](https://devicemodels.azureiotsolutions.com/models/public/dtmi:azure:DeviceManagement:DeviceInformation;1?codeView=true)
-1. See definition for [SDKInfo](https://devicemodels.azureiotsolutions.com/models/public/dtmi:azure:Client:SDKInformation;1?codeView=true)
+- [DeviceInfo](https://devicemodels.azureiotsolutions.com/models/public/dtmi:azure:DeviceManagement:DeviceInformation;1?codeView=true)
+- See definition for [SDKInfo](https://devicemodels.azureiotsolutions.com/models/public/dtmi:azure:Client:SDKInformation;1?codeView=true)
 
 The EnvironmentalSensor interface, is [defined in the C solution sample](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) as follows:
 
