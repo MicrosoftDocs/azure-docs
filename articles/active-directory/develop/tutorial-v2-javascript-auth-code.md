@@ -63,11 +63,13 @@ To continue with the tutorial and build the application yourself, continue on to
 
 Once you have [Node.js](https://nodejs.org/en/download/) installed, create a folder to host your application. Then, implement a small [Express](https://expressjs.com/) web server to serve your *index.html* file.
 
-1. First, change to your project directory in your terminal and then run the following `npm` commands.
+1. First, change to your project directory in your terminal and then run the following `npm` commands:
     ```console
     npm init -y
     npm install @azure/msal-browser
     npm install express
+    npm install morgan
+    npm install yargs
     ```
 2. Next, create file named *server.js* and add the following code:
 
@@ -140,7 +142,7 @@ You now have a small webserver to serve your SPA. The folder structure you shoul
       </head>
       <body>
          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="/">MS Identity Platform</a>
+            <a class="navbar-brand" href="/">Microsoft identity platform</a>
             <div class="btn-group ml-auto dropleft">
                <button type="button" id="SignIn" class="btn btn-secondary" onclick="signIn()">
                   Sign In
@@ -148,7 +150,7 @@ You now have a small webserver to serve your SPA. The folder structure you shoul
             </div>
          </nav>
          <br>
-         <h5 class="card-header text-center">Vanilla JavaScript SPA calling MS Graph API with MSAL.JS</h5>
+         <h5 class="card-header text-center">Vanilla JavaScript SPA calling Microsoft Graph API with MSAL.JS</h5>
          <br>
          <div class="row" style="margin:auto" >
          <div id="card-div" class="col-md-3" style="display:none">
@@ -273,7 +275,7 @@ You now have a small webserver to serve your SPA. The folder structure you shoul
 
 Follow the steps in [Single-page application: App registration](scenario-spa-app-registration.md) to create an app registration for your SPA.
 
-In the **Redirect URI** configuration step, enter `http://localhost:3000`, the default location where this tutorial's application runs.
+In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) step, enter `http://localhost:3000`, the default location where this tutorial's application runs.
 
 If you'd like to use a different port, enter `http://localhost:<port>`, where `<port>` is your preferred TCP port number. If you specify a port number other than `3000`, also update *server.js* with your preferred port number.
 
@@ -285,7 +287,7 @@ Create a file named *authConfig.js* in the *app* folder to contain your configur
 const msalConfig = {
   auth: {
     clientId: "Enter_the_Application_Id_Here",
-    authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+    authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
     redirectUri: "Enter_the_Redirect_Uri_Here",
   },
   cache: {
@@ -307,42 +309,42 @@ const tokenRequest = {
 
 Modify the values in the `msalConfig` section as described here:
 
-- `Enter_the_Application_Id_Here`: The **Application (client) ID** for the application you registered.
+- `Enter_the_Application_Id_Here`: The **Application (client) ID** of the application you registered.
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
-  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
+  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` should be one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com`.
   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
-- `Enter_the_Redirect_Uri_Here` is `http://localhost:3000`
+- `Enter_the_Redirect_Uri_Here` is `http://localhost:3000`.
 
-In the *app* folder, create a file named *graphConfig.js*. Add the following code to provide your application the configuration parameters for calling the Microsoft Graph API:
+Still in the *app* folder, create a file named *graphConfig.js*. Add the following code to provide your application the configuration parameters for calling the Microsoft Graph API:
 
 ```javascript
-// Add the endpoints here for MS Graph API services you'd like to use.
+// Add the endpoints here for Microsoft Graph API services you'd like to use.
 const graphConfig = {
-    graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-    graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+    graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+    graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 };
 ```
 
 Modify the values in the `graphConfig` section as described here:
 
-- `<Enter_the_Graph_Endpoint_Here>` is the instance of the Microsoft Graph API the application should communicate with.
-  - For the **global** Microsoft Graph API endpoint, replace this string with `https://graph.microsoft.com`.
-  - To find endpoints for **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
+- `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
+  - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
+  - For endpoints in **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
 
-## Use MSAL to sign in the user
+## Use Microsoft Authentication Library (MSAL) to sign in user
 
-### PopUp
+### Pop-up
 
-Create a new .js file named `authPopup.js`, which will contain your authentication and token acquisition logic for login popUp, and add the following code:
+In the *app* folder, create a file named *authPopup.js* and add the following authentication and token acquisition code for the login pop-up:
 
-   ```JavaScript
-  // Create the main myMSALObj instance
-// configuration parameters are located at authConfig.js
+```JavaScript
+// Create the main myMSALObj instance
+// configuration parameters are located in authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 function signIn() {
@@ -401,11 +403,11 @@ function readMail() {
             });
     }
 }
-   ```
+```
 
 ### Redirect
 
-Create a new .js file named `authRedirect.js`, which will contain your authentication and token acquisition logic for login redirect, and add the following code:
+Create a file named *authRedirect.js* in the *app* folder and add the following authentication and token acquisition code for login redirect:
 
 ```javascript
 // Create the main myMSALObj instance
@@ -476,19 +478,19 @@ function readMail() {
 }
 ```
 
-### More information
+### How the code works
 
-After a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+When a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
 
-At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received, processed by *msal.js*, and the information contained in the token is cached.
+At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
-The ID token  contains basic information about the user, such as their display name. If you plan to use any data provided by this token, it must be validated by your back-end server to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
+The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
 
-The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
+The SPA you've created in this tutorial calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
 
 #### Get a user token interactively
 
-After initial sign-in, your users should not be asked to reauthenticate every time they need to request a token to access a resource. To prevent such reauthentication requests, use `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform endpoint. For example:
+After their initial sign-in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform endpoint. For example:
 
 - Users need to re-enter their credentials because the password has expired.
 - Your application is requesting access to a resource and you need the user's consent.
@@ -502,20 +504,17 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 `acquireTokenSilent` may fail in some cases. For example, the user's password may have expired. Your application can handle this exception in two ways:
 
 1. Make a call to `acquireTokenPopup` immediately to trigger a user sign-in prompt. This pattern is commonly used in online applications where there is no unauthenticated content in the application available to the user. The sample generated by this guided setup uses this pattern.
-
 1. Visually indicate to the user that an interactive sign-in is required so the user can select the right time to sign in, or the application can retry `acquireTokenSilent` at a later time. This technique is commonly used when the user can use other functionality of the application without being disrupted. For example, there might be unauthenticated content available in the application. In this situation, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information.
 
 > [!NOTE]
-> This quickstart uses the `loginPopup` and `acquireTokenPopup` methods by default. If you are using Internet Explorer as your browser, it is recommended to use `loginRedirect` and `acquireTokenRedirect` methods, due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the way Internet Explorer handles pop-up windows. If you would like to see how to achieve the same result using redirect methods, please see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
+> This tutorial uses the `loginPopup` and `acquireTokenPopup` methods by default. If you're using Internet Explorer, we recommend that you use the `loginRedirect` and `acquireTokenRedirect` methods due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) with Internet Explorer and pop-up windows. For an example of achieving the same result by using redirect methods, see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js) on GitHub.
 
 ## Call the Microsoft Graph API
 
+Create file named *graph.js* in the *app* folder and add the following code for making REST calls to the Microsoft Graph API:
 
- Create a .js file named *graph.js* that will make a REST call to Microsoft Graph API, and add the following code:
-
-   ```javascript
-
-// Helper function to call MS Graph API endpoint
+```javascript
+// Helper function to call Microsoft Graph API endpoint
 // using authorization bearer token scheme
 function callMSGraph(endpoint, token, callback) {
     const headers = new Headers();
@@ -535,23 +534,22 @@ function callMSGraph(endpoint, token, callback) {
         .then(response => callback(response, endpoint))
         .catch(error => console.log(error));
 }
-   ```
+```
 
-### More information about making a REST call against a protected API
-
-In the sample application created by this guide, the `callMSGraph()` method is used to make an HTTP `GET` request against a protected resource that requires a token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. For the sample application created by this guide, the resource is the Microsoft Graph API *me* endpoint, which displays the user's profile information.
-
-## Test your code
-
-1. For Node.js, start the web server by running the following commands from within the application folder:
-
-   ```bash
-   npm install
-   npm start
-   ```
-1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening on. You should see the contents of your *index.html* file and the **Sign In** button.
+In the sample application created in this tutorial, the `callMSGraph()` method is used to make an HTTP `GET` request against a protected resource that requires a token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. In the sample application created in this tutorial, the protected resource is the Microsoft Graph API *me* endpoint which displays the signed-in user's profile information.
 
 ## Test your application
+
+You've completed creation of the application and are now ready to launch the Node.js web server and test the app's functionality.
+
+1. Start the Node.js web server by running the following commands from within the application folder:
+
+   ```console
+   npm start
+   ```
+1. In your browser, enter `http://localhost:3000` or `http://localhost:<port>`, where `<port>` is the port that your web server is listening on. You should see the contents of your *index.html* file and the **Sign In** button.
+
+### Sign in to the application
 
 After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform endpoint:
 
