@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: rogarana
 ---
 
-# Configure NTFS permissions over SMB 
+# Part three: configure NTFS permissions over SMB 
 
 Before you begin this article, make sure you completed the previous article, [Assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 

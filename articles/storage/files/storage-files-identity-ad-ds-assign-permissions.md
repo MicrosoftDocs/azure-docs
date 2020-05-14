@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: rogarana
 ---
 
-# Assign access permissions to an identity
+# Part two: assign access permissions to an identity
 
 Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
 

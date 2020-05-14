@@ -133,4 +133,4 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 By this point, you've successfully enabled the feature on your storage account. To use the feature, you must configure and make changes. Continue to the next section.
 
-[Assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md)
+[Part two: assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md)
