@@ -30,4 +30,3 @@ spx config @region --set YOUR-REGION-ID
 ```
 
 Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
-
