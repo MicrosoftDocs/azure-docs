@@ -6,9 +6,35 @@ ms.date: 02/04/2020
 ms.author: mirequa
 ---
 
-# Upgrade CycleCloud
+# Upgrading CycleCloud
+It is possible to upgrade the Azure CycleCloud application in place as new versions become available.
 
-It is possible to upgrade the Azure CycleCloud application in place as new versions become available. CycleCloud is released via [Download Center](https://www.microsoft.com/download/details.aspx?id=57182) as either a Debian or RPM package.
+## Ugrading on on Debian or Ubuntu
+
+Follow the instructions in [Installing on Debian or Ubuntu](./install-manual.md#installing-on-debian-or-ubuntu) to configure the Microsoft apt repository (if it was not already done during installation).
+
+Upgrade the CycleCloud package using:
+
+```bash
+sudo apt update
+sudo apt -y upgrade cyclecloud
+```
+
+## Ugrading on Enterprise Linux (RHEL) clones
+
+Follow the instructions in [Installing on Enterprise Linux (RHEL) clones](./install-manual.md#installing-on-enterprise-linux-rhel-clones) to configure the Microsoft yum repository (if it was not already done during installation).
+
+Upgrade the CycleCloud package using:
+
+```bash
+sudo yum -y upgrade cyclecloud
+```
+
+## Upgrading from the Microsoft Download center
+
+In environments where the Microsoft package repositories are unavailable or disallowed by policy, the CycleCloud packages may be downloaded and installed manually.  
+
+CycleCloud is released via [Download Center](https://www.microsoft.com/download/details.aspx?id=57182) as either a Debian or RPM package.
 
 To upgrade, copy the installer to the host running CycleCloud and run the platform-specific package upgrade command.
 
