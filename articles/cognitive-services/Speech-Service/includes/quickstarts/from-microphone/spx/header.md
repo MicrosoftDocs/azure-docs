@@ -15,4 +15,3 @@ ms.author: v-demjoh
 In this quickstart, you use the SPX tool to interactively recognize speech from a microphone input, and get the text transcription from captured audio. It's easy to use the SPX tool to perform common recognition tasks, such as transcribing conversations. After a one-time configuration, the SPX tool lets you transcribe audio into text interactively with a microphone or from files using a batch script.
 
 [!INCLUDE ../../../includes/spx.setup.md]
-
