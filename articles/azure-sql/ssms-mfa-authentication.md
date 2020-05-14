@@ -70,7 +70,7 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 
 - For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](ssms-mfa-authentication-configure.md).
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](database/logins-create-manage.md)  
-- Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)  
+- Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](firewall-configure.md)  
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](database/aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

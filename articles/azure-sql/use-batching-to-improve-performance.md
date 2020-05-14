@@ -661,4 +661,4 @@ The following list provides a summary of the batching recommendations discussed 
 
 ## Next steps
 
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Database performance guidance](database/performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Database performance guidance](database/performance-guidance.md) and [Price and performance considerations for an elastic pool](database/elastic-pool-overview.md).

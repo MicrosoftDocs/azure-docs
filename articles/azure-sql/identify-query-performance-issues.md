@@ -151,7 +151,7 @@ Slow query performance not related to suboptimal query plans and missing indexes
   - The [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
   - [Many individual queries that cumulatively consume high CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your SQL database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](database/single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](database/elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](../azure-netapp-files/resource-limits.md#service-tier-characteristics).
+If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your SQL database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](database/single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](database/elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](managed-instance/resource-limits.md#service-tier-characteristics)
 
 ## Performance problems caused by increased workload volume
 
