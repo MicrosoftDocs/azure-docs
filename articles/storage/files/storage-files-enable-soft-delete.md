@@ -48,19 +48,20 @@ Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName 
 
 # [Portal](#tab/azure-portal)
 
-To restore a soft deleted file share, navigate to your storage account and select **File shares**.
+To restore a soft deleted file share:
 
-On the file share blade, enable **Show deleted shares** to display any shares that have been soft deleted.
+1. Navigate to your storage account and select **File shares**.
+1. On the file share blade, enable **Show deleted shares** to display any shares that have been soft deleted.
 
     This will display any shares which are currently in a **Deleted** status.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="example":::
 
-Select the share and select **undelete**, this will restore the share.
+1. Select the share and select **undelete**, this will restore the share.
 
-You can confirm the share is restored since its status switches to **Active**.
+    You can confirm the share is restored since its status switches to **Active**.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="example":::
 
 # [PowerShell](#tab/azure-powershell)
 
