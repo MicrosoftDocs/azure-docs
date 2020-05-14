@@ -46,7 +46,7 @@ In this release, IoT Hub no longer provides model resolution, or retrieval.
 
 ## Registration and discovery
 
-In this release, devices register their **Model ID** with IoT Hub on every connection. Previously, a device announced the capability model and interfaces it supported in a telemetry message sent to IoT Hub, and IoT Hub cached this information.
+In this release, devices register their **Model ID** with IoT Hub on every connection. IoT Hub caches the the **Model ID**, and a backend solution can retrieve the **Model ID** using the device twin. Previously, a device announced the capability model and interfaces it supported in a telemetry message sent to IoT Hub, and IoT Hub cached this information.
 
 You can use both the current and previous preview versions of the SDKs and Azure IoT Explorer tool with IoT Hub. However, if a device uses the previous preview version of the SDK, you must use the previous version of Azure IoT Explorer. Similarly, if a device uses the latest preview version of the SDK, you must use the latest version of Azure IoT Explorer.
 
@@ -97,4 +97,4 @@ The [C device SDK API](https://github.com/Azure/azure-iot-sdk-c/tree/public-prev
 
 Currently, the device SDK is available in [C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/doc/readme.md), [Python](https://github.com/Azure/azure-iot-sdk-python/tree/digitaltwins-preview/azure-iot-device), and [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/device/readme.md).
 
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and Python. There are multiple service SDK changes.
+The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md). There are multiple service SDK changes.

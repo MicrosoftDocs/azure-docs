@@ -37,6 +37,8 @@ landingContent:
           url: quickstart-service-node.md
     - linkListType: concept
       links:
+        - text: Architecture
+          url: concepts-architecture.md
         - text: Developer guide
           url: concepts-developer-guide.md
         - text: Common interfaces
@@ -53,7 +55,3 @@ landingContent:
           url: concepts-model-parser.md
         - text: Common interfaces
           url: concepts-common-interfaces.md
-    - linkListType: how-to-guide
-      links: 
-        - text: Interact with a device that's connected to your solution
-          url: howto-connect-pnp-device-solution.md
