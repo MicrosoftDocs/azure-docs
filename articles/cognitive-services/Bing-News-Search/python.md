@@ -42,7 +42,7 @@ search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 
 ## Create parameters for the request
 
-Add your subscription key to a new dictionary, using `"Ocp-Apim-Subscription-Key"` as the key. Do the same for your search parameters.
+Add your subscription key to a new dictionary, using `Ocp-Apim-Subscription-Key` as the key. Do the same for your search parameters.
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
@@ -67,7 +67,7 @@ params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 
 ## Display the results
 
-These descriptions can then be rendered as a table with the search keyword highlighted in **bold**.
+These descriptions can then be rendered as a table with the search keyword highlighted in bold.
 
 ```python
 from IPython.display import HTML

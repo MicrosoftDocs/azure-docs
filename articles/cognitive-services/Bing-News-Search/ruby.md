@@ -74,7 +74,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 

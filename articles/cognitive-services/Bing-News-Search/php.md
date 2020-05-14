@@ -98,7 +98,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

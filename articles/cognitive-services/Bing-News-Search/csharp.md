@@ -61,44 +61,44 @@ struct SearchResult
 
 ## Create and handle a news search request
 
-Create a method named `BingNewsSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. In the method, do the following steps:
+1. Create a method named `BingNewsSearch()` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. In the method, do the following steps:
 
-1. Construct the URI for the search request. The `toSearch` search term must be formatted before it's appended to the string.
+   1. Construct the URI for the search request. The `toSearch` search term must be formatted before it's appended to the string.
 
-    ```csharp
-    static SearchResult BingNewsSearch(string toSearch){
+       ```csharp
+       static SearchResult BingNewsSearch(string toSearch){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
-    //...
-    ```
+           var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+       //...
+       ```
 
-2. Perform the web request and get the response as a JSON string.
+   1. Perform the web request and get the response as a JSON string.
 
-    ```csharp
-    WebRequest request = WebRequest.Create(uriQuery);
-    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
-    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    ```
+       ```csharp
+       WebRequest request = WebRequest.Create(uriQuery);
+       request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
+       HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+       string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+       ```
 
-3. Create the search result object, and extract the Bing HTTP headers. Then, return `searchResult`.
+   1. Create the search result object, and extract the Bing HTTP headers. Then, return `searchResult`.
 
-    ```csharp
-    // Create the result object for return
-    var searchResult = new SearchResult()
-    {
-        jsonResult = json,
-        relevantHeaders = new Dictionary<String, String>()
-    };
+       ```csharp
+       // Create the result object for return
+       var searchResult = new SearchResult()
+       {
+           jsonResult = json,
+           relevantHeaders = new Dictionary<String, String>()
+       };
 
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
-    {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
-    }
-    return searchResult;
-    ```
+       // Extract Bing HTTP headers
+       foreach (String header in response.Headers)
+       {
+           if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+               searchResult.relevantHeaders[header] = response.Headers[header];
+       }
+       return searchResult;
+       ```
 
 ## Process the response
 
@@ -111,7 +111,7 @@ In the main method, call `BingNewsSearch()` and store the returned response. The
     Console.WriteLine(jsonObj["value"][0])
     ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 

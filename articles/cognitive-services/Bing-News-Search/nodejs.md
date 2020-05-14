@@ -80,7 +80,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
      });
     ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
