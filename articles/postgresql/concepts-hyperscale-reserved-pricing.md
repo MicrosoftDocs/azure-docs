@@ -50,50 +50,15 @@ In this case, you should purchase one-year reservation for
 
 The following table describes required fields.
 
-| Field        | Description                                                                      |
-|--------------|----------------------------------------------------------------------------------|
-| Subscription | The subscription used to pay for the Azure Database for PostgreSQL reserved      |
-|              | capacity reservation. The payment method on the subscription is charged the      |
-|              | upfront costs for the Azure Database for PostgreSQL reserved capacity            |
-|              | reservation. The subscription type must be an enterprise agreement (offer        |
-|              | numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with           |
-|              | pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an      |
-|              | enterprise subscription, the charges are deducted from the enrollment's          |
-|              | monetary commitment balance or charged as overage. For an individual             |
-|              | subscription with pay-as-you-go pricing, the charges are billed to the credit    |
-|              | card or invoice payment method on the subscription.                              |
-|--------------|----------------------------------------------------------------------------------|
-| Scope        | The vCore reservation’s scope can cover one subscription or multiple             |
-|              | subscriptions (shared scope). If you select:                                     |
-|              |                                                                                  |
-|              | **Shared,** the vCore reservation discount is applied to Hyperscale (Citus)      |
-|              | server groups running in any subscriptions within your billing context. For      |
-|              | enterprise customers, the shared scope is the enrollment and includes all        |
-|              | subscriptions within the enrollment.  For Pay-As-You-Go customers, the shared    |
-|              | scope is all Pay-As-You-Go subscriptions created by the account administrator.   |
-|              |                                                                                  |
-|              | **Single subscription,** the vCore reservation discount is applied to            |
-|              | Hyperscale (Citus) server groups in this subscription.                           |
-|              |                                                                                  |
-|              | **Single resource group,** the reservation discount is applied to Hyperscale     |
-|              | (Citus) server groups in the selected subscription and the selected resource     |
-|              | group within that subscription.                                                  |
-|--------------|----------------------------------------------------------------------------------|
-| Region       | The Azure region that’s covered by the Azure Database for PostgreSQL –           |
-|              | Hyperscale (Citus) reserved capacity reservation.                                |
-|--------------|----------------------------------------------------------------------------------|
-| Term         | One-year or three-years.                                                         |
-|--------------|----------------------------------------------------------------------------------|
-| Quantity     | The amount of compute resources being purchased within the Hyperscale (Citus)    |
-|              | reserved capacity reservation. In particular, the number of coordinator or       |
-|              | worker node vCores in the selected Azure region that are being reserved and      |
-|              | which will get the billing discount. For example, if you're running (or          |
-|              | planning to run) Hyperscale (Citus) server groups with the total compute         |
-|              | capacity of 64 coordinator node vCores and 32 worker node vCores in the East US  |
-|              | region, then you'd specify quantity as 64 and 32 for coordinator and worker      |
-|              | nodes respectively to maximize the benefit for all servers.                      |
-|              |                                                                                  |
-|--------------|----------------------------------------------------------------------------------|
+| Field        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Subscription | The subscription used to pay for the Azure Database for PostgreSQL reserved   capacity reservation. The payment method on the subscription is charged the   upfront costs for the Azure Database for PostgreSQL reserved capacity         reservation. The subscription type must be an enterprise agreement (offer     numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with        pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an   enterprise subscription, the charges are deducted from the enrollment's       monetary commitment balance or charged as overage. For an individual          subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.                                                                                  |
+| Scope        | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <br><br> **Shared,** the vCore reservation discount is applied to Hyperscale (Citus) server groups running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment.  For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator. <br><br> **Single subscription,** the vCore reservation discount is applied to Hyperscale (Citus) server groups in this subscription. <br><br> **Single resource group,** the reservation discount is applied to Hyperscale (Citus) server groups in the selected subscription and the selected resource group within that subscription. |
+| Region       | The Azure region that’s covered by the Azure Database for PostgreSQL – Hyperscale (Citus) reserved capacity reservation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Term         | One-year or three-years.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Quantity     | The amount of compute resources being purchased within the Hyperscale (Citus)  reserved capacity reservation. In particular, the number of coordinator or worker node vCores in the selected Azure region that are being reserved and which will get the billing discount. For example, if you're running (or planning to run) Hyperscale (Citus) server groups with the total compute capacity of 64 coordinator node vCores and 32 worker node vCores in the East US region, then you'd specify quantity as 64 and 32 for coordinator and worker nodes respectively to maximize the benefit for all servers.                                                                                                                                                                                                                                                     |
+
+
 
 ## Cancel, exchange, or refund reservations
 
