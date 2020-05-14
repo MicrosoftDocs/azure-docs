@@ -77,7 +77,7 @@ The following JSON shows the `$edgeAgent` module twin in Visual Studio Code with
 
 The JSON can be described in the following sections, starting from the top:
 
-* Metadata - The top section of connectivity metadata is populated by IoT Hub. Interestingly, the connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason being the connection state pertains to device-to-cloud (D2C) messages and the IoT Edge Agent doesn't send D2C messages. However, you can use [Azure CLI](#monitor-module-twins-in-azure-cli) to ping its connection state.
+* Metadata - The top section of connectivity metadata is populated by IoT Hub. Interestingly, the connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason being the connection state pertains to device-to-cloud (D2C) messages and the IoT Edge Agent doesn't send D2C messages. However, you can use [Azure CLI](#monitor-module-twins-in-azure-cli) to ping its status.
 
 * Version - The version of the edgeAgent runtime module.
 * Properties - Contains the `desired` and `reported` subsections.
@@ -102,7 +102,7 @@ The following properties are important to examine for troubleshooting:
     | --- | --- |
     | unknown | Default state until deployment is created. |
     | backoff | The module is scheduled to start but isn't currently running. This value is useful for a module undergoing state changes in restarting. When a failing module is awaiting restart during the cool-off period, the module will be in a backoff state. |
-    | running | Indicates that module is currently running. |
+    | running | Indicates that the module is currently running. |
     | unhealthy | Indicates a health-probe check failed or timed out. |
     | stopped | Indicates that the module exited successfully (with a zero exit code). |
     | failed | Indicates that the module exited with a failure exit code (non-zero). The module can transition back to backoff from this state depending on the restart policy in effect. This state can indicate that the module has experienced an unrecoverable error. Failure occurs when the Microsoft Monitoring Agent (MMA) can no longer resuscitate the module, requiring a new deployment. |
@@ -111,7 +111,7 @@ See [EdgeAgent reported properties](module-edgeagent-edgehub.md#edgeagent-report
 
 ### Monitor IoT Edge Hub module twin
 
-The following JSON shows the `$edgeAgent` module twin in Visual Studio code with most of the JSON sections collapsed.
+The following JSON shows the `$edgeHub` module twin in Visual Studio code with most of the JSON sections collapsed.
 
 ```json
 {
@@ -157,7 +157,7 @@ The following JSON shows the `$edgeAgent` module twin in Visual Studio code with
 
 The JSON can be described in the following sections, starting from the top:
 
-* Metadata - The top section of connectivity metadata is populated by IoT Hub. The connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages. IoT Edge Hub doesn't send D2C messages. However, you can use [Azure CLI](#monitor-module-twins-in-azure-cli) to ping its connection state.
+* Metadata - The top section of connectivity metadata is populated by IoT Hub. The connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages. IoT Edge Hub doesn't send D2C messages. However, you can use [Azure CLI](#monitor-module-twins-in-azure-cli) to ping its status.
 
 * Version - The version of the edgeHub runtime module.
 * Properties - Contains the `desired` and `reported` subsections.
@@ -184,7 +184,7 @@ To view the JSON for the module twin:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 1. Select **IoT Edge** from the left pane menu.
-1. On the **IoT Edge devices** tab, select the **Device ID** of device with the modules you want to monitor.
+1. On the **IoT Edge devices** tab, select the **Device ID** of the device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
   ![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)
@@ -197,7 +197,7 @@ To review and edit a module twin:
 
 1. If not already installed, install the [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension for Visual Studio Code.
 1. In the **Explorer**, expand the **Azure IoT Hub**, and then expand the device with the module you want to monitor.
-1. Right-click the module and select **Edit Module Twin**. A temporary file of its downloaded to your computer and displayed in Visual Studio Code.
+1. Right-click the module and select **Edit Module Twin**. A temporary file of the module twin downloaded to your computer and displayed in Visual Studio Code.
 
   ![Get a module twin to edit in Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
 
@@ -211,9 +211,9 @@ To see if IoT Edge is running, use the [az iot hub invoke-module-method](how-to-
 
 The [az iot hub module-twin](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) structure provides these commands:
 
-* **az iot hub module-twin** - Show a module twin definition.
-* **az iot hub module-twin** - Update a module twin definition.
-* **az iot hub module-twin** - Replace a module twin definition with target JSON.
+* **az iot hub module-twin show** - Show a module twin definition.
+* **az iot hub module-twin update** - Update a module twin definition.
+* **az iot hub module-twin replace** - Replace a module twin definition with a target JSON.
 
 ## Next steps
 
