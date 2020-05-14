@@ -77,7 +77,7 @@ Azure Communication Services supports the following scopes for user access token
 | `rooms:manage`         | Grants the ability to create and invite users to rooms |
 
 > NOTE: These scopes are illustrative. We currently are not planning to support `chat:manage_threads`, but will continue to discuss offline.
-
+|nmurav: why only Outbound calls for PSTN and VoiP? We also allow recieving the inbound calls
 ## Reissuing User Access Tokens
 
 User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subscribe to these events and use them to fetch a new user access token from your trusted service.
