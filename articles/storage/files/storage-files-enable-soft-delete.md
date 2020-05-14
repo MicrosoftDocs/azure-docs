@@ -70,6 +70,7 @@ To restore a soft deleted file share, use the following command:
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
 ```
+---
 
 ## Disable soft delete
 
