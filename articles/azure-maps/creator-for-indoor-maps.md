@@ -114,7 +114,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 
 The following example shows you how to update a dataset, create a new tileset, and delete an old tileset.
 
-1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package)] and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
+1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
 
 2. Use the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to append the converted data to the existing  dataset.
 
