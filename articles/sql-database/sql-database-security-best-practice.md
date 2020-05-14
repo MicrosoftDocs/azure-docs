@@ -205,7 +205,7 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 **Best practices**:
 
 - As a server or instance admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
-  - See the article, [Controlling and granting database access to SQL Database, SQL Managed Instance and Azure Synapse Analytics](sql-database-manage-logins.md).
+  - See the article, [Controlling and granting database access to SQL Database, SQL Managed Instance and Azure Synapse Analytics](../azure-sql/database/logins-create-manage.md).
 
 ## Access management
 
@@ -332,7 +332,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 For the readers that want to dive deeper into SoD, we recommend the following resources:
 
 - For Azure SQL Database and SQL Managed Instance :  
-  - [Controlling and granting database access](sql-database-manage-logins.md)
+  - [Controlling and granting database access](../azure-sql/database/logins-create-manage.md)
   - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
   - [Separation of Duties](https://www.microsoft.com/download/details.aspx?id=39269)
   - [Signing Stored Procedures](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
@@ -719,7 +719,7 @@ Discover columns that potentially contain sensitive data. What is considered sen
 
 **How to implement**:
 
-- Use [SQL Data Discovery and Classification](sql-database-data-discovery-and-classification.md) to discover, classify, label, and protect the sensitive data in your databases.
+- Use [SQL Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md) to discover, classify, label, and protect the sensitive data in your databases.
   - View the classification recommendations that are created by the automated discovery in the SQL Data Discovery and Classification dashboard. Accept the relevant classifications, such that your sensitive data is persistently tagged with classification labels.
   - Manually add classifications for any additional sensitive data fields that were not discovered by the automated mechanism.
 - For more information, see [SQL Data Discovery & Classification](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
@@ -739,7 +739,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination.
-  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) and [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#audit-sensitive-data).
+  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](../azure-sql/database/data-discovery-and-classification-overview.md) and [Auditing access to sensitive data](../azure-sql/database/data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Best practices**:
 
@@ -785,10 +785,10 @@ Today, Azure SQL Database and SQL Managed Instance offers the following techniqu
 
 Most security standards address data availability in terms of operational continuity, achieved by implementing redundancy and fail-over capabilities to avoid single points of failure. For disaster scenarios, it's a common practice to keep backups of Data and Log files. The following section provides a high-level overview of the capabilities that are built-into Azure. It also provides additional options that can be configured to meet specific needs:
 
-- Azure offers built-in high-availability: [High-availability with SQL Database & SQL Managed Instance](sql-database-high-availability.md)
+- Azure offers built-in high-availability: [High-availability with SQL Database & SQL Managed Instance](../azure-sql/database/high-availability-sla.md)
 
 - The Business Critical tier includes failover groups, multi-availability zones, full and differential log backups, and point-in-time-restore backups enabled by default:  
-  - [High-availability  - Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration)
+  - [High-availability  - Zone redundant configuration](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
   - [Automated backups](../azure-sql/database/automated-backups-overview.md)
   - [Recover a database using automated database backups - Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 

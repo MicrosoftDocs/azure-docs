@@ -36,7 +36,7 @@ To complete the tutorial, make sure you've installed the following items:
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - A single database in Azure SQL Database. To create one use,
   - [Portal](quickstart-create-single-database.md)
-  - [CLI](../../sql-database/sql-database-cli-samples.md)
+  - [CLI](az-cli-script-samples-content-guide.md)
   - [PowerShell](../../sql-database/sql-database-powershell-samples.md)
 
   > [!NOTE]

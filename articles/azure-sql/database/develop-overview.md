@@ -21,7 +21,7 @@ This article walks through the basic considerations that a developer should be a
 
 ## Language and platform
 
-You can use various [programming languages and platforms](../../sql-database/sql-database-connect-query.md) to connect and query Azure SQL Database. You can find [sample applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) that you can use to connect to the Azure SQL Database.
+You can use various [programming languages and platforms](connect-query-content-reference-guide.md) to connect and query Azure SQL Database. You can find [sample applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) that you can use to connect to the Azure SQL Database.
 
 You can leverage open-source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). You can also use the Azure portal, PowerShell, and REST APIs help you gain additional productivity.
 
@@ -29,7 +29,7 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](aad-authentication-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
 
-Learn more about [managing database access and login](../../sql-database/sql-database-manage-logins.md).
+Learn more about [managing database access and login](logins-create-manage.md).
 
 ## Connections
 
@@ -41,7 +41,7 @@ Avoid long-running transactions because any infrastructure or connection failure
 
 ## Resiliency
 
-Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](../../sql-database/sql-database-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
+Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 For more information about how to prepare for planned maintenance events on your Azure SQL Database, see [planning for Azure maintenance events in Azure SQL Database](../../sql-database/sql-database-planned-maintenance.md).
 

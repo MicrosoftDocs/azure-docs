@@ -23,7 +23,7 @@ This article shows you how to use Azure Active Directory multi-factor authentica
 ## Configuration steps
 
 1. **Configure an Azure Active Directory** - For more information, see [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configure MFA** - For step-by-step instructions, see [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [Conditional Access (MFA) with Azure SQL Database and Data Warehouse](sql-database-conditional-access.md). (Full Conditional Access requires a Premium Azure Active Directory (Azure AD). Limited MFA is available with a standard Azure AD.)
+2. **Configure MFA** - For step-by-step instructions, see [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [Conditional Access (MFA) with Azure SQL Database and Data Warehouse](../azure-sql/database/conditional-access-confugre.md). (Full Conditional Access requires a Premium Azure Active Directory (Azure AD). Limited MFA is available with a standard Azure AD.)
 3. **Configure Azure AD Authentication** - For step-by-step instructions, see [Connecting to SQL Database, SQL Managed Instance, or Azure Synapse using Azure Active Directory Authentication](../azure-sql/database/aad-authentication-overview.md).
 4. **Download SSMS** - On the client computer, download the latest SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -61,7 +61,7 @@ When verification is complete, SSMS connects normally presuming valid credential
 ## Next steps
 
 - For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).  
-- Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)  
+- Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](../azure-sql/database/logins-create-manage.md)  
 - Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)  
 - When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.
 

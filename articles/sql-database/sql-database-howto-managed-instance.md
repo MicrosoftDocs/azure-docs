@@ -21,7 +21,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Migrate to an Azure SQL Managed Instance](sql-database-managed-instance-migrate.md) – Learn about the recommended migration process and tools for migration to an Azure SQL Managed Instance.
 - [Migrate TDE cert to an Azure SQL Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md) – If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that a SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
-- [Import a DB from a BACPAC](sql-database-import.md)
+- [Import a DB from a BACPAC](../azure-sql/database/database-import.md)
 - [Export a DB to BACPAC](../azure-sql/database/database-export.md)
 - [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
 - [Load data with ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
@@ -48,7 +48,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Feature configuration
 
 - [Configure Azure AD auth](../azure-sql/database/aad-authentication-configure.md)
-- [Configure Conditional Access](sql-database-conditional-access.md)
+- [Configure Conditional Access](../azure-sql/database/conditional-access-confugre.md)
 - [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](../azure-sql/database/temporal-tables-retention-policy.md)
@@ -82,12 +82,12 @@ In this article you can find a content reference to various guides, scripts, and
 - [Use Spark Connector](sql-database-spark-connector.md)
 - [Authenticate app](../azure-sql/database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](sql-database-use-batching-to-improve-performance.md)
-- [Connectivity guidance](sql-database-connectivity-issues.md)
+- [Connectivity guidance](../azure-sql/database/troubleshoot-common-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)
 - [Setup DNS alias PowerShell](dns-alias-powershell.md)
 - [Ports - ADO.NET](../azure-sql/database/adonet-v12-develop-direct-route-ports.md)
-- [C and C ++](sql-database-develop-cplusplus-simple.md)
-- [Excel](sql-database-connect-excel.md)
+- [C and C ++](../azure-sql/database/develop-cplusplus-simple.md)
+- [Excel](../azure-sql/database/connect-excel.md)
 
 ## Design applications
 

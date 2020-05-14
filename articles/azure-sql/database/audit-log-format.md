@@ -50,7 +50,7 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | class_type_desc | class_type_description_s | Description of auditable entity that the audit occurs on | N/A | string |
 | client_ip | client_ip_s | Source IP of the client application | nvarchar(128) | string |
 | connection_id | N/A | ID of the connection in the server | GUID | N/A |
-| data_sensitivity_information | data_sensitivity_information_s | Information types and sensitivity labels returned by the audited query, based on the classified columns in the database. Learn more about [Azure SQL Database data discover and classification](../../sql-database/sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
+| data_sensitivity_information | data_sensitivity_information_s | Information types and sensitivity labels returned by the audited query, based on the classified columns in the database. Learn more about [Azure SQL Database data discover and classification](data-discovery-and-classification-overview.md) | nvarchar(4000) | string |
 | database_name | database_name_s | The database context in which the action occurred | sysname | string |
 | database_principal_id | database_principal_id_d | ID of the database user context that the action is performed in | int | int |
 | database_principal_name | database_principal_name_s | Name of the database user context in which the action is performed | sysname | string |

@@ -97,7 +97,7 @@ To move SQL instances, you need to plan carefully:
 - The migration of all databases that need to be collocated (ones running on the same instance)
 - The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent Jobs and Operators, and server level triggers.
 
-SQL Managed Instance is a managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
+SQL Managed Instance is a managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](../azure-sql/database/high-availability-sla.md) is built in.
 
 SQL Managed Instance supports the following database migration options (currently these are the only supported migration methods):
 
@@ -188,7 +188,7 @@ Once you are on a fully managed platform and you have verified that workload per
 
 Even if you don't make some changes in managed instance during the migration, there are high chances that you would turn on some of the new features while you are operating your instance to take an advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
-For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
+For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](../azure-sql/database/high-availability-sla.md) is built in.
 
 To strengthen security, consider using [Azure Active Directory Authentication](sql-database-security-overview.md), [Auditing](sql-database-managed-instance-auditing.md), [threat detection](../azure-sql/database/advanced-data-security.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ).
 

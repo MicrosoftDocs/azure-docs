@@ -15,7 +15,7 @@ ms.date: 04/02/2020
 
 # What is Azure SQL Managed Instance?
 
-Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](../azure-sql/database/automated-backups-overview.md), [high-availability](sql-database-high-availability.md) ), that drastically reduce management overhead and TCO.
+Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](../azure-sql/database/automated-backups-overview.md), [high-availability](../azure-sql/database/high-availability-sla.md) ), that drastically reduce management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions where SQL Managed Instance is currently available, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions).
@@ -35,7 +35,7 @@ SQL Managed Instance combines the best features that are available both in Azure
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](../azure-sql/database/automated-backups-overview.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](../azure-sql/database/high-availability-sla.md) <br>Data protected with [automated backups](../azure-sql/database/automated-backups-overview.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
 |Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](../azure-sql/database/aad-authentication-overview.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a>  <br>Adheres to compliance standards same as Azure SQL Database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
@@ -79,7 +79,7 @@ SQL Managed Instance is available in two service tiers:
 - **General purpose**: Designed for applications with typical performance and IO latency requirements.
 - **Business critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
-Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Managed Instance, see [High availability and Azure SQL Managed Instance](sql-database-high-availability.md).
+Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Managed Instance, see [High availability and Azure SQL Managed Instance](../azure-sql/database/high-availability-sla.md).
 
 ### General purpose service tier
 
@@ -87,7 +87,7 @@ The following list describes key characteristic of the General Purpose service t
 
 - Design for the majority of business applications with typical performance requirements
 - High-performance Azure Blob storage (8 TB)
-- Built-in [high-availability](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) based on reliable Azure Blob storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Built-in [high-availability](../azure-sql/database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) based on reliable Azure Blob storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 For more information, see [storage layer in general purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [storage performance best practices and considerations for SQL Managed Instance (general purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -101,7 +101,7 @@ The following list outlines the key characteristics of the Business Critical ser
 
 - Designed for business applications with highest performance and HA requirements
 - Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
-- Built-in [high availability](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Built-in [high availability](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 - Built-in additional [read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements  
 
@@ -312,7 +312,7 @@ Some key differences:
 
 ### Administration features
 
-SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](sql-database-high-availability.md), [dynamic instance resizing and configuration](../azure-sql/database/single-database-scale.md), [backups](../azure-sql/database/automated-backups-overview.md), [database replication](replication-with-sql-database-managed-instance.md) (including system databases), [high availability configuration](sql-database-high-availability.md), and configuration of health and [performance monitoring](../azure-monitor/insights/azure-sql.md) data streams.
+SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](../azure-sql/database/high-availability-sla.md), [dynamic instance resizing and configuration](../azure-sql/database/single-database-scale.md), [backups](../azure-sql/database/automated-backups-overview.md), [database replication](replication-with-sql-database-managed-instance.md) (including system databases), [high availability configuration](../azure-sql/database/high-availability-sla.md), and configuration of health and [performance monitoring](../azure-monitor/insights/azure-sql.md) data streams.
 
 For more information see [a list of supported and unsupported SQL Managed Instance features](sql-database-features.md), and [T-SQL differences between SQL Managed Instance and SQL Server](sql-database-managed-instance-transact-sql-information.md)
 

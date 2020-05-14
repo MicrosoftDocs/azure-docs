@@ -75,7 +75,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](../../sql-database/sql-database-design-first-database.md)
+- [Design your first Azure SQL Database](tutorial-design-first-database.md)
 - [Azure SQL Database Machine Learning Services (with R)](machine-learning-services-overview.md)
 - [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](quickstart-r-create-script.md)
 - [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)

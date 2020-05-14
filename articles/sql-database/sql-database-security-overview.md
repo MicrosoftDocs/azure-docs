@@ -55,14 +55,14 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](../azure-sql/database/aad-authentication-overview.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
-    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
+    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](../azure-sql/database/conditional-access-confugre.md).
 
 > [!IMPORTANT]
 > Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. Please see the following article on [connecting to a managed instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
 ## Authorization
 
-Authorization refers to the permissions assigned to a user within an Azure SQL Database or SQL Managed Instance, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
+Authorization refers to the permissions assigned to a user within an Azure SQL Database or SQL Managed Instance, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](../azure-sql/database/logins-create-manage.md)
 
 As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 
@@ -101,7 +101,7 @@ For example when using the ADO.NET driver this is accomplished via  **Encrypt=Tr
 > [!IMPORTANT]
 > Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case the server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data.
 >
-> For further information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> For further information about TLS and connectivity, see [TLS considerations](../azure-sql/database/connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity)
 
 ### Transparent Data Encryption (Encryption-at-rest)
 
@@ -139,7 +139,7 @@ Data discovery & classification (currently in preview) provides advanced capabil
 - Controlling access to, and hardening the security of, databases containing highly sensitive data.
 - Helping meet data privacy standards and regulatory compliance requirements.
 
-For more information, see [Get started with data discovery & classification](sql-database-data-discovery-and-classification.md).
+For more information, see [Get started with data discovery & classification](../azure-sql/database/data-discovery-and-classification-overview.md).
 
 ### Compliance
 
@@ -147,6 +147,6 @@ In addition to the above features and functionality that can help your applicati
 
 ## Next steps
 
-- For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database and SQL Managed Instance, see [Manage logins and user accounts](sql-database-manage-logins.md).
+- For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database and SQL Managed Instance, see [Manage logins and user accounts](../azure-sql/database/logins-create-manage.md).
 - For a discussion of database auditing, see [auditing](sql-database-auditing.md).
 - For a discussion of threat detection, see [threat detection](sql-database-threat-detection.md).

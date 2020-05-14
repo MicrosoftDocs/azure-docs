@@ -33,7 +33,7 @@ From a database perspective, there are four major potential disruption scenarios
 - Datacenter outage, possibly caused by a natural disaster. This scenario requires some level of geo-redundancy with application failover to an alternate datacenter.
 - Upgrade or maintenance errors, unanticipated issues that occur during planned infrastructure maintenance or upgrades may require rapid rollback to a prior database state.
 
-To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](../../sql-database/sql-database-high-availability.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
+To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](high-availability-sla.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
 To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days.
 

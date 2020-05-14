@@ -20,7 +20,7 @@ The [Elastic Database client library](elastic-database-client-library.md) uses t
 * **Access credentials**: to access an existing shard map manager to obtain information about shards.
 * **Connection credentials**: to connect to shards.
 
-See also [Managing databases and logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md).
+See also [Managing databases and logins in Azure SQL Database](logins-create-manage.md).
 
 ## About management credentials
 
@@ -68,7 +68,7 @@ As with the admin credentials, do not use values in the form of "username@server
 
 ## See also
 
-[Managing databases and logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md)
+[Managing databases and logins in Azure SQL Database](logins-create-manage.md)
 
 [Securing your SQL Database](../../sql-database/sql-database-security-overview.md)
 

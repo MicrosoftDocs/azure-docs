@@ -22,7 +22,7 @@ In this section, you will see an overview of available articles that can help yo
 
 - [Create a single database using the Azure portal](quickstart-create-single-database.md).
 - After creating the database, you would need to [secure your database by configuring firewall rules](quickstart-firewall-create-server-level-portal.md).
-- If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](../../sql-database/sql-database-import.md).
+- If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](database-import.md).
 
 ## Automating management operations
 
@@ -48,6 +48,6 @@ The following Microsoft Learn modules help you learn for free about Azure SQL Da
 - Find a [high-level list of supported features in Azure SQL Database](../../sql-database/sql-database-features.md).
 - Learn how to make your [database more secure](tutorial-secure-database.md).
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](how-to-content-reference-guide.md).
-- Find more sample scripts written in [PowerShell](../../sql-database/sql-database-powershell-samples.md) and [Azure CLI](../../sql-database/sql-database-cli-samples.md).
+- Find more sample scripts written in [PowerShell](../../sql-database/sql-database-powershell-samples.md) and [Azure CLI](az-cli-script-samples-content-guide.md).
 - Learn more about the [management API](single-database-manage.md) that you can use to configure your databases.
 - [Identify the right Azure SQL Database or SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

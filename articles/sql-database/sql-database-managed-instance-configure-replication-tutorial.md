@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over.
 
-To learn more, see the [Azure SQL Managed Instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](sql-database-managed-instance-transactional-replication.md) articles.
+To learn more, see the [Azure SQL Managed Instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](../azure-sql/database/transactional-replication-overview.md) articles.
 
 To configure replication between a managed instance publisher and a managed instance subscriber, see [Configure transactional replication between two managed instances](replication-with-sql-database-managed-instance.md).
 

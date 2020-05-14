@@ -61,7 +61,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 To give a user permission to perform additional operations such as creating logins or creating new databases, assign the user to the `Loginmanager` and `dbmanager` roles in the master database.
 
-For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  For more information on connecting using Azure Active Directory, see [Connecting by using Azure Active Directory Authentication](sql-data-warehouse-authentication.md).
+For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](../../azure-sql/database/logins-create-manage.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  For more information on connecting using Azure Active Directory, see [Connecting by using Azure Active Directory Authentication](sql-data-warehouse-authentication.md).
 
 ## Authorization
 

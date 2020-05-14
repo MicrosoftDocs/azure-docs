@@ -90,7 +90,7 @@ The last step is to go to the target server, or servers, and generate the logins
 
 ## Next steps
 
-* For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](../../sql-database/sql-database-manage-logins.md).
+* For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](logins-create-manage.md).
 * For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 * To learn about active geo-replication, see [Active geo-replication](active-geo-replication-overview.md).
 * To learn about auto-failover groups, see [Auto-failover groups](auto-failover-group-overview.md).

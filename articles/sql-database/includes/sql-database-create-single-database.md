@@ -150,7 +150,7 @@ The preceding code uses these Azure CLI commands:
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
 | [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Creates a database. |
 
-For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../sql-database-cli-samples.md).
+For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../../azure-sql/database/az-cli-script-samples-content-guide.md).
 
 # [PowerShell](#tab/azure-powershell)
 

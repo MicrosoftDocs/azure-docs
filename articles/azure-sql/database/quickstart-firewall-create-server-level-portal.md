@@ -66,9 +66,9 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 
 ## Next steps
 
-- Now that you have a database, you can [connect and query](../../sql-database/sql-database-connect-query.md) using one of your favorite tools or languages, including
+- Now that you have a database, you can [connect and query](connect-query-content-reference-guide.md) using one of your favorite tools or languages, including
   - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To learn how to design your first database, create tables, and insert data, see one of these tutorials:
-  - [Design your first single database in Azure SQL Database using SSMS](../../sql-database/sql-database-design-first-database.md)
-  - [Design a single database in Azure SQL Database and connect with C# and ADO.NET](../../sql-database/sql-database-design-first-database-csharp.md)
+  - [Design your first single database in Azure SQL Database using SSMS](tutorial-design-first-database.md)
+  - [Design a single database in Azure SQL Database and connect with C# and ADO.NET](tutorial-design-first-database-csharp.md)
