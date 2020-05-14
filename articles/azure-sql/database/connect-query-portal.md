@@ -24,7 +24,7 @@ In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) quer
 
 Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
 
-- [Quickstart: Create an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](../../sql-database/sql-database-single-database-get-started.md) 
+- [Quickstart: Create an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](quickstart-create-single-database.md) 
 
 ### Configure network settings
 
@@ -186,4 +186,4 @@ There are a few things to know when working with the query editor.
 
 ## Next steps
 
-To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](../../sql-database/sql-database-transact-sql-information.md).
+To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](transact-sql-tsql-differences-sql-server.md).

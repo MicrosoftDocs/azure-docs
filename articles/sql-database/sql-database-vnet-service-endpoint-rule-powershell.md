@@ -475,5 +475,5 @@ for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++) {
 ```
 
 <!-- Link references: -->
-[sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
+[sql-db-vnet-service-endpoint-rule-overview-735r]:../azure-sql/database/vnet-service-endpoint-rule-overview.md
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/

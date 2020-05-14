@@ -18,7 +18,7 @@ In this tutorial, you learn how to set up SQL Data Sync by creating a sync group
 
 The tutorial assumes you have at least some prior experience with SQL Database and SQL Server.
 
-For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](../../sql-database/sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
 For PowerShell examples on how to configure SQL Data Sync, see [How to sync between SQL databases](scripts/sql-data-sync-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
@@ -231,9 +231,9 @@ Congratulations. You've created a sync group that includes both a SQL Database i
 For more info about SQL Data Sync, see:
 
 - [Data Sync Agent for Azure SQL Data Sync](data-sync-agent.md)
-- [Best practices](sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
-- [Monitor SQL Data Sync with Azure Monitor logs](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Update the sync schema with Transact-SQL](../../sql-database/sql-database-update-sync-schema.md) or [PowerShell](scripts/update-sync-schema-in-sync-group.md)
+- [Best practices](sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync)
+- [Update the sync schema with Transact-SQL](sql-data-sync-update-sync-schema.md) or [PowerShell](scripts/update-sync-schema-in-sync-group.md)
 
 For more info about SQL Database, see:
 

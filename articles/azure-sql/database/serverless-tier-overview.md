@@ -171,7 +171,7 @@ Creating a new database or moving an existing database into a serverless compute
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Min vCores|Depends on max vCores configured - see [resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
+   |Min vCores|Depends on max vCores configured - see [resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 10 minutes<br>Disable autopause: -1|60 minutes|
 
 
@@ -181,7 +181,7 @@ The following examples create a new database in the serverless compute tier.
 
 #### Use Azure portal
 
-See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](../../sql-database/sql-database-single-database-get-started.md).
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](quickstart-create-single-database.md).
 
 
 #### Use PowerShell
@@ -308,7 +308,7 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 
 ## Resource limits
 
-For resource limits, see [serverless compute tier](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+For resource limits, see [serverless compute tier](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## Billing
 
@@ -354,5 +354,5 @@ The serverless compute tier is available worldwide except the following regions:
 
 ## Next steps
 
-- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](../../sql-database/sql-database-single-database-get-started.md).
-- For resource limits, see [Serverless compute tier resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](quickstart-create-single-database.md).
+- For resource limits, see [Serverless compute tier resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

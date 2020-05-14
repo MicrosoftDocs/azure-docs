@@ -24,7 +24,7 @@ To complete this quickstart, you need the following prerequisites:
 
   || SQL Database | SQL Managed Instance |
   |:--- |:--- |:---|
-  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](../azure-sql/database/quickstart-create-single-database.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](../azure-sql/database/scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](../azure-sql/database/scripts/create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configure | [Server-level IP firewall rule](../azure-sql/database/quickstart-firewall-create-server-level-portal.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|

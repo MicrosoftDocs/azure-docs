@@ -536,7 +536,7 @@ In a SQL Managed Instance:
 
 - Restricting access to Azure SQL Database and SQL Managed Instance by connecting on a private endpoint (for example, using a private data path):
   - A SQL Managed Instance can be isolated inside a VNet to prevent external access. Applications and tools that are in the same or peered VNet in the same region could access it directly. Applications and tools that are in different region could use VNet-to-VNet connection or ExpressRoute circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance.
-  - For a SQL Database, use the [Private Link](../azure-sql/database/private-endpoint-overview.md) feature that provides a dedicated private IP for the server inside your VNet. You can also use [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your servers.
+  - For a SQL Database, use the [Private Link](../azure-sql/database/private-endpoint-overview.md) feature that provides a dedicated private IP for the server inside your VNet. You can also use [VNet Service endpoints with VNet Firewall Rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) to restrict access to your servers.
   - Mobile users should use point-to-site VPN connections to connect over the data path.
   - Users connected to their on-premises network should use site-to-site VPN connection or ExpressRoute to connect over the data path.
 
@@ -574,7 +574,7 @@ In a SQL Managed Instance:
 
 - [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md) for private data path connectivity to a SQL Managed Instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../app-service/environment/intro.md).
 
-- For Web App with ASE or VNet Integrated Web App connecting to a database in SQL Database, you can use [VNet Service endpoints and VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to limit access from a specific VNet and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
+- For Web App with ASE or VNet Integrated Web App connecting to a database in SQL Database, you can use [VNet Service endpoints and VNet Firewall Rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) to limit access from a specific VNet and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
 
 - Ensure that your Web App is configured per the article, [Best practices for securing PaaS web and mobile applications using Azure App Service](../security/security-paas-applications-using-app-services.md).
 
@@ -598,7 +598,7 @@ In a SQL Managed Instance:
 
 - Implement [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) if you need to send all traffic in the VNet to a Network Virtual Appliance for packet inspection.
 
-- Use [VNet Service endpoints](sql-database-vnet-service-endpoint-rule-overview.md) for secure access to PaaS services like Azure Storage via the Azure backbone network.
+- Use [VNet Service endpoints](../azure-sql/database/vnet-service-endpoint-rule-overview.md) for secure access to PaaS services like Azure Storage via the Azure backbone network.
 
 ### Protect against Distributed Denial of Service (DDoS) attacks
 

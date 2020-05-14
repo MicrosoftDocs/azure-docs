@@ -228,9 +228,9 @@ After database data files are shrunk, indexes may become fragmented and lose the
 ## Next steps
 
 - For information about database max sizes, see:
-  - [Azure SQL Database vCore-based purchasing model limits for a single database](../../sql-database/sql-database-vcore-resource-limits-single-databases.md)
+  - [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md)
   - [Resource limits for single databases using the DTU-based purchasing model](resource-limits-dtu-single-databases.md)
-  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](resource-limits-vcore-elastic-pools.md)
   - [Resources limits for elastic pools using the DTU-based purchasing model](resource-limits-dtu-elastic-pools.md)
 - For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 - For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

@@ -32,7 +32,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 - [PowerShell: Failover Group](../azure-sql/database/scripts/add-database-to-failover-group-powershell.md)
 - [REST API: Failover group](/rest/api/sql/failovergroups).
 
-After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](../azure-sql/database/geo-replication-security-configure.md).
 
 To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -150,7 +150,7 @@ The auto-failover group must be configured on the primary server and will connec
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
 > [!NOTE]
-> See [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
+> See [Add SQL Database to a failover group](../azure-sql/database/tutorial-add-single-database-failover-group.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -306,10 +306,10 @@ For some applications the security rules require that the network access to the 
 
 ### Using failover groups and virtual network rules
 
-If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database or SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers or instances are included in the Virtual Network rules. To support manual failover, follow these steps:
+If you are using [Virtual Network service endpoints and rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database or SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers or instances are included in the Virtual Network rules. To support manual failover, follow these steps:
 
 1. Provision the redundant copies of the front-end components of your application (web service, virtual machines etc.) in the secondary region
-2. Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
+2. Configure the [virtual network rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
 3. Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 4. Initiate manual failover when the outage is detected. This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
 
@@ -462,7 +462,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For detailed tutorials, see
-  - [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md)
+  - [Add SQL Database to a failover group](../azure-sql/database/tutorial-add-single-database-failover-group.md)
   - [Add an elastic pool to a failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md)
   - [Add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 - For sample scripts, see:
@@ -472,4 +472,4 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](../azure-sql/database/geo-replication-security-configure.md).

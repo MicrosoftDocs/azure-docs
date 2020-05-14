@@ -65,12 +65,12 @@ To manage an existing server, navigate to the server using a number of methods -
 
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database.
 
-   ![server firewall rule](./media/logical-servers/server-firewall-rule.png)
+   ![server firewall rule](./media/quickstart-create-single-database/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
 > [!TIP]
-> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-single-database-get-started.md).
+> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](quickstart-create-single-database.md).
 
 ## Manage servers, databases, and firewalls using PowerShell
 
@@ -95,10 +95,10 @@ To create and manage servers, databases, and firewalls with Azure PowerShell, us
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Gets firewall rules for a server|
 |[Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|Modifies a firewall rule in a server|
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Deletes a firewall rule from a server.|
-| New-AzSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
+| New-AzSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
 > [!TIP]
-> For a PowerShell quickstart, see [Create an Azure SQL single database using PowerShell](../../sql-database/sql-database-single-database-get-started.md). For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale an Azure SQL single database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> For a PowerShell quickstart, see [Create an Azure SQL single database using PowerShell](quickstart-create-single-database.md). For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale an Azure SQL single database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
 >
 
 ## Manage servers, databases, and firewalls using the Azure CLI
@@ -185,5 +185,5 @@ To create and manage servers, databases, and firewalls, use these REST API reque
 
 ## Next steps
 
-- To learn about migrating a SQL Server database to Azure SQL Database, see [Migrate to Azure SQL Database](../../sql-database/sql-database-single-database-migrate.md).
+- To learn about migrating a SQL Server database to Azure SQL Database, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
 - For information about supported features, see [Features](../../sql-database/sql-database-features.md).
