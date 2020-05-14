@@ -16,20 +16,22 @@ Azure Digital Twins is a developer platform for creating secure digital represen
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-To view, export, and delete personal data that may be subject to a data subject request, an Azure Digital Twins administrator can use either the Azure portal or the REST APIs. Using the Azure portal or REST APIs to service data subject requests, provides a method to perform these operations for users.
+To view, export, and delete personal data that may be referenced in a data subject request, an Azure Digital Twins administrator can use either the **Azure portal** or the **Azure Digital Twins REST APIs**. The Azure portal and REST APIs both provide a method for users to service such data subject requests.
 
 ## Identifying customer data
 
-Azure Digital Twins considers personal data to be data associated with administrators and users of Digital Twins. Azure Digital Twins stores the Azure Active Directory object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Azure Digital Twins, they are dynamically looked up using the Azure Active Directory object-ID in Azure Active Directory.
+Azure Digital Twins considers *personal data* to be data associated with its administrators and users. 
+
+Azure Digital Twins stores the [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) *object ID* of users with access to the environment. Azure Digital Twins in the Azure portal displays user email addresses, but these email addresses are not stored within Azure Digital Twins. They are dynamically looked up in Azure Active Directory, using the Azure Active Directory object ID.
 
 ## Deleting customer data
 
-Azure Digital Twins administrators can use the Azure Portal to delete data related to users. It is also possible to perform delete operations using Digital Twins REST APIs. For more information, see Azure Digital Twins REST APIs documentation.
+Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master).
 
 ## Exporting customer data
 
-The ability to export data is provided through the Azure portal and REST APIs. Customer data, including assigned roles, can be selected, copied, and pasted by an administrator.
+The ability to export data is also provided through the Azure portal and REST APIs. Customer data, including assigned roles, can be selected, copied, and pasted by an administrator.
 
 ## Links to additional documentation
 
-Full documentation for Azure Digital Twins Service APIs is located at <relevant links>
+For a full list of the Azure Digital Twins service APIs, see the [Azure Digital Twins REST APIs documentation](https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master).
