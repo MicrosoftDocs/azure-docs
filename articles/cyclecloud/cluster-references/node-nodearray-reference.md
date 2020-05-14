@@ -178,9 +178,9 @@ Attribute | String | Definition
 ------ | ----- | ----------
 Tags | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in addition to the tags assigned by CycleCloud by default.
 
-### Regular/Spot/Low-priority Attributes
+### Regular/Spot Attributes
 
-CycleCloud supports the use of Spot VMs via the following attributes. See [Spot/Low-priority Virtual Machines](~/how-to/cluster-templates.md#spotlow-priority-virtual-machines) for more detail.
+CycleCloud supports the use of Spot VMs via the following attributes. See [Spot Virtual Machines](~/how-to/cluster-templates.md#spot-virtual-machines) for more detail.
 
 Attribute | String | Definition
 ------ | ----- | ----------

@@ -172,9 +172,9 @@ ParameterType = Cloud.ClusterInitSpecs
 
 Once this parameter has been added to your cluster template, your user can use the file picker to select the appropriate project specs when creating a new cluster.
 
-## Spot/Low-priority Virtual Machines
+## Spot Virtual Machines
 
-To reduce the cost of your workloads, you can set `Interruptible = true`. This will flag your instance as Spot/Low-priority, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
+To reduce the cost of your workloads, you can set `Interruptible = true`. This will flag your instance as Spot, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
 
 By default, setting `Interruptible` to true will use spot instances with a max price set to -1; this means the instance won't be evicted based on price. The price for the instance will be the current price for Spot or the price for a standard instance, whichever is less, as long as there is capacity and quota available. If you would like to set a custom max price, use the `MaxPrice` attribute on the desired node or nodearray.
 
