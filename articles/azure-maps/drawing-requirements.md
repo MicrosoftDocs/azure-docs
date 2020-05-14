@@ -70,7 +70,7 @@ DWG layers must also follow the following criteria:
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
-The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the[Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will ignore these entities.  
+The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will ignore these entities.  
 
 | Layer | Entity types | Features |
 | :----- | :-------------------| :-------
