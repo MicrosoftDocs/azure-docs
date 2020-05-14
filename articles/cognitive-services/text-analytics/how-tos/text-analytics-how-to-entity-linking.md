@@ -15,9 +15,6 @@ ms.author: aahi
 
 # How to use Named Entity Recognition in Text Analytics
 
-> [!NOTE]
-> * The Text Analytics API offers multiple versions of Sentiment Analysis. This article only covers versions 3.0 and 3.1-preview.1. See the [migration guide](../migration-guide.md) for v2.1 information.
-
 The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) and entity linking.
 
 ### Entity Linking
@@ -46,7 +43,6 @@ Named Entity Recognition v3 provides expanded detection across multiple types. C
 
 Named Entity Recognition v3.1-preview.1 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.1/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
----
 
 ## Sending a REST API request
 
