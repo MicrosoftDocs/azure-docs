@@ -205,7 +205,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[uptime-sla] ./uptime-sla.md
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
