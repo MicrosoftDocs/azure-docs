@@ -52,7 +52,7 @@ You can create [budgets](https://docs.microsoft.com/azure/cost-management/tutori
 
 As you start using Azure Data Factory, you can see the costs incurred in the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) pane in the Azure portal.
 
-1. To view [cost analysis](https://docs.microsoft.com/en-us/azure/cost-management/quick-acm-cost-analysis), open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Open cost analysis**.
+1. To view [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Open cost analysis**.
 2. The default view shows accumulated costs for the current month.  You can switch to a different time range and a different granularity such as daily or monthly.
 3. To narrow costs for a single service such as Azure Data Factory, select **Add filter** and then select **Service name**.  Then choose **Azure data factory v2** from the list.
 4. You can add additional filters to analyze cost for specific factory instance and specific ADF meter granularity.
