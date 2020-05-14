@@ -21,7 +21,7 @@ For DTU purchasing model limits for single databases on a server, see [Overview 
 You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-databases-manage.md#azure-portal), [Transact-SQL](single-databases-manage.md#transact-sql-t-sql), [PowerShell](single-databases-manage.md#powershell), the [Azure CLI](single-databases-manage.md#azure-cli), or the [REST API](single-databases-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
+> For scaling guidance and considerations, see [Scale a single database](scale-single-database.md).
 
 ## General purpose - serverless compute - Gen5
 

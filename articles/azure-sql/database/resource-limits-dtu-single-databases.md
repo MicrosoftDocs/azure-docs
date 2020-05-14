@@ -23,7 +23,7 @@ For DTU purchasing model resource limits for elastic pools, see [DTU resource li
 The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-databases-manage.md#azure-portal), [Transact-SQL](single-databases-manage.md#transact-sql-t-sql), [PowerShell](single-databases-manage.md#powershell), the [Azure CLI](single-databases-manage.md#azure-cli), or the [REST API](single-databases-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale a single database](single-database-scale.md)
+> For scaling guidance and considerations, see [Scale a single database](scale-single-database.md)
 
 ### Basic service tier
 
@@ -88,7 +88,7 @@ The following tables show the resources available for a single database at each 
 \* From 1024 GB up to 4096 GB in increments of 256 GB
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](scale-single-database.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
 > For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
