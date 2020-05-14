@@ -18,7 +18,9 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing News Search API. This simple Ruby application sends a search query to the API and processes the JSON response.
 
-Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages. 
+
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## Prerequisites
 
@@ -47,7 +49,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 
 ## Format and make an API request
 
-Use the variables from the last step to format a search URL for the API request. Then, send the request.
+Use the variables from the previous step to format a search URL for the API request. Then, send the request.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -60,7 +62,7 @@ end
 
 ## Process and print the JSON response
 
-After the response is received, you can parse the JSON, and print both the response body, and its headers.
+After the response is received, parse the JSON, and then print both the response body and its headers.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"

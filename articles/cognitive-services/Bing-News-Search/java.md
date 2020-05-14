@@ -97,7 +97,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     return results;
     ```
 
-2. Create a method to parse and reserialize JSON.
+2. Create a method to parse and reserialize the JSON results.
 
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize

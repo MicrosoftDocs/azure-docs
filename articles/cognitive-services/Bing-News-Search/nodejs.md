@@ -49,7 +49,9 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
 
-2. Within this function, define a variable to contain the body of the JSON response.  
+   Add code to this function in the steps that follow.
+
+2. Define a variable to contain the body of the JSON response.  
 
     ```javascript
     let response_handler = function (response) {

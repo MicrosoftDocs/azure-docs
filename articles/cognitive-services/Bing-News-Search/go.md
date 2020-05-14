@@ -18,14 +18,14 @@ ms.author: aahi
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/)
-* Install the go-spew library to use a deep pretty printer to display results. Use this command to install the library: `$ go get -u https://github.com/davecgh/go-spew`
+* Install the [Go binaries](https://golang.org/dl/).
+* Install the go-spew library to use a deep pretty printer to display the results. Use this command to install the library: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The go-spew library is needed to parse JSON. 
+Create a new Go project in your IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `encoding/json` to handle the JSON text of results, and the go-spew library to parse the JSON results. 
 
 ```go
 package main
@@ -40,7 +40,7 @@ import (
 
 ```
 
-## Create a struct to format the News search results
+## Create a struct to format the news search results
 
 The `NewsAnswer` struct formats the data provided in the response JSON, which is multilevel and complex. The following implementation covers the essentials:
 
@@ -82,7 +82,7 @@ type NewsAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+The following code declares the main function and assigns the required variables. Confirm that the endpoint is correct, and then replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```go
 func main() {
@@ -134,7 +134,7 @@ if err != nil {
 
 ## Send the request
 
-Send the request and read results by using `ioutil`.
+Send the request and read the results by using `ioutil`.
 
 ```go
 resp, err := client.Do(req)
@@ -155,7 +155,7 @@ if err != nil {
 
 ## Handle the response
 
-The `Unmarshall` function extracts information from the JSON text returned by the News Search API. Then, you can display nodes from the results by using the `go-spew` pretty printer.
+The `Unmarshall` function extracts information from the JSON text returned by the Bing News Search API. Then, display nodes from the results with the `go-spew` pretty printer.
 
 ```go
 // Create a new answer object 

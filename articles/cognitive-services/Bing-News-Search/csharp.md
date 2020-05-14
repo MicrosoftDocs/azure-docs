@@ -15,9 +15,11 @@ ms.custom: seodec2018
 
 # Quickstart: Search for news using C# and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. The full code to this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
+Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. 
 
 Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+
+The full code to this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ Although this application is written in C#, the API is a RESTful Web service com
 
 ## Create and initialize a project
 
-1. Create a new C# console solution in Visual Studio. Then, add the following namespaces into the main code file:
+1. Create a new C# console solution in Visual Studio. Then, add the following namespaces to the main code file:
     
     ```csharp
     using System;
@@ -61,44 +63,46 @@ struct SearchResult
 
 ## Create and handle a news search request
 
-1. Create a method named `BingNewsSearch()` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. In the method, do the following steps:
+1. Create a method named `BingNewsSearch()` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. 
 
-   1. Construct the URI for the search request. The `toSearch` search term must be formatted before it's appended to the string.
+   Add code to this method in the steps that follow.
 
-       ```csharp
-       static SearchResult BingNewsSearch(string toSearch){
+1. Construct the URI for the search request. The `toSearch` search term must be formatted before it's appended to the string.
 
-           var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
-       //...
-       ```
+    ```csharp
+    static SearchResult BingNewsSearch(string toSearch){
 
-   1. Perform the web request and get the response as a JSON string.
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+    //...
+    ```
 
-       ```csharp
-       WebRequest request = WebRequest.Create(uriQuery);
-       request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
-       HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-       string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-       ```
+1. Perform the web request and get the response as a JSON string.
 
-   1. Create the search result object, and extract the Bing HTTP headers. Then, return `searchResult`.
+    ```csharp
+    WebRequest request = WebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    ```
 
-       ```csharp
-       // Create the result object for return
-       var searchResult = new SearchResult()
-       {
-           jsonResult = json,
-           relevantHeaders = new Dictionary<String, String>()
-       };
+1. Create the search result object, and extract the Bing HTTP headers. Then, return `searchResult`.
 
-       // Extract Bing HTTP headers
-       foreach (String header in response.Headers)
-       {
-           if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-               searchResult.relevantHeaders[header] = response.Headers[header];
-       }
-       return searchResult;
-       ```
+    ```csharp
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+    ```
 
 ## Process the response
 
