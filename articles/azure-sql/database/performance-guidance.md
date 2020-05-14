@@ -263,4 +263,4 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 - For more information about DTU-based service tiers, see [DTU-based purchasing model](dtu-service-tiers.md).
 - For more information about vCore-based service tiers, see [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
 - For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
-- For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
+- For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)

@@ -66,7 +66,7 @@ The Hyperscale service tier is currently available in the regions listed under [
 
 ### Can I create multiple Hyperscale databases per server
 
-Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](resource-limits-logical-server.md).
 
 ### What are the performance characteristics of a Hyperscale database
 
@@ -222,7 +222,7 @@ Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time ne
 
 ### Can I read data from blob storage and do fast load (like Polybase in SQL Data Warehouse)
 
-You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other Azure SQL database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
+You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other Azure SQL database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](../../sql-database/sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
 
 It is also possible to bulk read data from Azure Blob store using BULK INSERT or OPENROWSET: [Examples of Bulk Access to Data in Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 

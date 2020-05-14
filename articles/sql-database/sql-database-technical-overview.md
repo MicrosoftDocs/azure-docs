@@ -100,7 +100,7 @@ Azure provides [built-in performance monitoring](../azure-sql/database/performan
 - **Azure Event Hubs**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
 - **Azure Monitor logs**: For a built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
-![Diagram of Azure monitoring architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+![Diagram of Azure monitoring architecture](../azure-sql/database/media/configure-streaming-export-metrics-diagnostic-telemtry-logging/architecture.png)
 
 ## Availability capabilities
 

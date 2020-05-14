@@ -637,7 +637,7 @@ The next example shows you different ways that you can use the **sys.resource_st
 
 4. This exercise also considers your projected workload increase in the future.
 
-For elastic pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
+For elastic pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic pool](elastic-pool-overview.md).
 
 ### Maximum concurrent requests
 

@@ -69,7 +69,7 @@ To restore availability of the database(s) you need to initiate the failover to 
 
 Use one of the following guides to fail over to a geo-replicated secondary database:
 
-- [Fail over to a geo-replicated secondary server using the Azure portal](sql-database-geo-replication-portal.md)
+- [Fail over to a geo-replicated secondary server using the Azure portal](active-geo-replication-configure-portal.md)
 - [Fail over to the secondary server using PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
 - [Fail over to a secondary server using Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
@@ -85,11 +85,11 @@ If you are using geo-restore to recover from an outage, you must make sure that 
 
 Because your recovered database resides in a different server, you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see the appropriate development language for your [connection library](sql-database-libraries.md).
+For more information about changing connection strings, see the appropriate development language for your [connection library](../../sql-database/sql-database-connect-query.md#libraries).
 
 ### Configure Firewall Rules
 
-You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](firewall-configure.md).
 
 ### Configure logins and database users
 
@@ -102,7 +102,7 @@ You need to make sure that all the logins used by your application exist on the 
 
 You need to make sure your existing alert rule settings are updated to map to the recovered database and the different server.
 
-For more information about database alert rules, see [Receive Alert Notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) and [Track Service Health](../monitoring-and-diagnostics/insights-service-health.md).
+For more information about database alert rules, see [Receive Alert Notifications](../../azure-monitor/platform/alerts-overview.md) and [Track Service Health](../../service-health/service-notifications.md).
 
 ### Enable auditing
 

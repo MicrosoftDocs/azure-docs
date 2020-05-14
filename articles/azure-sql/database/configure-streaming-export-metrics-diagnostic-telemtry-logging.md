@@ -83,7 +83,7 @@ You can enable and manage metrics and diagnostic telemetry logging by using one 
 
 ## Configure the streaming export of diagnostic telemetry
 
-You can use the **Diagnostics settings** menu in the Azure portal to enable and configure streaming of diagnostic telemetry. Additionally, you can use PowerShell, the Azure CLI, the [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), and [Resource Manager templates](../azure-monitor/platform/diagnostic-settings-template.md) to configure streaming of diagnostic telemetry. You can set the following destinations to stream the diagnostic telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
+You can use the **Diagnostics settings** menu in the Azure portal to enable and configure streaming of diagnostic telemetry. Additionally, you can use PowerShell, the Azure CLI, the [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), and [Resource Manager templates](../../azure-monitor/platform/diagnostic-settings-template.md) to configure streaming of diagnostic telemetry. You can set the following destinations to stream the diagnostic telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
 
 > [!IMPORTANT]
 > The streaming export of diagnostic telemetry is not enabled by default.
@@ -329,7 +329,7 @@ You can monitor a collection of databases and database collections with Azure SQ
 2. Create a Log Analytics workspace in the solution.
 3. Configure databases to stream diagnostic telemetry into the workspace.
 
-You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via [PowerShell cmdlets](configure-streaming-export-metrics-diagnostic-telemtry-logging.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure CLI](configure-streaming-export-metrics-diagnostic-telemtry-logging.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), or [Resource Manager templates](../azure-monitor/platform/diagnostic-settings-template.md).
+You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via [PowerShell cmdlets](configure-streaming-export-metrics-diagnostic-telemtry-logging.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure CLI](configure-streaming-export-metrics-diagnostic-telemtry-logging.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), or [Resource Manager templates](../../azure-monitor/platform/diagnostic-settings-template.md).
 
 ### Create an Azure SQL Analytics resource
 
@@ -364,8 +364,8 @@ You can stream Azure SQL Database and Azure SQL Managed Instance metrics and res
 
 After the selected data is streamed into Event Hubs, you're one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the front door for an event pipeline. After data is collected into an event hub, it can be transformed and stored by using a real-time analytics provider or a storage adapter. Event Hubs decouples the production of a stream of events from the consumption of those events. In this way, event consumers can access the events on their own schedule. For more information on Event Hubs, see:
 
-- [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [What are Azure Event Hubs?](../../event-hubs/event-hubs-about.md)
+- [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 You can use streamed metrics in Event Hubs to:
 
@@ -741,13 +741,13 @@ Learn more about the [Intelligent Insights log format](../../sql-database/sql-da
 
 To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
-- [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Overview of metrics in Microsoft Azure](../../azure-monitor/platform/data-platform.md)
 - [Overview of Azure platform logs](../../azure-monitor/platform/platform-logs-overview.md)
 
 To learn about Event Hubs, read:
 
-- [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [What is Azure Event Hubs?](../../event-hubs/event-hubs-about.md)
+- [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 To learn how to set up alerts based on telemetry from log analytics see:
 
