@@ -2,7 +2,7 @@
 title: Plan your app - LUIS
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/14/2020
 ---
 
 # Plan your LUIS app schema with subject domain and data extraction
@@ -43,6 +43,12 @@ When determining which entities to use in your app, keep in mind that there are 
 
 > [!TIP]
 > LUIS offers [prebuilt entities](luis-prebuilt-entities.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
+
+## Resolution with intent or entity?
+
+In many cases, especially when working with natural conversation, users provide an utterance that can contain more than one function or intent. To address this, a general rule of thumb is to understand that the representation of the output can be done in both intents and entities. This representation should be mappable to your client application actions, and it doesn't need to be limited to the intents.
+
+**Int-ent-ties** is the concept that actions (usually understood as intents) could also be captured as entities and relied on in this form in the output JSON where you can map it to a specific action. _Negation_ is a common usage to leverage this reliance on both intent and entity for full extraction.
 
 ## Next steps
 
