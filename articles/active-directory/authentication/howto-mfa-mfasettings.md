@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 05/13/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -20,13 +20,11 @@ ms.custom: contperfq4
 
 This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
-
-The following settings are available in the Azure portal:
+The following Azure Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
+| [Account lockout](#account-lockout) | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
 | [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
@@ -34,62 +32,116 @@ The following settings are available in the Azure portal:
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
+![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
+
 ## Account lockout
+
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are only applied when a pin code is entered for the MFA prompt.
+
+The following settings are available:
+
+* Number of MFA denials to trigger account lockout
+* Minutes until account lockout counter is reset
+* Minutes until account is automatically unblocked
+
+To configure account lockout settings, complete the following settings:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Account lockout**.
+1. Enter the require values for your environment, then select **Save**.
+
+    ![Screenshot of the account lockout settings in the Azure portal](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## Block and unblock users
 
-Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block authentication attempts for the associated account. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
-3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
-5. Select **Add** to finish blocking the user.
+To block a user, complete the following steps:
+
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. Select **Add** to block a user.
+1. Select the **Replication Group**, then choose *Azure Default*.
+
+    Enter the username for the blocked user as `username\@domain.com`, then provide a comment in the *Reason* field.
+1. When ready, select **OK** to block the user.
 
 ### Unblock a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
-3. Select **Unblock** in the **Action** column next to the user to unblock.
-4. Enter a comment in the **Reason for unblocking** field.
-5. Select **Unblock** to finish unblocking the user.
+To unblock a user, complete the following steps:
+
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. In the *Action* column next to the desired user, select **Unblock**.
+1. Enter a comment in the *Reason for unblocking* field.
+1. When ready, select **OK** to unblock the user.
 
 ## Fraud alert
 
-Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
+The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt using the Microsoft Authenticator app or through their phone.
 
-### Turn on fraud alerts
+The following fraud alert configuration options are available:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
-3. Set the **Allow users to submit fraud alerts** setting to **On**.
-4. Select **Save**.
+* **Automatically block users who report fraud**: If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
+* **Code to report fraud during initial greeting**: When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
 
-### Configuration options
+   > [!NOTE]
+   > The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
 
-* **Block user when fraud is reported**: If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
-* **Code to report fraud during initial greeting**: When users receive a phone call to perform two-step verification, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
+To enable and configure fraud alerts, complete the following steps:
 
-   >[!NOTE]
-   >The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
-   >
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
+1. Set the *Allow users to submit fraud alerts* setting to **On**.
+1. Configure the *Automatically block users who report fraud* or *Code to report fraud during initial greeting* setting as desired.
+1. When ready, select **Save**.
 
 ### View fraud reports
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
+Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
  
 ## Notifications
 
-Configure email addresses here for users who will receive fraud alert emails in **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
+Email notifications can be configured when users report fraud alerts. These notifications should typically be sent to identity administrators, as the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
 
-![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+![Example fraud alert notification email](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+
+To configure fraud alert notifications, complete the following settings:
+
+1. Browse to **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
+1. Enter the email address to add into the next box.
+1. To remove an existing email address, select the **...** option next to the desired email address, then select **Delete**.
+1. When ready, select **Save**.
 
 ## OATH tokens
 
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice.
 
+Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
+
+Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time.
+
+OATH hardware tokens in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+To add and use OATH tokens, complete the following steps:
+
+1. Your tokens must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as shown in the following example:
+
+    ```csv
+    upn,serial number,secret key,time interval,manufacturer,model
+    Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+    ```
+
+    > [!NOTE]
+    > Make sure you include the header row in your CSV file.
+
+1. Once you have created a properly formatted CSV file, browse to **Azure Active Directory** > **Security** > **MFA** > **OATH tokens**.
+1. Select **Upload**, then choose your CSV file from local computer.
+
+    ![Uploading OATH tokens to the MFA OATH tokens window](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+
+Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.
+
+Once any errors have been addressed, the administrator then can activate each key by selecting **Activate** for the token and entering the OTP displayed on the token.
 
 ## Phone call settings
 
@@ -129,7 +181,6 @@ For example, if there is only one custom message, with a language of German:
 
 ### Set up a custom message
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the type of greeting.
@@ -209,10 +260,9 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 ### Enable the Trusted IPs feature by using Conditional Access
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
-3. Select **Configure MFA trusted IPs**.
-4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
+1. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
+1. Select **Configure MFA trusted IPs**.
+1. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
    * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
 
@@ -223,15 +273,14 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
       * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
       * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 
-5. Select **Save**.
+1. Select **Save**.
 
 ### Enable the Trusted IPs feature by using service settings
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
+1. On the left, select **Azure Active Directory** > **Users**.
+1. Select **Multi-Factor Authentication**.
+1. Under Multi-Factor Authentication, select **service settings**.
+1. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
 
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
 
@@ -242,7 +291,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
       * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
       * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 
-6. Select **Save**.
+1. Select **Save**.
 
 ## Verification methods
 
@@ -259,12 +308,11 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 
 ### Enable and disable verification methods
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
-6. Click **Save**.
+1. On the left, select **Azure Active Directory** > **Users**.
+1. Select **Multi-Factor Authentication**.
+1. Under Multi-Factor Authentication, select **service settings**.
+1. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
+1. Click **Save**.
 
 Additional details about the use of authentication methods can be found in the article [What are authentication methods](concept-authentication-methods.md).
 
@@ -295,13 +343,12 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 ### Enable remember Multi-Factor Authentication
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users**.
-3. Select **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
-6. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
-7. Select **Save**.
+1. On the left, select **Azure Active Directory** > **Users**.
+1. Select **Multi-Factor Authentication**.
+1. Under Multi-Factor Authentication, select **service settings**.
+1. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
+1. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
+1. Select **Save**.
 
 ### Mark a device as trusted
 
