@@ -19,13 +19,13 @@ You might be curious to understand what industry use cases can leverage this clo
 * Predictive maintenance, anomaly detection in IOT scenarios
 
 > [!NOTE]
-> Synapse Link for Azure Cosmos DB targets the scenario where enterprise teams are looking to run near real-time analytics. These analytics are run without ETL over operational data generated across transactional applications built on Azure Cosmos DB. This does not replace the need for a separate data warehouse when there are traditional data warehouse requirements such as workload management, high concurrency, persistence aggregates across multiple data sources.
+> Azure Synapse Link for Azure Cosmos DB targets the scenario where enterprise teams are looking to run near real-time analytics. These analytics are run without ETL over operational data generated across transactional applications built on Azure Cosmos DB. This does not replace the need for a separate data warehouse when there are traditional data warehouse requirements such as workload management, high concurrency, persistence aggregates across multiple data sources.
 
 ## Supply chain analytics, forecasting & reporting
 
 Research studies show that embedding big data analytics in supply chain operations leads to improvements in order-to-cycle delivery times and supply chain efficiency.
 
-Forward-thinking manufacturers are quickly onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle the data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
+Manufacturers are onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle the data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
 
 The following architecture shows the power of leveraging Azure Cosmos DB as the cloud-native operational database and Synapse Link in supply chain analytics:
 
@@ -99,6 +99,9 @@ The following list shows an overview of the various workload patterns that are s
 
 Azure Synapse Link enables Azure Cosmos DB to not just power transactional workloads but also perform near real-time analytical workloads over historical operational data. It happens with no ETL requirements and guaranteed performance isolation from the transactional workloads.
 
+The following image shows workload patterns using Azure Cosmos DB:
+![Azure Synapse Link for Azure Cosmos DB workload patterns](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
+
 Let us take the example of an e-commerce company CompanyXYZ with global operations across 20 countries to illustrate the benefits of choosing Azure Cosmos DB as the single real-time database powering both transactional and analytical requirements of an inventory management platform.
 
 * CompanyXYZ’s core business depends on the inventory management system – hence availability & reliability are core pillar requirements. Benefits of using Azure Cosmos DB:
@@ -125,14 +128,14 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
 To learn more, see the following docs:
 
-* [Azure Synapse Link for Azure Cosmos DB.](synapse-link.md) 
+* [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) 
 
-* [Azure Cosmos DB Analytical Store.](analytical-store-introduction.md)
+* [Azure Cosmos DB Analytical Store](analytical-store-introduction.md)
 
-* [Working with Azure Synapse Link for Azure Cosmos DB.](configure-synapse-link.md)
+* [Working with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 
-* [Frequently asked questions about Synapse Link for Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Apache Spark in Azure Synapse Analytics.](../synapse-analytics/spark/apache-spark-concepts.md)
+* [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL serverless/on-demand in Azure Synapse Analytics.](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [SQL serverless/on-demand in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
