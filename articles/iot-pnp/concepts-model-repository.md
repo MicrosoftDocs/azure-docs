@@ -1,6 +1,6 @@
 ---
-title: Understand concepts of the IoT Plug and Play Preview model repository | Microsoft Docs
-description: As a developer or an IT professional, learn about the basic concepts of the IoT Plug and Play model repository.
+title: Understand concepts of the Azure IoT Model Repository | Microsoft Docs
+description: As a developer or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
 author: JimacoMS3
 ms.author: v-jambra
 ms.date: 04/10/2020
@@ -11,23 +11,32 @@ services: iot-pnp
 manager: philmea
 ---
 
-# Understand the IoT Plug and Play Preview model repository
+# Understand the Azure IoT Model Repository
 
-This article describes concepts behind the IoT Plug and Play Preview model repository. 
+This article describes concepts behind the Azure IoT Model Repository.
 
-## IoT Plug and Play Preview model repository
+## Azure IoT Model Repository
 
 The model repository stores the Digital Twin interfaces that describe the functionality of IoT Plug and Play devices. Models are secured with fine grained access control using role-based access control (RBAC).
 
 ### Public models
-For any model that has been published in the model repository it becomes a public model. It does not require a user to log in to browse any public models. The model repository offers an anonymous browsing experience with public models.
+
+For any model that has been published in the model repository it becomes a public model. It does not require a user to sign in to browse any public models. The model repository offers an anonymous browsing experience with public models.
+
 ### Company models
-Models authored by your organization. You can see a list of unpublished models of your company and a list of published models of your company. 
+
+Models authored by your organization. You can see a list of unpublished models of your company and a list of published models of your company.
+
 #### Unpublished
+
 Models that are created by users within your organization. These models are not published, and are only accessible by users within your organization by default. You can also share one or more unpublished models with external users.
+
 #### Published
+
 Models that are created and published by users within your organization. These models are public and can also be found by anyone under Public Models.
+
 ### Shared Models
+
 The models that are shared with me from outside of my company. You can see a list of unpublished models that have been shared with you and a list of published models that have been shared with you.
 
 ## Role-based access control (RBAC)
@@ -57,7 +66,7 @@ The following table describes the permissions that can be granted in the tenant 
 | ReadTenantInformation | Allows the user to read information about the tenant; for example, number of interfaces. |
 | ReadTenantModels | Allows the user to view all models in the tenant. |
 
-The first user in an organization's tenant to log on to the [Azure Model Repository](https://iotmodels.azure.com) is assigned the *Tenant Administrator* role. That person can then add other users in the tenant to tenant roles.
+The first user in an organization's tenant to sign in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo) is assigned the *Tenant Administrator* role. That person can then add other users in the tenant to tenant roles.
 
 ### Model roles and permissions
 
