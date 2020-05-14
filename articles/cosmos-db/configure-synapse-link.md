@@ -12,8 +12,9 @@ ms.author: srchi
 
 Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
+
 > [!IMPORTANT]
-> Synapse Link for Azure Cosmos DB is currently available in only specific regions, see the [available regions](synapse-link.md#supported-regions) list for more details. To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the above supported regions.
+> To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the above supported regions.For the list of supported regions, see [Azure service updates](https://azure.microsoft.com/en-us/updates/). 
 
 Use the following steps to run analytical queries with the Synapse Link for Azure Cosmos DB:
 
