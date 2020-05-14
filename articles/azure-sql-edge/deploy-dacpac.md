@@ -32,7 +32,7 @@ Azure SQL Edge also provides a native implementation of SqlPackage.exe that enab
 | SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
 | ASAJobInfo | Azure Blob storage URI for the ASA Edge job.
 
-### Use a SQL Database DAC package with SQL Edge
+## Use a SQL Database DAC package with SQL Edge
 
 To use a SQL Database DAC package (*.dacpac) with SQL Edge, follow these steps:
 
