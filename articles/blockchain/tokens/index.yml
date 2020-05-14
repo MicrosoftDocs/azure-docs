@@ -36,11 +36,5 @@ landingContent:
             url: https://aka.ms/PreviewForm
       - linkListType: video
         links:
-          - text: Getting started with Azure Blockchain Tokens
-            url: https://aka.ms/ABTokensPartI
-          - text: Managing accounts
-            url: https://aka.ms/ABTokensPartII
-          - text: Templates and composability
-            url: https://aka.ms/ABTokensPartIII
           - text: Tokens and Token Taxonomy Framework
             url: https://aka.ms/TokenTaxFramework

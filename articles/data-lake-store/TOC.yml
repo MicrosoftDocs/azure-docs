@@ -170,7 +170,7 @@
   - name: Python (Account Mgmt.)
     href: https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python
   - name: Python (Filesystem Mgmt.)
-    href: https://azure-datalake-store.readthedocs.io/en/latest
+    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: REST
     href: /rest/api/datalakestore
   - name: Resource Manager template

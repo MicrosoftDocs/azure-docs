@@ -190,7 +190,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/cloud-services/
+    href: /azure/cloud-services/cloud-services-choose-me
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment
   - name: Pricing

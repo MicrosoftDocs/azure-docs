@@ -200,7 +200,7 @@
   - name: Case Studies
     href: data-factory-customer-case-studies.md
   - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
+    href: /azure/data-factory/introduction
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
   - name: Pricing

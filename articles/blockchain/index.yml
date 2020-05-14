@@ -77,7 +77,7 @@ conceptualContent:
         - url: ./tokens/account-management.md
           itemType: concept
           text: Manage tokens using Azure Blockchain Tokens
-        - url: https://aka.ms/ABTokensPartI
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain?term=blockchain%20tokens&lang-en=true
           itemType: video
           text: Watch an introduction to Azure Blockchain Tokens
     - title: Publish blockchain data using Blockchain Data Manager
