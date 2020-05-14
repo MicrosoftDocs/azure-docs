@@ -23,16 +23,16 @@ ms.author: yexu
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When you copy data from source to destination store, Azure Data Factory copy activity provides certain level of fault tolerances to prevent interruption from a sort of failures in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key has been created in the destination database, but source database does not have any primary keys. When you happen to copy duplicated rows from source to the destination, you will hit the PK violation failure on the destination database. At this moment, copy activity offers you two ways to handle such errors: 
+When you copy data from source to destination store, Azure Data Factory copy activity provides certain level of fault tolerances to prevent interruption from failures in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key has been created in the destination database, but source database does not have any primary keys defined. When you happen to copy duplicated rows from source to the destination, you will hit the PK violation failure on the destination database. At this moment, copy activity offers you two ways to handle such errors: 
 - You can abort the copy activity once any failure is encountered. 
 - You can continue to copy the rest by enabling fault tolerance to skip the incompatible data. For example, skip the duplicated row in this case. In addition, you can log the skipped data by enabling session log within copy activity. 
 
 ## Copying binary files 
 
-ADF supports the following fault tolerance scenario when copying binary files. You can choose to abort the copy activity or continue to copy the rest in the following scenarios:
+ADF supports the following fault tolerance scenarios when copying binary files. You can choose to abort the copy activity or continue to copy the rest in the following scenarios:
 
 1. The files to be copied by ADF are being deleted by other applications at the same time.
-2. Some particular folders or files do not allow ADF to access because ACLs of those files or folders require higher permission level than the connection configured in ADF.
+2. Some particular folders or files do not allow ADF to access because ACLs of those files or folders require higher permission level than the connection information configured in ADF.
 3. One or more files are not verified to be consistent between source and destination store if you enable data consistency verification setting in ADF.
 
 ### Configuration 
@@ -72,11 +72,11 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | A group of properties to specify the types of failures you want to skip during the data movement. | | No
 fileMissing | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip files, which are being deleted by other applications when ADF is copying in the meanwhile. <br/> -True: you want to copy the rest by skipping the files being deleted by other applications. <br/> - False: you want to abort the copy activity once any files are being deleted from source store in the middle of data movement. <br/>Be aware this property is set to true as default. | True(default) <br/>False | No
-fileForbidden | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, which you do not have permission to access.  <br/> -True: you want to copy the rest by skipping the files, which you have the permission issue to access. <br/> - False: you want to abort the copy activity once meeting the permission issue to access. | True <br/>False(default) | No
+fileForbidden | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, when the ACLs of those files or folders require higher permission level than the connection configured in ADF. <br/> -True: you want to copy the rest by skipping the files. <br/> - False: you want to abort the copy activity once getting the permission issue on folders or files. | True <br/>False(default) | No
 dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent data between source and destination store. <br/> -True: you want to copy the rest by skipping inconsistent data. <br/> - False: you want to abort the copy activity once inconsistent data found. <br/>Be aware this property is only valid when you set validateDataConsistency as True. | True <br/>False(default) | No
 logStorageSettings  | A group of properties that can be specified when you want to log the skipped object names. | &nbsp; | No
-linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log file. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you want to use to store the log file. | No
-path | The path of the log file. | Specify the path that you want to use to store the log file. If you do not provide a path, the service creates a container for you. | No
+linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you use to store the log file. | No
+path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 ### Monitoring 
 
@@ -103,17 +103,17 @@ You can get the number of files being read, written, and skipped via the output 
 
 #### Session log from copy activity
 
-If you configure to log the skipped file names, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+If you configure to log the skipped file names, you can find the log file from this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
 The log files have to be the csv files. The schema of the log file is as following:
 
 Column | Description 
 -------- | -----------  
-Timestamp | The timestamp when ADF skips the particular file
-Level | The log level for this item. It can be the 'Warning' for file skipping operational log.
-OperationName | ADF copy activity operational behavior on each object. It can be 'FileSkip' or 'TabularRowSkip' to specify the file or row to be skipped.
-OperationItem | The object names to be skipped.
-Message | More information to illustrate why the file was skipped.
+Timestamp | The timestamp when ADF skips the file.
+Level | The log level of this item. It will be in 'Warning' level for the item showing file skipping.
+OperationName | ADF copy activity operational behavior on each file. It will be 'FileSkip' to specify the file to be skipped.
+OperationItem | The file names to be skipped.
+Message | More information to illustrate why the file being skipped.
 
 The example of a log file is as following: 
 ```
@@ -171,9 +171,9 @@ The following example provides a JSON definition to configure skipping the incom
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifies whether to skip incompatible rows during copy or not. | True<br/>False (default) | No
-redirectIncompatibleRowSettings | A group of properties that can be specified when you want to log the incompatible rows. | &nbsp; | No
-linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log that contains the skipped rows. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you want to use to store the log file. | No
-path | The path of the log file that contains the skipped rows. | Specify the path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
+logStorageSettings | A group of properties that can be specified when you want to log the incompatible rows. | &nbsp; | No
+linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log that contains the skipped rows. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you use to store the log file. | No
+path | The path of the log files that contains the skipped rows. | Specify the path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
 
 ### Monitor skipped rows
 After the copy activity run completes, you can see the number of skipped rows in the output of the copy activity:
@@ -192,17 +192,17 @@ After the copy activity run completes, you can see the number of skipped rows in
 
 ```
 
-If you configure to log the incompatible rows, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+If you configure to log the incompatible rows, you can find the log file from this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-The log files can only be the csv files. The schema of the log file is as following:
+The log files will be the csv files. The schema of the log file is as following:
 
 Column | Description 
 -------- | -----------  
 Timestamp | The timestamp when ADF skips the incompatible rows
-Level | The level of log information for this item. It will be in 'Warning' level if this item shows the skipped rows
-OperationName | The type of ADF copy activity operation against data. It will be 'TabularRowSkip' to specify that the particular incompatible row has been skipped
-OperationItem | The skipped rows from the source data store
-Message | root cause of the incompatibility of this particular row
+Level | The log level of this item. It will be in 'Warning' level if this item shows the skipped rows
+OperationName | ADF copy activity operational behavior on each row. It will be 'TabularRowSkip' to specify that the particular incompatible row has been skipped
+OperationItem | The skipped rows from the source data store.
+Message | More information to illustrate why the incompatibility of this particular row.
 
 
 An example of the log file content is as follows:
@@ -218,7 +218,7 @@ From the sample log file above, you can see one row "data1, data2, data3" has be
 
 ## Copying tabular data (Legacy):
 
-The following is the legacy way to enable fault tolerance for copying non-binary data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
+The following is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
 
 ### Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:
