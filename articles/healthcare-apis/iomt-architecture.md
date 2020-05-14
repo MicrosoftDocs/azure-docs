@@ -10,6 +10,8 @@ ms.date: 05/13/2020
 ms.author: punagpal
 ---
 
+# IoMT connector Architecture
+
 This article provides an overview of IoMT connector architecture. You'll learn about IoMT connector's internal components and data processing stages that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
 > [!div class="mx-imgBorder"]
@@ -48,14 +50,5 @@ If no Device resource for a given device identifier exists in the FHIR server, t
 Once the Observation FHIR resource is generated in the Transform stage, it is created or merged into Azure API for FHIR.
 
 Both Transform and Persist stages are executed using an instance of [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-
-
-## Next Steps
-
-Learn to create device mapping and FHIR mapping templates.
-
->[!div class="nextstepaction"]
->[IoMT connector mapping templates](to-be-filled.md)
-
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
