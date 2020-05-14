@@ -145,28 +145,36 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 ## Phone call settings
 
-### Caller ID
+If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or voice greeting they hear.
 
-**MFA caller ID number** - This is the number your users will see on their phone. Only US-based numbers are allowed.
+In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following numbers. If using spam filters, make sure to exclude these numbers:
 
->[!NOTE]
->When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
+* *+1 (866) 539 4191*
+* *+1 (855) 330 8653*
+* *+1 (877) 668 6536*
 
-In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536. If using spam filters, make sure to exclude these numbers.
+> [!NOTE]
+> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though Azure Multi-Factor Authentication always sends it.
+
+To configure your own caller ID number, complete the following steps:
+
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Set the **MFA caller ID number** to the number you wish users to see on their phone. Only US-based numbers are allowed.
+1. When ready, select **Save**.
 
 ### Custom voice messages
 
-You can use your own recordings or greetings for two-step verification with the _custom voice messages_ feature. These messages can be used in addition to or to replace the Microsoft recordings.
+You can use your own recordings or greetings for Azure Multi-Factor Authentication with the custom voice messages feature. These messages can be used in addition to or to replace the default Microsoft recordings.
 
 Before you begin, be aware of the following restrictions:
 
-* The supported file formats are .wav and .mp3.
+* The supported file formats are *.wav* and *.mp3*.
 * The file size limit is 1 MB.
 * Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
 
 ### Custom message language behavior
 
-When a custom voice message is played to the user, the language of the message depends on these factors:
+When a custom voice message is played to the user, the language of the message depends on the following factors:
 
 * The language of the current user.
   * The language detected by the user's browser.
@@ -179,18 +187,9 @@ For example, if there is only one custom message, with a language of German:
 * A user who authenticates in the German language will hear the custom German message.
 * A user who authenticates in English will hear the standard English message.
 
-### Set up a custom message
-
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
-1. Select **Add greeting**.
-1. Choose the type of greeting.
-1. Choose the language.
-1. Select an .mp3 or .wav sound file to upload.
-1. Select **Add**.
-
 ### Custom voice message defaults
 
-Sample scripts for creating custom messages.
+The following sample scripts can be used to create your own custom messages. These phrases are the defaults if you don't configure your own custom messages:
 
 | Message name | Script |
 | --- | --- |
@@ -212,6 +211,17 @@ Sample scripts for creating custom messages.
 | Activation retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
 | Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
 | Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension … |
+
+### Set up a custom message
+
+To use your own custom messages, complete the following steps:
+
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Select **Add greeting**.
+1. Choose the **Type** of greeting, such as *Greeting (standard)* or  *Authentication successful*.
+1. Select the **Language**, based on the previous section on [custom message language behavior](#custom-message-language-behavior).
+1. Browse for an select an *.mp3* or *.wav* sound file to upload.
+1. When ready, select **Add**, then **Save**.
 
 ## MFA service settings
 
