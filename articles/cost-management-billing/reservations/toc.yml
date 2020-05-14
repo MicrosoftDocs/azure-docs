@@ -61,7 +61,7 @@
       href: view-reservation-purchase-refunds.md
     - name: Charge back reservation costs
       href: charge-back-reservation-usage.md
-      - name: Renew reservations
+  - name: Renew reservations
     items:
     - name: Renew a reservation
       href: reservation-renew.md
