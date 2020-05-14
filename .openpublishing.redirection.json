@@ -47621,6 +47621,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-pnp/howto-generate-sas-token.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": false

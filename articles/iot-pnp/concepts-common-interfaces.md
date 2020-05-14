@@ -3,7 +3,7 @@ title: Common interfaces - IoT Plug and Play Preview | Microsoft Docs
 description: Description of common interfaces for IoT Plug and Play developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/26/2019
+ms.date: 05/14/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -20,13 +20,9 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 | Digital Twin Client SDK Information | dtmi:azure:Client:SDKInformation;1 | Client SDK for connecting the device with Azure. | Yes |
 | Device information | dtmi:azure:DeviceManagement:DeviceInformation;1 | Hardware and operating system information about the device. | Yes |
 
+## Retrieve interface definitions
 
-- Implemented by Azure IoT SDK - Whether the Azure IoT SDK implements the capabilities declared in the interfaces. IoT Plug and Play devices that use the Azure IoT SDK don't need to implement this interface.
-- Must be declared in device model - If 'yes', this interface must be declared within the `"implements":` section of the device model for this IoT Plug and Play device.
-
-## Retrieve interface definitions 
 You can log into [Azure IoT Model Repository portal (preview)](https://aka.ms/iotmodelrepo) to retrieve the definition of common interfaces. These common interfaces can be found under Public Models. For more information, see [Understand Plug and Play Model Repository (Preview)](concepts-model-repository.md).
-
 
 ## Next steps
 
