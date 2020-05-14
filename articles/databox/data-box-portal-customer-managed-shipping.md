@@ -15,11 +15,11 @@ ms.author: v-grpr
 
 This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of choosing a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter.
 
-It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact will be assigned an authorization code. This authorization code is needed during device pickup and drop-off at the datacenter.
+It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact, will be assigned an authorization code. This authorization code is needed during device pick-up and drop-off at the datacenter.
 
 ## Prerequisites
 
-Make sure your Azure Data Box order was created for one of the following regions:
+Self-managed shipping for Azure Data Box is only available to the following regions:
 
 1. Western Europe
 2. Japan
@@ -59,7 +59,7 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
    Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
 
-7. Your order automatically moves to the **Picked up** state once the device preparation is complete. You will receive an email instructing you to contact Microsoft to schedule a pickup appointment at the datacenter.
+7. Your order automatically moves to the **Picked up** state once the device preparation is complete. You will receive an email instructing you to contact Microsoft to schedule a pickup appointment at the datacenter. 
 
     ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
