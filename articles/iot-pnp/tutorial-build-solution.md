@@ -20,7 +20,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 **Installation for Bug Bash 5/13**
 
-1. Create an IoT Hub in Central US region, with the **IOTPNP_TEST_BY_MAIN** subscription. Create the IoT Hub under this subscription, within the resource group **BugBash** in the supported region: **Central US**.
+1. Create an IoT Hub in either the Central US region or the East US region, with the **IOTPNP_TEST_BY_MAIN** subscription. Create the IoT Hub under this subscription, within the resource group **BugBash** in one of the supported regions: **Central US (UAP)** or **East US (CBN)**.
 
 1. Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 

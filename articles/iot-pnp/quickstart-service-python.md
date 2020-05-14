@@ -45,7 +45,7 @@ For the bug bash, use a private package. This package will be published as a PIP
 Go to https://aka.ms/PythonServicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_hub-2.2.0-py2.py3-none-any.whl
+pip install azure_iot_hub-2.2.0_pnp_preview_refresh.0-py2.py3-none-any.whl
 ```
 
 ## Run the sample device

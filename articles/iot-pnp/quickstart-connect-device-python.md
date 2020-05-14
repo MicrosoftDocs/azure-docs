@@ -51,7 +51,7 @@ For the bug bash, use a private package. This package will be published as a PIP
 Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_device-2.1.0-py2.py3-none-any.whl
+pip install azure_iot_device-2.1.0_pnp_preview_refresh.0-py2.py3-none-any.whl
 ```
 
 Clone the Python SDK IoT repository and check out the preview branch called **digitaltwins-preview**:
