@@ -69,7 +69,7 @@ Once you have [Node.js](https://nodejs.org/en/download/) installed, create a fol
     npm install @azure/msal-browser
     npm install express
     ```
-2. Next, create a .js file named *server.js* containing following code:
+2. Next, create file named *server.js* and add the following code:
 
    ```JavaScript
    const express = require('express');
@@ -273,13 +273,9 @@ You now have a small webserver to serve your SPA. The folder structure you shoul
 
 Follow the steps in [Single-page application: App registration](scenario-spa-app-registration.md) to create an app registration for your SPA.
 
-### Set a redirect URL for Node.js
+In the **Redirect URI** configuration step, enter `http://localhost:3000`, the default location where this tutorial's application runs.
 
-For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port `3000`, but you can use any other available port.
-
-To configure a redirect URL in your app registration, select **App registrations** in the Azure portal, and then the app registration you created earlier.
-
-Next, add a **Redirect URI**. To use the tutorial default port of `3000`, enter `http://localhost:3000`. If you'd like to use a different port, enter `http://localhost:<port>`, where `<port>` is your preferred TCP port number.
+If you'd like to use a different port, enter `http://localhost:<port>`, where `<port>` is your preferred TCP port number. If you specify a port number other than `3000`, also update *server.js* with your preferred port number.
 
 ### Configure your JavaScript SPA
 
@@ -341,6 +337,7 @@ Modify the values in the `graphConfig` section as described here:
 ## Use MSAL to sign in the user
 
 ### PopUp
+
 Create a new .js file named `authPopup.js`, which will contain your authentication and token acquisition logic for login popUp, and add the following code:
 
    ```JavaScript
@@ -405,7 +402,9 @@ function readMail() {
     }
 }
    ```
+
 ### Redirect
+
 Create a new .js file named `authRedirect.js`, which will contain your authentication and token acquisition logic for login redirect, and add the following code:
 
 ```javascript
