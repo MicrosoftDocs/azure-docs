@@ -52981,6 +52981,146 @@
             "source_path": "articles/sql-database/sql-database-managed-instance-transactional-replication.md",
             "redirect_url": "/azure/azure-sql/database/transactional-replication-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-monitor-tune-overview.md",
+            "redirect_url": "/azure/azure-sql/database/monitor-tune-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-move-resources-across-regions.md",
+            "redirect_url": "/azure/azure-sql/database/move-resources-across-regions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-planned-maintenance.md",
+            "redirect_url": "/azure/azure-sql/database/planned-maintenance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-powershell-samples.md",
+            "redirect_url": "/azure/azure-sql/database/powershell-script-content-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-purchase-models.md",
+            "redirect_url": "/azure/azure-sql/database/purchasing-models",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-read-scale-out.md",
+            "redirect_url": "/azure/azure-sql/database/read-scale-out",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-recovery-using-backups.md",
+            "redirect_url": "/azure/azure-sql/database/recovery-using-backups",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-release-notes.md",
+            "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-reserved-capacity.md",
+            "redirect_url": "/azure/azure-sql/database/reserved-capacity-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-health.md",
+            "redirect_url": "/azure/azure-sql/database/use-resource-health-troubleshoot-connectivity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-manager-samples.md",
+            "redirect_url": "/azure/azure-sql/database/arm-templates-content-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-scale-resources.md",
+            "redirect_url": "/azure/azure-sql/database/scale-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-security-best-practice.md",
+            "redirect_url": "/azure/azure-sql/database/security-best-practice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-security-overview.md",
+            "redirect_url": "/azure/azure-sql/database/security-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tier-business-critical.md",
+            "redirect_url": "/azure/azure-sql/database/service-tier-business-critical",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tier-general-purpose.md",
+            "redirect_url": "/azure/azure-sql/database/service-tier-general-purpose",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tiers-vcore.md",
+            "redirect_url": "/azure/azure-sql/database/service-tiers-vcore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-spark-connector.md",
+            "redirect_url": "/azure/azure-sql/database/spark-connector",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-technical-overview.md",
+            "redirect_url": "/azure/azure-sql/database/technical-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-threat-detection-overview.md",
+            "redirect_url": "/azure/azure-sql/database/threat-detection-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-threat-detection.md",
+            "redirect_url": "/azure/azure-sql/database/threat-detection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-vulnerability-assessment.md",
+            "redirect_url": "/azure/azure-sql/database/sql-vulnerability-assessment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/transparent-data-encryption-azure-sql.md",
+            "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-tde-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/transparent-data-encryption-byok-azure-sql-configure.md",
+            "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/transparent-data-encryption-byok-azure-sql-key-rotation.md",
+            "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/transparent-data-encryption-byok-azure-sql-remove-tde-protector.md",
+            "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-remove-tde-protector",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/transparent-data-encryption-byok-azure-sql.md",
+            "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md",
+            "redirect_url": "/azure/azure-sql/database/troubleshoot-common-errors-issues",
+            "redirect_document_id": true
         }
     ]
 }
