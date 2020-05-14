@@ -19,7 +19,7 @@ If you have been creating generalized custom images, using cloud-init to do prov
 Some examples, of issues with provisioning:
 - VM gets stuck at 'creating' for 40 minutes, and the VM creation is marked as failed
 - CustomData does not get processed
-- Ephemeral disk fails to mount
+- The ephemeral disk fails to mount
 - Users do not get created, or there are user access issues
 - Networking is not setup correctly
 - Swap file or partition failures
@@ -128,7 +128,7 @@ If you still cannot isolate why cloud-init failed to provision then you need to 
 <Create Master KB - > <DS>
 <Send link to Saim to create KB's>
 
-## Step 4: cloud-init configuration you are passing is not being applied
+## Step 4: Investigate why the cloud-init configuration is not being applied
 Not every failure in cloud-init results in a fatal provisioning failure. For example, if you are using the `runcmd` module in a cloud-init config, a non zero exit code from the command it is running will not fail the the VM provisioning. This is because it runs after core provisioning functionality that happens in the first 3 stages of cloud-init. To troubleshoot why the configuration did not apply, review the logs in Step 3, and cloud-init modules manually. For example:
 
 - `runcmd` - do the scripts run without errors? Run the configuration manually from the terminal to ensure they run as expected.
