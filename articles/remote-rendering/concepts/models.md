@@ -98,6 +98,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
 {
     LoadModelParams modelParams;
+    modelParams.Parent = modelParent;
     modelParams.Blob.StorageAccountName = std::move(storageAccount);
     modelParams.Blob.BlobContainerName = std::move(containerName);
     modelParams.Blob.AssetPath = std::move(assetFilePath);

@@ -73,7 +73,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
     {
         if (res->IsRanToCompletion())
         {
-            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();// .SkyReflectionTexture(skyTex);
+            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
             settings->SkyReflectionTexture(*res->Result());
         }
         else

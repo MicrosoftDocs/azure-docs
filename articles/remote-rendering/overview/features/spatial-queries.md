@@ -90,7 +90,7 @@ There are three hit collection modes:
 To exclude objects selectively from being considered for ray casts, the [HierarchicalStateOverrideComponent](override-hierarchical-state.md) component can be used.
 
 <!--
-The CollisionMask allows the query to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
+The CollisionMask allows the query to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has bit L set.
 It is useful in case you want to ignore objects, for instance when setting an object transparent, and trying to select another object behind it.
 TODO : Add an API to make that possible.
 -->
