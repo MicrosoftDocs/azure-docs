@@ -214,4 +214,4 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
