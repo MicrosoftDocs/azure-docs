@@ -75,11 +75,11 @@ A service tier change or compute rescaling operation can be canceled.
 
 In the database overview blade, navigate to **Notifications** and click on the tile indicating there is an ongoing operation:
 
-![Ongoing operation](./media/scale-single-database/ongoing-operations.png)
+![Ongoing operation](./media/single-database-scale/ongoing-operations.png)
 
 Next, click on the button labeled **Cancel this operation**.
 
-![Cancel ongoing operation](./media/scale-single-database/cancel-ongoing-operation.png)
+![Cancel ongoing operation](./media/single-database-scale/cancel-ongoing-operation.png)
 
 ### PowerShell
 
