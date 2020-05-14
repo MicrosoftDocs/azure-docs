@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/14/2020
 
 ---
 
@@ -123,11 +123,9 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides the ability to achieve 99.95% availability for the API server with [Uptime SLA][uptime-sla.md].
+AKS offers an optional [uptime SLA add-on][uptime-sla] for the Kubernetes API server. Customers who choose the SLA add-on are guaranteed 99.95% availability for clusters which are spread across availability zones and 99.9% availability for those which are not. For clusters without the SLA add-on, AKS maintaines a service-level objective of 99.5% availability. 
 
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
-
-It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
+It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines and therefore covered by the [VM SLA][vm-sla]. In the event that the Kubernetes control plane is unavailable, your applications will continue to function. However, you will be unable to deploy new applications, scale or upgrade existing applications, or perform other management operations on the cluster.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -216,3 +214,4 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
