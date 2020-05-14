@@ -19,6 +19,9 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
+> [!NOTE]  
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+
 ## Send custom metrics 
 
 For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both Debian and RPM packages are available along with unpackaged Linux binaries on the [InfluxData download portal](https://portal.influxdata.com/downloads). See this [Telegraf installation guide](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) for additional installation instructions and options. 

@@ -1,19 +1,8 @@
 ---
-title: Integration with Azure Policies - Azure Batch | Microsoft Docs
-description: 
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Integration with Azure Policies
+description: Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce rules over your resources.
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: labrenne
 ms.custom: seodec18
 
 ---

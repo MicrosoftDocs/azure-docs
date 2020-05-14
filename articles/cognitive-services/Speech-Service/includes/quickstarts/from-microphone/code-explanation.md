@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 The Speech resource subscription key and region are required to create a speech configuration object. The configuration object is needed to instantiate a speech recognizer object.

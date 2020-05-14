@@ -1,6 +1,6 @@
 ---
 title: View file content changes with Azure Automation
-description: Use the file content change feature of Change tracking to view the contents of a file that has changed.
+description: Use the file content change feature of Change Tracking to view the contents of a file that has changed.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
@@ -14,9 +14,9 @@ File content tracking allows you to view the contents of a file before and after
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. Premium and classic deployment model storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
 
-* The storage account used can only have 1 Automation Account connected.
+* The storage account used can only have 1 Automation account connected.
 
-* [Change Tracking](automation-change-tracking.md) is enabled in your Automation Account.
+* [Change Tracking](automation-change-tracking.md) is enabled in your Automation account.
 
 ## Enable file content tracking
 
@@ -38,19 +38,19 @@ File content tracking allows you to view the contents of a file before and after
 
 The following steps walk you through turning on change tracking for a file:
 
-1. On the **Edit Settings** page of **Change Tracking**, select either **Windows Files** or **Linux Files** tab, and click **Add**
+1. On the Edit Settings page of **Change Tracking**, select either the **Windows Files** or the **Linux Files** tab, and click **Add**
 
-1. Fill out the information for the file path and select **True** under **Upload file content for all settings**. This setting enables file content tracking for that file path only.
+1. Fill out the information for the file path and select True under **Upload file content for all settings**. This setting enables file content tracking for that file path only.
 
    ![add a linux file](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## Viewing the contents of a tracked file
 
-1. Once a change has been detected for the file or a file in the path, it shows in the portal. Select the file change from the list of changes. The **Change details** pane is displayed.
+1. Once a change has been detected for the file or a file in the path, it shows in the portal. Select the file change from the list of changes. The Change details pane is displayed.
 
    ![list changes](./media/change-tracking-file-contents/change-list.png)
 
-1. On the **Change details** page, you see the standard before and after file information, in the top left, click **View File Content Changes** to see the contents of the file.
+1. On the Change details pane, you see the standard before and after file information. Select **View File Content Changes** to see the contents of the file.
 
    ![change details](./media/change-tracking-file-contents/change-details.png)
 

@@ -10,14 +10,8 @@
   items:
   - name: Try Content Moderator on web
     href: quick-start.md
-  - name: Using the client SDK
-    items:
-    - name: Using the .NET SDK
-      href: dotnet-sdk-quickstart.md
-    - name: Using the Python SDK
-      href: python-sdk-quickstart.md
-    - name: Using the Java SDK
-      href: java-sdk-quickstart.md
+  - name: Using the client library
+    href: client-libraries.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images

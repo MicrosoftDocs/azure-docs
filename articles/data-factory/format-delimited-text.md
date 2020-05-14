@@ -14,6 +14,7 @@ ms.author: jingwang
 ---
 
 # Delimited text format in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
 

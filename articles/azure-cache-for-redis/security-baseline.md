@@ -860,7 +860,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 Only secure connections to your Redis Cache should be enabled
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 How to configure and manage Azure Policy:

@@ -169,6 +169,9 @@ Add up to three (but at least one) supporting PDF documents for your offer.
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Store logos
 
 Provide .png files of your offer&#39;s logo in each of the following pixel sizes:

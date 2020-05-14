@@ -206,7 +206,7 @@ You can prepare in advance for failover as follows:
 To run a large-scale failover, we recommend the following:
 
 1. Create recovery plans for workload failover.
-    - Each recovery plan can trigger failover of up to 50 machines.
+    - Each recovery plan can trigger failover of up to 100 machines.
     - [Learn more](recovery-plan-overview.md) about recovery plans.
 2. Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Typical tasks include configuring load balancers, updating DNS etc. [Learn more](site-recovery-runbook-automation.md)
 2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) about runbooks.

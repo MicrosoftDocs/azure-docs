@@ -12,7 +12,7 @@ ms.author: dsindona
 # Container Offer Settings tab
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) to manage your migrated offers.
 
 The **Containers > New Offer** page opens with the focus on the **Offer Settings** tab. 
 

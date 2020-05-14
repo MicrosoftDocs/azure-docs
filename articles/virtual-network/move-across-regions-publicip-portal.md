@@ -3,6 +3,7 @@ title: Move Azure Public IP to another Azure region using the Azure portal
 description: Use Azure Resource Manager template to move Azure Public IP from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu

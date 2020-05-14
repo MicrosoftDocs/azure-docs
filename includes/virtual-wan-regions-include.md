@@ -37,5 +37,5 @@ Site-to-site based VPN connectivity and Virtual WAN architecture is available fo
 |Geopolitical region | Azure regions|
 |---|---|
 | US Government cloud | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East |
-| China East | China East, China East2|
-| China North | China North, China North2 |
+| China East | China East2|
+| China North | China North2 |

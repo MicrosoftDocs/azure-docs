@@ -18,5 +18,5 @@ As a developer, you might find the following Azure Spring Cloud resources useful
 * [MSDN Forum](https://social.msdn.microsoft.com/Forums/home)
 * [Java Spring Cloud website](https://spring.io/)
 * [Spring framework](https://cloud.spring.io/spring-cloud-azure/)
-* [Spring on Azure](https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable)
+* [Spring on Azure](https://docs.microsoft.com/azure/developer/java/spring-framework/)
 * [Spring Cloud microservices architecture by Pivotal](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)

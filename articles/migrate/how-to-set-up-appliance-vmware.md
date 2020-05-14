@@ -2,17 +2,22 @@
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 04/16/2020
 ---
 
 
 # Set up an appliance for VMware VMs
 
-This article describes how to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Server Assessment and Server Migration to discover on-premises VMware VMs, send VM metadata/performance data to Azure, and for replication of VMware VMs during agentless migration.
 
-You can set up the Azure Migrate appliance for VMware VM assessment using an OVA template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the OVA template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
+You can deploy the appliance using a couple of methods:
+
+- Set up on a VMware VM using a downloaded OVA template. This is the method described in this article.
+- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
+
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 
 ## Appliance deployment (OVA)
@@ -59,9 +64,9 @@ will be hosted.
 9. Review and confirm the settings, then click **Finish**.
 
 
-### Verify appliance access to Azure
+## Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 
 ## Configure the appliance

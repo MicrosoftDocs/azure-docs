@@ -8,6 +8,7 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway

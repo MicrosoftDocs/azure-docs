@@ -96,14 +96,16 @@
     href: how-to-assess.md
   - name: Deploy Azure Migrate appliance
     items:
-    - name: Deploy appliance for VMware (OVA)
+    - name: Deploy appliance with template (VMware)
       href: how-to-set-up-appliance-vmware.md
-    - name: Deploy appliance for Hyper-V (VHD)
+    - name: Deploy appliance with template (Hyper-V)
       href: how-to-set-up-appliance-hyper-v.md
-    - name: Deploy appliance for VMware/Hyper-V (script)
+    - name: Deploy appliance with script (VMware/Hyper-V)
       href: deploy-appliance-script.md
     - name: Deploy appliance for physical servers
       href: how-to-set-up-appliance-physical.md
+    - name: Deploy appliance in Azure Government
+      href: deploy-appliance-script-government.md
   - name: Limit discovery scope for VMware VMs
     href: set-discovery-scope.md
   - name: Discover applications/roles/features

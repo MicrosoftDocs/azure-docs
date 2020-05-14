@@ -39,7 +39,7 @@ Enabling large file shares on an account is an irreversible process. After you e
     ![Screenshot showing how to create a resource group in the portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Next, enter a name for your storage account. The name must be unique across Azure. The name also must be 3 to 24 characters in length, and it can only have numbers and lowercase letters.
-1. Select a location for your storage account, and make sure it's [one of the supported replication for large file shares](storage-files-planning.md#regional-availability).
+1. Select a location for your storage account.
 1. Set the replication to either **Locally redundant storage** or **Zone-redundant storage**.
 1. Leave these fields at their default values:
 

@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---

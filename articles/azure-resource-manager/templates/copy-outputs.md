@@ -2,7 +2,7 @@
 title: Define multiple instances of an output value
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when returning a value from a deployment.
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 04/17/2020
 ---
 # Output iteration in ARM templates
 
@@ -15,12 +15,10 @@ You can also use copy with [resources](copy-resources.md), [properties in a reso
 The copy element has the following general format:
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 The **count** property specifies the number of iterations you want for the output value.

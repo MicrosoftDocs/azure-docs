@@ -81,6 +81,7 @@ The Log Search pane opens with a query region scoped to your Automation account 
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Filtering details:
 
 * Filter on `DscNodeStatusData` to return operations for each State Configuration node.
@@ -99,7 +100,7 @@ the alert rule.
 1. From the Log Analytics workspace Overview page, click **Logs**.
 1. Create a log search query for your alert by typing the following search in the query field:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the **DscNodeStatusData** records.
+   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the `DscNodeStatusData` records.
 1. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. 
 
 For more information on the options to configure the alert, see [Create an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -123,46 +124,46 @@ This query displays a chart of the node status over time.
 
 Azure Automation diagnostics create two categories of records in Azure Monitor logs:
 
-* Node status data (**DscNodeStatusData**)
-* Resource status data (**DscResourceStatusData**)
+* Node status data (`DscNodeStatusData`)
+* Resource status data (`DscResourceStatusData`)
 
 ### DscNodeStatusData
 
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |DscNodeStatusData. |
-| ResultType |Whether the node is compliant. |
+| OperationName |`DscNodeStatusData`. |
+| ResultType |Value that indicates if the node is compliant. |
 | NodeName_s |The name of the managed node. |
-| NodeComplianceStatus_s |Whether the node is compliant. |
-| DscReportStatus |Whether the compliance check ran successfully. |
-| ConfigurationMode | How the configuration is applied to the node. Possible values are: <ul><li>`ApplyOnly`: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. DSC attempts to apply the configuration until it is successful before the `ApplyOnly` value takes effect. </li><li>`ApplyAndMonitor`: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. DSC attempts to apply the configuration until it is successful before the `ApplyAndMonitor` value takes effect.</li><li>`ApplyAndAutoCorrect`: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then reapplies the current configuration.</li></ul> |
+| NodeComplianceStatus_s |Status value that specifies if the node is compliant. |
+| DscReportStatus |Status value indicating if the compliance check ran successfully. |
+| ConfigurationMode | The mode used to apply the configuration to the node. Possible values are: <ul><li>`ApplyOnly`: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. DSC attempts to apply the configuration until it is successful before the `ApplyOnly` value takes effect. </li><li>`ApplyAndMonitor`: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. DSC attempts to apply the configuration until it is successful before the `ApplyAndMonitor` value takes effect.</li><li>`ApplyAndAutoCorrect`: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then reapplies the current configuration.</li></ul> |
 | HostName_s | The name of the managed node. |
 | IPAddress | The IPv4 address of the managed node. |
-| Category | DscNodeStatus. |
+| Category | `DscNodeStatus`. |
 | Resource | The name of the Azure Automation account. |
-| Tenant_g | GUID that identifies the tenant for the Caller. |
-| NodeId_g |GUID that identifies the managed node. |
-| DscReportId_g |GUID that identifies the report. |
-| LastSeenTime_t |Date and time when the report was last viewed. |
-| ReportStartTime_t |Date and time when the report was started. |
-| ReportEndTime_t |Date and time when the report completed. |
-| NumberOfResources_d |The number of DSC resources called in the configuration applied to the node. |
-| SourceSystem | How Azure Monitor logs collected the data. Always "Azure" for Azure diagnostics. |
-| ResourceId |Identifier of the Azure Automation account. |
-| ResultDescription | The description for this operation. |
+| Tenant_g | GUID that identifies the tenant for the caller. |
+| NodeId_g | GUID that identifies the managed node. |
+| DscReportId_g | GUID that identifies the report. |
+| LastSeenTime_t | Date and time when the report was last viewed. |
+| ReportStartTime_t | Date and time when the report was started. |
+| ReportEndTime_t | Date and time when the report completed. |
+| NumberOfResources_d | The number of DSC resources called in the configuration applied to the node. |
+| SourceSystem | The source system identifying how Azure Monitor logs has collected the data. Always `Azure` for Azure diagnostics. |
+| ResourceId |The resource identifier of the Azure Automation account. |
+| ResultDescription | The resource description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION. |
 | ResourceType | AUTOMATIONACCOUNTS. |
-| CorrelationId |GUID that is the correlation identifier of the compliance report. |
+| CorrelationId | A GUID that is the correlation identifier of the compliance report. |
 
 ### DscResourceStatusData
 
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | ResultType |Whether the resource is compliant. |
 | NodeName_s |The name of the managed node. |
 | Category | DscNodeStatus. |
@@ -180,10 +181,10 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 | ErrorMessage_s |The error message if the resource failed. |
 | DscResourceDuration_d |The time, in seconds, that the DSC resource ran. |
 | SourceSystem | How Azure Monitor logs collected the data. Always `Azure` for Azure diagnostics. |
-| ResourceId |Specifies the Azure Automation account. |
+| ResourceId |The identifier of the Azure Automation account. |
 | ResultDescription | The description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION. |
 | ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID that is the correlation ID of the compliance report. |

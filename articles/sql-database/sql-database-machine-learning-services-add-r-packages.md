@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
+ROBOTS: NOINDEX
 ---
 
 # Add an R package to Azure SQL Database Machine Learning Services (preview)

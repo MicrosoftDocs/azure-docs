@@ -12,7 +12,7 @@ ms.author: dsindona
 # Prepare your container technical assets
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Prepare your Azure Container technical assets](https://aka.ms/CreateContainerTechAssets) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Prepare your Azure Container technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) to manage your migrated offers.
 
 This article describes steps and requirements for configuring a container offer the Azure Marketplace.
 

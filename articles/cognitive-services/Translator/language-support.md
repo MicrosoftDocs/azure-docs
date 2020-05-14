@@ -58,6 +58,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |French|	`fr`	|	Neural|
 |German|	`de`	|	Neural|
 |Greek|	`el`	|	Neural|
+|Gujarati|	`gu`	|	Neural|
 |Haitian Creole|	`ht`		|Statistical|
 |Hebrew	|`he`	|Neural
 |Hindi|	`hi`	|	Neural|
@@ -80,6 +81,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Malayalam| `ml` | Neural
 |Maltese|	`mt`	|	Statistical|
 |Maori| `mi`  | Neural|
+|Marathi| `mr`  | Neural|
 |Norwegian|	`nb`	|	Neural|
 |Persian|	`fa`	|	Neural|
 |Polish|	`pl`	|	Neural|

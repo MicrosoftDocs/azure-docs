@@ -11,7 +11,7 @@ ms.author: victorh
 
 # TLS termination with Key Vault certificates
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
+[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
 Key Vault integration offers two models for TLS termination:
 
@@ -42,7 +42,10 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure your key vault**
 
-   You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a key vault secret that's stored as a password-less, base 64-encoded PFX file. We recommend using a certificate type because of the autorenewal capability that's available with certificate type objects in the key vault. After you've created a certificate or a secret, you define access policies in the key vault to allow the identity to be granted *get* access to the secret.
+   You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file. We recommend using a certificate type because of the autorenewal capability that's available with certificate type objects in the key vault. After you've created a certificate or a secret, you define access policies in the key vault to allow the identity to be granted *get* access to the secret.
+   
+   > [!NOTE]
+   > If you deploy the application gateway via an ARM template, either by using the Azure CLI or PowerShell, or via an Azure Application deployed from the Azure portal, the SSL certificate that's stored in the key vault as a base-64-encoded PFX file **must be passwordless**. Also, you must complete the steps in [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md). It's particularly important to set `enabledForTemplateDeployment` to `true`.
 
 1. **Configure the application gateway**
 

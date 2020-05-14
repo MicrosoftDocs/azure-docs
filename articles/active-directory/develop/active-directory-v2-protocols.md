@@ -19,9 +19,6 @@ ms.custom: aaddev
 
 The Microsoft identity platform endpoint for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 
-> [!NOTE]
-> Not all Azure AD scenarios and features are supported by the Microsoft identity platform endpoint. To determine if you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
-
 ## The basics
 
 In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
@@ -64,7 +61,7 @@ Where the `{tenant}` can take one of four different values:
 To learn how to interact with these endpoints, choose a particular app type in the [Protocols](#protocols) section and follow the links for more info.
 
 > [!TIP]
-> Any app registered in Azure AD can use the Microsoft identity platform endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.  
+> Any app registered in Azure AD can use the Microsoft identity platform endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.
 
 ## Tokens
 

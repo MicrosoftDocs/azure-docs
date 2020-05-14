@@ -9,6 +9,7 @@ metadata:
   services: security
   ms.service: security
   ms.subservice: fundamentals
+  ms.custom: security-baselines
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin

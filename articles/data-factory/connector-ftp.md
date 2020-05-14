@@ -19,6 +19,7 @@ ms.author: jingwang
 >
 > * [Version 1](v1/data-factory-ftp-connector.md)
 > * [Current version](connector-ftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data from FTP server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 

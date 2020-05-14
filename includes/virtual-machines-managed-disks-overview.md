@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/06/2019
+ ms.date: 04/24/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -28,11 +28,11 @@ Managed disks are integrated with availability sets to ensure that the disks of 
 
 ### Integration with Availability Zones
 
-Managed disks support [Availability Zones](../articles/availability-zones/az-overview.md), which is a high-availability offering that protects your applications from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA.
+Managed disks support [Availability Zones](../articles/availability-zones/az-overview.md), which is a high-availability offering that protects your applications from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA.
 
 ### Azure Backup support
 
-To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to four tebibyte (TiB) disks.  Azure Backup supports backup and restore of managed disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
+To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform VM or managed disk restorations at will. Currently Azure Backup supports disk sizes up to 32 tebibyte (TiB) disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
 
 ### Granular access control
 
@@ -110,7 +110,7 @@ The following diagram depicts real-time allocation of bandwidth and IOPS for dis
 
 ![Three level provisioning system showing bandwidth and IOPS allocation](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-The first level provisioning sets the per-disk IOPS and bandwidth assignment.  At the second level, compute server host implements SSD provisioning, applying it only to data that is stored on the server’s SSD, which includes disks with caching (ReadWrite and ReadOnly) as well as local and temp disks. Finally, VM network provisioning takes place at the third level for any I/O that the compute host sends to Azure Storage's backend. With this scheme, the performance of a VM depends on a variety of factors, from how the VM uses the local SSD, to the number of disks attached, as well as the performance and caching type of the disks it has attached.
+The first level provisioning sets the per-disk IOPS and bandwidth assignment.  At the second level, compute server host implements SSD provisioning, applying it only to data that is stored on the server's SSD, which includes disks with caching (ReadWrite and ReadOnly) as well as local and temp disks. Finally, VM network provisioning takes place at the third level for any I/O that the compute host sends to Azure Storage's backend. With this scheme, the performance of a VM depends on a variety of factors, from how the VM uses the local SSD, to the number of disks attached, as well as the performance and caching type of the disks it has attached.
 
 As an example of these limitations, a Standard_DS1v1 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 

@@ -15,6 +15,8 @@ ms.date: 01/06/2020
 
 # Azure Integration Runtime IP addresses
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
 
 > [!IMPORTANT]  

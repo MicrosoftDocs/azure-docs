@@ -113,6 +113,7 @@ You can also configure more granular details of the cluster autoscaler by changi
 | scale-down-unready-time          | How long an unready node should be unneeded before it is eligible for scale down         | 20 minutes    |
 | scale-down-utilization-threshold | Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down | 0.5 |
 | max-graceful-termination-sec     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds   |
+| balance-similar-node-groups | Detect similar node pools and balance the number of nodes between them | false |
 
 > [!IMPORTANT]
 > The cluster autoscaler profile affects all node pools that use the cluster autoscaler. You can't set an autoscaler profile per node pool.
@@ -208,7 +209,7 @@ AKS manages the cluster autoscaler on your behalf and runs it in the managed con
 
 To configure logs to be pushed from the cluster autoscaler into Log Analytics, follow these steps.
 
-1. Set up a rule for diagnostic logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
+1. Set up a rule for resource logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
 1. Click on the "Logs" section on your cluster via the Azure portal.
 1. Input the following example query into Log Analytics:
 

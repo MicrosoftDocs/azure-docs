@@ -2,7 +2,7 @@
 title: Reference architectures for Oracle databases on Azure | Microsoft Docs
 description: References architectures for running Oracle Database Enterprise Edition databases on Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 tags: 
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: mimckitt
+ms.author: borisb
 ms.custom: 
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure

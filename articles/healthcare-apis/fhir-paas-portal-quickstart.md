@@ -48,7 +48,7 @@ Click **Next: Additional settings** to configure the authority, audience, identi
 
 - **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
 - **Audience:** Best practice, and the default setting, is that the audience is set to the URL of the FHIR server. You can change that here. The audience identifies the recipient that the token is intended for. In this context, it should be set to something representing the FHIR API itself.
-- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR. You can learn more on finding the object id for users and service principals in the [Find identity object IDs](find-identity-object-ids.md) how-to guide.  
+- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR. You can learn more on finding the object ID for users and service principals in the [Find identity object IDs](find-identity-object-ids.md) how-to guide.  
 - **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
 - **Provisioned throughput (RU/s):** Here you can specify throughput settings for the underlying database for your Azure API for FHIR. You can change this setting later in the Database blade. For more details, please see the [configure database settings](configure-database.md) page.
 

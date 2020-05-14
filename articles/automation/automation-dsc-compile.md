@@ -30,7 +30,7 @@ You can also use Azure Resource Manager templates with Azure Desired State Confi
 
 ### Portal
 
-1. From your Automation account, click **State configuration (DSC)**.
+1. In your Automation account, click **State configuration (DSC)**.
 1. Click on the **Configurations** tab, then click on the configuration name to compile.
 1. Click **Compile**.
 1. If the configuration has no parameters, you're prompted to confirm if you want to compile it. If the configuration has parameters, the **Compile Configuration** blade opens so that you can provide parameter values.
@@ -127,13 +127,13 @@ The **Composite Resources** feature allows you to use DSC configurations as nest
 
 ### Manage ConfigurationData when compiling configurations in Azure Automation
 
-**ConfigurationData** allows you to separate structural configuration from any environment-specific
+`ConfigurationData` is a built-in DSC parameter that allows you to separate structural configuration from any environment-specific
 configuration while using PowerShell DSC. For more information, see [Separating "What" from "Where" in PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> When compiling in Azure Automation State Configuration, you can use **ConfigurationData** in Azure PowerShell but not in the Azure portal.
+> When compiling in Azure Automation State Configuration, you can use `ConfigurationData` in Azure PowerShell but not in the Azure portal.
 
-The following example DSC configuration uses **ConfigurationData** via the `$ConfigurationData`
+The following example DSC configuration uses `ConfigurationData` via the `$ConfigurationData`
 and `$AllNodes` keywords. You also need the [xWebAdministration module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example.
 
 ```powershell
@@ -200,7 +200,7 @@ Keeping credentials secure in node configurations (MOF configuration documents) 
 
 You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the
 generated node configuration MOFs using configuration Data. You should
-pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** for each node block name
+pass `PSDscAllowPlainTextPassword = $true` via `ConfigurationData` for each node block name
 that appears in the DSC configuration and uses credentials.
 
 The following example shows a DSC configuration that uses an Automation credential asset.
@@ -267,9 +267,9 @@ You can execute this process from a developer workstation or within a build serv
 
 ### Import a node configuration in the Azure portal
 
-1. From your Automation account, click **State configuration (DSC)** under **Configuration Management**.
+1. In your Automation account, click **State configuration (DSC)** under **Configuration Management**.
 1. On the State configuration (DSC) page, click on the **Configurations** tab, then click **Add**.
-1. On the Import page, click the folder icon next to the **Node Configuration File** textbox to browse for a node configuration file (MOF) on your local computer.
+1. On the Import page, click the folder icon next to the **Node Configuration File** field to browse for a node configuration MOF file on your local computer.
 
    ![Browse for local file](./media/automation-dsc-compile/import-browse.png)
 

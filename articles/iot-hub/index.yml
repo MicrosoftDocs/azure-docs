@@ -11,6 +11,7 @@ metadata:
   ms.author: robinsh
   manager: eliotgra
   ms.date: 03/23/2020
+  ms.custom:  amqp
 
 landingContent:
  - title: Getting Started

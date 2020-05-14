@@ -108,7 +108,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
@@ -515,7 +515,8 @@ Conditions that count how many members of an array in the resource payload satis
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
 evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator.
+sums the _true_ results, which is then compared to the expression operator. **Count** expressions
+may be added up to 3 times to a single **policyRule** definition.
 
 The structure of the **count** expression is:
 
@@ -763,7 +764,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 

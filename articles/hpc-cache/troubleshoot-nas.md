@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
 ---
 
@@ -58,6 +58,9 @@ Different storage systems use different methods to enable this access:
 
 If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
 
+> [!NOTE]
+> By default, Azure HPC Cache squashes root access. Read [Configure additional cache settings](configuration.md#configure-root-squash) for details.
+
 Work with your NAS storage vendor to enable the right level of access for the cache.
 
 ### Allow root access on directory paths
@@ -95,7 +98,7 @@ Use a Linux client from the same virtual network as your cache, if possible.
 If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.
 
 ## Adjust VPN packet size restrictions
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 If you have a VPN between the cache and your NAS device, the VPN might block full-sized 1500-byte Ethernet packets. You might have this problem if large exchanges between the NAS and the Azure HPC Cache instance do not complete, but smaller updates work as expected.
 
@@ -123,7 +126,11 @@ There isn't a simple way to tell whether or not your system has this problem unl
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  If the ping fails with 1472 bytes, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) to learn more.
+  If the ping fails with 1472 bytes, there is probably a packet size problem.
+
+To fix the problem, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) to learn more.
+
+In some cases, changing the MTU setting for the Azure HPC Cache to 1400 can help. However, if you restrict the MTU on the cache you must also restrict the MTU settings for clients and back-end storage systems that interact with the cache. Read [Configure additional Azure HPC Cache settings](configuration.md#adjust-mtu-value) for details.
 
 ## Check for ACL security style
 

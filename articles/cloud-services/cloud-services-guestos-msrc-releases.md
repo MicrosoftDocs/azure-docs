@@ -10,12 +10,50 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/3/2020
+ms.date: 04/17/2020
 ms.author: raiye
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## April 2020 Guest OS
+
+>[!NOTE]
+>The April Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-04  |  [4550965]  |  Windows Security  | 2.97 | Apr 14, 2020 |
+|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | Apr 14, 2020 |
+|  Rel 20-04  |  [4550971]  |  Windows Security  | 3.84 | Apr 14, 2020 |
+|  Rel 20-04  |  [4550970]  |  Windows Security  | 4.77 | Apr 14, 2020 |
+|  Rel 20-04  |  [4550929]  |  Latest Cumulative Update(LCU)  | 5.42 | Apr 14, 2020 |
+|  Rel 20-04  |  [4549949]  |  Latest Cumulative Update(LCU)  | 6.18 | Apr 14, 2020 |
+|  Rel 20-04  |  [4540688]  |  Monthly Rollup  | 2.97 | Mar 10, 2020 |
+|  Rel 20-04  |  [4550735]  |  Servicing Stack update  | 2.97 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540726]  |  Servicing Stack update  | 3.84 | Mar 10, 2020 |
+|  Rel 20-04  |  [4541510]  |  Monthly Rollup  | 3.84 | Mar 10, 2020 |
+|  Rel 20-04  |  [4541509]  |  Monthly Rollup  | 4.77 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540725]  |  Servicing Stack update  | 4.77 | Mar 10, 2020 |
+|  Rel 20-04  |  [4540723]  |  Servicing Stack update  | 5.42 | Mar 10, 2020 |
+|  Rel 20-04  |  [4539571]  |  Servicing Stack update  | 6.18 | Mar 10, 2020 |
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+
 
 ## March 2020 Guest OS
 

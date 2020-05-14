@@ -34,5 +34,5 @@ When you try to delete the resource group with the storage account, you'll see t
 ## Next steps
 See the following articles: 
 
-- [Custom topics](event-sources.md#custom-topics)
+- [Custom topics](custom-topics.md)
 - [Domains](event-domains.md)

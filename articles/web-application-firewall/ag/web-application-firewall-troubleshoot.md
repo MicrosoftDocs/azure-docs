@@ -173,7 +173,7 @@ This is a field you can exclude. To learn more about exclusion lists, See [Web a
 
 ![WAF exclusion](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
+You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, resource logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Examine the firewall log and view the PT1H.json file for the hour that the request you want to inspect occurred.
 

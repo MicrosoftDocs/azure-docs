@@ -33,7 +33,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 ## Samples strategy
 
-![Blueprint samples strategy](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Blueprint samples strategy" border="false":::
 
 The CAF foundation and the CAF Migrate landing zone blueprints assume that the customer is preparing
 an existing clean single subscription for migrating on-premises assets and workloads in to Azure.

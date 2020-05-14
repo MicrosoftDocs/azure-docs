@@ -1,8 +1,8 @@
 ---
 title: Pricing tiers - Azure Database for PostgreSQL - Single Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Single Server.
-author: jan-eng
-ms.author: janeng
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020

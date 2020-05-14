@@ -1,6 +1,6 @@
 ---
 title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
-description: Learn how to implement Microsoft Sign-In on a Python Web App using OAuth2
+description: Learn how to implement Microsoft Sign-In on a Python web app using OAuth2
 services: active-directory
 author: abhidnya13
 manager: CelesteDG

@@ -100,4 +100,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Credentials](automation-credentials.md)
 * [Schedules](automation-schedules.md)
 * [Variables](automation-variables.md)
-
+* [PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

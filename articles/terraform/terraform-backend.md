@@ -62,7 +62,7 @@ Create an environment variable named `ARM_ACCESS_KEY` with the value of the Azur
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](../key-vault/quick-create-cli.md).
+To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](../key-vault/secrets/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)

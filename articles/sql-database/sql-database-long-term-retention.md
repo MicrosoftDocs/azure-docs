@@ -1,6 +1,6 @@
 ---
-title: Store backups for up to 10 years 
-description: Learn how Azure SQL Database supports storing full database backups for up to 10 years.
+title: "Long-term backup retention" 
+description: Learn how Azure SQL Database supports storing full database backups for up to 10 years via the long-term retention policy.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,13 +12,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
 ---
-# Store Azure SQL Database backups for up to 10 years
+# Azure SQL Database long-term retention
 
-Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in Azure Blob storage with read-access geo-redundant storage for up to 10 years. You can then restore any backup as a new database. For more information about Azure Storage redundancy, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
+Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in Azure Blob storage with read-access geo-redundant storage for up to 10 years. You can then restore any backup as a new database. For more information about Azure Storage redundancy, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). 
+
+Long time retention can be enabled for single and pooled databases, and is in limited public preview for Azure SQL Database managed instances. 
 
 > [!NOTE]
-> LTR can be enabled for single and pooled databases. It is not yet available for instance databases in Managed Instances. You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
-> 
+> You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
+
 
 ## How SQL Database long-term retention works
 
@@ -68,6 +70,16 @@ If you are using active geo-replication or failover groups as your business cont
 
 > [!NOTE]
 > When the original primary database recovers from an outage that caused the failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
+
+## Managed Instance support
+
+Using long-term backup retention with an Azure SQL Database managed instances has the following limitations:
+
+- **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
+- [**PowerShell only**](sql-database-managed-instance-long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
+
+To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) under the support topic **Backup, Restore, and Business continuity / Long-term backup retention**.
+
 
 ## Configure long-term backup retention
 

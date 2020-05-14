@@ -6,7 +6,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
 ---
 
@@ -48,7 +48,7 @@ Use the virtual machine offer type when you deploy a virtual appliance to the su
 | Requirement | Details |  
 |:--- |:--- | 
 | Billing and metering | Your VM must support either BYOL or Pay-As-You-Go monthly billing. |  
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./partner-center-portal/azure-vm-create-offer.md).</li> </ul> |  
 
 >[!Note]
 >Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
@@ -57,9 +57,9 @@ Use the virtual machine offer type when you deploy a virtual appliance to the su
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Virtual machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) for more information.
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- See [create a virtual machine offer](./partner-center-portal/azure-vm-create-offer.md) for more information.

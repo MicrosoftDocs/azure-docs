@@ -50,6 +50,8 @@
       href: class-type-jupyter-notebook.md
     - name: Mobile app development with Android Studio
       href: class-type-mobile-dev-android-studio.md
+    - name: Big data analytics
+      href: class-type-big-data-analytics.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts
@@ -105,7 +107,9 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: View support information (instructor)
-      href: lab-creator-support-information.md      
+      href: lab-creator-support-information.md
+    - name: Access student VMs from instructor view
+      href: instructor-access-virtual-machines.md      
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs

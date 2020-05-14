@@ -1,17 +1,10 @@
 ---
 title: Azure N-series AMD GPU driver setup for Windows 
 description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
-services: virtual-machines-windows
 author: vikancha
 manager: jkabat
-editor: ''
-tags: azure-resource-manager
-
-
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha

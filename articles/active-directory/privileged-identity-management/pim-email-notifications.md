@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
@@ -71,6 +71,18 @@ The email includes four tiles:
 | **Role assignments outside of PIM** | Number of times users are assigned a permanent role outside of Privileged Identity Management (inside Azure AD). |
 
 The **Overview of your top roles** section lists the top five roles in your tenant based on total number of permanent and eligible administrators for each role. The **Take action** link opens the [PIM wizard](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
+
+## Email timing for activation approvals
+
+When users activates their role and the role setting requires approval, approvers will receive three emails for each approval:
+
+- Request to approve or deny the user's activation request (sent by the request approval engine)
+- The user's request is approved (sent by the request approval engine)
+- The user's role is activated (sent by Privileged Identity Management)
+
+The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be much longer, up to fifteen minutes.
+
+If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if the they didn't get an email but it's the expected behavior.
 
 ## PIM emails for Azure resource roles
 

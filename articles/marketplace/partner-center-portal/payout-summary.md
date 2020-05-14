@@ -170,4 +170,4 @@ This option provides a download of each earning line item you see in the Transac
 
 ## Billing questions and support
 
-To get help on billing questions, please contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+To get help on billing questions, please contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).

@@ -93,9 +93,9 @@ conceptualContent:
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
-        - url: ./speech/home.md
-          itemType: overview
-          text: Bing Speech (Retiring)
+#        - url: ./speech/home.md
+#          itemType: overview
+#          text: Bing Speech (Retiring)
 #        - url: ./translator-speech/overview.md
 #          itemType: overview
 #          text: Translator Speech (Retiring)

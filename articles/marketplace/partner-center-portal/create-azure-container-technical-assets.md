@@ -41,7 +41,7 @@ Choose one or both of the following scripting environments to help manage your C
 
 We recommend adding these tools to your development environment:
 
-- [Azure Storage Explorer](https://aka.ms/GetStartedWithStorageExplorer)
+- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

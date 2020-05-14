@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/23/2020
 ---
 
 
@@ -20,6 +20,17 @@ The Azure Migrate appliance is used in the following scenarios.
 **VMware VM agentless migration** | Azure Migrate:Server Migration | Discover VMware VMs <br/><br/> Replicate VMware VMs with agentless migration.
 **Hyper-V VM assessment** | Azure Migrate:Server Assessment | Discover Hyper-V VMs<br/><br/> Collect machine metadata and performance metadata for assessments.
 **Physical machine assessment** |  Azure Migrate:Server Assessment |  Discover physical servers (or VMs you treat as physical servers).<br/><br/> Collect machine metadata and performance metadata for assessments.
+
+## Deployment methods
+
+The appliance can be deployed using a couple of methods:
+
+- The appliance can be deployed using a template for VMware VMs and Hyper-V VMs (OVA template for VMware or VHD for Hyper-V).
+- If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
+- In Azure Government, you should deploy the appliance using a script.
+- For physical servers, you always deploy the appliance using a script.
+- Download links are available in the tables below.
+
 
 ## Appliance - VMware 
 
@@ -63,7 +74,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **Physical** 
 --- | ---
 **Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
-**Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script.
+**Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 250 physical servers.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal. [Learn more](tutorial-assess-physical.md#set-up-the-appliance). Alternatively, [download directly](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Download size is 59.7 MB.
@@ -74,8 +85,10 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 The Azure Migrate appliance needs connectivity to the internet.
 
-- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
+- When you deploy the appliance, Azure Migrate does a connectivity check to the required URLs.
 - If you're using a URL-based proxy to connect to the internet, you need to allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+### Public cloud URLs
 
 **URL** | **Details**  
 --- | --- |
@@ -91,6 +104,25 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+
+### Government cloud URLs
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.us  | Navigate to the Azure portal.
+graph.windows.net | Sign in to your Azure subscription.
+login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
+aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
+download.microsoft.com/download | Allow downloads from Microsoft download.
+*.servicebus.usgovcloudapi.net  | Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
+*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+*.applicationinsights.us | Upload app logs used for internal monitoring.
+
 
 
 
@@ -265,12 +297,80 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 
 ## Appliance upgrades
 
-The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
+The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically, because auto-update is enabled on the appliance by default. You can change this default setting, to update the appliance services manually.
 
-- **Turn off auto-update**: You turn off auto-update in the registry by setting HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" key to 0 (DWORD). If you decide to use manual updates, it's important to update all agents on the appliance at the same time, using the  **Update** button for each outdated agent on the appliance.
-- **Update manually**: For manual updates, make sure that you update all the agents on the appliance, using the **Update** button for each outdated agent on the appliance. You can switch the update setting back to automatic updates at any time.
+### Turn off auto-update
 
-![Automatically update appliance](./media/migrate-appliance/autoupdate.png)
+1. On the machine running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
+
+    ![Set registry key](./media/migrate-appliance/registry-key.png)
+
+
+### Turn on auto-update
+
+You can turn on auto-update using either of these methods:
+
+- By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- After discovery is complete, in the Appliance Configuration Manager.
+
+To delete the registry key:
+
+1. On the machine running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+
+To turn on from Appliance Configuration Manager, after discovery is complete:
+
+1. On the appliance machine, open the Appliance Configuration Manager.
+2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
+
+    ![Turn on auto updates](./media/migrate-appliance/turn-on.png)
+
+### Check the appliance services version
+
+You can check the appliance services version using either of these methods:
+
+- In Appliance Configuration Manager, after discovery is complete.
+- On the appliance machine, in the **Control Panel** > **Programs and Features**.
+
+To check in the Appliance Configuration Manager:
+
+1. After discovery is complete, open Appliance Configuration Manager (in the appliance web app).
+2. In **Appliance services**, verify the appliance services versions.
+
+    ![Check version](./media/migrate-appliance/version.png)
+
+To check in the Control Panel:
+
+1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
+2. Check the appliance services versions in the list.
+
+    ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
+
+### Manually update an older version
+
+If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
+
+1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
+2.	After downloading, open the LatestComponents.json file in Notepad.
+3. Find the latest service version in the file, and the download link for it. For example:
+
+    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.	Download the latest version of an outdated service, using the download link in the file.
+5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
+
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
+    For example:
+    C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+5. Check that the command output matches the hash value entry for the service in the file (for example, the MD5 hash value above).
+6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
+7. After installation is complete, check the version of the service in **Control panel** > **Programs and Features**. The service version should now be upgraded to the latest shown in the json file.
+
+
 
 ## Next steps
 

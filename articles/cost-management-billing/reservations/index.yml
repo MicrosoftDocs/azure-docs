@@ -43,7 +43,7 @@ landingContent:
       - text: SQL Database
         url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Data Explorer
-        url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
         url: prepay-databricks-reserved-capacity.md
       - text: App Service

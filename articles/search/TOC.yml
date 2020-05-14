@@ -68,6 +68,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
+  - name: Query from Power Apps   
+    href: search-howto-powerapps.md  
 - name: Samples
   items:
   - name: C# samples
@@ -232,10 +234,8 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
+      - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
-    - name: Query from Power Apps   
-      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -256,8 +256,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Example of multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+    - name: Filter by language
+      href: search-filters-language.md
   - name: Results
     items:
     - name: Work with results
@@ -455,10 +455,6 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: NYC Jobs demo
-      href: https://aka.ms/azjobsdemo
-    - name: Search use cases
-      href: https://searchsamples.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

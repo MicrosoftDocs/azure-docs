@@ -14,6 +14,9 @@ ms.date: 01/16/2018
 ---
 
 # Update Azure Machine Learning models by using Update Resource activity
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
 
 ## Overview

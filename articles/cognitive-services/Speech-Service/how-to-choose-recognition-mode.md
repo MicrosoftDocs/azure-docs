@@ -3,13 +3,13 @@ title: Choose a speech recognition mode with the Speech SDK
 titleSuffix: Azure Cognitive Services
 description: Learn how to choose the best recognition mode when using the Speech SDK.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 

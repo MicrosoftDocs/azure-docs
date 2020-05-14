@@ -145,7 +145,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
 Use **Ctrl**-**C** to stop the host.
 
@@ -174,7 +174,7 @@ Once the image is running in a local container, open a browser to `http://localh
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-Once the image is running in a local container, browse to [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
+Once the image is running in a local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
 After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
