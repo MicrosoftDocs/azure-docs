@@ -20,7 +20,7 @@ To create a storage account:
 3. In **Name**, enter *mystorageacct* followed by a few random numbers, until you see a green check mark that indicates that it's a unique name. A storage account name must be all lowercase and globally unique. Make a note of your storage account name. You will use it later. 
 4. In **Deployment model**, leave the default value of **Resource Manager**. To learn more about the differences between Azure Resource Manager and the classic deployment model, see [Understand deployment models and the state of your resources](../articles/azure-resource-manager/management/deployment-models.md).
 5. In **Account kind**, select **StorageV2**. To learn more about the different kinds of storage accounts, see [Understand Azure storage accounts](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-6. In **Performance**, keep the default value of **Standard storage**. Azure Files currently supports only standard storage; even if you select Azure Premium Storage, your file share is stored in standard storage.
+6. In **Performance**, keep the default value of **Standard storage**.
 7. In **Replication**, select **Locally redundant storage (LRS)**. 
 8. In **Secure transfer required**, we recommend that you always select **Enabled**. To learn more about this option, see [Understand encryption in-transit](../articles/storage/common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 9. In **Subscription**, select the subscription that was used to create the storage account. If you have only one subscription, it should be the default.
