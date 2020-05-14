@@ -17,7 +17,7 @@ This article describes how to scale up a Service Fabric cluster primary node typ
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Upgrade the size and operating system of the primary node type VMs
+## Process to upgrade the size and operating system of the primary node type VMs
 Here is the process for updating the VM size and operating system of the primary node type VMs.  After the upgrade, the primary node type VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
 
 > [!WARNING]
@@ -131,9 +131,9 @@ To find the new scale set in the template, search for the "Microsoft.Compute/vir
 Adjust the `parameterFilePath` and `templateFilePath` as needed and then run the following command:
 
 ```powershell
-# Deploy the new scale set (upgraded to use managed disks) into the primary node type.
-$templateFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
-$parameterFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
+# Deploy the new scale set into the primary node type along with a new load balancer and public IP
+$templateFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.parameters.json"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
