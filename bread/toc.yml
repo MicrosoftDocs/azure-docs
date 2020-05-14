@@ -383,7 +383,7 @@
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
-    - name: Translator Text
+    - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
 #    - name: Translator Speech
