@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 05/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -550,13 +550,12 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: Use resource tags to assist in tracking Azure container registries that store or process sensitive information.
 
-Tag and version container images or other artifacts in a registry, and lock images or repositories, to assist in tracking images that store or process sensitive information.
+Tag and version container images, to assist in tracking images that store or process sensitive information.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 * [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
-* [Lock a container image in an Azure container registry](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -567,7 +566,7 @@ Tag and version container images or other artifacts in a registry, and lock imag
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21800).
 
-**Guidance**: Implement separate container registries, subscriptions, and/or management groups for development, test, and production. Resources storing or processing sensitive data should be sufficiently isolated.
+**Guidance**: Implement separate subscriptions, and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated.
 
 Resources should be separated by virtual network or subnet, tagged appropriately, and secured by an network security group (NSG) or Azure Firewall.
 
@@ -577,13 +576,13 @@ Resources should be separated by virtual network or subnet, tagged appropriately
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](https://docs.microsoft.com/azure/container-registry/container-registry-vnet)
-
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) 
 * [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 * [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
 * [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,11 +593,16 @@ Resources should be separated by virtual network or subnet, tagged appropriately
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21801).
 
-**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
+**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals. Monitor and block unauthorized information transfer from Azure file shares and other volumes mounted to container instances.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 * [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) 
+
+* [Mount an Azure file share in Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-volume-azure-files)
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -609,7 +613,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21802).
 
-**Guidance**: Ensure that any clients connecting to your Azure Container Registry are able to negotiate TLS 1.2 or greater. Microsoft Azure resources negotiate TLS 1.2 by default.
+**Guidance**: Ensure that any clients connecting to your Azure container groups are able to negotiate TLS 1.2 or greater. Microsoft Azure resources negotiate TLS 1.2 by default.
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
@@ -624,11 +628,9 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21803).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, data identification, classification, and loss prevention features are not yet available for Azure Container Registry. Implement third-party solution if required for compliance purposes.
+**Guidance**: Data identification, classification, and loss prevention features are not currently available for Azure Container Instances. Tag container groups that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
-
-* [Encrypt deployment data with Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data)
 
 * [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -641,11 +643,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21804).
 
-**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry.
+**Guidance**: Use Azure AD RBAC to control access to Azure Container Instances data and resources. 
 
 * [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Azure Container Registry roles and permissions](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -656,7 +657,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21805).
 
-**Guidance**: If required for compliance on compute resources, implement a third-party tool, such as an automated host-based data loss prevention solution, to enforce access controls to data even when data is copied off a system.
+**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -671,11 +672,13 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21806).
 
-**Guidance**: Use encryption at rest on all Azure resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, by default, all data in an Azure container registry is encrypted at rest using Microsoft-managed keys.
+**Guidance**: By default, all deployment data in Azure Container Instances is encrypted at rest using Microsoft-managed keys. Optionally, manage the encryption with your own key (customer-managed key).
 
 * [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
-* [Customer-managed keys in Azure Container Registry](https://aka.ms/acr/cmk)
+* [Encrypt deployment data with Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data)
+
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -686,9 +689,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21807).
 
-**Guidance**: Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
+**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to your container groups and container instances. 
 
-* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
+* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -703,11 +707,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21808).
 
-**Guidance**: Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide. Follow recommendations from Azure Security Center on performing vulnerability assessments on your container images. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
+**Guidance**: Implement solutions to scan container images in a private registry and identify potential vulnerabilities. Follow recommendations from Azure Security Center on performing vulnerability assessments on container images stored in Azure Container Registry. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
 
 * [Container monitoring and scanning security recommendations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
-
-* [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 * [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
@@ -722,20 +724,20 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Microsoft performs patch management on the underlying systems that support running containers.
 
-Automate container image updates when updates to base images from operating system and other patches are detected.
+Use a custom or third party solution to patch container images. If you store container images in Azure Container Registry, run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base images
 
 * [About base image updates for Azure Container Registry tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 5.3: Deploy automated third-party software patch management solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21810).
 
-**Guidance**: You can use a third party solution to patch application images. Also, you can run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base images.
+**Guidance**: Use a custom or third party solution to patch container images. If you store container images in Azure Container Registry, run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base images.
 
 * [About base image updates for ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
@@ -748,9 +750,9 @@ Automate container image updates when updates to base images from operating syst
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21811).
 
-**Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans.
+**Guidance**: Export image scanning results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. If you store container images in Azure Container Registry, integrate your registry with Azure Security Center to enable periodic scanning of container images for vulnerabilities. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans.
 
-* [Azure Container Registry integration with Security Center (Preview)](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Yes
 
@@ -761,9 +763,9 @@ Automate container image updates when updates to base images from operating syst
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21812).
 
-**Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities and to classify risks. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans and risk classification.
+**Guidance**:  If you store container images in Azure Container Registry, integrate your registry with Azure Security Center to enable periodic scanning of container images for vulnerabilities and to classify risks. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans and risk classification.
 
-* [Azure Container Registry integration with Security Center (Preview)](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -797,11 +799,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21814).
 
-**Guidance**: Azure Container Registry maintains metadata including tags and manifests for images in a registry. Follow recommended practices for tagging artifacts.
-
-* [About registries, repositories, and images](https://docs.microsoft.com/azure/container-registry/container-registry-concepts)
-
-* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
+**Guidance**: Apply tags to Azure Container Instances and related resources giving metadata to logically organize them into a taxonomy. How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -812,11 +810,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21815).
 
-**Guidance**: Azure Container Registry maintains metadata including tags and manifests for images in a registry. Follow recommended practices for tagging artifacts.
-
-* [About registries, repositories, and images](https://docs.microsoft.com/azure/container-registry/container-registry-concepts)
-
-* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
+**Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner. How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -857,9 +851,10 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21818).
 
-**Guidance**: Analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
+**Guidance**: You can implement your own process to inventory software for approved containerized applications, or use a third party solution. 
+Monitor Azure Container Instances logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
-* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 * [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
@@ -874,7 +869,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21819).
 
-**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. You can implement your own solution for removing unauthorized Azure resources.
+**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. You can implement your own solution for removing unauthorized Azure resources and software applications.
 
 * [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
@@ -887,7 +882,8 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21820).
 
-**Guidance**: Not applicable. Benchmark is designed for compute resources.
+**Guidance**: Not applicable. Benchmark is designed for IaaS compute resources.
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -898,9 +894,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21821).
 
-**Guidance**: Leverage Azure Policy to restrict which services you can provision in your environment.
-
-* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
+**Guidance**: Use Azure Policy to restrict which services you can provision in your environment.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -915,18 +909,18 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21822).
 
-**Guidance**: Not applicable. Benchmark is designed for compute resources.
+**Guidance**: You can implement your own solution to maintain a list of approved applications, or use a third party solution. 
 
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
-### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
+### 6.11: <div>Limit users' ability to interact with Azure Resource Manager via scripts</div>
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21823).
 
-**Guidance**: Use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App. 
 
 * [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
@@ -939,22 +933,20 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21824).
 
-**Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
-
-* [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21825).
 
-**Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
+**Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-* [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) 
 
 * [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
@@ -971,7 +963,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21826).
 
-**Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.
+**Guidance**: Maintain an approved container group configuration by using an Azure Resource Manager template or exporting to a YAML file. Use Azure Policy or Azure Security Center to maintain security configurations for related Azure Resources.
+
+* [Container groups in Azure Container Instances](container-instances-container-groups.md#deployment)
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
