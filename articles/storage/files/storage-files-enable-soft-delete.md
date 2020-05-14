@@ -24,7 +24,7 @@ The following steps show how to enable soft delete for Azure file shares on an e
 1. Select **File share retention period in days** and enter a number of your choosing.
 1. Select **Save** to confirm your data retention settings.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot of the storage account soft delete settings pane. Highlighting the file shares section, enable toggle, retention period, and save.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot of the storage account soft delete settings pane. Highlighting the file shares section, enable toggle, set a retention period, and save. This will enable soft delete for all file shares in your storage account.":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -55,13 +55,13 @@ To restore a soft deleted file share:
 
     This will display any shares which are currently in a **Deleted** status.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="If the status column, the column next to the name column, is set to deleted, then your file share is in a soft deleted state. And will be permanently deleted after your specified retention period.":::
 
 1. Select the share and select **undelete**, this will restore the share.
 
     You can confirm the share is restored since its status switches to **Active**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="If the status column, the column next to the name column, is set to Active, then your file share has been restored.":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -74,13 +74,15 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## Disable soft delete
 
-To disable soft delete for your storage account, follow these instructions:
+If you wish to stop using soft delete, or permanently delete a file share, follow these instructions:
 
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your storage account and select **Soft delete** under **Settings**.
 1. Under **File shares** select **Disabled** for **Soft delete for file shares**.
 1. Select **Save** to confirm your data retention settings.
+
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Disabling soft delete will allow you to immediately and permanently delete all file shares in your storage account at your leisure.":::
 
 # [PowerShell](#tab/azure-powershell)
 
