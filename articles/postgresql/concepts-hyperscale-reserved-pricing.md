@@ -11,13 +11,14 @@ ms.date: 05/13/2020
 
 # Prepay for Azure Database for PostgreSQL - Hyperscale (Citus) compute resources with reserved capacity
 
-> [!IMPORTANT]
-> This page is about reserved capacity for Azure Database for PostgreSQL –
-> Hyperscale (Citus). See [this
-> page](/azure/postgresql/concept-reserved-pricing) for information about
-> reserved capacity for Azure Database for PostgreSQL – Single server.
-
 Azure Database for PostgreSQL – Hyperscale (Citus) now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Hyperscale (Citus) reserved capacity, you make an upfront commitment on Hyperscale (Citus) server group for a one- or three-year period to get a significant discount on the compute costs. To purchase Hyperscale (Citus) reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
+
+> [!IMPORTANT]
+> This page is about reserved capacity for Azure Database
+> for PostgreSQL – Hyperscale (Citus). See [this
+> page](/azure/postgresql/concept-reserved-pricing) for information
+> about reserved capacity for Azure Database for PostgreSQL – Single
+> server.
 
 You don't need to assign the reservation to specific Hyperscale (Citus) server groups. An already running Hyperscale (Citus) server group or ones that are newly deployed will automatically get the benefit of reserved pricing. By purchasing a reservation, you're pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Hyperscale (Citus) compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the Hyperscale (Citus) server groups. At the end of the reservation term, the billing benefit expires, and the Hyperscale (Citus) server groups are billed at the pay-as-you go price. Reservations do not autorenew. For pricing information, see the [Azure Database for PostgreSQL – Hyperscale (Citus) reserved capacity offering](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
