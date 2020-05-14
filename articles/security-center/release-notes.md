@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2020
+ms.date: 05/15/2020
 ms.author: memildin
 
 ---
@@ -27,6 +27,36 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 
 ## May 2020
+
+
+### Alert suppression rules (preview)
+
+This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
+
+Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
+
+Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
+
+- suppress alerts that you've identified as false positives
+
+- suppress alerts that are being triggered too often to be useful
+
+[Learn more about suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
+
+
+### Virtual machine vulnerability assessment is now generally available
+
+Security Center's standard tier now includes a built-in vulnerability extension for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
+
+The extension can continuously scan your virtual machines to find vulnerable applications and present the findings in Security Center. 
+
+To deploy the extension, use the new security recommendation:
+
+"Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
+
+[Learn more](built-in-vulnerability-assessment.md).
+
+
 
 ### Alert suppression rules (preview)
 
