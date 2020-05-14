@@ -1,14 +1,16 @@
 ---
 title: Using Spot VMs
 description: Using Spot VMs within Azure CycleCloud
-author: benwatrous
-ms.date: 08/13/2020
+author: bwatrous
+ms.date: 05/13/2020
 ms.author: bewatrou
 ---
 
 # Using Spot VMs in Azure CycleCloud
 
-Azure CycleCloud supports deploying [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  However, Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity.   They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
+Azure CycleCloud supports deploying [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  
+
+[!CAUTION] Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity.   They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
 
 ## Configuring a Nodearray for Spot
 
@@ -31,9 +33,9 @@ For most HPC applications, `MaxPrice=-1` is a good default choice.   However, if
 For full details see [Spot Virtual Machines](./cluster-templates.md#spot-virtual-machines) in the cluster template guide.
 
 
-## Frequently Asked Questions about Spot
+## Frequently Asked Questions
 
-Using Spot for HPC with CycleCloud has some considerations that are specific to HPC workloads and CycleCloud auto-scaling.
+Using Spot with CycleCloud has some considerations that are specific to HPC workloads and CycleCloud auto-scaling.
 
 
 ### When should I consider using Spot?
@@ -50,11 +52,11 @@ Using Spot for HPC with CycleCloud has some considerations that are specific to 
 
 ### When should I avoid using Spot?
 
-* If your Jobs are tightly coupled HPC jobs (for example, MPI jobs) then they are likely not good candidates for Spot.
+* If your jobs are tightly coupled HPC jobs (for example, MPI jobs) then they are likely not good candidates for Spot.
 * If your Job is critical and/or has a deadline for completion, then regular priority instances may be a better fit since evictions and retries may extend the time to completion.
   * *However*, this may be an excellent opportunity to configure your cluster to use a mix of regular-priority and Spot instances to ensure the deadline is met while attempting to reduce runtime and cost by adding Spot instances.
 * If your jobs are not safe to re-run, then Spot should be avoided.
-  * For example, if you job modifies a database during execution then automatically re-running the job may cause errors or invalid results.
+  * For example, if your job modifies a database during execution then automatically re-running the job may cause errors or invalid results.
 * If your Jobs runtimes are very long, then Spot may not be a good fit.
   * For long processes, both the chance of Spot eviction and dollar and time costs of retries increase.
   * However, this is a case that may require measurement on a case by case basis.
@@ -70,7 +72,7 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 
 **Q.** How are users notified of eviction?
 
-**A.** Users will see a log message in the CycleCloud UI’s Event log for the cluster.
+**A.** Users will see a log message in the CycleCloud UI’s event log for the cluster.
 
 * Users can check for an eviction notification on the machine 30 seconds prior to eviction.  See [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events#why-use-scheduled-events) for details on how to register for the event.
 * In general, eviction should be considered similar to pulling the plug on an on-premise machine, and it should be handled in the same ways.
@@ -81,7 +83,7 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 
 **Q.** Why are instances evicted?
 
-**A.** Spot VMs make no guarantees about availability and may evicted at any time.   See [the Spot VM documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/spot-vms) for details.   If a nodearray has set a `MaxPrice` then instances will be evicted if the Spot price rises above the `MaxPrice`.   This tends *to be rare* since the Spot price moves very slowly.  Here are some scenarios that *might* trigger an eviction:
+**A.** Spot VMs make no guarantees about availability and may evicted at any time.   See [the Spot VM documentation](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) for details.   If a nodearray has set a `MaxPrice` then instances will be evicted if the Spot price rises above the `MaxPrice`.   This tends *to be rare* since the Spot price moves very slowly.  Here are some scenarios that *might* trigger an eviction:
 
 1. Reductions in Spot capacity as demand for regular priority VMs increases.
 2. Platform-level events such as planned hardware maintenance.
@@ -112,3 +114,17 @@ See [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/win
 **Q.** Can I change the [Spot Eviction Policy](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms#eviction-policy) for CycleCloud nodearrays?
 
 **A.** Yes.  You can set the `EvictionPolicy` attribute directly on the nodearray to change the policy to either `Delete` or `Deallocate` (default: `Delete`).  *However*, this is currently only useful for custom autoscalers which handle deallocations appropriately.  The current Azure CycleCloud autoscalers expect Spot instances to be deleted upon eviction.
+
+### Scheduler support for Spot eviction in CycleCloud
+
+See the scheduler-specific guide for detailed information on the CycleCloud implementation for your scheduler.
+
+**Q.** How does the autoscaler for my Scheduler handle Spot eviction?
+
+**A.** All of the autoscalers for the built-in/supported schedulers (HTCondor, GridEngine, PBS Professional, Slurm, LSF) attempt to handle Spot evictions gracefully.   In general, the evicted instance will be removed from the  Scheduler and if the capacity demand is higher than the new available capacity after eviction, then the autoscaler will replace the instance.
+
+Custom autoscalers *should* be built to expect Spot evictions or general machine failures and handle them gracefully. 
+
+**Q.** What should I expect to happen to the jobs that were running on the evicted instance?
+
+**A.** This is largely up to the user to configure when submitting the job.  Some schedulers, such as GridEngine, allow the default action to  be configured per queue as well.  By default, all built-in CycleCloud scheduler deployments, with the exception of HTCondor, are configured to mark the jobs as failed when the node they are running on is evicted or unexpectedly terminated.   This behavior is by design since only the user can know if their jobs may be safely retried.
