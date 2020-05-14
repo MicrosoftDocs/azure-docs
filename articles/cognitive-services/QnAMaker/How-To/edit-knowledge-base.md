@@ -60,7 +60,7 @@ Rich-text editing of your answer text gives you markdown styling from a simple t
     |Add link to publicly available URL.|CTRL+K|
     |Emoticon - add from a selection of emoticons.|CTRL+E|
     |Advanced menu - undo|CTRL+Z|
-    |Avanced menu - redo|CTRL+Y|
+    |Advanced menu - redo|CTRL+Y|
 
 1. Add an image to the answer using the Image icon in the rich-text toolbar. The in-place editor needs the publicly accessible image URL and the alternate text for the image.
 
