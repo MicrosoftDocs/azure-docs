@@ -11,7 +11,7 @@ ms.author: rogarana
 
 # Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) and on-premises Active Directory Domain Services (AD DS) (preview). Using either identity-based authentication method allows you integrate accessing your Azure file shares with your existing identity-based authentication, instead of having to manage it separately. This series of articles focus on enabling and configuring on-premises AD DS for authentication to Azure file shares.
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) and on-premises Active Directory Domain Services (AD DS) (preview). Using either identity-based authentication method allows you to integrate the process of accessing your Azure file shares with your existing identity-based authentication process, instead of having to manage it separately. This series of articles focus on enabling and configuring on-premises AD DS for authentication with Azure file shares.
 
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
