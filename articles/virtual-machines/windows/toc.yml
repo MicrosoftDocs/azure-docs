@@ -329,7 +329,7 @@
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
-    href: ../../insights/monitor-vm-azure.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Infrastructure example

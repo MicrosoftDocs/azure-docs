@@ -656,6 +656,7 @@
       href: scheduled-events.md
   - name: Monitor VMs
     href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    items:
     - name: Agents
       items:
       - name: Agents overview
