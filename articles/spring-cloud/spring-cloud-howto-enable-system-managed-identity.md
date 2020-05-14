@@ -20,7 +20,7 @@ You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to de
 ## Add a system-assigned identity
 Creating an app with a system-assigned identity requires setting an additional property on the application.
 
-### Using Azure Portal
+### Using Azure portal
 To set up a managed identity in the [Azure portal](https://portal.azure.com/), first create an app, and then enable the feature.
 
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
@@ -60,7 +60,7 @@ Recommended: use Java SDK or spring boot starters to get tokens.  See the sample
 ## Disable system-assigned identity from an app
 Removing a system-assigned identity will also delete it from Azure AD. Deleting the app resource automatically removes system-assigned identities from Azure AD.
 
-### Using Azure Portal
+### Using Azure portal
 To remove system-assigned managed identity from an app that no longer needs it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
