@@ -136,5 +136,5 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 ## Additional resources
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
