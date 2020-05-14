@@ -168,7 +168,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 
 Server-scoped credentials enable access to Azure storage using the following authentication types:
 
-### [Shared access signature](#tab/shared-access-signature)
+### Shared access signature
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected 
 with SAS key on the Azure storage that matches URL in credential name.
@@ -182,7 +182,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### [User Identity](#tab/user-identity)
+### User Identity
 
 The following script creates a server-level credential that enables user to impersonate using Azure AD identity.
 
@@ -220,7 +220,7 @@ Database-scoped credentials are used when any principal calls `OPENROWSET` funct
 
 Database-scoped credentials enable access to Azure storage using the following authentication types:
 
-### [Shared access signature](#tab/shared-access-signature)
+### Shared access signature
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
