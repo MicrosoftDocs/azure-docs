@@ -13,6 +13,7 @@ ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
@@ -42,6 +43,17 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
+
+## 1.5.30.0
+
+### Release status
+05/07/2020: Released for download
+
+### Fixed issues
+- Fixed an issue where unselected domains were getting incorrectly selected from the wizard UI.
+- Fixed an issue in the ADSyncConfig PowerShell module, where invoking DSACLS command used in all the Set-ADSync* Permissions cmdlets would cause one of the following errors:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## 1.5.29.0
 
@@ -100,6 +112,7 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
 - Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+- Fixed a bug in the Domain/OU filtering page that would remove the Run Profiles of a domain by just partially expanding the domain tree, without making any changes.
 
 ## 1.4.38.0
 ### Release status

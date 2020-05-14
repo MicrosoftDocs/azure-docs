@@ -115,8 +115,9 @@ The following tables show the available metrics and details.
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
 >| GCPauseTotalTime<br><br>GC Pause Total Time (deprecated) | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
->| tomcat.threads.config.max |  |  |  |
->| tomcat.threads.current |  |  |  |
+>| tomcat.threads.config.max | tomcat.threads.config.max | Count | Tomcat Config Max Thread Count |
+>| tomcat.threads.current | tomcat.threads.current | Count | Tomcat Current Thread Count |
+>| tomcat.global.request.avg.time | tomcat.global.request.avg.time | Milliseconds | Tomcat Request Average Time |
 
 
 ### Request
@@ -147,7 +148,7 @@ The following tables show the available metrics and details.
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Number of sessions that have expired |
 >| TomcatSessionRejectedCount<br><br>Tomcat Session Rejected Count (deprecated) | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
->| tomcat.sessions.active.current |  |  |
+>| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
 ## See also
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)

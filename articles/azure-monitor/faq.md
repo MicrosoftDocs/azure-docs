@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
+ms.date: 05/11/2020
 
 ---
 
@@ -192,11 +192,15 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
-*I get no data from my server*
+*I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
+
+*How many Application Insights should I deploy?:*
+
+* [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
 ### Can I use Application Insights with ...?
 

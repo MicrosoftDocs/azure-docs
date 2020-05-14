@@ -1,5 +1,5 @@
 ---
-title: Enable soft delete for blobs
+title: Enable and manage soft delete for blobs
 titleSuffix: Azure Storage 
 description: Enable soft delete for blob objects to more easily recover your data when it is erroneously modified or deleted.
 services: storage
@@ -7,14 +7,20 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Enable soft delete for blobs
+# Enable and manage soft delete for blobs
 
-The following steps show how to get started with soft delete.
+Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete.
+
+This article shows how to get started with soft delete.
+
+## Enable soft delete
 
 # [Portal](#tab/azure-portal)
 
@@ -67,6 +73,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 You can verify that soft delete was turned on by using the following command:
 
 ```powershell
@@ -170,3 +177,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## Next steps
+
+- [Soft delete for Blob storage](soft-delete-overview.md)
+- [Blob versioning (preview)](versioning-overview.md)

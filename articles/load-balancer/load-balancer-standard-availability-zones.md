@@ -98,7 +98,7 @@ Load balancer is flexible in the context of availability zones. You can choose t
 
 Load Balancer makes it simple to have a single IP as a zone-redundant frontend. A zone-redundant IP address can serve a zonal resource in any zone.  The IP can survive one or more zone failures as long as one zone remains healthy within the region.  Instead, a zonal frontend is a reduction of the service to a single zone and shares fate with the respective zone.
 
-Zone-redundancy doesn't imply hitless datapath or control plane; its data plane. Zone-redundant flows can use any zones and a customer's flows will use all healthy zones in a region. In a zone failure, traffic flows using healthy zones aren't affected. 
+Zone-redundancy doesn't imply hitless datapath or control plane; it's data plane. Zone-redundant flows can use any zones and a customer's flows will use all healthy zones in a region. In a zone failure, traffic flows using healthy zones aren't affected. 
 
 Traffic flows using a zone at the time of zone failure may be affected but applications can recover. Traffic continues in the healthy zones within the region upon retransmission when Azure has converged around the zone failure.
 

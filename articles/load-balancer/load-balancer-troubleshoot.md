@@ -17,7 +17,8 @@ ms.author: allensu
 
 # Troubleshoot Azure Load Balancer
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Start</a></span><span class="has-padding-small">Solve your issue fast by using our virtual agent to run <b>automated diagnostics.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Privacy Statement</sub></div></a></span></p>
-This page provides troubleshooting information for Basic and Standard common Azure Load Balancer questions. For more information about Standard Load Balancer, see [Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+This page provides troubleshooting information for Basic and Standard common Azure Load Balancer questions. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-diagnostics.md).
 
 When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
 

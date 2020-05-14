@@ -83,7 +83,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 - Open the Azure portal
 - Locate STG1
 - Navigate to CNT1
-- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
+- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Storage Blob Data Contributor** role on CNT1
   - If you don't see it assigned, assign it.
   - The MSI has the same name as the workspace. In this case, it would be &quot;WS1&quot;.
 

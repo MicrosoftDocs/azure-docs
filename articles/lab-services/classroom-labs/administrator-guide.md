@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
 
 ---
@@ -129,7 +129,7 @@ For more information on naming other Azure resources, see [Naming conventions fo
 
 ## Regions\locations
 
-When setting up your Azure Lab Services' resources, you're required to provide a region (or location) of the data center that will host the resource. Here are more details on how region impacts each of the resourced involved with setting up a lab.
+When setting up your Azure Lab Services' resources, you're required to provide a region (or location) of the data center that will host the resource. Here are more details on how region impacts each of the resources involved with setting up a lab.
 
 ### Resource group
 

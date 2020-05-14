@@ -383,7 +383,7 @@
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
-    - name: Translator Text
+    - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
 #    - name: Translator Speech
@@ -636,7 +636,7 @@
       - name: Service Bus Messaging
         tocHref: /azure/service-bus-messaging/
         topicHref: /azure/service-bus-messaging/
-      - name: Service Bus Relay
+      - name: Azure Relay
         tocHref: /azure/service-bus-relay/
         topicHref: /azure/service-bus-relay/
   - name: Migrate

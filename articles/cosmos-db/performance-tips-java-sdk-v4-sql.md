@@ -5,7 +5,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/08/2020
 ms.author: anfeldma
 
 ---
@@ -20,10 +20,10 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> The performance tips in this article are for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 Release notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and Azure Cosmos DB Java SDK v4 troubleshooting guide for more information.
+> The performance tips in this article are for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 Release notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Java SDK v4](sql-api-sdk-async-java.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Java SDK v4.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 

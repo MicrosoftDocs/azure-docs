@@ -77,14 +77,14 @@ This check determines if the agent is reporting to multiple workspaces. Multihom
 
 ### Hybrid Runbook Worker
 
-This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work. To learn more, see [The Log Analytics agent for Linux isn't running](hybrid-runbook-worker.md#oms-agent-not-running).
+
+Update Management downloads Hybrid Runbook Worker packages from the operations endpoint. Therefore, if the Hybrid Runbook Worker is not running and the [operations endpoint](#operations-endpoint) fails, the update can fail.
 
 ### Hybrid Runbook Worker status
 
-This check makes sure the Hybrid Runbook Worker is running on the machine. The following processes should be present if the Hybrid Runbook Worker is running correctly. To learn more, see [Troubleshooting the Log Analytics Agent for Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
 
-> [!NOTE]
-> If the Hybrid Runbook Worker is not running and the operations endpoint has failed, the update can fail. Update Management downloads the hybrid worker packages from the operations endpoint.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -102,13 +102,13 @@ This check makes sure that the machine has access to the internet.
 
 This check determines if the Hybrid Runbook Worker can properly communicate with Azure Automation in the Log Analytics workspace.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### Operations endpoint
 
-This check determines if the agent can properly communicate with the Job Runtime Data Service.
+This check determines if the Log Analytics agent can properly communicate with the Job Runtime Data Service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### Log Analytics endpoint 1
 
