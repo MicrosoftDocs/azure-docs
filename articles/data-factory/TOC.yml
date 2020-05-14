@@ -646,7 +646,7 @@
   - name: Understanding pricing
     items:
     - name: Plan and manage costs     
-      href: billing-acom.md 
+      href: plan-and-manage-costs.md 
     - name: Pricing examples     
       href: pricing-concepts.md  
   - name: Troubleshooting guides
