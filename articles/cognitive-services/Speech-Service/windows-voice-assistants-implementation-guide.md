@@ -112,7 +112,7 @@ The following steps cover the requirements to enable a voice assistant on Window
 
 For guidance on designing above lock experiences, visit the [best practices guide](windows-voice-assistants-best-practices.md).
 
-When an app shows a view above lock, it is considered to be in "Kiosk Mode". For more information on implementing an app that uses Kiosk Mode, see the [kiosk mode documentation](https://docs.microsoft.com/en-us/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+When an app shows a view above lock, it is considered to be in "Kiosk Mode". For more information on implementing an app that uses Kiosk Mode, see the [kiosk mode documentation](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
 
 ### Transitioning above lock
 
@@ -142,7 +142,7 @@ The application entry in the Voice Activation Privacy settings page has a toggle
 
 To properly close the application programmatically while above or below lock, use the `WindowService.CloseWindow()` API. This triggers all UWP lifecycle methods, including OnSuspend, allowing the application to dispose of its `ConversationalAgentSession` instance before closing.
 
-Note that, above lock, the application can close without closing the below lock instance (as documented [here](https://docs.microsoft.com/en-us/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-)). In this case, the above lock view needs to "clean up", ensuring that once the screen is unlocked, there are no event handlers or tasks that will try to manipulate the above lock view.
+Note that, above lock, the application can close without closing the below lock instance (as documented [here](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-)). In this case, the above lock view needs to "clean up", ensuring that once the screen is unlocked, there are no event handlers or tasks that will try to manipulate the above lock view.
 
 ## Next steps
 
