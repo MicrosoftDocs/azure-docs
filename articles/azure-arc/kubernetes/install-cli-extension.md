@@ -9,29 +9,26 @@ keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, container
 
 # CLI extensions
 
-Azure Arc for Kubernetes consists of two CLI extensions, one to register and unregister a Kubernetes cluster, and a second extension to apply, update, and remove configurations.
-
-During the private preview the extensions are made available through this preview repository. During public preview the extensions will be published to the usual Azure CLI extensions repository.
+Azure Arc enabled Kubernetes consists of two CLI extensions, one to register and unregister a Kubernetes cluster, and a second extension to apply, update, and remove configurations.
 
 ## Installing extensions
 
 Required extension versions:
 
-* **`connectedk8s`**: 0.1.2
-* **`k8sconfiguration`**: 0.1.4
+* **`connectedk8s`**: 0.1.3
+* **`k8sconfiguration`**: 0.1.7
 
-The latest extensions are included in the [extensions](../extensions) directory in this repository. If you have previously installed the extensions and are not up to date, please follow the instructions to [update the extension](#update-extensions).
 
 First, install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
 
 ```console
-az extension add --source ./extensions/connectedk8s-0.1.2-py2.py3-none-any.whl --yes
+az extension add --name connectedk8s
 ```
 
 Next, install the `k8sconfiguration` extension:
 
 ```console
-az extension add --source ./extensions/k8sconfiguration-0.1.4-py2.py3-none-any.whl --yes
+az extension add --name k8sconfiguration
 ```
 
 If you experience any issues installing, please file an issue in this repository.
@@ -49,23 +46,17 @@ az extension list -o table
 ```console
 ExtensionType    Name                     Version
 ---------------  -----------------------  ---------
-whl              connectedk8s             0.1.2
-whl              k8sconfiguration         0.1.4
+whl              connectedk8s             0.1.3
+whl              k8sconfiguration         0.1.7
 ```
 
 ## Update extensions
 
-Updating extensions requires you to remove and re-add the latest version.
+Run the following commands to update the extensions to the latest versions.
 
 ```console
-az extension remove --name connectedk8s
-az extension remove --name k8sconfiguration
-```
-
-```console
-
-az extension add --source ./extensions/connectedk8s-0.1.2-py2.py3-none-any.whl --yes
-az extension add --source ./extensions/k8sconfiguration-0.1.4-py2.py3-none-any.whl --yes
+az extension update --name connectedk8s
+az extension update --name k8sconfiguration
 ```
 
 ## Next

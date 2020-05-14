@@ -1,6 +1,6 @@
 # Create a test cluster using the AKS-Engine
 
-To help you with testing here are instructions for creating clusters in Azure using AKS-Engine.
+To help with testing here are instructions for creating clusters in Azure using AKS-Engine.
 
 ## Install AKS-Engine on your client machine
 
@@ -31,9 +31,10 @@ $location = 'eastus'
 # Set the name for the resource group that will be created by the AKS Engine. The name must be unique within the subscription.
 $resourceGroupName = "<unique name>" 
 $dnsPrefix = $resourceGroupName
-# Set the local absolute file path of the API model (this was installed in your client machine during install of AKS-Engine)
-# For example, "C:\Users\<you>\aks-engine-v0.41.5-windows-amd64\kubernetes.json"
+# Set the local absolute file path of the API model (download this from https://github.com/Azure/aks-engine/blob/master/examples/kubernetes.json)
+# For example, "C:\Users\<you>\aks-engine-v0.48.0-windows-amd64\kubernetes.json"
 $apimodel = "<file location>"
+# You can edit this file to modify the Kubernetes version size of VMs and the number of worker nodes (see example file below).
 
 # Create the cluster
 aks-engine deploy --subscription-id $subscriptionId --resource-group $resourceGroupName --client-id $spnAppId  --client-secret $spnAppPassword  --dns-prefix $dnsPrefix --location $location --api-model $apimodel --force-overwrite
@@ -45,6 +46,47 @@ $env:KUBECONFIG = <absolute file location>
 kubectl cluster-info
 ```
 
+## Example kubernetes.json file to use for the --api-model
+
+This file has been modified to include the "orchestratorRelease" (Kubernetes 1.17), the "vmSize" set to less expensive VMs, and the "count" of agent pool nodes to 1.
+
+```
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "orchestratorRelease": "1.17"
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "",
+      "vmSize": "Standard_B2s"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentpool1",
+        "count": 1,
+        "vmSize": "Standard_B2s"
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "azureuser",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": ""
+          }
+        ]
+      }
+    },
+    "servicePrincipalProfile": {
+      "clientId": "",
+      "secret": ""
+    }
+  }
+}
+```
 ## Next
 
 * Return to the [README](../README.md)

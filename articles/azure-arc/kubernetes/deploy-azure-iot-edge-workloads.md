@@ -17,9 +17,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Ar
     ```
     $ kubectl create ns iotedge
 
-    $ kubectl create secret generic dcs \
-      --from-file=fully-qualified-path-to-values.yaml \
-      --namespace iotedge
+    $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
     ```
 
     >You can also set this up remotely using the [cluster config example](./use-gitops-in-connected-cluster.md).
@@ -41,17 +39,7 @@ This repo points to the IoT Edge Helm chart and references the secret created in
 1. Use the `az` CLI `k8sconfiguration` extension to create a configuration to link the connected cluster to the git repo:
 
     ```
-    az k8sconfiguration create \
-      --name iotedge \
-      --cluster-name AzureArcIotEdge \
-      --resource-group AzureArcTest \
-      --operator-instance-name iotedge \
-      --operator-namespace azure-arc-iot-edge \
-      --enable-helm-operator \
-      --helm-operator-chart-version 0.6.0 \
-      --helm-operator-chart-values "--set helm.versions=v3" \
-      --repository-url "git://github.com/veyalla/edgearc.git" \
-      --cluster-scoped
+    az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
     ```
 
     In a minute or two, you should see the IoT Edge workload modules deployed into the `iotedge` namespace in your cluster. You can view the logs of the `SimulatedTemperatureSensor` pod in that namespace to see the sample values being generated. You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).

@@ -36,7 +36,12 @@ curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/
  ```
 2. Install [Powershell core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) if you dont have installed on your dev machine to execute Powershell onboarding script
 
-3. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
+3. Login to Azure
+```console
+az login --use-device-code
+```
+
+4. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
 ```console
 .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
 

@@ -9,9 +9,29 @@ keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, container
 
 # Enable resource providers
 
-## Verify private preview access
+## Enable required feature flags
 
-In order to use Azure Arc for Kubernetes your Azure subscriptions need to have two feature flags enabled. Your private preview onboarding process included providing one or more Azure subscriptions to Microsoft engineering. Verify that the feature flags have been enabled for your subscription:
+In order to use Azure Arc enabled Kubernetes your Azure subscriptions need two feature flags enabled.
+
+```console
+az feature register --namespace Microsoft.Kubernetes --name previewAccess
+az feature register --namespace Microsoft.KubernetesConfiguration --name sourceControlConfiguration
+```
+
+**Example output:**
+
+```console
+{
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/providers/Microsoft.Features/providers/Microsoft.KubernetesConfiguration/features/sourceControlConfiguration",
+  "name": "Microsoft.KubernetesConfiguration/sourceControlConfiguration",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
+```
+
+## Verify feature flags
 
 ```console
 az feature list -o table | grep Kubernetes
@@ -29,11 +49,9 @@ If you receive an error, or do not see the following features in a `Registered` 
 1. Ensure you are using the subscription that you provided to Microsoft: `az account set -s <subscription id>`
 1. Re-check your feature flags
 
-After verifying the subscription id, please reach out to your Microsoft contact to verify your subscriptions have been enabled for private preview access.
-
 ## Register Providers
 
-Next, register the two providers for Azure Arc for Kubernetes:
+Next, register the two providers for Azure Arc enabled Kubernetes:
 
 ```console
 az provider register --namespace Microsoft.Kubernetes

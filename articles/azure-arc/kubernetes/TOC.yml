@@ -1,4 +1,4 @@
-- name: Azure Arc for Kubernetes
+- name: Azure Arc enabled Kubernetes
   href: index.yml
 - name: Overview
   href: overview.md
@@ -31,8 +31,6 @@
     items:
     - name: Use Azure Policy
       href: use-azure-policy.md
-    - name: Custom service principal
-      href: create-onboarding-spn.md
   - name: Monitoring
     items:
     - name: Azure Monitor for containers

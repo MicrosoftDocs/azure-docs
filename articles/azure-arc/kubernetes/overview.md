@@ -7,7 +7,7 @@ description: ""
 keywords: "Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 
-# What is Azure Arc for Kubernetes
+# What is Azure Arc enabled Kubernetes
 
 ## Clients
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Arc for Kubernetes
+title: Azure Arc enabled Kubernetes
 summary: Azure Arc extends Azure Resource Manager capabilities to Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and the edge.
 
 metadata:
-  title: Azure Arc for Kubernetes
+  title: Azure Arc enabled Kubernetes
   description: Learn about how to manage Kubernetes clusters 
   author: mlearned  
   manager: carmonm
@@ -25,7 +25,7 @@ landingContent:
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is Azure Arc for Kubernetes?
+          - text: What is Azure Arc enabled Kubernetes?
             url: ./arc-for-Kubernetes/overview.md 
       - linkListType: quickstart
         links:
