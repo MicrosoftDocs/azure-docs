@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
-This quickstart shows querying: CSV, Apache Parquet and JSON files.
+This quickstart shows querying for CSV, Apache Parquet, and JSON files.
 
 ## Prerequisites
 
