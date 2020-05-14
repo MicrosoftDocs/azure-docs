@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/13/2020
+ms.date: 05/14/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -195,13 +195,23 @@ To view the JSON for the module twin:
 1. On the **IoT Edge devices** tab, select the **Device ID** of device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
-![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)
+  ![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)
 
 If you see the message "A module identity does not exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
 
 ### Monitor module twins in Visual Studio Code
 
-In Visual Studio Code, use the following commands in the **View** > **Command Palette** to view the JSON for the device and module twins:
+To review and edit a module twin
+
+1. If not already installed, install the [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension for Visual Studio Code.
+1. In the **Explorer**, expand the **Azure IoT Hub**, expand the device with the module you want to monitor.
+1. Right-click the module and select **Edit Module Twin**. A temporary file of it is downloaded to your computer and displayed in Visual Studio Code.
+
+  ![Get a module twin to edit in Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
+
+If you make changes, select **Update Module Twin** above the code in the editor to save changes to your IoT hub.
+
+  ![Update a module twin in Visual Studio Code](./media/how-to-monitor-module-twins/update-module-twin-vscode.png)
 
 ### Monitor module twins in Azure CLI
 
