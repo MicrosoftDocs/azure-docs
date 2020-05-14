@@ -812,15 +812,29 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-entity-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
     },
-      {
-        "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
-        "redirect_document_id": false
-      },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities"
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -853,13 +867,11 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
@@ -868,8 +880,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
@@ -37647,8 +37658,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/java-add-certificate-ca-store.md",
@@ -44912,8 +44922,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/azure-monitor/app/previews.md",
@@ -49453,6 +49462,11 @@
     {
       "source_path": "articles/cognitive-services/translator/translator-text-container-config.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/translator-text-how-to-signup.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-how-to-signup",
       "redirect_document_id": false
     },
     {
