@@ -62,7 +62,7 @@ You've now completed the registration of your single-page application (SPA) and 
 
 By default, a new app registration created by using single-page application platform setting enables the authorization code flow. To take advantage of this flow, your application must use MSAL.js 2.0 or later.
 
-Single-page applications using MSAL.js 1.3 or earlier can use *only* the implicit flow. Current [OAuth 2.0 best practices](v2-oauth2-auth-code-flow.md) recommend using the authorization code flow rather than implicit flow for SPAs. Having limited-lifetime refresh tokens also helps your application adapt to [modern browser cookie privacy limitations](msal-js-known-issues-safari-browser.md), like Safari ITP.
+Single-page applications using MSAL.js 1.3 or earlier can use *only* the implicit flow. Current [OAuth 2.0 best practices](v2-oauth2-auth-code-flow.md) recommend using the authorization code flow rather than implicit flow for SPAs. Having limited-lifetime refresh tokens also helps your application adapt to [modern browser cookie privacy limitations](reference-third-party-cookies-spas.md), like Safari ITP.
 
 When all of your production applications represented by an app registration are using MSAL.js 2.0 and the authorization code flow, uncheck the implicit settings in its **Authentication** pane in the Azure portal. Applications using MSAL.js 1.0 and the implicit flow can continue to function, however, if you leave the implicit flow enabled (checked).
 
