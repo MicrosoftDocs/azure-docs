@@ -11,8 +11,9 @@ ms.date: 05/13/2020
 
 # Prepay for Azure Database for PostgreSQL - Hyperscale (Citus) compute resources with reserved capacity
 
-> [!IMPORTANT] This page is about reserved capacity for Azure Database for
-> PostgreSQL – Hyperscale (Citus). See [this
+> [!IMPORTANT]
+> This page is about reserved capacity for Azure Database for PostgreSQL –
+> Hyperscale (Citus). See [this
 > page](/azure/postgresql/concept-reserved-pricing) for information about
 > reserved capacity for Azure Database for PostgreSQL – Single server.
 
