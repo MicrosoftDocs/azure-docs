@@ -25,7 +25,7 @@ Data exfiltration in Azure SQL Database is when an authorized user, such as a da
 Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure VM connecting to a SQL Database. This SQL Database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
 1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
-1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](firewall-configure.md).
+1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../../virtual-network/manage-network-security-group.md) and Service Tags as follows
     - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
     - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
@@ -172,7 +172,7 @@ To establish connectivity from an on-premises environment to the SQL Database, c
 
 ## Connecting from Azure Synapse Analytics to Azure Storage using Polybase
 
-PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## Next steps
 

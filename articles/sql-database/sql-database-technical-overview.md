@@ -45,7 +45,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 ## Scalable performance and pools
 
 You can define the amount of resources assigned. 
-- With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 80 vCores, or 32 GB to 4 TB. The [hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
+- With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](../azure-sql/database/single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 80 vCores, or 32 GB to 4 TB. The [hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can assign resources that are shared by all databases in the pool. You can create a new database, or move the existing single databases into a resource pool to maximize the use of resources and save money. This option also gives you the ability to dynamically [scale elastic pool resources](../azure-sql/database/elastic-pool-scale.md) up and down.
 - With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources. You can dynamically [scale managed instance resources](sql-database-managed-instance-resource-limits.md) up and down.
 
@@ -258,7 +258,7 @@ SQL Database customers have the following rights associated with Azure Hybrid Be
 - See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for cost comparisons and calculators regarding single databases and elastic pools.
 - See these quickstarts to get started:
 
-  - [Create a SQL database in the Azure portal](sql-database-single-database-get-started.md)  
+  - [Create a SQL database in the Azure portal](../azure-sql/database/quickstart-create-single-database.md)  
   - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
   - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 

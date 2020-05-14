@@ -16,7 +16,7 @@ ms.date: 03/09/2020
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
 
-When you create a logical SQL server from the [Azure portal](../../sql-database/sql-database-single-database-get-started.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
+When you create a logical SQL server from the [Azure portal](quickstart-create-single-database.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
 You can use the following network access controls to selectively allow access to a database via the public endpoint:
 
@@ -37,7 +37,7 @@ See the below video for a high level explanation of these access controls and wh
 
 ## Allow Azure services
 
-During creation of a new logical SQL server [from the Azure portal](../../sql-database/sql-database-single-database-get-started.md), this setting is left unchecked.
+During creation of a new logical SQL server [from the Azure portal](quickstart-create-single-database.md), this setting is left unchecked.
 
 You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   
@@ -106,7 +106,7 @@ Ip based firewall is a feature of the logical SQL server in Azure that prevents 
 ## Virtual Network firewall rules
 
 In addition to IP rules, the server firewall allows you to define *virtual network rules*.  
-To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
+To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md) or watch this video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
@@ -139,9 +139,9 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 
 ## Next steps
 
-- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](../../sql-database/sql-database-single-database-get-started.md).
+- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](quickstart-create-single-database.md).
 
-- For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+- For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md).
 
 - For help with connecting to an Azure SQL database from open source or third-party applications, see [Client quickstart code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 

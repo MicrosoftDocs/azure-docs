@@ -16,7 +16,7 @@ ms.custom: sqldbrb=2
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database. This article applies to Azure SQL Database, Azure SQL Managed Instance and Elastic pools.
 
 > [!TIP]
-> Look at the getting started guides for [Azure SQL Database](sql-database-single-database-quickstart-guide.md) and [Azure SQL Managed Instances](sql-database-managed-instance-quickstart-guide.md) if you need to setup your Azure SQL Database.
+> Look at the getting started guides for [Azure SQL Database](../azure-sql/database/quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](sql-database-managed-instance-quickstart-guide.md) if you need to setup your Azure SQL Database.
 >
 
 ## Language and platform

@@ -121,7 +121,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute replica with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](../azure-sql/database/resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### Can I provision multiple compute replicas of different sizes
 
@@ -234,7 +234,7 @@ No. Hyperscale is a symmetric multi-processing (SMP) architecture and is not a m
 
 ### What is the oldest SQL Server version supported for migration to Hyperscale
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](../azure-sql/database/migrate-to-database-from-sql-server.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](../azure-sql/database/migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues).
 
 ### Does Hyperscale support migration from other data sources such as Amazon Aurora, MySQL, PostgreSQL, Oracle, DB2, and other database platforms
 

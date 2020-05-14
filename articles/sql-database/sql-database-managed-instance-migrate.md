@@ -31,7 +31,7 @@ At a high level, the database migration process looks like:
 - [Monitor applications](#monitor-applications) to ensure that you have expected performance.
 
 > [!NOTE]
-> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-single-database-migrate.md).
+> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](../azure-sql/database/migrate-to-database-from-sql-server.md).
 
 ## Assess SQL Managed Instance compatibility
 

@@ -72,9 +72,9 @@ In this article you can find a content reference to various guides, scripts, and
 
 ### Extended events
 
-- [Extended events](sql-database-xevent-db-diff-from-svr.md)
-- [Store Extended events into event file](sql-database-xevent-code-event-file.md)
-- [Store Extended events into ring buffer](sql-database-xevent-code-ring-buffer.md)
+- [Extended events](../azure-sql/database/xevent-db-diff-from-svr.md)
+- [Store Extended events into event file](../azure-sql/database/xevent-code-event-file.md)
+- [Store Extended events into ring buffer](../azure-sql/database/xevent-code-ring-buffer.md)
 
 ## Develop applications
 

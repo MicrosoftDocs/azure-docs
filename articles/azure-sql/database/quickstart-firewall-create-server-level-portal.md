@@ -18,7 +18,7 @@ This quickstart walks through how to create a [server-level firewall rule](firew
 
 ## Prerequisites
 
-This quickstart uses the resources created in [Create a single database using the Azure portal](../../sql-database/sql-database-single-database-get-started.md) as its starting point.
+This quickstart uses the resources created in [Create a single database using the Azure portal](quickstart-create-single-database.md) as its starting point.
 
 ## Sign in to the Azure portal
 

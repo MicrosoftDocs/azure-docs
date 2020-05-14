@@ -22,7 +22,7 @@ This PowerShell example updates the sync schema in an existing SQL Data Sync syn
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../../../sql-database/sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-data-sync-data-sql-server-sql-database).
 
 > [!IMPORTANT]
 > SQL Data Sync does not support Azure SQL Managed Instance at this time.
@@ -85,7 +85,7 @@ Additional SQL database PowerShell script samples can be found in [Azure SQL Dat
 
 For more info about SQL Data Sync, see:
 
-- Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../../../sql-database/sql-database-sync-data.md)
+- Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../sql-data-sync-data-sql-server-sql-database)
 - Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../data-sync-sql-server-configure.md)
     - With PowerShell
@@ -93,10 +93,10 @@ For more info about SQL Data Sync, see:
         - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../data-sync-agent.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
-- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../../../sql-database/sql-database-sync-monitor-oms.md)
-- Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../../../sql-database/sql-database-troubleshoot-data-sync.md)
+- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync)
+- Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../sql-data-sync-troubleshoot.md)
 - Update the sync schema
-    - With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../../../sql-database/sql-database-update-sync-schema.md)
+    - With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../sql-data-sync-update-sync-schema.md)
 
 For more info about SQL Database, see:
 

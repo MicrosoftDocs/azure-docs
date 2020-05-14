@@ -22,8 +22,8 @@ Determine the storage caps of the different service tiers.Each Premium and Busin
 
 - [DTU-based resource limits - single database](../azure-sql/database/resource-limits-dtu-single-databases.md)
 - [DTU-based resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
-- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
+- [vCore-based resource limits - single databases](../azure-sql/database/resource-limits-vcore-single-databases.md)
+- [vCore-based resource limits - elastic pools](../azure-sql/database/resource-limits-vcore-elastic-pools.md)
 - [vCore-based resource limits - managed instance](sql-database-managed-instance-resource-limits.md)
 
 Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database and Azure SQL Managed Instance. Take a few minutes to review [Estimate memory requirements](/sql/relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables).

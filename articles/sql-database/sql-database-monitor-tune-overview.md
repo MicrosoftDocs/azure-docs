@@ -84,7 +84,7 @@ Stream metrics and resource logs to [Azure Storage](../azure-monitor/platform/re
 
 ## Use extended events in the SQL database engine
 
-Additionally, you can use [extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL for additional advanced monitoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in Azure SQL Database, see [Extended events in Azure SQL Database](sql-database-xevent-db-diff-from-svr.md).
+Additionally, you can use [extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL for additional advanced monitoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in Azure SQL Database, see [Extended events in Azure SQL Database](../azure-sql/database/xevent-db-diff-from-svr.md).
 
 ## Next steps
 

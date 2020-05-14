@@ -18,7 +18,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Load data
 
-- [Migrate to SQL Database](../../sql-database/sql-database-single-database-migrate.md)
+- [Migrate to SQL Database](migrate-to-database-from-sql-server.md)
 - Learn how to [manage SQL database after migration](manage-data-after-migrating-to-database.md).
 - [Copy a database](database-copy.md)
 - [Import a DB from a BACPAC](../../sql-database/sql-database-import.md)
@@ -62,9 +62,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ### Extended events
 
-- [Extended events](../../sql-database/sql-database-xevent-db-diff-from-svr.md)
-- [Store Extended events into event file](../../sql-database/sql-database-xevent-code-event-file.md)
-- [Store Extended events into ring buffer](../../sql-database/sql-database-xevent-code-ring-buffer.md)
+- [Extended events](xevent-db-diff-from-svr.md)
+- [Store Extended events into event file](xevent-code-event-file.md)
+- [Store Extended events into ring buffer](xevent-code-ring-buffer.md)
 
 ## Query distributed data
 
@@ -74,12 +74,12 @@ In this article you can find a content reference of various guides, scripts, and
 
 ### Data sync
 
-- [SQL Data Sync](../../sql-database/sql-database-sync-data.md)
+- [SQL Data Sync](sql-data-sync-data-sql-server-sql-database)
 - [Data Sync Agent](data-sync-agent.md)
-- [Replicate schema changes](../../sql-database/sql-database-update-sync-schema.md)
-- [Monitor with OMS](../../sql-database/sql-database-sync-monitor-oms.md)
+- [Replicate schema changes](sql-data-sync-update-sync-schema.md)
+- [Monitor with OMS](sql-data-sync-monitor-sync)
 - [Best practices for Data Sync](sql-data-sync-best-practices.md)
-- [Troubleshoot Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Troubleshoot Data Sync](sql-data-sync-troubleshoot.md)
 
 ## Elastic Database Jobs
 

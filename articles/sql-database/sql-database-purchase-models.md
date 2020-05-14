@@ -23,7 +23,7 @@ Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed
 There are two purchasing models:
 
 - [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-technical-overview.md) and [Azure SQL Managed Instance](sql-database-managed-instance.md). The [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) is available for [Azure SQL Database](sql-database-single-databases-manage.md).
+- [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) is available for [Azure SQL Database](../azure-sql/database/single-databases-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 
@@ -93,7 +93,7 @@ In the DTU-based purchasing model, you can choose between the basic, standard, a
 
 ### Database transaction units (DTUs)
 
-For a single database at a specific compute size within a [service tier](sql-database-single-database-scale.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
+For a single database at a specific compute size within a [service tier](../azure-sql/database/single-database-scale.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
 
 The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
 
@@ -153,17 +153,17 @@ However, across the wide spectrum of customer workloads running in Azure SQL Dat
 
 For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware vs. Gen5 due to higher memory per core ratio on Gen4.
 
-Customers with workloads that are sensitive to hardware changes, or customers who wish to control the choice of hardware generation for their database can use the [vCore](sql-database-service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware Generations](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Customers with workloads that are sensitive to hardware changes, or customers who wish to control the choice of hardware generation for their database can use the [vCore](sql-database-service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](../azure-sql/database/resource-limits-vcore-single-databases.md) and [elastic pools](../azure-sql/database/resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware Generations](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## Frequently asked questions (FAQs)
 
 ### Do I need to take my application offline to convert from a DTU-based service tier to a vCore-based service tier?
 
-No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
+No. You don't need to take the application offline. The new service tiers offer a simple online-conversion method that's similar to the existing process of upgrading databases from the standard to the premium service tier and the other way around. You can start this conversion by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ### Can I convert a database from a service tier in the vCore-based purchasing model to a service tier in the DTU-based purchasing model?
 
-Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
+Yes, you can easily convert your database to any supported performance objective by using the Azure portal, PowerShell, the Azure CLI, T-SQL, or the REST API. See [Manage single databases](../azure-sql/database/single-database-scale.md) and [Manage elastic pools](../azure-sql/database/elastic-pool-overview.md).
 
 ## Next steps
 

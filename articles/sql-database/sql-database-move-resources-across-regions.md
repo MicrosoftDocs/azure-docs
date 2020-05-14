@@ -55,7 +55,7 @@ This article provides a general workflow for moving resources to a different reg
 
 ### Prepare resources
 
-1. Create a [failover group](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) between the server of the source to the server of the target.  
+1. Create a [failover group](../azure-sql/database/tutorial-add-single-database-failover-group.md#2---create-the-failover-group) between the server of the source to the server of the target.  
 1. Add the databases you want to move to the failover group.
     - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](sql-database-auto-failover-group.md#best-practices-for-sql-database).
 

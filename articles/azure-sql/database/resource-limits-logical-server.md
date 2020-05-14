@@ -43,7 +43,7 @@ This article provides an overview of the resource limits for Azure SQL Database 
 
 ### Storage size
 
-For single databases resource storage sizes, refer to either [DTU-based resource limits](resource-limits-dtu-single-databases.md) or [vCore-based resource limits](../../sql-database/sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
+For single databases resource storage sizes, refer to either [DTU-based resource limits](resource-limits-dtu-single-databases.md) or [vCore-based resource limits](resource-limits-vcore-single-databases.md) for the storage size limits per pricing tier.
 
 ## What happens when database resource limits are reached
 
@@ -52,7 +52,7 @@ For single databases resource storage sizes, refer to either [DTU-based resource
 When database compute utilization (measured by DTUs and eDTUs, or vCores) becomes high, query latency increases, and queries can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resources become free.
 When encountering high compute utilization, mitigation options include:
 
-- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
@@ -61,7 +61,7 @@ When database space used reaches the max size limit, database inserts and update
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
 - Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md)
 
@@ -71,7 +71,7 @@ The maximum numbers of sessions and workers are determined by the service tier a
 
 When encountering high session or worker utilization, mitigation options include:
 
-- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](../../sql-database/sql-database-single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
 - Optimizing query workload to reduce number of occurrences and duration of query blocking.

@@ -150,7 +150,7 @@ The auto-failover group must be configured on the primary server and will connec
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
 > [!NOTE]
-> See [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
+> See [Add SQL Database to a failover group](../azure-sql/database/tutorial-add-single-database-failover-group.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -306,10 +306,10 @@ For some applications the security rules require that the network access to the 
 
 ### Using failover groups and virtual network rules
 
-If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database or SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers or instances are included in the Virtual Network rules. To support manual failover, follow these steps:
+If you are using [Virtual Network service endpoints and rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database or SQL Managed Instance, be aware that each virtual network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers or instances are included in the Virtual Network rules. To support manual failover, follow these steps:
 
 1. Provision the redundant copies of the front-end components of your application (web service, virtual machines etc.) in the secondary region
-2. Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
+2. Configure the [virtual network rules](../azure-sql/database/vnet-service-endpoint-rule-overview.md) individually for primary and secondary server
 3. Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 4. Initiate manual failover when the outage is detected. This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
 
@@ -462,7 +462,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For detailed tutorials, see
-  - [Add SQL Database to a failover group](sql-database-single-database-failover-group-tutorial.md)
+  - [Add SQL Database to a failover group](../azure-sql/database/tutorial-add-single-database-failover-group.md)
   - [Add an elastic pool to a failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md)
   - [Add a SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 - For sample scripts, see:

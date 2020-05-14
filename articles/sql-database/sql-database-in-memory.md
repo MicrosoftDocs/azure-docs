@@ -110,8 +110,8 @@ Each supported single database pricing tier and each elastic pool pricing tier i
 
 - [DTU-based resource limits - single database](../azure-sql/database/resource-limits-dtu-single-databases.md)
 - [DTU-based resource limits - elastic pools](../azure-sql/database/resource-limits-dtu-elastic-pools.md)
-- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
+- [vCore-based resource limits - single databases](../azure-sql/database/resource-limits-vcore-single-databases.md)
+- [vCore-based resource limits - elastic pools](../azure-sql/database/resource-limits-vcore-elastic-pools.md)
 - [vCore-based resource limits - managed instance](sql-database-managed-instance-resource-limits.md)
 
 The following items count toward your In-Memory OLTP storage cap:

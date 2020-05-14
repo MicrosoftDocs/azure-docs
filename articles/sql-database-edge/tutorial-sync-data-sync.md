@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 
 # Tutorial: Sync data from SQL Database Edge to Azure SQL Database by using SQL Data Sync
 
-In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Database Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../sql-database/sql-database-sync-data.md).
+In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Database Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database).
 
 Because SQL Database Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to an on-premises SQL Server instance can also be used to sync data to or from a SQL Database Edge instance running on an edge device.
 
@@ -23,7 +23,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 ## Before you begin
 
-* Create an Azure SQL database. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../sql-database/sql-database-single-database-get-started.md?tabs=azure-portal).
+* Create an Azure SQL database. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/quickstart-create-single-database.md?tabs=azure-portal).
 
 * Create the tables and other necessary objects in your Azure SQL Database deployment.
 
@@ -47,11 +47,11 @@ For more info about SQL Data Sync, see these articles:
 
 * [Data Sync Agent for Azure SQL Data Sync](../azure-sql/database/data-sync-agent.md)
 
-* [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../sql-database/sql-database-troubleshoot-data-sync.md)
+* [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Monitor SQL Data Sync with Azure Monitor logs](../sql-database/sql-database-sync-monitor-oms.md)
+* [Monitor SQL Data Sync with Azure Monitor logs](../azure-sql/database/sql-data-sync-monitor-sync)
 
-* [Update the sync schema with Transact-SQL](../sql-database/sql-database-update-sync-schema.md) or [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
+* [Update the sync schema with Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) or [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 
 ## Next steps
 

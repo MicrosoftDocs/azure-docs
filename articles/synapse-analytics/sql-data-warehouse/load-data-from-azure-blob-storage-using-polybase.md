@@ -600,7 +600,7 @@ Loading using PolyBase and authenticating through managed identities is the most
 
 3. Query as normal using [external tables](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Refer to the following [documentation](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) if you'd like to set up virtual network service endpoints for Azure Synapse Analytics.
+Refer to the following [documentation](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) if you'd like to set up virtual network service endpoints for Azure Synapse Analytics.
 
 ## Clean up resources
 

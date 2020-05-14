@@ -90,4 +90,4 @@ You are billed for each hour a database exists using the highest service tier + 
 
 ## Next steps
 
-For overall resource limits, see [SQL Database vCore-based resource limits - elastic pools](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md) and [SQL Database DTU-based resource limits - elastic pools](resource-limits-dtu-elastic-pools.md).
+For overall resource limits, see [SQL Database vCore-based resource limits - elastic pools](resource-limits-vcore-elastic-pools.md) and [SQL Database DTU-based resource limits - elastic pools](resource-limits-dtu-elastic-pools.md).

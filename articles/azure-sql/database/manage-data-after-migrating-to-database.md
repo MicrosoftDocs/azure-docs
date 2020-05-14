@@ -126,7 +126,7 @@ You can create firewall rules at the server level or at the database level. Serv
 
 #### Service endpoints
 
-By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](vnet-service-endpoint-rule-overview.md).
 
 Service endpoints (SE) allow you to expose your critical Azure resources only to your own private virtual network in Azure. By doing so, you essentially eliminate public access to your resources. The traffic between your virtual network to Azure stays on the Azure backbone network. Without SE you get forced-tunneling packet routing. Your virtual network forces the internet traffic to your organization and the Azure Service traffic to go over the same route. With Service Endpoints, you can optimize this since the packets flow straight from your virtual network to the service on Azure backbone network.
 
@@ -323,8 +323,8 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 You have several ways to achieve this:
 
-- **[Data Sync](../../sql-database/sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](../../sql-database/sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Data Sync](sql-data-sync-data-sql-server-sql-database)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
 ## Next steps
 

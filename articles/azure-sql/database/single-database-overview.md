@@ -24,7 +24,7 @@ The single database deployment option creates a database in Azure SQL Database w
 
 ## Dynamic scalability
 
-You can build your first app on a small, single database at low cost in the serverless compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](../../sql-database/sql-database-single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at low cost in the serverless compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 ## Single databases and elastic pools
 
@@ -44,7 +44,7 @@ Most Transact-SQL features that applications use are fully supported in both Mic
 
 In addition, there are some features and syntax that are not supported because Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As such, most server-level activities are inappropriate for SQL Database. T-SQL statements and options are not available if they configure server-level options, operating system components, or specify file system configuration. When such capabilities are required, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service.
 
-For more information, see [Resolving Transact-SQL differences during migration to SQL Database](../../sql-database/sql-database-transact-sql-information.md).
+For more information, see [Resolving Transact-SQL differences during migration to SQL Database](transact-sql-tsql-differences-sql-server.md).
 
 ## Security
 
@@ -55,6 +55,6 @@ SQL Database provides a range of [built-in security and compliance](../../sql-da
 
 ## Next steps
 
-- To quickly get started with a single database, start with the [Single database quickstart guide](../../sql-database/sql-database-single-database-quickstart-guide.md).
-- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](../../sql-database/sql-database-single-database-migrate.md).
+- To quickly get started with a single database, start with the [Single database quickstart guide](quickstart-content-reference-guide.md).
+- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
 - For information about supported features, see [Features](../../sql-database/sql-database-features.md).

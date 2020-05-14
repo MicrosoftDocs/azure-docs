@@ -23,7 +23,7 @@ In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) 
 Completing this quickstart requires the following items:
 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
-- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](../../sql-database/sql-database-single-database-get-started.md) quickstart.
+- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](quickstart-create-single-database.md) quickstart.
     - The scripts in this article are written to use the AdventureWorksLT database. If you are using a SQL Managed Instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
 If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](connect-query-portal.md).

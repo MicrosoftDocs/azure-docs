@@ -25,7 +25,7 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](../../sql-database/sql-database-single-database-get-started.md)
+- An [Azure SQL Database](quickstart-create-single-database.md)
 - [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 

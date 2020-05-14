@@ -43,7 +43,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - A [server](logical-servers.md) and a single database
-  - Create them with [Azure portal](../../sql-database/sql-database-single-database-get-started.md), [CLI](../../sql-database/sql-database-cli-samples.md), or [PowerShell](../../sql-database/sql-database-powershell-samples.md)
+  - Create them with [Azure portal](quickstart-create-single-database.md), [CLI](../../sql-database/sql-database-cli-samples.md), or [PowerShell](../../sql-database/sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
