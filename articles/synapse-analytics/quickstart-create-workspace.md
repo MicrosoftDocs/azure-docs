@@ -71,7 +71,7 @@ If you want to delete the Azure Synapse workspace, complete the following steps:
 1. Navigate to the Azure Synapse workspace to delete.
 1. Press **delete** on the command bar.
  ![Azure Synapse workspace overview - delete command highlighted.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confirm the deletion, and press **Delete** button.
+1. Confirm the deletion, and press the **Delete** button.
  ![Azure Synapse workspace overview - delete workspace confirmation dialog.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. When the process completes successfully, the Azure Synapse workspace will no longer be listed in the list of workspaces.
 
