@@ -53246,6 +53246,166 @@
             "source_path": "articles/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md",
             "redirect_url": "/azure/azure-sql/managed-instance/scripts/transparent-data-encryption-byok-powershell",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-identify-query-performance-issues.md",
+            "redirect_url": "/azure/azure-sql/identify-query-performance-issues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-in-memory-oltp-migration.md",
+            "redirect_url": "/azure/azure-sql/in-memory-oltp-migration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-in-memory-oltp-monitoring.md",
+            "redirect_url": "/azure/azure-sql/in-memory-oltp-monitoring",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-in-memory-sample.md",
+            "redirect_url": "/azure/azure-sql/in-memory-sample",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-in-memory.md",
+            "redirect_url": "/azure/azure-sql/in-memory",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-intelligent-insights-troubleshoot-performance.md",
+            "redirect_url": "/azure/azure-sql/intelligent-insights-troubleshoot-performance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-intelligent-insights-use-diagnostics-log.md",
+            "redirect_url": "/azure/azure-sql/intelligent-insights-use-diagnostics-log",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-intelligent-insights.md",
+            "redirect_url": "/azure/azure-sql/intelligent-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-load-from-csv-with-bcp.md",
+            "redirect_url": "/azure/azure-sql/load-from-csv-with-bcp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-faq.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/frequently-asked-questions-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/management-endpoint-find-ip-address",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-get-started-restore.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/quickstart-restore-sample-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-get-started.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/quickstart-create-instance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/management-endpoint-verify-built-in-firewall",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-migrate-tde-certificate.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/tde-certificate-migrate",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-migrate.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-point-in-time-restore.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/point-in-time-restore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-public-endpoint-configure.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/public-endpoint-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-public-endpoint-securely.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/public-endpoint-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-quickstart-guide.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/quickstart-content-reference-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-resource-limits.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/resource-limits",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-sync-network-configuration.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/azure-app-sync-network-configuration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-threat-detection.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/threat-detection-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-timezone.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/timezones-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-transact-sql-information.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-paas-vs-sql-server-iaas.md",
+            "redirect_url": "/azure/azure-sql/paas-vs-sql-server-iaas",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-public-data-sets.md",
+            "redirect_url": "/azure/azure-sql/public-data-sets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication-configure.md",
+            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication.md",
+            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-temporal-tables.md",
+            "redirect_url": "/azure/azure-sql/temporal-tables",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-use-batching-to-improve-performance.md",
+            "redirect_url": "/azure/azure-sql/use-batching-to-improve-performance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/tutorial-managed-instance-azure-active-directory-migration.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/tutorial-migrate-sql-server-users-to-instance-transact-sql-tsql",
+            "redirect_document_id": true
         }
     ]
 }
