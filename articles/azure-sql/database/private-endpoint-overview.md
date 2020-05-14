@@ -180,9 +180,9 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 - For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
 
 <!--Image references-->
-[1]: ../../sql-database/media/quickstart-create-single-database/pe-connect-overview.png
-[2]: ../../sql-database/media/quickstart-create-single-database/telnet-result.png
-[3]: ../../sql-database/media/quickstart-create-single-database/pec-list-before.png
-[4]: ../../sql-database/media/quickstart-create-single-database/pec-approve.png
-[5]: ../../sql-database/media/quickstart-create-single-database/pec-list-after.png
-[6]: ../../sql-database/media/quickstart-create-single-database/pec-select.png
+[1]: media/quickstart-create-single-database/pe-connect-overview.png
+[2]: media/quickstart-create-single-database/telnet-result.png
+[3]: media/quickstart-create-single-database/pec-list-before.png
+[4]: media/quickstart-create-single-database/pec-approve.png
+[5]: media/quickstart-create-single-database/pec-list-after.png
+[6]: media/quickstart-create-single-database/pec-select.png
