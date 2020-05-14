@@ -18,7 +18,7 @@ The LUIS containers have a few notable limitations. From unsupported dependencie
 
 ## Supported dependencies for `latest` container
 
-The latest LUIS container, released at [//build/ 2019](https://news.microsoft.com/build2019/), will support:
+The latest LUIS container supports:
 
 * [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use.
 
