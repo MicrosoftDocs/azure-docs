@@ -30,3 +30,8 @@ For the applications in other languages we currently recommend using the SDKs:
 * [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
 * [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 * [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+
+## Next steps
+
+* Learn more about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* Get an overview of [Distributed Tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) and see what [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can do for your business
