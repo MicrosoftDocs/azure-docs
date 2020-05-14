@@ -52521,6 +52521,71 @@
             "source_path": "articles/sql-database/sql-database-machine-learning-services-overview.md",
             "redirect_url": "/azure/azure-sql/database/machine-learning-services-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-networkaccess-overview.md",
+            "redirect_url": "/azure/azure-sql/database/network-access-controls-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-private-endpoint-overview.md",
+            "redirect_url": "/azure/azure-sql/database/private-endpoint-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-query-performance.md",
+            "redirect_url": "/azure/azure-sql/database/query-performance-insight",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-quickstart-r-create-script.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-r-create-script",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-quickstart-r-train-score-model.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-r-train-score-model",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-limits-database-server.md",
+            "redirect_url": "/azure/azure-sql/database/resource-limits-logical-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-server-level-firewall-rule.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-firewall-create-server-level-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-security-tutorial.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-secure-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-serverless.md",
+            "redirect_url": "/azure/azure-sql/database/serverless-tier-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-servers.md",
+            "redirect_url": "/azure/azure-sql/database/logical-servers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tier-hyperscale.md",
+            "redirect_url": "/azure/azure-sql/database/service-tier-hyperscale",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tiers-dtu.md",
+            "redirect_url": "/azure/azure-sql/database/dtu-service-tiers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database.md",
+            "redirect_url": "/azure/azure-sql/database/single-database-overview",
+            "redirect_document_id": true
         }
     ]
 }
