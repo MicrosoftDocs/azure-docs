@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 
 ms.author: mimart
 author: msmimart
@@ -85,6 +85,19 @@ Bring your external partners on board in ways customized to your organization’
 
 - Use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) to configure policies that [manage access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences.
+
+## Integrate with Identity providers
+
+Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about identity providers for External Identities.
+
+![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+
+
+## Create a self-service sign-up user flow (Preview)
+
+With a self-service sign-up user flow, you can create a sign-up experience for external users who want to access your apps. As part of the sign-up flow, you can provide options for different social or enterprise identity providers, and collect information about the user. Learn about self-service sign-up and how to set it up.
+
+![Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## Next steps
 
