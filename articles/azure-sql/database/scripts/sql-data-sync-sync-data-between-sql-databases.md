@@ -284,7 +284,7 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../../../sql-database/sql-database-powershell-samples.md).
+Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).
 
 For more info about SQL Data Sync, see:
 
@@ -303,5 +303,5 @@ For more info about SQL Data Sync, see:
 
 For more info about SQL Database, see:
 
-- [SQL Database Overview](../../../sql-database/sql-database-technical-overview.md)
+- [SQL Database Overview](../technical-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -14,7 +14,7 @@ ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover
 
-This article describes the authentication requirements to configure and control [active geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md). It also provides the steps required to set up user access to the secondary database. Finally, it also describes how to enable access to the recovered database after using [geo-restore](../../sql-database/sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+This article describes the authentication requirements to configure and control [active geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md). It also provides the steps required to set up user access to the secondary database. Finally, it also describes how to enable access to the recovered database after using [geo-restore](recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ## Disaster recovery with contained users
 
@@ -94,4 +94,4 @@ The last step is to go to the target server, or servers, and generate the logins
 * For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 * To learn about active geo-replication, see [Active geo-replication](active-geo-replication-overview.md).
 * To learn about auto-failover groups, see [Auto-failover groups](auto-failover-group-overview.md).
-* For information about using geo-restore, see [geo-restore](../../sql-database/sql-database-recovery-using-backups.md#geo-restore)
+* For information about using geo-restore, see [geo-restore](recovery-using-backups.md#geo-restore)

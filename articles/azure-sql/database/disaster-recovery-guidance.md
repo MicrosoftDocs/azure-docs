@@ -18,7 +18,7 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 
 - [Active geo-replication](active-geo-replication-overview.md)
 - [Auto-failover groups](auto-failover-group-overview.md)
-- [Geo-restore](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Geo-restore](recovery-using-backups.md#point-in-time-restore)
 - [Zone-redundant databases](high-availability-sla.md)
 
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
@@ -75,7 +75,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 
 ## Recover using geo-restore
 
-If your application's downtime does not result in business liability you can use [geo-restore](../../sql-database/sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
+If your application's downtime does not result in business liability you can use [geo-restore](recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
 
 ## Configure your database after recovery
 
@@ -112,4 +112,4 @@ If auditing is required to access your database, you need to enable Auditing aft
 
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md)
 - To learn about business continuity design and recovery scenarios, see [Continuity scenarios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](recovery-using-backups.md)

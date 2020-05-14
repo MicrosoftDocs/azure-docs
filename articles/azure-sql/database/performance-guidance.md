@@ -20,7 +20,7 @@ Once you have identified a performance issue that you are facing with Azure SQL 
 - Tune your application and apply some best practices that can improve performance.
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
-This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](automatic-tuning-overview.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](../../sql-database/sql-database-monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
+This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](automatic-tuning-overview.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
 
 ## Tune your application
 
@@ -261,6 +261,6 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 ## Next steps
 
 - For more information about DTU-based service tiers, see [DTU-based purchasing model](dtu-service-tiers.md).
-- For more information about vCore-based service tiers, see [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+- For more information about vCore-based service tiers, see [vCore-based purchasing model](service-tiers-vcore.md).
 - For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
 - For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)

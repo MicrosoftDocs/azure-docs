@@ -38,7 +38,7 @@ In the [Azure portal](https://portal.azure.com/), you can monitor an individual 
 - Data IO percentage
 - Database size percentage
 
-Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
+Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md) articles for more information about service tiers.  
 
 ![Service tier monitoring of database performance.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
@@ -54,7 +54,7 @@ Business continuity and disaster recovery abilities enable you to continue your 
 
 ### How do I create and manage backups on SQL Database
 
-You don’t create backups on Azure SQL Database and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the service tier you choose. SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore).
+You don’t create backups on Azure SQL Database and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the service tier you choose. SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](recovery-using-backups.md#point-in-time-restore).
 
 |Service tier|Retention period in days|
 |---|:---:|
@@ -84,7 +84,7 @@ To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recover
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
 
 - Identity & authentication ([SQL authentication and Azure Active Directory [AAD] authentication](logins-create-manage.md)).
-- Monitoring activity ([Auditing](../../sql-database/sql-database-auditing.md) and [threat detection](../../sql-database/sql-database-threat-detection.md)).
+- Monitoring activity ([Auditing](../../sql-database/sql-database-auditing.md) and [threat detection](threat-detection.md)).
 - Protecting actual data ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) and [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlling Access to sensitive and privileged data ([Row Level security](/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
 
@@ -101,7 +101,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 
 |**If you...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
-|Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](../../sql-database/sql-database-security-overview.md)|
+|Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
 |Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](conditional-access-confugre.md), and use [Azure AD Universal authentication with MFA support](../../sql-database/sql-database-ssms-mfa-authentication.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](../../sql-database/sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
@@ -148,7 +148,7 @@ With SQL Database, you can turn ON Auditing to track database events. [SQL Datab
 
 #### Threat detection
 
-With [threat detection](../../sql-database/sql-database-threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. Threat detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable threat detection](tutorial-secure-database.md#enable-security-features).
+With [threat detection](threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. Threat detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable threat detection](tutorial-secure-database.md#enable-security-features).
 
 ### How do I protect my data in general on SQL Database
 
@@ -234,7 +234,7 @@ With Query Performance Insights, you can get tailored recommendations for your d
 
 ### Security optimization
 
-SQL Database provides actionable security recommendations to help you secure your data and threat detection for identifying and investigating suspicious database activities that may pose a potential thread to the database. [Vulnerability assessment](../../sql-database/sql-vulnerability-assessment.md) is a database scanning and reporting service that allows you to monitor the security state of your databases at scale and identify security risks and drift from a security baseline defined by you. After every scan, a customized list of actionable steps and remediation scripts is provided, as well as an assessment report that can be used to help meet compliance requirements.
+SQL Database provides actionable security recommendations to help you secure your data and threat detection for identifying and investigating suspicious database activities that may pose a potential thread to the database. [Vulnerability assessment](sql-vulnerability-assessment.md) is a database scanning and reporting service that allows you to monitor the security state of your databases at scale and identify security risks and drift from a security baseline defined by you. After every scan, a customized list of actionable steps and remediation scripts is provided, as well as an assessment report that can be used to help meet compliance requirements.
 
 With Azure Security Center, you identify the security recommendations across the board and apply them with a single click.
 
@@ -328,4 +328,4 @@ You have several ways to achieve this:
 
 ## Next steps
 
-Learn about [SQL Database](../../sql-database/sql-database-technical-overview.md).
+Learn about [SQL Database](technical-overview.md).

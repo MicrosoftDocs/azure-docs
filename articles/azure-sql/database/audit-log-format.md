@@ -25,7 +25,7 @@ For example, for database `Database1` on `Server1` the following is a possible v
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Read-only Replicas](../../sql-database/sql-database-read-scale-out.md) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
+[Read-only Replicas](read-scale-out.md) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
 
 
 ### Event Hub

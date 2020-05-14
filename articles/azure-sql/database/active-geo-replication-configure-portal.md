@@ -35,7 +35,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service tier and compute size. The secondary database can be a single database or a pooled database. For more information, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+The secondary database has the same name as the primary database and has, by default, the same service tier and compute size. The secondary database can be a single database or a pooled database. For more information, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [!NOTE]

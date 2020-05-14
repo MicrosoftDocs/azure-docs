@@ -237,6 +237,6 @@ The preceding code uses these PowerShell cmdlets:
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for a server. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database. |
 
-For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../sql-database-powershell-samples.md).
+For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../../azure-sql/database/powershell-script-content-guide.md).
 
 ---

@@ -41,9 +41,9 @@ Avoid long-running transactions because any infrastructure or connection failure
 
 ## Resiliency
 
-Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
+Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](troubleshoot-common-errors-issues.md).
 
-For more information about how to prepare for planned maintenance events on your Azure SQL Database, see [planning for Azure maintenance events in Azure SQL Database](../../sql-database/sql-database-planned-maintenance.md).
+For more information about how to prepare for planned maintenance events on your Azure SQL Database, see [planning for Azure maintenance events in Azure SQL Database](planned-maintenance.md).
 
 ## Network considerations
 
@@ -54,4 +54,4 @@ For more information about how to prepare for planned maintenance events on your
 
 ## Next steps
 
-Explore all the [capabilities of SQL Database](../../sql-database/sql-database-technical-overview.md).
+Explore all the [capabilities of SQL Database](technical-overview.md).

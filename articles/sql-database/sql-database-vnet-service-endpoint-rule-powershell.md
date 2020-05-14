@@ -15,7 +15,7 @@ tags: azure-synapse
 ---
 # PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database
 
-*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](../azure-sql/database/logical-servers.md) for your [Azure SQL Database]((sql-database-technical-overview.md) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
+*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](../azure-sql/database/logical-servers.md) for your [Azure SQL Database](../azure-sql/database/technical-overview.md) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
 
 > [!IMPORTANT]
 > This article applies to Azure SQL Database, including Azure Synapse (formerly SQL DW). For simplicity, the term Azure SQL Database in this article applies to databases belonging to either Azure SQL Database or Azure Synapse. This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.

@@ -132,4 +132,4 @@ Once the script completes, the SQL Managed Instance can be accessed from all Azu
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../../azure-sql/database/powershell-script-content-guide.md).

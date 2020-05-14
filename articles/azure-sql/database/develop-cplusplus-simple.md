@@ -131,7 +131,7 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 ## Next steps
 
-* Review the [SQL Database Development Overview](../../synapse-analytics/sql/develop-overview.md)
+* Review the [SQL Database Development Overview](develop-overview.md)
 * More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources

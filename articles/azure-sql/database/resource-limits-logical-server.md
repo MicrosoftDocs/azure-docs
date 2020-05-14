@@ -57,7 +57,7 @@ When encountering high compute utilization, mitigation options include:
 
 ### Storage
 
-When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT and DELETE statements continue to succeed.
+When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](troubleshoot-common-errors-issues.md). SELECT and DELETE statements continue to succeed.
 
 When encountering high space utilization, mitigation options include:
 
@@ -150,5 +150,5 @@ When encountering a log rate limit that is hampering desired scalability, consid
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](../../sql-database/sql-database-purchase-models.md#dtu-based-purchasing-model).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

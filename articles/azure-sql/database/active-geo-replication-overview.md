@@ -122,7 +122,7 @@ Transaction log rate throttling on the primary due to lower compute size on a se
 > [!NOTE]
 > Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](resource-limits-logical-server.md#transaction-log-rate-governance).
 
-For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](../../sql-database/sql-database-purchase-models.md).
+For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](purchasing-models.md).
 
 ## Cross-subscription geo-replication
 
@@ -288,5 +288,5 @@ As discussed previously, active geo-replication can also be managed programmatic
 - SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](auto-failover-group-overview.md).
 - For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
-- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
+- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](recovery-using-backups.md).
 - To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).

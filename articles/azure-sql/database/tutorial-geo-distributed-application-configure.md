@@ -37,7 +37,7 @@ To complete the tutorial, make sure you've installed the following items:
 - A single database in Azure SQL Database. To create one use,
   - [Portal](quickstart-create-single-database.md)
   - [CLI](az-cli-script-samples-content-guide.md)
-  - [PowerShell](../../sql-database/sql-database-powershell-samples.md)
+  - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
   > The tutorial uses the *AdventureWorksLT* sample database.

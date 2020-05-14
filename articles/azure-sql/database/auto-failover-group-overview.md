@@ -254,7 +254,7 @@ When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` a
 If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `server.secondary.zone_id.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
 > [!NOTE]
-> In certain service tiers, SQL Database supports the use of [read-only replicas](../../sql-database/sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+> In certain service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
 >
 > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
@@ -371,7 +371,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 ## Failover groups and point-in-time restore
 
-For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore).
+For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](recovery-using-backups.md#point-in-time-restore).
 
 ## Limitations of failover groups
 
@@ -471,5 +471,5 @@ As discussed previously, auto-failover groups and active geo-replication can als
   - [Use PowerShell to add an Azure SQL Database to a failover group](scripts/add-database-to-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
-- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
+- To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](recovery-using-backups.md).
 - To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).

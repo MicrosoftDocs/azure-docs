@@ -15,7 +15,7 @@ ms.date: 03/12/2019
 ---
 # What is a logical SQL server in Azure SQL Database and Azure Synapse?
 
-In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../sql-database/sql-database-auditing.md), [threat detection policies](../../sql-database/sql-database-threat-detection.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
+In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../sql-database/sql-database-auditing.md), [threat detection policies](threat-detection.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 
@@ -55,7 +55,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
   ![create database-1](./media/logical-servers/create-database-1.png)
 
 > [!IMPORTANT]
-> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 
 To create a managed instance, see [Create a managed instance](../../sql-database/sql-database-managed-instance-get-started.md)
 
@@ -68,7 +68,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
    ![server firewall rule](./media/quickstart-create-single-database/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+> To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](quickstart-create-single-database.md).
 

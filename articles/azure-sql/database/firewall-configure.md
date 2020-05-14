@@ -189,7 +189,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > [!TIP]
 > For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 >
-> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](../../sql-database/sql-database-powershell-samples.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](scripts/create-and-configure-database-powershell.md).
+> For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](powershell-script-content-guide.md) and [Create a single database and configure a server-level IP firewall rule using PowerShell](scripts/create-and-configure-database-powershell.md).
 
 ### Use CLI to manage server-level IP firewall rules
 
@@ -258,7 +258,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 - For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](quickstart-create-single-database.md).
 - For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
-- For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md).
+- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md).
 
 <!--Image references-->
 [1]: ./media/firewall-configure/sqldb-firewall-1.png

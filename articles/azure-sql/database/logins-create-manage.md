@@ -29,7 +29,7 @@ In this article, you learn about:
 
 ## Authentication and authorization
 
-[**Authentication**](../../sql-database/sql-database-security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
+[**Authentication**](security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
 When a user attempts to connect to a database, they provide a user account and authentication information. The user is authenticated using one of the following two authentication methods:
 
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
@@ -44,7 +44,7 @@ When a user attempts to connect to a database, they provide a user account and a
 - A **login** is an individual account in the master database, to which a user account in one or more databases can be linked. With a login, the credential information for the user account is stored with the login.
 - A **user account** is an individual account in any database that may be, but does not have to be, linked to a login. With a user account that is not linked to a login, the credential information is stored with the user account.
 
-[**Authorization**](../../sql-database/sql-database-security-overview.md#authorization) to access data and perform various actions are managed using database roles and explicit permissions. Authorization refers to the permissions assigned to a user, and determines what that user is allowed to do. Authorization is controlled by your user account's database [role memberships](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). As a best practice, you should grant users the least privileges necessary.
+[**Authorization**](security-overview.md#authorization) to access data and perform various actions are managed using database roles and explicit permissions. Authorization refers to the permissions assigned to a user, and determines what that user is allowed to do. Authorization is controlled by your user account's database [role memberships](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). As a best practice, you should grant users the least privileges necessary.
 
 ## Existing logins and user accounts after creating a new database
 
@@ -164,4 +164,4 @@ You should familiarize yourself with the following features that can be used to 
 
 ## Next steps
 
-For an overview of all the SQL Database and SQL Managed Instance security features, see [SQL security overview](../../sql-database/sql-database-security-overview.md).
+For an overview of all the SQL Database and SQL Managed Instance security features, see [SQL security overview](security-overview.md).

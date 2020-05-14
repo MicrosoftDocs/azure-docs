@@ -33,7 +33,7 @@ To create a single Azure SQL Database using the [Azure portal](https://portal.az
   ![create database-1](./media/single-database-manage/create-database-1.png)
 
 > [!IMPORTANT]
-> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 
 ## Manage an existing server
 
@@ -44,7 +44,7 @@ To manage an existing database, navigate to the **SQL databases** page and selec
    ![server firewall rule](./media/single-database-manage/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+> To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](quickstart-create-single-database.md).
 
