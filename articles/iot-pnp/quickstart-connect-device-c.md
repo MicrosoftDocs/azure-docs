@@ -165,7 +165,7 @@ The sample code uses the high-level functions defined in the following header fi
 In the _digitaltwin_sample_device.c_ file you can see the definition of the model ID to work with:
 
 ```c
-#define DIGITALTWIN_SAMPLE_ROOT_INTERFACE_ID "dtmi:YOUR_COMPANY_NAME_HERE:sample_device;1"
+#define DIGITALTWIN_SAMPLE_MODEL_ID "dtmi:com:example:SampleDevice;1"
 ```
 
 The `main` function creates a **DeviceClient** instance from your device handle:
