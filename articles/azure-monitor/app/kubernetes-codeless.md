@@ -25,8 +25,8 @@ Follow [the detailed instructions](https://docs.microsoft.com/azure/azure-monito
 ## Other languages
 
 For the applications in other languages we currently recommend using the SDKs:
-* [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-* [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
+* [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
+* [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
 * [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
 * [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 * [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
