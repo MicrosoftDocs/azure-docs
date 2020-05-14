@@ -15,9 +15,9 @@ ms.reviewer: jrasnick
 
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
 
-## External tables in Synapse SQL
+## External tables in Synapse SQL pool and on-demand
 
-### [SQL pool](#tab/sql-pool)
+### SQL pool
 
 In SQL pool, you can use an external table to:
 
@@ -28,7 +28,7 @@ When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse
 
 For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### [SQL on-demand](#tab/sql-ondemand)
+### SQL on-demand
 
 For SQL on-demand, you'll use an external table to:
 
@@ -57,7 +57,7 @@ External data sources are used to connect to storage accounts. The complete docu
 
 ### Syntax for CREATE EXTERNAL DATA SOURCE
 
-#### [SQL pool](#tab/sql-pool)
+#### SQL pool
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -69,7 +69,7 @@ WITH
 [;]
 ```
 
-#### [SQL on-demand](#tab/sql-ondemand)
+#### SQL on-demand
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -108,7 +108,7 @@ TYPE = `HADOOP` is mandatory option in SQL pool and specify that Polybase techno
 
 ### Example for CREATE EXTERNAL DATA SOURCE
 
-#### [SQL pool](#tab/sql-pool)
+#### SQL pool
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
 
@@ -122,7 +122,7 @@ WITH
   ) ;
 ```
 
-#### [SQL on-demand](#tab/sql-ondemand)
+#### SQL on-demand
 
 The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
