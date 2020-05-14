@@ -20,3 +20,28 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |MicrosoftMonitoringAgent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+
+>[!NOTE]
+> VM extension functionality is available only in the following regions:
+> * EastUS
+> * WestUS2
+> * WestEurope 
+>
+> Ensure you onboard your machine in one of these regions.
+
+## Prerequisite
+
+This feature depends on the following Azure resource providers in your subscription:
+
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
+
+If they are not already registered, follow the steps under [Register Azure resource providers] (overview.md#register-azure-resource-providers). 
+
+### Connected Machine agent
+
+The minimum version of the Connected Machine agent that is supported with this feature is:
+
+* Windows - 0.7.*.*
+* Linux - 0.8.*.*
+
