@@ -50,7 +50,7 @@ To perform a key transfer, a user performs following steps:
 
 **Step 4:** Import the protected Target Key to Azure Key Vault
 
-Customers use BYOK tool and documentation provided by HSM vendor to complete Steps 3 and produce a Key Transfer Blob (a .byok file).
+Customers use the BYOK tool and documentation provided by HSM vendor to complete Steps 3. It produces a Key Transfer Blob (a ".byok" file).
 
 
 ## HSM Constraints
@@ -83,13 +83,13 @@ az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --fil
 
 ### Steps 3: Generate Key Transfer Blob using HSM Vendor provided BYOK tool
 
-Customer will use HSM Vendor provided BYOK tool to create a key transfer blob (stored as a .byok file). KEK public key in (.pem file) will be one of the inputs to this tool.
+Customer will use HSM Vendor provided BYOK tool to create a key transfer blob (stored as a ".byok" file). KEK public key (as a .pem file) will be one of the inputs to this tool.
 
 #### Key Transfer Blob
 Long term, Microsoft would like to use PKCS#11 CKM_RSA_AES_KEY_WRAP mechanism to transfer the target key to Azure Key Vault since this mechanism produces a single blob and, more importantly, the intermediate AES key is handled by the two HSMs and is guaranteed to be ephemeral. This mechanism is not presently available in some HSMs but the combination of protecting the target key with CKM_AES_KEY_WRAP_PAD using an AES key and protecting the AES key with CKM_RSA_PKCS_OAEP produces an equivalent blob.
 
 The target key plaintext depends on the key type: 
-* For a RSA key, the private key ASN.1 DER encoding [RFC3447] wrapped in PKCS#8 [RFC5208] 
+* For an RSA key, the private key ASN.1 DER encoding [RFC3447] wrapped in PKCS#8 [RFC5208] 
 * For an EC key, the private key ASN.1 DER encoding [RFC5915] wrapped in PKCS#8 [RFC5208]
 * For an octet key, the raw bytes of the key
 
@@ -122,11 +122,11 @@ If CKM_RSA_AES_KEY_WRAP_PAD is used, the JSON serialization of the transfer blob
 * dir = Direct mode, i.e. the referenced kid is used to directly protect the ciphertext which is an accurate representation of CKM_RSA_AES_KEY_WRAP
 * generator = an informational field that denotes the name and version of BYOK tool and the source HSM manufacturer and model. This information is intended for use in troubleshooting and support.
 
-The JSON blob is stored in a file and have .byok extension so that the Azure PowerShell/CLI clients treats it correctly when ‘Add-AzKeyVaultKey’ (PSH) or ‘az keyvault key import’ (CLI) commands are used.
+The JSON blob is stored in a file with a ".byok" extension so that the Azure PowerShell/CLI clients treats it correctly when ‘Add-AzKeyVaultKey’ (PSH) or ‘az keyvault key import’ (CLI) commands are used.
 
 ### Step 4: Upload Key Transfer Blob to import HSM-key
 
-Customer will transfer the Key Transfer Blob (.byok file) to an online workstation and then run a **az keyvault key import** command to import this blob as a new HSM-backed key into Key Vault. 
+Customer will transfer the Key Transfer Blob (".byok" file) to an online workstation and then run a **az keyvault key import** command to import this blob as a new HSM-backed key into Key Vault. 
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
