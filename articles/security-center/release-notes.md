@@ -46,11 +46,11 @@ Suppression rules define the criteria for which alerts should be automatically d
 
 ### Virtual machine vulnerability assessment is now generally available
 
-Security Center's standard tier now includes a built-in vulnerability extension for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
+Security Center's standard tier now includes a built-in vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
 
-The extension can continuously scan your virtual machines to find vulnerable applications and present the findings in Security Center. 
+The new solution can continuously scan your virtual machines to find vulnerabilities and present the findings in Security Center. 
 
-To deploy the extension, use the new security recommendation:
+To deploy the solution, use the new security recommendation:
 
 "Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
 
