@@ -184,7 +184,7 @@ If you are using the Java SDK, use the [Java log adapters](../../azure-monitor/a
 
 ### There's no Application Insights option on the project context menu
 * Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
-* This might be a project type that Devloper Analytics Tools doesn't support. Use [manual installation](#manual-installation).
+* This might be a project type that Developer Analytics Tools doesn't support. Use [manual installation](#manual-installation).
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.
