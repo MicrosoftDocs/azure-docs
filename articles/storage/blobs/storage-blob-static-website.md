@@ -45,13 +45,7 @@ You can use any of these tools to upload content to the **$web** container:
 
 ## Viewing content
 
-Users can view site content from a browser by using the public URL of the website. You can find the URL by using the Azure portal, Azure CLI, or PowerShell. Use this table as a guide.
-
-|Tool| Guidance |
-|----|----|
-|**Azure portal** | [Find the website URL by using the Azure portal](storage-blob-static-website-how-to.md#portal-find-url) |
-|**Azure CLI** | [Find the website URL by using the Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli#portal-find-url) |
-|**Azure PowerShell module** | [Find the website URL by using PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell#portal-find-url) |
+Users can view site content from a browser by using the public URL of the website. You can find the URL by using the Azure portal, Azure CLI, or PowerShell. See [Find the website URL](storage-blob-static-website-how-to.md#portal-find-url).
 
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
