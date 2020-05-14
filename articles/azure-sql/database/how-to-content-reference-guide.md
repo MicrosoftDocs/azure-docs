@@ -23,20 +23,20 @@ In this article you can find a content reference of various guides, scripts, and
 - [Copy a database](database-copy.md)
 - [Import a DB from a BACPAC](database-import.md)
 - [Export a DB to BACPAC](database-export.md)
-- [Load data with BCP](../../sql-database/sql-database-load-from-csv-with-bcp.md)
+- [Load data with BCP](../load-from-csv-with-bcp.md)
 - [Load data with ADF](../../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ## Configure features
 
 - [Configure Azure AD auth](aad-authentication-configure.md)
 - [Configure Conditional Access](conditional-access-confugre.md)
-- [Multi-factor AAD auth](../../sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configure multi-factor auth](../../sql-database/sql-database-ssms-mfa-authentication-configure.md)
+- [Multi-factor AAD auth](../ssms-mfa-authentication.md)
+- [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../../sql-database/sql-database-in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
 - [Configure Azure Automation](manage-automation.md)
 - [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
@@ -55,10 +55,10 @@ In this article you can find a content reference of various guides, scripts, and
 - [Apply performance recommendations](database-advisor-find-recommendations-portal.md) and optimize your database.
 - [Create alerts](alerts-insights-configure-portal.md) to get notifications from Azure SQL Database.
 - [Troubleshoot connectivity](troubleshoot-common-errors-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](use-resource-health-troubleshoot-connectivity.md).
-- [Troubleshoot performance with Intelligent Insights](../../sql-database/sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
-- [Use Intelligent Insights diagnostics log](../../sql-database/sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Monitor In-memory OLTP space](../../sql-database/sql-database-in-memory-oltp-monitoring.md)
+- [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
+- [Monitor In-memory OLTP space](../in-memory-oltp-monitoring.md)
 
 ### Extended events
 
@@ -107,7 +107,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Connectivity](connect-query-content-reference-guide.md#libraries)
 - [Use Spark Connector](spark-connector.md)
 - [Authenticate app](application-authentication-get-client-id-keys.md)
-- [Use batching for better performance](../../sql-database/sql-database-use-batching-to-improve-performance.md)
+- [Use batching for better performance](../use-batching-to-improve-performance.md)
 - [Connectivity guidance](troubleshoot-common-connectivity-issues.md)
 - [DNS aliases](../../sql-database/dns-alias-overview.md)
 - [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)

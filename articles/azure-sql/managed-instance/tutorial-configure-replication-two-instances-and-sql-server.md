@@ -62,7 +62,7 @@ Create two managed instances within this new resource group using the [Azure por
 
    ![Use the publisher vnet for the distributor](./media/tutorial-configure-replication-two-instances-and-sql-server/use-same-vnet-for-distributor.png)
 
-For more information about creating a managed instance, see [Create a managed instance in the portal](../../sql-database/sql-database-managed-instance-get-started.md)
+For more information about creating a managed instance, see [Create a managed instance in the portal](quickstart-create-instance.md)
 
   > [!NOTE]
   > For the sake of simplicity, and because it is the most common configuration, this tutorial suggests placing the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor in a separate virtual network. To do so, you will need to configure VPN peering between the virtual networks of the publisher and distributor, and then configure VPN peering between the virtual networks of the distributor and subscriber.
@@ -399,7 +399,7 @@ See the following [managed instance capabilities security features](sql-managed-
 
 - [Managed instance auditing](auditing-configure.md)
 - [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
-- [Threat detection](../../sql-database/sql-database-managed-instance-threat-detection.md)
+- [Threat detection](threat-detection-configure.md)
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)
 - [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)

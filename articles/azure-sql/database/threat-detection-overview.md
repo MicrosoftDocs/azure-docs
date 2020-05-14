@@ -71,7 +71,7 @@ Click **Advanced Threat Protection alert** to launch the Azure Security Center a
 ## Next steps
 
 - Learn more about [Advanced Threat Protection in Azure SQL Database & Azure Synapse](../../security/fundamentals/threat-detection.md).
-- Learn more about [Advanced Threat Protection in Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-threat-detection.md).
+- Learn more about [Advanced Threat Protection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).
 - Learn more about [Advanced data security](advanced-data-security.md).
 - Learn more about [Azure SQL Database auditing](../../sql-database/sql-database-auditing.md)
 - Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)

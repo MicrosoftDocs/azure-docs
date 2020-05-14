@@ -18,7 +18,7 @@ ms.date: 11/19/2019
 This article provides an overview of the resource limits for Azure SQL Database and Azure Synapse Analytics servers. It provides information on what happens when those resource limits are hit or exceeded, and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
-> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
+> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).
 
 ## Maximum resource limits
 

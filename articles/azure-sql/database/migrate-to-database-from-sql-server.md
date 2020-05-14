@@ -15,7 +15,7 @@ ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled Azure SQL Database. For information on migrating to an Azure SQL Managed Instance, see [Migrate to SQL Server instance to Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled Azure SQL Database. For information on migrating to an Azure SQL Managed Instance, see [Migrate to SQL Server instance to Azure SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Migrate to a single database or a pooled database
 
@@ -30,7 +30,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
  Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](../../dms/tutorial-sql-server-to-azure-sql.md).
 
-The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Managed Instance, see [Migration to a Managed Instance](../../sql-database/sql-database-managed-instance-migrate.md).
+The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Managed Instance, see [Migration to a Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md).
 
   ![VSSSDT migration diagram](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 

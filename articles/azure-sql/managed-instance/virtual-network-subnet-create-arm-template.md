@@ -58,5 +58,5 @@ The easiest way to create and configure a virtual network is to use an Azure Res
 - For an overview, see [What is a SQL Managed Instance?](sql-managed-instance-paas-overview.md).
 - Learn about [connectivity architecture in SQL Managed Instance](connectivity-architecture-overview.md).
 - Learn how to [modify an existing virtual network for SQL Managed Instance](vnet-existing-add-subnet.md).
-- For a tutorial that shows how to create a virtual network, create a SQL Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+- For a tutorial that shows how to create a virtual network, create a SQL Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](quickstart-create-instance.md).
 - For DNS issues, see [Configuring a custom DNS](custom-dns-configure.md).

@@ -74,7 +74,7 @@ Once you have the basic infrastructure set up, you need to modify some setting s
 
 You can also connect an application that's hosted by the Azure App Service. SQL Managed Instance can be accessed only through a private IP address so in order to access it from Azure App Service you first need to make a connection between the application and the SQL Managed Instance virtual network. See [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).  
 
-For troubleshooting, see [Troubleshooting virtual networks and Applications](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try [synching the networking configuration](../../sql-database/sql-database-managed-instance-sync-network-configuration.md).
+For troubleshooting, see [Troubleshooting virtual networks and Applications](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try [synching the networking configuration](azure-app-sync-network-configuration.md).
 
 A special case of connecting Azure App Service to SQL Managed Instance is when you integrate Azure App Service to a network peered to SQL Managed Instance virtual network. That case requires the following configuration to be set up:
 
@@ -152,4 +152,4 @@ The following minimal versions of the tools and drivers are recommended if you w
 ## Next steps
 
 - For information about SQL Managed Instance, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md).
-- For a tutorial showing you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+- For a tutorial showing you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](quickstart-create-instance.md).

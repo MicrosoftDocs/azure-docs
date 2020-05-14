@@ -28,7 +28,7 @@ Service tier options in the vCore model include General Purpose, Business Critic
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
 |Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**SQL Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**SQL Managed Instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
-|IOPS and throughput (approximate)|**SQL Database**: See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).<br/>**SQL Managed Instance**: See [Overview Azure SQL Managed Instance resource limits](../../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
+|IOPS and throughput (approximate)|**SQL Database**: See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).<br/>**SQL Managed Instance**: See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
 |Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](read-scale-out.md)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 days (7 days by default)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
 |In-memory|Not supported|Supported|Not supported|
@@ -132,7 +132,7 @@ Follow the steps to change configuration, and select the hardware generation as 
 
 **To select a hardware generation when creating a SQL Managed Instance**
 
-For detailed information, see [Create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+For detailed information, see [Create a SQL Managed Instance](../managed-instance/quickstart-create-instance.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
 
@@ -219,7 +219,7 @@ Approved support requests are typically fulfilled within 5 business days.
 
 To get started, see: 
 - [Creating a SQL Database using the Azure portal](quickstart-create-single-database.md)
-- [Creating a SQL Managed Instance using the Azure portal](../../sql-database/sql-database-managed-instance-get-started.md)
+- [Creating a SQL Managed Instance using the Azure portal](../managed-instance/quickstart-create-instance.md)
 
 For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
@@ -227,5 +227,5 @@ For details about the specific compute and storage sizes available in the genera
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore-based resource limits for pooled Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-resource-limits.md). 
+- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
 

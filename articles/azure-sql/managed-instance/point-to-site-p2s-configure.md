@@ -21,7 +21,7 @@ This quickstart demonstrates how to connect to Azure SQL Managed Instance using 
 
 This quickstart:
 
-- Uses the resources created in  [Create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md) as its starting point.
+- Uses the resources created in  [Create a SQL Managed Instance](quickstart-create-instance.md) as its starting point.
 - Requires PowerShell 5.1 and AZ PowerShell 1.4.0 or later on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Requires the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) on your on-premises client computer.
 
@@ -29,7 +29,7 @@ This quickstart:
 
 1. Open PowerShell on your on-premises client computer.
 
-2. Copy this PowerShell script. This script attaches a VPN Gateway to the SQL Managed Instance virtual network that you created in the [Create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md) quickstart. This script uses the Azure PowerShell Az Module and does following for either Windows or Linux based hosts:
+2. Copy this PowerShell script. This script attaches a VPN Gateway to the SQL Managed Instance virtual network that you created in the [Create a SQL Managed Instance](quickstart-create-instance.md) quickstart. This script uses the Azure PowerShell Az Module and does following for either Windows or Linux based hosts:
 
    - Creates and install certificates on client machine
    - Calculates the future VPN Gateway subnet IP range
@@ -49,7 +49,7 @@ This quickstart:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Paste the script in your PowerShell window and provide the required parameters. The values for `<subscriptionId>`, `<resourceGroup>`, and `<virtualNetworkName>` should match the ones that you used for the [Create SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md) quickstart. The value for `<certificateNamePrefix>` can be a string of your choice.
+3. Paste the script in your PowerShell window and provide the required parameters. The values for `<subscriptionId>`, `<resourceGroup>`, and `<virtualNetworkName>` should match the ones that you used for the [Create SQL Managed Instance](quickstart-create-instance.md) quickstart. The value for `<certificateNamePrefix>` can be a string of your choice.
 
 4. Execute the PowerShell script.
 
@@ -101,4 +101,4 @@ After you connect, you can view your system and user databases in the Databases 
 
 - For a quickstart showing how to connect from an Azure virtual machine, see [Configure a point-to-site connection](point-to-site-p2s-configure.md).
 - For an overview of the connection options for applications, see [Connect your applications to SQL Managed Instance](connect-application-instance.md).
-- To restore an existing SQL Server database from on-premises to a SQL Managed Instance, you can use the [Azure Database Migration Service (DMS) for migration](../../dms/tutorial-sql-server-to-managed-instance.md) or the [T-SQL RESTORE command](../../sql-database/sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
+- To restore an existing SQL Server database from on-premises to a SQL Managed Instance, you can use the [Azure Database Migration Service (DMS) for migration](../../dms/tutorial-sql-server-to-managed-instance.md) or the [T-SQL RESTORE command](quickstart-restore-sample-database.md) to restore from a database backup file.
