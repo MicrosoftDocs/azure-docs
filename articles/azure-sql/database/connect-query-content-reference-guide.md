@@ -86,7 +86,7 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 - For connectivity architecture information, see [Azure SQL Database Connectivity Architecture](connectivity-architecture.md).
 - Find [SQL Server drivers](https://msdn.microsoft.com/library/mt654049.aspx) that are used to connect from client applications
 - Connect to SQL Database:
-  - [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
+  - [Connect to SQL Database by using .NET (C#)](connect-query-dotnet-core.md)
   - [Connect to SQL Database by using PHP](connect-query-php.md)
   - [Connect to SQL Database by using Node.js](connect-query-nodejs.md)
   - [Connect to SQL Database by using Java](connect-query-java.md)

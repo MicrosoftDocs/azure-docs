@@ -52,7 +52,7 @@ Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string
 
 ## <a id="Firewall"></a>Step 3:  Add your IP to the firewall
 
-Go to the firewall section for your server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection:
+Go to the firewall section for your server and add your [client IP to the firewall using these steps](firewall-configure.md) to make sure we can establish a successful connection:
 
 ![AddyourIPWindow](./media/develop-cplusplus-simple/ip.png)
 
@@ -78,7 +78,7 @@ Congratulations! You have now successfully connected to Azure SQL using C++ and 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
 
-In case you haven't heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don't have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In case you haven't heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don't have one available, you can set one up quickly using [Linux Azure Virtual machines](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7.
 
@@ -136,5 +136,5 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 ## Additional resources
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)

@@ -50,9 +50,9 @@ In this quickstart, you use Python to connect to an Azure SQL Database and use T
 > [!NOTE]
 > You can optionally choose to use an Azure SQL Managed Instance.
 >
-> To create and configure, use the [Azure Portal](../../sql-database/sql-database-managed-instance-get-started.md), [PowerShell](../../sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](../../sql-database/sql-database-managed-instance-configure-vm.md) connectivity.
+> To create and configure, use the [Azure Portal](../../sql-database/sql-database-managed-instance-get-started.md), [PowerShell](../../sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](../../sql-database/sql-database-managed-instance-configure-p2s.md) or [VM](../../sql-database/sql-database-managed-instance-configure-vm.md) connectivity.
 >
-> To load data, see [restore with BACPAC](database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
+> To load data, see [restore with BACPAC](database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](../../sql-database/sql-database-managed-instance-get-started-restore.md).
 
 To further explore Python and the Azure SQL Database, see [Azure SQL Database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 

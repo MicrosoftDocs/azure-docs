@@ -173,7 +173,7 @@ If you forget to configure the IP address, your program fails with a handy error
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 For more information, see
-[Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
+[Configure firewall settings on SQL Database](firewall-configure.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### Connection: Ports
@@ -351,7 +351,7 @@ In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.
 Here are some links to information about EntLib60:
 
 - Free book download: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
-- Best practices: [Retry general guidance](../best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
+- Best practices: [Retry general guidance](/architecture/best-practices/transient-faults) has an excellent in-depth discussion of retry logic.
 - NuGet download: [Enterprise Library - Transient Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
@@ -441,7 +441,7 @@ public bool IsTransient(Exception ex)
 
 ## Next steps
 
-- [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+- [Connection libraries for SQL Database and SQL Server](connect-query-content-reference-guide.md#libraries)
 - [Connection pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in Python,](https://pypi.python.org/pypi/retrying) to simplify the task of adding retry behavior to just about anything.
 
