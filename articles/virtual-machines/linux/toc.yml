@@ -164,6 +164,14 @@
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
     href: regions.md
+  - name: Extensions
+    items:
+    - name: About Azure Extensions
+      href: ../extensions/overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Linux VM Agent
+      href: ../extensions/agent-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Features
+      href: ../extensions/features-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Availability and performance
     items:
     - name: Availability
@@ -336,7 +344,7 @@
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
-    href: monitor.md
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Infrastructure guidelines
@@ -875,7 +883,54 @@
     - name: Azure SDKs
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Use VM extensions
-    href: ../extensions/overview.md
+    items:
+    - name: Restrict extension installation
+      href: ../extensions/extensions-rmpolicy-howto-cli.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Update Linux agent
+      href: ../extensions/update-linux-agent.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Export extensions
+      href: ../extensions/export-templates.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Troubleshoot
+      href: ../extensions/troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Issues with Python 3-enabled Linux systems
+      href: ../extensions/issues-using-vm-extensions-python-3.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure Disk Encryption
+      href: ../extensions/azure-disk-enc-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure Key Vault
+      href: ../extensions/key-vault-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Custom Script
+      href: ../extensions/custom-script-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: VM snapshot
+      href: ../extensions/vmsnapshot-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Network Watcher Agent
+      href: ../extensions/network-watcher-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: NVIDIA GPU Drivers
+      href: ../extensions/hpccompute-gpu-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure Monitor
+      items:
+      - name: Diagnostics extension
+        href: ../extensions/diagnostics-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Log Analytics
+        href: ../extensions/oms-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Azure Monitor Linux Dependency agent
+        href: ../extensions/agent-dependency-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: PowerShell DSC
+      href: ../extensions/dsc-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      items:
+       - name: DSC and Linux
+         href: ../extensions/dsc-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+       - name: Handle credentials
+         href: ../extensions/dsc-credentials.md?context=azure/virtual-machines/linux/context/linux-vm-context
+       - name: Use templates
+         href: ../extensions/dsc-template.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Virtual machine access
+      href: ../extensions/vmaccess.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Chef
+      href: ../extensions/chef.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Stackify Retrace
+      href: ../extensions/stackify-retrace-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Symantec
+      href: ../extensions/symantec.md?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group

@@ -134,10 +134,10 @@
       items:
       - name: Encrypt a VM and data disks
         href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-      - name: Monitor
-        items:
-        - name: Azure Monitor
-          href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
+    - name: Monitor
+      items:
+      - name: Azure Monitor
+        href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -149,6 +149,13 @@
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
     href: regions.md
+    items:
+    - name: About Azure Extensions
+      href: ../extensions/overview.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Linux VM Agent
+      href: ../extensions/agent-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Features
+      href: ../extensions/features-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Availability and performance
     items:
     - name: Availability
@@ -322,7 +329,7 @@
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
-    href: monitor.md
+    href: ../../insights/monitor-vm-azure.md?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Infrastructure example
@@ -763,8 +770,59 @@
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: Azure SDKs
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-  - name: Use VM extensions
-    href: ../extensions/overview.md
+  - name: Use extensions
+    items:
+    - name: Restrict extension installation
+      href: ../extensions/extensions-rmpolicy-howto-ps.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Export extensions
+      href: ../extensions/export-templates.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Troubleshoot
+      href: ../extensions/troubleshoot.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Disk Encryption
+      href: ../extensions/azure-disk-enc-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Key Vault
+      href: ../extensions/key-vault-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Backup for SQL Server
+      href: ../extensions/backup-azure-sql-server-running-azure-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Custom Script
+      href: ../extensions/custom-script-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: IaaS antimalware for Windows
+      href: ../extensions/iaas-antimalware-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: VM snapshot
+      href: ../extensions/vmsnapshot-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Network Watcher Agent
+      href: ../extensions/network-watcher-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: NVIDIA GPU Drivers
+      href: ../extensions/hpccompute-gpu-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: AMD GPU Drivers
+      href: ../extensions/hpccompute-amd-gpu-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Monitor
+      items:
+      - name: Diagnostics extension
+        href: ../extensions/../../azure-monitor/platform/diagnostics-extension-overview.md?context=azure/virtual-machines/windows/context/windows-vm-context?toc=/azure/virtual-machines/extensions/toc.json
+      - name: Log Analytics
+        href: ../extensions/oms-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      - name: Azure Monitor Windows Dependency agent
+        href: ../extensions/agent-dependency-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: PowerShell DSC
+      href: ../extensions/dsc-overview.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      items:
+      - name: DSC and Windows
+        href: ../extensions/dsc-windows.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      - name: Handle credentials
+        href: ../extensions/dsc-credentials.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      - name: Use templates
+        href: ../extensions/dsc-template.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Virtual machine access
+      href: ../extensions/vmaccess.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Third-party extensions
+      items:
+      - name: Chef
+        href: ../extensions/chef.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      - name: Stackify Retrace
+        href: ../extensions/stackify-retrace-linux.md?context=azure/virtual-machines/windows/context/windows-vm-context
+      - name: Symantec
+        href: ../extensions/symantec.md?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Move VMs
     items:
     - name: Change subscription or resource group
