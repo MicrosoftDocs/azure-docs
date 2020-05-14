@@ -2454,6 +2454,9 @@
     {
       "source_path": "articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
       "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-java-get-started.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-java",
       "redirect_document_id": false
