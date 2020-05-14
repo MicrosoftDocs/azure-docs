@@ -14,7 +14,7 @@ ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
-[A single database](sql-database-single-index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
+[A single database](../../sql-database/sql-database-single-index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
 
 ## Quickstart overview
 
@@ -22,7 +22,7 @@ In this section, you will see an overview of available articles that can help yo
 
 - [Create a single database using the Azure portal](quickstart-create-single-database.md).
 - After creating the database, you would need to [secure your database by configuring firewall rules](quickstart-firewall-create-server-level-portal.md).
-- If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](sql-database-import.md).
+- If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](../../sql-database/sql-database-import.md).
 
 ## Automating management operations
 

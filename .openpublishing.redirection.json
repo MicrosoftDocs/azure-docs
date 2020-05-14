@@ -4216,7 +4216,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-single-database-resources.md",
-            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
+            "redirect_url": "/azure/sql-database/single-database-scale",
             "redirect_document_id": false
         },
         {
@@ -18405,12 +18405,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-up-powershell.md",
-            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
+            "redirect_url": "/azure/sql-database/single-database-scale",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-up.md",
-            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
+            "redirect_url": "/azure/sql-database/single-database-scale",
             "redirect_document_id": false
         },
         {
