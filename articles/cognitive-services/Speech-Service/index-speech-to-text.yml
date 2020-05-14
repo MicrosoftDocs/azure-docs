@@ -26,8 +26,6 @@ landingContent:
         url: speech-to-text-basics.md
       - text: Use SPX for speech-to-text with no code
         url: spx-overview.md
-      - text: What is pronunciation assessment?
-        url: speech-to-text.md
     - linkListType: quickstart
       links:
         - text: Recognize speech with microphone input

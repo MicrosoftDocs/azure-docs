@@ -24,8 +24,6 @@
           href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
-        - name: What is pronunciation assessment?
-          href: speech-to-text.md
     - name: Quickstart
       items:
         - name: Recognize speech with microphone input
