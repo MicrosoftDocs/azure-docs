@@ -86,7 +86,7 @@ The following table describes required fields.
 |              | reserved capacity reservation. In particular, the number of coordinator or       |
 |              | worker node vCores in the selected Azure region that are being reserved and      |
 |              | which will get the billing discount. For example, if you're running (or          |
-|              | plannint to run) Hyperscale (Citus) server groups with the total compute         |
+|              | planning to run) Hyperscale (Citus) server groups with the total compute         |
 |              | capacity of 64 coordinator node vCores and 32 worker node vCores in the East US  |
 |              | region, then you'd specify quantity as 64 and 32 for coordinator and worker      |
 |              | nodes respectively to maximize the benefit for all servers.                      |
