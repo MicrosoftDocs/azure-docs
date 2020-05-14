@@ -611,10 +611,6 @@ Click **New Power BI report** next to the name of the Power BI dataset that you 
 
 ![Save report](./media/get-started-synapse-analytics/pbi-save-report.PNG)
 
-<!--## Serve via SQL pool--->
-<!--- Matthew
---->
-
 
 ## Orchestrate using a pipeline
 
