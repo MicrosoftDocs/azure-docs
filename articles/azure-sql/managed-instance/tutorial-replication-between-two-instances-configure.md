@@ -54,7 +54,7 @@ You will also need to [Configure an Azure VM to connect](connect-vm-instance-con
 
 ## 3 - Create Azure Storage Account
 
-[Create an Azure Storage Account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account. 
+[Create an Azure Storage Account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
