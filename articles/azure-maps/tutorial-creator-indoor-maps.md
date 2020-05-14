@@ -3,7 +3,7 @@ title: Use Creator to create indoor maps | Microsoft Docs
 description: This tutorial shows you how to use Azure Maps Creator to create indoor maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/06/2020
+ms.date: 05/13/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -230,7 +230,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
                     "title": "unit"
                 }
                 {
-                    "href": "https://t-azmaps.azurelbs.com/wfs/datasets/{datasetId}/collections/unit?api-version=1.0",
+                    "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit?api-version=1.0",
                     "rel": "self",
                     "title": "Metadata catalogue for unit"
                 }
