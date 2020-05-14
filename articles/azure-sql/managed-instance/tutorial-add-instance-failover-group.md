@@ -1102,7 +1102,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 ## Full script
 
 # [PowerShell](#tab/azure-powershell)
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add SQL Managed Instance to a failover group")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add SQL Managed Instance to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

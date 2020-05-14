@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > - Use cross-database queries with Azure AD users
 > - Learn about security features, such as threat protection, auditing, data masking, and encryption
 
-To learn more, see the [Azure SQL Managed Instance overview](sql-managed-instance-paas-overview). 
+To learn more, see the [Azure SQL Managed Instance overview](../managed-instance/sql-managed-instance-paas-overview). 
 
 ## Prerequisites
 
