@@ -22,7 +22,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Azure SQL Database deployment offers covered in this guide
 
-- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](elastic-pool-overview.md) in [servers](logical-servers.md)
+- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](single-database-overview.md) and [elastic pools](elastic-pool-overview.md) in [servers](logical-servers.md)
 - [Azure SQL Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
 ### SQL deployment offers not covered in this guide
@@ -123,7 +123,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
 **Best practices**:
 
 - Activate Conditional Access in Azure AD (requires Premium subscription).
-  - See the article, [Conditional Access in Azure AD](../active-directory/conditional-access/overview.md).  
+  - See the article, [Conditional Access in Azure AD](../../active-directory/conditional-access/overview.md).  
 
 - Create Azure AD group(s) and enable MFA policy for selected groups using Azure AD Conditional Access.
   - See the article, [Plan Conditional Access Deployment](../../active-directory/conditional-access/plan-conditional-access.md).
@@ -169,7 +169,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 
 **Best practices**:
 
-- Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+- Use [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
   - [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
   - [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
   - [Use Azure SQL Database from app service with managed identity (without code changes)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
@@ -545,7 +545,7 @@ In a SQL Managed Instance:
   - For an instance in SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use an Azure SQL Managed Instance securely with public endpoints](../../sql-database/sql-database-managed-instance-public-endpoint-securely.md).
 
 > [!NOTE]
-> A SQL Managed Instance public endpoint is not enabled by default and it and must be explicitly enabled. If company policy disallows the use of public endpoints, use [Azure Policy](../governance/policy/overview.md) to prevent enabling public endpoints in the first place.
+> A SQL Managed Instance public endpoint is not enabled by default and it and must be explicitly enabled. If company policy disallows the use of public endpoints, use [Azure Policy](../../governance/policy/overview.md) to prevent enabling public endpoints in the first place.
 
 - Set up Azure Networking components:
   - Follow [Azure best practices for network security](../../security/fundamentals/network-best-practices.md).
@@ -576,9 +576,9 @@ In a SQL Managed Instance:
 
 - For Web App with ASE or VNet Integrated Web App connecting to a database in SQL Database, you can use [VNet Service endpoints and VNet Firewall Rules](vnet-service-endpoint-rule-overview.md) to limit access from a specific VNet and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
 
-- Ensure that your Web App is configured per the article, [Best practices for securing PaaS web and mobile applications using Azure App Service](../security/security-paas-applications-using-app-services.md).
+- Ensure that your Web App is configured per the article, [Best practices for securing PaaS web and mobile applications using Azure App Service](../../security/fundamentals/paas-applications-using-app-services.md).
 
-- Install [Web Application Firewall (WAF)](../application-gateway/waf-overview.md) to protect your web app from common exploits and vulnerabilities.
+- Install [Web Application Firewall (WAF)](../../web-application-firewall/ag/ag-overview.md) to protect your web app from common exploits and vulnerabilities.
 
 ### Configure Azure VM hosting for secure connections to SQL Database/SQL Managed Instance
 
@@ -586,7 +586,7 @@ In a SQL Managed Instance:
 
 - Use a combination of Allow and Deny rules on the NSGs of Azure VMs to control which regions can be accessed from the VM.
 
-- Ensure that your VM is configured per the article, [Security best practices for IaaS workloads in Azure](../security/azure-security-iaas.md).
+- Ensure that your VM is configured per the article, [Security best practices for IaaS workloads in Azure](../../security/fundamentals/iaas.md).
 
 - Ensure that all VMs are associated with a specific VNet and subnet.
 

@@ -71,7 +71,7 @@ The vCore-based purchasing model lets you independently choose compute and stora
 
 > [!IMPORTANT]
 > Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database. For more information about SQL Managed Instance charges, see [SQL Managed Instances](../../sql-database/sql-database-managed-instance.md).
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a SQL Managed Instance in a region that currently isn't supported, [send a support request via the Azure portal](../azure-sql/database/quota-increase-request.md).
+> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a SQL Managed Instance in a region that currently isn't supported, [send a support request via the Azure portal](quota-increase-request.md).
 
 If your Azure SQL Database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
 
@@ -95,7 +95,7 @@ In the DTU-based purchasing model, you can choose between the basic, standard, a
 
 For a single database at a specific compute size within a [service tier](single-database-scale.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
 
-The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
+The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](dtu-service-tiers.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
 
 The resources used by your workload don't impact the resources available to other SQL Databases in the Azure cloud. Likewise, the resources used by other workloads don't impact the resources available to your SQL Database.
 

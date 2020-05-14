@@ -176,7 +176,7 @@ Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from
 
 ## Geo-DR and customer-managed TDE
 
-In both [active geo-replication](active-geo-replication-overview.md) and [failover groups](sql-database-auto-failover-group.md) scenarios, each server involved requires a separate key vault, that must be co-located with the server in the same Azure region. Customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its local key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) is not supported.
+In both [active geo-replication](active-geo-replication-overview.md) and [failover groups](auto-failover-group-overview.md) scenarios, each server involved requires a separate key vault, that must be co-located with the server in the same Azure region. Customer is responsible for keeping the key material across the key vaults consistent, so that geo-secondary is in sync and can take over using the same key from its local key vault if primary becomes inaccessible due to an outage in the region and a failover is triggered. Up to four secondaries can be configured, and chaining (secondaries of secondaries) is not supported.
 
 To avoid issues while establishing or during geo-replication due to incomplete key material, it's important to follow these rules when configuring customer-managed TDE:
 
@@ -188,7 +188,7 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-To test a failover, follow the steps in [Active geo-replication overview](sql-database-geo-replication-overview.md). It should be done on a regular basis to confirm the access permissions for SQL to both key vaults have been maintained.
+To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). It should be done on a regular basis to confirm the access permissions for SQL to both key vaults have been maintained.
 
 ## Next steps
 
