@@ -22,7 +22,7 @@ Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed
 
 There are two purchasing models:
 
-- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](technical-overview.md) and [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](technical-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [DTU-based purchasing model](dtu-service-tiers.md) is available for [Azure SQL Database](single-database-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
@@ -70,7 +70,7 @@ The vCore-based purchasing model lets you independently choose compute and stora
 - Backup storage (RA-GRS).
 
 > [!IMPORTANT]
-> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database. For more information about SQL Managed Instance charges, see [SQL Managed Instances](../../sql-database/sql-database-managed-instance.md).
+> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database. For more information about SQL Managed Instance charges, see [SQL Managed Instances](../managed-instance/sql-managed-instance-paas-overview.md).
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a SQL Managed Instance in a region that currently isn't supported, [send a support request via the Azure portal](quota-increase-request.md).
 
 If your Azure SQL Database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.

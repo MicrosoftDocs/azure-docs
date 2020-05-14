@@ -61,16 +61,16 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Create and configure managed instances**||
-| [Create and manage a managed instance](../../sql-database/scripts/sql-database-create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a managed instance using the Azure PowerShell |
-| [Create and manage a managed instance using Azure Resource Manager template](../../sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a managed instance using the Azure PowerShell and Azure Resource Manager template.|
-| [Restore database to a managed instance in another Geo-region](../../sql-database/scripts/sql-managed-instance-restore-geo-backup.md) | This PowerShell script is taking a backup of one database and restore it to another region. This is known as Geo-Restore disaster recovery scenario. |
+| [Create and manage a managed instance](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a managed instance using the Azure PowerShell |
+| [Create and manage a managed instance using Azure Resource Manager template](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a managed instance using the Azure PowerShell and Azure Resource Manager template.|
+| [Restore database to a managed instance in another Geo-region](../managed-instance/scripts/restore-geo-backup.md) | This PowerShell script is taking a backup of one database and restore it to another region. This is known as Geo-Restore disaster recovery scenario. |
 | **Configure Transparent Data Encryption (TDE)**||
-| [Manage Transparent Data Encryption in a managed instance using your own key from Azure Key Vault](../../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|
+| [Manage Transparent Data Encryption in a managed instance using your own key from Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|
 |**Configure a failover group**||
-| [Configure a failover group for a managed instance](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. |
+| [Configure a failover group for a managed instance](../managed-instance/scripts/add-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. |
 |||
 
-Learn more about [PowerShell cmdlets for Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+Learn more about [PowerShell cmdlets for Azure SQL Managed Instance](../managed-instance/api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances).
 
 ---
 

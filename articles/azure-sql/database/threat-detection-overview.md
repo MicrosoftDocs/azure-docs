@@ -17,7 +17,7 @@ tags: azure-synapse
 
 # Advanced Threat Protection for Azure SQL Database, SQL Managed Instance & Azure Synapse
 
-Advanced Threat Protection for [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md) and [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Advanced Threat Protection for [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 Advanced Threat Protection is part of the [Advanced data security](advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
@@ -25,7 +25,7 @@ Advanced Threat Protection is part of the [Advanced data security](advanced-data
 
 Advanced Threat Protection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which include details of suspicious activity and recommend action on how to investigate and mitigate the threat. Advanced Threat Protection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
-For a full investigation experience, it is recommended to enable auditing, which writes database events to an audit log in your Azure storage account.  To enable auditing, see [Auditing for Azure SQL Database and Azure Synapse](../../sql-database/sql-database-auditing.md) or [Auditing for Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-auditing.md).
+For a full investigation experience, it is recommended to enable auditing, which writes database events to an audit log in your Azure storage account.  To enable auditing, see [Auditing for Azure SQL Database and Azure Synapse](../../sql-database/sql-database-auditing.md) or [Auditing for Azure SQL Managed Instance](../managed-instance/auditing-configure.md).
 
 ## Alerts
 

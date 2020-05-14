@@ -17,16 +17,16 @@ This article documents the security controls that are built into Azure SQL Datab
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
+SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). The following entries apply to both offerings except where otherwise noted.
 
 ## Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
-| Azure Virtual Network injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](sql-database-managed-instance.md) only. |
-| Forced tunneling support| Yes | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
+| Azure Virtual Network injection support| Yes | Applies to [managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) only. |
+| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) only. |
+| Forced tunneling support| Yes | [Managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
 
 ## Monitoring & logging
 

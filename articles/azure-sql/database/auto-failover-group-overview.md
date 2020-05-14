@@ -214,7 +214,7 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 ![auto failover](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
-> See [Add managed instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
+> See [Add managed instance to a failover group](../managed-instance/tutorial-add-instance-failover-group.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
 
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
@@ -225,7 +225,7 @@ To ensure non-interrupted connectivity to the primary SQL Managed Instance after
 > [!IMPORTANT]
 > First SQL Managed Instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
-For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-sql-managed-instance).
+For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/tutorial-add-instance-failover-group.md#3---create-a-secondary-sql-managed-instance).
 
 ### Enabling replication traffic between two instances
 
@@ -278,7 +278,7 @@ Let's assume that instance A is the primary instance, instance B is the existing
 
 1. Create instance C with same size as A and in the same DNS zone.
 2. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
-3. Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with SQL Managed Instance tutorial](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+3. Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with SQL Managed Instance tutorial](../managed-instance/tutorial-add-instance-failover-group.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 4. Delete instance B if not needed to avoid unnecessary charges.
 
 > [!NOTE]
@@ -291,7 +291,7 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 1. Create instance C with same size as B and in the same DNS zone.
 2. Connect to instance B and manually failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
 3. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
-4. Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+4. Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](../managed-instance/tutorial-add-instance-failover-group.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 5. Delete instance A if not needed to avoid unnecessary charges.
 
 > [!CAUTION]
@@ -351,7 +351,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 - The secondary SQL Managed Instance is configured with the correct DNS zone ID. DNS zone is a property of a SQL Managed Instance and underlying virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first SQL Managed Instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. SQL Managed Instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance.
 
    > [!NOTE]
-   > For a detailed tutorial on configuring failover groups with SQL Managed Instance, see [add a SQL Managed Instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md).
+   > For a detailed tutorial on configuring failover groups with SQL Managed Instance, see [add a SQL Managed Instance to a failover group](../managed-instance/tutorial-add-instance-failover-group.md).
 
 ## Upgrading or downgrading a primary database
 
@@ -464,7 +464,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - For detailed tutorials, see
   - [Add SQL Database to a failover group](tutorial-add-single-database-failover-group.md)
   - [Add an elastic pool to a failover group](tutorial-add-elastic-pool-failover-group.md)
-  - [Add a SQL Managed Instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md)
+  - [Add a SQL Managed Instance to a failover group](../managed-instance/tutorial-add-instance-failover-group.md)
 - For sample scripts, see:
   - [Use PowerShell to configure active geo-replication for Azure SQL Database](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)

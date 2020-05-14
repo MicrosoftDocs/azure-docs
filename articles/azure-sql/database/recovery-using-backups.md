@@ -172,7 +172,7 @@ For a PowerShell script that shows how to perform geo-restore for a single SQL d
 
 #### SQL Managed Instance
 
-For a PowerShell script that shows how to perform geo-restore for a managed instance database, see [Use PowerShell to restore a managed instance database to another geo-region](../../sql-database/scripts/sql-managed-instance-restore-geo-backup.md).
+For a PowerShell script that shows how to perform geo-restore for a managed instance database, see [Use PowerShell to restore a managed instance database to another geo-region](../managed-instance/scripts/restore-geo-backup.md).
 
 ### Geo-restore considerations
 

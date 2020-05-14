@@ -26,4 +26,4 @@ This PowerShell will do it all for you if you replace \<MI FQDN\> with the DNS e
   resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
 ```
 
-For more information about SQL Managed Instances and connectivity, see [Azure SQL Managed Instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+For more information about SQL Managed Instances and connectivity, see [Azure SQL Managed Instance connectivity architecture](../azure-sql/managed-instance/connectivity-architecture-overview.md).

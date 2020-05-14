@@ -69,7 +69,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - [Soft-delete](../../key-vault/general/overview-soft-delete.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via Azure portal.  
 
-- Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using Azure portal, the Azure AD identity gets automatically created. When using PowerShell or CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for Managed Instance](../../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md) for detailed step-by-step instructions when using PowerShell.
+- Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using Azure portal, the Azure AD identity gets automatically created. When using PowerShell or CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
 
 - When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
 
@@ -198,4 +198,4 @@ You may also want to check the following PowerShell sample scripts for the commo
 
 - [Remove a Transparent Data Encryption (TDE) protector for SQL Database using PowerShell](transparent-data-encryption-byok-remove-tde-protector.md)
 
-- [Manage Transparent Data Encryption in a Managed Instance with your own key using PowerShell](../../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Manage Transparent Data Encryption in a Managed Instance with your own key using PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)

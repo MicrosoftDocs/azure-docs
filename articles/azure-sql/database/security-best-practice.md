@@ -530,7 +530,7 @@ In SQL Database:
 
 In a SQL Managed Instance:
 
-- Follow the guidelines in [Network requirements](../../sql-database/sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Follow the guidelines in [Network requirements](../managed-instance/connectivity-architecture-overview.md#network-requirements).
 
 **Best practices**:
 
@@ -653,13 +653,13 @@ Tracking of database events helps you understand database activity. You can gain
 
 **How to implement**:
 
-- Enable [SQL Database Auditing](../../sql-database/sql-database-auditing.md) or [Managed Instance Auditing](../../sql-database/sql-database-managed-instance-auditing.md) to track database events and write them to an audit log in your Azure Storage account, Log Analytics workspace (preview), or Event Hubs (preview).
+- Enable [SQL Database Auditing](../../sql-database/sql-database-auditing.md) or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to track database events and write them to an audit log in your Azure Storage account, Log Analytics workspace (preview), or Event Hubs (preview).
 
 - Audit logs can be written to an Azure Storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
 **Best practices**:
 
-- By configuring [SQL Database Auditing](../../sql-database/sql-database-auditing.md) on your server or [Managed Instance Auditing](../../sql-database/sql-database-managed-instance-auditing.md) to audit events, all existing and newly created databases on that server will be audited.
+- By configuring [SQL Database Auditing](../../sql-database/sql-database-auditing.md) on your server or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to audit events, all existing and newly created databases on that server will be audited.
 - By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It's recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](../../sql-database/sql-database-auditing.md#manage-auditing). Configuring this will help control the number of audited actions, and minimize the risk of event loss. Custom audit configuration allow customers to capture only the audit data that is needed.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured.
 

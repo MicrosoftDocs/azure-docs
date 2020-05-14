@@ -18,7 +18,7 @@ ms.date: 03/18/2019
 When you create a new server in Azure SQL Database or Azure Synapse named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
-> This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-connect-app.md).
+> This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
 >
 > Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 

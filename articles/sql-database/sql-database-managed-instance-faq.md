@@ -15,7 +15,7 @@ ms.date: 03/17/2020
 ---
 # Azure SQL Managed Instance frequently asked questions (FAQ)
 
-This article contains the most common questions about [Azure SQL Managed Instance](sql-database-managed-instance.md).
+This article contains the most common questions about [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 ## Supported features
 
@@ -95,7 +95,7 @@ If both hardware generations are not supported in the same region, changing the 
 
 **What if there are no enough IP addresses for performing update operation?**
 
-In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses alocated so future update operations will avoid similar situation (for propper subnet size, check [how to determine size of vnet subnet](sql-database-managed-instance-determine-size-vnet-subnet.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
+In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses alocated so future update operations will avoid similar situation (for propper subnet size, check [how to determine size of vnet subnet](../azure-sql/managed-instance/vnet-subnet-determine-size.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## Tune performance
@@ -192,7 +192,7 @@ As a workaround, downgrade the SQL Managed Instance to 4 vCore and upgrade it ag
 
 Connecting to SQL Managed Instance using IP address is not supported. SQL Managed instance host name maps to a load balancer in front of the SQL Managed Instance virtual cluster. As one virtual cluster could host multiple SQL Managed Instances,  connections cannot be routed to the proper SQL Managed Instance without specifying the name explicitly.
 
-For more information on SQL Managed Instance virtual cluster architecture, see [Virtual cluster connectivity architecture](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture).
+For more information on SQL Managed Instance virtual cluster architecture, see [Virtual cluster connectivity architecture](../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **Can a SQL Managed Instance have a static IP address?**
 

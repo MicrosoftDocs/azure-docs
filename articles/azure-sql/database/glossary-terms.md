@@ -36,11 +36,11 @@ ms.date: 01/22/2020
 
 |Context|Term|More information|
 |:---|:---|:---|
-|Azure service|Azure SQL Managed Instance|[SQL Managed Instance](../../sql-database/sql-database-managed-instance.md)|
+|Azure service|Azure SQL Managed Instance|[SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)|
 |Purchasing model|vCore-based purchasing model|[vCore-based purchasing model](service-tiers-vcore.md)|
-|Deployment option |Single instance|[Single instance](../../sql-database/sql-database-managed-instance.md)|
-||Instance pool (preview)|[Instance pools](../../sql-database/sql-database-instance-pools.md)|
-|Service tier|General Purpose, Business Critical|[SQL Managed Instance service tiers](../../sql-database/sql-database-managed-instance.md#service-tiers)..|
+|Deployment option |Single instance|[Single instance](../managed-instance/sql-managed-instance-paas-overview.md)|
+||Instance pool (preview)|[Instance pools](../managed-instance/instance-pools-overview.md)|
+|Service tier|General Purpose, Business Critical|[SQL Managed Instance service tiers](../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)..|
 |Compute tier|Provisioned compute|[Provisioned compute](service-tiers-vcore.md#compute-tiers)|
 |Compute generation|Gen5|[Hardware generations](service-tiers-vcore.md#hardware-generations)
 |Server entity|Managed instance or instance| N/A as the SQL Managed Instance is in itself the server |

@@ -41,4 +41,4 @@ You are now ready to try to re-establish your connection to your SQL Managed Ins
 
 ## Next steps
 
-- For information about configuring your VNet for SQL Managed Instance, see [SQL Managed Instance VNet architecture](sql-database-managed-instance-connectivity-architecture.md) and [How to configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md).
+- For information about configuring your VNet for SQL Managed Instance, see [SQL Managed Instance VNet architecture](../azure-sql/managed-instance/connectivity-architecture-overview.md) and [How to configure existing VNet](../azure-sql/managed-instance/vnet-existing-add-subnet.md).
