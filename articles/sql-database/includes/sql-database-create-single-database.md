@@ -8,9 +8,9 @@ ms.author: mathoma
 ms.reviewer: vanto
 ---
 
-In this step, you create a [logical SQL server](../sql-database-servers.md) and a [single database](../sql-database-single-database.md) that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
+In this step, you create a [logical SQL server](../../azure-sql/database/logical-servers.md) and a [single database](../../azure-sql/database/single-database-overview.md) that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
-All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server-level firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
+All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server-level firewall rules, see [Create a server-level firewall](../../azure-sql/database/quickstart-firewall-create-server-level-portal.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
 # [Portal](#tab/azure-portal)
 
@@ -61,7 +61,7 @@ To create a resource group, server, and single database in the Azure portal:
 
    ![Networking tab](../media/sql-database-single-database-get-started/networking.png)
   
-   For more information about firewall settings, see [Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
+   For more information about firewall settings, see [Allow Azure services and resources to access this server](../../azure-sql/database/network-access-controls-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
 1. Select **Review + create** at the bottom of the page.

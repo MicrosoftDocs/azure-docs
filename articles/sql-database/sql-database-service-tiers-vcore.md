@@ -41,7 +41,7 @@ For information on selecting a service tier for your particular workload, see th
 
 - [When to choose the General purpose service tier](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [When to choose the Business Critical service tier](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [When to choose the Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
 ## Compute tiers
@@ -56,7 +56,7 @@ The provisioned compute tier provides a specific amount of compute resources tha
 
 ### Serverless compute
 
-The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
+The [serverless compute tier](../azure-sql/database/serverless-tier-overview.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
 
 
 

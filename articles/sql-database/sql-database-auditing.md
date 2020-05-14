@@ -43,7 +43,7 @@ You can use SQL database auditing to:
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
-An auditing policy can be defined for a specific database or as a default [server](sql-database-servers.md) policy in Azure (which hosts SQL Database or Azure Synapse):
+An auditing policy can be defined for a specific database or as a default [server](../azure-sql/database/logical-servers.md) policy in Azure (which hosts SQL Database or Azure Synapse):
 
 - A server policy applies to all existing and newly created databases on the server.
 

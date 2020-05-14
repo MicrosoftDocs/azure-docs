@@ -35,7 +35,7 @@ The first part of this article examines various batching techniques for .NET app
 ### Note about timing results in this article
 
 > [!NOTE]
-> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [DTU service tiers](sql-database-service-tiers-dtu.md) or [vCore service tiers](sql-database-service-tiers-vcore.md). The relative benefit of the batching technique should be similar.
+> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [DTU service tiers](../azure-sql/database/dtu-service-tiers.md) or [vCore service tiers](sql-database-service-tiers-vcore.md). The relative benefit of the batching technique should be similar.
 
 ### Transactions
 

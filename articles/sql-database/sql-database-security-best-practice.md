@@ -22,7 +22,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Azure SQL Database deployment offers covered in this guide
 
-- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md) in [servers](sql-database-servers.md)
+- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md) in [servers](../azure-sql/database/logical-servers.md)
 - [Azure SQL Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
 ### SQL deployment offers not covered in this guide
@@ -536,7 +536,7 @@ In a SQL Managed Instance:
 
 - Restricting access to Azure SQL Database and SQL Managed Instance by connecting on a private endpoint (for example, using a private data path):
   - A SQL Managed Instance can be isolated inside a VNet to prevent external access. Applications and tools that are in the same or peered VNet in the same region could access it directly. Applications and tools that are in different region could use VNet-to-VNet connection or ExpressRoute circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance.
-  - For a SQL Database, use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for the server inside your VNet. You can also use [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your servers.
+  - For a SQL Database, use the [Private Link](../azure-sql/database/private-endpoint-overview.md) feature that provides a dedicated private IP for the server inside your VNet. You can also use [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your servers.
   - Mobile users should use point-to-site VPN connections to connect over the data path.
   - Users connected to their on-premises network should use site-to-site VPN connection or ExpressRoute to connect over the data path.
 
@@ -777,7 +777,7 @@ Today, Azure SQL Database and SQL Managed Instance offers the following techniqu
 - If using a server in SQL Database, set the following options:
   - Allow Azure Services to OFF.
   - Only allow traffic from the subnet containing your Azure VM by setting up a VNet Firewall rule.
-  - Use [Private Link](sql-database-private-endpoint-overview.md)
+  - Use [Private Link](../azure-sql/database/private-endpoint-overview.md)
 - For a SQL Managed Instance, using private IP access by default addresses the first data exfiltration concern of a rogue VM. Turn on the subnet delegation feature on a subnet to automatically set the most restrictive policy on a SQL Managed Instance subnet.
 - The Rogue DBA concern is more exposed with a SQL Managed Instance as it has a larger surface area and networking requirements are visible to customers. The best mitigation for this is applying all of the practices in this security guide to prevent the Rogue DBA scenario in the first place (not only for data exfiltration). Always Encrypted is one method to protect sensitive data by encrypting it and keeping the key inaccessible for the DBA.
 

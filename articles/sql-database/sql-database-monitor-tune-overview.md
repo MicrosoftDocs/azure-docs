@@ -24,7 +24,7 @@ Finally, SQL has its own monitoring and diagnostic capabilities with [SQL Server
 
 ## Monitoring and tuning capabilities in the Azure portal
 
-In the Azure portal, Azure SQL Database and Azure SQL Managed Instance provide monitoring of resource metrics. Additionally, Azure SQL Database provides database advisors and Query Performance Insight provides query tuning recommendations and query performance analysis. Finally, in the Azure portal, you can enable automatic for [logical SQL servers](sql-database-servers.md) and their single and pooled databases.
+In the Azure portal, Azure SQL Database and Azure SQL Managed Instance provide monitoring of resource metrics. Additionally, Azure SQL Database provides database advisors and Query Performance Insight provides query tuning recommendations and query performance analysis. Finally, in the Azure portal, you can enable automatic for [logical SQL servers](../azure-sql/database/logical-servers.md) and their single and pooled databases.
 
 ### Azure SQL Database and Azure SQL Managed Instance resource monitoring
 
@@ -38,7 +38,7 @@ Azure SQL Database includes [database advisors](../azure-sql/database/database-a
 
 ### Query Performance Insight in Azure SQL Database
 
-[Query Performance Insight](sql-database-query-performance.md) shows the performance in the Azure portal of top consuming and longest running queries for single and pooled databases.
+[Query Performance Insight](../azure-sql/database/query-performance-insight.md) shows the performance in the Azure portal of top consuming and longest running queries for single and pooled databases.
 
 ## Generate intelligent assessments of performance issues
 

@@ -76,7 +76,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## Create a server
 
-Create a [logical SQL server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `

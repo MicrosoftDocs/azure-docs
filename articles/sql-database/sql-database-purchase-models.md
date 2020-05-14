@@ -18,12 +18,12 @@ ms.date: 03/09/2020
 Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
 - [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
-- [Database transaction unit (DTU)-based purchasing model](sql-database-service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
+- [Database transaction unit (DTU)-based purchasing model](../azure-sql/database/dtu-service-tiers.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 There are two purchasing models:
 
-- [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-technical-overview.md) and [Azure SQL Managed Instance](sql-database-managed-instance.md). The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is available for [Azure SQL Database](sql-database-single-databases-manage.md).
+- [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-technical-overview.md) and [Azure SQL Managed Instance](sql-database-managed-instance.md). The [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+- [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) is available for [Azure SQL Database](sql-database-single-databases-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 
@@ -47,7 +47,7 @@ The cost of backup storage is the same for the Business Critical service tier an
 
 ### Serverless compute costs
 
-For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless](sql-database-serverless.md).
+For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless](../azure-sql/database/serverless-tier-overview.md).
 
 ## Storage costs
 
@@ -61,7 +61,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based upon your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [General Purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single Azure SQL Databases, you can also choose the [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single Azure SQL Databases, you can also choose the [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -106,7 +106,7 @@ DTUs are most useful for understanding the relative resources that are allocated
 - Doubling the DTUs by increasing the compute size of a database equates to doubling the set of resources available to that database.
 - A premium service tier P11 database with 1750 DTUs provides 350x more DTU compute power than a basic service tier database with 5 DTUs.  
 
-To gain deeper insight into the resource (DTU) consumption of your workload, use [query-performance insights](sql-database-query-performance.md) to:
+To gain deeper insight into the resource (DTU) consumption of your workload, use [query-performance insights](../azure-sql/database/query-performance-insight.md) to:
 
 - Identify the top queries by CPU/duration/execution count that can potentially be tuned for improved performance. For example, an I/O-intensive query might benefit from [in-memory optimization techniques](sql-database-in-memory.md) to make better use of the available memory at a certain service tier and compute size.
 - Drill down into the details of a query to view its text and its history of resource usage.
@@ -124,7 +124,7 @@ You can add additional eDTUs to an existing pool with no database downtime and w
 
 ### Determine the number of DTUs needed by a workload
 
-If you want to migrate an existing on-premises or SQL Server virtual machine workload to SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing SQL Database workload, use [query-performance insights](sql-database-query-performance.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+If you want to migrate an existing on-premises or SQL Server virtual machine workload to SQL Database, use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing SQL Database workload, use [query-performance insights](../azure-sql/database/query-performance-insight.md) to understand your database-resource consumption (DTUs) and gain deeper insights for optimizing your workload. The [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view (DMV) lets you view resource consumption for the last hour. The [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) catalog view displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
 
 ### Determine DTU utilization
 
@@ -168,4 +168,4 @@ Yes, you can easily convert your database to any supported performance objective
 ## Next steps
 
 - For more information about the vCore-based purchasing model, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- For more information about the DTU-based purchasing model, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
+- For more information about the DTU-based purchasing model, see [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md).

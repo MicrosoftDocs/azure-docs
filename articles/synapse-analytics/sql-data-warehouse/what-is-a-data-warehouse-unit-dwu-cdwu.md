@@ -67,7 +67,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/dtu-service-tiers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## Capacity limits
 

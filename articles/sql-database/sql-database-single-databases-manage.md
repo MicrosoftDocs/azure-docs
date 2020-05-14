@@ -22,7 +22,7 @@ You can create the resource group for the Azure SQL Database ahead of time or wh
 
 ### Create a server
 
-To create a server using the [Azure portal](https://portal.azure.com), create a new [server](sql-database-servers.md) resource from the Azure Marketplace. Alternatively, you can create the server when you deploy an Azure SQL Database.
+To create a server using the [Azure portal](https://portal.azure.com), create a new [server](../azure-sql/database/logical-servers.md) resource from the Azure Marketplace. Alternatively, you can create the server when you deploy an Azure SQL Database.
 
   ![create server](./media/sql-database-get-started-portal/create-logical-sql-server.png)
 
@@ -33,7 +33,7 @@ To create a single Azure SQL Database using the [Azure portal](https://portal.az
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 ## Manage an existing server
 
@@ -44,7 +44,7 @@ To manage an existing database, navigate to the **SQL databases** page and selec
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+> To configure performance properties for a database, see [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-single-database-get-started.md).
 

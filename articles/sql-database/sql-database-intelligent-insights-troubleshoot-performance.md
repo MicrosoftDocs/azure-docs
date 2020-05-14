@@ -65,7 +65,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database subscription. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](../azure-sql/database/resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 
 ## Workload Increase
 
@@ -193,7 +193,7 @@ Writing a good-performing query sometimes can be a challenging task. For more in
 
 The diagnostics log outputs information up to two new most CPU-consuming queries, including their query hashes. Because the detected query affects the workload performance, you can optimize your query. Good practice is to retrieve only data you need to use. We also recommend using queries with a WHERE clause. We also recommend that you simplify complex queries and break them up into smaller queries. Another good practice is to break down large batch queries into smaller batch queries. Introducing indexes for new queries is typically a good practice to mitigate this performance issue.
 
-In Azure SQL Database, consider using [Query Performance Insight](sql-database-query-performance.md).
+In Azure SQL Database, consider using [Query Performance Insight](../azure-sql/database/query-performance-insight.md).
 
 ## Increased Wait Statistic
 

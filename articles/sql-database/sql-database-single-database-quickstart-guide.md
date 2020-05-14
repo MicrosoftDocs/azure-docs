@@ -21,7 +21,7 @@ ms.date: 07/29/2019
 In this section, you will see an overview of available articles that can help you to quickly get started with single databases. The following quickstarts enable you to quickly create a single database, configure a server-level firewall rule, and then import a database into the new single database using a `.bacpac` file:
 
 - [Create a single database using the Azure portal](sql-database-single-database-get-started.md).
-- After creating the database, you would need to [secure your database by configuring firewall rules](sql-database-server-level-firewall-rule.md).
+- After creating the database, you would need to [secure your database by configuring firewall rules](../azure-sql/database/quickstart-firewall-create-server-level-portal.md).
 - If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](sql-database-import.md).
 
 ## Automating management operations
@@ -46,7 +46,7 @@ The following Microsoft Learn modules help you learn for free about Azure SQL Da
 ## Next steps
 
 - Find a [high-level list of supported features in Azure SQL Database](sql-database-features.md).
-- Learn how to make your [database more secure](sql-database-security-tutorial.md).
+- Learn how to make your [database more secure](../azure-sql/database/tutorial-secure-database.md).
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](../azure-sql/database/how-to-content-reference-guide.md).
 - Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md).
 - Learn more about the [management API](sql-database-single-databases-manage.md) that you can use to configure your databases.

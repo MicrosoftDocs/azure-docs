@@ -47,7 +47,7 @@ To complete the tutorial, make sure you've installed the following items:
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../../sql-database/sql-database-server-level-firewall-rule.md).  
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](quickstart-firewall-create-server-level-portal.md).  
 
 ## Create a failover group
 

@@ -43,7 +43,7 @@ For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-
 
 ## Assign an Azure AD identity to your server
 
-If you have an existing [server](sql-database-servers.md), use the following to add an Azure AD identity to your server:
+If you have an existing [server](../azure-sql/database/logical-servers.md), use the following to add an Azure AD identity to your server:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity

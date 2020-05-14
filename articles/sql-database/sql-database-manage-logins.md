@@ -25,7 +25,7 @@ In this article, you learn about:
 - Configure user accounts with permissions in user databases by using database roles and explicit permissions
 
 > [!IMPORTANT]
-> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](sql-database-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
+> Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](../azure-sql/database/logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
 
 ## Authentication and authorization
 
@@ -122,7 +122,7 @@ For examples showing how to create logins and users, see:
 - [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
-> For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](sql-database-security-tutorial.md).
+> For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](../azure-sql/database/tutorial-secure-database.md).
 
 ## Using fixed and custom database roles
 

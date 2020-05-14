@@ -14,7 +14,7 @@ ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
-Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](sql-database-servers.md) name.
+Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](../azure-sql/database/logical-servers.md) name.
 
 A *DNS alias* can be used in place of the server name. Client programs can use the alias in their connection strings. The DNS alias provides a translation layer that can redirect your client programs to different servers. This layer spares you the difficulties of having to find and edit all the clients and their connection strings.
 
