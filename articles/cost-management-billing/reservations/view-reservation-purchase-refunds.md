@@ -12,7 +12,7 @@ ms.author: banders
 
 There are a few different ways to view reservation purchase and refund transactions. You can use the Azure portal, Power BI, and REST APIs.
 
-## View reservation transactions in Cost Management and Billing
+## View reservation transactions in the Azure portal
 
 An Enterprise enrollment or Microsoft Customer Agreement billing administrator can view reservation transactions in Cost Management and Billing.
 
