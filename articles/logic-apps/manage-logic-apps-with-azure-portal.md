@@ -5,10 +5,10 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/06/2020
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps in the Azure portal
@@ -141,6 +141,10 @@ Deleting your logic app affects your workflow instances in these ways:
 
 * The Logic Apps engine won't create or run new workflow instances.
 
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
+
 <a name="delete-single-logic-app"></a>
 
 ### Delete single logic app
@@ -172,6 +176,46 @@ Deleting your logic app affects your workflow instances in these ways:
    ![Confirm to delete your logic apps](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    The Azure portal shows a notification on the main Azure toolbar that confirms whether your operation succeeded or failed.
+
+<a name="manage-logic-app-versions"></a>
+
+## Manage logic app versions
+
+You can use the Azure portal for version control of your logic apps. You can find your logic app's version history, and promote previous versions.
+
+<a name="find-version-history"></a>
+
+### Find and view previous versions
+
+1. In the Azure portal, [find the logic app that you want to manage](#find-logic-app).
+
+1. In your logic app's menu, under **Development Tools**, select **Versions**.
+
+   ![On your logic app's menu, select "Versions" under "Development Tools"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+
+1. Select the **Version** of your logic app to manage from the list. You can enter the **Version** identifier in the search bar to filter the list.
+
+1. On the **History version** page, you'll see the previous version's details in read-only mode. You can select between the Logic Apps **Designer** and **Code view** modes.
+
+   ![History version page for logic app with code view and Logic apps designer view](./media/manage-logic-apps-with-azure-portal/history-version.png)
+
+<a name="promote-previous-versions"></a>
+
+### Promote previous versions
+
+1. In your logic app's version history, [find and select the version that you want to promote](#find-version-history).
+
+1. On the **History version** page, select **Promote**.
+
+   ![Promote button in logic app's version history](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+
+1. On the **Logic Apps Designer** page that opens, edit the version that you're promoting as needed. You can switch between **Designer** and **Code view** modes. You can also update **Parameters**, **Templates**, and **Connectors**.
+
+   ![Logic Apps Designer page for promoting a previous version](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+
+1. To save any updates and finishing promoting the previous version, select **Save**. (Or, to cancel your changes, select **Discard**.) 
+
+   When you [view your logic app's version history](#find-version-history) again, the promoted version appears at the top of the list and has a new identifier.
 
 ## Next steps
 

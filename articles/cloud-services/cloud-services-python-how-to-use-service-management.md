@@ -3,8 +3,8 @@ title: Use the Service Management API (Python) - feature guide
 description: Learn how to programmatically perform common service management tasks from Python.
 services: cloud-services
 documentationcenter: python
-author: lmazuel
-manager: wpickett
+author: tanmaygore
+manager: vashan
 editor: ''
 
 ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: lmazuel
+ms.author: tagore
 
 ---
 # Use service management from Python

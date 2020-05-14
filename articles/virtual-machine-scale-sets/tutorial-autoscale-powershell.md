@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Autoscale a scale set with Azure PowerShell
 description: Learn how to automatically scale a virtual machine scale set with Azure PowerShell as CPU demands increases and decreases
-author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell

@@ -2,11 +2,11 @@
 title: Run PowerShell scripts in a Windows VM in Azure
 description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command
@@ -52,7 +52,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Checks if the local administrator account is disabled, and if so enables it.|
 |**IPConfig**| Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP.|
 |**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if the machine is part of a domain or modifies the settings to default values.|
-|**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate.|
+|**ResetRDPCert**|Removes the TLS/SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate.|
 |**SetRDPPort**|Sets the default or user-specified port number for Remote Desktop connections. Enables firewall rules for inbound access to the port.|
 
 ## Azure CLI

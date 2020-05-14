@@ -21,7 +21,8 @@ ms.author: tisande
 The following limitations are applicable when using change streams:
 
 * The `operationType` and `updateDescription` properties are not yet supported in the output document.
-* The `insert`, `update`, and `replace` operations types are currently supported. Delete operation or other events are not yet supported.
+* The `insert`, `update`, and `replace` operations types are currently supported. 
+* Delete operation or other events are not yet supported.
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
 
@@ -39,7 +40,7 @@ The following error codes and messages are supported when using change streams:
 
 The following example shows how to get change streams on all the items in the collection. This example creates a cursor to watch items when they are inserted, updated, or replaced. The `$match` stage, `$project` stage, and `fullDocument` option are required to get the change streams. Watching for delete operations using change streams is currently not supported. As a workaround, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted." When you'd like to delete the item, you can set "deleted" to `true` and set a TTL on the item. Since updating "deleted" to `true` is an update, this change will be visible in the change stream.
 
-### JavaScript:
+# [JavaScript](#tab/javascript)
 
 ```javascript
 var cursor = db.coll.watch(
@@ -55,8 +56,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-
-### C#:
+# [C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()

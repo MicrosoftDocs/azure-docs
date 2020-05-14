@@ -70,10 +70,10 @@ conceptualContent:
         - url: /azure/app-service/app-service-web-get-started-windows-container
           itemType: get-started
           text: Run a custom Windows container
-        - url: /azure/app-service/quickstart-docker
+        - url: /azure/app-service/containers/quickstart-docker
           itemType: quickstart 
           text: Run a custom Linux container
-        - url: /azure/app-service/quickstart-multi-container
+        - url: /azure/app-service/containers/quickstart-multi-container
           itemType: quickstart 
           text: Create a Linux multi-container app
       # footerLink (optional)
@@ -92,7 +92,7 @@ conceptualContent:
         - url: /azure/container-instances/container-instances-using-azure-container-registry
           itemType: how-to-guide
           text: Deploy an image from Azure Container Registry
-        - url: /azure/container-registry/container-registry-quick-task-cli
+        - url: /azure/container-registry/container-registry-quickstart-task-cli
           itemType: get-started
           text: Build, push, and run image using Azure CLI
       # footerLink (optional)
@@ -140,7 +140,7 @@ conceptualContent:
         - url: /azure/container-registry/container-registry-get-started-azure-cli
           itemType: get-started
           text: Create a private container registry using Azure CLI
-        - url: /azure/container-registry/container-registry-quick-task-cli
+        - url: /azure/container-registry/container-registry-quickstart-task-cli
           itemType: get-started
           text: Build, push, and run image using Azure CLI
       # footerLink (optional)

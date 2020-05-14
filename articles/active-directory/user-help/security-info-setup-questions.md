@@ -51,7 +51,7 @@ If you use security questions, we recommend using them in conjunction with anoth
 
 ### To set up your security questions
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 

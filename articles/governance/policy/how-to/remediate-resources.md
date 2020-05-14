@@ -23,7 +23,7 @@ during the assignment of the policy or an initiative. When using the portal, Azu
 automatically grants the managed identity the listed roles once assignment starts. The _location_ of
 the managed identity doesn't impact it's operation with Azure Policy.
 
-![Managed identity - missing role](../media/remediate-resources/missing-role.png)
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Managed identity - missing roley" border="false":::
 
 > [!IMPORTANT]
 > If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
@@ -165,11 +165,11 @@ To create a **remediation task**, follow these steps:
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.
 
-   ![Search for Policy in All Services](../media/remediate-resources/search-policy.png)
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
-   ![Select Remediation on the Policy page](../media/remediate-resources/select-remediation.png)
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Select Remediation on the Policy page" border="false":::
 
 1. All **deployIfNotExists** and **modify** policy assignments with non-compliant resources are
    included on the **Policies to remediate** tab and data table. Click on a policy with resources
@@ -184,13 +184,13 @@ To create a **remediation task**, follow these steps:
    individual resource objects). Additionally, use the **Locations** drop-down to further filter the
    resources. Only resources listed in the table will be remediated.
 
-   ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Remediate - select which resources to remediate" border="false":::
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
    policy compliance page opens to the **Remediation tasks** tab to show the state of the tasks
    progress. Deployments created by the remediation task begin right away.
 
-   ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Remediate - progress of remediation tasks" border="false":::
 
 1. Click on the **remediation task** from the policy compliance page to get details about the
    progress. The filtering used for the task is shown along with a list of the resources being
@@ -200,7 +200,7 @@ To create a **remediation task**, follow these steps:
    task's deployment or the resource. At the end of the row, click on **Related events** to see
    details such as an error message.
 
-   ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Remediate - resource task context menu" border="false":::
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the
 policy compliance page.

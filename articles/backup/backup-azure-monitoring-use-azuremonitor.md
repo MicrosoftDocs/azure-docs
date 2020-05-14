@@ -130,13 +130,12 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     (AddonAzureBackupStorage
     | where OperationName == "StorageAssociation"
     //Get latest record for each Backup Item
-    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
     | project BackupItemUniqueId , StorageConsumedInMBs)
     on BackupItemUniqueId
-    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs
     | sort by StorageConsumedInMBs desc
     ````
-
 
 ### Diagnostic data update frequency
 

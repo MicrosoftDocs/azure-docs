@@ -1,12 +1,8 @@
 ---
-title: Best practices - Azure Batch
+title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 04/03/2020
-ms.service: batch
 ms.topic: article
-manager: evansma
 ---
 
 # Azure Batch best practices

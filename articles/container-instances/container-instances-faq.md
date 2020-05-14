@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
 author: dkkapur
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/10/2020
 ---
 
 # Frequently asked questions about Azure Container Instances
@@ -38,9 +38,9 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 #### Windows Server 2019 and client base images (preview)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.914` or earlier
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` or earlier
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` or earlier
 
 ### What .NET or .NET Core image layer should I use in my container? 
 
@@ -50,9 +50,12 @@ Use the smallest image that satisfies your requirements. For Linux, you could us
 
 ### How many cores and memory should I allocate for my containers or the container group?
 
-This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container. 
+This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container.
 
 Make sure also to check the [resource availability](container-instances-region-availability.md#availability---general) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
+
+> [!NOTE]
+> A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers will be able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the group.
 
 ### What underlying infrastructure does ACI run on?
 

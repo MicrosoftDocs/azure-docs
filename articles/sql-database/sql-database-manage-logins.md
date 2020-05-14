@@ -33,7 +33,7 @@ When a user attempts to connect to a database, they provide a user account and a
 
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user account for user accounts not linked to a login.
+  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user accounts *not* linked to a login.
 - [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 
   With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.

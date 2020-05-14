@@ -2,13 +2,13 @@
 title: Create and query a Synapse SQL pool (Azure portal)
 description: Create and query a Synapse SQL pool using the Azure portal
 services: synapse-analytics
-author: XiaoyuMSFT
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: 
 ms.date: 05/28/2019
-ms.author: xiaoyul
+ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse 
 ---

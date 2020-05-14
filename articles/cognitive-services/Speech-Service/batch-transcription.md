@@ -283,7 +283,7 @@ The sentiment feature estimates the sentiment expressed in the audio. The sentim
 - What went well when turning a negative call into a positive direction
 - Identify what customers like and what they dislike about a product or a service
 
-Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription. Currently sentiment analysis is only available for the english language.
+Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription. Sentiment analysis is currently only available in the English language.
 
 > [!NOTE]
 > We recommend using the Microsoft Text Analytics API instead. It offers more advanced features beyond sentiment analysis like key phrase extraction, automatic language detection, and more. You can find information and samples in the [Text Analytics documentation](https://azure.microsoft.com/services/cognitive-services/text-analytics/).

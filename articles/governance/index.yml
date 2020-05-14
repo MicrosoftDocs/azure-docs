@@ -180,9 +180,6 @@ additionalContent:
               url: /cli/azure/ext/resource-graph/graph
             - text: Azure PowerShell
               url: /powershell/module/az.resourcegraph/
-            - text: Azure PowerShell
-              url: https://www.powershellgallery.com/packages/Az.ResourceGraph
-              note: (PS Gallery Module)
             - text: Azure SDK for .NET
               url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
             - text: Azure SDK for .NET
@@ -204,6 +201,8 @@ additionalContent:
               note: (Gem)
             - text: REST
               url: /rest/api/azure-resourcegraph/
+            - text: Resource Manager templates
+              url: /azure/templates/microsoft.resourcegraph/allversions
         - title: Cost Management
           links:
             - text: REST

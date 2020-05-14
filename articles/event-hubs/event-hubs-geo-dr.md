@@ -126,7 +126,7 @@ Note the following considerations to keep in mind with this release:
 The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
 
 > [!NOTE]
-> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
+> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
@@ -135,7 +135,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 ## Next steps
 
 * The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
-* The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.
+* The [REST API reference](/rest/api/eventhub/) describes APIs for performing the Geo-disaster recovery configuration.
 
 For more information about Event Hubs, visit the following links:
 

@@ -76,6 +76,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
 ](#run-the-app). 
 
+
+# [Sync API](#tab/sync)
+
 ### Managing database resources using the synchronous (sync) API
 
 * `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
@@ -101,6 +104,8 @@ This step is optional. If you're interested in learning how the database resourc
 * SQL queries over JSON are performed using the `queryItems` method.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+# [Async API](#tab/async)
 
 ### Managing database resources using the asynchronous (async) API
 
@@ -129,6 +134,8 @@ This step is optional. If you're interested in learning how the database resourc
 * As with the sync API, SQL queries over JSON are performed using the `queryItems` method.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
+
+---
 
 ## Run the app
 

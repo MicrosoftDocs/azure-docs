@@ -50,7 +50,7 @@ Most applications require a user to be provisioned into the application before a
 
 |Feature  |Description|Recommendation |
 |---------|---------|---------|
-|SCIM Provisioning|[SCIM](https://aka.ms/SICMOverview) is an industry best practice for automating user provisioning. Any SCIM-compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on-prem solutions.|Check out the growing list of [pre-integrated](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) apps in the Azure AD app gallery|
+|SCIM Provisioning|[SCIM](https://aka.ms/SCIMOverview) is an industry best practice for automating user provisioning. Any SCIM-compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on-prem solutions.|Check out the growing list of [pre-integrated](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) apps in the Azure AD app gallery|
 |Microsoft Graph|Leverage the breath and depth of data that Azure AD has to enrich your application with the data that it needs.|Leverage the [Microsoft graph](https://developer.microsoft.com/graph/) to get data from across the Microsoft ecosystem. |
 
 
@@ -85,7 +85,7 @@ Identity can only be your control plane if it can connect everything across clou
 
 - [Application management](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Application provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [Hybrid secure access]()
+- [Hybrid secure access](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
 - [Identity governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identity security](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

@@ -55,32 +55,32 @@ The following parameters set a default value:
     "parameters": {
         "workspaceName": {
             "type": "String",
-			"metadata": {
+            "metadata": {
               "description": "Specifies the name of the workspace."
             }
         },
         "location": {
             "type": "String",
-			"allowedValues": [
-			  "eastus",
-			  "westus"
-			],
-			"defaultValue": "eastus",
-			"metadata": {
-			  "description": "Specifies the location in which to create the workspace."
-			}
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
         },
         "sku": {
             "type": "String",
-			"allowedValues": [
+            "allowedValues": [
               "Standalone",
               "PerNode",
-		      "PerGB2018"
+              "PerGB2018"
             ],
-			"defaultValue": "PerGB2018",
-	        "metadata": {
+            "defaultValue": "PerGB2018",
+            "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
-		}
+        }
           }
     },
     "resources": [
@@ -102,7 +102,7 @@ The following parameters set a default value:
     }
     ```
 
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported.
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported.
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template. When you're prompted for a workspace name, provide a name that is globally unique across all Azure subscriptions.
 

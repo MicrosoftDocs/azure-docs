@@ -1,5 +1,5 @@
 ---
-title: Get started using Azure Security Center for IoT Built-in IoT Hub integration service| Microsoft Docs
+title: Service without security agents
 description: Get started with the built in workflow of Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,26 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-
 ---
 
-# Get started with Built-in IoT Hub integration 
+# Get started with Built-in IoT Hub integration
 
 This option enables you to use the service without using Azure Security Center for IoT security agents.
 
 ## Enable Built-in IoT Hub integration
-To enable monitoring your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service: 
+
+To enable monitoring your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service:
 
 1. Open your **IoT Hub**.
-1. Select the **Security overview** menu. 
-1. Click **Secure your IoT solution** and complete the onboarding form. 
+1. Select the **Security overview** menu.
+1. Click **Secure your IoT solution** and complete the onboarding form.
 
-Congratulations! You've completed enabling the Azure Security Center for IoT service on your IoT Hub. 
+Congratulations! You've completed enabling the Azure Security Center for IoT service on your IoT Hub.
 
 ## Next steps
-
 
 - Configure your [solution](quickstart-configure-your-solution.md)
 - [Create security modules](quickstart-create-security-twin.md)
 - Configure [custom alerts](quickstart-create-custom-alerts.md)
-

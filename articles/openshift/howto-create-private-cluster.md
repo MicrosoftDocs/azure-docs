@@ -12,18 +12,12 @@ keywords: aro, openshift, private cluster, red hat
 
 # Create a private cluster with Azure Red Hat OpenShift 3.11
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift (ARO) private clusters are currently only available in private preview in East US 2. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature.
-
 Private clusters provide the following benefits:
 
 * Private clusters don't expose cluster control plane components (such as the API servers) on a public IP address.
 * The virtual network of a private cluster is configurable by customers, allowing you to set up networking to allow peering with other virtual networks, including ExpressRoute environments. You can also configure custom DNS on the virtual network to integrate with internal services.
 
 ## Before you begin
-
-> [!NOTE]
-> This feature requires version 2019-10-27-preview of the ARO HTTP API. It is not yet supported in the Azure CLI.
 
 The fields in the following configuration snippet are new and must be included in your cluster configuration. `managementSubnetCidr` must be within the cluster virtual network and is used by Azure to manage the cluster.
 

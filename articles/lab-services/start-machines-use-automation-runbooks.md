@@ -130,7 +130,7 @@ While ($current -le 10) {
 ```
 
 ## Create a schedule
-To have this script execute daily, [create a schedule](../automation/shared-resources/schedules.md#creating-a-schedule) in the automation account. Once the schedule is created, [link it to the runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+To have this script execute daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the automation account. Once the schedule is created, [link it to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
 
 In a large-scale situation where there are multiple subscriptions with multiple labs, store the parameter information in a file for different labs and pass the file to the script instead of the individual parameters. The script would need to be modified but the core execution would be the same. While this sample uses the Azure Automation to execute the PowerShell script, there are other options like using a task in a Build/Release pipeline.
 

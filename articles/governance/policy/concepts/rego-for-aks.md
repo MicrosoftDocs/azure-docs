@@ -42,11 +42,11 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
   1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then
      searching for and selecting **Policy**.
 
-     ![Search for Policy in All Services](../media/rego-for-aks/search-policy.png)
+     :::image type="content" source="../media/rego-for-aks/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
 
   1. Select **Join Preview** on the left side of the Azure Policy page.
 
-     ![Join the Policy for AKS preview](../media/rego-for-aks/join-aks-preview.png)
+     :::image type="content" source="../media/rego-for-aks/join-aks-preview.png" alt-text="Join the Policy for AKS preview" border="false":::
 
   1. Select the row of the subscription you want added to the preview.
 
@@ -144,11 +144,11 @@ manage.
 
   1. Select **Policies (preview)** on the left side of the Kubernetes service page.
 
-     ![Policies from the AKS cluster](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     :::image type="content" source="../media/rego-for-aks/policies-preview-from-aks-cluster.png" alt-text="Policies from the AKS cluster" border="false":::
 
   1. In the main page, select the **Enable add-on** button.
 
-     ![Enable the Azure Policy for AKS add-on](../media/rego-for-aks/enable-policy-add-on.png)
+     :::image type="content" source="../media/rego-for-aks/enable-policy-add-on.png" alt-text="Enable the Azure Policy for AKS add-on" border="false":::
 
      > [!NOTE]
      > If the **Enable add-on** button is grayed out, the subscription has not yet been added to the
@@ -252,11 +252,11 @@ To remove the Azure Policy Add-on from your AKS cluster, use either the Azure po
 
   1. Select **Policies (preview)** on the left side of the Kubernetes service page.
 
-     ![Policies from the AKS cluster](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     :::image type="content" source="../media/rego-for-aks/policies-preview-from-aks-cluster.png" alt-text="Policies from the AKS cluster" border="false":::
 
   1. In the main page, select the **Disable add-on** button.
 
-     ![Disable the Azure Policy for AKS add-on](../media/rego-for-aks/disable-policy-add-on.png)
+     :::image type="content" source="../media/rego-for-aks/disable-policy-add-on.png" alt-text="Disable the Azure Policy for AKS add-on" border="false":::
 
 - Azure CLI
 

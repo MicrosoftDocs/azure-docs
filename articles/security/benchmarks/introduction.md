@@ -8,7 +8,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
+ms.custom: security-benchmark
 
 ---
 

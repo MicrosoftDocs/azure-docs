@@ -203,4 +203,4 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 ## Next steps
 
-- [Enabling end to end SSL on Azure Application Gateway](application-gateway-backend-ssl.md)
+- [Enabling end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)

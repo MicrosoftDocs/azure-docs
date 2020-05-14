@@ -15,6 +15,8 @@ ms.date: 03/13/2020
 
 # Create and configure a self-hosted integration runtime
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
 
 A self-hosted integration runtime can run copy activities between a cloud data store and a data store in a private network. It also can dispatch transform activities against compute resources in an on-premises network or an Azure virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.  
@@ -60,7 +62,7 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Enter a name for your IR, and select **Create**.
 

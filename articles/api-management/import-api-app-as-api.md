@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
 
 ---
@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **API App** from the **Add a new API** list.
 
     ![API app](./media/import-api-app-as-api/api-app.png)
@@ -52,7 +52,8 @@ In this article, you learn how to:
 
     * **Starter**
     * **Unlimited**   
-7. Select **Create**.
+7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+8. Select **Create**.
 
 ## Test the new API in the Azure portal
 

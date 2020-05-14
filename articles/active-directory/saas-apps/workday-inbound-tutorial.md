@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 04/23/2020
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
@@ -277,6 +277,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
     ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. In the **Domain** text box, search for the following domains and add them to the filter one by one.  
    * *External Account Provisioning*
+   * *Worker Data: Workers*
    * *Worker Data: Public Worker Reports*
    * *Person Data: Work Contact Information*
    * *Worker Data: All Positions*
@@ -308,6 +309,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    | ---------- | ---------- |
    | Get and Put | Worker Data: Public Worker Reports |
    | Get and Put | Person Data: Work Contact Information |
+   | Get | Worker Data: Workers |
    | Get | Worker Data: All Positions |
    | Get | Worker Data: Current Staffing Information |
    | Get | Worker Data: Business Title on Worker Profile |
@@ -323,17 +325,18 @@ In this step, you'll grant "business process security" policy permissions for th
 
     ![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_12.png "Business Process Security Policies")  
 
-2. In the **Business Process Type** textbox, search for *Contact* and select **Contact Change** business process and click **OK**.
+2. In the **Business Process Type** textbox, search for *Contact* and select **Work Contact Change** business process and click **OK**.
 
     ![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
 
-3. On the **Edit Business Process Security Policy** page, scroll to the **Maintain Contact Information (Web Service)** section.
+3. On the **Edit Business Process Security Policy** page, scroll to the **Change Work Contact Information (Web Service)** section.
+    
 
-    ![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_14.png "Business Process Security Policies")  
-
-4. Select and add the new integration system security group to the list of security groups that can initiate the web services request. Click on **Done**. 
+4. Select and add the new integration system security group to the list of security groups that can initiate the web services request. 
 
     ![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_15.png "Business Process Security Policies")  
+
+5. Click on **Done**. 
 
 ### Activating security policy changes
 
@@ -447,12 +450,19 @@ In this step, we establish connectivity with Workday and Active Directory in the
 
 1. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
+   * **Workday Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
 
-   * **Admin password –** Enter the password of the Workday integration system account
+   * **Workday password –** Enter the password of the Workday integration system account
 
-   * **Tenant URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
+   * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
+
+     > [!NOTE]
+     > By default, the app uses Workday Web Services (WWS) v21.1 if no version information is specified in the URL. To use a specific WWS API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
+     
+     > [!NOTE]
+     > If you are using a WWS API v30.0 and above, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Active Directory Forest -** The "Name" of your Active Directory domain, as registered with the agent. Use the dropdown to select the target domain for provisioning. This value is typically a string like: *contoso.com*
 
@@ -553,7 +563,7 @@ In this section, you will configure how user data flows from Workday to Active D
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only |
 | **PreferredNameData**    |  cn    |   |   Written on create only |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Written on create only 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **LastName**   |   sn   |     |  Create + update |
@@ -608,13 +618,18 @@ The following sections describe steps for configuring user provisioning from Wor
 
 8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
+   * **Workday Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
 
-   * **Admin password –** Enter the password of the Workday integration system account
+   * **Workday password –** Enter the password of the Workday integration system account
 
-   * **Tenant URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
+   * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`,
         where *contoso4* is replaced with your correct tenant name and  *wd3-impl* is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
+
+     > [!NOTE]
+     > By default, the app uses Workday Web Services v21.1 if no version information is specified in the URL. To use a specific Workday Web Services API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
+
 
    * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
 
@@ -721,7 +736,7 @@ Follow these instructions to configure writeback of user email addresses and use
    * **Admin password –** Enter the password of the Workday integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`,
         where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string (if necessary).
 
    * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
@@ -822,9 +837,13 @@ This functionality is not supported currently. Recommended workaround is to depl
 
 The solution currently uses the following Workday APIs:
 
-* Get_Workers (v21.1) for fetching worker information
-* Maintain_Contact_Information (v26.1) for the Work Email Writeback feature
-* Update_Workday_Account (v31.2) for Username Writeback feature
+* The **Workday Web Services API URL** format used in the **Admin Credentials** section, determines the API version used for Get_Workers
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName , then API v21.1 is used. 
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources , then API v21.1 is used 
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\# , then the specified API version is used. (Example: if v34.0 is specified, then it is used.)  
+   
+* Workday Email Writeback feature uses Change_Work_Contact_Information (v30.0) 
+* Workday Username Writeback feature uses Update_Workday_Account (v31.2) 
 
 #### Can I configure my Workday HCM tenant with two Azure AD tenants?
 
@@ -1257,7 +1276,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 1. Download and install [Workday Studio](https://community.workday.com/studio-download). You will need a Workday community account to access the installer.
 
-2. Download the Workday Human_Resources WSDL file from this URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Download the Workday **Human_Resources** WSDL file specific to the WWS API version you plan to use from the [Workday Web Services Directory](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
 
 3. Launch Workday Studio.
 
@@ -1277,7 +1296,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 9. Select **OK**.
 
-10. In the **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
+10. In the **Request** pane, paste in the XML below. Set **Employee_ID** to the employee ID of a real user in your Workday tenant. Set **wd:version** to the version of WWS that you plan to use. Select a user that has the attribute populated that you wish to extract.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

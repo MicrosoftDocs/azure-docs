@@ -67,7 +67,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
   * Not yet, but you can:
     * [Set up alerts](../../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
+    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to Power BI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
@@ -121,11 +121,11 @@ The response time degradation notification tells you:
   * Profiler traces to help you view where operation time is spent (the link is available if Profiler trace examples were collected for this operation during the detection period). 
   * Performance reports in Metric Explorer, where you can slice and dice time range/filters for this operation.
   * Search for this call to view specific call properties.
-  * Failure reports - If count > 1 this mean that there were failures in this operation that might have contributed to performance degradation.
+  * Failure reports - If count > 1 this means that there were failures in this operation that might have contributed to performance degradation.
 
 ## Dependency Duration Degradation
 
-Modern application more and more adopt micro services design approach, which in many cases leads to heavy reliability on external services. For example, if your application relies on some data platform or even if you build your own bot service you will probably relay on some cognitive services provider to enable your bots to interact in more human ways and some data store service for bot to pull the answers from.  
+Modern applications more and more adopt a micro services design approach, which in many cases leads to heavy reliability on external services. For example, if your application relies on some data platform or even if you build your own bot service you will probably relay on some cognitive services provider to enable your bots to interact in more human ways and some data store service for bot to pull the answers from.  
 
 Example dependency degradation notification:
 

@@ -21,7 +21,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 1. Find the fully qualified server name and database name that you use to connect to your data warehouse.
     
-    If you need help finding this information, see [Connect to your data warehouse](sql-data-warehouse-connect-overview.md).
+    If you need help finding this information, see [Connect to your data warehouse](../sql/connect-overview.md).
 
 2. In the setup wizard, choose whether to connect your database directly or by using an SSH tunnel.
 
@@ -70,9 +70,9 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
     For more information, read about [memory and concurrency limits](memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## Sign in to Fivetran
+## Connect from Fivetran
 
-To sign in to Fivetran, enter the credentials that you use to access your data warehouse: 
+To connect to your data warehouse from your Fivetran account, enter the credentials that you use to access your data warehouse: 
 
 * Host (your server name).
 * Port.

@@ -125,6 +125,10 @@
       href: functions-reference-python.md
     - name: TypeScript
       href: functions-reference-node.md#typescript
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Diagnostics
     href: functions-diagnostics.md
   - name: Consumption plan costs

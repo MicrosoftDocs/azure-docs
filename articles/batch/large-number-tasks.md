@@ -1,21 +1,8 @@
 ---
-title: Submit a large number of tasks - Azure Batch | Microsoft Docs
+title: Submit a large number of tasks
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
-services: batch
-documentationcenter: 
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: labrenne
-ms.custom: 
-
 ---
 # Submit a large number of tasks to a Batch job
 

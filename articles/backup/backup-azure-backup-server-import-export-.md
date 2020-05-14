@@ -131,7 +131,7 @@ The information in this section helps you finish the offline backup workflow so 
     ![Import page](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Here's the corresponding page in DPM. <br/>
-    
+
     ![DPM and Azure Backup Server import page](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     The boxes that you fill in are:
@@ -236,7 +236,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
     ![Store shipping information](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Ensure that the drives reach the Azure datacenter within two weeks of providing the shipping information by using the *AzureOfflineBackupDiskPrep* utility. Failure to do so can result in the drives not being processed. 
+   > Ensure that the drives reach the Azure datacenter within two weeks of providing the shipping information by using the *AzureOfflineBackupDiskPrep* utility. Failure to do so can result in the drives not being processed.
 
 After you finish the previous steps, the Azure datacenter is ready to receive the drives and further process them to transfer the backup data from the drives to the classic-type Azure storage account you created.
 

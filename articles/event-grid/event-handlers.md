@@ -28,7 +28,7 @@ Use Azure Automation to process events with automated runbooks.
 
 Use Azure Functions for serverless response to events.
 
-When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md).
 
 |Title  |Description  |
 |---------|---------|
@@ -48,8 +48,6 @@ Event Hubs can act as either an event source or event handler. The following art
 |---------|---------|
 | [Quickstart: route custom events to Azure Event Hubs with Azure CLI and Event Grid](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
 | [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
-
-For examples of Event Hubs as a source, see [Event Hubs source](event-sources.md#event-hubs).
 
 ## Hybrid Connections
 

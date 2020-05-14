@@ -3,7 +3,7 @@ title: Allowed CA for enabling custom HTTPS on Azure CDN
 description: If you are using your own certificate to enable HTTPS on a custom domain, you must use an allowed certificate authority (CA) to create it.  
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 
 ---

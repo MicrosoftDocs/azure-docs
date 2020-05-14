@@ -11,7 +11,7 @@ ms.author: brendm
 
 # Azure Spring Cloud FAQ
 
-This article answers frequently asked questions about Azure Spring Cloud. 
+This article answers frequently asked questions about Azure Spring Cloud.
 
 ## General
 
@@ -88,6 +88,10 @@ Three services are currently supported: Azure Cosmos DB, Azure Database for MySQ
 ### Can I view, add, or move persistent volumes from inside my applications?
 
 Yes.
+
+### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
+
+It depends on the logics of resource providers where the extension resources belong to. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behaviors vary according to different resource providers. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## Deployment
 
