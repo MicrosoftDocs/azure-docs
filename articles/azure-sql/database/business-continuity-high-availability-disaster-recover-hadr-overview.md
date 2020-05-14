@@ -123,7 +123,7 @@ If you are using active geo-replication or auto-failover groups as your recovery
 
 ### Perform a geo-restore
 
-If you are using the automated backups with geo-redundant storage (enabled by default), you can recover the database using [geo-restore](../../key-vault/general/disaster-recovery-guidance.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. Note, geo-restore only restores the database to the last available point in time.
+If you are using the automated backups with geo-redundant storage (enabled by default), you can recover the database using [geo-restore](disaster-recovery-guidance.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. Note, geo-restore only restores the database to the last available point in time.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.

@@ -63,7 +63,7 @@ For more information on Azure AD hybrid identities, the setup, and synchronizati
 
 - Password hash authentication - [Implement password hash synchronization with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
 - Pass-through authentication - [Azure Active Directory Pass-through Authentication](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)
-- Federated authentication - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) and [Azure AD Connect and federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+- Federated authentication - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) and [Azure AD Connect and federation](../../active-directory/hybrid/how-to-connect-fed-whatis.md)
 
 For a sample federated authentication with ADFS infrastructure (or user/password for Windows credentials), see the diagram below. The arrows indicate communication pathways.
 
@@ -89,7 +89,7 @@ To create a contained database user in Azure SQL Database, SQL Managed Instance,
 
 - The following members of Azure AD can be provisioned for Azure SQL:
 
-  - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+  - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
   - Members of an Active Directory domain federated with Azure Active Directory on a managed domain configured for seamless single sign-on with pass-through or password hash authentication. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory//) and [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
   - Imported members from other Azure AD's who are native or federated domain members.
   - Active Directory groups created as security groups.
@@ -163,9 +163,9 @@ The following authentication methods are supported for Azure AD server principal
 
 <!--Image references-->
 
-[1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
-[2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
-[3]: ./media/sql-database-aad-authentication/3admin-structure.png
+
+
+
 [4]: ./media/sql-database-aad-authentication/4select-subscription.png
 [5]: ./media/sql-database-aad-authentication/5ad-settings-portal.png
 [6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
