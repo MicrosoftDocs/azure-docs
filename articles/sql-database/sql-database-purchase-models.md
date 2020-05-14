@@ -23,7 +23,7 @@ Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed
 There are two purchasing models:
 
 - [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-technical-overview.md) and [Azure SQL Managed Instance](sql-database-managed-instance.md). The [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) is available for [Azure SQL Database](../azure-sql/database/single-databases-manage.md).
+- [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) is available for [Azure SQL Database](../azure-sql/database/single-database-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 

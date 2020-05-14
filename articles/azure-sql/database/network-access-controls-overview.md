@@ -152,5 +152,5 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 - For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md)
 
 <!--Image references-->
-[1]: ../../sql-database/media/sql-database-get-started-portal/new-server2.png
-[2]: ../../sql-database/media/sql-database-get-started-portal/manage-server-firewall.png
+[1]: ../../sql-database/media/quickstart-create-single-database/new-server2.png
+[2]: ../../sql-database/media/quickstart-create-single-database/manage-server-firewall.png

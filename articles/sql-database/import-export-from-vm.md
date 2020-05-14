@@ -76,11 +76,11 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 2. Copy this fully qualified server name to use when connecting to your server and its databases.
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png)
+   ![server name](../azure-sql/database/media/quickstart-create-single-database/server-name.png)
 
 3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the server opens.
 
-   ![server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![server-level IP firewall rule](../azure-sql/database/media/quickstart-create-single-database/server-firewall-rule.png)
 
 4. Choose **Add client IP** on the toolbar to add your virtual machine's public IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 

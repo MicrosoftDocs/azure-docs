@@ -178,7 +178,7 @@ The **Event File** target might experience network latency or failures while per
 - [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/).
 - [Azure Storage Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/)
-- [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [How to use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)

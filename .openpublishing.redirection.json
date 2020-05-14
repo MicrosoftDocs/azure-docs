@@ -52629,7 +52629,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-single-databases-manage.md",
-            "redirect_url": "/azure/azure-sql/database/single-databases-manage",
+            "redirect_url": "/azure/azure-sql/database/single-database-manage",
             "redirect_document_id": true
         },
         {
