@@ -176,7 +176,7 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 
 ## Next steps
 
-- For an overview of Azure SQL Database security, see [Securing your database](../../sql-database/sql-database-security-overview.md)
+- For an overview of Azure SQL Database security, see [Securing your database](security-overview.md)
 - For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
 
 <!--Image references-->

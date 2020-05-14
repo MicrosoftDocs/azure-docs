@@ -55,7 +55,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Scenario | Some recommended solutions |
 |----------|----------------------------|
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
-| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](../../sql-database/sql-database-read-scale-out.md) |
+| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
@@ -238,5 +238,5 @@ Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues,
 
 For more info about Azre SQL Database, see the following articles:
 
-- [SQL Database Overview](../../sql-database/sql-database-technical-overview.md)
+- [SQL Database Overview](technical-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

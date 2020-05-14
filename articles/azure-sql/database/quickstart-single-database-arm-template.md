@@ -27,7 +27,7 @@ None
 
 ## Create a single database
 
-A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](../../sql-database/sql-database-purchase-models.md). When you create a single database, you also define a [server](logical-servers.md) to manage it and place it within [Azure resource group](../../azure-resource-manager/management/overview.md) in a specified region.
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](purchasing-models.md). When you create a single database, you also define a [server](logical-servers.md) to manage it and place it within [Azure resource group](../../azure-resource-manager/management/overview.md) in a specified region.
 
 ### Review the template
 
@@ -123,5 +123,5 @@ az group delete --name $resourceGroupName
   - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create a single database using Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
-- To create a single database using Azure PowerShell, see [Azure PowerShell samples](../../sql-database/sql-database-powershell-samples.md).
+- To create a single database using Azure PowerShell, see [Azure PowerShell samples](powershell-script-content-guide.md).
 - To learn how to create Resource Manager templates, see [Create your first template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

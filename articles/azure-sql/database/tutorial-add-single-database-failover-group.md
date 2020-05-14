@@ -418,7 +418,7 @@ There are no scripts available for the Azure portal.
 
 ---
 
-You can find other Azure SQL Database scripts here: [Azure PowerShell](../../sql-database/sql-database-powershell-samples.md) and [Azure CLI](az-cli-script-samples-content-guide.md).
+You can find other Azure SQL Database scripts here: [Azure PowerShell](powershell-script-content-guide.md) and [Azure CLI](az-cli-script-samples-content-guide.md).
 
 ## Next steps
 

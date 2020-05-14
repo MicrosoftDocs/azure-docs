@@ -180,6 +180,6 @@ This article focuses on the disaster recovery strategies for the database tier u
 
 * To learn about Azure SQL Database automated backups, see [Azure SQL Database automated backups](automated-backups-overview.md).
 * For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
-* To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
+* To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](recovery-using-backups.md).
 * To learn about faster recovery options, see [Active geo-replication](active-geo-replication-overview.md) and [Auto-failover groups](auto-failover-group-overview.md).
 * To learn about using automated backups for archiving, see [database copy](database-copy.md).

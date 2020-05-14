@@ -37,13 +37,13 @@ For available service tiers and their characteristics, see [technical difference
 
 **Where can I find known issues and bugs?**
 
-For bugs and known issues see [known issues](sql-database-release-notes.md#known-issues).
+For bugs and known issues see [known issues](../azure-sql/database/doc-changes-updates-release-notes.md#known-issues).
 
 ## New features
 
 **Where can I find latest features and the features in public preview?**
 
-For new and preview features see [release notes](sql-database-release-notes.md?tabs=managed-instance).
+For new and preview features see [release notes](../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance).
 
 ## Deployment times 
 
@@ -85,7 +85,7 @@ This is the recommended approach if your database is smaller than 100 GB. Transa
 
 **Can I switch my SQL Managed Instance hardware generation between Gen 4 and Gen 5 online?**
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where your SQL Managed Instance is provisioned. In this case, you can check [vCore model overview page](sql-database-service-tiers-vcore.md) explaining how to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the region where your SQL Managed Instance is provisioned. In this case, you can check [vCore model overview page](../azure-sql/database/service-tiers-vcore.md) explaining how to switch between hardware generations.
 
 This is a long-running operation as a new SQL Managed Instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 

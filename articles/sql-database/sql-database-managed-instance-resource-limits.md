@@ -34,11 +34,11 @@ SQL Managed instance has characteristics and resource limits that depend on the 
 
 > [!IMPORTANT]
 > - Gen4 hardware is being phased out and is not available anymore for new deployments. All new SQL Managed Instances must be deployed on Gen5 hardware.
-> - Consider [moving your SQL Managed Instances to Gen 5](sql-database-service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
+> - Consider [moving your SQL Managed Instances to Gen 5](../azure-sql/database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
 ### In-memory OLTP available space 
 
-The amount of In-memory OLTP space in [Business Critical](sql-database-service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table list limits of memory that can be used for In-memory OLTP objects.
+The amount of In-memory OLTP space in [Business Critical](../azure-sql/database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table list limits of memory that can be used for In-memory OLTP objects.
 
 | In-memory OLTP space	| **Gen5** | **Gen4** |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ The amount of In-memory OLTP space in [Business Critical](sql-database-service-t
 
 ## Service tier characteristics
 
-SQL Managed Instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](../azure-sql/database/service-tiers-general-purpose-business-critical.md), as described in the table below.
+SQL Managed Instance has two service tiers: [General Purpose](../azure-sql/database/service-tier-general-purpose.md) and [Business Critical](../azure-sql/database/service-tier-business-critical.md). These tiers provide [different capabilities](../azure-sql/database/service-tiers-general-purpose-business-critical.md), as described in the table below.
 
 > [!Important]
 > Business Critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
@@ -66,8 +66,8 @@ SQL Managed Instance has two service tiers: [General Purpose](sql-database-servi
 | Max database size | Up to currently available instance size (max 2 TB - 8 TB depending on the number of vCores). | Up to currently available instance size (max 1 TB - 4 TB depending on the number of vCores). |
 | Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance storage size.<br/>Add more vCores to get more TempDB space.<br/> Log file size is limited to 120 GB.| Up to currently available instance storage size. |
 | Max number of databases per instance | 100, unless the instance storage size limit has been reached. | 100, unless the instance storage size limit has been reached. |
-| Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
-| Max data file size | Limited to currently available instance storage size (max 2 TB - 8 TB) and [Azure Premium Disk storage allocation space](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files). | Limited to currently available instance storage size (up to 1 TB - 4 TB). |
+| Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](../azure-sql/database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
+| Max data file size | Limited to currently available instance storage size (max 2 TB - 8 TB) and [Azure Premium Disk storage allocation space](../azure-sql/database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limited to currently available instance storage size (up to 1 TB - 4 TB). |
 | Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
 | Data/Log IOPS (approximate) | Up to 30-40 K IOPS per instance*, 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
@@ -75,7 +75,7 @@ SQL Managed Instance has two service tiers: [General Purpose](sql-database-servi
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| [Read-only replicas](sql-database-read-scale-out.md) | 0 | 1 (included in price) |
+| [Read-only replicas](../azure-sql/database/read-scale-out.md) | 0 | 1 (included in price) |
 
 
 A few additional considerations: 

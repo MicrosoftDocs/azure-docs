@@ -32,7 +32,7 @@ Azure SQL Database secures data by allowing you to:
 > [!NOTE]
 > Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md) and [connectivity architecture](../../sql-database/sql-database-managed-instance-connectivity-architecture.md).
 
-To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](../../sql-database/sql-database-security-overview.md) articles.
+To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](security-overview.md) articles.
 
 > [!TIP]
 > The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
@@ -43,7 +43,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - A [server](logical-servers.md) and a single database
-  - Create them with [Azure portal](quickstart-create-single-database.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](../../sql-database/sql-database-powershell-samples.md)
+  - Create them with [Azure portal](quickstart-create-single-database.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](powershell-script-content-guide.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -226,7 +226,7 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../sql-database/sql-database-auditing.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](../../sql-database/transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../sql-database/sql-database-auditing.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
 
 ### Advanced data security
 

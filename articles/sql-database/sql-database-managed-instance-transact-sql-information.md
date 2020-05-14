@@ -32,7 +32,7 @@ There are some PaaS limitations that are introduced in SQL Managed Instance and 
 
 Most of these features are architectural constraints and represent service features.
 
-Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [release notes page](sql-database-release-notes.md).
+Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [release notes page](../azure-sql/database/doc-changes-updates-release-notes.md).
 
 ## Availability
 
@@ -62,7 +62,7 @@ SQL Managed Instances have automatic backups, so users can create full database 
 Limitations: 
 
 - With a SQL Managed Instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for databases up to 4 TB if backup compression is used.
-- You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
+- You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](../azure-sql/database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
 - The maximum backup stripe size by using the `BACKUP` command in a SQL Managed Instance is 195 GB, which is the maximum blob size. Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
     > [!TIP]
@@ -534,5 +534,5 @@ A SQL Managed Instance places verbose information in error logs. There are many 
 
 - For more information about SQL Managed Instances, see [What is SQL Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](sql-database-features.md).
-- For release updates and known issues state, see [SQL Managed Instance release notes](sql-database-release-notes.md)
+- For release updates and known issues state, see [SQL Managed Instance release notes](../azure-sql/database/doc-changes-updates-release-notes.md)
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).

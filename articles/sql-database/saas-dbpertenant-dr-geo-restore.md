@@ -14,7 +14,7 @@ ms.date: 01/14/2019
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
 
-This tutorial explores a full disaster recovery scenario for a multitenant SaaS application implemented with the database per tenant model. You use [geo-restore](sql-database-recovery-using-backups.md) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [geo-replication](sql-database-geo-replication-overview.md) to repatriate changed databases to their original region.
+This tutorial explores a full disaster recovery scenario for a multitenant SaaS application implemented with the database per tenant model. You use [geo-restore](../azure-sql/database/recovery-using-backups.md) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [geo-replication](sql-database-geo-replication-overview.md) to repatriate changed databases to their original region.
 
 ![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 

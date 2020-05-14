@@ -21,7 +21,7 @@ Service tiers in the DTU-based purchase model are differentiated by a range of c
 
 
 > [!NOTE]
-> For information about vCore-based service tiers, see [vCore-based service tiers](../../sql-database/sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [purchasing models](../../sql-database/sql-database-purchase-models.md).
+> For information about vCore-based service tiers, see [vCore-based service tiers](service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [purchasing models](purchasing-models.md).
 
 ## Compare the DTU-based service tiers
 
@@ -50,7 +50,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](../../sql-database/sql-database-purchase-models.md#dtu-based-purchasing-model).
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](purchasing-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |

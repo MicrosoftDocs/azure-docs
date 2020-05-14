@@ -70,7 +70,7 @@ As with the admin credentials, do not use values in the form of "username@server
 
 [Managing databases and logins in Azure SQL Database](logins-create-manage.md)
 
-[Securing your SQL Database](../../sql-database/sql-database-security-overview.md)
+[Securing your SQL Database](security-overview.md)
 
 [Elastic Database jobs](../../sql-database/elastic-jobs-overview.md)
 

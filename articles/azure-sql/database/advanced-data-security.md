@@ -22,8 +22,8 @@ Advanced data security (ADS) is a unified package for advanced SQL security capa
 Advanced data security (ADS) provides a set of advanced SQL security capabilities, including data discovery & classification, vulnerability assessment, and Advanced Threat Protection.
 
 - [Data Discovery & Classification](data-discovery-and-classification-overview.md) provides capabilities built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse for discovering, classifying, labeling & reporting the sensitive data in your databases. It can be used to provide visibility into your database classification state, and to track the access to sensitive data within the database and beyond its borders.
-- [Vulnerability Assessment](../../sql-database/sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
-- [Advanced Threat Protection](../../sql-database/sql-database-threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Advanced Threat Protection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
+- [Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
+- [Advanced Threat Protection](threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Advanced Threat Protection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
 
 Enable SQL ADS once to enable all of these included features. With one click, you can enable ADS for all databases on your [server](logical-servers.md) in Azure (which hosts SQL Database or Azure Synapse Analytics) or in you instance in Azure SQL Managed Instance. Enabling or managing ADS settings requires belonging to the [SQL security manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) role, SQL database admin role or SQL server admin role.
 
@@ -70,6 +70,6 @@ Advanced data security settings for your server or managed instance can also be 
 ## Next steps
 
 - Learn more about [Data Discovery & Classification](data-discovery-and-classification-overview.md)
-- Learn more about [vulnerability Assessment](../../sql-database/sql-vulnerability-assessment.md)
-- Learn more about [Advanced Threat Protection](../../sql-database/sql-database-threat-detection.md)
+- Learn more about [vulnerability Assessment](sql-vulnerability-assessment.md)
+- Learn more about [Advanced Threat Protection](threat-detection.md)
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

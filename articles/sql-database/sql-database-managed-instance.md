@@ -35,7 +35,7 @@ SQL Managed Instance combines the best features that are available both in Azure
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](../azure-sql/database/high-availability-sla.md) <br>Data protected with [automated backups](../azure-sql/database/automated-backups-overview.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](../azure-sql/database/high-availability-sla.md) <br>Data protected with [automated backups](../azure-sql/database/automated-backups-overview.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](../azure-sql/database/recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
 |Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](../azure-sql/database/aad-authentication-overview.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a>  <br>Adheres to compliance standards same as Azure SQL Database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
@@ -63,7 +63,7 @@ The key features of SQL Managed Instance are shown in the following table:
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server.
+The [vCore-based purchasing model](../azure-sql/database/service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server.
 
 In vCore model, you can choose between generations of hardware.
 
@@ -102,7 +102,7 @@ The following list outlines the key characteristics of the Business Critical ser
 - Designed for business applications with highest performance and HA requirements
 - Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
 - Built-in [high availability](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
-- Built-in additional [read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
+- Built-in additional [read-only database replica](../azure-sql/database/read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements  
 
 Find more information about the difference between service tiers in [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).

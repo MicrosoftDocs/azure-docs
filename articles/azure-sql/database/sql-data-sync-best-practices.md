@@ -238,5 +238,5 @@ For more information about SQL Data Sync, see:
 
 For more information about SQL Database, see:
 
--   [SQL Database overview](../../sql-database/sql-database-technical-overview.md)
+-   [SQL Database overview](technical-overview.md)
 -   [Database lifecycle management](https://msdn.microsoft.com/library/jj907294.aspx)

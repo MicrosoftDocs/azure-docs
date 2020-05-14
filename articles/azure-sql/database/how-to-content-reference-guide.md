@@ -33,13 +33,13 @@ In this article you can find a content reference of various guides, scripts, and
 - [Multi-factor AAD auth](../../sql-database/sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](../../sql-database/sql-database-ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
-- [Configure TDE with BYOK](../../sql-database/transparent-data-encryption-byok-azure-sql-configure.md)
-- [Rotate TDE BYOK keys](../../sql-database/transparent-data-encryption-byok-azure-sql-key-rotation.md)
-- [Remove TDE protector](../../sql-database/transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
+- [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
+- [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
+- [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../../sql-database/sql-database-in-memory-oltp-migration.md)
 - [Configure Azure Automation](manage-automation.md)
 - [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
-- [Configure threat detection](../../sql-database/sql-database-threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
+- [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
 - [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
@@ -54,7 +54,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Enable e-mail notifications for automatic tuning](automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
 - [Apply performance recommendations](database-advisor-find-recommendations-portal.md) and optimize your database.
 - [Create alerts](alerts-insights-configure-portal.md) to get notifications from Azure SQL Database.
-- [Troubleshoot connectivity](../../sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](../../sql-database/sql-database-resource-health.md).
+- [Troubleshoot connectivity](troubleshoot-common-errors-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](use-resource-health-troubleshoot-connectivity.md).
 - [Troubleshoot performance with Intelligent Insights](../../sql-database/sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
 - [Use Intelligent Insights diagnostics log](../../sql-database/sql-database-intelligent-insights-use-diagnostics-log.md)
@@ -105,7 +105,7 @@ In this article you can find a content reference of various guides, scripts, and
 ## Develop applications
 
 - [Connectivity](connect-query-content-reference-guide.md#libraries)
-- [Use Spark Connector](../../sql-database/sql-database-spark-connector.md)
+- [Use Spark Connector](spark-connector.md)
 - [Authenticate app](application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../../sql-database/sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](troubleshoot-common-connectivity-issues.md)

@@ -56,7 +56,7 @@ Restore an existing database to the same SQL Managed Instance using the Azure po
     ![Restore a database by using the Azure portal](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
 
 4. On the **Restore** page, select the point for the date and time that you want to restore the database to.
-5. Select **Confirm** to restore your database. This action starts the restore process, which creates a new database and populates it with data from the original database at the specified point in time. For more information about the recovery process, see [Recovery time](sql-database-recovery-using-backups.md#recovery-time).
+5. Select **Confirm** to restore your database. This action starts the restore process, which creates a new database and populates it with data from the original database at the specified point in time. For more information about the recovery process, see [Recovery time](../azure-sql/database/recovery-using-backups.md#recovery-time).
 
 # [PowerShell](#tab/azure-powershell)
 

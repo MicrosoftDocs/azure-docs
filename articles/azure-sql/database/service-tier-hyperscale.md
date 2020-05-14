@@ -25,7 +25,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 
 > [!NOTE]
 >
-> - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](../../sql-database/sql-database-service-tier-general-purpose.md) and [Business Critical](../../sql-database/sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](../../sql-database/sql-database-purchase-models.md).
+> - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](service-tier-general-purpose.md) and [Business Critical](service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
 > - The hyperscale service tier is currently only available for Azure SQL Database, and not Azure SQL Managed Instance.
 
 ## What are the Hyperscale capabilities
@@ -43,7 +43,7 @@ The Hyperscale service tier removes many of the practical limits traditionally s
 
 Additionally, the time required to create database backups or to scale up or down is no longer tied to the volume of data in the database. Hyperscale databases can be backed up virtually instantaneously. You can also scale a database in the tens of terabytes up or down in minutes. This capability frees you from concerns about being boxed in by your initial configuration choices.
 
-For more information about the compute sizes for the Hyperscale service tier, see [Service tier characteristics](../../sql-database/sql-database-service-tiers-vcore.md#service-tiers).
+For more information about the compute sizes for the Hyperscale service tier, see [Service tier characteristics](service-tiers-vcore.md#service-tiers).
 
 ## Who should consider the Hyperscale service tier
 
@@ -60,7 +60,7 @@ The Hyperscale service tier supports a broad range of SQL Server workloads, from
 
 ## Hyperscale pricing model
 
-Hyperscale service tier is only available in [vCore model](../../sql-database/sql-database-service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
+Hyperscale service tier is only available in [vCore model](service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
 
 - **Compute**:
 
@@ -108,7 +108,7 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 
 ## Create a Hyperscale database
 
-A Hyperscale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hyperscale databases are available only using the [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+A Hyperscale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hyperscale databases are available only using the [vCore-based purchasing model](service-tiers-vcore.md).
 
 The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
 
@@ -221,7 +221,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 ## Next steps
 
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.md).
-- For information about service tiers, see [Service tiers](../../sql-database/sql-database-purchase-models.md)
+- For information about service tiers, see [Service tiers](purchasing-models.md)
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).

@@ -14,7 +14,7 @@ ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database?
 
-The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [server](logical-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](dtu-service-tiers.md) or [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md) and a guaranteed compute size.
+The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [server](logical-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](dtu-service-tiers.md) or [vCore-based purchasing model](service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
 > Single database is one deployment option for Azure SQL Database. The other is [elastic pools](elastic-pool-overview.md).
@@ -36,7 +36,7 @@ You use the built-in [performance monitoring](performance-guidance.md) and [aler
 
 ## Availability capabilities
 
-Single databases and elastic pools provide many availability characteristics. For information, see [Availability characteristics](../../sql-database/sql-database-technical-overview.md#availability-capabilities).
+Single databases and elastic pools provide many availability characteristics. For information, see [Availability characteristics](technical-overview.md#availability-capabilities).
 
 ## Transact-SQL differences
 
@@ -48,7 +48,7 @@ For more information, see [Resolving Transact-SQL differences during migration t
 
 ## Security
 
-SQL Database provides a range of [built-in security and compliance](../../sql-database/sql-database-security-overview.md) features to help your application meet various security and compliance requirements.
+SQL Database provides a range of [built-in security and compliance](security-overview.md) features to help your application meet various security and compliance requirements.
 
 > [!IMPORTANT]
 > Azure SQL Database, has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.

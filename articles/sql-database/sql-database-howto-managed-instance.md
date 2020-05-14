@@ -52,13 +52,13 @@ In this article you can find a content reference to various guides, scripts, and
 - [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](../azure-sql/database/temporal-tables-retention-policy.md)
-- [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
-- [Rotate TDE BYOK keys](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-- [Remove TDE protector](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
+- [Configure TDE with BYOK](../azure-sql/database/transparent-data-encryption-byok-configure.md)
+- [Rotate TDE BYOK keys](../azure-sql/database/transparent-data-encryption-byok-key-rotation.md)
+- [Remove TDE protector](../azure-sql/database/transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](sql-database-in-memory-oltp-migration.md)
 - [Configure Azure Automation](../azure-sql/database/manage-automation.md)
 - [Transactional replication](replication-with-sql-database-managed-instance.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
-- [Configure threat detection](sql-database-managed-instance-threat-detection.md) – [threat detection](sql-database-threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
+- [Configure threat detection](sql-database-managed-instance-threat-detection.md) – [threat detection](../azure-sql/database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
 - [Creating alerts](sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
 
 ## Monitoring and tuning
@@ -79,7 +79,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Develop applications
 
 - [Connectivity](sql-database-libraries.md)
-- [Use Spark Connector](sql-database-spark-connector.md)
+- [Use Spark Connector](../azure-sql/database/spark-connector.md)
 - [Authenticate app](../azure-sql/database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](../azure-sql/database/troubleshoot-common-connectivity-issues.md)

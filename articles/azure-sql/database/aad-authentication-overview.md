@@ -14,7 +14,7 @@ ms.date: 04/23/2020
 ---
 # Use Azure Active Directory Authentication for authentication with Azure SQL
 
-Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD).
+Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > This article applies to Azure SQL Database, SQL Managed Instance, and Azure Synapse. For simplicity, Azure SQL is used when referring to all three.

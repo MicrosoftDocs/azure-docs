@@ -1,4 +1,4 @@
-﻿---
+---
 title: "PowerShell: Add instance to auto-failover group"
 titleSuffix: Azure SQL Managed Instance 
 description: Azure PowerShell example script to create an Azure SQL Managed Instance, add it to an auto-failover group, and test failover. 
@@ -70,4 +70,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../../azure-sql/database/powershell-script-content-guide.md).
