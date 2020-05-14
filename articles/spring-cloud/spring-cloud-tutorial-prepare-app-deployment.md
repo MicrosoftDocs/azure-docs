@@ -126,7 +126,7 @@ For Spring Boot version 2.2 add the following dependency to the application POM 
 
 ## Other recommended dependencies to enable Azure Spring Cloud features
 
-To enable the corresponding built-in features of Azure Spring Cloud from service registry to distributed tracing, it is recommended to also include the following dependencies your application. 
+To enable the built-in features of Azure Spring Cloud from service registry to distributed tracing, you need to also include the following dependencies in your application. You can drop some of these dependencies if you don't need corresponding features for the specific apps.
 
 ### Service Registry
 
