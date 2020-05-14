@@ -12,15 +12,15 @@ ms.date: 05/13/2020
 
 > [!IMPORTANT]
 >  Currently you can enable monitoring for your Java apps running on Kubernetes without instrumenting your code - use the [Java standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). 
-> While the solution to seamlessly enabling application monitoring is in the works for other languages, use the SDKs to monitor your apps running on AKS: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript), and [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+> While the solution to seamlessly enabling application monitoring is in the works for other languages, use the SDKs to monitor your apps running on AKS: [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript), and [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 ## Application monitoring without instrumenting the code
-Currently, only Java lets you enable application monitoring without instrumenting the code. For other languages, please use the SDKs. 
+Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages use the SDKs. 
 
 ## Java
 Once enabled, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
 
-Please follow [the detailed instructions](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to monitor your Java apps running in Kubernetes apps, as well as other environments. 
+Follow [the detailed instructions](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to monitor your Java apps running in Kubernetes apps, as well as other environments. 
 
 ## Other languages
 
