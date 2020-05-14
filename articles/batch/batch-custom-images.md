@@ -1,8 +1,8 @@
 ---
 title: Provision a custom pool from a managed image
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
-ms.topic: article
-ms.date: 09/16/2019
+ms.topic: conceptual
+ms.date: 05/18/2020
 ---
 
 # Use a managed image to create a pool of virtual machines
@@ -16,7 +16,7 @@ To create a custom image for your Batch pool's virtual machines (VMs), you can u
 
 - **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks. For more information and steps to prepare a managed image, see the following section.
   - Use a unique custom image for each pool you create.
-  - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. To use the portal, use the **name** of the image.  
+  - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
 
 - **Azure Active Directory (AAD) authentication**. The Batch client API must use AAD authentication. Azure Batch support for AAD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
@@ -54,29 +54,42 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
-## Create a pool from a custom image in the portal
+## Create a pool from a Shared Image using C#
 
-Once you have saved your custom image and you know its resource ID or name, create a Batch pool from that image. The following steps show you how to create a pool from the Azure portal.
+Once you have saved your custom image and you know its resource ID or name, create a Batch pool from that image. The following steps show you how to create a pool from a Shared Image using the C# SDK.
 
 > [!NOTE]
-> If you are creating the pool using one of the Batch APIs, make sure that the identity you use for AAD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+> Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
 > The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
 
-1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the custom image.
-2. In the **Settings** window on the left, select the **Pools** menu item.
-3. In the **Pools** window, select the **Add** command.
-4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. From the **Custom VM image** dropdown, select the image name (short form of the resource ID).
-5. Select the correct **Publisher/Offer/Sku** for your custom image.
-6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low-priority nodes**, as well as any desired optional settings.
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-    For example, for a Microsoft Windows Server Datacenter 2016 custom image, the **Add Pool** window appears as shown below:
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
+}
 
-    ![Add pool from custom Windows image](media/batch-custom-images/add-pool-custom-image.png)
-  
-To check whether an existing pool is based on a custom image, see the **Operating System** property in the resource summary section of the **Pool** window. If the pool was created from a custom image, it is set to **Custom VM Image**.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
 
-All custom images associated with a pool are displayed on the pool's **Properties** window.
+        pool.Commit();
+    }
+```
 
 ## Considerations for large pools
 
