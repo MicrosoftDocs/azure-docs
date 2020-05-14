@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/15/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
@@ -38,7 +38,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). 
+Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 In this flow, the app receives a code from the Microsoft identity platform authorize endpoint, and redeems it for tokens and refresh tokens using cross-site web requests.  Every 24 hours the refresh token expires and the app must request another code.
 
@@ -46,8 +46,11 @@ In this flow, the app receives a code from the Microsoft identity platform autho
 
 To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
-> [!NOTE]
-> For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single page apps. With the removal of [3rd party cookies](reference-third-party-cookies-spas.md), and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we have moved to the authorization code flow for single page apps. To ensure compatibility of your app in Safari and other privacy-conscious browsers, we do not recommend the implicit flow any longer.  
+### Authorization code flow vs. implicit flow
+
+For most of the history of OAuth 2.0, the [implicit flow](v2-oauth2-implicit-grant-flow.md) was the recommended way to build single-page apps. With the removal of [third-party cookies](reference-third-party-cookies-spas.md) and [greater attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) paid to security concerns around the implicit flow, we've moved to the authorization code flow for single-page apps.
+
+To ensure compatibility of your app in Safari and other privacy-conscious browsers, we no longer recommend use of the implicit flow and instead recommend the authorization code flow.
 
 ## Web apps
 

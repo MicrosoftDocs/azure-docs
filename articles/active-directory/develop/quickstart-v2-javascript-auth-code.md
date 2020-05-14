@@ -1,5 +1,5 @@
 ---
-title: Sign in users in JavaScript single-page apps with auth code | Azure
+title: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
