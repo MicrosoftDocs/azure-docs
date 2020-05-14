@@ -24,7 +24,7 @@ Your most sensitive data might include business, financial, healthcare, or perso
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases that contain highly sensitive data.
 
-Data Discovery & Classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced Azure SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
+Data Discovery & Classification is part of the [Advanced Data Security](../azure-sql/database/advanced-data-security.md) offering, which is a unified package for advanced Azure SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
 
 > [!NOTE]
 > For information about SQL Server (on-premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -184,6 +184,6 @@ You can use the REST API to programmatically manage classifications and recommen
 
 ## <a id="next-steps"></a>Next steps
 
-- Learn more about [Advanced Data Security](sql-database-advanced-data-security.md).
+- Learn more about [Advanced Data Security](../azure-sql/database/advanced-data-security.md).
 - Consider configuring [Azure SQL Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data discovery and classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).

@@ -111,6 +111,6 @@ Developers might consider developing custom applications using performance recom
 
 ## Next steps
 
-- For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](../../sql-database/sql-database-automatic-tuning.md).
+- For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](automatic-tuning-overview.md).
 - For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md).
 - See [Query Performance Insights](query-performance-insight.md) to learn about and view the performance impact of your top queries.

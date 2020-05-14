@@ -136,7 +136,7 @@ For more information about other database tools for working with multiple databa
 
 ### Business continuity options for databases in an elastic pool
 
-Pooled databases generally support the same [business continuity features](../../sql-database/sql-database-business-continuity.md) that are available to single databases.
+Pooled databases generally support the same [business continuity features](business-continuity-high-availability-disaster-recover-hadr-overview.md) that are available to single databases.
 
 - **Point-in-time restore**
 
@@ -144,11 +144,11 @@ Pooled databases generally support the same [business continuity features](../..
 
 - **Geo-restore**
 
-  Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](../../sql-database/sql-database-disaster-recovery.md)
+  Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](disaster-recovery-guidance.md)
 
 - **Active geo-replication**
 
-  For applications that have more aggressive recovery requirements than geo-restore can offer, configure [Active geo-replication](active-geo-replication-overview.md) or an [auto-failover group](../../sql-database/sql-database-auto-failover-group.md).
+  For applications that have more aggressive recovery requirements than geo-restore can offer, configure [Active geo-replication](active-geo-replication-overview.md) or an [auto-failover group](auto-failover-group-overview.md).
 
 ## Creating a new SQL Database elastic pool using the Azure portal
 

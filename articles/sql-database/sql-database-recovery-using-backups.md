@@ -15,7 +15,7 @@ ms.date: 09/26/2019
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 
-By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](sql-database-automated-backups.md). You can:
+By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](../azure-sql/database/automated-backups-overview.md). You can:
 
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
@@ -176,10 +176,10 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 
 ### Geo-restore considerations
 
-You can't perform a point-in-time restore on a geo-secondary database. You can only do so on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
+You can't perform a point-in-time restore on a geo-secondary database. You can only do so on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../azure-sql/database/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Geo-restore is the most basic disaster recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with recovery point objective (RPO) equal to 1 hour, and the estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster recovery solution. For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
+> Geo-restore is the most basic disaster recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with recovery point objective (RPO) equal to 1 hour, and the estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster recovery solution. For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](../azure-sql/database/auto-failover-group-overview.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ## Programmatically performing recovery by using automated backups
 
@@ -240,7 +240,7 @@ Automatic backups protect your databases from user and application errors, accid
 
 ## Next steps
 
-- [Business continuity overview](sql-database-business-continuity.md)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- [Business continuity overview](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- [SQL Database automated backups](../azure-sql/database/automated-backups-overview.md)
 - [Long-term retention](../azure-sql/database/long-term-retention-overview.md)
-- To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) or [Auto-failover groups](sql-database-auto-failover-group.md).
+- To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) or [Auto-failover groups](../azure-sql/database/auto-failover-group-overview.md).

@@ -41,10 +41,10 @@ To complete the tutorial, make sure you have the following prerequisites:
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - A SQL Managed Instance
   - Follow this article: [Quickstart: Create a SQL Managed Instance](sql-database-managed-instance-get-started.md)
-- Able to access your SQL Managed Instance and [provisioned an Azure AD administrator for the SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
+- Able to access your SQL Managed Instance and [provisioned an Azure AD administrator for the SQL Managed Instance](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
   - [Connect your application to a SQL Managed Instance](sql-database-managed-instance-connect-app.md)
   - [SQL Managed Instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md)
-  - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
+  - [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/aad-authentication-configure.md)
 
 ## Limit access 
 
@@ -58,7 +58,7 @@ For more information, see the following article, [Configure public endpoint in A
 
 ## Create an Azure AD server principal (login) using SSMS
 
-The first Azure AD server principal (login) can be created by the standard SQL admin account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the SQL Managed Instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+The first Azure AD server principal (login) can be created by the standard SQL admin account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the SQL Managed Instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your SQL Managed Instance](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 See the following articles for examples of connecting to your SQL Managed Instance:
 

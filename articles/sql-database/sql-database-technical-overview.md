@@ -18,7 +18,7 @@ ms.date: 04/08/2019
 
 Azure SQL Database is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
-With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](sql-database-multi-model-features.md), such as graphs, JSON, spatial, and XML.
+With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](../azure-sql/database/multi-model-features.md), such as graphs, JSON, spatial, and XML.
 
 It's based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](sql-database-in-memory.md) and [intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
 
@@ -92,9 +92,9 @@ Azure SQL Database provides advanced monitoring and troubleshooting features tha
  - The built-in monitoring capabilities provided by the latest version of SQL Server Database Engine. They enable you to find real-time performance insights. 
  - PaaS monitoring capabilities provided by Azure that enable you to monitor and troubleshoot a large number of database instances.
 
-[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), a built-in SQL Server monitoring feature, records the performance of your queries in real time, and enables you to identify the potential performance issues and the top resource consumers. Automatic tuning and recommendations provide advice regarding the queries with the regressed performance and missing or duplicated indexes. Automatic tuning in SQL Database enables you to either manually apply the scripts that can fix the issues, or let SQL Database apply the fix. SQL Database can also test and verify that the fix provides some benefit, and retain or revert the change depending on the outcome. In addition to Query Store and automatic tuning capabilities, you can use standard [DMVs and XEvent](sql-database-monitoring-with-dmvs.md) to monitor the workload performance.
+[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), a built-in SQL Server monitoring feature, records the performance of your queries in real time, and enables you to identify the potential performance issues and the top resource consumers. Automatic tuning and recommendations provide advice regarding the queries with the regressed performance and missing or duplicated indexes. Automatic tuning in SQL Database enables you to either manually apply the scripts that can fix the issues, or let SQL Database apply the fix. SQL Database can also test and verify that the fix provides some benefit, and retain or revert the change depending on the outcome. In addition to Query Store and automatic tuning capabilities, you can use standard [DMVs and XEvent](../azure-sql/database/monitoring-with-dmvs.md) to monitor the workload performance.
 
-Azure provides [built-in performance monitoring](sql-database-performance-guidance.md) and [alerting](../azure-sql/database/alerts-insights-configure-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
+Azure provides [built-in performance monitoring](../azure-sql/database/performance-guidance.md) and [alerting](../azure-sql/database/alerts-insights-configure-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and resource logs](../azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price.
 - **Azure Event Hubs**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
@@ -114,9 +114,9 @@ Azure Availability Zones tries to protect against the outage of a single datacen
 
 In fact, the service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/) of Azure, powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database, and it guarantees no data loss and a high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance, and then implementing technology similar to Always On Availability Groups. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](sql-database-high-availability.md). 
 
-In addition, SQL Database provides built-in [business continuity and global scalability](sql-database-business-continuity.md) features. These include:
+In addition, SQL Database provides built-in [business continuity and global scalability](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) features. These include:
 
-- [Automatic backups](sql-database-automated-backups.md):
+- [Automatic backups](../azure-sql/database/automated-backups-overview.md):
 
   SQL Database automatically performs full, differential, and transaction log backups of SQL databases to enable you to restore to any point in time. For single databases and pooled databases, you can configure SQL Database to store full database backups to Azure Storage for long-term backup retention. For managed instances, you can also perform copy-only backups for long-term backup retention.
 
@@ -126,7 +126,7 @@ In addition, SQL Database provides built-in [business continuity and global scal
 - [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md):
 
   The single database and pooled databases options allow you to configure up to four readable secondary databases in either the same or globally distributed Azure datacenters. For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale. This removes bottlenecks on the primary that are due to read workloads. For managed instances, use auto-failover groups.
-- [Auto-failover groups](sql-database-auto-failover-group.md):
+- [Auto-failover groups](../azure-sql/database/auto-failover-group-overview.md):
 
   All SQL Database deployment options allow you to use failover groups to enable high availability and load balancing at global scale. This includes transparent geo-replication and failover of large sets of databases, elastic pools, and managed instances. Failover groups enable the creation of globally distributed SaaS applications, with minimal administration overhead. This leaves all the complex monitoring, routing, and failover orchestration to SQL Database.
 - [Zone-redundant databases](sql-database-high-availability.md):
@@ -143,11 +143,11 @@ SQL Database provides detailed insight into the queries that you need to monitor
 
 However, constantly monitoring a database is a hard and tedious task, especially when dealing with many databases. [Intelligent Insights](sql-database-intelligent-insights.md) does this job for you by automatically monitoring SQL Database performance at scale. It informs you of performance degradation issues, it identifies the root cause of each issue, and provides performance improvement recommendations when possible.
 
-Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that SQL Database and Azure provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to SQL Database by using [automatic tuning](sql-database-automatic-tuning.md). SQL Database automatically applies recommendations, tests, and verifies each of its tuning actions to ensure the performance keeps improving. This way, SQL Database automatically adapts to your workload in a controlled and safe way. Automatic tuning means that the performance of your database is carefully monitored and compared before and after every tuning action. If the performance doesn't improve, the tuning action is reverted.
+Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that SQL Database and Azure provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to SQL Database by using [automatic tuning](../azure-sql/database/automatic-tuning-overview.md). SQL Database automatically applies recommendations, tests, and verifies each of its tuning actions to ensure the performance keeps improving. This way, SQL Database automatically adapts to your workload in a controlled and safe way. Automatic tuning means that the performance of your database is carefully monitored and compared before and after every tuning action. If the performance doesn't improve, the tuning action is reverted.
 
 Many of our partners that run [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, because part of their customer base also uses SQL Server, they're using the same indexing recommendations provided by SQL Database to help their SQL Server customers.
 
-Two automatic tuning aspects are [available in SQL Database](sql-database-automatic-tuning.md):
+Two automatic tuning aspects are [available in SQL Database](../azure-sql/database/automatic-tuning-overview.md):
 
 - **Automatic index management**: Identifies indexes that should be added in your database, and indexes that should be removed.
 - **Automatic plan correction**: Identifies problematic plans and fixes SQL plan performance problems.
@@ -187,7 +187,7 @@ SQL Database helps secure your data by providing encryption. For data in motion,
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) to increase data and application security, while supporting a single sign-in process.
+SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../azure-sql/database/aad-authentication-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) to increase data and application security, while supporting a single sign-in process.
 
 ## Easy-to-use tools
 
@@ -218,7 +218,7 @@ The current version of SQL Database is V12. Version V11 has been retired.
 
 ### Can I control when patching downtime occurs?
 
-No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. For more information, see [Planning for Azure maintenance events in Azure SQL Database](sql-database-planned-maintenance.md).
+No. The impact of patching is generally not noticeable if you [employ retry logic](../azure-sql/database/develop-overview.md#resiliency) in your app. For more information, see [Planning for Azure maintenance events in Azure SQL Database](sql-database-planned-maintenance.md).
 
 ### Azure Hybrid Benefit questions
 

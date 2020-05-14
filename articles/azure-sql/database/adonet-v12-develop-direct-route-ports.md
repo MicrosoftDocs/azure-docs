@@ -77,5 +77,5 @@ https://www.microsoft.com/download/details.aspx?id=56567
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
-* [SQL Database Development Overview](../../sql-database/sql-database-develop-overview.md)
+* [SQL Database Development Overview](develop-overview.md)
 * [Azure SQL Database firewall](firewall-configure.md)

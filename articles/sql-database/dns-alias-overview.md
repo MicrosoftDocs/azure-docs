@@ -104,7 +104,7 @@ Presently, a DNS alias has the following limitations:
 
 ## Related resources
 
-- [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md), including disaster recovery.
+- [Overview of business continuity with Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
 
 ## Next steps
 

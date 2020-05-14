@@ -201,7 +201,7 @@ The following table summarizes the differences between the main tenancy models.
 
 [docu-elastic-db-client-library-536r]:../azure-sql/database/elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: sql-database-saas-tutorial.md
-[docu-sql-db-automatic-tuning-771a]: sql-database-automatic-tuning.md
+[docu-sql-db-automatic-tuning-771a]:../azure-sql/database/automatic-tuning-overview.md
 [docu-saas-tenancy-welcome-wingtip-tickets-app-384w]: saas-tenancy-welcome-wingtip-tickets-app.md
 
 

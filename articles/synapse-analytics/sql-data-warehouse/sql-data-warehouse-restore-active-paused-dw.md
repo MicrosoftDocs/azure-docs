@@ -47,7 +47,7 @@ To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatab
 
 7. Verify that the restored SQL pool is online.
 
-8. After the restore has completed, you can configure your recovered SQL pool by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. After the restore has completed, you can configure your recovered SQL pool by following [configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 

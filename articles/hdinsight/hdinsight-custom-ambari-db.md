@@ -41,7 +41,7 @@ The custom Ambari DB has the following other requirements:
 When you host your Apache Ambari DB in an external database, remember the following points:
 
 - You're responsible for the additional costs of the Azure SQL DB that holds Ambari.
-- Back up your custom Ambari DB periodically. Azure SQL Database generates backups automatically, but the backup retention time-frame varies. For more information, see [Learn about automatic SQL Database backups](../sql-database/sql-database-automated-backups.md).
+- Back up your custom Ambari DB periodically. Azure SQL Database generates backups automatically, but the backup retention time-frame varies. For more information, see [Learn about automatic SQL Database backups](../azure-sql/database/automated-backups-overview.md).
 
 ## Deploy clusters with a custom Ambari DB
 

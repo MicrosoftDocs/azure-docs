@@ -39,7 +39,7 @@ This article provides an overview of the resource limits for Azure SQL Database 
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 > [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../../sql-database/quota-increase-request.md).
+> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ### Storage size
 
@@ -53,7 +53,7 @@ When database compute utilization (measured by DTUs and eDTUs, or vCores) become
 When encountering high compute utilization, mitigation options include:
 
 - Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
-- Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
 
@@ -72,7 +72,7 @@ The maximum numbers of sessions and workers are determined by the service tier a
 When encountering high session or worker utilization, mitigation options include:
 
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
-- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](../../sql-database/sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
 - Optimizing query workload to reduce number of occurrences and duration of query blocking.
 

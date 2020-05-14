@@ -18,7 +18,7 @@ ms.date: 04/28/2020
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
 
 > [!NOTE]
-> Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of SQL Managed Instances, use [Auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
+> Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of SQL Managed Instances, use [Auto-failover groups](auto-failover-group-overview.md).
 
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
@@ -30,7 +30,7 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 ![active geo-replication](./media/active-geo-replication-overview/geo-replication.png )
 
 > [!IMPORTANT]
-> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
+> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](auto-failover-group-overview.md).
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
@@ -42,7 +42,7 @@ You can manage replication and failover of an individual database or a set of da
 - [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the SQL database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](../../sql-database/sql-database-business-continuity.md).
+Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of the SQL database engine to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 > [!NOTE]
 > If there is a network failure between two regions, we retry every 10 seconds to re-establish connections.
@@ -61,7 +61,7 @@ In addition to disaster recovery active geo-replication can be used in the follo
 - **Database migration**: You can use active geo-replication to migrate a database from one server to another online with minimum downtime.
 - **Application upgrades**: You can create an extra secondary as a fail back copy during application upgrades.
 
-To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](../../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](designing-cloud-solutions-for-disaster-recovery.md).
 
 ## Active geo-replication terminology and capabilities
 
@@ -104,10 +104,10 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Preparing secondary database for failover
 
-To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](geo-replication-security-configure.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](../../sql-database/sql-database-automated-backups.md).
+To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](geo-replication-security-configure.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](../../sql-database/sql-database-auto-failover-group.md) for details.
+> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](auto-failover-group-overview.md) for details.
 
 ## Configuring secondary database
 
@@ -285,8 +285,8 @@ As discussed previously, active geo-replication can also be managed programmatic
 - For sample scripts, see:
   - [Configure and failover a single database using active geo-replication](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Configure and failover a pooled database using active geo-replication](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
-- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
-- For a business continuity overview and scenarios, see [Business continuity overview](../../sql-database/sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](../../sql-database/sql-database-automated-backups.md).
+- SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](auto-failover-group-overview.md).
+- For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
 - To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).

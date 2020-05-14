@@ -16,7 +16,7 @@ ms.date: 02/13/2019
 
 This article shows you how to configure [active geo-replication for Azure SQL Database](active-geo-replication-overview.md#active-geo-replication-terminology-and-capabilities) using the [Azure portal](https://portal.azure.com) and to initiate failover.
 
-For best practices using auto-failover groups, see [Best practices for Azure SQL Database](../../sql-database/sql-database-auto-failover-group.md#best-practices-for-sql-database) and [Best practices for Azure SQL Managed Instance](../../sql-database/sql-database-auto-failover-group.md#best-practices-for-sql-managed-instance). 
+For best practices using auto-failover groups, see [Best practices for Azure SQL Database](auto-failover-group-overview.md#best-practices-for-sql-database) and [Best practices for Azure SQL Managed Instance](auto-failover-group-overview.md#best-practices-for-sql-managed-instance). 
 
 
 
@@ -90,5 +90,5 @@ This operation permanently terminates the replication to the secondary database,
 ## Next steps
 
 * To learn more about active geo-replication, see [active geo-replication](active-geo-replication-overview.md).
-* To learn about auto-failover groups, see [Auto-failover groups](../../sql-database/sql-database-auto-failover-group.md)
-* For a business continuity overview and scenarios, see [Business continuity overview](../../sql-database/sql-database-business-continuity.md).
+* To learn about auto-failover groups, see [Auto-failover groups](auto-failover-group-overview.md)
+* For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).

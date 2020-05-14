@@ -39,7 +39,7 @@ To complete this tutorial, the following prerequisites apply:
 - An existing SQL Server in your on-premises environment.
 - An existing SQL Managed Instance. See [Quickstart: Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).
   - A `sysadmin` in the SQL Managed Instance must be used to create Azure AD logins.
-- [Create an Azure AD admin for SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+- [Create an Azure AD admin for SQL Managed Instance](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 - You can connect to your SQL Managed Instance within your network. See the following articles for additional information:
   - [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md)
   - [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)

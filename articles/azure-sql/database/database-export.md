@@ -29,7 +29,7 @@ When you need to export a database for archiving or for moving to another platfo
   - Use a [clustered index](https://msdn.microsoft.com/library/ms190457.aspx) with non-null values on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export service needs to complete a table scan to try to export entire table. A good way to determine if your tables are optimized for export is to run **DBCC SHOW_STATISTICS** and make sure that the *RANGE_HI_KEY* is not null and its value has good distribution. For details, see [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> BACPACs are not intended to be used for backup and restore operations. Azure automatically creates backups for every user database. For details, see [business continuity overview](../../sql-database/sql-database-business-continuity.md) and [SQL Database backups](../../sql-database/sql-database-automated-backups.md).
+> BACPACs are not intended to be used for backup and restore operations. Azure automatically creates backups for every user database. For details, see [business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md) and [SQL Database backups](automated-backups-overview.md).
 
 ## Azure portal
 

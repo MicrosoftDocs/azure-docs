@@ -141,5 +141,5 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
+- To learn about service-generated automatic backups, see [automatic backups](../azure-sql/database/automated-backups-overview.md)
 - To learn about long-term backup retention, see [long-term backup retention](../azure-sql/database/long-term-retention-overview.md)

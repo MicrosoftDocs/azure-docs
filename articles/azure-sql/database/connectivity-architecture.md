@@ -116,4 +116,4 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 
 - For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
-- For general application development overview information, see [SQL Database Application Development Overview](../../sql-database/sql-database-develop-overview.md).
+- For general application development overview information, see [SQL Database Application Development Overview](develop-overview.md).

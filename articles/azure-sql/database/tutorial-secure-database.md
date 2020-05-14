@@ -119,7 +119,7 @@ To set the Azure AD administrator:
     > [!IMPORTANT]
     > You need to be either a "Company Administrator" or "Global Administrator" to perform this task.
 
-1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](aad-authentication-overview.md#azure-ad-features-and-limitations).
 
     ![select admin](./media/tutorial-secure-database/admin-select.png)
 
@@ -144,7 +144,7 @@ For information about configuring Azure AD, see:
 
 ## Manage database access
 
-Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](../../sql-database/sql-database-manage-logins.md) and [AD authentication](../../sql-database/sql-database-aad-authentication.md).
+Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](../../sql-database/sql-database-manage-logins.md) and [AD authentication](aad-authentication-overview.md).
 
 To add users, choose the database authentication type:
 
@@ -180,7 +180,7 @@ To add a user with SQL authentication:
 
 ### Azure AD authentication
 
-Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](../../sql-database/sql-database-aad-authentication-configure.md) on how to authenticate using Azure AD.
+Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](aad-authentication-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
 > Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
@@ -226,7 +226,7 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](../../sql-database/sql-database-advanced-data-security.md), [Auditing](../../sql-database/sql-database-auditing.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](../../sql-database/transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../sql-database/sql-database-auditing.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](../../sql-database/transparent-data-encryption-azure-sql.md).
 
 ### Advanced data security
 
@@ -316,7 +316,7 @@ To enable data masking:
 
 ### Transparent data encryption
 
-The encryption feature automatically encrypts your data at rest, and requires no changes to applications accessing the encrypted database. For new databases, encryption is on by default. You can also encrypt data using SSMS and the [Always encrypted](../../sql-database/sql-database-always-encrypted.md) feature.
+The encryption feature automatically encrypts your data at rest, and requires no changes to applications accessing the encrypted database. For new databases, encryption is on by default. You can also encrypt data using SSMS and the [Always encrypted](always-encrypted-certificate-store-configure.md) feature.
 
 To enable or verify encryption:
 

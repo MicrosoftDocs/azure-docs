@@ -15,7 +15,7 @@ ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
 
-This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for Azure SQL Database and Azure SQL Managed Instance.
+This topic teaches you how to configure an [auto-failover group](../azure-sql/database/auto-failover-group-overview.md) for Azure SQL Database and Azure SQL Managed Instance.
 
 ## Single database in Azure SQL Database
 
@@ -680,4 +680,4 @@ For detailed steps configuring a failover group, see the following tutorials:
 - [Add an elastic pool to a failover group](../azure-sql/database/tutorial-add-elastic-pool-failover-group.md)
 - [Add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
 
-For an overview of Azure SQL Database high availability options, see [geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [auto-failover groups](sql-database-auto-failover-group.md).
+For an overview of Azure SQL Database high availability options, see [geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [auto-failover groups](../azure-sql/database/auto-failover-group-overview.md).

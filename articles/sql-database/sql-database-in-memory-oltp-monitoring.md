@@ -62,4 +62,4 @@ To resolve this error, either:
 
 ## Next steps
 
-For monitoring guidance, see [Monitoring using dynamic management views](sql-database-monitoring-with-dmvs.md).
+For monitoring guidance, see [Monitoring using dynamic management views](../azure-sql/database/monitoring-with-dmvs.md).

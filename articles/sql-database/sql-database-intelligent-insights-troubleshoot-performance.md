@@ -14,7 +14,7 @@ ms.date: 03/10/2020
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](../azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
@@ -42,7 +42,7 @@ Intelligent Insights automatically detects performance issues based on query exe
 | [Pricing tier downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Pricing tier downgrade action decreased available resources. This is affecting performance. | Pricing tier downgrade action decreased available resources. This is affecting the database performance. |
 
 > [!TIP]
-> For continuous performance optimization of databases, enable [automatic tuning](sql-database-automatic-tuning.md). This built-in intelligence feature continuously monitors your database, automatically tunes indexes, and applies query execution plan corrections.
+> For continuous performance optimization of databases, enable [automatic tuning](../azure-sql/database/automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database, automatically tunes indexes, and applies query execution plan corrections.
 >
 
 The following section describes detectable performance patterns in more detail.
@@ -178,7 +178,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 > [!TIP]
 > Did you know that built-in intelligence can automatically manage the best-performing indexes for your databases?
 >
-> For continuous performance optimization, we recommend that you enable [automatic tuning](sql-database-automatic-tuning.md). This unique built-in intelligence feature continuously monitors your database and automatically tunes and creates indexes for your databases.
+> For continuous performance optimization, we recommend that you enable [automatic tuning](../azure-sql/database/automatic-tuning-overview.md). This unique built-in intelligence feature continuously monitors your database and automatically tunes and creates indexes for your databases.
 >
 
 ## New Query
@@ -264,7 +264,7 @@ For more information, see [Learn how SQL Server prevents plan regressions](https
 > [!TIP]
 > Did you know that the built-in intelligence feature can automatically manage the best-performing query execution plans for your databases?
 >
-> For continuous performance optimization, we recommend that you enable [automatic tuning](sql-database-automatic-tuning.md). This built-in intelligence feature continuously monitors your database and automatically tunes and creates best-performing query execution plans for your databases.
+> For continuous performance optimization, we recommend that you enable [automatic tuning](../azure-sql/database/automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database and automatically tunes and creates best-performing query execution plans for your databases.
 
 ## Database-Scoped Configuration Value Change
 

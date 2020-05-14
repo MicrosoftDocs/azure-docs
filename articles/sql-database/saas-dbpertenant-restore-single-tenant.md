@@ -130,5 +130,5 @@ Try the [Manage tenant database schema](saas-tenancy-schema-management.md) tutor
 ## Additional resources
 
 * [Additional tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
-* [Learn about SQL Database backups](sql-database-automated-backups.md)
+* [Overview of business continuity with Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
+* [Learn about SQL Database backups](../azure-sql/database/automated-backups-overview.md)

@@ -19,7 +19,7 @@ ms.date: 08/05/2019
 
 You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-alerts-in-azure-portal)
 
-[Advanced Threat Protection](sql-database-threat-detection-overview.md) is part of the [advanced data security](sql-database-advanced-data-security.md)  offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
+[Advanced Threat Protection](sql-database-threat-detection-overview.md) is part of the [advanced data security](../azure-sql/database/advanced-data-security.md)  offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
 ##  Azure portal
 

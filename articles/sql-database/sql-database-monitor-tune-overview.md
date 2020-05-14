@@ -18,9 +18,9 @@ To monitor the performance of a database in Azure SQL Database and Azure SQL Man
 
 Azure SQL Database provides a number of Database Advisors to provide intelligent performance tuning recommendations and automatic tuning options to improve performance. Additionally, Query Performance Insight shows you details about the queries responsible for the most CPU and IO usage for single and pooled databases.
 
-Azure SQL Database and Azure SQL Managed Instance provide advanced monitoring and tuning capabilities backed by artificial intelligence to assist you in troubleshooting and maximizing the performance of your databases and solutions. You can choose to configure the [streaming export](sql-database-metrics-diag-logging.md) of these [Intelligent Insights](sql-database-intelligent-insights.md) and other database resource logs and metrics to one of several destinations for consumption and analysis, particularly using [SQL Analytics](../azure-monitor/insights/azure-sql.md)). Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. For a list of the logs and metrics that you can export, see [diagnostic telemetry for export](sql-database-metrics-diag-logging.md#diagnostic-telemetry-for-export)
+Azure SQL Database and Azure SQL Managed Instance provide advanced monitoring and tuning capabilities backed by artificial intelligence to assist you in troubleshooting and maximizing the performance of your databases and solutions. You can choose to configure the [streaming export](../azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md) of these [Intelligent Insights](sql-database-intelligent-insights.md) and other database resource logs and metrics to one of several destinations for consumption and analysis, particularly using [SQL Analytics](../azure-monitor/insights/azure-sql.md)). Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. For a list of the logs and metrics that you can export, see [diagnostic telemetry for export](../azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md#diagnostic-telemetry-for-export)
 
-Finally, SQL has its own monitoring and diagnostic capabilities with [SQL Server Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and [dynamic management views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). See [Monitoring using DMVs](sql-database-monitoring-with-dmvs.md) for scripts to monitor for a variety of performance issues.
+Finally, SQL has its own monitoring and diagnostic capabilities with [SQL Server Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and [dynamic management views (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). See [Monitoring using DMVs](../azure-sql/database/monitoring-with-dmvs.md) for scripts to monitor for a variety of performance issues.
 
 ## Monitoring and tuning capabilities in the Azure portal
 
@@ -34,7 +34,7 @@ You can quickly monitor a variety of resource metrics in the Azure portal in the
 
 ### Database advisors in Azure SQL Database
 
-Azure SQL Database includes [database advisors](../azure-sql/database/database-advisor-implement-performance-recommendations.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that Azure SQL Database can automatically implement these tuning recommendations.
+Azure SQL Database includes [database advisors](../azure-sql/database/database-advisor-implement-performance-recommendations.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). You can also enable [automatic tuning](../azure-sql/database/automatic-tuning-overview.md) so that Azure SQL Database can automatically implement these tuning recommendations.
 
 ### Query Performance Insight in Azure SQL Database
 
@@ -56,7 +56,7 @@ Intelligent Insights is a unique capability of Azure built-in intelligence that 
 
 ## Enable the streaming export of metrics and resource logs
 
-You can enable and configure the [streaming export of diagnostic telemetry](sql-database-metrics-diag-logging.md) to one of several destinations, including the Intelligent Insights resource log. Use [SQL Analytics](../azure-monitor/insights/azure-sql.md) and other capabilities to consume this additional diagnostic telemetry to identify and resolve performance problems.
+You can enable and configure the [streaming export of diagnostic telemetry](../azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md) to one of several destinations, including the Intelligent Insights resource log. Use [SQL Analytics](../azure-monitor/insights/azure-sql.md) and other capabilities to consume this additional diagnostic telemetry to identify and resolve performance problems.
 
 You configure diagnostic settings to stream categories of metrics and resource logs for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources.
 
