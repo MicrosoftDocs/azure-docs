@@ -20,9 +20,9 @@ ms.service: digital-twins
 The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous release have carried through to the new service in public preview now, many of the interfaces and implementation details have changed to make the service more flexible and accessible. These changes were motivated by customer feedback.
 
 > [!IMPORTANT]
-> In light of the new service's expanded capabilities, the previous Azure Digital Twins service is being deprecated.
+> In light of the new service's expanded capabilities, the previous Azure Digital Twins service will be deprecated.
 
-If you used the first version of Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to take advantage of the new offerings and work with the new service differently.
+If you used the first version of Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to work with the new service, and take advantage of its features.
 
 ## Differences by topic
 
