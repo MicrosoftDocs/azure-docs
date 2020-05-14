@@ -16,7 +16,7 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/dat
 
 ## Prerequisites
 
-The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk’s AutoCAD® software, a trademark of Autodesk, Inc.
+The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk’s AutoCAD® software, a [trademark of Autodesk,Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 You may choose any CAD software to produce the drawings in the Drawing package.  
 
@@ -66,7 +66,7 @@ DWG layers must also follow the following criteria:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels.
-* Self-intersecting polygons will be automatically repaired, and the  [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
+* Self-intersecting polygons will be automatically repaired, and the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
