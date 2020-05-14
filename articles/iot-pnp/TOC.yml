@@ -25,8 +25,8 @@
         href: quickstart-service-python.md
 - name: Tutorials
   items:
-  - name: Connect a device to IoT Central
-    href: ../iot-central/core/tutorial-connect-pnp-device.md
+  - name: Create an end-to-end solution
+    href: tutorial-build-solution.md
 - name: Concepts
   items:
   - name: Architecture
