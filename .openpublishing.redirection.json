@@ -52586,6 +52586,146 @@
             "source_path": "articles/sql-database/sql-database-single-database.md",
             "redirect_url": "/azure/azure-sql/database/single-database-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-geo-replication-security-config.md",
+            "redirect_url": "/azure/azure-sql/database/geo-replication-security-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-json-features.md",
+            "redirect_url": "/azure/azure-sql/database/json-features",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-failover-group-tutorial.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-add-single-database-failover-group",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-get-started-template.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-single-database-arm-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-get-started.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-create-single-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-migrate.md",
+            "redirect_url": "/azure/azure-sql/database/migrate-to-database-from-sql-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-quickstart-guide.md",
+            "redirect_url": "/azure/azure-sql/database/quickstart-content-reference-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-scale.md",
+            "redirect_url": "/azure/azure-sql/database/single-database-scale",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-databases-manage.md",
+            "redirect_url": "/azure/azure-sql/database/single-databases-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-stream-analytics.md",
+            "redirect_url": "/azure/azure-sql/database/stream-data-stream-analytics-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-sync-data.md",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-data-sql-server-sql-database",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-sync-monitor-oms.md",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-monitor-sync",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-transact-sql-information.md",
+            "redirect_url": "/azure/azure-sql/database/transact-sql-tsql-differences-sql-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-troubleshoot-data-sync.md",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-clustering-model-build.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-clustering-model-build",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-clustering-model-deploy.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-clustering-model-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-clustering-model-prepare-data.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-clustering-model-prepare-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-build-compare.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-predictive-model-build-compare",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-deploy.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-predictive-model-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-prepare-data.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-predictive-model-prepare-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-update-sync-schema.md",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-update-sync-schema",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vcore-resource-limits-elastic-pools.md",
+            "redirect_url": "/azure/azure-sql/database/resource-limits-vcore-elastic-pools",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vcore-resource-limits-single-databases.md",
+            "redirect_url": "/azure/azure-sql/database/resource-limits-vcore-single-databases",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vnet-service-endpoint-rule-overview.md",
+            "redirect_url": "/azure/azure-sql/database/vnet-service-endpoint-rule-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-xevent-code-event-file.md",
+            "redirect_url": "/azure/azure-sql/database/xevent-code-event-file",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-xevent-code-ring-buffer.md",
+            "redirect_url": "/azure/azure-sql/database/xevent-code-ring-buffer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-xevent-db-diff-from-svr.md",
+            "redirect_url": "/azure/azure-sql/database/xevent-db-diff-from-svr",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/tutorial-sqlite-db-to-azure-sql-serverless-offline.md",
+            "redirect_url": "/azure/azure-sql/database/tutorial-sqlite-db-to-azure-sql-serverless-offline",
+            "redirect_document_id": true
         }
     ]
 }
