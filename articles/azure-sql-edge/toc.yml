@@ -41,6 +41,8 @@
     href: connect.md
   - name: Configure SQL Edge
     href: configure.md
+  - name: Deploy DAC package
+    href: deploy-dacpac.md
 - name: Concepts
   items:
   - name: Machine learning and AI with ONNX

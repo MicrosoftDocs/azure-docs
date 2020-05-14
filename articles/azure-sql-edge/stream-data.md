@@ -15,7 +15,7 @@ ms.date: 05/19/2020
 
 Azure SQL Edge (Preview) provides two different options to implement data streaming. 
 
-1. Deploying Azure Streaming Analytics Edge jobs created in Azure. For more information on how to deploy Azure Streaming Analytics Edge jobs in Azure SQL Edge refer [Deploy Azure Stream Analytics Jobs](stream-analytics.md).
+1. Deploying Azure Streaming Analytics Edge jobs created in Azure. For more information on how to deploy Azure Streaming Analytics Edge jobs in Azure SQL Edge refer [Deploy Azure Stream Analytics Jobs](deploy-dacpac.md).
 2. Using the new **T-SQL Streaming** feature to create streaming jobs in SQL Edge, without the need to configure streaming jobs in Azure. 
 
 While its possible to use both options to implement data streaming in SQL Edge, it is highly recommended to use only one. When using both, there may be possible race conditions which impact the functioning of the data streaming operations.

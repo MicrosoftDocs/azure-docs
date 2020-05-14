@@ -1,7 +1,7 @@
 ---
-title: Using SQL Database DAC packages and Stream Analytics jobs - Azure SQL Edge (Preview)
+title: Using Azure Stream Analytics Edge jobs with Azure SQL Edge (Preview)
 description: Learn about using Stream Analytics jobs in Azure SQL Edge (Preview)
-keywords: SQL Edge, stream analytics, sqlpackage
+keywords: SQL Edge, stream analytics, 
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
@@ -11,13 +11,11 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Using SQL Database DAC packages and Stream Analytics jobs with SQL Edge
+# Using Azure Stream Analytics jobs with SQL Edge
 
 Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Edge.
-
-Azure SQL Edge exposes two optional parameters through the `module twin's desired properties` option of the IoT Edge module:
+Azure SQL Edge has a native implementation of the stream analytics runtime. This implementation enables you to create an Azure Stream Analytics edge job and deploy that job as a SQL Edge streaming job. Azure Stream Analytics jobs can be deployed to SQL Edge using the ASAJobInfo parameter exposed via the `module twin's desired properties` option of the SQL Edge module:
 
 ```json
 {
@@ -32,57 +30,11 @@ Azure SQL Edge exposes two optional parameters through the `module twin's desire
 |Field | Description |
 |------|-------------|
 | SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
-| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information, see [Publishing an ASA Edge job for SQL Edge](#using-streaming-jobs-with-sql-edge).
+| ASAJobInfo | Azure Blob storage URI for the ASA Edge job.
 
-## Using SQL Database DAC packages with SQL Edge
+## Create an Azure Stream Analytics Edge Job
 
-To use a SQL Database DAC package (*.dacpac) with SQL Edge, take these steps:
-
-1. Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
-
-2. Zip the *.dacpac and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
-
-3. Generate a shared access signature for the zip file by using the Azure portal. For more information, see [Delegate access with shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
-
-4. Update the SQL Edge module configuration to include the shared access URI for the DAC package. To update the SQL Edge module, take these steps:
-
-    1. In the Azure portal, go to your IoT Hub deployment.
-
-    2. In the left pane, select **IoT Edge**.
-
-    3. On the **IoT Edge** page, find and select the IoT Edge where the SQL Edge module is deployed.
-
-    4. On the **IoT Edge Device** device page, select **Set Module**.
-
-    5. On the **Set modules** page, select **Configure** against the SQL Edge module.
-
-    6. In the **IoT Edge Custom Modules** pane, select **Set module twin's desired properties**. Update the desired properties to include the URI for the `SQLPackage` option, as shown in the following example.
-
-        > [!NOTE]
-        > The SAS URI in the following JSON is just an example. Replace the URI with the actual URI from your deployment.
-
-        ```json
-            {
-                "properties.desired":
-                {
-                    "SqlPackage": "https://StorageAccountName.blob.core.windows.net/SQLpackageFiles/MeasurementsDB.zip?sp=r&st=2019-09-01T00:00:00Z&se=2019-09-30T00:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=Uh8X0E50qzlxkiKVBJKU3ccVQYwF235qTz7AXp4R3gI%3D",
-                }
-            }
-        ```
-
-    7. Select **Save**.
-
-    8. On the **Set modules** page, select **Next**.
-
-    9. On the **Set modules** page, select **Next** and then **Submit**.
-
-5. After the module update, the DAC package file is downloaded, unzipped, and deployed against the SQL Edge instance.
-
-## Using streaming jobs with SQL Edge
-
-Azure SQL Edge has a native implementation of the stream analytics runtime. This implementation enables you to create an Azure Stream Analytics edge job and deploy that job as a SQL Edge streaming job. To create a Stream Analytics edge job, complete these steps:
-
-1. Go to the Azure portal by using the preview [URL](https://portal.azure.com/?microsoft_azure_streamanalytics_edgeadapterspreview=true). This preview URL enables you to configure SQL Database output for a Stream Analytics edge job.
+1. Go to the Azure portal.
 
 2. Create a new **Azure Stream Analytics on IoT Edge** job. Choose the hosting environment that targets **Edge**.
 
@@ -133,7 +85,7 @@ Azure SQL Edge has a native implementation of the stream analytics runtime. This
 
 6. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Edge module.
 
-### Deploy the Stream Analytics edge job to SQL Edge
+## Deploy Azure Stream Analytics Edge job to SQL Edge
 
 To deploy the streaming job to the SQL Edge module, update the SQL Edge module configuration to include the SAS URI for the streaming job from the earlier step. To update the SQL Edge module:
 
@@ -156,7 +108,7 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
         {
             "properties.desired":
             {
-                "ASAJobInfo": "https://storageAccountName.blob.core.windows.net/asajobs/ASAEdgeJobs/5a9b34db-7a5c-4606-adae-4c8609eaa1c7/d85b5aa6-4d38-4703-bb34-af7f0bd7916d/ASAEdgeJobDefinition.zip?sv=2018-03-28&sr=b&sig=HH%2BFMsEy378RaTxIy2Xo6rM6wDaqoBaZ5zFDBqdZiS0%3D&st=2019-09-01T22%3A24%3A34Z&se=2019-09-30T22%3A34%3A34Z&sp=r"   
+                "ASAJobInfo": "<<<SAS URL For the published ASA Edge Job>>>>"
             }
         }
     ```
@@ -171,4 +123,8 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
 
 ## Next steps
 
-- To get started, see [Deploy SQL Edge through Azure portal](deploy-portal.md).
+- [Deploy SQL Edge through Azure portal](deploy-portal.md).
+
+- [Stream Data](stream-data.md)
+
+- [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md)
