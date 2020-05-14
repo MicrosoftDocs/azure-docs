@@ -53,12 +53,8 @@ You now need to register your application in Azure AD, as follows:
    - To target only accounts that are internal to your organization, select **Accounts in this organizational directory only**.
    - To target only business or educational customers, select **Accounts in any organizational directory**.
    - To target the widest set of Microsoft identities, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Under **Redirect URI**, select **Public client (mobile & desktop)**, and then type the redirect URI `https://login.microsoftonline.com/common/oauth2/nativeclient` for your application.
 1. Select and read the **Microsoft Platform Policies**, and then select **Register**. An overview page for the new application registration is created and displayed.
-1. Under **Manage**, select **Authentication**.
-1. Select **Add a platform**.
-1. Select **Mobile and desktop applications**.
-1. On the **Configure Desktop + devices page**, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-1. Select **Configure**.
 
 For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-register-app.md).
 
