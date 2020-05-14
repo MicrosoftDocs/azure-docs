@@ -678,6 +678,6 @@ For detailed steps configuring a failover group, see the following tutorials:
 
 - [Add a single database to a failover group](tutorial-add-single-database-failover-group.md)
 - [Add an elastic pool to a failover group](tutorial-add-elastic-pool-failover-group.md)
-- [Add a managed instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md)
+- [Add a managed instance to a failover group](../managed-instance/tutorial-add-instance-failover-group.md)
 
 For an overview of Azure SQL Database high availability options, see [geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md).

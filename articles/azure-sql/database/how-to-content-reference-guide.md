@@ -128,4 +128,4 @@ In this article you can find a content reference of various guides, scripts, and
 - [SaaS app security](../../sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
-- Learn more about [How-to guides for SQL Managed Instance](../../sql-database/sql-database-howto-managed-instance.md)
+- Learn more about [How-to guides for SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

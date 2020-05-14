@@ -186,8 +186,8 @@ If geo-replication is enabled on a **subscriber** instance in a failover group, 
 
 For more information about configuring transactional replication, see the following tutorials:
 
-- [Configure replication between an MI publisher and subscriber](../../sql-database/replication-with-sql-database-managed-instance.md)
-- [Configure replication between an MI publisher, MI distributor, and SQL Server subscriber](../../sql-database/sql-database-managed-instance-configure-replication-tutorial.md)
+- [Configure replication between an MI publisher and subscriber](../managed-instance/tutorial-replication-between-two-instances-configure.md)
+- [Configure replication between an MI publisher, MI distributor, and SQL Server subscriber](../managed-instance/tutorial-configure-replication-two-instances-and-sql-server.md)
 - [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 - [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
 
@@ -195,7 +195,7 @@ For more information about configuring transactional replication, see the follow
 
 - [Replication with an MI and a failover group](../../sql-database/sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replication to SQL Database](../../sql-database/replication-to-sql-database.md)
-- [Replication to managed instance](../../sql-database/replication-with-sql-database-managed-instance.md)
+- [Replication to managed instance](../managed-instance/tutorial-replication-between-two-instances-configure.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

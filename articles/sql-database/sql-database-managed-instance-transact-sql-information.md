@@ -409,8 +409,8 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
     - Transactional Replication has some [additional networking requirements](../azure-sql/database/transactional-replication-overview.md#requirements).
 
 For more information about configuring transactional replication, see the following tutorials:
-- [Replication between a SQL MI publisher and SQL MI subscriber](replication-with-sql-database-managed-instance.md)
-- [Replication between an SQL MI publisher, SQL MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Replication between a SQL MI publisher and SQL MI subscriber](../azure-sql/managed-instance/tutorial-replication-between-two-instances-configure.md)
+- [Replication between an SQL MI publisher, SQL MI distributor, and SQL Server subscriber](../azure-sql/managed-instance/tutorial-configure-replication-two-instances-and-sql-server.md)
 
 ### RESTORE statement 
 
@@ -492,10 +492,10 @@ The following variables, functions, and views return different results:
 
 ### Subnet
 -  You cannot place any other resources (for example virtual machines) in the subnet where you have deployed your SQL Managed Instance. Deploy these resources using a different subnet.
-- Subnet must have sufficient number of available [IP addresses](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
-- [Service endpoints cannot be associated with the SQL Managed Instance's subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
+- Subnet must have sufficient number of available [IP addresses](../azure-sql/managed-instance/connectivity-architecture-overview.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
+- [Service endpoints cannot be associated with the SQL Managed Instance's subnet](../azure-sql/managed-instance/connectivity-architecture-overview.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
 - The number of vCores and types of instances that you can deploy in a region have some [constraints and limits](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
-- There are some [security rules that must be applied on the subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- There are some [security rules that must be applied on the subnet](../azure-sql/managed-instance/connectivity-architecture-overview.md#network-requirements).
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
@@ -532,7 +532,7 @@ A SQL Managed Instance places verbose information in error logs. There are many 
 
 ## Next steps
 
-- For more information about SQL Managed Instances, see [What is SQL Managed Instance?](sql-database-managed-instance.md)
+- For more information about SQL Managed Instances, see [What is SQL Managed Instance?](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](sql-database-features.md).
 - For release updates and known issues state, see [SQL Managed Instance release notes](../azure-sql/database/doc-changes-updates-release-notes.md)
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).

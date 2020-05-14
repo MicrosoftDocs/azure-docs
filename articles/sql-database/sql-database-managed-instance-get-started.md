@@ -14,7 +14,7 @@ ms.date: 09/26/2019
 ---
 # Quickstart: Create an Azure SQL Managed Instance
 
-This quickstart teaches you to create an [Azure SQL Managed Instance](sql-database-managed-instance.md) in the Azure portal.
+This quickstart teaches you to create an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) in the Azure portal.
 
 > [!IMPORTANT]
 > For limitations, see [Supported regions](sql-database-managed-instance-resource-limits.md#supported-regions) and [Supported subscription types](sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -69,7 +69,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new SQL Managed Instance. For information about the requirements for configuring the network environment for a SQL Managed Instance, see [Configure a virtual network for a SQL Managed Instance](sql-database-managed-instance-connectivity-architecture.md). |
+   | **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](../azure-sql/managed-instance/vnet-existing-add-subnet.md) before you select it as a target for the new SQL Managed Instance. For information about the requirements for configuring the network environment for a SQL Managed Instance, see [Configure a virtual network for a SQL Managed Instance](../azure-sql/managed-instance/connectivity-architecture-overview.md). |
    | **Connection type** | Choose between a proxy and a redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy).|
    | **Public endpoint**  | Select **Enable**. | For a SQL Managed Instance to be accessible through the public data endpoint, you need to enable this option. | 
    | **Allow access from** (if **Public endpoint** is enabled) | Select one of the options.   |The portal experience enables configuring a security group with a public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>**Azure services**: We recommend this option when you're connecting from Power BI or another multitenant service. </li> <li> **Internet**: Use for test purposes when you want to quickly spin up a SQL Managed Instance. We don't recommend it for production environments. </li> <li> **No access**: This option creates a **Deny** security rule. Modify this rule to make a SQL Managed Instance accessible through a public endpoint. </li> </ul> </br> For more information on public endpoint security, see [Using an Azure SQL Database SQL Managed Instance securely with a public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
@@ -89,7 +89,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | **Collation** | Choose the collation that you want to use for your SQL Managed Instance. If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value.| For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Time zone** | Select the time zone that your SQL Managed Instance will observe.|For more information, see [Time zones](sql-database-managed-instance-timezone.md).|
    | **Use as failover secondary** | Select **Yes**. | Enable this option to use the SQL Managed Instance as a failover group secondary.|
-   | **Primary SQL Managed Instance** (if **Use as failover secondary** is set to **Yes**) | Choose an existing primary SQL Managed Instance that will be joined in the same DNS zone with the SQL Managed Instance you're creating. | This step will enable post-creation configuration of the failover group. For more information, see [Tutorial: Add a SQL Database SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md).|
+   | **Primary SQL Managed Instance** (if **Use as failover secondary** is set to **Yes**) | Choose an existing primary SQL Managed Instance that will be joined in the same DNS zone with the SQL Managed Instance you're creating. | This step will enable post-creation configuration of the failover group. For more information, see [Tutorial: Add a SQL Database SQL Managed Instance to a failover group](../azure-sql/managed-instance/tutorial-add-instance-failover-group.md).|
 
 ## Review + create
 
@@ -100,7 +100,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 1. Select **Create** to start provisioning the SQL Managed Instance.
 
 > [!IMPORTANT]
-> Deploying a SQL Managed Instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing SQL Managed Instances. For average provisioning times, see [SQL Managed Instance management operations](sql-database-managed-instance.md#management-operations).
+> Deploying a SQL Managed Instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing SQL Managed Instances. For average provisioning times, see [SQL Managed Instance management operations](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md#management-operations).
 
 ## Monitor deployment progress
 
@@ -169,9 +169,9 @@ To connect to SQL Managed Instance, follow these steps to retrieve host name and
 ## Next steps
 
 To learn about how to connect to a SQL Managed Instance:
-- For an overview of the connection options for applications, see [Connect your applications to a SQL Managed Instance](sql-database-managed-instance-connect-app.md).
-- For a quickstart that shows how to connect to a SQL Managed Instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md).
-- For a quickstart that shows how to connect to a SQL Managed Instance from an on-premises client computer by using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md).
+- For an overview of the connection options for applications, see [Connect your applications to a SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+- For a quickstart that shows how to connect to a SQL Managed Instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](../azure-sql/managed-instance/connect-vm-instance-configure.md).
+- For a quickstart that shows how to connect to a SQL Managed Instance from an on-premises client computer by using a point-to-site connection, see [Configure a point-to-site connection](../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 To restore an existing SQL Server database from on-premises to a SQL Managed Instance: 
 - Use the [Azure Database Migration Service for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file. 

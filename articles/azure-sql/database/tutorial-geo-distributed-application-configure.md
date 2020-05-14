@@ -374,4 +374,4 @@ In this tutorial, you configured an Azure SQL Database and application for failo
 Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group:
 
 > [!div class="nextstepaction"]
-> [Add an Azure SQL Managed Instance to a failover group](../../sql-database/sql-database-managed-instance-failover-group-tutorial.md)
+> [Add an Azure SQL Managed Instance to a failover group](../managed-instance/tutorial-add-instance-failover-group.md)

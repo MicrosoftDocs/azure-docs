@@ -110,7 +110,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
-> Azure SQL Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md).
+> Azure SQL Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 
 ## Next steps
 

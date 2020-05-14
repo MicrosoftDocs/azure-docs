@@ -86,7 +86,7 @@ A few additional considerations:
   You can create another readable replica in a different Azure region using [auto-failover groups](../azure-sql/database/auto-failover-group-configure.md)
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1TB files with max 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS is also used for auto-backups.
 
-Find more information about the [resource limits in SQL Managed Instance pools in this article](sql-database-instance-pools.md#resource-limitations).
+Find more information about the [resource limits in SQL Managed Instance pools in this article](../azure-sql/managed-instance/instance-pools-overview.md#resource-limitations).
 
 ### File IO characteristics in General Purpose tier
 
@@ -148,6 +148,6 @@ If you need more SQL Managed Instances in your current regions, send a support r
 
 ## Next steps
 
-- For more information about SQL Managed Instance, see [What is a SQL Managed Instance?](sql-database-managed-instance.md).
+- For more information about SQL Managed Instance, see [What is a SQL Managed Instance?](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 - For pricing information, see [SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - To learn how to create your first SQL Managed Instance, see [the quickstart guide](sql-database-managed-instance-get-started.md).

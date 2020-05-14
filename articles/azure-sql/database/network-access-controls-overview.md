@@ -29,7 +29,7 @@ You can also allow private access to the database from [Virtual Networks](../../
 - Private Link: Use this feature to create a private endpoint for [logical SQL server](logical-servers.md) within a specific Virtual Network
 
 > [!IMPORTANT]
-> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-connect-app.md) .
+> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
 
 See the below video for a high level explanation of these access controls and what they do:
 

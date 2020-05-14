@@ -41,8 +41,8 @@ To complete this tutorial, the following prerequisites apply:
   - A `sysadmin` in the SQL Managed Instance must be used to create Azure AD logins.
 - [Create an Azure AD admin for SQL Managed Instance](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 - You can connect to your SQL Managed Instance within your network. See the following articles for additional information:
-  - [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md)
-  - [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
+  - [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md)
+  - [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../azure-sql/managed-instance/point-to-site-p2s-configure.md)
   - [Configure public endpoint in Azure SQL Managed Instance](sql-database-managed-instance-public-endpoint-configure.md)
 
 ## T-SQL DDL syntax
@@ -213,7 +213,7 @@ Follow our [Quickstart: Restore a database to a SQL Managed Instance](sql-databa
 
 Execute the ALTER USER command to complete the migration process on SQL Managed Instance.
 
-1. Sign into your SQL Managed Instance using the Azure AD admin account for SQL Managed Instance. Then create your Azure AD login in the SQL Managed Instance using the following syntax. For more information, see [Tutorial: SQL Managed Instance security in Azure SQL Database using Azure AD server principals (logins)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Sign into your SQL Managed Instance using the Azure AD admin account for SQL Managed Instance. Then create your Azure AD login in the SQL Managed Instance using the following syntax. For more information, see [Tutorial: SQL Managed Instance security in Azure SQL Database using Azure AD server principals (logins)](../azure-sql/managed-instance/tutorial-configure-aad-security.md).
 
     ```sql
     use master

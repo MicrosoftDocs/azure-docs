@@ -15,7 +15,7 @@ ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to an Azure SQL Managed Instance with SSMS
 
-In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an [Azure SQL Managed Instance](sql-database-managed-instance.md).
+In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -31,8 +31,8 @@ This quickstart:
 - Requires the latest version of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installed.
 - Requires using SSMS to connect to your SQL Managed Instance. See these quickstarts on how to connect:
   - [Enable public endpoint](sql-database-managed-instance-public-endpoint-configure.md) on SQL Managed Instance - this is recommended approach for this tutorial.
-  - [Connect to an SQL Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
-  - [Configure a point-to-site connection to an SQL Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
+  - [Connect to an SQL Managed Instance from an Azure VM](../azure-sql/managed-instance/connect-vm-instance-configure.md)
+  - [Configure a point-to-site connection to an SQL Managed Instance from on-premises](../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 > [!NOTE]
 > For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
@@ -90,5 +90,5 @@ In SQL Server Management Studio (SSMS), follow these steps to restore the Wide W
 ## Next steps
 
 - For troubleshooting a backup to a URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
-- For an overview of app connection options, see [Connect your applications to SQL Managed Instance](sql-database-managed-instance-connect-app.md).
+- For an overview of app connection options, see [Connect your applications to SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 - To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](../azure-sql/database/connect-query-content-reference-guide.md).

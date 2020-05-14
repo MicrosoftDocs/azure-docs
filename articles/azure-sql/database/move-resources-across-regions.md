@@ -143,12 +143,12 @@ Once the move completes, remove the resources in the source region to avoid unne
 ### Verify prerequisites
 
 1. For each source SQL Managed Instance create a target SQL Managed Instance of the same size in the target region.  
-1. Configure the network for a SQL Managed Instance. For more information, see [network configuration](../../sql-database/sql-database-howto-managed-instance.md#network-configuration).
+1. Configure the network for a SQL Managed Instance. For more information, see [network configuration](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 1. Configure the target master database with the correct logins. If you're not the subscription or SQL Managed Instance administrator, work with the administrator to assign the permissions that you need.
 1. If your databases are encrypted with TDE and use your own encryption key in Azure Key Vault, ensure that the Azure Key Vault with identical encryption keys exists in both source and target regions. For more information, see [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 1. If audit is enabled for the SQL Managed Instance, ensure that:
     - The storage container or event hub with the existing logs is moved to the target region.
-    - Audit is configured on the target instance. For more information, see [auditing with managed instance](../../sql-database/sql-database-managed-instance-auditing.md).
+    - Audit is configured on the target instance. For more information, see [auditing with managed instance](../managed-instance/auditing-configure.md).
 1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current instance. Because the target instance is different, you will be able to access the older LTR backups in the source region using the source instance, even if the instance is deleted.
 
   > [!NOTE]

@@ -15,7 +15,7 @@ ms.date: 05/14/2019
 ---
 # An overview of Azure SQL Database & SQL Managed Instance security capabilities
 
-This article outlines the basics of securing the data tier of an application using [Azure SQL Database](technical-overview.md) and [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
+This article outlines the basics of securing the data tier of an application using [Azure SQL Database](technical-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
 
 ![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
 
@@ -34,7 +34,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 [Virtual network rules](vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. For more information about the networking configuration needed, see [connecting to a SQL Managed Instance](../../sql-database/sql-database-managed-instance-connect-app.md)
+> Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. For more information about the networking configuration needed, see [connecting to a SQL Managed Instance](../managed-instance/connect-application-instance.md)
 
 ## Access management
 
@@ -51,14 +51,14 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 - **Azure Active Directory authentication**:
 
-    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Azure services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
+    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Azure services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](aad-authentication-overview.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-confugre.md).
 
 > [!IMPORTANT]
-> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../../sql-database/sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
 
 ## Authorization
 
