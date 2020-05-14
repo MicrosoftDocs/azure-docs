@@ -23,7 +23,7 @@ Azure portal natively integrates Jupyter notebook experience into Azure Cosmos a
 
 Jupyter notebooks were originally developed for data science applications written in Python, R. However, they can be used in various ways for different kinds of projects such as:
 
-* ***Data visualizations:** Jupyter notebooks allow you to visualize data in the form of a shared notebook that renders some data set as a graphic. Jupyter notebook lets you author visualizations, share them, and allow interactive changes to the shared code and data set.
+* **Data visualizations:** Jupyter notebooks allow you to visualize data in the form of a shared notebook that renders some data set as a graphic. Jupyter notebook lets you author visualizations, share them, and allow interactive changes to the shared code and data set.
 
 * **Code sharing:** Services like GitHub provide ways to share code, but they’re largely non-interactive. With a Jupyter notebook, you can view code, execute it, and display the results directly in the Azure portal.
 

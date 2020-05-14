@@ -89,7 +89,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
 
-    An app that interacts with a multi-region Azure Cosmos DB account needs to configure [preferred locations]() to ensure that requests are going to a collocated region.
+    An app that interacts with a multi-region Azure Cosmos DB account needs to configure 
+[preferred locations](tutorial-global-distribution-sql-api.md#preferred-locations) to ensure that requests are going to a collocated region.
 
 * **Enable Accelerated Networking on your Azure VM for lower latency.**
 

@@ -498,6 +498,8 @@
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
+      - name: Synapse Link supported features
+        href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
       - name: Synapse Link use cases
@@ -1022,8 +1024,12 @@
         href: create-sql-api-java-changefeed.md
     - name: Analytics with Synapse Link
       items:
-      - name: Configure Synapse Link
+      - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
+      - name: Connect to Azure Synapse Link
+        href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Query with Azure Synapse Spark
+        href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
