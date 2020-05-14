@@ -7,8 +7,6 @@
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Overview-new
     href: what-is-azure-sql-iaas-vs-paas.md
-  - name: Release notes
-    href: sql-database-release-notes.md
   - name: SQL Managed Instance rebrand
     href: azure-sql-managed-instance-rebrand.md
  
@@ -21,6 +19,8 @@
       href: sql-database-features.md
     - name: Release notes
       items:
+      - name: Release notes
+        href: sql-database-release-notes.md
       - name: Gateway IP address updates
         href: sql-database-gateway-migration.md
       - name: Periodic maintenance events
