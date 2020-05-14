@@ -56,7 +56,11 @@ The queries in this article will be executed on your sample database and use the
 
 ## Create an external table on protected data
 
-You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
+
+The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. 
+
+Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. 
@@ -99,7 +103,7 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-## Use a external table
+## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
 
