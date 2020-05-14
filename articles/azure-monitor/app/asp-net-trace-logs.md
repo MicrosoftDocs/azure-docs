@@ -178,7 +178,9 @@ You can, for example:
 
 ## Troubleshooting
 ### How do I do this for Java?
-Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
+In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+If you are using the Java SDK, use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
