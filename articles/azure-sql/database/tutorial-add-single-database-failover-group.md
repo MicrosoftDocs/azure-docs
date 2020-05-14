@@ -377,7 +377,7 @@ This portion of the tutorial uses the following Az CLI cmdlets:
 
 # [PowerShell](#tab/azure-powershell)
 
-[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add database to a failover group")]
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add database to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -396,7 +396,7 @@ This script uses the following commands. Each command in the table links to comm
 
 # [Azure CLI](#tab/azure-cli)
 
-[!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add database to a failover group")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add database to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

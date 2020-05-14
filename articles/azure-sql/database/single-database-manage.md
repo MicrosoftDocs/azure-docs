@@ -22,15 +22,15 @@ You can create the resource group for the Azure SQL Database ahead of time or wh
 
 ### Create a server
 
-To create a server using the [Azure portal](https://portal.azure.com), create a new [server](../azure-sql/database/logical-servers.md) resource from the Azure Marketplace. Alternatively, you can create the server when you deploy an Azure SQL Database.
+To create a server using the [Azure portal](https://portal.azure.com), create a new [server](logical-servers.md) resource from the Azure Marketplace. Alternatively, you can create the server when you deploy an Azure SQL Database.
 
-  ![create server](./media/single-databases-manage/create-logical-sql-server.png)
+  ![create server](./media/single-database-manage/create-logical-sql-server.png)
 
 ### Create a blank or sample database
 
 To create a single Azure SQL Database using the [Azure portal](https://portal.azure.com), choose the Azure SQL Database resource in the Azure Marketplace. You can create the the resource group and server ahead of time or while creating the single database itself. You can create a blank database or create a sample database based on Adventure Works LT.
 
-  ![create database-1](./media/single-databases-manage/create-database-1.png)
+  ![create database-1](./media/single-database-manage/create-database-1.png)
 
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
@@ -41,7 +41,7 @@ To manage an existing server, navigate to the server using a number of methods -
 
 To manage an existing database, navigate to the **SQL databases** page and select the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database.
 
-   ![server firewall rule](./media/single-databases-manage/server-firewall-rule.png)
+   ![server firewall rule](./media/single-database-manage/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
@@ -78,7 +78,7 @@ To create and manage servers, single and pooled databases, and server-level fire
 
 ## Azure CLI
 
-To create and manage the servers, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](../azure-sql/database/elastic-pool-overview.md).
+To create and manage the servers, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Create a single Azure SQL Database using the Azure CLI](../../sql-database/sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL Database and configure a SQL Database firewall rule](scripts/create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -108,7 +108,7 @@ To create and manage the servers, databases, and firewalls with [Azure CLI](/cli
 
 ## Transact-SQL (T-SQL)
 
-To create and manage the servers, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to a server in SQL Database and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](../azure-sql/database/elastic-pool-overview.md).
+To create and manage the servers, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to a server in SQL Database and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
 
 > [!TIP]
 > For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](../../sql-database/sql-database-connect-query-vscode.md).

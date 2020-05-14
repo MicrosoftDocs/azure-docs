@@ -18244,7 +18244,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-get-started-portal.md",
+            "source_path": "articles/sql-database/quickstart-create-single-database.md",
             "redirect_url": "/azure/sql-database/sql-database-single-database-get-started",
             "redirect_document_id": false
         },
@@ -52640,12 +52640,12 @@
         {
             "source_path": "articles/sql-database/sql-database-sync-data.md",
             "redirect_url": "/azure/azure-sql/database/sql-data-sync-data-sql-server-sql-database",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-sync-monitor-oms.md",
             "redirect_url": "/azure/azure-sql/database/sql-data-sync-monitor-sync",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-transact-sql-information.md",

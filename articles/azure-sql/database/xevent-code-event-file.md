@@ -501,7 +501,7 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-- [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [How to use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Working with the Root Container](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 - [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
@@ -509,4 +509,4 @@ For more info about accounts and containers in the Azure Storage service, see:
 - [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!-- Image references. -->
-[30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
+[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png

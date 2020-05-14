@@ -38,7 +38,7 @@ Prior exposure to the following items is helpful when choosing the Event File as
 
 - [Azure Storage service](https://azure.microsoft.com/services/storage/)
 
-- [Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md)
+- [Azure PowerShell with Azure Storage](/powershell/module/az.storage/)
 
 ## Code samples
 
@@ -175,9 +175,9 @@ The **Event File** target might experience network latency or failures while per
 
 ## Related links
 
-- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md).
+- [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/).
 - [Azure Storage Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md)
+- [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/)
 - [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
