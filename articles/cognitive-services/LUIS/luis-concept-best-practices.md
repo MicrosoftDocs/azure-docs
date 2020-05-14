@@ -143,7 +143,7 @@ Keep a separate set of utterances that aren't used as [example utterances](luis-
 Publishing your app too quickly, without [proper planning](#do-plan-your-schema), may lead to several issues such as:
 
 * Your app will not work in your actual scenario at an acceptable level of performance.
-* The schema (intents and entities) would not be appropriate, and if you have developed client app logic following the schema, you many need to rewrite that from scratch. This would cause unexpected delays and an extra cost to the project you are working on.
+* The schema (intents and entities) would not be appropriate, and if you have developed client app logic following the schema, you may need to rewrite that from scratch. This would cause unexpected delays and an extra cost to the project you are working on.
 * Utterances you add to the model might cause bias towards the example utterance set that is hard to debug and identify. It will also make removing ambiguity difficult after you have committed to a certain schema.
 
 ## Don't add many example utterances to intents
