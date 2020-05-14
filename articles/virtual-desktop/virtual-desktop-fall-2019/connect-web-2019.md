@@ -34,7 +34,7 @@ While any HTML5-capable browser should work, we officially support the following
 
 ## Access remote resources feed
 
-In a browser, navigate to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient) and sign in with your user account.
+In a browser, navigate to the Windows Virtual Desktop web client at <https://rdweb.wvd.microsoft.com/webclient> and sign in with your user account.
 
 >[!NOTE]
 >If you're using the Windows Virtual Desktop Spring 2020 release, use the web client link in [this article](../connect-web.md) to connect to your resources.
