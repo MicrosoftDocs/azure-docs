@@ -43,13 +43,13 @@ For this tutorial, you'll need:
 
 You must enable your client application to access the SQL Database service by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
-To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create a key vault to store your keys
 
 Now that your client app is configured and you have your application ID, it's time to create a key vault and configure its access policy so you and your application can access the vault's secrets (the Always Encrypted keys). The *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
 
-You can quickly create a key vault by running the following script. For a detailed explanation of these commands and more information about creating and configuring a key vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+You can quickly create a key vault by running the following script. For a detailed explanation of these commands and more information about creating and configuring a key vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -102,16 +102,16 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **Create a resource** > **Databases** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL Database](../azure-sql/database/quickstart-create-single-database.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL Database](quickstart-create-single-database.md).
 
-    ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
+    ![Create a blank database](./media/always-encrypted-azure-key-vault-configure/create-database.png)
 
 You will need the connection string later in the tutorial, so after you create the database, browse to the new  Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it in the Azure portal.
 
 1. Go to **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
 
-    ![Copy the connection string](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
+    ![Copy the connection string](./media/always-encrypted-azure-key-vault-configure/connection-strings.png)
 
 ## Connect to the database with SSMS
 
@@ -121,7 +121,7 @@ Open SSMS and connect to the server with the Clinic database.
 
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name, including *database.windows.net*.
 
-    ![Copy the connection string](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
+    ![Copy the connection string](./media/always-encrypted-azure-key-vault-configure/ssms-connect.png)
 
 If the **New Firewall Rule** window opens, sign in to Azure and let SSMS create a new firewall rule for you.
 
@@ -156,7 +156,7 @@ SSMS provides a wizard that helps you easily configure Always Encrypted by setti
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![Encrypt columns](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
+    ![Encrypt columns](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration**, **Validation**, and **Summary**.
 
@@ -168,7 +168,7 @@ Encrypt **SSN** and **BirthDate** information for each patient. The SSN column w
 
 Set the **Encryption Type** for the SSN column to **Deterministic** and the BirthDate column to **Randomized**. Click **Next**.
 
-![Encrypt columns](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
+![Encrypt columns](./media/always-encrypted-azure-key-vault-configure/column-selection.png)
 
 ### Master Key Configuration
 
@@ -180,7 +180,7 @@ This tutorial shows how to store your keys in Azure Key Vault.
 2. Select the desired key vault from the drop-down list.
 3. Click **Next**.
 
-![Master key configuration](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
+![Master key configuration](./media/always-encrypted-azure-key-vault-configure/master-key-configuration.png)
 
 ### Validation
 
@@ -190,7 +190,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![Summary](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![Summary](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### Verify the wizard's actions
 
@@ -581,7 +581,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
+   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -591,7 +591,7 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window and click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-    ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
+    ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Run the following query on the Clinic database.
 
@@ -600,7 +600,7 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
    ```
 
      You can now see the plaintext data in the encrypted columns.
-     ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+     ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## Next steps
 

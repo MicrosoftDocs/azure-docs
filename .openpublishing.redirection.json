@@ -52726,6 +52726,136 @@
             "source_path": "articles/sql-database/tutorial-sqlite-db-to-azure-sql-serverless-offline.md",
             "redirect_url": "/azure/azure-sql/database/tutorial-sqlite-db-to-azure-sql-serverless-offline",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/quota-increase-request.md",
+            "redirect_url": "/azure/azure-sql/database/quota-increase-request",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-aad-authentication-configure.md",
+            "redirect_url": "/azure/azure-sql/database/aad-authentication-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-aad-authentication.md",
+            "redirect_url": "/azure/azure-sql/database/aad-authentication-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-advanced-data-security.md",
+            "redirect_url": "/azure/azure-sql/database/advanced-data-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-always-encrypted-azure-key-vault.md",
+            "redirect_url": "/azure/azure-sql/database/always-encrypted-azure-key-vault-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-always-encrypted.md",
+            "redirect_url": "/azure/azure-sql/database/always-encrypted-certificate-store-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-audit-log-format.md",
+            "redirect_url": "/azure/azure-sql/database/audit-log-format",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-auto-failover-group.md",
+            "redirect_url": "/azure/azure-sql/database/auto-failover-group-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-automated-backups.md",
+            "redirect_url": "/azure/azure-sql/database/automated-backups-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-automatic-tuning.md",
+            "redirect_url": "/azure/azure-sql/database/automatic-tuning-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-azure-hybrid-benefit.md",
+            "redirect_url": "/azure/azure-sql/database/azure-hybrid-benefit",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-business-continuity.md",
+            "redirect_url": "/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-client-id-keys.md",
+            "redirect_url": "/azure/azure-sql/database/application-authentication-get-client-id-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md",
+            "redirect_url": "/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-develop-overview.md",
+            "redirect_url": "/azure/azure-sql/database/develop-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-disaster-recovery.md",
+            "redirect_url": "/azure/azure-sql/database/disaster-recovery-guidance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-disaster-recovery-drills.md",
+            "redirect_url": "/azure/azure-sql/database/disaster-recovery-drills",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-manage-automation.md",
+            "redirect_url": "/azure/azure-sql/database/manage-automation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-manage-application-rolling-upgrade.md",
+            "redirect_url": "/azure/azure-sql/database/manage-application-rolling-upgrade",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-metrics-diag-logging.md",
+            "redirect_url": "/azure/azure-sql/database/configure-streaming-export-metrics-diagnostic-telemtry-logging",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-monitoring-with-dmvs.md",
+            "redirect_url": "/azure/azure-sql/database/monitoring-with-dmvs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-multi-model-features.md",
+            "redirect_url": "/azure/azure-sql/database/multi-model-features",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-performance-guidance.md",
+            "redirect_url": "/azure/azure-sql/database/performance-guidance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tier-hyperscale-faq.md",
+            "redirect_url": "/azure/azure-sql/database/service-tier-hyperscale-frequently-asked-questions-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tiers-general-purpose-business-critical.md",
+            "redirect_url": "/azure/azure-sql/database/service-tiers-general-purpose-business-critical",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-temporal-tables-retention-policy.md",
+            "redirect_url": "/azure/azure-sql/database/temporal-tables-retention-policy",
+            "redirect_document_id": true
         }
     ]
 }

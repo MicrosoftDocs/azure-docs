@@ -33,7 +33,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 > [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](data-sync-sql-server-configure.md#add-on-prem).
 
-![Sync data between databases](./media/sql-data-sync-data-sql-server-sql-database.md/sync-data-overview.png)
+![Sync data between databases](./media/sql-data-sync-data-sql-server-sql-database/sync-data-overview.png)
 
 A Sync Group has the following properties:
 
@@ -54,7 +54,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 | Scenario | Some recommended solutions |
 |----------|----------------------------|
-| Disaster Recovery | [Azure geo-redundant backups](../../sql-database/sql-database-automated-backups.md) |
+| Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](../../sql-database/sql-database-read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |

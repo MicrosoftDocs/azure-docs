@@ -28,16 +28,16 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Configure features
 
-- [Configure Azure AD auth](../../sql-database/sql-database-aad-authentication-configure.md)
+- [Configure Azure AD auth](aad-authentication-configure.md)
 - [Configure Conditional Access](../../sql-database/sql-database-conditional-access.md)
 - [Multi-factor AAD auth](../../sql-database/sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](../../sql-database/sql-database-ssms-mfa-authentication-configure.md)
-- [Configure temporal retention policy](../../sql-database/sql-database-temporal-tables-retention-policy.md)
+- [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../../sql-database/transparent-data-encryption-byok-azure-sql-configure.md)
 - [Rotate TDE BYOK keys](../../sql-database/transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Remove TDE protector](../../sql-database/transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../../sql-database/sql-database-in-memory-oltp-migration.md)
-- [Configure Azure Automation](../../sql-database/sql-database-manage-automation.md)
+- [Configure Azure Automation](manage-automation.md)
 - [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](../../sql-database/sql-database-threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
@@ -47,8 +47,8 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Monitor and tune your database
 
-- [Manual tuning](../../sql-database/sql-database-performance-guidance.md)
-- [Use DMVs to monitor performance](../../sql-database/sql-database-monitoring-with-dmvs.md)
+- [Manual tuning](performance-guidance.md)
+- [Use DMVs to monitor performance](monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Enable automatic tuning](automatic-tuning-enable.md) to let Azure SQL Database optimize performance of your workload.
 - [Enable e-mail notifications for automatic tuning](automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
@@ -106,7 +106,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 - [Connectivity](../../sql-database/sql-database-connect-query.md#libraries)
 - [Use Spark Connector](../../sql-database/sql-database-spark-connector.md)
-- [Authenticate app](../../sql-database/sql-database-client-id-keys.md)
+- [Authenticate app](application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../../sql-database/sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](../../sql-database/sql-database-connectivity-issues.md)
 - [DNS aliases](../../sql-database/dns-alias-overview.md)
@@ -117,9 +117,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Design applications
 
-- [Design for disaster recovery](../../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Design for disaster recovery](designing-cloud-solutions-for-disaster-recovery.md)
 - [Design for elastic pools](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-- [Design for app upgrades](../../sql-database/sql-database-manage-application-rolling-upgrade.md)
+- [Design for app upgrades](manage-application-rolling-upgrade.md)
 
 ### Design Multi-tenant SaaS applications
 

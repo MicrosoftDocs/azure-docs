@@ -244,4 +244,4 @@ Use one of the following methods to connect to your database in the SQL Managed 
 
 ## Next steps
 
-Learn about [automated backups](sql-database-automated-backups.md).
+Learn about [automated backups](../azure-sql/database/automated-backups-overview.md).

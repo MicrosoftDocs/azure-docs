@@ -191,9 +191,9 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 - West US
 - West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](../../sql-database/quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
 
-- Use the [Other quota request](../../sql-database/quota-increase-request.md#other) SQL database quota type.
+- Use the [Other quota request](quota-increase-request.md#other) SQL database quota type.
 - In the text details, add the compute SKU/total cores including readable replicas.
 - Also specify the estimated TB.
 
@@ -220,7 +220,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 
 ## Next steps
 
-- For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](../../sql-database/sql-database-service-tier-hyperscale-faq.md).
+- For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.md).
 - For information about service tiers, see [Service tiers](../../sql-database/sql-database-purchase-models.md)
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).

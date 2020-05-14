@@ -20,7 +20,7 @@ Once you have identified a performance issue that you are facing with Azure SQL 
 - Tune your application and apply some best practices that can improve performance.
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
-This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](../azure-sql/database/database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](sql-database-automatic-tuning.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](sql-database-monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
+This article assumes that you have already worked through the Azure SQL Database [database advisor recommendations](database-advisor-implement-performance-recommendations.md) and the Azure SQL Database [auto-tuning recommendations](automatic-tuning-overview.md), if applicable. It also assumes that you have reviewed [An overview of monitoring and tuning](../../sql-database/sql-database-monitor-tune-overview.md) and its related articles related to troubleshooting performance issues. Additionally, this article assumes that you do not have a CPU resources, running-related performance issue that can be resolved by increasing the compute size or service tier to provide more resources to your database.
 
 ## Tune your application
 
@@ -74,7 +74,7 @@ SELECT m1.col1
     WHERE m1.col2 = 4;
 ```
 
-![A query plan with missing indexes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
+![A query plan with missing indexes](./media/performance-guidance/query_plan_missing_indexes.png)
 
 Azure SQL Database and Azure SQL Managed Instance can help you find and fix common missing index conditions. DMVs that are built into Azure SQL Database and Azure SQL Managed Instance look at query compilations in which an index would significantly reduce the estimated cost to run a query. During query execution, the database engine tracks how often each query plan is executed, and tracks the estimated gap between the executing query plan and the imagined one where that index existed. You can use these DMVs to quickly guess which changes to your physical database design might improve overall workload cost for a database and its real workload.
 
@@ -113,7 +113,7 @@ CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])
 
 After it's created, that same SELECT statement picks a different plan, which uses a seek instead of a scan, and then executes the plan more efficiently:
 
-![A query plan with corrected indexes](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
+![A query plan with corrected indexes](./media/performance-guidance/query_plan_corrected_indexes.png)
 
 The key insight is that the IO capacity of a shared, commodity system is more limited than that of a dedicated server machine. There's a premium on minimizing unnecessary IO to take maximum advantage of the system in the resources of each compute size of the service tiers. Appropriate physical database design choices can significantly improve the latency for individual queries, improve the throughput of concurrent requests handled per scale unit, and minimize the costs required to satisfy the query. For more information about the missing index DMVs, see [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
@@ -197,17 +197,17 @@ DECLARE @i int = 0;
 
 Each part of this example attempts to run a parameterized insert statement 1,000 times (to generate a sufficient load to use as a test data set). When it executes stored procedures, the query processor examines the parameter value that is passed to the procedure during its first compilation (parameter "sniffing"). The processor caches the resulting plan and uses it for later invocations, even if the parameter value is different. The optimal plan might not be used in all cases. Sometimes you need to guide the optimizer to pick a plan that is better for the average case rather than the specific case from when the query was first compiled. In this example, the initial plan generates a "scan" plan that reads all rows to find each value that matches the parameter:
 
-![Query tuning by using a scan plan](./media/sql-database-performance-guidance/query_tuning_1.png)
+![Query tuning by using a scan plan](./media/performance-guidance/query_tuning_1.png)
 
 Because we executed the procedure by using the value 1, the resulting plan was optimal for the value 1 but was sub-optimal for all other values in the table. The result likely isn't what you would want if you were to pick each plan randomly, because the plan performs more slowly and uses more resources.
 
 If you run the test with `SET STATISTICS IO` set to `ON`, the logical scan work in this example is done behind the scenes. You can see that there are 1,148 reads done by the plan (which is inefficient, if the average case is to return just one row):
 
-![Query tuning by using a logical scan](./media/sql-database-performance-guidance/query_tuning_2.png)
+![Query tuning by using a logical scan](./media/performance-guidance/query_tuning_2.png)
 
 The second part of the example uses a query hint to tell the optimizer to use a specific value during the compilation process. In this case, it forces the query processor to ignore the value that is passed as the parameter, and instead to assume `UNKNOWN`. This refers to a value that has the average frequency in the table (ignoring skew). The resulting plan is a seek-based plan that is faster and uses fewer resources, on average, than the plan in part 1 of this example:
 
-![Query tuning by using a query hint](./media/sql-database-performance-guidance/query_tuning_3.png)
+![Query tuning by using a query hint](./media/performance-guidance/query_tuning_3.png)
 
 You can see the effect in the **sys.resource_stats** table (there is a delay from the time that you execute the test and when the data populates the table). For this example, part 1 executed during the 22:25:00 time window, and part 2 executed at 22:35:00. The earlier time window used more resources in that time window than the later one (because of plan efficiency improvements).
 
@@ -218,7 +218,7 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Query tuning example results](./media/sql-database-performance-guidance/query_tuning_4.png)
+![Query tuning example results](./media/performance-guidance/query_tuning_4.png)
 
 > [!NOTE]
 > Although the volume in this example is intentionally small, the effect of sub-optimal parameters can be substantial, especially on larger databases. The difference, in extreme cases, can be between seconds for fast cases and hours for slow cases.
@@ -229,14 +229,14 @@ If a workload has a set of repeating queries, often it makes sense to capture an
 
 ### Very large database architectures
 
-Before the release of [Hyperscale](../azure-sql/database/service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in Azure SQL Database elastic pools and instance databases in Azure SQL Managed Instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database and Azure SQL Managed Instance when you cannot use the Hyperscale service tier.
+Before the release of [Hyperscale](service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in Azure SQL Database elastic pools and instance databases in Azure SQL Managed Instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database and Azure SQL Managed Instance when you cannot use the Hyperscale service tier.
 
 ### Cross-database sharding
 
 Because Azure SQL Database and Azure SQL Managed Instance runs on commodity hardware, the capacity limits for an individual database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of an individual database in Azure SQL Database and Azure SQL Managed Instance. Most customers who use sharding techniques in Azure SQL Database and Azure SQL Managed Instance split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
 
 > [!NOTE]
-> Azure SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](../azure-sql/database/elastic-database-client-library.md).
+> Azure SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](elastic-database-client-library.md).
 
 For example, if a database has customer name, order, and order details (like the traditional example Northwind database that ships with SQL Server), you could split this data into multiple databases by grouping a customer with the related order and order detail information. You can guarantee that the customer's data stays in an individual database. The application would split different customers across databases, effectively spreading the load across multiple databases. With sharding, customers not only can avoid the maximum database size limit, but Azure SQL Database and Azure SQL Managed Instance also can process workloads that are significantly larger than the limits of the different compute sizes, as long as each individual database fits into its service tier limits.
 
@@ -252,7 +252,7 @@ If you use a scale-out architecture in Azure SQL Database and Azure SQL Managed 
 
 For applications that access data by using high-volume, frequent, ad hoc querying, a substantial amount of response time is spent on network communication between the application tier and the database tier. Even when both the application and the database are in the same data center, the network latency between the two might be magnified by a large number of data access operations. To reduce the network round trips for the data access operations, consider using the option to either batch the ad hoc queries, or to compile them as stored procedures. If you batch the ad hoc queries, you can send multiple queries as one large batch in a single trip to the database. If you compile ad hoc queries in a stored procedure, you could achieve the same result as if you batch them. Using a stored procedure also gives you the benefit of increasing the chances of caching the query plans in the database so you can use the stored procedure again.
 
-Some applications are write-intensive. Sometimes you can reduce the total IO load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for database applications in Azure](sql-database-use-batching-to-improve-performance.md). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
+Some applications are write-intensive. Sometimes you can reduce the total IO load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for database applications in Azure](../../sql-database/sql-database-use-batching-to-improve-performance.md). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
 
 ### Application-tier caching
 
@@ -260,7 +260,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 
-- For more information about DTU-based service tiers, see [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md).
-- For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- For more information about elastic pools, see [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
-- For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
+- For more information about DTU-based service tiers, see [DTU-based purchasing model](dtu-service-tiers.md).
+- For more information about vCore-based service tiers, see [vCore-based purchasing model](../../sql-database/sql-database-service-tiers-vcore.md).
+- For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
+- For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)

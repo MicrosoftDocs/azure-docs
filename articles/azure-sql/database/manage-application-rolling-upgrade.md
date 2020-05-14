@@ -15,7 +15,7 @@ ms.date: 02/13/2019
 
 # Manage rolling upgrades of cloud applications by using SQL Database active geo-replication
 
-Learn how to use [active geo-replication](sql-database-auto-failover-group.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website that's connected to a single database as its data tier. Our goal is to upgrade version 1 (V1) of the application to version 2 (V2) without any significant impact on the user experience.
+Learn how to use [active geo-replication](auto-failover-group-overview.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website that's connected to a single database as its data tier. Our goal is to upgrade version 1 (V1) of the application to version 2 (V2) without any significant impact on the user experience.
 
 When evaluating upgrade options, consider these factors:
 
@@ -34,7 +34,7 @@ If your application relies on automatic database backups and uses geo-restore fo
 > [!NOTE]
 > These preparation steps won't impact the production environment, which can function in full-access mode.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 When the preparation steps are complete, the application is ready for the actual upgrade. The next diagram illustrates the steps involved in the upgrade process:
 
@@ -42,14 +42,14 @@ When the preparation steps are complete, the application is ready for the actual
 2. Disconnect the secondary database by using the planned termination mode (4). This action creates a fully synchronized, independent copy of the primary database. This database will be upgraded.
 3. Turn the secondary database to read-write mode and run the upgrade script (5).
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 If the upgrade finishes successfully, you're now ready to switch users to the upgraded copy the application, which becomes a production environment. Switching involves a few more steps, as illustrated in the next diagram:
 
 1. Activate a swap operation between production and staging environments of the web app (6). This operation switches the URLs of the two environments. Now `contoso.azurewebsites.net` points to the V2 version of the web site and the database (production environment). 
 2. If you no longer need the V1 version, which became a staging copy after the swap, you can decommission the staging environment (7).
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option1-3.png)
 
 If the upgrade process is unsuccessful (for example, due to an error in the upgrade script), consider the staging environment to be compromised. To roll back the application to the pre-upgrade state, revert the application in the production environment to full access. The next diagram shows the reversion steps:
 
@@ -61,7 +61,7 @@ At this point, the application is fully functional, and you can repeat the upgra
 > [!NOTE]
 > The rollback doesn't require DNS changes because you did not yet perform a swap operation.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 The key advantage of this option is that you can upgrade an application in a single region by following a set of simple steps. The dollar cost of the upgrade is relatively low. 
 
@@ -92,7 +92,7 @@ To make it possible to roll back the upgrade, you must create a staging environm
 > [!NOTE]
 > These preparation steps won't impact the application in the production environment. It will remain fully functional in read-write mode.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 When the preparation steps are complete, the staging environment is ready for the upgrade. The next diagram illustrates these upgrade steps:
 
@@ -114,14 +114,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 If the upgrade finishes successfully, you're now ready to switch users to the V2 version of the application. The next diagram illustrates the steps involved:
 
 1. Activate a swap operation between production and staging environments of the web app in the primary region (13) and in the backup region (14). V2 of the application now becomes a production environment, with a redundant copy in the backup region.
 2. If you no longer need the V1 application (15 and 16), you can decommission the staging environment.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 If the upgrade process is unsuccessful (for example, due to an error in the upgrade script), consider the staging environment to be in an inconsistent state. To roll back the application to the pre-upgrade state, revert to using V1 of the application in the production environment. The required steps are shown on the next diagram:
 
@@ -133,7 +133,7 @@ At this point, the application is fully functional, and you can repeat the upgra
 > [!NOTE]
 > The rollback doesn't require DNS changes because you didn't perform a swap operation.
 
-![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+![SQL Database geo-replication configuration for cloud disaster recovery.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 The key advantage of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade.
 
@@ -145,8 +145,8 @@ The two upgrade methods described in the article differ in complexity and dollar
 
 ## Next steps
 
-* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
-* To learn about Azure SQL Database active geo-replication, see [Create readable secondary databases using active geo-replication](../azure-sql/database/active-geo-replication-overview.md).
-* To learn about Azure SQL Database auto-failover groups, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).
-* To learn about staging environments in Azure App Service, see [Set up staging environments in Azure App Service](../app-service/deploy-staging-slots.md).
-* To learn about Azure Traffic Manager profiles, see [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md).
+* For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+* To learn about Azure SQL Database active geo-replication, see [Create readable secondary databases using active geo-replication](active-geo-replication-overview.md).
+* To learn about Azure SQL Database auto-failover groups, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](auto-failover-group-overview.md).
+* To learn about staging environments in Azure App Service, see [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md).
+* To learn about Azure Traffic Manager profiles, see [Manage an Azure Traffic Manager profile](../../traffic-manager/traffic-manager-manage-profiles.md).

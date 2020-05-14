@@ -14,7 +14,7 @@ ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database to an auto-failover group
 
-A [failover group](../../sql-database/sql-database-auto-failover-group.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
+A [failover group](auto-failover-group-overview.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 >
@@ -52,7 +52,7 @@ To complete the tutorial, make sure you have the following items:
 
 ## 2 - Create the failover group
 
-In this step, you will create a [failover group](../../sql-database/sql-database-auto-failover-group.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
+In this step, you will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
 
 # [Portal](#tab/azure-portal)
 

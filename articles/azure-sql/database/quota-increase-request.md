@@ -69,7 +69,7 @@ Use the following steps to request an increase in the DTUs per server.
 
    ![DTU quota details](./media/quota-increase-request/quota-details-dtus.png)
 
-For more information, see [Resource limits for single databases using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](../azure-sql/database/resource-limits-dtu-elastic-pools.md).
+For more information, see [Resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md).
 
 ### Servers per subscription
 
@@ -83,7 +83,7 @@ Use the following steps to request an increase in the number of servers per subs
 
    ![Servers quota details](./media/quota-increase-request/quota-details-servers.png)
 
-For more information, see [SQL Database resource limits and resource governance](../azure-sql/database/resource-limits-logical-server.md).
+For more information, see [SQL Database resource limits and resource governance](resource-limits-logical-server.md).
 
 ### <a id="other"></a> Enable subscription access to a region
 
@@ -105,7 +105,7 @@ For the **SQL Managed Instance** quota type, use the following steps:
 
    ![Managed instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
 
-For more information, see [Overview Azure SQL Database managed instance resource limits](sql-database-managed-instance-resource-limits.md).
+For more information, see [Overview Azure SQL Database managed instance resource limits](../../sql-database/sql-database-managed-instance-resource-limits.md).
 
 ## Submit your request
 
@@ -115,4 +115,4 @@ The final step is to fill in the remaining details of your SQL Database quota re
 
 After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
 
-For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

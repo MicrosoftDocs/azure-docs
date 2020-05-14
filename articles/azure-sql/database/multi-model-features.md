@@ -24,7 +24,7 @@ You should consider using multi-model capabilities of Azure SQL Database and Azu
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
 - You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
-- You want to apply database features such as [in-memory technologies](sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](sql-database-managed-instance-transactional-replication.md) or [readable replicas](sql-database-read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
+- You want to apply database features such as [in-memory technologies](../../sql-database/sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](../../sql-database/sql-database-managed-instance-transactional-replication.md) or [readable replicas](../../sql-database/sql-database-read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
 
 ## Overview
 
@@ -68,11 +68,11 @@ JSON is a popular data format used for exchanging data in modern web and mobile 
 
 Azure SQL Database and Azure SQL Managed Instance let you work with JSON data easily and integrate your database with modern services. Azure SQL Database and Azure SQL Managed Instance provide the following functions for working with JSON data:
 
-![JSON Functions](./media/sql-database-json-features/image_1.png)
+![JSON Functions](./media/multi-model-features/image_1.png)
 
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql), [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql), and [ISJSON](/sql/t-sql/functions/isjson-transact-sql). The [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server) clause that lets you format data stored in your relational tables as JSON text.
 
-For more information, see [How to work with JSON data](../azure-sql/database/json-features.md).
+For more information, see [How to work with JSON data](json-features.md).
 [JSON](/sql/relational-databases/json/json-data-sql-server) is a core SQL Server database engine feature.
 
 ### When to use a JSON capability

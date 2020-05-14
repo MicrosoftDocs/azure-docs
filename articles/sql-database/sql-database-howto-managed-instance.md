@@ -47,24 +47,24 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Feature configuration
 
-- [Configure Azure AD auth](sql-database-aad-authentication-configure.md)
+- [Configure Azure AD auth](../azure-sql/database/aad-authentication-configure.md)
 - [Configure Conditional Access](sql-database-conditional-access.md)
 - [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
-- [Configure temporal retention policy](sql-database-temporal-tables-retention-policy.md)
+- [Configure temporal retention policy](../azure-sql/database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Remove TDE protector](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Configure In-Memory OLTP](sql-database-in-memory-oltp-migration.md)
-- [Configure Azure Automation](sql-database-manage-automation.md)
+- [Configure Azure Automation](../azure-sql/database/manage-automation.md)
 - [Transactional replication](replication-with-sql-database-managed-instance.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
 - [Configure threat detection](sql-database-managed-instance-threat-detection.md) – [threat detection](sql-database-threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
 - [Creating alerts](sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
 
 ## Monitoring and tuning
 
-- [Manual tuning](sql-database-performance-guidance.md)
-- [Use DMVs to monitor performance](sql-database-monitoring-with-dmvs.md)
+- [Manual tuning](../azure-sql/database/performance-guidance.md)
+- [Use DMVs to monitor performance](../azure-sql/database/monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Use Intelligent Insights diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
@@ -80,7 +80,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Connectivity](sql-database-libraries.md)
 - [Use Spark Connector](sql-database-spark-connector.md)
-- [Authenticate app](sql-database-client-id-keys.md)
+- [Authenticate app](../azure-sql/database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](sql-database-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)
@@ -91,9 +91,9 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Design applications
 
-- [Design for disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Design for disaster recovery](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md)
 - [Design for elastic pools](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-- [Design for app upgrades](sql-database-manage-application-rolling-upgrade.md)
+- [Design for app upgrades](../azure-sql/database/manage-application-rolling-upgrade.md)
 
 ### Design Multi-tenant SaaS applications
 

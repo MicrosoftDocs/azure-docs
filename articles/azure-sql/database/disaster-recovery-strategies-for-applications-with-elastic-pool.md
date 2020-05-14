@@ -174,12 +174,12 @@ The main trade-offs are:
 
 ## Summary
 
-This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose is based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application likely includes other Azure components. So you review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](../../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose is based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application likely includes other Azure components. So you review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## Next steps
 
-* To learn about Azure SQL Database automated backups, see [Azure SQL Database automated backups](../../sql-database/sql-database-automated-backups.md).
-* For a business continuity overview and scenarios, see [Business continuity overview](../../sql-database/sql-database-business-continuity.md).
+* To learn about Azure SQL Database automated backups, see [Azure SQL Database automated backups](automated-backups-overview.md).
+* For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
-* To learn about faster recovery options, see [Active geo-replication](active-geo-replication-overview.md) and [Auto-failover groups](../../sql-database/sql-database-auto-failover-group.md).
+* To learn about faster recovery options, see [Active geo-replication](active-geo-replication-overview.md) and [Auto-failover groups](auto-failover-group-overview.md).
 * To learn about using automated backups for archiving, see [database copy](database-copy.md).

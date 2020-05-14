@@ -110,13 +110,13 @@ If your workload consists of lots of small transactions, consider switching the 
 
 **What is the maximum storage size for SQL Managed Instance?**
 
-Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristic](sql-database-service-tiers-general-purpose-business-critical.md).
+Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristic](../azure-sql/database/service-tiers-general-purpose-business-critical.md).
 
 ## Back up storage cost 
 
 **Is the backup storage deducted from my SQL Managed Instance storage?**
 
-No, backup storage is not deducted from your SQL Managed Instance storage space. The backup storage is independent from the instance storage space and it is not limited in size. Backup storage is limited by the time period to retain the backup of your instance databases, configurable from 7 to 35 days. For details, see [Automated backups](sql-database-automated-backups.md).
+No, backup storage is not deducted from your SQL Managed Instance storage space. The backup storage is independent from the instance storage space and it is not limited in size. Backup storage is limited by the time period to retain the backup of your instance databases, configurable from 7 to 35 days. For details, see [Automated backups](../azure-sql/database/automated-backups-overview.md).
 
 ## Track billing
 

@@ -19,7 +19,7 @@ tags: azure-synapse
 
 Advanced Threat Protection for [Azure SQL Database](sql-database-technical-overview.md), [Azure SQL Managed Instance](sql-database-managed-instance.md) and [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Advanced Threat Protection is part of the [Advanced data security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
+Advanced Threat Protection is part of the [Advanced data security](../azure-sql/database/advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
 ## Overview
 
@@ -72,7 +72,7 @@ Click **Advanced Threat Protection alert** to launch the Azure Security Center a
 
 - Learn more about [Advanced Threat Protection in Azure SQL Database & Azure Synapse](sql-database-threat-detection.md).
 - Learn more about [Advanced Threat Protection in Azure SQL Managed Instance](sql-database-managed-instance-threat-detection.md).
-- Learn more about [Advanced data security](sql-database-advanced-data-security.md).
+- Learn more about [Advanced data security](../azure-sql/database/advanced-data-security.md).
 - Learn more about [Azure SQL Database auditing](sql-database-auditing.md)
 - Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - For more information on pricing, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

@@ -18,7 +18,7 @@ Configure an Azure SQL database and application for failover to a remote region 
 
 > [!div class="checklist"]
 >
-> - Create a [failover group](../../sql-database/sql-database-auto-failover-group.md)
+> - Create a [failover group](auto-failover-group-overview.md)
 > - Run a Java application to query an Azure SQL database
 > - Test failover
 
@@ -51,7 +51,7 @@ To complete the tutorial, make sure you've installed the following items:
 
 ## Create a failover group
 
-Using Azure PowerShell, create [failover groups](../../sql-database/sql-database-auto-failover-group.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
+Using Azure PowerShell, create [failover groups](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
 
 # [PowerShell](#tab/azure-powershell)
 

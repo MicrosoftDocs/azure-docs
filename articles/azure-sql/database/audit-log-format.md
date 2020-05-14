@@ -13,7 +13,7 @@ ms.date: 04/28/2020
 ---
 # SQL Database Audit Log Format
 
-[Azure SQL Database auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
+[Azure SQL Database auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
 
 ## Naming Conventions
 
@@ -25,16 +25,16 @@ For example, for database `Database1` on `Server1` the following is a possible v
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Read-only Replicas](sql-database-read-scale-out.md) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
+[Read-only Replicas](../../sql-database/sql-database-read-scale-out.md) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
 
 
 ### Event Hub
 
-Audit events are written to the namespace and event hub that was defined during auditing configuration, and are captured in the body of [Apache Avro](https://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) or similar tools that process this format.
+Audit events are written to the namespace and event hub that was defined during auditing configuration, and are captured in the body of [Apache Avro](https://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) or similar tools that process this format.
 
 ### Log Analytics
 
-Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
+Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a id="subheading-1"></a>Audit Log Fields
 
@@ -50,7 +50,7 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | class_type_desc | class_type_description_s | Description of auditable entity that the audit occurs on | N/A | string |
 | client_ip | client_ip_s | Source IP of the client application | nvarchar(128) | string |
 | connection_id | N/A | ID of the connection in the server | GUID | N/A |
-| data_sensitivity_information | data_sensitivity_information_s | Information types and sensitivity labels returned by the audited query, based on the classified columns in the database. Learn more about [Azure SQL Database data discover and classification](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
+| data_sensitivity_information | data_sensitivity_information_s | Information types and sensitivity labels returned by the audited query, based on the classified columns in the database. Learn more about [Azure SQL Database data discover and classification](../../sql-database/sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
 | database_name | database_name_s | The database context in which the action occurred | sysname | string |
 | database_principal_id | database_principal_id_d | ID of the database user context that the action is performed in | int | int |
 | database_principal_name | database_principal_name_s | Name of the database user context in which the action is performed | sysname | string |
@@ -86,4 +86,4 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 
 ## Next Steps
 
-Learn more about [Azure SQL Database auditing](sql-database-auditing.md).
+Learn more about [Azure SQL Database auditing](../../sql-database/sql-database-auditing.md).

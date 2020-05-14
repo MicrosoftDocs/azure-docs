@@ -166,7 +166,7 @@ To minimize network latency, run your test in the same Azure geographic region w
 Consider monitoring the performance effects of your In-Memory implementations in production:
 
 * [Monitor In-Memory storage](sql-database-in-memory-oltp-monitoring.md).
-* [Monitoring using dynamic management views](sql-database-monitoring-with-dmvs.md)
+* [Monitoring using dynamic management views](../azure-sql/database/monitoring-with-dmvs.md)
 
 ## Related links
 

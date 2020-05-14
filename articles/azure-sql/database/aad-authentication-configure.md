@@ -15,7 +15,7 @@ ms.date: 03/27/2020
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
-This article shows you how to create and populate Azure AD, and then use Azure AD with [Azure SQL Database](sql-database-technical-overview.md), [Azure SQL Managed Instance](sql-database-managed-instance.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
+This article shows you how to create and populate Azure AD, and then use Azure AD with [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](aad-authentication-overview.md).
 
 ## Azure AD authentication methods
 
@@ -30,32 +30,32 @@ Azure AD authentication supports the following authentication methods:
 
 For more information on Azure AD authentication methods, and which one to choose see, the article:
 
-- [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../active-directory/hybrid/choose-ad-authn.md)
+- [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../active-directory/hybrid/choose-ad-authn.md)
 
 For more information on Azure AD hybrid identities, the setup, and synchronization, see the following articles:
 
-- Password hash authentication - [Implement password hash synchronization with Azure AD Connect sync](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
-- Pass-through authentication - [Azure Active Directory Pass-through Authentication](../active-directory/hybrid/how-to-connect-pta-quick-start.md)
-- Federated authentication - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) and [Azure AD Connect and federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+- Password hash authentication - [Implement password hash synchronization with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
+- Pass-through authentication - [Azure Active Directory Pass-through Authentication](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)
+- Federated authentication - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) and [Azure AD Connect and federation](../../active-directory/hybrid/how-to-connect-fed-whatis.md)
 
 ## Create and populate an Azure AD
 
 Create an Azure AD and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview), and [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
-1. Associate your Azure subscription to Azure Active Directory by making the directory a trusted directory for the Azure subscription hosting the database. For details, see [How Azure subscriptions are associated with Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Associate your Azure subscription to Azure Active Directory by making the directory a trusted directory for the Azure subscription hosting the database. For details, see [How Azure subscriptions are associated with Azure AD](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 2. Use the directory switcher in the Azure portal to switch to the subscription associated with domain.
 
    > [!IMPORTANT]
-   > Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](../active-directory/active-directory-b2b-admin-add-users.md). To learn more about this trusted relationship see [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   > Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](../../active-directory/b2b/add-users-administrator.md). To learn more about this trusted relationship see [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Azure AD admin with a server in SQL Database
 
-Each [server](../azure-sql/database/logical-servers.md) in Azure (which hosts SQL Database or Azure Synapse) starts with a single server administrator account that is the administrator of the entire server. Create a second administrator account as an Azure AD account. This principal is created as a contained database user in the master database of the server. Administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about administrator accounts, see [Managing Databases and Logins](sql-database-manage-logins.md).
+Each [server](logical-servers.md) in Azure (which hosts SQL Database or Azure Synapse) starts with a single server administrator account that is the administrator of the entire server. Create a second administrator account as an Azure AD account. This principal is created as a contained database user in the master database of the server. Administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about administrator accounts, see [Managing Databases and Logins](../../sql-database/sql-database-manage-logins.md).
 
 When using Azure Active Directory with geo-replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users receive a `Cannot connect` to server error.
 
@@ -81,33 +81,33 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![aad](./media/sql-database-aad-authentication/aad.png)
+   ![aad](./media/aad-authentication-configure/aad.png)
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
-    ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
+    ![grant permissions-portal](./media/aad-authentication-configure/grant-permissions.png)
 
 5. After the operation succeeds, the following notification will show up in the top-right corner:
 
-    ![success](./media/sql-database-aad-authentication/success.png)
+    ![success](./media/aad-authentication-configure/success.png)
 
 6. Now you can choose your Azure AD admin for your SQL Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
-    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+    ![set-admin](./media/aad-authentication-configure/set-admin.png)
 
 7. In the AAD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Server.
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](aad-authentication-overview.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Server.
 
-    ![Add Azure Active Directory admin](./media/sql-database-aad-authentication/add-azure-active-directory-admin.png)
+    ![Add Azure Active Directory admin](./media/aad-authentication-configure/add-azure-active-directory-admin.png)
 
 8. At the top of the Active Directory admin page, select **Save**.
 
-    ![save](./media/sql-database-aad-authentication/save.png)
+    ![save](./media/aad-authentication-configure/save.png)
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [SQL Managed Instance overview](sql-database-managed-instance.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your SQL Managed Instance, you can begin to create Azure AD server principals (logins) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [SQL Managed Instance overview](../../sql-database/sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
@@ -224,7 +224,7 @@ For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 ## Provision Azure AD admin (SQL Database)
 
 > [!IMPORTANT]
-> Only follow these steps if you are provisioning a [server](../azure-sql/database/logical-servers.md) for SQL Database or Azure Synapse.
+> Only follow these steps if you are provisioning a [server](logical-servers.md) for SQL Database or Azure Synapse.
 
 The following two procedures show you how to provision an Azure Active Directory administrator for your server in the Azure portal and by using PowerShell.
 
@@ -236,7 +236,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
 2. Search for and select **SQL server**.
 
-    ![Search for and select SQL servers](media/sql-database-aad-authentication/search-for-and-select-sql-servers.png)
+    ![Search for and select SQL servers](./media/aad-authentication-configure/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar.
@@ -245,15 +245,15 @@ The following two procedures show you how to provision an Azure Active Directory
 
 4. In the **Active Directory admin** page, select **Set admin**.
 
-    ![SQL servers set Active Directory admin](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
+    ![SQL servers set Active Directory admin](./media/aad-authentication-configure/sql-servers-set-active-directory-admin.png)  
 
-5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](aad-authentication-overview.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 
-    ![Select Azure Active Directory admin](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
+    ![Select Azure Active Directory admin](./media/aad-authentication-configure/select-azure-active-directory-admin.png)  
 
 6. At the top of the **Active Directory admin** page, select **SAVE**.
 
-    ![save admin](./media/sql-database-aad-authentication/save-admin.png)
+    ![save admin](./media/aad-authentication-configure/save-admin.png)
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
@@ -351,7 +351,7 @@ You can meet these requirements by:
 
 ## Create contained users mapped to Azure AD identities
 
-Since SQL Managed Instance supports Azure AD server principals (logins), using contained database users is not required. Azure AD server principals (logins) enable you to create logins from Azure AD users, groups, or applications. This means that you can authenticate with your SQL Managed Instance using the Azure AD server login rather than a contained database user. For more information, see [SQL Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Since SQL Managed Instance supports Azure AD server principals (logins), using contained database users is not required. Azure AD server principals (logins) enable you to create logins from Azure AD users, groups, or applications. This means that you can authenticate with your SQL Managed Instance using the Azure AD server login rather than a contained database user. For more information, see [SQL Managed Instance Overview](../../sql-database/sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 However, using Azure Active Directory authentication with SQL Database and Azure Synapse requires using contained database users based on an Azure AD identity. A contained database user does not have a login in the master database, and maps to an identity in Azure AD that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -404,7 +404,7 @@ For more information about creating contained database users based on Azure Acti
 > If you receive a **Connection Timeout Expired**, you may need to set the `TransparentNetworkIPResolution`
 parameter of the connection string to false. For more information, see [Connection timeout issue with .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
-When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Azure AD groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
+When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Azure AD groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](../../sql-database/sql-database-manage-logins.md).
 A federated domain user account that is imported into a managed domain as an external user, must use the managed domain identity.
 
 > [!NOTE]
@@ -424,13 +424,13 @@ The following procedures show you how to connect to SQL Database with an Azure A
 
 ### Active Directory integrated authentication
 
-Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain, or a managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
+Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain, or a managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Azure Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.
 
    ![Select AD Integrated Authentication][11]
 
-2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x.
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](../../sql-database/sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x.
 
    ![Select the database name][13]
 
@@ -454,7 +454,7 @@ Use this method to authenticate to SQL Database or SQL Managed Instance with Azu
 
 Use this method for interactive authentication with or without multi-factor authentication (MFA), with password being requested interactively. This method can be used to authenticate to SQL Database, SQL Managed Instance, and Azure Synapse for Azure AD cloud-only identity users, or those who use Azure AD hybrid identities.
 
-For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
+For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](../../sql-database/sql-database-ssms-mfa-authentication.md).
 
 ## Using an Azure AD identity to connect from a client application
 
@@ -462,7 +462,7 @@ The following procedures show you how to connect to a SQL Database with an Azure
 
 ### Active Directory integrated authentication
 
-To use integrated Windows authentication, your domain's Active Directory must be federated with Azure Active Directory, or should be a managed domain that is configured for seamless single sign-on for pass-through or password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
+To use integrated Windows authentication, your domain's Active Directory must be federated with Azure Active Directory, or should be a managed domain that is configured for seamless single sign-on for pass-through or password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 
 > [!NOTE]
 > [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) for integrated Windows authentication is not supported for seamless single sign-on for pass-through and password hash authentication.
@@ -494,7 +494,7 @@ Learn more about Azure AD authentication methods using the demo code samples ava
 
 ## Azure AD token
 
-This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) to connect to SQL Database, SQL Managed Instance, or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
+This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../../active-directory/develop/id-tokens.md) to connect to SQL Database, SQL Managed Instance, or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
 
 1. Register your application with Azure Active Directory and get the client ID for your code.
 2. Create a database user representing the application. (Completed earlier in step 6.)
@@ -510,7 +510,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). For information about adding a certificate, see [Get started with certificate-based authentication in Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). For information about adding a certificate, see [Get started with certificate-based authentication in Azure Active Directory](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### sqlcmd
 
@@ -530,21 +530,10 @@ Guidance on troubleshooting issues with Azure AD Authentication can be found in 
 
 ## Next steps
 
-- For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and user accounts](sql-database-manage-logins.md).
+- For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and user accounts](../../sql-database/sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
-- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](../azure-sql/database/firewall-configure.md).
+- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
-[2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
-[3]: ./media/sql-database-aad-authentication/3admin-structure.png
-[4]: ./media/sql-database-aad-authentication/4select-subscription.png
-[5]: ./media/sql-database-aad-authentication/5ad-settings-portal.png
-[6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
-[7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
-[8]: ./media/sql-database-aad-authentication/8choose-ad.png
-[10]: ./media/sql-database-aad-authentication/10choose-admin.png
-[11]: ./media/sql-database-aad-authentication/active-directory-integrated.png
-[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
-[13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
+

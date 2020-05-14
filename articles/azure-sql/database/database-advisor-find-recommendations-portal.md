@@ -84,7 +84,7 @@ If desired, you can add discarded items back to the **Recommendations** list:
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
 > [!NOTE]
-> Please note that if SQL Database [Automatic tuning](../../sql-database/sql-database-automatic-tuning.md) is enabled, and if you have manually discarded a recommendation from the list, such recommendation will never be applied automatically. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when requiring that a specific recommendation shouldn’t be applied.
+> Please note that if SQL Database [Automatic tuning](automatic-tuning-overview.md) is enabled, and if you have manually discarded a recommendation from the list, such recommendation will never be applied automatically. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when requiring that a specific recommendation shouldn’t be applied.
 > You can revert this behavior by adding discarded recommendations back to the Recommendations list by selecting the Undo Discard option.
 
 ### Enable automatic tuning
@@ -157,7 +157,7 @@ Azure SQL Database provides recommendations for improving SQL database performan
 
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. Azure SQL Database continues to monitor and provide recommendations that can potentially improve your database's performance.
 
-* See [Automatic tuning](../../sql-database/sql-database-automatic-tuning.md) to learn more about the automatic tuning in Azure SQL Database.
+* See [Automatic tuning](automatic-tuning-overview.md) to learn more about the automatic tuning in Azure SQL Database.
 * See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
 * See [Query Performance Insights](query-performance-insight.md) to learn about viewing the performance impact of your top queries.
 

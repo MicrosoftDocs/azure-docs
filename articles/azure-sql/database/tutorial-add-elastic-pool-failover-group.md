@@ -20,7 +20,7 @@ Configure a failover group for an Azure SQL Database elastic pool and test failo
 >
 > - Create a single database.
 > - Add the database to an elastic pool.
-> - Create a [failover group](../../sql-database/sql-database-auto-failover-group.md) for two elastic pools between two servers.
+> - Create a [failover group](auto-failover-group-overview.md) for two elastic pools between two servers.
 > - Test failover.
 
 ## Prerequisites
@@ -120,7 +120,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ## 3 - Create the failover group
 
-In this step, you will create a [failover group](../../sql-database/sql-database-auto-failover-group.md) between an existing server and a new server in another region. Then add the elastic pool to the failover group.
+In this step, you will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the elastic pool to the failover group.
 
 # [Portal](#tab/azure-portal)
 
@@ -413,7 +413,7 @@ In this tutorial, you added an Azure SQL Database elastic pool to a failover gro
 >
 > - Create a single database.
 > - Add the database into an elastic pool.
-> - Create a [failover group](../../sql-database/sql-database-auto-failover-group.md) for two elastic pools between two servers.
+> - Create a [failover group](auto-failover-group-overview.md) for two elastic pools between two servers.
 > - Test failover.
 
 Advance to the next tutorial on how to migrate using DMS.

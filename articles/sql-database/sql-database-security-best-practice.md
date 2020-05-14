@@ -85,7 +85,7 @@ Central identity management offers the following benefits:
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux.
 
 - Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put the users that are associated with your Azure AD groups in database roles with the appropriate permissions.
-  - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
+  - See the articles, [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](../azure-sql/database/aad-authentication-overview.md).
   > [!NOTE]
   > In SQL Managed Instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -93,12 +93,12 @@ Central identity management offers the following benefits:
 
 - Create a separate group for Azure AD administrators for each server or managed instance.
 
-  - See the article, [Provision an Azure Active Directory administrator for your server](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
+  - See the article, [Provision an Azure Active Directory administrator for your server](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 
 - Monitor Azure AD group membership changes using Azure AD audit activity reports.
 
 - For a SQL Managed Instance, a separate step is required to create Azure AD admin.
-  - See the article, [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+  - See the article, [Provision an Azure Active Directory administrator for your managed instance](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 > [!NOTE]
 >
@@ -157,7 +157,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 **Best practices**:
 
 - Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
-  - See the article, [SSMS support for Azure AD Integrated authentication](sql-database-aad-authentication-configure.md#active-directory-integrated-authentication).
+  - See the article, [SSMS support for Azure AD Integrated authentication](../azure-sql/database/aad-authentication-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications
 
@@ -643,7 +643,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Advanced Data Security (ADS)](sql-database-advanced-data-security.md#getting-started-with-ads) for a specific server or a managed Instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../security-center/security-center-pricing.md).
+- Configure [Advanced Data Security (ADS)](../azure-sql/database/advanced-data-security.md#getting-started-with-ads) for a specific server or a managed Instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](sql-database-auditing.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -789,10 +789,10 @@ Most security standards address data availability in terms of operational contin
 
 - The Business Critical tier includes failover groups, multi-availability zones, full and differential log backups, and point-in-time-restore backups enabled by default:  
   - [High-availability  - Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration)
-  - [Automated backups](sql-database-automated-backups.md)
+  - [Automated backups](../azure-sql/database/automated-backups-overview.md)
   - [Recover a database using automated database backups - Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- Additional business continuity features such as auto-failover groups across different Azure geos can be configured as described here: [Overview of business continuity](sql-database-business-continuity.md)
+- Additional business continuity features such as auto-failover groups across different Azure geos can be configured as described here: [Overview of business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## Next steps
 

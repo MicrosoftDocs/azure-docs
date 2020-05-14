@@ -17,7 +17,7 @@ ms.date: 03/03/2020
 This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, referred to as just Hyperscale in the remainder of this FAQ. This article describes the scenarios that Hyperscale supports and the features that are compatible with Hyperscale.
 
 - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier and are looking to have their specific questions and concerns answered.
-- This FAQ isn’t meant to be a guidebook or answer questions on how to use a Hyperscale database. For an introduction to Hyperscale, we recommend you refer to the [Azure SQL Database Hyperscale](../azure-sql/database/service-tier-hyperscale.md) documentation.
+- This FAQ isn’t meant to be a guidebook or answer questions on how to use a Hyperscale database. For an introduction to Hyperscale, we recommend you refer to the [Azure SQL Database Hyperscale](service-tier-hyperscale.md) documentation.
 
 ## General Questions
 
@@ -62,11 +62,11 @@ The Hyperscale service tier is intended for customers who have large on-premises
 
 ### What regions currently support Hyperscale
 
-The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](../azure-sql/database/service-tier-hyperscale.md#regions).
+The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](service-tier-hyperscale.md#regions).
 
 ### Can I create multiple Hyperscale databases per server
 
-Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](resource-limits-logical-server.md).
 
 ### What are the performance characteristics of a Hyperscale database
 
@@ -121,7 +121,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute replica with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](../azure-sql/database/resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### Can I provision multiple compute replicas of different sizes
 
@@ -209,11 +209,11 @@ Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, in
 
 ### Can I move my on-premises SQL Server database, or my SQL Server database in a cloud virtual machine to Hyperscale
 
-Yes. You can use all existing migration technologies to migrate to Hyperscale, including transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview.md), which supports many migration scenarios.
+Yes. You can use all existing migration technologies to migrate to Hyperscale, including transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../../dms/dms-overview.md), which supports many migration scenarios.
 
 ### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale, and how can I minimize it
 
-Downtime for migration to Hyperscale is the same as the downtime when you migrate your databases to other Azure SQL Database service tiers. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
+Downtime for migration to Hyperscale is the same as the downtime when you migrate your databases to other Azure SQL Database service tiers. You can use [transactional replication](../../sql-database/replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large databases (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
 
 ### How much time would it take to bring in X amount of data to Hyperscale
@@ -222,7 +222,7 @@ Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time ne
 
 ### Can I read data from blob storage and do fast load (like Polybase in SQL Data Warehouse)
 
-You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other Azure SQL database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
+You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other Azure SQL database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](../../sql-database/sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
 
 It is also possible to bulk read data from Azure Blob store using BULK INSERT or OPENROWSET: [Examples of Bulk Access to Data in Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
@@ -234,11 +234,11 @@ No. Hyperscale is a symmetric multi-processing (SMP) architecture and is not a m
 
 ### What is the oldest SQL Server version supported for migration to Hyperscale
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](../azure-sql/database/migrate-to-database-from-sql-server.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](../azure-sql/database/migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](migrate-to-database-from-sql-server.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues).
 
 ### Does Hyperscale support migration from other data sources such as Amazon Aurora, MySQL, PostgreSQL, Oracle, DB2, and other database platforms
 
-Yes. [Azure Database Migration Service](../dms/dms-overview.md) supports many migration scenarios.
+Yes. [Azure Database Migration Service](../../dms/dms-overview.md) supports many migration scenarios.
 
 ## Business Continuity and Disaster Recovery Questions
 
@@ -316,7 +316,7 @@ Because the storage is shared and there is no direct physical replication happen
 
 ### How do I diagnose and troubleshoot performance problems in a Hyperscale database
 
-For most performance problems, particularly the ones not rooted in storage performance, common SQL diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](../azure-sql/database/hyperscale-performance-diagnostics.md).
+For most performance problems, particularly the ones not rooted in storage performance, common SQL diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](hyperscale-performance-diagnostics.md).
 
 ## Scalability Questions
 
@@ -386,4 +386,4 @@ Data latency from the time a transaction is committed on the primary to the time
 
 ## Next Steps
 
-For more information about the Hyperscale service tier, see [Hyperscale service tier](../azure-sql/database/service-tier-hyperscale.md).
+For more information about the Hyperscale service tier, see [Hyperscale service tier](service-tier-hyperscale.md).

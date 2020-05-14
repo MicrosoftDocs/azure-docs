@@ -513,7 +513,7 @@ WHERE c.session_id = @@SPID;
 
 ## Monitor resource use
 
-You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](../azure-sql/database/query-performance-insight.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
 You can also monitor usage using these two views:
 
@@ -547,7 +547,7 @@ The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view 
 
 The following graph shows the CPU resource use for a Premium database with the P2 compute size for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
 
-![Database resource use](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![Database resource use](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
 From the data, this database currently has a peak CPU load of just over 50 percent CPU use relative to the P2 compute size (midday on Tuesday). If CPU is the dominant factor in the application's resource profile, then you might decide that P2 is the right compute size to guarantee that the workload always fits. If you expect an application to grow over time, it's a good idea to have an extra resource buffer so that the application doesn't ever reach the performance-level limit. If you increase the compute size, you can help avoid customer-visible errors that might occur when a database doesn't have enough power to process requests effectively, especially in latency-sensitive environments. An example is a database that supports an application that paints webpages based on the results of database calls.
 
@@ -567,7 +567,7 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![The sys.resource_stats catalog view](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![The sys.resource_stats catalog view](./media/monitoring-with-dmvs/sys_resource_stats.png)
 
 The next example shows you different ways that you can use the **sys.resource_stats** catalog view to get information about how your database uses resources:
 
@@ -637,7 +637,7 @@ The next example shows you different ways that you can use the **sys.resource_st
 
 4. This exercise also considers your projected workload increase in the future.
 
-For elastic pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
+For elastic pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic pool](elastic-pool-overview.md).
 
 ### Maximum concurrent requests
 
@@ -746,4 +746,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## See also
 
-[Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-technical-overview.md)
+[Introduction to Azure SQL Database and Azure SQL Managed Instance](../../sql-database/sql-database-technical-overview.md)

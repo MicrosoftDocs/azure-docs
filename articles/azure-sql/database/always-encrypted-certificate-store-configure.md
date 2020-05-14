@@ -42,16 +42,16 @@ For this tutorial, you'll need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL Database](../azure-sql/database/quickstart-create-single-database.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL Database](quickstart-create-single-database.md).
 
-    ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
+    ![Create a blank database](./media/always-encrypted-certificate-store-configure/create-database.png)
 
 You will need the connection string later in the tutorial. After the database is created, go to the new **Clinic** database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
 
-    ![Copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
+    ![Copy the connection string](./media/always-encrypted-certificate-store-configure/connection-strings.png)
 
 ## Connect to the database with SSMS
 
@@ -60,7 +60,7 @@ Open SSMS and connect to the server with the Clinic database.
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials. The server name can be found on the **SQL database** blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
-    ![Copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
+    ![Copy the connection string](./media/always-encrypted-certificate-store-configure/ssms-connect.png)
 
 If the **New Firewall Rule** window opens, sign in to Azure and let SSMS create a new firewall rule for you.
 
@@ -93,7 +93,7 @@ SSMS provides a wizard to easily configure Always Encrypted by setting up the CM
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![Encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
+    ![Encrypt columns](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration** (CMK), **Validation**, and **Summary**.
 
@@ -105,7 +105,7 @@ Encrypt **SSN** and **BirthDate** information for each patient. The **SSN** colu
 
 Set the **Encryption Type** for the **SSN** column to **Deterministic** and the **BirthDate** column to **Randomized**. Click **Next**.
 
-![Encrypt columns](./media/sql-database-always-encrypted/column-selection.png)
+![Encrypt columns](./media/always-encrypted-certificate-store-configure/column-selection.png)
 
 ### Master Key Configuration
 
@@ -113,7 +113,7 @@ The **Master Key Configuration** page is where you set up your CMK and select th
 
 Verify that **Windows certificate store** is selected and click **Next**.
 
-![Master key configuration](./media/sql-database-always-encrypted/master-key-configuration.png)
+![Master key configuration](./media/always-encrypted-certificate-store-configure/master-key-configuration.png)
 
 ### Validation
 
@@ -123,7 +123,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![Summary](./media/sql-database-always-encrypted/summary.png)
+![Summary](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### Verify the wizard's actions
 
@@ -145,7 +145,7 @@ Now that Always Encrypted is set up, you can build an application that performs 
 1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleApp** and click **OK**.
 
-![New console application](./media/sql-database-always-encrypted/console-app.png)
+![New console application](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## Modify your connection string to enable Always Encrypted
 
@@ -502,7 +502,7 @@ Run the following query on the Clinic database.
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![New console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
+   ![New console application](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 
@@ -510,14 +510,14 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-    ![New console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
+    ![New console application](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
 
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
      You can now see the plaintext data in the encrypted columns.
 
-    ![New console application](./media/sql-database-always-encrypted/ssms-plaintext.png)
+    ![New console application](./media/always-encrypted-certificate-store-configure/ssms-plaintext.png)
 
 > [!NOTE]
 > If you connect with SSMS (or any client) from a different computer, it will not have access to the encryption keys and will not be able to decrypt the data.

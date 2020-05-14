@@ -22,7 +22,7 @@ Performing a disaster recovery drill consists of:
 * Recovering
 * Validate application integrity post recovery
 
-Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. This article describes the best practices for conducting a disaster recovery drill in the context of Azure SQL Database.
+Depending on how you [designed your application for business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md), the workflow to execute the drill can vary. This article describes the best practices for conducting a disaster recovery drill in the context of Azure SQL Database.
 
 ## Geo-restore
 
@@ -34,8 +34,8 @@ To simulate the outage, you can rename the source database. This name change cau
 
 ### Recovery
 
-* Perform the geo-restore of the database into a different server as described [here](sql-database-disaster-recovery.md).
-* Change the application configuration to connect to the recovered database and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+* Perform the geo-restore of the database into a different server as described [here](disaster-recovery-guidance.md).
+* Change the application configuration to connect to the recovered database and follow the [Configure a database after recovery](disaster-recovery-guidance.md) guide to complete the recovery.
 
 ### Validation
 
@@ -52,8 +52,8 @@ To simulate the outage, you can disable the web application or virtual machine c
 ### Recovery
 
 * Make sure the application configuration in the DR region points to the former secondary, which becomes the fully accessible new primary.
-* Initiate [planned failover](../azure-sql/database/scripts/setup-geodr-and-failover-database-powershell.md) of the failover group from the secondary server.
-* Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+* Initiate [planned failover](scripts/setup-geodr-and-failover-database-powershell.md) of the failover group from the secondary server.
+* Follow the [Configure a database after recovery](disaster-recovery-guidance.md) guide to complete the recovery.
 
 ### Validation
 
@@ -61,7 +61,7 @@ Complete the drill by verifying the application integrity post recovery (includi
 
 ## Next steps
 
-* To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md).
-* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-* To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-* To learn about faster recovery options, see [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [Auto-failover groups](sql-database-auto-failover-group.md).
+* To learn about business continuity scenarios, see [Continuity scenarios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md)
+* To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](../../sql-database/sql-database-recovery-using-backups.md).
+* To learn about faster recovery options, see [Active geo-replication](active-geo-replication-overview.md) and [Auto-failover groups](auto-failover-group-overview.md).

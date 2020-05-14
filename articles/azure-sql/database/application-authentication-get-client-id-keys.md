@@ -18,7 +18,7 @@ To create and manage SQL Database from code you must register your app in the Az
 
 ## Create a service principal to access resources from an application
 
-The following examples create the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+The following examples create the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,5 +95,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## See also
 
-[Create an Azure SQL Database with C#](sql-database-get-started-csharp.md)  
-[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+[Create an Azure SQL Database with C#](../../sql-database/sql-database-design-first-database-csharp.md)  
+[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](aad-authentication-overview.md)

@@ -50,12 +50,12 @@ Azure SQL Database can be configured to use one of two types of authentication:
 
 To learn more about Azure AD authentication, see:
 
-- [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
+- [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../../azure-sql/database/aad-authentication-overview.md)
 - [Authentication to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Token-based authentication support for Azure SQL Database using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md)
+- [Token-based authentication support for Azure SQL Database using Azure AD authentication](../../azure-sql/database/aad-authentication-overview.md)
 
 > [!NOTE]
-> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../azure-sql/database/aad-authentication-overview.md#azure-ad-features-and-limitations).
 
 ## Restrict access based on IP address
 

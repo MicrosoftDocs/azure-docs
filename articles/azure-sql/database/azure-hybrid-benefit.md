@@ -19,7 +19,7 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
 
-![pricing](./media/sql-database-service-tiers/pricing.png)
+![pricing](./media/azure-hybrid-benefit/pricing.png)
 
 ## Choose a license model
 
@@ -58,5 +58,5 @@ To set or update the license type by using the REST API:
 
 ## Next steps
 
-- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](sql-database-paas-vs-sql-server-iaas.md).
-- For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](sql-database-features.md).
+- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+- For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](../../sql-database/sql-database-features.md).

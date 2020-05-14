@@ -35,7 +35,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](sql-database-recovery-using-backups.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
+Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](../../sql-database/sql-database-recovery-using-backups.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -101,7 +101,7 @@ Cleanup logic for the rowstore (B-tree) clustered index deletes aged row in smal
 
 The cleanup task for the clustered columnstore removes entire [row groups](/sql/relational-databases/indexes/columnstore-indexes-overview) at once (typically contain 1 million of rows each), which is very efficient, especially when historical data is generated at a high pace.
 
-![Clustered columnstore retention](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
+![Clustered columnstore retention](./media/temporal-tables-retention-policy/cciretention.png)
 
 Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That pattern is typical for intensive [transactional processing workloads that use temporal tables](/sql/relational-databases/tables/temporal-table-usage-scenarios) for change tracking and auditing, trend analysis, or IoT data ingestion.
 
@@ -154,17 +154,17 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 The query plan includes additional filter applied to end of period column (ValidTo) in the Clustered Index Scan operator on the history table (highlighted). This example assumes that one MONTH retention period was set on WebsiteUserInfo table.
 
-![Retention query filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
+![Retention query filter](./media/temporal-tables-retention-policy/queryexecplanwithretention.png)
 
 However, if you query history table directly, you may see rows that are older than specified retention period, but without any guarantee for repeatable query results. The following picture shows query execution plan for the query on the history table without additional filters applied:
 
-![Querying history without retention filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
+![Querying history without retention filter](./media/temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
 Do not rely your business logic on reading history table beyond retention period as you may get inconsistent or unexpected results. We recommend that you use temporal queries with FOR SYSTEM_TIME clause for analyzing data in temporal tables.
 
 ## Point in time restore considerations
 
-When you create new database by [restoring existing database to a specific point in time](sql-database-recovery-using-backups.md), it has temporal retention disabled at the database level. (**is_temporal_history_retention_enabled** flag set to OFF). This functionality allows you to examine all historical rows upon restore, without worrying that aged rows are removed before you get to query them. You can use it to *inspect historical data beyond configured retention period*.
+When you create new database by [restoring existing database to a specific point in time](../../sql-database/sql-database-recovery-using-backups.md), it has temporal retention disabled at the database level. (**is_temporal_history_retention_enabled** flag set to OFF). This functionality allows you to examine all historical rows upon restore, without worrying that aged rows are removed before you get to query them. You can use it to *inspect historical data beyond configured retention period*.
 
 Say that a temporal table has one MONTH retention period specified. If your database was created in Premium Service tier, you would be able to create database copy with the database state up to 35 days back in the past. That effectively would allow you to analyze historical rows that are up to 65 days old by querying the history table directly.
 
@@ -177,7 +177,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 ## Next steps
 
-To learn how to use temporal tables in your applications, check out [Getting Started with Temporal Tables](sql-database-temporal-tables.md).
+To learn how to use temporal tables in your applications, check out [Getting Started with Temporal Tables](../../sql-database/sql-database-temporal-tables.md).
 
 Visit Channel 9 to hear a [customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

@@ -18,7 +18,7 @@ ms.date: 02/25/2020
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md). For general differences between service tiers for SQL Database and SQL Managed Instance see [Service tier comparison](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md). For general differences between service tiers for SQL Database and SQL Managed Instance see [Service tier comparison](../azure-sql/database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## Hardware generation characteristics
 
@@ -53,7 +53,7 @@ The amount of In-memory OLTP space in [Business Critical](sql-database-service-t
 
 ## Service tier characteristics
 
-SQL Managed Instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](sql-database-service-tiers-general-purpose-business-critical.md), as described in the table below.
+SQL Managed Instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](../azure-sql/database/service-tiers-general-purpose-business-critical.md), as described in the table below.
 
 > [!Important]
 > Business Critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
@@ -103,7 +103,7 @@ There is also an instance-level limit on the max log write throughput (which is 
 
 ## Supported regions
 
-SQL Managed Instances can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a SQL Managed Instance in a region that is currently not supported, you can [send a support request via the Azure portal](quota-increase-request.md).
+SQL Managed Instances can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a SQL Managed Instance in a region that is currently not supported, you can [send a support request via the Azure portal](../azure-sql/database/quota-increase-request.md).
 
 ## Supported subscription types
 
@@ -118,13 +118,13 @@ SQL Managed Instance currently supports deployment only on the following types o
 
 ## Regional resource limitations
 
-Supported subscription types can contain a limited number of resources per region. SQL Managed Instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](quota-increase-request.md) depending on a type of subscription type:
+Supported subscription types can contain a limited number of resources per region. SQL Managed Instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](../azure-sql/database/quota-increase-request.md) depending on a type of subscription type:
 
 - **Subnet limit**: The maximum number of subnets where SQL Managed Instances are deployed in a single region.
 - **vCore unit limit**: The maximum number of vCore units that can be deployed across all instances in a single region. One GP vCore uses one vCore unit and one BC vCore takes 4 vCore units. The total number of instances is not limited as long as it is within the vCore unit limit.
 
 > [!Note]
-> These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](quota-increase-request.md) if you need more SQL Managed Instances in the current region. As an alternative, you can create new SQL Managed Instances in another Azure region without sending support requests.
+> These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](../azure-sql/database/quota-increase-request.md) if you need more SQL Managed Instances in the current region. As an alternative, you can create new SQL Managed Instances in another Azure region without sending support requests.
 
 The following table shows the **default regional limits** for supported subscription types (default limits can be extended using support request described below):
 
@@ -144,7 +144,7 @@ The following table shows the **default regional limits** for supported subscrip
 
 ## Request a quota increase
 
-If you need more SQL Managed Instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
+If you need more SQL Managed Instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../azure-sql/database/quota-increase-request.md).
 
 ## Next steps
 
