@@ -40,7 +40,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - A SQL Managed Instance
-  - Follow this article: [Quickstart: Create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md)
+  - Follow this article: [Quickstart: Create a SQL Managed Instance](quickstart-create-instance.md)
 - Able to access your SQL Managed Instance and [provisioned an Azure AD administrator for the SQL Managed Instance](../database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
   - [Connect your application to a SQL Managed Instance](connect-application-instance.md)
   - [SQL Managed Instance connectivity architecture](connectivity-architecture-overview.md)
@@ -51,10 +51,10 @@ To complete the tutorial, make sure you have the following prerequisites:
 SQL Managed Instances can be accessed through a private IP address. Much like an isolated SQL Server on-premises environment, applications or users need access to the SQL Managed Instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a SQL Managed Instance](connect-application-instance.md).
 
 It is also possible to configure a service endpoint on a SQL Managed Instance, which allows for public connections, in the same fashion as for Azure SQL Database.
-For more information, see the following article, [Configure public endpoint in Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
+For more information, see the following article, [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md).
 
 > [!NOTE]
-> Even with service endpoints enabled, [Azure SQL Database firewall rules](../database/firewall-configure.md) do not apply. Azure SQL Managed Instance has its own [built-in firewall](../../sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
+> Even with service endpoints enabled, [Azure SQL Database firewall rules](../database/firewall-configure.md) do not apply. Azure SQL Managed Instance has its own [built-in firewall](management-endpoint-verify-built-in-firewall.md) to manage connectivity.
 
 ## Create an Azure AD server principal (login) using SSMS
 
@@ -148,7 +148,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
      ![ssms-login-prompt.png](./media/tutorial-configure-aad-security/ssms-login-prompt.png)
 
-     For more information, see the following article: [Universal Authentication (SSMS support for MFA)](../../sql-database/sql-database-ssms-mfa-authentication.md)
+     For more information, see the following article: [Universal Authentication (SSMS support for MFA)](../ssms-mfa-authentication.md)
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication (MFA) login window. Sign in with your Azure AD password.
 
@@ -437,7 +437,7 @@ See the following [SQL Managed Instance capabilities security features](sql-mana
 
 - [SQL Managed Instance auditing](auditing-configure.md)
 - [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
-- [Threat detection](../../sql-database/sql-database-managed-instance-threat-detection.md)
+- [Threat detection](threat-detection-configure.md)
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)
 - [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)

@@ -48,7 +48,7 @@ General Purpose service tier is a default service tier in Azure SQL Database and
 
 ## Next steps
 
-- Find resource characteristics (number of cores, IO, memory) of General Purpose/Standard tier in [SQL Managed Instance](../../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Single database in [vCore model](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or Elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
+- Find resource characteristics (number of cores, IO, memory) of General Purpose/Standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), Single database in [vCore model](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or Elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
 - Learn about [Business Critical](service-tier-business-critical.md) and [Hyperscale](service-tier-hyperscale.md) tiers.
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).

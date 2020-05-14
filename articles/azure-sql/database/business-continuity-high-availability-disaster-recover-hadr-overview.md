@@ -39,7 +39,7 @@ To protect your business from data loss, SQL Database and SQL Managed Instance a
 
 SQL Database and SQL Managed Instance also provide several business continuity features that you can use to mitigate various unplanned scenarios.
 
-- [Temporal tables](../../sql-database/sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
+- [Temporal tables](../temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](automated-backups-overview.md) and [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
 - [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance

@@ -1152,6 +1152,6 @@ Advance to the next quickstart on how to connect to your SQL Managed Instance, a
 
 > [!div class="nextstepaction"]
 > [Connect to your SQL Managed Instance](connect-vm-instance-configure.md)
-> [Restore a database to a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started-restore.md)
+> [Restore a database to a SQL Managed Instance](quickstart-restore-sample-database.md)
 
 

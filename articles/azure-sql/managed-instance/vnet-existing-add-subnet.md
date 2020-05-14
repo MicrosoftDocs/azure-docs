@@ -54,5 +54,5 @@ The script prepares the subnet in three steps:
 ## Next steps
 
 - For an overview, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md).
-- For a tutorial that shows how to create a virtual network, create a SQL Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+- For a tutorial that shows how to create a virtual network, create a SQL Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](quickstart-create-instance.md).
 - For DNS issues, see [Configuring a custom DNS](custom-dns-configure.md).

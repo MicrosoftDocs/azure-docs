@@ -205,7 +205,7 @@ This parameter can be set during instance creation as well.
 
 This step can be done through the Azure portal or using PowerShell commands, and can be done anytime after the subnet is prepared for the managed instance.
 
-For details, see [Allow public endpoint traffic on the network security group](../../sql-database/sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+For details, see [Allow public endpoint traffic on the network security group](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
 ## Move existing single instance to pool
@@ -250,7 +250,7 @@ If there are multiple databases, repeat the process for each database.
 
 - For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
-- For a quickstart that creates a managed instance and restores a database from a backup file, see [create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+- For a quickstart that creates a managed instance and restores a database from a backup file, see [create a SQL Managed Instance](quickstart-create-instance.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
 - For advanced monitoring of SQL Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Managed Instance using Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - For pricing information, see [SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

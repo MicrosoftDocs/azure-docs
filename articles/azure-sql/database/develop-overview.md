@@ -16,7 +16,7 @@ ms.custom: sqldbrb=2
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database. This article applies to Azure SQL Database, Azure SQL Managed Instance and Elastic pools.
 
 > [!TIP]
-> Look at the getting started guides for [Azure SQL Database](quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](../../sql-database/sql-database-managed-instance-quickstart-guide.md) if you need to setup your Azure SQL Database.
+> Look at the getting started guides for [Azure SQL Database](quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](../managed-instance/quickstart-content-reference-guide.md) if you need to setup your Azure SQL Database.
 >
 
 ## Language and platform
@@ -37,7 +37,7 @@ In your client connection logic, override the default timeout to be 30 seconds. 
 
 If you are using a [connection pool](https://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
 
-Avoid long-running transactions because any infrastructure or connection failure might roll back the transaction. If possible, split the transaction in the multiple smaller transactions and use [batching to improve performance](../../sql-database/sql-database-use-batching-to-improve-performance.md).
+Avoid long-running transactions because any infrastructure or connection failure might roll back the transaction. If possible, split the transaction in the multiple smaller transactions and use [batching to improve performance](../use-batching-to-improve-performance.md).
 
 ## Resiliency
 

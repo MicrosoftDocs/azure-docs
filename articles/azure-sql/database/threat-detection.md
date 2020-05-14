@@ -37,7 +37,7 @@ For a script example, see [Configure auditing and Advanced Threat Protection usi
 ## Next steps
 
 - Learn more about [Advanced Threat Protection](threat-detection-overview.md).
-- Learn more about [Advanced Threat Protection in SQL Managed Instance](../../sql-database/sql-database-managed-instance-threat-detection.md).  
+- Learn more about [Advanced Threat Protection in SQL Managed Instance](../managed-instance/threat-detection-configure.md).  
 - Learn more about [advanced data security](advanced-data-security.md).
 - Learn more about [auditing](../../sql-database/sql-database-auditing.md)
 - Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)

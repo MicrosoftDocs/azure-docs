@@ -68,7 +68,7 @@ There are several resource limitations regarding instance pools and instances in
 
 - Instance pools are available only on Gen5 hardware.
 - SQL Managed Instances within a pool have dedicated CPU and RAM, so the aggregated number of vCores across all instances must be less than or equal to the number of vCores allocated to the pool.
-- All [instance level limits](../../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
+- All [instance level limits](resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
 - In addition to instance-level limits there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
   - Total number of databases per pool (100).
@@ -81,7 +81,7 @@ Total storage allocation and number of databases across all instances must be lo
   - 2 vCore instances support sizes between 32 GB and 640 GB
   - 4 vCore instances support sizes between 32 GB and 2 TB
 
-The [service tier property](../../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics) is associated with the instance pool resource so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
+The [service tier property](resource-limits.md#service-tier-characteristics) is associated with the instance pool resource so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
 
 ### Public preview limitations
 
@@ -144,10 +144,10 @@ For full details on instance pool pricing, refer to the *instance pools* section
 ## Next steps
 
 - To get started with instance pools, see [SQL Managed Instance pools how-to guide](instance-pools-configure.md).
-- To learn how to create your first SQL Managed Instance, see [Quickstart guide](../../sql-database/sql-database-managed-instance-get-started.md).
+- To learn how to create your first SQL Managed Instance, see [Quickstart guide](quickstart-create-instance.md).
 - For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
-- For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md).
+- For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](quickstart-create-instance.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
 - For advanced monitoring of SQL Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Managed Instance using Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - For pricing information, see [SQL Database managed instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -123,7 +123,7 @@ Before deploying the job to Azure, you can test the query logic locally against 
 
 ## Delta query
 
-When using the delta query, [temporal tables in Azure SQL Database](../sql-database/sql-database-temporal-tables.md) are recommended.
+When using the delta query, [temporal tables in Azure SQL Database](../azure-sql/temporal-tables.md) are recommended.
 
 1. Create a temporal table in Azure SQL Database.
    

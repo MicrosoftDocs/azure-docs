@@ -131,7 +131,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
 - MFA can be enabled for the entire Azure AD or for the whole Active Directory federated with Azure AD.
 
 - Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by MFA authentication:
-  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](../../sql-database/sql-database-ssms-mfa-authentication.md).
+  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](../ssms-mfa-authentication.md).
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Use other SQL tools supporting MFA.
     - SSMS Wizard support for export/extract/deploy database  
@@ -542,7 +542,7 @@ In a SQL Managed Instance:
 
 - You can access Azure SQL Database and SQL Managed Instance by connecting to a public endpoint (for example, using a public data path). The following best practices should be considered:
   - For a server in SQL Database, use [IP firewall rules](firewall-configure.md) to restrict access to only authorized IP addresses.
-  - For an instance in SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use an Azure SQL Managed Instance securely with public endpoints](../../sql-database/sql-database-managed-instance-public-endpoint-securely.md).
+  - For an instance in SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use an Azure SQL Managed Instance securely with public endpoints](../managed-instance/public-endpoint-overview.md).
 
 > [!NOTE]
 > A SQL Managed Instance public endpoint is not enabled by default and it and must be explicitly enabled. If company policy disallows the use of public endpoints, use [Azure Policy](../../governance/policy/overview.md) to prevent enabling public endpoints in the first place.

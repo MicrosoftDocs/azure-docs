@@ -70,9 +70,9 @@ Management and deployment services connect to a SQL Managed Instance by using a 
 
 ## Management endpoint
 
-Azure manages the SQL Managed Instance by using a management endpoint. This endpoint is inside the instance's virtual cluster. The management endpoint is protected by a built-in firewall on the network level. On the application level, it's protected by mutual certificate verification. To find the endpoint's IP address, see [Determine the management endpoint's IP address](../../sql-database/sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Azure manages the SQL Managed Instance by using a management endpoint. This endpoint is inside the instance's virtual cluster. The management endpoint is protected by a built-in firewall on the network level. On the application level, it's protected by mutual certificate verification. To find the endpoint's IP address, see [Determine the management endpoint's IP address](management-endpoint-find-ip-address.md).
 
-When connections start inside the SQL Managed Instance (as with backups and audit logs), traffic appears to start from the management endpoint's public IP address. You can limit access to public services from a SQL Managed Instance by setting firewall rules to allow only the SQL Managed Instance's IP address. For more information, see [Verify the SQL Managed Instance's built-in firewall](../../sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+When connections start inside the SQL Managed Instance (as with backups and audit logs), traffic appears to start from the management endpoint's public IP address. You can limit access to public services from a SQL Managed Instance by setting firewall rules to allow only the SQL Managed Instance's IP address. For more information, see [Verify the SQL Managed Instance's built-in firewall](management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Traffic that goes to Azure services that are inside the SQL Managed Instance's region is optimized and for that reason not NATed to the management endpoint public IP address. For that reason if you need to use IP based firewall rules, most commonly for storage, service needs to be in a different region from SQL Managed Instance.
@@ -339,7 +339,7 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
 \* MI SUBNET refers to the IP address range for the subnet in the form x.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
 > [!IMPORTANT]
-> Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](../../sql-database/sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](management-endpoint-find-ip-address.md).
 
 > [!NOTE]
 > If you use transactional replication in a SQL Managed Instance, and if you use any instance database as a publisher or a distributor, open port 445 (TCP outbound) in the subnet's security rules. This port will allow access to the Azure file share.
@@ -523,7 +523,7 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
 - Learn how to [set up a new Azure virtual network](virtual-network-subnet-create-arm-template.md) or an [existing Azure virtual network](vnet-existing-add-subnet.md) where you can deploy SQL Managed Instances.
 - [Calculate the size of the subnet](vnet-subnet-determine-size.md) where you want to deploy the SQL Managed Instances.
 - Learn how to create a SQL Managed Instance:
-  - From the [Azure portal](../../sql-database/sql-database-managed-instance-get-started.md).
+  - From the [Azure portal](quickstart-create-instance.md).
   - By using [PowerShell](scripts/create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).

@@ -24,12 +24,12 @@ To complete this sample, make sure you have the following prerequisites:
 
   || SQL Database | SQL Managed Instance |
   |:--- |:--- |:---|
-  | Create| [Portal](quickstart-create-single-database.md) | [Portal](../../sql-database/sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](quickstart-create-single-database.md) | [Portal](../managed-instance/quickstart-create-instance.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
   | Configure | [Server-level IP firewall rule](quickstart-firewall-create-server-level-portal.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
   |||[Connectivity from on-site](../managed-instance/point-to-site-p2s-configure.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../../sql-database/sql-database-managed-instance-get-started-restore.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/quickstart-restore-sample-database.md)
   |||Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 

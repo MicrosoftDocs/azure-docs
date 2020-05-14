@@ -57,7 +57,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 
-To create a managed instance, see [Create a managed instance](../../sql-database/sql-database-managed-instance-get-started.md)
+To create a managed instance, see [Create a managed instance](../managed-instance/quickstart-create-instance.md)
 
 ### Manage an existing server
 

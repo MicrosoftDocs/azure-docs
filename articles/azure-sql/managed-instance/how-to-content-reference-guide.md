@@ -19,11 +19,11 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Load data
 
-- [Migrate to an Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-migrate.md) – Learn about the recommended migration process and tools for migration to an Azure SQL Managed Instance.
-- [Migrate TDE cert to an Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-migrate-tde-certificate.md) – If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that a SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
+- [Migrate to an Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md) – Learn about the recommended migration process and tools for migration to an Azure SQL Managed Instance.
+- [Migrate TDE cert to an Azure SQL Managed Instance](tde-certificate-migrate.md) – If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that a SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
 - [Import a DB from a BACPAC](../database/database-import.md)
 - [Export a DB to BACPAC](../database/database-export.md)
-- [Load data with BCP](../../sql-database/sql-database-load-from-csv-with-bcp.md)
+- [Load data with BCP](../load-from-csv-with-bcp.md)
 - [Load data with ADF](../../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ## Network configuration
@@ -36,11 +36,11 @@ In this article you can find a content reference to various guides, scripts, and
   Verify network requirements and configure your existing virtual network and subnet to deploy the SQL Managed Instance. 
 - [Configure custom DNS](custom-dns-configure.md)
   Configure custom DNS to grant external resource access to  custom domains from your SQL Managed Instance via a linked server of db mail profiles. 
-- [Sync network configuration](../../sql-database/sql-database-managed-instance-sync-network-configuration.md)
+- [Sync network configuration](azure-app-sync-network-configuration.md)
   Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md)
-- [Find management endpoint IP address](../../sql-database/sql-database-managed-instance-find-management-endpoint-ip-address.md) 
+- [Find management endpoint IP address](management-endpoint-find-ip-address.md) 
   Determine the public endpoint the SQL Managed Instance is using for management purposes. 
-- [Verify built-in firewall protection](../../sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)
+- [Verify built-in firewall protection](management-endpoint-verify-built-in-firewall.md)
   Verify the SQL Managed Instance allows traffic only on necessary ports, and other built-in firewall rules. 
 - [Connect applications](connect-application-instance.md) 
   Learn about different patterns for connecting the applications to your SQL Managed Instance.
@@ -49,16 +49,16 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Configure Azure AD auth](../database/aad-authentication-configure.md)
 - [Configure Conditional Access](../database/conditional-access-confugre.md)
-- [Multi-factor AAD auth](../../sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configure multi-factor auth](../../sql-database/sql-database-ssms-mfa-authentication-configure.md)
+- [Multi-factor AAD auth](../ssms-mfa-authentication.md)
+- [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](../database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../../sql-database/sql-database-in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
 - [Configure Azure Automation](../database/manage-automation.md)
 - [Transactional replication](tutorial-replication-between-two-instances-configure.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
-- [Configure threat detection](../../sql-database/sql-database-managed-instance-threat-detection.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
+- [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
 - [Creating alerts](../../sql-database/sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
 
 ## Monitoring and tuning
@@ -66,9 +66,9 @@ In this article you can find a content reference to various guides, scripts, and
 - [Manual tuning](../database/performance-guidance.md)
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
-- [Troubleshoot performance with Intelligent Insights](../../sql-database/sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Use Intelligent Insights diagnostics log](../../sql-database/sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Monitor In-memory OLTP space](../../sql-database/sql-database-in-memory-oltp-monitoring.md)
+- [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
+- [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
+- [Monitor In-memory OLTP space](../in-memory-oltp-monitoring.md)
 
 ### Extended events
 
@@ -81,7 +81,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
 - [Use Spark Connector](../../cosmos-db/spark-connector.md)
 - [Authenticate app](../database/application-authentication-get-client-id-keys.md)
-- [Use batching for better performance](../../sql-database/sql-database-use-batching-to-improve-performance.md)
+- [Use batching for better performance](../use-batching-to-improve-performance.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)
 - [DNS aliases](../../sql-database/dns-alias-overview.md)
 - [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)
@@ -105,4 +105,4 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Next steps
 
-Get started by [deploying your SQL Managed Instance](../../sql-database/sql-database-managed-instance-get-started.md)
+Get started by [deploying your SQL Managed Instance](quickstart-create-instance.md)

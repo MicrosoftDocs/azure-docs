@@ -144,7 +144,7 @@ In this configuration, an Azure SQL Database or Azure SQL Managed Instance datab
 
 ## With failover groups
 
-[Active geo-replication](active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](auto-failover-group-overview.md), but note that the publication has to be [manually deleted](../../sql-database/sql-database-managed-instance-transact-sql-information.md#replication) from the primary SQL Managed instance and recreated on the secondary SQL Managed Instance after failover.
+[Active geo-replication](active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](auto-failover-group-overview.md), but note that the publication has to be [manually deleted](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication) from the primary SQL Managed instance and recreated on the secondary SQL Managed Instance after failover.
 
 If geo-replication is enabled on a **publisher** or **distributor** SQL Managed Instance in a [failover group](auto-failover-group-overview.md), the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 
@@ -193,7 +193,7 @@ For more information about configuring transactional replication, see the follow
 
 ## See Also  
 
-- [Replication with an MI and a failover group](../../sql-database/sql-database-managed-instance-transact-sql-information.md#replication)
+- [Replication with an MI and a failover group](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication)
 - [Replication to SQL Database](../../sql-database/replication-to-sql-database.md)
 - [Replication to managed instance](../managed-instance/tutorial-replication-between-two-instances-configure.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

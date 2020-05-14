@@ -105,7 +105,7 @@ For the **SQL Managed Instance** quota type, use the following steps:
 
    ![Managed instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
 
-For more information, see [Overview Azure SQL Database managed instance resource limits](../../sql-database/sql-database-managed-instance-resource-limits.md).
+For more information, see [Overview Azure SQL Database managed instance resource limits](../managed-instance/resource-limits.md).
 
 ## Submit your request
 
