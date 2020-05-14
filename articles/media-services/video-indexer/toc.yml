@@ -15,6 +15,8 @@
   items:
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
+  - name: Logic Apps connector
+    href: logic-apps-connector-tutorial.md
 - name: Samples
   items:
   - name: Video Indexer samples

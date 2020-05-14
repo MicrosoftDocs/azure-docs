@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 04/15/2020
 ---
 

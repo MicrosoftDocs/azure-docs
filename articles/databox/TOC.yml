@@ -56,6 +56,8 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md 
       - name: Move data to a blob tier
         href: data-box-how-to-set-data-tier.md
       - name: Cable the device
@@ -115,7 +117,7 @@
     - name: How to
       items:
       - name: Manage via Azure portal
-        href: data-box-portal-ui-admin.md
+        href: data-box-portal-ui-admin.md     
       - name: Troubleshoot
         items:
         - name: Unlock issues
@@ -175,6 +177,8 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md
       - name: Troubleshoot device issues
         href: data-box-troubleshoot.md 
       - name: Move data to a blob tier

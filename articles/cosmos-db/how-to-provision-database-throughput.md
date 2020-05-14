@@ -43,7 +43,7 @@ To create a database with shared throughput see,
 
 ### <a id="dotnet-all"></a>All APIs
 
-### .Net V2 SDK
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 //set the throughput for the database
@@ -58,12 +58,16 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
-### .Net V3 SDK
+# [.NET SDK V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
+---
+
 ### <a id="dotnet-cassandra"></a>Cassandra API
-Similar command can be executed through any CQL compliant driver. 
+
+Similar command can be executed through any CQL compliant driver.
+
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");

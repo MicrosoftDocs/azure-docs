@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/07/2020
 ms.author: spelluru
 
 ---
@@ -55,13 +55,16 @@ See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.co
 
 When an administrator adds you as a lab creator to a lab account, you're given the permissions to create labs. But, you don't have the permissions to edit any settings inside the lab account, including the list of enabled virtual machine images. To enable additional images, contact your lab account administrator to do it for you, or ask the administrator to add you as a Contributor role to the lab account. The Contributor role will give you the permissions to edit the virtual machine image list in the lab account.
 
+### Can I attach additional disks to a virtual machine?
+No. it's not possible to attach additional disks to a VM in a classroom lab. 
+
 ## Users
 
 ### How many users can be in a classroom lab?
 You can add up to 400 users to a classroom lab. 
 
 ## Blog post
-Subscribe to the [Azure Lab Services blog](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Subscribe to the [Azure Lab Services blog](https://aka.ms/azlabs-blog).
 
 ## Update notifications
 Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product=lab-services) to stay informed about new features in Lab Services.
@@ -71,6 +74,6 @@ Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ. 
-- To reach a wider audience, post a question on the [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- To reach a wider audience, post a question on the [Azure Lab Services — Tech community forum](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - For feature requests, submit your requests and ideas to [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

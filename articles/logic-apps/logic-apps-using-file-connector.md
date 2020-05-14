@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ---
@@ -71,7 +71,7 @@ This article shows how you can connect to an on-premises file system as describe
    | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, for example, if you installed your on-premises data gateway  such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses: **Windows** |
-   | **Username** | Yes | <*domain*>\\<*username*> | The username for the computer where you have your file system |
+   | **Username** | Yes | <*domain*>\\<*username*> <p>-or- <p><*local-computer*>\\<*username*> | The username for the computer where you have your file system folder. <p>If your file system folder is on the same computer as the on-premises data gateway, you can use <*local-computer*>\\<*username*>. |
    | **Password** | Yes | <*your-password*> | The password for the computer where you have your file system |
    | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway |
    |||||

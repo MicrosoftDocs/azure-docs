@@ -1,30 +1,30 @@
 ### YamlMime:Landing
 
-title: Azure DevOps Projects documentation
-summary: Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+title: Azure DevOps Starter documentation
+summary: Azure DevOps Starter presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
 metadata:
-  title: Azure DevOps Projects documentation
+  title: Azure DevOps Starter documentation
   description: Bring your existing code and Git repository or choose a sample app to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
+  ms.date: 03/24/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
   # Card
-  - title: About Azure DevOps Projects
+  - title: About Azure DevOps Starter
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure DevOps Projects?
+          - text: What is Azure DevOps Starter?
             url: overview.md
       - linkListType: video
         links:
-          - text: Create CI/CD with the DevOps Projects video (8:53)
+          - text: Create CI/CD with the DevOps Starter video (8:53)
             url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 
   # Card (optional)

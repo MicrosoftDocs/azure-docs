@@ -22,7 +22,7 @@ Policy definitions describe the conditions that need to be met. A condition comp
 
 The resources required by Batch include: account, compute node, pool, job, and task. So, you would use property aliases to access specific properties for these resources. Learn more about [Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-To make sure you know the current aliases and review your resources and policies, use the Azure policy extension for Visual Studio Code. It can be installed on all platforms that are supported by Visual Studio Code. This support includes Windows, Linux, and macOS. See [installation guidelines](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
+To make sure you know the current aliases and review your resources and policies, use the Azure Policy extension for Visual Studio Code. It can be installed on all platforms that are supported by Visual Studio Code. This support includes Windows, Linux, and macOS. See [installation guidelines](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
 
 

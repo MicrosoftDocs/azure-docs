@@ -114,4 +114,4 @@ To perform tasks on public IP addresses, your account must be assigned to the [n
 ## Next steps
 
 - Create a public IP address using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for public IP addresses
+- Create and assign [Azure Policy definitions](policy-samples.md) for public IP addresses

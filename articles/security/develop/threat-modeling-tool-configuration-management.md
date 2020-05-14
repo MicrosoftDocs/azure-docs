@@ -96,7 +96,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | third-party JavaScripts should be referenced only from trusted sources. The reference endpoints should always be on SSL. |
+| **Steps** | third-party JavaScripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
 
 ## <a id="ui-defenses"></a>Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses
 

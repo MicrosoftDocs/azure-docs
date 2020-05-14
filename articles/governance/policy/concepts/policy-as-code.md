@@ -124,7 +124,7 @@ to test the policies and assignments should have both compliant and non-complian
 good unit test for code, you want to test that resources are as expected and that you also have no
 false-positives or false-negatives. If you test and validate only for what you expect, there may be
 unexpected and unidentified impact from the policy. For more information, see
-[Evaluate the impact of a new Azure policy](./evaluate-impact.md).
+[Evaluate the impact of a new Azure Policy definition](./evaluate-impact.md).
 
 ### Enable remediation tasks
 

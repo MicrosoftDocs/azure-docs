@@ -335,7 +335,7 @@ GO
 ### Maintenance
 
 - **Adding new shards**: Execute the T-SQL script to enable RLS on any new shards, otherwise queries on these shards are not be filtered.
-- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## Summary
 

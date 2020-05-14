@@ -96,6 +96,10 @@ Yes, you can replicate the application and keep the disaster recovery configurat
 
 For example, if your application has each tier's application, database, and web in a separate resource group, then you have to select the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) three times to protect all the tiers. Site Recovery will replicate these three tiers into three different resource groups.
 
+### Can I move storage accounts across resource groups?
+
+No, this is an unsupported scenario. However, if you accidentally move storage accounts to a different resource group and delete the original resource group, then you can create a new resource group with the same name as the old resource group and then move the storage account to this resource group.
+
 ## Replication policy
 
 ### What is a replication policy?
@@ -189,10 +193,10 @@ You can replicate 16 virtual machines together in a replication group.
 Because multi-VM consistency is CPU intensive, enabling it can affect workload performance. Use multi-VM consistency only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have multi-VM consistency for the SQL Server instances only.
 
 ### Can you add an already replicating VM to a replication group?
-
 You can add a VM to a new replication group while enabling replication. You can also add a VM to an existing replication group while enabling replication. However, you cannot add an already replicating VM to a new replication group or existing replication group.
-
+ 
 ## Failover
+
 
 ### How is capacity ensured in the target region for Azure VMs?
 

@@ -46,7 +46,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddSignIn(Configuration, "AzureAd");
+    services.AddSignIn(Configuration, "AzureAd")
             .AddWebAppCallsProtectedWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddInMemoryTokenCaches();

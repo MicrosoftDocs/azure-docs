@@ -34,7 +34,7 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
 ## Installation and import
-
+                           
 * **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
 
    This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
@@ -52,6 +52,44 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
         pip install azureml-train-automl 
      ```
      
+* **Explanation package not guarateed to be installed when installing the azureml-train-automl-client:** 
+   
+   When running a remote automl run with model explanation enabled you will see an error message saying ""Please install azureml-explain-model package for model explanations." This is a known issue and as a workaround please follow one of the steps below:
+  
+  1. Install azureml-explain-model locally.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Disable the explainability feature entirely by passing model_explainability=False in the automl configuration.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
+* **Panda errors: Typically seen during AutoML Experiment:**
+   
+   When manually setting up your environmnet using pip, you will notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Open an Anaconda prompt and clone the GitHub repository for a set of sample notebooks.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. cd to the how-to-use-azureml/automated-machine-learning folder where the sample notebooks were extracted and then run:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Error message: Cannot uninstall 'PyYAML'**
 
     Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:

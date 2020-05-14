@@ -196,7 +196,7 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 
 ## Billing examples with free tier accounts
 With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 400 RU/s and 5 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 400 Ru/s and 5 GB, only the RU/s and storage beyond what is covered by free tier. 
-The 400 RU/s applies to any type of RU/s - provisioned throughput, autopilot (preview), and multi-master.  
+The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale and multi-master.  
 
 ### Billing example - container or database with provisioned throughput
 - Let's suppose we create a database or container in a free tier account with 400 RU/s and 5 GB of storage.
@@ -204,8 +204,8 @@ The 400 RU/s applies to any type of RU/s - provisioned throughput, autopilot (pr
 - Now, let's suppose in the same account, we add another database or container with 1000 RU/s and 10 GB of storage.
 - Your bill will now show a charge for the 1000 RU/s and 10 GB of storage. 
 
-### Billing example - container or database with autopilot throughput (preview)
-- Let's suppose in a free tier account, we create a database or container with autopilot enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s. 
+### Billing example - container or database with autoscale throughput
+- Let's suppose in a free tier account, we create a database or container with autoscale enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s. 
 - Suppose in hour 1 through hour 10, the resource is at the minimum of 400 RU/s. During hour 11, the resource scales up to 1000 RU/s and then back down to 400 RU/s within the hour.
 - In hours 1 through 10, you will be billed $0 for throughput, as the 400 RU/s were covered by free tier. 
 - In hour 11, you will be billed for an effective 1000 RU/s - 400 RU/s = 600 RU/s, as this is the highest RU/s in the hour. This will be 6 units of 100 RU/s for the hour, so the total throughput cost for the hour will be 6 units * $0.012 = $0.072. 

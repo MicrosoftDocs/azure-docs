@@ -84,8 +84,12 @@ There are multiple methods to install the Log Analytics agent and connect your m
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
-* Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise and Pro
+* Windows 8 Enterprise and Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
@@ -107,11 +111,11 @@ Starting with versions released after August 2018, we are making the following c
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) and 7 (x64)  
-* Oracle Linux 6 and 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) and 7 (x64)
-* Debian GNU/Linux 8 and 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64)
+* CentOS Linux 6 (x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
+* Debian GNU/Linux 8 and 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
 
 >[!NOTE]
@@ -139,7 +143,7 @@ To ensure the security of data in transit to Azure Monitor logs, we strongly enc
 
 
 ## SHA-2 Code Signing Support Requirement for Windows
-The Windows agent will begin to exclusively use SHA-2 signing on May 18, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before May 18, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
 1. Install the latest Service Pack for your OS. The required service pack versions are:
     - Windows 7 SP1
@@ -166,7 +170,6 @@ The following table lists the proxy and firewall configuration information that'
 |*.oms.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Inbound and Outbound|Yes |
 |*.azure-automation.net |Port 443 |Inbound and Outbound|Yes |
-|*.azure.com |Port 443|Inbound and Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

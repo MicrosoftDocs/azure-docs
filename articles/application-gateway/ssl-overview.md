@@ -24,6 +24,10 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 
 To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the application gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
+> [!IMPORTANT] 
+> Please note that the certificate on the listener requires the entire certificate chain to be uploaded. 
+
+
 > [!NOTE] 
 >
 > Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.

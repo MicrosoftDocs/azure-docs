@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Create a standalone Azure Automation account
 
-This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Monitor logs. You can add those management solutions or integrate with Azure Monitor logs for advanced monitoring of runbook jobs at any point in the future.
+This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management features or integrating with Azure Monitor logs. You can add management features or integrate with Azure Monitor logs for advanced monitoring of runbook jobs at any point in the future.
 
 With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model. One Automation Account can manage resources across all regions and subscriptions for a given tenant.
 

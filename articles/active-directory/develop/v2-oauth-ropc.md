@@ -3,7 +3,7 @@ title: Sign in with resource owner password credentials grant | Azure
 titleSuffix: Microsoft identity platform
 description: Support browser-less authentication flows using the resource owner password credential (ROPC) grant.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory

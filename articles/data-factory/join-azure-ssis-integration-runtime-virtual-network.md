@@ -288,7 +288,7 @@ Those resources will be created when your Azure-SSIS IR starts. They'll be delet
 
 Make sure that you have no resource lock on the resource group/subscription to which the virtual network/your static public IP addresses belong. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network/your static public IP addresses belong: 
+Make sure that you don't have an Azure Policy assignment that prevents the following resources from being created under the resource group/subscription to which the virtual network/your static public IP addresses belong: 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 

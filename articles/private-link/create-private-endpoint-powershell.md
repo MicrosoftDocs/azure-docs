@@ -133,7 +133,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -194,9 +194,10 @@ mstsc /v:<publicIpAddress>
 ## Access SQL Database Server privately from the VM
 
 1. In the Remote Desktop of myVM, open PowerShell.
-2. Enter `nslookup myserver.database.windows.net`. 
+2. Enter `nslookup myserver.database.windows.net`. Remember to replace `myserver` with your SQL server name.
 
     You'll receive a message similar to this:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -205,17 +206,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Install SQL Server Management Studio
-4. In Connect to server, enter or select this information:
-  	Setting	Value
-	  Server type	Select Database Engine.
-	  Server name	Select myserver.database.windows.net
-	  Username	Enter a username provided during creation.
-	  Password	Enter a password provided during creation.
-	  Remember password	Select Yes.
-5. Select Connect.
-6. Browse Databases from left menu. 
-7. (Optionally) Create or query information from mydatabase
+    
+3. Install SQL Server Management Studio.
+4. In **Connect to server**, enter or select this information:
+
+    | Setting | Value |
+    | --- | --- |
+    | Server type | Database Engine |
+    | Server name | myserver.database.windows.net |
+    | Username | Enter the username provided during creation |
+    | Password | Enter the password provided during creation |
+    | Remember Password | Yes |
+    
+5. Select **Connect**.
+6. Browse **Databases** from the left menu. 
+7. (Optionally) Create or query information from mydatabase.
 8. Close the remote desktop connection to *myVM*. 
 
 ## Clean up resources 
