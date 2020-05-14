@@ -30,7 +30,7 @@ Azure SQL Database secures data by allowing you to:
 - Enable security features
 
 > [!NOTE]
-> Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance) and [connectivity architecture](../../sql-database/sql-database-managed-instance-connectivity-architecture.md).
+> Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance.md) and [connectivity architecture](../../sql-database/sql-database-managed-instance-connectivity-architecture.md).
 
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](../../sql-database/sql-database-security-overview.md) articles.
 
