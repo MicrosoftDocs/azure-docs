@@ -37,10 +37,10 @@ While any HTML5-capable browser should work, we officially support the following
 
 ## Access remote resources feed
 
-In a browser, navigate to the Windows Virtual Desktop web client at <https://rdweb.wvd.microsoft.com/arm/webclient> and sign in with your user account.
+In a browser, navigate to the Azure Resource Manager-integrated version of the Windows Virtual Desktop web client at <https://rdweb.wvd.microsoft.com/arm/webclient> and sign in with your user account.
 
 >[!NOTE]
->If you're using the Windows Virtual Desktop Fall 2019 release, use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
+>If you're using the Windows Virtual Desktop Fall 2019 release and aren't using Azure Resource Manager resources, connect to your resources at <https://rdweb.wvd.microsoft.com/webclient>.
 
 >[!NOTE]
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
