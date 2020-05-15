@@ -17,7 +17,7 @@ An external table points to data located in Hadoop, Azure Storage blob, or Azure
 
 ## External tables in Synapse SQL pool and on-demand
 
-### [SQL pool](#tab/sql-pool-external-tables) 
+### [SQL pool](#tab/sql-pool) 
 
 In SQL pool, you can use an external table to:
 
@@ -28,7 +28,7 @@ When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse
 
 For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### [SQL on-demand](#tab/sql-ondemand)
+### [SQL on-demand](#tab/sql-on-demand)
 
 For SQL on-demand, you'll use an external table to:
 
@@ -122,7 +122,7 @@ WITH
   ) ;
 ```
 
-#### [SQL on-demand](#tab/sql-ondemand)
+#### [SQL on-demand](#tab/sql-on-demand)
 
 The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
