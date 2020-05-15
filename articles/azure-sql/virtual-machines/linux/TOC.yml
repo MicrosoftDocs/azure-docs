@@ -1,7 +1,7 @@
 - name: Overview
   items:
   - name: About Linux SQL Server VMs
-    href: sql-server-linux-virtual-machines-overview.md
+    href: sql-server-on-linux-vm-what-is-iaas-overview.md
 - name: Quickstarts
   items:
   - name: Create SQL VM - Portal

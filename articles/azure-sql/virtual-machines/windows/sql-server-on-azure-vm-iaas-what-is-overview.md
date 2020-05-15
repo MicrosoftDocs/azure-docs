@@ -124,17 +124,17 @@ For details, see:
 - [Create a SQL virtual machine](sql-vm-create-portal-quickstart.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
-Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](../../database/frequently-asked-questions-faq.md#images).
+Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](frequently-asked-questions-faq.md#images).
 
 ## Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
 
 ## Related products and services
 ### Windows Virtual Machines
-* [Virtual Machines overview](../../../active-directory-b2c/overview.md)
+* [Virtual Machines overview](../../../virtual-machines/windows/overview.md)
 
 ### Storage
-* [Introduction to Microsoft Azure Storage](../../../storage/blobs/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### Networking
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
