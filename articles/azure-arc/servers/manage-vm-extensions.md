@@ -40,7 +40,7 @@ This feature depends on the following Azure resource providers in your subscript
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
-If they are not already registered, follow the steps under [Register Azure resource providers] (overview.md#register-azure-resource-providers). 
+If they are not already registered, follow the steps under [Register Azure resource providers](overview.md#register-azure-resource-providers). 
 
 ### Connected Machine agent
 
@@ -48,8 +48,8 @@ Verify your machine matches the [supported versions](overview.md#supported-opera
 
 The minimum version of the Connected Machine agent that is supported with this feature is:
 
-* Windows - 0.7.*.*
-* Linux - 0.8.*.*
+* Windows - 0.7.x
+* Linux - 0.8.x
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
 
@@ -63,4 +63,14 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
 3. Choose **Extensions**, then select **Add**. Choose the extension you want from the list of available extensions and follow the instructions in the wizard.
 
- 
+The following example shows the installation of the Log Analytics VM extension from the Azure portal:
+
+![Install Log Analytics VM extension](./media/manage-vm-extension/mma-extension-config.png)
+
+## Enable extensions with PowerShell
+
+Several PowerShell commands exist for running individual extensions. To see a list, use Get-Command and filter on *ArcExtension*:
+
+```powershell
+Get-Command Get-Arc*Extension* -Module ArcExtension
+```
