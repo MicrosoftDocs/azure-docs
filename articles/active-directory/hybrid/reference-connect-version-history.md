@@ -8,11 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-<<<<<<< HEAD
-ms.date: 04/17/2020
-=======
 ms.date: 04/23/2020
->>>>>>> 4dd853abff40798ac914d6359f1af77dea568cb0
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -48,23 +44,6 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
-<<<<<<< HEAD
-## 1.5.20.0
-
-### Release status
-04/09/2020: Released for download
-
-### Fixed issues
-This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
-
-> [!IMPORTANT]
-> If you use mS-DS-ConsistencyGuid as the source anchor, and have cloned the **In from AD - Group Join** sync rule and plan to upgrade, please do the following steps as part of the upgrade:
-> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
-> 2. Edit cloned join sync rule and add the following two transformations:
-  - direct flow `objectGUID` to `sourceAnchorBinary`	
-    - expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`      
-> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`
-=======
 ## 1.5.30.0
 
 ### Release status
@@ -77,7 +56,6 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
      - `GrantAcls : No GUID Found for computer …`
 
 ## 1.5.29.0
->>>>>>> 4dd853abff40798ac914d6359f1af77dea568cb0
 
 ### Release status
 04/23/2020: Released for download
@@ -93,8 +71,6 @@ This hotfix build fixes an issue introduced in build 1.5.20.0 where a tenant adm
 ### Fixed issues
 This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In from AD - Group Join** rule and have not cloned the **In from AD - Group Common** rule.
 
-<<<<<<< HEAD
-=======
 ## 1.5.20.0
 
 ### Release status
@@ -113,7 +89,6 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 
 
 
->>>>>>> 4dd853abff40798ac914d6359f1af77dea568cb0
 ## 1.5.18.0
 
 ### Release status
@@ -137,10 +112,7 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
 - Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
-<<<<<<< HEAD
-=======
 - Fixed a bug in the Domain/OU filtering page that would remove the Run Profiles of a domain by just partially expanding the domain tree, without making any changes.
->>>>>>> 4dd853abff40798ac914d6359f1af77dea568cb0
 
 ## 1.4.38.0
 ### Release status
