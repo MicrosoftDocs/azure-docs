@@ -599,6 +599,14 @@ If a back-end API doesn't require a scope, which isn't recommended, you can use 
 
 ## Next steps
 
-To learn more about the auth code flow, as well as the differences between the implicit and authorization code flows, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+In this tutorial, you created a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
 
-If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario:      Single-page application](scenario-spa-overview.md) series of articles can help you get started.
+> [!div class="checklist"]
+> * Perform the OAuth 2.0 authorization code flow with PKCE
+> * Sign in personal Microsoft accounts as well as work and school accounts
+> * Acquire an access token
+> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
+
+To learn more about the authorization code flow, including the differences between the implicit and auth code flows, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+
+If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
