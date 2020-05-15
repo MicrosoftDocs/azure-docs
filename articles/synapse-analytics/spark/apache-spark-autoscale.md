@@ -53,7 +53,7 @@ To enable the Autoscale feature, complete the following steps as part of the nor
     * **Min** number of nodes.
     * **Max** number of nodes.
 
-The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can not be less than three.
+The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can't be fewer than three.
 
 ## Best practices
 
