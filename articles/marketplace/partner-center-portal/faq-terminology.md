@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions and terminology for the Microsoft commercial marketplace analytics in Partner Center 
-description: Learn how to address commonly asked questions about commercial marketplace analytics. Includes a data dictionary for analytics terminology.
+title: Commercial marketplace analytics FAQ & terminology - Partner Center 
+description: Get answers to commonly asked questions about commercial marketplace analytics in Partner Center. This article includes a data dictionary for analytics terminology.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,13 +9,11 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ---
 
-# Frequently asked questions and terminology for commercial marketplace analytics
+# Commercial marketplace analytics terminology and common questions
 
 This article addresses commonly asked questions about analytics messages in Partner Center and also provides a dictionary of analytics terminology.
 
-## Frequently asked questions
-
-This section provides answers to commonly asked questions about **No Analytics Available Yet** messages in Partner Center.
+## Common questions
 
 **I am unable to view my analytics data in Partner Center. When I access these pages, I see the message below. Why is this?**
 

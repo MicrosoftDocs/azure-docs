@@ -68,7 +68,7 @@ For example, run the installation program with the `/?` parameter to review the 
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-To install the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command.
+To install the agent silently and create a setup log file in the `C:\Support\Logs` folder that exist, run the following command.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
@@ -104,7 +104,7 @@ Restart-Service -Name himds
 
 After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Install and validate the agent on Linux
 
@@ -141,7 +141,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Verify the connection with Azure Arc
 

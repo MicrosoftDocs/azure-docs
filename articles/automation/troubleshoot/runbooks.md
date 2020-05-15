@@ -44,7 +44,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
     * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#message-streams) to the runbook to identify what happens before the runbook is suspended.
-    * [Handle any exceptions](../automation-runbook-execution.md#handling-exceptions) that are thrown by your job.
+    * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
 
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
@@ -229,7 +229,7 @@ The runbook isn't using the correct context when running.
 
 ### Resolution
 
-The subscription context might be lost when a runbook invokes multiple runbooks. To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Working with multiple subscriptions](../automation-runbook-execution.md#working-with-multiple-subscriptions).
+The subscription context might be lost when a runbook invokes multiple runbooks. To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -629,7 +629,7 @@ This issue can occur because Azure sandboxes prevent access to all out-of-proces
 
 ### Resolution
 
-For details about the use of Azure sandboxes, see [Runbook execution in Azure Automation](../automation-runbook-execution.md#where-to-run-your-runbooks).
+For details about the use of Azure sandboxes, see [Runbook execution environment](../automation-runbook-execution.md#runbook-execution-environment).
 
 ## Scenario: Invalid Forbidden status code when using Key Vault inside a runbook
 

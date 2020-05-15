@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -30,6 +30,7 @@ You can deploy the following resource types at the subscription level:
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
+* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
 
 ### Schema
 
@@ -91,11 +92,11 @@ For subscription-level deployments, there are some important considerations when
 * Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
 
   For example, to get the resource ID for a policy definition, use:
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   The returned resource ID has the following format:
 
   ```json

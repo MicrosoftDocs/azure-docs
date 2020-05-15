@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -110,6 +110,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 05/05/2020: Changes in [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) to express that Gen2 deployments are available for Mv1 VM family
 - 04/24/2020: Changes in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), in [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), [High availability for SAP NetWeaver on Azure VMs on SLES with ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) and [High availability for SAP NetWeaver on Azure VMs on RHEL with ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to add clarification that the IP addresses for ANF volumes are automatically assigned
 - 04/22/2020: Change in [High availability of SAP HANA on Azure VMs on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) to remove meta attribute `is-managed` from the instructions, as it conflicts with placing the cluster in or out of maintenance mode
 - 04/21/2020: Added SQL Azure DB as supported DBMS for SAP (Hybris) Commerce Platform 1811 and later in articles [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) and [SAP certifications and configurations running on Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

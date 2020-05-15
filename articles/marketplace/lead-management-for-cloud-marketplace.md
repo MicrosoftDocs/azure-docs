@@ -11,15 +11,11 @@ ms.author: dsindona
 
 # Lead management for commercial marketplace
 
-
 Customers are the center of any good business. In the transformation of today's product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in [Partner Center](https://partner.microsoft.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
-
-
 
 ## What are leads in the marketplace?
 
 The leads are from customers who are interested or deploying your products from the Marketplace. Whether your product is listed on Azure Marketplace or AppSource, you will be able to receive leads from customers once it is set up properly from your CRM to your listing(s) in Partner Center. 
-
 
 ## How to connect your CRM system with Partner Center
 
@@ -43,7 +39,7 @@ Once you have configured your lead destination properly and have hit Publish on 
 
 Once the technical setup is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
-## Common lead configuration errors during publishing in Partner Center
+## <a id="publishing-config-errors"></a> Common lead configuration errors during publishing in Partner Center
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 

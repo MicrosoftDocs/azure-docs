@@ -104,7 +104,7 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
 
     ```Kusto
     AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests"
 
     ```
 
@@ -112,7 +112,7 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
 
     ```Kusto
     AzureActivity 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
 
     ```
@@ -121,7 +121,7 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
 
     ```Kusto
     AzureActivity 
-    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where Caller == "test@company.com" and ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
 

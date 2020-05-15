@@ -1247,7 +1247,10 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure that moving to a new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
+
+> [!IMPORTANT]
+> Workspaces that have a linked automation account can't be moved. Before you begin a move operation, be sure to unlink any automation accounts.   
 
 ## Microsoft.OperationsManagement
 

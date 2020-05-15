@@ -36,8 +36,8 @@ Files in the **$web** container are case-sensitive, served through anonymous acc
 You can use any of these tools to upload content to the **$web** container:
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md#cli)
-> * [Azure PowerShell module](storage-blob-static-website-how-to.md#powershell)
+> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> * [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)

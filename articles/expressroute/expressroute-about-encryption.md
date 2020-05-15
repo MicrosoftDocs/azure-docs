@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
 
 ---
@@ -26,8 +26,8 @@ Yes. For the MACsec configuration, we support the pre-shared key mode only. It m
 No. If MACsec is configured and a key mismatch occurs, you lose connectivity to Microsoft. In other words, we won't fall back to an unencrypted connection, exposing your data. 
 ### Will enabling MACsec on ExpressRoute Direct degrade network performance?
 MACsec encryption and decryption occurs in hardware on the routers we use. There's no performance impact on our side. However, you should check with the network vendor for the devices you use and see if MACsec has any performance implication.
-### which cipher suites are supported for encryption?
-We support AES128 and AES256.
+### Which cipher suites are supported for encryption?
+We support the [Extended Packet Numbering](https://1.ieee802.org/security/802-1aebw/) version of AES128 and AES256 only. In addition, please disable [Secure Channel Identifier(SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) in MACsec configuration on your device. 
 
 ## End-to-end encryption by IPsec FAQ
 IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure. See other FAQs below.

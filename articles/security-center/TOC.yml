@@ -38,7 +38,13 @@
   - name: Respond to incidents
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
-    href: security-center-compliance-dashboard.md  
+    href: security-center-compliance-dashboard.md
+
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 
 - name: Concepts
   items:
@@ -111,7 +117,7 @@
       href: custom-security-policies.md
     - name: Manage policies with the Azure Policy REST API
       href: configure-security-policy-azure-policy.md
-  - name: Add dynamic compliance packages
+  - name: Choose standards for your compliance dashboard
     href: update-regulatory-compliance-packages.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md

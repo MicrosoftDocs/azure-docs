@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://rc.portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 

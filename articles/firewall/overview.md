@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/23/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -78,12 +78,12 @@ Inbound Internet network traffic to your firewall public IP address is translate
 
 ## Multiple public IP addresses
 
-You can associate multiple public IP addresses (up to 100) with your firewall.
+You can associate multiple public IP addresses (up to 250) with your firewall.
 
 This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
 
 ## Azure Monitor logging
 

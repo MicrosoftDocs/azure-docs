@@ -114,7 +114,7 @@ When using [Standard Load Balancer with Availability Zones](load-balancer-standa
 
 ### <a name="pat"></a>Port masquerading SNAT (PAT)
 
-When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  Port masquerading SNAT can be used with either TCP or UDP IP protocols.
+When a public Load Balancer resource is associated with VM instances, which do not have dedicated Public IP addresses, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique. Port masquerading SNAT can be used with either TCP or UDP IP protocols.
 
 Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. The port masquerading SNAT algorithm allocates SNAT ports differently for UDP versus TCP.
 
@@ -142,7 +142,7 @@ For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, 
 
 ### <a name="preallocatedports"></a>Ephemeral port preallocation for port masquerading SNAT (PAT)
 
-Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
+Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address. For each Public IP address associated with a load balancer there are 64,000 ports available as SNAT ports for each IP transport protocol.
 
 The same number of SNAT ports are preallocated for UDP and TCP respectively and consumed independently per IP transport protocol.  However, the SNAT port usage is different depending on whether the flow is UDP or TCP.
 
@@ -188,11 +188,14 @@ SNAT ports allocations are IP transport protocol specific (TCP and UDP are maint
 This section is intended to help mitigate SNAT exhaustion and that can occur with outbound connections in Azure.
 
 ### <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
-[Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without a Public IP address](#defaultsnat) and [Load-balanced VM without a Public IP address](#lb).You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhuastion using [this](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
+[Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without a Public IP address](#defaultsnat) and [Load-balanced VM without a Public IP address](#lb).You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhaustion using [this](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
 
 If you know that you're initiating many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated [ephemeral ports](#preallocatedports) used by [PAT](#pat)), you have several general mitigation options. Review these options and decide what is available and best for your scenario. It's possible that one or more can help manage this scenario.
 
 If you are having trouble understanding the outbound connection behavior, you can use IP stack statistics (netstat). Or it can be helpful to observe connection behaviors by using packet captures. You can perform these packet captures in the guest OS of your instance or use [Network Watcher for packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name ="manualsnat"></a>Manually allocate SNAT ports to maximize SNAT ports per VM
+As defined in [preallocated ports](#preallocatedports), the load balancer will automatically allocate ports based on the number of VMs in the backend. By default this is done conservatively to ensure scalability. If you know the maximum number of VMs you will have in the backend you can manually allocate SNAT ports by configuring this in each outbound rule. For example, if you know you will have a maximum of 10 VMs you can allocate 6,400 SNAT ports per VM rather than the default 1,024. 
 
 #### <a name="connectionreuse"></a>Modify the application to reuse connections 
 You can reduce demand for ephemeral ports that are used for SNAT by reusing connections in your application. This is especially true for protocols like HTTP/1.1, where connection reuse is the default. And other protocols that use HTTP as their transport (for example, REST) can benefit in turn. 

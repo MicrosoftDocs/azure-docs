@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/07/2020
 
 ms.author: mimart
 author: msmimart
@@ -47,10 +47,13 @@ The domain you want to federate with must ***not*** be DNS-verified in Azure AD.
 
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
+
 -	accounts.google.com
 -	pingidentity.com
 -	login.pingone.com
 -	okta.com
+-	oktapreview.com
+-	okta-emea.com
 -	my.salesforce.com
 -	federation.exostar.com
 -	federation.exostartest.com

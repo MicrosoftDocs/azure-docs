@@ -1,6 +1,6 @@
 ---
-title: Create an Azure application offer in Microsoft commercial marketplace 
-description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
+title: Create an Azure application offer - Microsoft commercial marketplace 
+description: Learn the steps and considerations for creating a new Azure application offer in the commercial marketplace portal in Partner Center. You can list or sell your Azure application offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program. 
 author: qianw211
 ms.author: dsindona 
 ms.service: marketplace 
@@ -11,44 +11,26 @@ ms.date: 05/03/2020
 
 # Create an Azure application offer
 
-The steps for publishing an Azure application offer in commercial marketplace are outlined here.
+This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer. 
 
-## Azure application offer type
+Before you can publish a new Azure application offer, [create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and make sure your account is enrolled in the commercial marketplace program.
 
-This topic outlines fundamentals about Azure application offers.  You should be familiar with these concepts before starting the process of publishing a new Azure application offer in the Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+## Before you begin
 
-### Publishing overview
+Designing, building, and testing Azure application offers requires technical knowledge of both the Azure platform and the technologies used to build the offer. Your engineering team should have knowledge about the following Microsoft technologies:
 
-The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) is an introduction to the Azure application offer type:
+* Basic understanding of [Azure Services](https://azure.microsoft.com/services/).
+* How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/).
+* Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking).
+* Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/).
+* Working knowledge of [JSON](https://www.json.org/).
 
-* What offer types are available;
-* What technical assets are required;
-* How to author an Azure Resource Manager template;
-* Developing and testing the app UI;
-* How to publish the app offer;
-* The application review process.
+### Technical documentation and resources
 
-### Types of Azure application plans
-
-There are two kinds of Azure application plans: solution templates and managed applications.
-
-* **Solution template** is one of the main ways to publish a solution in the Marketplace. Use this plan type when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM). With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more information about building solution templates, see [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-
-* **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers.  For more information about the advantages and types of managed applications, see the [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
-
-All Azure applications include at least two files in the root folder of a `.zip` archive:
-
-* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This template defines the resources to deploy into the customer's Azure subscription.  For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-
-* A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
-
-All new Azure application offers must include an [Azure partner customer usage attribution GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
-
-### Before you begin
-
-Review the following Azure application documentation, which provides Quickstarts, Tutorials, and Samples.
+Review the following resources as you prepare your Azure application offer for the commercial marketplace.
 
 * [Understand Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+
 * Quickstarts:
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
@@ -67,17 +49,14 @@ Review the following Azure application documentation, which provides Quickstarts
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
-### Fundamentals in technical knowledge
+The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
-Designing, building, and testing these assets take time and requires technical knowledge of both the Azure platform and the technologies used to build the offer.
-
-Your engineering team should have knowledge about the following Microsoft technologies:
-
-* Basic understanding of [Azure Services](https://azure.microsoft.com/services/).
-* How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/).
-* Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking).
-* Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/).
-* Working knowledge of [JSON](https://www.json.org/).
+* What offer types are available;
+* What technical assets are required;
+* How to author an Azure Resource Manager template;
+* Developing and testing the app UI;
+* How to publish the app offer;
+* The application review process.
 
 ### Suggested tools
 
@@ -96,33 +75,55 @@ We recommend adding the following tools to your development environment:
 
 You can review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page. Also if you are using Visual Studio, the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
+## Types of Azure application plans
+
+There are two kinds of Azure application plans: solution templates and managed applications.
+
+* **Solution template** is one of the main ways to publish a solution in the Marketplace. Use this plan type when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM). With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more information about building solution templates, see [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+
+* **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers.  For more information about the advantages and types of managed applications, see the [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
+
+## Technical requirements
+
+All Azure applications include at least two files in the root folder of a `.zip` archive:
+
+* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This template defines the resources to deploy into the customer's Azure subscription.  For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+
+* A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
+
+All new Azure application offers must include an [Azure partner customer usage attribution GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
+
+To learn about publishing requirements for each application plan, see [Solution template offer publishing requirements](../marketplace-solution-templates.md) and [Managed application offer publishing requirements](../marketplace-managed-apps.md).
+
 ## Create a new offer
 
+>[!NOTE]
+>After an offer is published, edits you make to it in Partner Center will not appear in storefronts until you republish the offer. Make sure to always republish you offer after making changes.
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Azure Application**.
+
+1. In the left menu, select **Commercial Marketplace** > **Overview**.
+
+1. On the Overview page, select **+ New offer** > **Azure Application**.
 
     ![Illustrates the left-navigation menu.](./media/new-offer-azure-app.png)
 
->[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+1. On the **New offer** page, enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-## New offer
+     * This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
+     * Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-* This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-* Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-* The Offer ID can't be changed after you select **Create**.
+     * This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
+     * The Offer alias can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
-
-* This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-* The Offer alias can't be changed after you select **Create**.
-
-Select **Create** to generate the offer and continue.
+1. Select **Create** to generate the offer and continue.
 
 ## Offer setup
+
+The **Offer setup** page is where you can configure a test drive and lead management for your offer. 
 
 ### Test drive
 
@@ -130,16 +131,10 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box. Configure the test drive environment in the [Test drive technical configuration](#test-drive-technical-configuration) section later in this topic.
 
-For additional information, see [Test drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+For additional information, see [Test drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
 
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
-
-#### Additional test drive resources
-
-- [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
 
 ## Lead management
 
@@ -151,9 +146,7 @@ Select **Save draft** before continuing.
 
 ## Properties
 
-This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
-
-### Category
+The **Properties** page is where you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
 
 Select at least one and up to three categories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description.
 
@@ -163,11 +156,9 @@ Select at least one and up to three categories to place your offer in the approp
 
 ## Offer listing
 
+This page is where you manage the copy and images for your commercial marketplace offer. 
+
 ### Marketplace details
-
-This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
-
-Define marketplace details (such as offer name, description, and images) for each language/market. Select the language/market name to provide this info.
 
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
@@ -550,14 +541,16 @@ Select **Save draft** before continuing.
 
 When you have completed all the required sections of the offer, select **Review and publish** in the top-right corner of the portal.
 
-If this is your first time publishing this offer, you can:
-
-- See the completion status for each section of the offer.
+Review the completion status for each section of the offer.
     - *Not started* - means the section has not been touched and needs to be completed.
     - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
-- Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
+
+If this is your first time publishing this offer, you can provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+
+Select **Submit** to submit your offer for publishing. We will send you an email to let you know when a preview version of the offer is available for you to review and approve.
+
+Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
 ### Errors and review feedback
 
@@ -565,6 +558,6 @@ The **Manual validation** step in the publishing process represents an extensive
 
 If you have errors in one or more of the publishing steps, correct them before republishing your offer.
 
-## Next step
+## Next steps
 
 * [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)

@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/07/2020
 
 ms.author: jingwang
 
@@ -69,6 +69,13 @@ The following properties are supported for DB2 linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Db2** | Yes |
+| connectionString | Specify information needed to connect to the DB2 instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+Typical properties inside the connection string:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
 | server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`. |Yes |
 | database |Name of the DB2 database. |Yes |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
@@ -76,12 +83,56 @@ The following properties are supported for DB2 linked service:
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!TIP]
 > If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, ADF will try to create a the package under collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want ADF to create the needed packages when querying the database.
 
 **Example:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you were using DB2 linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
 
 ```json
 {

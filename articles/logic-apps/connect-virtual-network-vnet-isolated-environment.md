@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/05/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -81,48 +81,49 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 * If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports in this table](#network-ports-for-ise) on the virtual network where you have NSGs or want to set up NSGs.
+* For an existing virtual network, you can *optionally* set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) to [filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) for those NSGs.
 
-  > [!NOTE]
-  > If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), 
-  > you need to use *both* the TCP and UDP protocols. NSG security rules describe the ports 
-  > that you must open for the IP addresses that need access to those ports. Make sure that 
-  > any firewalls, routers, or other items that exist between these endpoints also keep those 
-  > ports accessible to those IP addresses.
+  When you set up [NSG security rules](../virtual-network/security-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols, or you can select **Any** instead so you don't have to create separate rules for each protocol. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
 
 <a name="network-ports-for-ise"></a>
 
 ### Network ports used by your ISE
 
-This table describes the ports in your Azure virtual network that your ISE uses and where those ports get used. To help reduce complexity when you create security rules, the [service tags](../virtual-network/service-tags-overview.md) in the table represent groups of IP address prefixes for a specific Azure service.
+This table describes the ports that your ISE requires to be accessible and the purpose for those ports. To help reduce complexity when you set up security rules, the table uses [service tags](../virtual-network/service-tags-overview.md) that represent groups of IP address prefixes for a specific Azure service. Where noted, *internal ISE* and *external ISE* refer to the [access endpoint that's selected during ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 > [!IMPORTANT]
-> Source ports are ephemeral, so make sure that you set them to `*` for all rules. Where noted, internal ISE and external ISE refer to the 
-> [endpoint that's selected at ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). 
-> For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> For all rules, make sure that you set source ports to `*` because source ports are ephemeral.
 
-| Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
-|---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Intersubnet communication within your virtual network | Inbound & Outbound | * | The address space for the virtual network that has your ISE's subnets | The address space for the virtual network that has your ISE's subnets | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
-| Communication to your logic app | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet <br>(see **Notes** column) | VirtualNetwork | Rather than use the **Internet** service tag, you can specify the source IP address for the computer or service that calls any request triggers or webhooks in your logic app. <p><p>**Important**: Closing or blocking this port prevents HTTP calls to logic apps that have request triggers. |
-| Logic app run history | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet <br>(see **Notes** column) | VirtualNetwork | Rather than use the **Internet** service tag, you can specify the source IP address for the computer or service from where you want to view your logic app's run history. <p><p>**Important**: Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
-| Logic Apps Designer - dynamic properties | Inbound | 454 | LogicAppsManagement | VirtualNetwork | Requests come from the Logic Apps access endpoint [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) IP addresses for that region. |
-| Connector deployment | Inbound | 454 | AzureConnectors | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
-| Network health check | Inbound | 454 | LogicApps | VirtualNetwork | Requests come from the Logic Apps access endpoint for both [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses for that region. |
-| App Service Management dependency | Inbound | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Communication from Azure Traffic Manager | Inbound | Internal ISE: 454 <p><p>External ISE: 443 | AzureTrafficManager | VirtualNetwork | |
-| API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
-| Connector policy deployment | Inbound | 3443 | APIManagement | VirtualNetwork | Required for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
-| Communication from your logic app | Outbound | 80, 443 | VirtualNetwork | Varies based on destination | The endpoints for the external service with which your logic app needs to communicate. |
-| Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
-| Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
-| Azure Storage dependency | Outbound | 80, 443, 445 | VirtualNetwork | Storage | |
-| Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | Outbound | 1886 | VirtualNetwork | AzureMonitor | Required for publishing health status to Resource Health |
-| Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VirtualNetwork | EventHub | |
-| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379 - 6383 | VirtualNetwork | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-||||||
+#### Inbound security rules
+
+| Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Intersubnet communication within virtual network | Address space for the virtual network with ISE subnets | * | Address space for the virtual network with ISE subnets | * | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
+| Both: <p>Communication to your logic app <p><p>Runs history for logic app| Internal ISE: <br>**VirtualNetwork** <p><p>External ISE: **Internet** or see **Notes** | * | **VirtualNetwork** | 443 | Rather than use the **Internet** service tag, you can specify the source IP address for these items: <p><p>- The computer or service that calls any request triggers or webhooks in your logic app <p>- The computer or service from where you want to access logic app runs history <p><p>**Important**: Closing or blocking this port prevents calls to logic apps that have request triggers or webhooks. You're also prevented from accessing inputs and outputs for each step in runs history. However, you're not prevented from accessing logic app runs history.|
+| Logic Apps designer - dynamic properties | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Requests come from the Logic Apps access endpoint's [inbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#inbound) for that region. |
+| Connector deployment | **AzureConnectors** | * | **VirtualNetwork** | 454 | Required to deploy and update connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates and fixes. |
+| Network health check | **LogicApps** | * | **VirtualNetwork** | 454 | Requests come from the Logic Apps access endpoint's [inbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound) for that region. |
+| App Service Management dependency | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
+| Communication from Azure Traffic Manager | **AzureTrafficManager** | * | **VirtualNetwork** | Internal ISE: 454 <p><p>External ISE: 443 ||
+| Both: <p>Connector policy deployment <p>API Management - management endpoint | **APIManagement** | * | **VirtualNetwork** | 3443 | For connector policy deployment, port access is required to deploy and update connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates and fixes. |
+| Access Azure Cache for Redis Instances between Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383, plus see **Notes**| For ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
+
+#### Outbound security rules
+
+| Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Intersubnet communication within virtual network | Address space for the virtual network with ISE subnets | * | Address space for the virtual network with ISE subnets | * | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
+| Communication from your logic app | **VirtualNetwork** | * | Varies based on destination | 80, 443 | Destination varies based on the endpoints for the external service with which your logic app needs to communicate. |
+| Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
+| Azure Storage dependency | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
+| Connection management | **VirtualNetwork** | * | **AppService** | 443 ||
+| Publish diagnostic logs & metrics | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
+| Azure SQL dependency | **VirtualNetwork** | * | **SQL** | 1433 ||
+| Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Required for publishing health status to Resource Health. |
+| Dependency from Log to Event Hub policy and monitoring agent | **VirtualNetwork** | * | **EventHub** | 5672 ||
+| Access Azure Cache for Redis Instances between Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383, plus see **Notes**| For ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
 
 <a name="create-environment"></a>
 

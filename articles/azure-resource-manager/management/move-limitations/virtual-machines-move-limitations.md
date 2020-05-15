@@ -24,7 +24,7 @@ The following scenarios aren't yet supported:
 
 To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
 
-If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) or wait 14 days after deleting the restore points.
+If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
 
 ### Portal
 

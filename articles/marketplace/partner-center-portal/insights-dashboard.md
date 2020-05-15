@@ -1,6 +1,6 @@
 ---
-title: Marketplace Insights dashboard in commercial marketplace analytics on Partner Center
-description: Access a summary of marketplace web analytics, which enables publishers to measure customer engagement in AppSource and Azure Marketplace storefronts.
+title: Marketplace Insights - Microsoft commercial marketplace
+description: Access a summary of marketplace web analytics, which enables you to measure customer engagement in Microsoft AppSource and Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ---
 
-# Marketplace Insights dashboard in commercial marketplace analytics
+# Marketplace Insights dashboard in Partner Center
 
-This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics, which enables publishers to measure customer engagement for their respective product detail pages listed on the marketplace storefronts: AppSource and Azure Marketplace.
+This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics, which enables publishers to measure customer engagement for their respective product detail pages listed on the marketplace storefronts: Microsoft AppSource and Azure Marketplace.
 
 ## Marketplace Insights dashboard
 
