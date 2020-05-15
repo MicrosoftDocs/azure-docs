@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
-In this tutorial, you learn how to get a console application to read information from Azure Key Vault. Application would use virtual machine managed identity would be used to authenticate to Key Vault. 
+In this tutorial, you learn how to get a console application to read information from Azure Key Vault. Application would use virtual machine managed identity to authenticate to Key Vault. 
 
 The tutorial shows you how to:
 
