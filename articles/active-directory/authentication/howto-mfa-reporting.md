@@ -15,11 +15,11 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# View the sign-ins report to review Azure Multi-Factor Authentication events
+# Use the sign-ins report to review Azure Multi-Factor Authentication events
 
-To review and understand Azure Multi-Factor Authentication events, you can view the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use.
+To review and understand Azure Multi-Factor Authentication events, you can use the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
 
-This article shows you how to view the Azure AD sign-ins report in the Azure portal, and then the MSOnline V1 PowerShell module. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
+This article shows you how to view the Azure AD sign-ins report in the Azure portal, and then the MSOnline V1 PowerShell module.
 
 ## View the Azure AD sign-ins report
 
@@ -36,7 +36,7 @@ To view the sign-in activity report in the [Azure portal](https://portal.azure.c
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then choose **Users** from the menu on the left-hand side.
-1. Under **Activity** from the menu on the left-hand side, select *Sign-ins*.
+1. Under *Activity* from the menu on the left-hand side, select **Sign-ins**.
 1. A list of sign-in events is shown, including the status. You can select an event to view more details.
 
     The *Authentication Details* or *Conditional Access* tab of the event details shows you the status code or which policy triggered the MFA prompt.
