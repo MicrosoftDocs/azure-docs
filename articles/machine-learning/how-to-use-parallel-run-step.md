@@ -261,14 +261,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 Now you have everything you need: the data inputs, the model, the output and your inference script. Let's build the batch inference pipeline containing ParallelRunStep.
 
-### Prepare the run environment
+### Prepare the environment
 
-First, specify the dependencies for your script. This allows you to install pip packages as well as configure the inference environment. 
-- Please always include **azureml-core** package.
-- If your input is `FileDataset`, please include **azureml-dataprep[fuse]**.
-- If your input is `TabularDataset`, please include **azureml-dataprep[pandas, fuse]**.
+First, specify the dependencies for your script. This allows you to install pip packages as well as configure the environment. Please always include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages.
 
-`FileDataset` is used in this example, you will need to include **azureml-dataprep[fuse]** package.
+If you use custom docker image, you should also have conda installed.
 
 ```python
 from azureml.core.environment import Environment
@@ -276,7 +273,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
 batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[fuse]"])
+                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
