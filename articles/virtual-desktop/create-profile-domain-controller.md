@@ -10,13 +10,13 @@ ms.date: 05/19/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create an FSLogix profile container in a host pool
+# Create an Azure Files storage profile
 
 In this article, you'll learn how to set up an Azure Files storage profile authenticated by a domain controller on an existing Windows Virtual Desktop host pool.
 
 ## Prerequisites
 
-Before you start, make sure you've set up Azure Active Directory (AD) authentication over SMB for Azure file shares. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
+Before you get started, make sure your domain controller is synced to Azure and resolvable from the Azure virtual network (VNET) your session hosts are connected to. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
 ## Set up a storage account 
 
@@ -55,9 +55,9 @@ To create a file share:
 
 4. Select **Create**.
 
-## Enable Azure AD authentication for your storage account
+## Enable domain controller authentication
 
-Next, you'll need to enable Azure AD authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
+Next, you'll need to enable domain controller authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain controller VM.
 
@@ -238,7 +238,7 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 ## Testing
 
-Once the VM has been restarted sign in with a user that has permission on the session host and on the file share.
+Once the VM has been restarted, sign in with a user account that has permission on the session host and the file share.
 
 To check your permissions on your session:
 
@@ -251,6 +251,8 @@ To check your permissions on your session:
 4. Select **Create a share** on the Create an Azure file share page.
 
 5. Make sure a folder containing the user profile now exists in your files.
+
+For additional testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
 
 ## Next steps
 
