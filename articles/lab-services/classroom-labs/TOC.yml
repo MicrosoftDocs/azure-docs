@@ -79,7 +79,7 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
-  - name: Create and configure classroom labs (instructor)
+  - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs
       href: how-to-manage-classroom-labs.md
@@ -111,9 +111,9 @@
       href: how-to-prepare-windows-template.md
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
-    - name: View support information (instructor)
+    - name: View support information (educator)
       href: lab-creator-support-information.md
-    - name: Access student VMs from instructor view
+    - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md      
   - name: Connect to VMs in classroom labs (student)
     items:        

@@ -4,7 +4,7 @@ description: Learn how to determine the public IP address and port number range 
 author: emaher
 
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
 ---
