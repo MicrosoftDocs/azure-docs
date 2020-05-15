@@ -61,7 +61,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 Once that you receive the message that the secret has been successfully created, you may click on it on the list. 
 
-## Retrieve as secret from Key Vault
+## Retrieve a secret from Key Vault
 
 If you click on the current version, you can see the value you specified in the previous step.
 
