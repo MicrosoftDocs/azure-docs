@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Develop an IoT Plug and Play Preview end-to-end solution
 
-IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use a sample IoT Plug and Play Preview device written in C and interact with it using the Node.js service SDK.
+IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's features without knowledge of the underlying device implementation. This tutorial shows you how to use a sample IoT Plug and Play Preview device written in C and interact with it using the Node.js service SDK.
 
 ## Prerequisites
 
