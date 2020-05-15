@@ -42,6 +42,6 @@ This section shows how a student can connect to a classroom lab VM from a Chrome
 1. You should see the desktop of the VM that you are connecting to.
 
 ## Next steps
-To learn how to connect to Linux VMs using RDP, see [Use remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md)
+To learn more about connecting to Linux VMs, see [Connect to Linux virtual machines](how-to-use-remote-desktop-linux-student.md)
 
 
