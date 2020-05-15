@@ -53406,6 +53406,126 @@
             "source_path": "articles/sql-database/tutorial-managed-instance-azure-active-directory-migration.md",
             "redirect_url": "/azure/azure-sql/managed-instance/tutorial-migrate-sql-server-users-to-instance-transact-sql-tsql",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/quickstart-create-sql-vm-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/quickstart-create-sql-vm-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-azure-marketplace-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-load-balancer-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manually-configure-availability-group-multiple-regions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/tutorial-prerequisites-manually-configure-availability-group",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/tutorial-manually-configure-availability-group",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-premium-file-share",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-storage-spaces-direct",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-listener-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-azure-key-vault-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup-sql-2014",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-patching.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-patching",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-cli.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-az-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/backup-restore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-quickstart-template.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-quickstart-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-bulk-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/bulk-register-with-sql-resource-provider",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-change-edition.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-sql-server-edition",
+            "redirect_document_id": true
         }
     ]
 }
