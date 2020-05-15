@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 **New features**
 
-- **Go**: New Go language support for [speech recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone) and [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants). Set up your dev environment [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform).
+- **Go**: New Go language support for [speech recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) and [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Set up your dev environment [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-go). For sample code, see the Samples section below. 
 - **JavaScript**: Added Browser support for Text-To-Speech. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file?pivots=programming-language-JavaScript).
 - **C++, C#, Java**: New KeywordRecognizer object and APIs supported on Windows, Android, Linux & iOS platforms. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-overview). For sample code, see the Samples section below. 
 - **Java**: Added multi-device conversation with translation support. See the reference doc [here](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription).
@@ -29,7 +29,7 @@ ms.custom: seodec18
 **Improvements & Optimizations**
 
 - **JavaScript**: Optimized browser microphone implementation improving speech recognition accuracy.
-- **Java**: refactored bindings using direct JNI implementation without SWIG. This significantly reduces the bindings size for all Java packages used for Windows, Android, Linux and Mac and eases further development of Java SDK implementation.
+- **Java**: refactored bindings using direct JNI implementation without SWIG. This reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux and Mac and eases further development of the Speech SDK Java implementation.
 - **Linux**: Updated support [documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) with the latest RHEL 7 specific notes.
 - Improved connection logic to attempt connecting multiple times in case of service and network errors.
 - Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Speech journey.
@@ -46,7 +46,8 @@ ms.custom: seodec18
 
 **Samples**
 
-- **JavaScript**: Added quickstarts for [Text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?tabs=dotnet%2Clinux%2Cjre&pivots=programming-language-javascript), [Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?tabs=dotnet&pivots=programming-language-javascript), and [Intent Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **Go**: Added quickstarts for [speech recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) and [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Find sample code [here](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
+- **JavaScript**: Added quickstarts for [Text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), [Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript), and [Intent Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Keyword recognition samples for [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **Covid19 abridged testing:**
