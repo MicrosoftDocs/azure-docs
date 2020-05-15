@@ -53908,11 +53908,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sql-database/saas-tenancy-welcome-wingtip-tickets-app.md",
-            "redirect_url": "/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/sql-database/sql-database-single-index.yml",
             "redirect_url": "/azure/azure-sql/database/index",
             "redirect_document_id": true
