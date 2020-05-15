@@ -27,7 +27,7 @@ Automated Patching establishes a maintenance window for an Azure Virtual Machine
 > [!IMPORTANT]
 > Only Windows and SQL Server updates marked as **Important** or **Critical** are installed. Other SQL Server updates, such as service packs and cumulative updates that are not marked as **Important** or **Critical** must be installed manually. 
 
-Automated Patching depends on the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md).
+Automated Patching depends on the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 ## Prerequisites
 To use Automated Patching, consider the following prerequisites:
@@ -54,7 +54,7 @@ To use Automated Patching, consider the following prerequisites:
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md).
+> Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 > 
 > 
 
@@ -122,7 +122,7 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 To disable Automated Patching, run the same script without the **-Enable** parameter to the **New-AzVMSqlServerAutoPatchingConfig**. The absence of the **-Enable** parameter signals the command to disable the feature.
 
 ## Next steps
-For information about other available automation tasks, see [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md).
+For information about other available automation tasks, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

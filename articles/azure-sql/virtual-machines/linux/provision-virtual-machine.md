@@ -147,7 +147,7 @@ The new virtual machine installs SQL Server with a random SA password. Reset thi
 
 ## Add the tools to your path (optional)
 
-Several SQL Server [packages](what-is-sql-on-linux-vm-iaas-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. The tools package contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
+Several SQL Server [packages](sql-server-on-linux-vm-what-is-iaas-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. The tools package contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
 
 1. Run the following commands to modify the **PATH** for both login sessions and interactive/non-login sessions:
 
@@ -195,4 +195,4 @@ Now that you have a SQL Server 2017 virtual machine in Azure, you can connect lo
 
 If you configured the Azure VM for remote SQL Server connections, you should be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms). To connect with Visual Studio Code, see [Use Visual Studio Code to create and run Transact-SQL scripts for SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
 
-For more general information about SQL Server on Linux, see [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](what-is-sql-on-linux-vm-iaas-overview.md).
+For more general information about SQL Server on Linux, see [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-on-linux-vm-what-is-iaas-overview.md).

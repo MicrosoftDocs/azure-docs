@@ -166,4 +166,4 @@ For general Azure pricing guidance, see [Prevent unexpected costs with Azure bil
 For an overview of SQL Server running on Azure Virtual Machines, see the following articles:
 
 - [Overview of SQL Server on Windows VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-- [Overview of SQL Server on Linux VMs](../linux/what-is-sql-on-linux-vm-iaas-overview.md)
+- [Overview of SQL Server on Linux VMs](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)

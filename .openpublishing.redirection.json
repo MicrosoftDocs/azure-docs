@@ -19210,7 +19210,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
-            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
+            "redirect_url": "/azure/virtual-machines/windows/sql/sql-resource-provider-register",
             "redirect_document_id": false
         },
         {
@@ -52309,8 +52309,8 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-elastic-pool-failover-group-tutorial.md",
-            "redirect_url": "/azure/azure-sql/database/tutorial-add-elastic-pool-failover-group",
-            "redirect_document_id": true
+            "redirect_url": "/azure/azure-sql/database/failover-group-add-elastic-pool-tutorial",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-elastic-pool-manage.md",
@@ -52599,12 +52599,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-single-database-failover-group-tutorial.md",
-            "redirect_url": "/azure/azure-sql/database/tutorial-add-single-database-failover-group",
+            "redirect_url": "/azure/azure-sql/database/failover-group--add-single-database-tutorial",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-database/sql-database-single-database-get-started-template.md",
-            "redirect_url": "/azure/azure-sql/database/quickstart-single-database-arm-template",
+            "redirect_url": "/azure/azure-sql/database/single-database-create-arm-template-quickstart",
             "redirect_document_id": true
         },
         {
@@ -53074,7 +53074,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-technical-overview.md",
-            "redirect_url": "/azure/azure-sql/database/technical-overview",
+            "redirect_url": "/azure/azure-sql/database/sql-database-paas-overview",
             "redirect_document_id": true
         },
         {
@@ -53424,7 +53424,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-azure-marketplace-template",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure",
             "redirect_document_id": true
         },
         {
@@ -53434,7 +53434,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manually-configure-availability-group-multiple-regions",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions",
             "redirect_document_id": true
         },
         {
@@ -53514,7 +53514,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-quickstart-template.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-availability-group-quickstart-template",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
             "redirect_document_id": true
         },
         {
@@ -53544,12 +53544,12 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-stonith-tutorial.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/linux/tutorial-rhel-ha-stonith",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/rhel-high-availabiliy-stonith-tutorial",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/linux/what-is-sql-on-linux-vm-iaas-overview",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-on-linux-vm-what-is-iaas-overview",
             "redirect_document_id": true
         },
         {
@@ -53599,7 +53599,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automate-management-sql-server-iaas-agent-extension",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
             "redirect_document_id": true
         },
         {
@@ -53634,7 +53634,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-workgroup-availability-group.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-clusterless-workgroup-availability-group",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-clusterless-workgroup-configure",
             "redirect_document_id": true
         },
         {

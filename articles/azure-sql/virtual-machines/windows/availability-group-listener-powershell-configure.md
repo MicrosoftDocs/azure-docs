@@ -36,7 +36,7 @@ Related topics include:
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [Start your PowerShell session](sql-vm-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## Verify PowerShell version
 

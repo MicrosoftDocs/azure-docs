@@ -27,7 +27,7 @@ This quickstart steps through creating a SQL Server virtual machine in the Azure
 
   > [!TIP]
   > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](create-sql-vm-portal.md).
-  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](../../database/frequently-asked-questions-faq.md).
+  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 

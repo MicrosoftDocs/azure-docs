@@ -176,7 +176,7 @@ You should get results similar to the following once the command completes for e
 
 ### Test connection to the created VMs
 
-Connect to VM1 or the other VMs using the following command in Azure Cloud Shell. If you are unable to find your VM IPs, follow this [Quickstart on Azure Cloud Shell](../../../azure-cache-for-redis/quickstart.md#ssh-into-your-linux-vm).
+Connect to VM1 or the other VMs using the following command in Azure Cloud Shell. If you are unable to find your VM IPs, follow this [Quickstart on Azure Cloud Shell](../../../cloud-shell/quickstart.md#ssh-into-your-linux-vm).
 
 ```azurecli-interactive
 ssh <username>@publicipaddress

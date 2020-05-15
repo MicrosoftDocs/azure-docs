@@ -20,7 +20,7 @@ ms.reviewer: jroth
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-> * [Linux](../linux/what-is-sql-on-linux-vm-iaas-overview.md)
+> * [Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 
 [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the Cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
 
@@ -64,7 +64,7 @@ The following table provides a matrix of pay-as-you-go SQL Server images.
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4ExpressWindowsServer2012R2) |
 | **SQL Server 2008 R2 SP3** |Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2008R2) |
 
-To see the available Linux SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Linux)](../linux/what-is-sql-on-linux-vm-iaas-overview.md).
+To see the available Linux SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Linux)](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 > [!NOTE]
 > It is now possible to change the licensing model of a pay-per-usage SQL Server VM to use your own license. For more information, see [How to change the licensing model for a SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 

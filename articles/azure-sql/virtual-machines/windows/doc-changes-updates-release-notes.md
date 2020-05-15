@@ -36,14 +36,14 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 |**Premium file share for FCI** | You can now create a failover cluster instance using a [Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md) instead of the original method of [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 | **Azure dedicated host** | You can run your SQL Server VM on an [Azure Dedicated Host](dedicated-host.md). | 
 | **Move SQL VM to different region** | Use Azure Site Recovery to [migrate your SQL Server VM from one region to another](move-sql-vm-different-region.md). |
-|  **New SQL IaaS installation modes** | It's now possible to install the SQL Server IaaS extension in [lightweight mode](automate-management-sql-server-iaas-agent-extension.md) to avoid restarting the SQL Server service.  |
+|  **New SQL IaaS installation modes** | It's now possible to install the SQL Server IaaS extension in [lightweight mode](sql-server-iaas-agent-extension-automate-management.md) to avoid restarting the SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition property](change-sql-server-edition.md) for your SQL Server VM. |
 | **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](sql-resource-provider-register.md) by using the new SQL IaaS modes. This capability includes [Windows Server 2008](sql-resource-provider-register.md#management-modes) images.|
 | **Bring-your-own-license images using Azure Hybrid Benefit** | Bring-your-own-license images deployed from Azure Marketplace can now switch their [license type to pay-as-you-go](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks).| 
 | **New SQL Server VM management in Azure portal** | There's now a way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VMs in the Azure portal](manage-sql-vm-portal.md).  | 
 | **Extended support for SQL Server 2008/2008 R2** | [Extend support](sql-server-2008-extend-end-of-support.md) for SQL Server 2008 and SQL Server 2008 R2 by migrating *as is* to an Azure VM. | 
-| **Custom image supportability** | You can now install the [SQL Server IaaS extension](automate-management-sql-server-iaas-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](licensing-model-azure-hybrid-benefit-ahb-change.md). When you're registering your custom image with the SQL resource provider, specify the license type as "AHUB." Otherwise, the registration will fail. | 
-| **Named instance supportability** | You can now use the [SQL Server IaaS extension](automate-management-sql-server-iaas-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
+| **Custom image supportability** | You can now install the [SQL Server IaaS extension](sql-server-iaas-agent-extension-automate-management.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](licensing-model-azure-hybrid-benefit-ahb-change.md). When you're registering your custom image with the SQL resource provider, specify the license type as "AHUB." Otherwise, the registration will fail. | 
+| **Named instance supportability** | You can now use the [SQL Server IaaS extension](sql-server-iaas-agent-extension-automate-management.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
 | **Portal enhancement** | The Azure portal experience for deploying a SQL Server VM has been revamped to improve usability. For more information, see the brief [quickstart](sql-vm-create-portal-quickstart.md) and more thorough [how-to guide](create-sql-vm-portal.md) to deploy a SQL Server VM.|
 | **Portal improvement** | It's now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license by using the [Azure portal](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
 | **Simplification of availability group deployment with Azure SQL Server VM CLI** | It's now easier than ever to deploy an availability group to a SQL Server VM in Azure. You can use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) to create the Windows failover cluster, internal load balancer, and availability group listeners all from the command line. For more information, see [Use the Azure SQL Server VM CLI to configure an Always On availability group for SQL Server on an Azure VM](availability-group-az-cli-configure.md). | 
@@ -73,7 +73,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 **Linux VMs**:
 
-* [Overview of SQL Server on a Linux VM](../linux/what-is-sql-on-linux-vm-iaas-overview.md)
+* [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision a SQL Server Linux virtual machine](../linux/provision-virtual-machine.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

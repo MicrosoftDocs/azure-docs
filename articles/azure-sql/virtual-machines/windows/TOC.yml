@@ -47,7 +47,7 @@
     - name: Automate management tasks
       items:
       - name: Use the SQL Server IaaS Agent Extension
-        href: automate-management-sql-server-iaas-agent-extension.md
+        href: sql-server-iaas-agent-extension-automate-management.md
       - name: Automated Patching
         href: automated-patching.md
       - name: Configure Azure Key Vault Integration

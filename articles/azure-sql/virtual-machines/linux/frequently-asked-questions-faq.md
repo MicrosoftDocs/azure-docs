@@ -20,7 +20,7 @@ ms.reviewer: jroth
 > * [Windows](../windows/frequently-asked-questions-faq.md)
 > * [Linux](frequently-asked-questions-faq.md)
 
-This article provides answers to some of the most common questions about running [SQL Server on Linux Azure Virtual Machines](what-is-sql-on-linux-vm-iaas-overview.md).
+This article provides answers to some of the most common questions about running [SQL Server on Linux Azure Virtual Machines](sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -28,7 +28,7 @@ This article provides answers to some of the most common questions about running
 
 1. **What SQL Server virtual machine gallery images are available?**
 
-   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Linux and Windows. For more details, see the complete list of [Linux VM images](what-is-sql-on-linux-vm-iaas-overview.md#create) and [Windows VM images](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Linux and Windows. For more details, see the complete list of [Linux VM images](sql-server-on-linux-vm-what-is-iaas-overview.md#create) and [Windows VM images](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
 1. **Are existing SQL Server virtual machine gallery images updated?**
 
@@ -36,7 +36,7 @@ This article provides answers to some of the most common questions about running
 
 1. **What related SQL Server packages are also installed?**
 
-   To see the SQL Server packages that are installed by default on SQL Server Linux VMs, see [Installed packages](what-is-sql-on-linux-vm-iaas-overview.md#packages).
+   To see the SQL Server packages that are installed by default on SQL Server Linux VMs, see [Installed packages](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
 
 1. **Can SQL Server virtual machine images get removed from the gallery?**
 
@@ -92,7 +92,7 @@ This article provides answers to some of the most common questions about running
 
 **Linux VMs**:
 
-* [Overview of SQL Server on a Linux VM](what-is-sql-on-linux-vm-iaas-overview.md)
+* [Overview of SQL Server on a Linux VM](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision a SQL Server Linux VM](provision-virtual-machine.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 

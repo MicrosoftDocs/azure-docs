@@ -30,7 +30,7 @@ This article provides answers to some of the most common questions about running
 
 1. **What SQL Server virtual machine gallery images are available?** 
 
-   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) and [Linux VM images](../linux/what-is-sql-on-linux-vm-iaas-overview.md#create).
+   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) and [Linux VM images](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create).
 
 1. **Are existing SQL Server virtual machine gallery images updated?**
 
@@ -92,7 +92,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
-   No. [Changing the licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL Server VM resource provider, the [SQL IaaS extension](automate-management-sql-server-iaas-agent-extension.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
+   No. [Changing the licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL Server VM resource provider, the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
    
 1. **Is it possible to switch licensing model on a SQL Server VM deployed using classic model?**
 
@@ -100,7 +100,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
 
-   No. Portal management is a feature provided by the SQL Server VM resource provider, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the resource provider as to the extension. The portal can either only manage one default instance, or one named instance, as long as it was configured correctly. For more information on these limitations, see [SQL Server IaaS agent extension](automate-management-sql-server-iaas-agent-extension.md). 
+   No. Portal management is a feature provided by the SQL Server VM resource provider, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the resource provider as to the extension. The portal can either only manage one default instance, or one named instance, as long as it was configured correctly. For more information on these limitations, see [SQL Server IaaS agent extension](sql-server-iaas-agent-extension-automate-management.md). 
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
@@ -161,15 +161,15 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I uninstall the default instance of SQL Server?**
 
-   Yes, but there are some considerations. First, SQL Server-associated billing may continue to occur depending on the license model for the VM. Second, as stated in the previous answer, there are features that rely on the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md). If you uninstall the default instance without removing the IaaS extension also, the extension continues to look for the default instance and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
+   Yes, but there are some considerations. First, SQL Server-associated billing may continue to occur depending on the license model for the VM. Second, as stated in the previous answer, there are features that rely on the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). If you uninstall the default instance without removing the IaaS extension also, the extension continues to look for the default instance and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
 
       A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible.
 
-   If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md) as well. 
+   If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) as well. 
 
 1. **Can I use a named instance of SQL Server with the IaaS extension**?
    
-   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](automate-management-sql-server-iaas-agent-extension.md#install-on-a-vm-with-a-single-named-sql-server-instance). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
 
 1. **Can I remove SQL Server completely from a SQL Server VM?**
 
@@ -206,7 +206,7 @@ This article provides answers to some of the most common questions about running
    Yes. You can install a failover cluster instance using either [premium file shares (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) or [storage spaces direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > At this time, the _full_ [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.
+   > At this time, the _full_ [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.
 
 1. **What is the difference between SQL Server VMs and the SQL Database service?**
 
@@ -233,7 +233,7 @@ This article provides answers to some of the most common questions about running
 
 **Linux VMs**:
 
-* [Overview of SQL Server on a Linux VM](../linux/what-is-sql-on-linux-vm-iaas-overview.md)
+* [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision a SQL Server Linux VM](../linux/provision-virtual-machine.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

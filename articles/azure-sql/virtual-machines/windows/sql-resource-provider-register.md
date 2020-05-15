@@ -62,7 +62,7 @@ To register your SQL Server VM with the resource provider, you'll need:
 
 ## Management modes
 
-If the [SQL IaaS extension](automate-management-sql-server-iaas-agent-extension.md) has not already been installed, registering with the SQL VM resource provider automatically installs the SQL Server IaaS extension in one of three management modes, specified during the registration process. Not specifying the management mode will install the SQL IaaS extension in full management mode.  
+If the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) has not already been installed, registering with the SQL VM resource provider automatically installs the SQL Server IaaS extension in one of three management modes, specified during the registration process. Not specifying the management mode will install the SQL IaaS extension in full management mode.  
 
 If the SQL IaaS extension has already been installed manually, then it is already in full management mode, and registering with the resource provider in full mode will not restart the SQL Server service.
 
@@ -121,7 +121,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### Lightweight management mode
 
-If the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md) has not been installed on the VM, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. 
+If the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) has not been installed on the VM, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. 
 
 Provide SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
 

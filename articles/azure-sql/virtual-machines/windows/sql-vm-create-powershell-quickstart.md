@@ -144,7 +144,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Install the SQL IaaS Agent
 
-To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
+To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To install the agent on the new VM, run the following command after the VM is created.
 
    ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
