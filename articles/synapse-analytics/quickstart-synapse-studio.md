@@ -11,7 +11,7 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Using Synapse Studio (preview)
+# Quickstart: Use Synapse Studio (preview)
 
 In this quickstart, you'll learn how to query files using Synapse Studio.
 
