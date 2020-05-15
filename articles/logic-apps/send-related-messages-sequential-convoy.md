@@ -215,7 +215,7 @@ This **Until** loop runs these actions while messages exist in the queue or unti
 
 * Get additional messages from the queue while messages exist.
 
-* Check the number of remaining messages. If this number is 0, set the `isDone` value to `True` because no messages remain. Otherwise, process the message.
+* Check the number of remaining messages. If this number is 0, set the `isDone` value to `true` because no messages remain. Otherwise, process the message.
 
 ![Until loop - Process messages while in queue](./media/send-related-messages-sequential-convoy/while-more-messages-for-session-in-queue.png)
 
@@ -226,7 +226,15 @@ This **Until** loop runs these actions while messages exist in the queue or unti
    > is affected by the message size and maximum message size property for the 
    > service bus, currently 256K for Standard and 1MB for Premium.
 
-   In the **Process messages if we got any** condition, 
+   Next, the **Process messages if we got any** condition checks whether the number of remaining messages is zero. If false, more messages exist, so continue processing. If true, no more messages remain, so set the `isDone` variable to `true`.
+
+   ![Condition - Process messages if any](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
+
+   In the **If false** section, a **For each** loop processes the messages in first-in, first-out order (FIFO). The loop's **Concurrency Control** setting is set to `1`, so that only a single message is processed at a time.
+
+   !["For each" loop - Process each message one at a time](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
+
+1.   and has the concurrent for the **Complete the message in a queue** and **Abandon the message in a queue** actions, provide the name for your Service Bus queue.
 
 1. In the **Complete the message in a queue** action, provide the name for your Service Bus queue.
 
