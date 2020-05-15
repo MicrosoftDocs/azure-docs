@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,11 +41,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * ice Contact Center supports **SP** initiated SSO
-
-
-
-
-
 * Once you configure ice Contact Center you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding ice Contact Center from the gallery
@@ -58,7 +53,6 @@ To configure the integration of ice Contact Center into Azure AD, you need to ad
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ice Contact Center** in the search box.
 1. Select **ice Contact Center** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for ice Contact Center
 
@@ -95,6 +89,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
     | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
     | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+
+    c. In the **Reply URL** textbox, type a URL using one of the following pattern:
+
+    | | |
+    |-|-|
+    | `https://<TENANT>-imrpool.icescape365.com:PORT/identity`|
+    | `https://<TENANT>-imrpool.icescape.com:PORT/identity`|
+    | `https://<TENANT>-imrpool.iceuc.com:PORT/identity`|
+    | `https://login.microsoftonline.com/common/oauth2/nativeclient`|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ice Contact Center Client support team](mailto:support@computer-talk.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
