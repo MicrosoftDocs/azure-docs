@@ -25,7 +25,7 @@ You can install multiple NuGet packages in the same cell. Packages will be avail
 
 Currently, the C# notebooks workspace does not support recursive resolution of NuGet packages. If a NuGet package has dependencies on other NuGet packages not currently installed, you may have to explicitly reference them along with the parent package.
 
-> [!TIP]
+> [!TIP]''
 > If your notebook requires a custom package, we recommend that you add a cell to your notebook to install the package and make it the first cell. This reduces the chance of conflicts with any packages Azure Cosmos DB loads by default. It also makes it easy to re-install them if you [reset the workspace](#reset-notebooks-workspace), which removes all packages. 
 ## Use the built-in Azure Cosmos DB .NET SDK
 Version 3 of the [Azure Cosmos DB .NET SDK for SQL API](https://github.com/Azure/azure-cosmos-dotnet-v3) is installed and included in the notebook environment for the Azure Cosmos account.
@@ -124,7 +124,7 @@ You can use the ``%%upload`` magic command to upload data from a JSON file to a 
 %%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
 ```
 
-- Replace ``{database_id}`` and ``{container_id}`` with the name of the database and container in your Azure Cosmos account. If the ``--database`` and ``--container`` arguments are not provided, the query will be executed on the [default database and container](#set-default-database-for-queries).
+- Replace ``{database_id}`` and ``{container_id}`` with the name of the database and container in your Azure Cosmos account. 
 - Replace ``{url_location_of_file}`` with the location of your JSON file. The file must be an array of valid JSON objects and it should be accessible over the public Internet.
 
 For example:
