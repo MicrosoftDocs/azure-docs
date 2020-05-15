@@ -1,7 +1,7 @@
 ---
-title: Translator Text API Translate Method
+title: Translator Translate Method
 titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers and body messages for the Azure Cognitive Services Translator Text API Translate method to translate text.
+description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 04/17/2020
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: Translate
+# Translator 3.0: Translate
 
 Translates text.
 
@@ -230,7 +230,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 
