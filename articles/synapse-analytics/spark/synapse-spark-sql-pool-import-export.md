@@ -12,13 +12,13 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pool (preview) and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it doesn't work with SQL on-Demand.
+The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between Spark pools (preview) and SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on SQL pools only, it doesn't work with SQL on-demand.
 
 ## Design
 
 Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
-The Spark pool to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
+The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the Synapse SQL instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -160,7 +160,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
 
-## Allowing other users to use the DW Connector in your workspace
+## Allowing other users to use the DW connector in your workspace
 
 You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
 
