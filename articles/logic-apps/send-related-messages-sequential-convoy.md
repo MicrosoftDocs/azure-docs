@@ -17,7 +17,9 @@ For a more concrete example, suppose that you have an online company that receiv
 This article shows how to create a logic app that implements this pattern by using the **Correlated in-order delivery using service bus sessions** template. This template defines a logic app workflow that starts with the Service Bus connector's **When a message is received in a queue (peek-lock)** trigger, which receives messages from a Service Bus queue. Here are the high-level steps that this logic app performs:
 
 * Initialize a session based on a message that the trigger reads from the Service Bus queue.
+
 * Save the session that's initialized in the previous step.
+
 * Process all the messages that associated with the session by the current trigger instance.
 
 To review this template's JSON file, see [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
@@ -31,7 +33,7 @@ For more information about the sequential convoy pattern, see these articles:
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A Service Bus namespace and a Service Bus queue, which is a messaging entity. These items and your logic app need to use the same Azure subscription. Make sure that you select **Enable sessions** when you create your queue. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* A Service Bus namespace and a Service Bus queue, which is a messaging entity that you'll use in your logic app. These items and your logic app need to use the same Azure subscription. Make sure that you select **Enable sessions** when you create your queue. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
   [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
@@ -145,16 +147,10 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | Name | Description |
 |------|-------------|
 | `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. |
-| `While there are more messages for the session in the queue` | This **Until** loop runs these actions: <p><p>- Continue to get messages from the queue while messages exist or until one hour passes. To change the loop's time limit, edit the loop's **Timeout** property. By default, the maximum number of messages is set to `175`. However, this limit is affected by the message size and maximum message size property for the service bus, currently 256K for Standard and 1MB for Premium. <p>- Check the number of messages returned. If this number is 0, set the `isDone` value to `True` because no messages remain. Otherwise, process the message. |
+| `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. The loop also checks the number of remaining messages, and if none exist, the loop is done. <p><p>For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
 | `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or for 1 hour. To change the loop's time limit, edit the loop's **Timeout** property. |
 | `Close a session in a queue and succeed` | Complete the session for the queue and return |
 |||
-
-  * **** action
-  * **Until** loop that contains:
-    * **Receive next message in session** action
-    * **Send message to topic** action
-    * **Complete the message in a queue** action
 
 <a name="catch-scope"></a>
 
@@ -174,38 +170,63 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 To provide the values for the trigger and actions in the **Correlated in-order delivery using service bus sessions** template, follow these steps. You have to provide all the required values, which are marked by an asterisk (**\***), before you can save your work.
 
-1. For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property, for example:
+### Initialize the session
 
-   ![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
+For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property, for example:
 
-   | Property | Required for this scenario | Value | Description |
-   |----------|----------------------------|-------|-------------|
-   | **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
-   | **Queue type** | Yes | **Main** | Your primary Service Bus queue |
-   | **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session as described later. |
-   | **Interval** | Yes | | The number of time units between recurrences before checking for a message |
-   | **Frequency** | Yes | | The unit of time for the recurrence to use when checking for a message |
-   |||||
+![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
 
-   More information about the other **Session id** options:
+| Property | Required for this scenario | Value | Description |
+|----------|----------------------------|-------|-------------|
+| **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
+| **Queue type** | Yes | **Main** | Your primary Service Bus queue |
+| **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
+| **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message |
+| **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
+|||||
 
-   * **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern.
+For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
 
-   * **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID.
+After initializing the session, the workflow uses the **Initialize variable** action to create a variable that tracks whether the next Service Bus action finishes reading messages in the queue and set the variable's Boolean value is set to `false`.
 
-   For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+!["Initialize Variable" action details for "Init isDone"](./media/send-related-messages-sequential-convoy/init-is-done-variable.png)
 
-   After initializing the session, the workflow uses the **Initialize variable** action to create a variable that tracks whether the next Service Bus action finishes reading messages in the queue and set the variable's Boolean value is set to `false`.
+Next, in the **Try** block, the workflow performs actions on the first message that's read.
 
-   !["Initialize Variable" action details for "Init isDone"](./media/send-related-messages-sequential-convoy/init-is-done-variable.png)
+### Handle the initial message
 
-   In the **Try** section, the workflow instance performs these actions on the first message that's read.
+The first action, which is **Send initial message to topic**, sends the message to a topic that's specified by the **Session Id** property. That way, all the messages that are associated with a specific session go to the same topic.
 
-   The **Send initial message to topic** action sends the message to a topic that's specified by the **SessionId** property. That way, all the messages that are associated with a specific session go to the same topic.
+![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
 
-   ![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
+1. In the **Complete initial message in queue** action, provide the name for your Service Bus queue, and keep all the other default property values in the action.
 
-1. In the **Complete the message in a queue** action, provide this information.
+   ![Service Bus action details for "Complete initial message in queue"](./media/send-related-messages-sequential-convoy/complete-initial-message-queue.png)
 
-   open the *Add new parameter** list, and select **SessionId**. 
+1. In the **Abandon initial message from the queue** action, provide the name for your Service Bus queue, and keep all the other default property values in the action.
+
+   ![Service Bus action details for "Abandon initial message from the queue"](./media/send-related-messages-sequential-convoy/abandon-initial-message-from-queue.png)
+
+<a name="while-more-messages-for-session"></a>
+
+### While there are more messages for the session in the queue
+
+This **Until** loop runs these actions while messages exist in the queue or until one hour passes. If you want to change the loop's time limit, edit the loop's **Timeout** property value.
+
+* Get additional messages from the queue while messages exist.
+
+* Check the number of remaining messages. If this number is 0, set the `isDone` value to `True` because no messages remain. Otherwise, process the message.
+
+![Until loop - Process messages while in queue](./media/send-related-messages-sequential-convoy/while-more-messages-for-session-in-queue.png)
+
+1. In the **Get additional messages from session** action, provide the name for your Service Bus queue. Otherwise, keep all the other default property values in the action.
+
+   > [!NOTE]
+   > By default, the maximum number of messages is set to `175`, but this limit 
+   > is affected by the message size and maximum message size property for the 
+   > service bus, currently 256K for Standard and 1MB for Premium.
+
+   In the **Process messages if we got any** condition, 
+
+1. In the **Complete the message in a queue** action, provide the name for your Service Bus queue.
 
