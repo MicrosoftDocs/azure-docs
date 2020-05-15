@@ -74,3 +74,6 @@ Several PowerShell commands exist for running individual extensions. To see a li
 ```powershell
 Get-Command Get-Arc*Extension* -Module ArcExtension
 ```
+
+This provides output similar to the following:
+
