@@ -53,15 +53,15 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzNotificationHub -Namespace "ContosoNamespace" -ResourceGroup "ContosoNotificationsGroup"
-Get-AzNotificationHubsNamespace -Namespace "ContosoNamespace"
+Get-AzNotificationHub -Namespace "nhtestns123" -ResourceGroup "ContosoNotificationsGroup"
+Get-AzNotificationHubsNamespace -Namespace "nhtestns123"
 ```
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az notification-hub show --resource-group ContosoNotificationsGroup --namespace-name ContosoNamespace --name MyHub
-az notification-hub namespace show --resource-group ContosoNotificationsGroup --name ContosoNamespace
+az notification-hub show --resource-group ContosoNotificationsGroup --namespace-name nhtestns123 --name MyHub
+az notification-hub namespace show --resource-group ContosoNotificationsGroup --name nhtestns123
 ```
 
 ---
