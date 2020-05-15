@@ -27,6 +27,7 @@ Currently, the C# notebooks workspace does not support recursive resolution of N
 
 > [!TIP]
 > If your notebook requires a custom package, we recommend that you add a cell to your notebook to install the package and make it the first cell. This reduces the chance of conflicts with any packages Azure Cosmos DB loads by default. It also makes it easy to re-install them if you [reset the workspace](#reset-notebooks-workspace), which removes all packages. 
+
 ## Use the built-in Azure Cosmos DB .NET SDK
 Version 3 of the [Azure Cosmos DB .NET SDK for SQL API](https://github.com/Azure/azure-cosmos-dotnet-v3) is installed and included in the notebook environment for the Azure Cosmos account.
 
