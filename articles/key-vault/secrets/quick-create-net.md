@@ -259,7 +259,7 @@ az keyvault purge --location eastus --name <your-unique-keyvault-name>
 ```
 
 ```powershell
-Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location eastus
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
 ```
 
 ### Delete a resource group
