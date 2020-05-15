@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://cppa.cslab.com.ar/#/entityId/< CUSTOMER NAME >`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Humanage support team](mailto:amoron@cardinalsystems.com.ar) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Humanage support team](mailto:support@cardinalconsulting.atlassian.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -128,11 +128,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Humanage SSO
 
-To configure single sign-on on **Humanage** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Humanage support team](mailto:amoron@cardinalsystems.com.ar). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Humanage** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Humanage support team](mailto:support@cardinalconsulting.atlassian.net). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Humanage test user
 
-In this section, you create a user called Britta Simon in Humanage. Work with [Humanage support team](mailto:amoron@cardinalsystems.com.ar) to add the users in the Humanage platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Humanage. Work with [Humanage support team](mailto:support@cardinalconsulting.atlassian.net) to add the users in the Humanage platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
