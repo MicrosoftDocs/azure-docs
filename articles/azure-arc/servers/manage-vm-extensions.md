@@ -65,7 +65,7 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
 The following example shows the installation of the Log Analytics VM extension from the Azure portal:
 
-![Install Log Analytics VM extension](./media/manage-vm-extension/mma-extension-config.png)
+![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
 ## Enable extensions with PowerShell
 
