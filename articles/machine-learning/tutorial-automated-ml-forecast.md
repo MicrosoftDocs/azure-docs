@@ -1,5 +1,5 @@
 ---
-title: Create demand forecasting models with automated ML
+title: Tutorial:Demand forecasting & AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
@@ -17,13 +17,16 @@ ms.date: 05/19/2020
 # Tutorial: Forecast demand with automated machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time series forecasting model to predict rental demand for a bike sharing service.
+In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
+
+For a classification model example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
 > * Configure and run an automated ML experiment.
+> * Specify forecasting settings.
 > * Explore the experiment results.
 > * Deploy the best model.
 

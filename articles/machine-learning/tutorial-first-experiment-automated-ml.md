@@ -21,6 +21,8 @@ In this tutorial, you learn how to create a basic classification model without w
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
+For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
+
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]

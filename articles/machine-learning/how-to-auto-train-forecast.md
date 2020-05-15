@@ -15,9 +15,9 @@ ms.date: 03/09/2020
 # Auto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in the Azure Machine Learning Python SDK. 
+In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
 
-For a low code experience, see the [Tutorial: Forecast bike share demand](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
+For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
 
 Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. 
 
