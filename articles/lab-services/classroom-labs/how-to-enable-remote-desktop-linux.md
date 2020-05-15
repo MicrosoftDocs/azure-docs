@@ -23,14 +23,6 @@ This article shows you how to do the following tasks:
 - Enable graphical remote desktop sessions for a Linux VM
 - How to connect to a Linux VM using RDP or X2Go remote desktop clients
 
-## Supported operating systems
-Currently, graphical remote desktop connection is supported for the following operating systems:
-
-- openSUSE Leap 42.3
-- CentOS-based 7.5
-- Debian 9 "Stretch"
-- Ubuntu Server 16.04 LTS
-
 ## Set up graphical remote desktop solution
 When a lab is created using a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the instructor can connect to the template VM from the command line using SSH.  Likewise, when the template VM is published, students can also connect to their VMs using SSH.
 
@@ -50,14 +42,14 @@ To use X2Go, the instructor must:
 X2Go uses the same port that is already enabled for SSH; as a result, there is no extra configuration required to open a port on the VM for X2Go.
 
 > [!NOTE]
-> In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If >you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
+> In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
 
 > [!IMPORTANT]
->  Some marketplace images already have a graphical desktop environment and remote >desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
 
 ## Enable remote desktop connection for RDP
 
-This step is only needed to connect using RDP.  If instead you'll use X2Go, you can skip to the next section since X2Go uses the SSH port.
+This step is only needed to connect using RDP.  If instead you plan to use X2Go, you can skip to the next section since X2Go uses the SSH port.
 
 1.  During lab creation, the instructor has the option to **Enable Remote Desktop Connection**.  The instructor must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
   
@@ -89,7 +81,7 @@ Follow the below steps to set up the template VM:
 
 4. Install either RDP or X2Go along with the graphical desktop environment of your choice.  Refer to the following instructions:
     - [Install and configure RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
-    - [Install and configure X2Go](TODO: Link to DTL git repo)
+    - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## Connect to the template VM via the GUI
 
