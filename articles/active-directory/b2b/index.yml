@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What is self-service sign-up?
             url: self-service-sign-up-overview.md
-          - text: About identity Providers for External Identities
-            url: identity-providers.md
       - linkListType: how-to-guide
         links:
           - text: Add a self-service sign-up user flow
