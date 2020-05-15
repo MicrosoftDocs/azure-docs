@@ -25,7 +25,7 @@ In this quickstart, you create and train a predictive model using R, save the mo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
+- A [databae in Azure SQL Database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
 - [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
