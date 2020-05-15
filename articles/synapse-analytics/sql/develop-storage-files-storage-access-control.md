@@ -26,7 +26,6 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 - [Shared access signature](?tabs=shared-access-signature)
 - [User Identity](?tabs=user-identity)
 - [Managed Identity](?tabs=managed-identity)
-- [Anonymous access](?tab=anonymous-access)
 
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
@@ -95,7 +94,7 @@ If you want to re-enable it again, refer to the [force Azure AD pass-through](#f
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
 
-### [Anonymous access](#tab/anonymous-access)
+### [Anonymous access](#tab/public-access)
 
 You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
