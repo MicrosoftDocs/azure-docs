@@ -53558,7 +53558,6 @@
             "redirect_document_id": true
         },
         {
-        {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql",
             "redirect_document_id": true
