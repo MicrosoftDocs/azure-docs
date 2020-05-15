@@ -65,7 +65,7 @@ To build the machine learned entities effectively:
 
 * Your labeling should be consistent across the intents. This includes even utterances you provide in the **None** intent that include this entity. Otherwise the model will not be able to determine the sequences effectively.
 * If you have a machine learned entity with subentities, make sure that the different orders and variants of the entity and subentities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
-* You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model is fixated on the specific examples and is not able to generalize well. and is a common problem in machine learning models. This implies the app would fixate on the training data and not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept as opposed to be fixated on one idea.
+* You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model doesn't generalize well, and is a common problem in machine learning models. This implies the app would not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept instead of just the examples shown.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -95,7 +95,7 @@ Entities extract data as the data appears in the utterance. Entities do not chan
 
 There are ways to bring resolution into the extraction, but you should be aware that this limits the ability of the app to be immune against variations and mistakes.
 
-List entities and regular expression (text-matching) entities can be used as [required features](luis-concept-feature.md#required-features) to a subentity and that acts as a filter to the extraction. You should use this carefully as not to hinder the ability of the app to present smartness.
+List entities and regular expression (text-matching) entities can be used as [required features](luis-concept-feature.md#required-features) to a subentity and that acts as a filter to the extraction. You should use this carefully as not to hinder the ability of the app to predict.
 
 ## Extracting contextually related data
 
