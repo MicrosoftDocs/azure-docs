@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 05/12/2020
+ms.date: 05/15/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,18 +29,18 @@ Organizations can use this network location for common tasks like:
 - Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions.
 
-The network location is determined by the public IPV4 address a client provides to Azure Active Directory. 
+The network location is determined by the public IPv4 address a client provides to Azure Active Directory. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. 
 
  > [!NOTE]
- > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
+ > IPv6 addresses can only be defined in the [preview version of named locations](#preview-features).
 
 ## Named locations
 
 Locations are designated in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 
-To configure a location, you will need to provide at least a **Name** and the IP range. 
+![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
 
-![Create a new named location in the Azure portal](./media/location-condition/new-named-location.png)
+To configure a location, you will need to provide at least a **Name** and the IP range. 
 
 You can configure locations based on of the following limitations:
 
@@ -55,6 +55,8 @@ You can configure locations based on of the following limitations:
 ### Trusted locations
 
 When creating a network location, an administrator has the option to mark a location as a trusted location. 
+
+![Trusted locations in the Azure portal](./media/location-condition/new-trusted-location.png)
 
 This option can factor in to Conditional Access policies where you may, for example,  require registration for multi-factor authentication from a trusted network location. It also factors in to Azure AD Identity Protection's risk calculation, lowering a users' sign-in risk when coming from a location marked as trusted.
 
@@ -86,6 +88,33 @@ For mobile and desktop applications, which have long lived session lifetimes, Co
 1. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
 
 If both steps fail, a user is considered to be no longer on a trusted IP.
+
+## Preview features
+
+In addition to the generally available named location feature, there is also a named location (preview). You can access the named location preview by using the banner at the top of the current named location blade.
+
+![Try the named locations preview](./media/location-condition/preview-features.png)
+
+With the named location preview, you are able to
+
+- Configure up to 195 named locations
+- Configure up to 2000 IP Ranges per named location
+- Configure up to IPv6 addresses
+
+We’ve also added some additional checks to help reduce the change of misconfiguration.
+
+- Private IP ranges can no longer be configured
+- The number of IP addresses that can be included in a range are limited. Only CIDR masks greater than /8 will be allowed when configuring an IP range.
+
+With the preview, there are now two create options: 
+
+- **Countries location**
+- **IP ranges location**
+
+> [!NOTE]
+> Countries do not include IPv6 address ranges, only known IPv4 address ranges.
+
+![Named locations preview interface](./media/location-condition/named-location-preview.png)
 
 ## Location condition in policy
 
