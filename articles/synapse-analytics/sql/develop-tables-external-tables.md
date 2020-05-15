@@ -81,6 +81,7 @@ WITH
 )
 [;]
 ```
+
 ---
 
 ### Arguments for CREATE EXTERNAL DATA SOURCE
