@@ -64,7 +64,7 @@ On the **Basics** tab, provide the following information:
 
    ![Instance details](./media/quickstart-create-sql-vm-portal/basics-instance-details.png)
 
-1. Under **Administrator account**, provide a username, such as _azureuser_ and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Under **Administrator account**, provide a username, such as _azureuser_ and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administrator account](./media/quickstart-create-sql-vm-portal/basics-administrator-account.png)
 
