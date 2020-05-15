@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language
+title: Query language
 titleSuffix: Azure Digital Twins
 description: Understand the basics of the Azure Digital Twins Query Store language.
 author: baanders

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Routing Azure Digital Twins events
+title: Event routes
 titleSuffix: Azure Digital Twins
 description: Understand how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
@@ -15,13 +15,17 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Event routes (preview)
+# Route events within and outside of Azure Digital Twins
 
-It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. This type of data egress is handled using **event routes**. 
+Azure Digital twins uses **event routes** to send its data. 
 
-Here are some example cases that might involve an event route to move data:
-* A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
-* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
+During preview, there are two major cases for sending Azure Digital Twins data:
+* Sending data from one part of Azure Digital Twins to another. For instance, when a property on one digital twins changes, you may want to notify and update another digital twin accordingly.
+* Sending data to downstream data services for additional storage or processing (also known as *data egress*). For instance,
+  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
+  - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
+
+Event routes are used for both of these scenarios.
 
 ## About event routes
 
@@ -31,17 +35,19 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.jpg" alt-text="Azure Digital Twins routing data through endpoints to several downstream services" border="false":::
 
-## Uses for event routes
+Event routes are generally designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
 
-Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
+### Event routes for internal digital twin events
 
-During the current preview release, they are also used to handle events within the twin graph and send data from digital twin to digital twin. This is done by connecting event routes to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), which define how twins should receive and respond to events. 
+During the current preview release, event routes are also used to handle events within the twin graph and send data from digital twin to digital twin. This is done by connecting event routes through Event Grid to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). These functions then define how twins should receive and respond to events. 
 
 Events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph based on an event it received through an event route must either:
 * know in advance the digital twin target it wants to modify, or
 * use a query/navigation through the twin graph to find the right target. 
 
 The compute resource also needs to establish security and access permissions independently.
+
+To walk through the process of setting up an Azure Function to process digital twin events, see [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md).
 
 ## Create an endpoint
 
@@ -87,5 +93,5 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 See how to set up and manage an event route:
 * [How-to: Manage endpoints and routes](how-to-manage-routes.md)
 
-Or, see how to use an Azure Function with Azure Digital Twins:
-* [How-to: Set up an Azure Function](how-to-create-azure-function.md)
+Or, see how to use an Azure Function to route events within Azure Digital Twins:
+* [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md)
