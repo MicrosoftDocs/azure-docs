@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: tamram
 ms.subservice: blobs
@@ -14,9 +14,9 @@ ms.subservice: blobs
 
 # Configure object replication (preview)
 
-With object-level replication (preview), you can automatically replicate block blobs from one storage account to another in any Azure region.
+With object replication (preview), you can automatically replicate block blobs from one storage account to another in any Azure region.
 
-Object-level replication unblocks a new set of common replication scenarios:
+Object replication unblocks a new set of common replication scenarios:
 
 - Minimize latency – have your users consume the data locally rather than issuing cross-region read requests.
 - Increase efficiency – have your compute clusters process/transform the same set of objects locally in different regions.
@@ -253,4 +253,4 @@ az storage account ors-policy remove \\
 
 ## Next steps
 
-- [Object-level replication (preview)](object-replication-overview.md)
+- [Object replication (preview)](object-replication-overview.md)

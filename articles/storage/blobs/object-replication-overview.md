@@ -1,7 +1,7 @@
 ---
-title: Object-level replication (preview)
+title: Object replication (preview)
 titleSuffix: Azure Storage
-description: Configure object-level replication (preview) to asynchronously replicate block blobs between two storage accounts.
+description: Configure object replication (preview) to asynchronously replicate block blobs between two storage accounts.
 services: storage
 author: tamram
 
@@ -12,30 +12,30 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Object-level replication (preview)
+# Object replication (preview)
 
-With object-level replication (preview), you can asynchronously replicate block blobs between two storage accounts.
+With object replication (preview), you can asynchronously replicate block blobs between two storage accounts.
 
-- Object-level replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
+- Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
 - 
 
 
-Object-level replication unblocks a new set of common replication scenarios:
+Object replication unblocks a new set of common replication scenarios:
 
 - Minimize latency – have your users consume the data locally rather than issuing cross-region read requests.
 - Increase efficiency – have your compute clusters process/transform the same set of objects locally in different regions.
 - Optimize data distribution – have your data consolidated in a single location for processing/analytics and then distribute only resulting dashboards to your offices worldwide.
 - Optimize cost – tier down your data to Archive upon replication completion using Lifecycle Management policies to optimize the cost.
 
-## How object-level replication works
+## How object replication works
 
-Object-level replication asynchronously copies a specified set of block blobs from a container in one storage account to the same container in a destination account. To use object-level replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
-
-Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+Object replication asynchronously copies a specified set of block blobs from a container in one storage account to a container in another account. Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication on the source account, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
 
 ???You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.???
 
 ### Configure a replication policy
+
+To use object replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
 
 A storage account can serve as the source account for up to two destination accounts. For example, suppose you wish to replicate data from a source account to two destination accounts that are in different regions, to reduce latency. You can configure two separate replication policies to replicate data to each of the destination accounts.
 
@@ -51,18 +51,18 @@ A replication rule can also filter block blobs by prefix. If you specify a prefi
 
 ## About the preview
 
-Object replication is supported for general-purpose v2 storage accounts only. Object-level replication is available in the following regions in preview:
+Object replication is supported for general-purpose v2 storage accounts only. Object replication is available in the following regions in preview:
 
 - US East 2
 - US Central
 - Europe West
 
-Both the source and destination accounts must reside in one of these regions in order to use object-level replication. The accounts can be in two different regions.
+Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
 
 During the preview, there are no additional costs associated with replicating data between storage accounts.
 
 > [!IMPORTANT]
-> The object-level replication preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+> The object replication preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 ### Prerequisites for object replication
 
@@ -77,14 +77,14 @@ Enabling these prerequisites may incur additional costs. For more details, refer
 
 ### Register for the preview
 
-You can register for the object-level replication preview using PowerShell or Azure CLI. Make sure that you also register for the change feed and blob versioning previews if you haven't already.
+You can register for the object replication preview using PowerShell or Azure CLI. Make sure that you also register for the change feed and blob versioning previews if you haven't already.
 
 # [PowerShell](#tab/powershell)
 
 To register for the preview with PowerShell, run the following commands:
 
 ```powershell
-# Register for the object-level replication preview
+# Register for the object replication preview
 Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespace Microsoft.Storage
 
 # Register for change feed (preview)
