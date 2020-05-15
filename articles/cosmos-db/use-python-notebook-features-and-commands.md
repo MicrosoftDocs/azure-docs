@@ -11,7 +11,7 @@ ms.author: dech
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)
 
-Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations.
+Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in Python notebooks.
 
 ## Install a new package
 After you enable notebook support for your Azure Cosmos accounts, you can open a new notebook and install a package.
