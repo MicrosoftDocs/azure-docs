@@ -2,7 +2,7 @@
 title: Collaborate with others - QnA Maker
 description:
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/15/2020
 ---
 
 # Collaborate with other authors and editors
