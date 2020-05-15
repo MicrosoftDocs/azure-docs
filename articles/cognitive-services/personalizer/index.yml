@@ -5,7 +5,7 @@ summary: Learn how to use Personalizer to allow your application to choose the b
 
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 05/01/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -99,6 +99,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Use Apprentice mode
+            url: how-to-learning-behavior.md
           - text: Improve loop with offline evaluations
             url: concepts-offline-evaluation.md
           - text: Active and inactive events

@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Get the list of supported languages - Translator Text API"
+title: "Quickstart: Get the list of supported languages - Translator"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
+description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
 
-# Quickstart: Use the Translator Text API to get a list of supported languages
+# Quickstart: Use the Translator to get a list of supported languages
 
-In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
+In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]
