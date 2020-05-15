@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # Develop an IoT Plug and Play Preview end-to-end solution
 
-IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use a sample IoT Plug and Play Preview device written in C and interact with it using the Node.js service SDK.
+IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's features without knowledge of the underlying device implementation. This tutorial shows you how to use a sample IoT Plug and Play Preview device written in C and interact with it using the Node.js service SDK.
 
 ## Prerequisites
 
 **Installation for Bug Bash 5/13**
 
-1. Create an IoT Hub in Central US region, with the **IOTPNP_TEST_BY_MAIN** subscription. Create the IoT Hub under this subscription, within the resource group **BugBash** in the supported region: **Central US**.
+1. Create an IoT Hub in either the Central US region or the East US region, with the **IOTPNP_TEST_BY_MAIN** subscription. Create the IoT Hub under this subscription, within the resource group **BugBash** in one of the supported regions: **Central US (UAP)** or **East US (CBN)**.
 
 1. Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
@@ -198,6 +198,13 @@ To use the Node Service SDK to interact with sample device, navigate to the serv
 1. Run the `get_digital_twin.js` script to find the device model ID:
 
     ```cmd/bash
+    npm install
+    node get_digital_twin.js
+    ```
+
+    You see output similar to:
+
+    ```text
     getting digital twin for device EM_Device01...
     device metadata:
     {
@@ -208,12 +215,19 @@ To use the Node Service SDK to interact with sample device, navigate to the serv
 1. Run the `invoke_component_command.js` to call the `turnOn` command:
 
     ```cmd/bash
-    azure-iot-sdk-node\digitaltwins\samples\service\javascript>node invoke_component_command.js
+    node invoke_component_command.js
+    ```
+
+    You see output similar to:
+
+    ```text
     invoking command turnOn on component instancesensor for device EM_Device01...
     null
     ```
 
     The sample device shows output similar to the output shown when you used the Azure IoT Explorer.
+
+For more information, see the [Interact with an IoT Plug and Play Preview device that's connected to your solution](./quickstart-service-python.md) quickstart.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
