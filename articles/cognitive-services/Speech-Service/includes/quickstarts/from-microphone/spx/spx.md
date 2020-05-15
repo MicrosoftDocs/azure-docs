@@ -21,7 +21,7 @@ Now you're ready to run the SPX tool to recognize speech from your microphone.
     ```
 
     > [!NOTE]
-    > The SPX tool defaults to English. You can also choose [a language from the Speech-to-text table](../../../language-support.md).
+    > The SPX tool defaults to English. You can also choose [a language from the Speech-to-text table](../../../../language-support.md).
     > For example, add `--source de-DE` to recognize German speech.
 
 2. **Start recognition** - Speak into the microphone. You will see transcription of your words into text in real-time. The SPX tool will stop after a period of silence, or when you press ctrl-C.
