@@ -1,5 +1,5 @@
 ---
-title: Direct methods - Azure  
+title: Use direct methods in Media Services on IoT Edge - Azure  
 description: Media Services on IoT Edge exposes several Direct Methods. The Direct Methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
