@@ -52599,7 +52599,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-single-database-failover-group-tutorial.md",
-            "redirect_url": "/azure/azure-sql/database/failover-group--add-single-database-tutorial",
+            "redirect_url": "/azure/azure-sql/database/failover-group-add-single-database-tutorial",
             "redirect_document_id": true
         },
         {
@@ -53873,13 +53873,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sql-database/what-is-azure-sql-iaas-vs-paas.md",
-            "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/sql-database/sql-database-auditing.md",
-            "redirect_url": "azure/azure-sql/database/auditing-overview",
+            "redirect_url": "/azure/azure-sql/database/auditing-overview",
             "redirect_document_id": true
         },
         {

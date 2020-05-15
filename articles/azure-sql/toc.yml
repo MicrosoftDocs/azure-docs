@@ -73,39 +73,39 @@
         - name: Multi-factor AAD auth
           href: mfa-authentication-ssms-overview.md
         - name: Configure multi-factor auth
-          href: sql-database-mfa-authentication-ssms-configure.md
+          href: mfa-authentication-ssms-configure.md
         - name: Conditional Access
-          href: sql-database-conditional-access.md
+          href: database/conditional-access-configure.md
 
       - name: Data protection
         items:
         - name: Transparent Data Encryption (TDE)
           items:
           - name: TDE with Azure SQL
-            href: transparent-data-encryption-azure-sql.md
+            href: database/transparent-data-encryption-tde-overview.md
           - name: TDE with Bring Your Own Key
-            href: transparent-data-encryption-byok-azure-sql.md
+            href: database/transparent-data-encryption-byok-overview.md
           - name: Configure TDE with BYOK
-            href: transparent-data-encryption-byok-azure-sql-configure.md
+            href: database/transparent-data-encryption-byok-configure.md
           - name: Rotate TDE BYOK keys
-            href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+            href: database/transparent-data-encryption-byok-key-rotation.md
           - name: Remove TDE protector
-            href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
+            href: database/transparent-data-encryption-byok-remove-tde-protector.md
         - name: Dynamic data masking
-          href: sql-database-dynamic-data-masking-get-started.md
+          href: database/dynamic-data-masking-overview.md
         - name: Always encrypted
           items:
           - name: Use the certificate store
-            href: sql-database-always-encrypted.md
+            href: database/always-encrypted-certificate-store-configur.md
           - name: Use the Azure key vault
-            href: sql-database-always-encrypted-azure-key-vault.md
+            href: database/always-encrypted-azure-key-vault-configure.md
 
       - name: Auditing
         items:
         - name: Azure SQL Auditing
-          href: /azure-sql/database/auditing-overview.md
+          href: database/auditing-overview.md
         - name: Audit to storage account behind VNet or firewall
-          href: create-auditing-storage-account-vnet-firewall.md
+          href: database/audit-write-storage-account-behind-vnet-firewall.md
         - name: Audit log format
           href: sql-database-audit-log-format.md
 

@@ -46,7 +46,7 @@ Azure SQL Database can be configured to use one of two types of authentication:
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
 - Supports domain federation with Active Directory Federation Services (ADFS) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and SQL Data Warehouse](../../azure-sql/ssms-mfa-authentication.md).
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and SQL Data Warehouse](../../azure-sql/).
 
 To learn more about Azure AD authentication, see:
 
