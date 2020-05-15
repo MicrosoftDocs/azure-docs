@@ -24,7 +24,7 @@ The **Overview** page in the Azure portal for each storage resource includes a b
 ## What is Azure Monitor?
 Azure Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
 
-To learn more about Azure Monitor, read the article [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md). The article describes the following subjects:
+To learn more about Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md). The article describes the following subjects:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -51,8 +51,8 @@ Log entries are created only if there are requests made against the service endp
  The following types of authenticated requests are logged:
 
 - Successful requests
-- Failed requests, which includes timeout, throttling, network, authorization, and other errors
-- Requests that use a Shared Access Signature (SAS) or OAuth, which includes failed and successful requests
+- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Requests that use a shared access signature or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
 Requests made by the storage service itself, like log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
@@ -340,7 +340,7 @@ Data is stored in these tables.
 
 ### Azure Storage Log Analytics queries in Azure Monitor
 
-Here are some queries that you can enter in the **Log search** search bar to help you monitor your Azure Storage accounts. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Storage accounts. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 Use these queries to help you monitor your Azure Storage accounts:
 

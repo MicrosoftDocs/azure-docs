@@ -156,7 +156,7 @@ For full details of the schemas for these tables, see [Storage Analytics metrics
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
 |20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
 
-In this example of minute metrics data, the partition key uses the time at minute resolution. The row key identifies the type of information that's stored in the row, which is composed of two pieces of information, the access type and the request type:  
+In this example of minute metrics data, the partition key uses the time at minute resolution. The row key identifies the type of information that's stored in the row. The information is composed of the access type and the request type:  
 
 -   The access type is either **user** or **system**, where **user** refers to all user requests to the storage service and **system** refers to requests made by Storage Analytics.  
 -   The request type is either **all**, in which case it's a summary line, or it identifies the specific API such as **QueryEntity** or **UpdateEntity**.  
