@@ -65,7 +65,7 @@ zone_pivot_groups: programming-languages-set-two-with-js-go-spx
 
 [!INCLUDE [spx](../includes/quickstarts/from-microphone/spx/spx.md)]
 
-[!INCLUDE [next steps to spx basics](includes/quickstarts/spx-next-steps.md)]
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 
 ::: zone-end
 
