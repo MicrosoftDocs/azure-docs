@@ -316,8 +316,8 @@ For more info about SQL Data Sync, see the following articles:
 -   Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - With PowerShell
-        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

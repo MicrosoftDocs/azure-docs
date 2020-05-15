@@ -15,11 +15,10 @@ ms.date: 09/03/2019
 
 Coordinated Universal Time (UTC) is the recommended time zone for the data tier of cloud solutions. Azure SQL Managed Instance also offers a choice of time zones to meet the needs of existing applications that store date and time values and call date and time functions with an implicit context of a specific time zone.
 
-T-SQL functions like [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) or CLR code observe the time zone set on the instance level. SQL Server Agent jobs also follow schedules according to the time zone of the instance.
+T-SQL functions like [GETDATE()](/sql/t-sql/functions/getdate-transact-sql) or CLR code observe the time zone set on the instance level. SQL Server Agent jobs also follow schedules according to the time zone of the instance.
 
-  >[!NOTE]
-  > Managed Instance is the only deployment option of Azure SQL Database that supports time zone setting. Other deployment options always follow UTC.
-Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) in single and pooled SQL databases if you need to interpret date and time information in a non-UTC time zone.
+  > [!NOTE]
+  > Azure SQL Database does not support time zone settings; it always follows UTC. Use [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql) in SQL Databases if you need to interpret date and time information in a non-UTC time zone.
 
 ## Supported time zones
 
@@ -27,7 +26,7 @@ A set of supported time zones is inherited from the underlying operating system 
 
 [Daylight saving time/time zone changes policy](https://aka.ms/time) guarantees historical accuracy from 2010 forward.
 
-A list with names of the supported time zones is exposed through the [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
+A list with names of the supported time zones is exposed through the [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
 
 ## Set a time zone
 
@@ -67,7 +66,7 @@ If not specified, the time zone is set to UTC.
 
 ## Check the time zone of an instance
 
-The [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) function returns a display name of the time zone of the instance.
+The [CURRENT_TIMEZONE](/sql/t-sql/functions/current-timezone-transact-sql) function returns a display name of the time zone of the instance.
 
 ## Cross-feature considerations
 
@@ -236,6 +235,6 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 ## See also 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

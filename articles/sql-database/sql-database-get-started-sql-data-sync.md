@@ -20,7 +20,7 @@ The tutorial assumes you have at least some prior experience with SQL Database a
 
 For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
 
-For PowerShell examples on how to configure SQL Data Sync, see [How to sync between SQL databases](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+For PowerShell examples on how to configure SQL Data Sync, see [How to sync between databases in SQL Database](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
 > SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
@@ -29,7 +29,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your SQL database. Search for and select **SQL databases**.
 
-    ![Search for SQL databases, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+    ![Search for databases in SQL Database, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
 
 1. Select the database you want to use as the hub database for Data Sync.
 

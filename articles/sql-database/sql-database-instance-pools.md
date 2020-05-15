@@ -15,7 +15,7 @@ ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
 
-Instance pools are a new deployment option for Azure SQL Managed Instance that provides a convenient and cost-efficient way to migrate smaller SQL instances to the cloud at scale.
+Instance pools in Azure SQL Managed Instance provide a convenient and cost-efficient way to migrate smaller SQL instances to the cloud at scale.
 
 Instance pools allow you to pre-provision compute resources according to your total migration requirements. You can then deploy several individual SQL Managed Instances up to your pre-provisioned compute level. For example, if you pre-provision 8 vCores you can deploy two 2 vCore and one 4 vCore instances, and then migrate databases into these instances. Prior to instance pools being available, smaller and less compute-intensive workloads would often have to be consolidated into a larger managed instance when migrating to the cloud. The need to migrate groups of databases to a large instance typically required careful capacity planning and resource governance, additional security considerations, and some extra data consolidation work at the instance level.
 
@@ -137,7 +137,7 @@ Setting different pricing options is not possible for individual instances in a 
 > [!IMPORTANT]
 > If you specify a License Model for the instance that is different than in the pool, the pool price is used and the instance level value is ignored.
 
-If you create instance pools on [subscriptions eligible for dev-test benefit](https://azure.microsoft.com/pricing/dev-test/), you automatically receive discounted rates of up to 55 percent on Azure SQL managed instance.
+If you create instance pools on [subscriptions eligible for dev-test benefit](https://azure.microsoft.com/pricing/dev-test/), you automatically receive discounted rates of up to 55 percent on Azure SQL Managed Instance.
 
 For full details on instance pool pricing, refer to the *instance pools* section on the [SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 

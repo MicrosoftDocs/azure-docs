@@ -24,7 +24,7 @@ Please see [Adding a shard to an application using the elastic database client l
 
 ## How much do elastic database tools cost
 
-Using the elastic database client library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
+Using the elastic database client library does not incur any costs. Costs accrue only for the databases in Azure SQL Database that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
 
 ## Why are my credentials not working when I add a shard from a different server
 

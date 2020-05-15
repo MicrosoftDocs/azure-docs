@@ -43,8 +43,8 @@ You can configure and get information about alert rules using the following inte
 ## Alerting metrics available for managed instance
 
 > [!IMPORTANT]
-> Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available. 
-> Database diagnostics telemetry is on the other hand available in the form of [diagnostics logs](sql-database-metrics-diag-logging.md#diagnostic-telemetry-for-export-for-azure-sql-database). Alerts on diagnostics logs can be setup from within [SQL Analytics](../azure-monitor/insights/azure-sql.md) product using [log alert scripts](../azure-monitor/insights/azure-sql.md#creating-alerts-for-managed-instances) for managed instance.
+> Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available.
+> Database diagnostics telemetry is on the other hand available in the form of [diagnostics logs](sql-database-metrics-diag-logging.md#diagnostic-telemetry-for-export). Alerts on diagnostics logs can be setup from within [SQL Analytics](../azure-monitor/insights/azure-sql.md) product using [log alert scripts](../azure-monitor/insights/azure-sql.md#creating-alerts-for-managed-instances) for managed instance.
 
 The following managed instance metrics are available for alerting configuration:
 
@@ -60,7 +60,7 @@ The following managed instance metrics are available for alerting configuration:
 
 ## Create an alert rule on a metric with the Azure portal
 
-1. In Azure [portal](https://portal.azure.com/), locate SQL managed instance you are interested in monitoring, and select it.
+1. In Azure [portal](https://portal.azure.com/), locate the managed instance you are interested in monitoring, and select it.
 
 2. Select **Metrics** menu item in the Monitoring section.
 

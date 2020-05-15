@@ -80,11 +80,11 @@ For information about backups using T-SQL, see [BACKUP](/sql/t-sql/statements/ba
 
 ### Auditing
 
-The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
+The key differences between auditing in Microsoft Azure SQL and in SQL Server are:
 
-- With the SQL Managed Instance deployment option in Azure SQL Database, auditing works at the server level. The `.xel` log files are stored in Azure Blob storage.
-- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
-- In SQL Server on-premises or virtual machines, auditing works at the server level. Events are stored on file system or Windows event logs.
+- With SQL Managed Instance, auditing works at the server level. The `.xel` log files are stored in Azure Blob storage.
+- With Azure SQL Database, auditing works at the database level. The `.xel` log files are stored in Azure Blob storage.
+- With SQL Server, on-premises or in virtual machines, auditing works at the server level. Events are stored on file system or Windows event logs.
  
 XEvent auditing in SQL Managed Instance supports Azure Blob storage targets. File and Windows logs aren't supported.
 
@@ -163,7 +163,7 @@ A SQL Managed Instance can't access files, so cryptographic providers can't be c
 
 - Only the server-level principal login, which is created by the SQL Managed Instance provisioning process, members of the server roles, such as `securityadmin` or `sysadmin`, or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for SQL Managed Instance.
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
-- The Azure AD login must be a member of an Azure AD within the same directory that's used for Azure SQL Database SQL Managed Instance.
+- The Azure AD login must be a member of an Azure AD within the same directory that's used for Azure SQL Managed Instance.
 - Azure AD server principals (logins) are visible in Object Explorer starting with SQL Server Management Studio 18.0 preview 5.
 - Overlapping Azure AD server principals (logins) with an Azure AD admin account is allowed. Azure AD server principals (logins) take precedence over the Azure AD admin when you resolve the principal and apply permissions to the SQL Managed Instance.
 - During authentication, the following sequence is applied to resolve the authenticating principal:

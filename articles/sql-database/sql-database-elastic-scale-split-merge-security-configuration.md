@@ -473,7 +473,7 @@ In the [Azure portal](https://portal.azure.com/)
 7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
 ## Other security considerations
-The TLS settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
+The TLS settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the database in Azure SQL Database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />
