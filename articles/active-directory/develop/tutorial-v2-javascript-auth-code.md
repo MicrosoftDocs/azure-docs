@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
 ---

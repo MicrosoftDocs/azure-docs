@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
@@ -21,7 +21,7 @@ The Microsoft identity platform (v2.0) endpoint supports authentication for a va
 
 ## The basics
 
-You must register each app that uses the Microsoft identity platform endpoint in the new [App registrations portal](https://go.microsoft.com/fwlink/?linkid=2083908). The app registration process collects and assigns these values for your app:
+You must register each app that uses the Microsoft identity platform endpoint in the Azure portal [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908). The app registration process collects and assigns these values for your app:
 
 * An **Application (client) ID** that uniquely identifies your app
 * A **Redirect URI** that you can use to direct responses back to your app
@@ -38,13 +38,13 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+Many modern apps have a single-page app front end written primarily in JavaScript, often with a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
-In this flow, the app receives a code from the Microsoft identity platform authorize endpoint, and redeems it for tokens and refresh tokens using cross-site web requests.  Every 24 hours the refresh token expires and the app must request another code.
+In this flow, the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for tokens and refresh tokens using cross-site web requests. The refresh token expires every 24 hours, and the app must request another code.
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
-To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
+To see this scenario in action, check out the [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript SPA using auth code flow](tutorial-v2-javascript-auth-code.md).
 
 ### Authorization code flow vs. implicit flow
 
@@ -123,3 +123,7 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain ac
 ![Shows the daemon app authentication flow](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## Next steps
+
+Now that you're familiar with the types of applications supported by the Microsoft identity platform, learn more about [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) to gain an understanding of the protocol components used by the different scenarios.

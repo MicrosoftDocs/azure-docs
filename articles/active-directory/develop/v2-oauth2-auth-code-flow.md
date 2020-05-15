@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -18,11 +18,11 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform and OAuth 2.0 authorization code flow
 
-The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the Microsoft identity platform implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps. 
+The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the Microsoft identity platform implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.
 
 This article describes how to program directly against the protocol in your application using any language.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform endpoint, as well as refresh tokens to get additional access_tokens, and ID tokens for the signed in user. 
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform endpoint, as well as refresh tokens to get additional access_tokens, and ID tokens for the signed in user.
 
 ## Protocol diagram
 
@@ -32,9 +32,9 @@ At a high level, the entire authentication flow for an application looks a bit l
 
 ## Setup required for single-page apps
 
-The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal.md), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.  
+The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal.md), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.
 
-If you attempt to use the authorization code flow and see this error: 
+If you attempt to use the authorization code flow and see this error:
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
@@ -95,7 +95,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `code` | The authorization_code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization_codes are short lived, typically they expire after about 10 minutes. |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
-You can also receive an access token and ID token if you request one and have the implicit grant enabled in your application registration.  This is sometimes referred to as the "hybrid flow", and is used by frameworks like ASP.NET. 
+You can also receive an access token and ID token if you request one and have the implicit grant enabled in your application registration.  This is sometimes referred to as the "hybrid flow", and is used by frameworks like ASP.NET.
 
 #### Error response
 
@@ -225,7 +225,7 @@ Error responses will look like:
 | `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource.  |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
-> [!NOTE] 
+> [!NOTE]
 > Single page apps may receive an `invalid_request` error indicating that cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.  This indicates that the redirect URI used to request the token has not been marked as a `spa` redirect URI.  Review the [application registration steps](#setup-required-for-single-page-apps) on how to enable this flow.
 
 ## Use the access token
@@ -246,12 +246,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources. You can do so by submitting another `POST` request to the `/token` endpoint, this time providing the `refresh_token` instead of the `code`.  Refresh tokens are valid for all permissions that your client has already received consent for - thus, a refresh token issued on a request for `scope=mail.read` can be used to request a new access token for `scope=api://contoso.com/api/UseResource`.
 
-Refresh tokens for web apps and native apps do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle [errors returned by the token issuance endpoint](#error-codes-for-token-endpoint-errors) correctly. Single page apps, however, get a token with a 24 hour lifetime, requiring a new authentication every day.  This can be done silently in an iframe when 3rd party cookies are enabled, but must be done in a top level frame (either full page navigation or a popup) in browsers without 3rd party cookies such as Safari. 
+Refresh tokens for web apps and native apps do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle [errors returned by the token issuance endpoint](#error-codes-for-token-endpoint-errors) correctly. Single page apps, however, get a token with a 24 hour lifetime, requiring a new authentication every day.  This can be done silently in an iframe when 3rd party cookies are enabled, but must be done in a top level frame (either full page navigation or a popup) in browsers without 3rd party cookies such as Safari.
 
 Although refresh tokens aren't revoked when used to acquire new access tokens, you are expected to discard the old refresh token. The [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-6) says: "The authorization server MAY issue a new refresh token, in which case the client MUST discard the old refresh token and replace it with the new refresh token. The authorization server MAY revoke the old refresh token after issuing a new refresh token to the client."
 
 >[!IMPORTANT]
-> For refresh tokens sent to a redirect URI registered as `spa`, the refresh token will expire after 24 hours. Additional refresh tokens acquired using the initial refresh token will carry over that expiration time, so apps must be prepared to re-run the authorization code flow using an interactive authentication to get a new refresh token every 24 hours. Users do not have to enter their credentials, and will usually not even see any UX, just a reload of your application - but the browser must visit the login page in a top level frame in order to see the login session.  This is due to [privacy features in browsers that block 3rd party cookies](reference-third-party-cookies-spas.md). 
+> For refresh tokens sent to a redirect URI registered as `spa`, the refresh token will expire after 24 hours. Additional refresh tokens acquired using the initial refresh token will carry over that expiration time, so apps must be prepared to re-run the authorization code flow using an interactive authentication to get a new refresh token every 24 hours. Users do not have to enter their credentials, and will usually not even see any UX, just a reload of your application - but the browser must visit the login page in a top level frame in order to see the login session.  This is due to [privacy features in browsers that block 3rd party cookies](reference-third-party-cookies-spas.md).
 
 ```HTTP
 

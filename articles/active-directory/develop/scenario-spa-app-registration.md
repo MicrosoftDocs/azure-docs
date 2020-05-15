@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
