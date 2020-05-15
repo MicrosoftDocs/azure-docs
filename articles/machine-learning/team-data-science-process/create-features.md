@@ -1,6 +1,6 @@
 ---
 title: Feature engineering in data science - Team Data Science Process
-description: Learn about the purposes of feature engineering and see examples of its role in the data enhancement process of machine learning.
+description: Learn about feature engineering and its role in the data enhancement process of machine learning.
 services: machine-learning
 author: marktab
 manager: marktab
