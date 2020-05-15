@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 
 ---
-# Batch service workflow
+# Batch service workflow and resources
 
 In this overview of the core components of the Azure Batch service, we discuss the high-level workflow that Batch developers can use to build large-scale parallel compute solutions, along with the primary service resources that are used.
 

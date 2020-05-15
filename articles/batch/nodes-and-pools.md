@@ -53,7 +53,9 @@ The pool can be created manually, or automatically by the Batch service when you
 
 When you create a Batch pool, you specify the Azure virtual machine configuration and the type of operating system you want to run on each compute node in the pool.
 
-There are two types of configurations available in Batch.
+## Configurations
+
+There are two types of pool configurations available in Batch.
 
 ### Virtual Machine Configuration
 
