@@ -32,7 +32,7 @@ Azure App Service emits the following event types
 |    Microsoft.Web/sites.SlotSwapCompleted                  |    Triggered when a slot swap has   completed                      |
 |    Microsoft.Web/sites.SlotSwapFailed                     |    Triggered when a slot swap has failed                           |
 |    Microsoft.Web/sites.SlotSwapWithPreviewStarted         |    Triggered when a slot swap with   preview has started           |
-|    Microsoft.Web/sites.SlotSwapWithPreviewCancelled       |    Triggered when a slot swap with   preview has been cancelled    |
+|    Microsoft.Web/sites.SlotSwapWithPreviewCancelled       |    Triggered when a slot swap with   preview has been canceled    |
 |    Microsoft.Web/sites.AppUpdated.Restarted               |    Triggered when a site has been   restarted                      |
 |    Microsoft.Web/sites.AppUpdated.Stopped                 |    Triggered when a site has been stopped                          |
 |    Microsoft.Web/sites.AppUpdated.ChangedAppSettings      |    Triggered when a site’s app settings   have changed             |
