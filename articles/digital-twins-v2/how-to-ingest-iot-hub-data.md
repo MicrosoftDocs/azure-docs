@@ -51,7 +51,7 @@ Before continuing with this example, you'll need to complete the following prere
 4. In the *Create Event Subscription* page, fill the fields as follows:
    * Under *EVENT SUBSCRIPTION DETAILS*, name the subscription what you would like
    * Under *EVENT TYPES*, choose *Device Telemetry* as the event type to filter on
-         * Add filters to other event types, if you would like.
+      - Add filters to other event types, if you would like.
    * Under *ENDPOINT DETAILS*, select your Azure function as an endpoint
 
 ## Create an Azure function in Visual Studio
