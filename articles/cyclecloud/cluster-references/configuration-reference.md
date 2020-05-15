@@ -84,6 +84,8 @@ CycleCloud `cluster` namespace contains configurations for distributed services 
 ### `[[[configuration cyclecloud.hosts.standalone_dns]]]`
 
 CycleCloud will configure the */etc/hosts* file to contain a large set of hosts so that forward and reverse name resolution is functional.
+These configurations act to operate as DNS replacement configured on the individual nodes, 
+not centrally managed, therefore called stand-alone DNS. 
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
