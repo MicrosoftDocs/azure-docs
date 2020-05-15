@@ -11,4 +11,4 @@ ms.author: v-demjoh
 With this base knowledge of speech recognition using the SPX tool, continue exploring the basics to learn about other features of the SPX tool for both speech recognition and speech synthesis.
 
 > [!div class="nextstepaction"]
-> [Explore SPX tool basics](../spx-basics.md)
+> [Explore SPX tool basics](../../spx-basics.md)
