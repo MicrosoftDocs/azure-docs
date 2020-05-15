@@ -24,7 +24,7 @@ ms.reviewer: jroth
 
 [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the Cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
 
-Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for a many different SQL Server workloads.
+Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/windows/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for a many different SQL Server workloads.
 
 ## Automated updates
 
@@ -120,21 +120,21 @@ For details, see:
 
 - [Create a single database](../../database/quickstart-create-single-database.md)
 - [Create an elastic pool](../../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
-- [Create a managed instance](../../../azure-signalr/includes/quickstart-create-instance.md)
+- [Create a managed instance](../../managed-instance/quickstart-create-instance.md)
 - [Create a SQL virtual machine](quickstart-create-sql-vm-portal.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
-Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](../../database/frequently-asked-questions-faq.md#images).
+Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](frequently-asked-questions-faq.md#images).
 
 ## Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
 
 ## Related products and services
 ### Windows Virtual Machines
-* [Virtual Machines overview](../overview.md)
+* [Virtual Machines overview](../../../virtual-machines/windows/overview.md)
 
 ### Storage
-* [Introduction to Microsoft Azure Storage](../../../storage/blobs/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### Networking
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
@@ -153,7 +153,7 @@ Get started with SQL Server on Azure virtual machines:
 
 Get answers to commonly asked questions about SQL VMs:
 
-* [SQL Server on Azure Virtual Machines FAQ](../../database/frequently-asked-questions-faq.md)
+* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.md)
 
 View Reference Architectures for running N-tier applications on SQL Server in IaaS
 

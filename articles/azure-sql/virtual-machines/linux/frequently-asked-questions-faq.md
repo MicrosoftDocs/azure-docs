@@ -17,13 +17,10 @@ ms.reviewer: jroth
 # Frequently asked questions for SQL Server on Linux Azure Virtual Machines
 
 > [!div class="op_single_selector"]
-> * [Windows](../../database/frequently-asked-questions-faq.md)
-> * [Linux](../../database/frequently-asked-questions-faq.md)
+> * [Windows](../windows/frequently-asked-questions-faq.md)
+> * [Linux](frequently-asked-questions-faq.md)
 
 This article provides answers to some of the most common questions about running [SQL Server on Linux Azure Virtual Machines](what-is-sql-on-linux-vm-iaas-overview.md).
-
-> [!NOTE]
-> This article focuses on issues specific to SQL Server on Linux VMs. If you are running SQL Server on Windows VMs, see the [Windows FAQ](../../database/frequently-asked-questions-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -103,4 +100,4 @@ This article provides answers to some of the most common questions about running
 
 * [Overview of SQL Server on a Windows VM](../windows/what-is-sql-on-azure-vm-iaas-overview.md)
 * [Provision a SQL Server Windows VM](../windows/create-sql-vm-portal.md)
-* [FAQ (Windows)](../../database/frequently-asked-questions-faq.md)
+* [FAQ (Windows)](../windows/frequently-asked-questions-faq.md)

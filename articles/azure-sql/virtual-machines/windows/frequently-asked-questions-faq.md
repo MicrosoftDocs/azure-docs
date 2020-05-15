@@ -19,13 +19,10 @@ ms.author: mathoma
 # Frequently asked questions for SQL Server running on Windows virtual machines in Azure
 
 > [!div class="op_single_selector"]
-> * [Windows](../../database/frequently-asked-questions-faq.md)
+> * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
 This article provides answers to some of the most common questions about running [SQL Server on Windows Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
-
-> [!NOTE]
-> This article focuses on issues specific to SQL Server on Windows VMs. If you are running SQL Server on Linux VMs, see the [Linux FAQ](../linux/frequently-asked-questions-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 

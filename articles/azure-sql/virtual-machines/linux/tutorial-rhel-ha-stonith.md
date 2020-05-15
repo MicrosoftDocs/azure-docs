@@ -40,7 +40,7 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 If you have more than one subscription, [set the subscription](/cli/azure/manage-azure-subscriptions-azure-cli) that you want deploy these resources to.
 
-Use the following command to create a Resource Group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../quick-create-cli.md).
+Use the following command to create a Resource Group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../../../virtual-machines/linux/quick-create-cli.md).
 
 ```azurecli-interactive
 az group create --name <resourceGroupName> --location eastus2
