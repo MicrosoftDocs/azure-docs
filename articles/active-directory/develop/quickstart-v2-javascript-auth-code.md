@@ -58,8 +58,8 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform Configurations**, select **Add a platform**. A panel opens on the left. There, select the **Single-Page Applications** region.
-> 1. Still on the left, set the **Redirect URI** value to `http://localhost:3000/`.
+> 1. Under **Platform configurations**, select **Add a platform**. A panel opens on the right. There, select **Single-page application**.
+> 1. Still on the right, set the **Redirect URI** value to `http://localhost:3000/`.
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -74,13 +74,13 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 #### Step 2: Download the project
 
 > [!div renderon="docs"]
-> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/quickstart.zip).
+> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/quickstart-init.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/quickstart.zip)
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/quickstart-init.zip)
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your JavaScript app
@@ -88,19 +88,18 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 > In the *app* folder, open the *authConfig.js* file and update the `clientID`, `authority`, and `redirectUri` values in the `msalConfig` object.
 >
 > ```javascript
->
->  // Config object to be passed to Msal on creation
->  const msalConfig = {
->    auth: {
->      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
->      redirectUri: "Enter_the_Redirect_Uri_Here",
->    },
->    cache: {
->      cacheLocation: "sessionStorage", // This configures where your cache will be stored
->      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
->    }
->  };
+> // Config object to be passed to Msal on creation
+> const msalConfig = {
+>   auth: {
+>     clientId: "Enter_the_Application_Id_Here",
+>     authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>     redirectUri: "Enter_the_Redirect_Uri_Here",
+>   },
+>   cache: {
+>     cacheLocation: "sessionStorage", // This configures where your cache will be stored
+>     storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+>   }
+> };
 > ```
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -112,13 +111,13 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 > Modify the values in the `msalConfig` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
-> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter https://login.microsoftonline.com/. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com`.
 >   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
->   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
+>   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
 >   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
-> - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000`
+> - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
@@ -147,14 +146,14 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.j
 
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com`. For more information about Microsoft Graph on national clouds, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
 >
 > #### Step 4: Run the project
 
 Run the project with a web server by using Node.js:
 
 1. To start the server, run the following commands from within the project directory:
-    ```bash
+    ```console
     npm install
     npm start
     ```
@@ -181,7 +180,7 @@ The MSAL.js library signs in users and requests the tokens that are used to acce
 
 If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 
-```bash
+```console
 npm install @azure/msal-browser
 ```
 
