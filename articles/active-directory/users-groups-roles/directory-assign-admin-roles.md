@@ -391,7 +391,7 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Add admins, add policies and settings, upload logs and perform governance actions
 [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
 [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
-[Smart lockout](../authenticationhowto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
+[Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password lists or on-premises password protection.
 
 ### [Security operator](#security-operator-permissions)
