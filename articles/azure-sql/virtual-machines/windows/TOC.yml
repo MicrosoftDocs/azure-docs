@@ -7,9 +7,9 @@
 - name: Quickstarts
   items:
   - name: Create SQL VM - Portal
-    href: quickstart-sql-vm-create-portal.md
+    href: quickstart-create-sql-vm-portal.md
   - name: Create SQL VM - PowerShell
-    href: quickstart-sql-vm-create-powershell.md
+    href: quickstart-create-sql-vm-powershell.md
 - name: Concepts
   items:
   - name: Best practices
@@ -23,7 +23,7 @@
   - name: Business Continuity
     items:
     - name: High availability options
-      href: high-availability-dr.md
+      href: business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - name: Always On availability group
       href: manually-configure-availability-group-multiple-regions.md
     - name: Backup and restore
@@ -96,7 +96,7 @@
       - name: Multiple regions
         href: manually-configure-availability-group-multiple-regions.md
       - name: Domain-independent (workgroup)
-        href: workgroup-availability-group.md
+        href: configure-clusterless-workgroup-availability-group.md
       - name: Configure manually
         items:
         - name: Prerequisites
