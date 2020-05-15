@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Explore Azure Digital Twins with a command-line app
+title: Explore the basics with a sample client app
 titleSuffix: Azure Digital Twins
-description: Tutorial to explore the Azure Digital Twins SDKs using a command-line app
+description: Tutorial to explore the Azure Digital Twins SDKs using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 5/8/2020
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Explore Azure Digital Twins with a command-line app
+# Explore Azure Digital Twins with a sample client
 
-This tutorial introduces a sample application that implements a command-line app for interacting with an Azure Digital Twins instance. The command line app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
 You can use this tool to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample tool to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
 
@@ -288,7 +288,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 ## Clean up resources
 
-The project in this tutorial forms the basis for the next tutorial, [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
+The project in this tutorial forms the basis for the next tutorial, [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them.
 
@@ -316,10 +316,10 @@ In this tutorial, you got started with Azure Digital Twins by setting up an inst
 Continue to the next tutorial to use the sample command-line tool in combination with other Azure services to complete a data-driven, end-to-end scenario:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
+> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Twin models](concepts-models.md)
+* [Concepts: Object models](concepts-models.md)
 
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
 * [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
