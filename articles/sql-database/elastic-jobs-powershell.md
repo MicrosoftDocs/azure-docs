@@ -128,7 +128,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 An Elastic Job agent is an Azure resource for creating, running, and managing jobs. The agent executes jobs based on a schedule or as a one-time job.
 
-The **New-AzSqlElasticJobAgent** cmdlet requires an Azure SQL database to already exist, so the *resourceGroupName*, *serverName*, and *databaseName* parameters must all point to existing resources.
+The **New-AzSqlElasticJobAgent** cmdlet requires a database in Azure SQL Database to already exist, so the *resourceGroupName*, *serverName*, and *databaseName* parameters must all point to existing resources.
 
 ```powershell
 Write-Output "Creating job agent..."

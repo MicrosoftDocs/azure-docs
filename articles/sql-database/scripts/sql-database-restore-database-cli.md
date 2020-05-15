@@ -1,5 +1,5 @@
 ﻿---
-title: CLI example-restore-backup-Azure SQL database 
+title: CLI example-restore-backup-Azure SQL Database 
 description: Azure CLI example script to restore an Azure SQL single database to an earlier point in time from automatic backups
 services: sql-database
 ms.service: sql-database
@@ -12,9 +12,9 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ---
-# Use CLI to restore an Azure SQL single database to an earlier point in time
+# Use CLI to restore a single database in Azure SQL Database to an earlier point in time
 
-This Azure CLI example restores an Azure SQL database to a specific point in time.  
+This Azure CLI example restores a single database in Azure SQL Database to a specific point in time.  
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 

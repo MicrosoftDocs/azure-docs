@@ -1,6 +1,6 @@
 ﻿---
-title: CLI example-copy-Azure SQL database-new server 
-description: Azure CLI example script to copy a SQL database to a new server
+title: CLI example-copy-database in Azure SQL Database-new server 
+description: Azure CLI example script to copy a database in Azure SQL Database to a new server
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
-# Use CLI to copy a SQL database to a new server
+# Use CLI to copy a database in Azure SQL Database to a new server
 
 This Azure CLI script example creates a copy of an existing database in a new server.
 

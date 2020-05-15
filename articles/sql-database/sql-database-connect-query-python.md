@@ -1,6 +1,6 @@
 ---
 title: Use Python to query a database
-description: This topic shows you how to use Python to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+description: This topic shows you how to use Python to create a program that connects to a Microsoft Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,14 +12,31 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/25/2019
 ---
-# Quickstart: Use Python to query an Azure SQL Database
+# Quickstart: Use Python to query a Microsoft Azure SQL database
 
-In this quickstart, you use Python to connect to an Azure SQL Database and use T-SQL statements to query data.
+In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
+To complete this quickstart, you need:
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](sql-database-single-database-get-started.md)
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL:
+
+  || SQL Database | SQL Managed instance | SQL Server in Azure VM |
+  |:--- |:--- |:---|:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) | [Portal](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) | [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a SQL Managed Instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+
 - [Python](https://python.org/downloads) 3 and related software
 
   # [macOS](#tab/macos)
@@ -54,19 +71,22 @@ In this quickstart, you use Python to connect to an Azure SQL Database and use T
 >
 > To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
 
-To further explore Python and the Azure SQL Database, see [Azure SQL Database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+To further explore Python and the Azure SQL database, see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Go to the **SQL Databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server in an Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
 
-## Create code to query your SQL Database 
+> [!NOTE]
+> For connection information for SQL SErver on an Azure VM, see [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
+
+## Create code to query your SQL database 
 
 1. In a text editor, create a new file named *sqltest.py*.  
    
@@ -104,7 +124,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](sql-database-design-first-database.md)
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft Python drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python developer center](https://azure.microsoft.com/develop/python/?v=17.23h)
 

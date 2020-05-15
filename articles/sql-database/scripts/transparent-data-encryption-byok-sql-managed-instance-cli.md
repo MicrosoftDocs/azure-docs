@@ -1,5 +1,5 @@
 ---
-title: CLI example- Enable BYOK TDE - Azure SQL Database Managed Instance
+title: CLI example- Enable BYOK TDE - Azure SQL Managed Instance
 description: "Learn how to configure an Azure SQL Managed Instance to start using BYOK Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
 services: sql-database
 ms.service: sql-database
@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Prerequisites
 
-An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-cli.md).
+An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed Instance](sql-database-create-configure-managed-instance-cli.md).
 
 ### Sign in to Azure
 

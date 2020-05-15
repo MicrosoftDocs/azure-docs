@@ -19,7 +19,6 @@ The query editor is a tool in the Azure portal for running SQL queries against y
 
 In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against an Azure SQL Database.
 
-
 ## Prerequisites
 
 Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
