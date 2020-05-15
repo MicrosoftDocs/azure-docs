@@ -107,7 +107,7 @@ App folder contains the following files
     1. Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
     1. Deactivate the graph instance, delete the graph instance, and delete the graph topology
     
-    ## Run the sample  
+## Run the sample  
 
 1. Right-click on src/quick-start/edge/deployment.template.json and select “Generate IoT Edge Deployment Manifest”. This will create the IoT Edge deployment manifest at src/quick-start/edge/config/deployment.json.
 1. Right-click on scr/quick-start/edge/config/deployment.amd64.json and select “Create Deployment for Single Device”. 
