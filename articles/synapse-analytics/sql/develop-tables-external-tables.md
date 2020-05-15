@@ -17,7 +17,7 @@ An external table points to data located in Hadoop, Azure Storage blob, or Azure
 
 ## External tables in Synapse SQL pool and on-demand
 
-### [SQL pool](#tab/sql-pool) 
+### [SQL pool](#tab/sql-pool-external-tables) 
 
 In SQL pool, you can use an external table to:
 
