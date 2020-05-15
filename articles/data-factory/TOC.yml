@@ -25,8 +25,6 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Security - Enable Customer Managed Key Encryption
-    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -603,6 +601,8 @@
       href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Built-in and preinstalled components on Azure-SSIS IR
+      href: built-in-preinstalled-components-ssis-integration-runtime.md
     - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
     - name: Install licensed components for Azure-SSIS IR
