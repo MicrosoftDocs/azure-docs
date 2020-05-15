@@ -23,7 +23,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 ## Before you begin
 
-* Create an Azure SQL database. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/quickstart-create-single-database.md?tabs=azure-portal).
+* Create an Azure SQL database. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
 * Create the tables and other necessary objects in your Azure SQL Database deployment.
 

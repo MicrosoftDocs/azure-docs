@@ -24,7 +24,7 @@ You may also run this tutorial on the command line (macOS, Windows, or Linux) us
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](../azure-sql/managed-instance/instance-create-quickstart.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 

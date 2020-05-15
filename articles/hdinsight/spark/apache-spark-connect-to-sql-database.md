@@ -18,7 +18,7 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * Azure HDInsight Spark cluster.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL Database. Follow the instructions at [Create an Azure SQL Database](../../sql-database/quickstart-create-single-database.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you've created your Azure SQL Database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
+* Azure SQL Database. Follow the instructions at [Create an Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you've created your Azure SQL Database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name hosting the Azure SQL Database.
     * Azure SQL Database name.

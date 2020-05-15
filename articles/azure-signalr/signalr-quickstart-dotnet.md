@@ -28,7 +28,7 @@ In this quickstart, you will learn how to get started with the ASP.NET and Azure
 
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](../azure-sql/managed-instance/instance-create-quickstart.md)]
 
 *Serverless* mode is not supported for ASP.NET SignalR applications. Always use *Default* or *Classic* for the Azure SignalR Service instance.
 

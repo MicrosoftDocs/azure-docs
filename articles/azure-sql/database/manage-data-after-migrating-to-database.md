@@ -38,7 +38,7 @@ In the [Azure portal](https://portal.azure.com/), you can monitor an individual 
 - Data IO percentage
 - Database size percentage
 
-Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](dtu-service-tiers.md) and [vCore-based purchasing model](service-tiers-vcore.md) articles for more information about service tiers.  
+Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](service-tiers-dtu.md) and [vCore-based purchasing model](service-tiers-vcore.md) articles for more information about service tiers.  
 
 ![Service tier monitoring of database performance.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
@@ -103,7 +103,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 |---|---|
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
-|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](conditional-access-confugre.md), and use [Azure AD Universal authentication with MFA support](../ssms-mfa-authentication.md).|
+|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](conditional-access-configure.md), and use [Azure AD Universal authentication with MFA support](../ssms-mfa-authentication.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](../ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](aad-authentication-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](aad-authentication-configure.md).|
@@ -122,7 +122,7 @@ There are multiple techniques at your disposal that you could use to attain opti
 
 A firewall prevents access to your server from an external entity by allowing only specific entities access to your server. By default, all connections to databases inside the server are disallowed, except (optionally7) connections coming in from other Azure Services. With a firewall rule you can open access to your server only to entities (for example, a developer machine) that you approve of, by allowing that computer’s IP address through the firewall. It also allows you to specify a range of IPs that you would want to allow access to the server. For example, developer machine IP addresses in your organization can be added at once by specifying a range in the Firewall settings page.
 
-You can create firewall rules at the server level or at the database level. Server level IP firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server-level and database-level firewall rule, see: [Create IP firewall rules in SQL Database](tutorial-secure-database.md#create-firewall-rules).
+You can create firewall rules at the server level or at the database level. Server level IP firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server-level and database-level firewall rule, see: [Create IP firewall rules in SQL Database](secure-database-tutorial.md#create-firewall-rules).
 
 #### Service endpoints
 
@@ -144,11 +144,11 @@ Port 1433. SQL Database communicates over this port. To connect from within a co
 
 #### SQL Database Auditing
 
-With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](../../sql-database/sql-database-auditing.md) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](tutorial-secure-database.md#enable-security-features).
+With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](../../sql-database/sql-database-auditing.md) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](secure-database-tutorial.md#enable-security-features).
 
 #### Threat detection
 
-With [threat detection](threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. Threat detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable threat detection](tutorial-secure-database.md#enable-security-features).
+With [threat detection](threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. Threat detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable threat detection](secure-database-tutorial.md#enable-security-features).
 
 ### How do I protect my data in general on SQL Database
 
@@ -328,4 +328,4 @@ You have several ways to achieve this:
 
 ## Next steps
 
-Learn about [SQL Database](technical-overview.md).
+Learn about [SQL Database](sql-database-paas-overview.md).

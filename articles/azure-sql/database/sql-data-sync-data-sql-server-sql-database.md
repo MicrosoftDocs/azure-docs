@@ -238,5 +238,5 @@ Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues,
 
 For more info about Azre SQL Database, see the following articles:
 
-- [SQL Database Overview](technical-overview.md)
+- [SQL Database Overview](sql-database-paas-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -36,7 +36,7 @@ With Private Link, customers can now set up network access controls like NSGs to
 
 ## On-premises connectivity over private peering
 
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](quickstart-firewall-create-server-level-portal.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
 
 With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 

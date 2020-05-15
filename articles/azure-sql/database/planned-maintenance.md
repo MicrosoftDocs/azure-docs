@@ -39,5 +39,5 @@ If your database is experiencing login failures, check the [Resource Health](../
 
 ## Next steps
 
-- Learn more about [Resource Health](use-resource-health-troubleshoot-connectivity.md) for Azure SQL Database
+- Learn more about [Resource Health](resource-health-to-troubleshoot-connectivity.md) for Azure SQL Database
 - For more information about retry logic, see [Retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).

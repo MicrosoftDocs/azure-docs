@@ -16,7 +16,7 @@ ms.date: 03/09/2020
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
 
-When you create a logical SQL server from the [Azure portal](quickstart-create-single-database.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
+When you create a logical SQL server from the [Azure portal](single-database-create-quickstart.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
 You can use the following network access controls to selectively allow access to a database via the public endpoint:
 
@@ -37,7 +37,7 @@ See the below video for a high level explanation of these access controls and wh
 
 ## Allow Azure services
 
-During creation of a new logical SQL server [from the Azure portal](quickstart-create-single-database.md), this setting is left unchecked.
+During creation of a new logical SQL server [from the Azure portal](single-database-create-quickstart.md), this setting is left unchecked.
 
 You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   
@@ -55,7 +55,7 @@ Import Export Service does not work when **Allow access to Azure services** is s
 
 ### Data Sync
 
-To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](quickstart-firewall-create-server-level-portal.md) from the **Sql service tag** for the region hosting the **Hub** database.
+To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](firewall-create-server-level-portal-quickstart.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server-level firewall rules to the servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
 Use the following PowerShell script to generate IP addresses corresponding to the SQL service tag for West US region
@@ -101,7 +101,7 @@ You can now add these as distinct firewall rules and then set **Allow Azure serv
 
 ## IP firewall rules
 
-Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](quickstart-firewall-create-server-level-portal.md) of the client machines.
+Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](firewall-create-server-level-portal-quickstart.md) of the client machines.
 
 ## Virtual Network firewall rules
 
@@ -139,7 +139,7 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 
 ## Next steps
 
-- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](quickstart-create-single-database.md).
+- For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](single-database-create-quickstart.md).
 
 - For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md).
 

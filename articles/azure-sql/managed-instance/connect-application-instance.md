@@ -152,4 +152,4 @@ The following minimal versions of the tools and drivers are recommended if you w
 ## Next steps
 
 - For information about SQL Managed Instance, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md).
-- For a tutorial showing you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](quickstart-create-instance.md).
+- For a tutorial showing you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).

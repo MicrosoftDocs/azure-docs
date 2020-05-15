@@ -13,7 +13,7 @@ ms.custom: azure-synapse, sqldbrb=1
 ---
 # Azure SQL Auditing
 
-Auditing for [Azure SQL Database](../azure-sql/database/technical-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.
+Auditing for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.
 
 Auditing also:
 
@@ -230,7 +230,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - [Remove Database Auditing Policy (Remove-AzSqlDatabaseAudit)](/powershell/module/az.sql/remove-azsqldatabaseaudit)
 - [Remove Server Auditing Policy (Remove-AzSqlServerAudit)](/powershell/module/az.sql/remove-azsqlserveraudit)
 
-For a script example, see [Configure auditing and threat detection using PowerShell](../azure-sql/database/scripts/configure-auditing-threat-detection-powershell.md).
+For a script example, see [Configure auditing and threat detection using PowerShell](../azure-sql/database/scripts/auditing-threat-detection-powershell-configure.md).
 
 ### Using REST API
 

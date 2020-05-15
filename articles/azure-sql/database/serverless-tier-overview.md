@@ -181,7 +181,7 @@ The following examples create a new database in the serverless compute tier.
 
 #### Use Azure portal
 
-See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](quickstart-create-single-database.md).
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](single-database-create-quickstart.md).
 
 
 #### Use PowerShell
@@ -354,5 +354,5 @@ The serverless compute tier is available worldwide except the following regions:
 
 ## Next steps
 
-- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](quickstart-create-single-database.md).
+- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](single-database-create-quickstart.md).
 - For resource limits, see [Serverless compute tier resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

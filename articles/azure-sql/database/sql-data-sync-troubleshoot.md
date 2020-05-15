@@ -250,5 +250,5 @@ For more information about SQL Data Sync, see:
 
 For more information about SQL Database, see:
 
--   [SQL Database Overview](technical-overview.md)
+-   [SQL Database Overview](sql-database-paas-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

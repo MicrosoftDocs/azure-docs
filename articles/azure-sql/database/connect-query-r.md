@@ -25,7 +25,7 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](quickstart-create-single-database.md)
+- An [Azure SQL Database](single-database-create-quickstart.md)
 - [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
@@ -75,7 +75,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](tutorial-design-first-database.md)
+- [Design your first Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (with R)](machine-learning-services-overview.md)
-- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](quickstart-r-create-script.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](r-script-create-quickstart.md)
 - [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)

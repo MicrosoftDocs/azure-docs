@@ -62,6 +62,6 @@ $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 
 ## Next steps
 
-- [Restore a database to a SQL Managed Instance](quickstart-restore-sample-database.md)
+- [Restore a database to a SQL Managed Instance](restore-sample-database-quickstart.md)
 - Learn how to [configure a public endpoint on SQL Managed Instance](public-endpoint-configure.md)
 - Learn about [SQL Managed Instance connectivity architecture](connectivity-architecture-overview.md)

@@ -28,7 +28,7 @@ Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](../azure-sql/managed-instance/instance-create-quickstart.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 

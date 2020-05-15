@@ -47,5 +47,5 @@ To delete a virtual cluster through the API, use the URI parameters specified in
 - For an overview, see [What is a Managed Instance?](sql-managed-instance-paas-overview.md).
 - Learn about [connectivity architecture in Managed Instance](connectivity-architecture-overview.md).
 - Learn how to [modify an existing virtual network for Managed Instance](vnet-existing-add-subnet.md).
-- For a tutorial that shows how to create a virtual network, create a Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](quickstart-create-instance.md).
+- For a tutorial that shows how to create a virtual network, create a Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](instance-create-quickstart.md).
 - For DNS issues, see [Configuring a custom DNS](custom-dns-configure.md).

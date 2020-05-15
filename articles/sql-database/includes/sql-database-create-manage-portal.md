@@ -26,7 +26,7 @@ After selecting **+ Add**, view additional information about the different optio
 
 For details, see:
 
-- [Create a single database](../../azure-sql/database/quickstart-create-single-database.md)
+- [Create a single database](../../azure-sql/database/single-database-create-quickstart.md)
 - [Create an elastic pool](../../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
-- [Create a managed instance](../../azure-sql/managed-instance/quickstart-create-instance.md)
-- [Create a SQL virtual machine](../../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+- [Create a managed instance](../../azure-sql/managed-instance/instance-create-quickstart.md)
+- [Create a SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md)

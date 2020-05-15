@@ -29,7 +29,7 @@ In this article you can find a content reference of various guides, scripts, and
 ## Configure features
 
 - [Configure Azure AD auth](aad-authentication-configure.md)
-- [Configure Conditional Access](conditional-access-confugre.md)
+- [Configure Conditional Access](conditional-access-configure.md)
 - [Multi-factor AAD auth](../ssms-mfa-authentication.md)
 - [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
@@ -37,8 +37,8 @@ In this article you can find a content reference of various guides, scripts, and
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
-- [Configure Azure Automation](manage-automation.md)
-- [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
+- [Configure Azure Automation](automation-manage.md)
+- [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
@@ -54,7 +54,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Enable e-mail notifications for automatic tuning](automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
 - [Apply performance recommendations](database-advisor-find-recommendations-portal.md) and optimize your database.
 - [Create alerts](alerts-insights-configure-portal.md) to get notifications from Azure SQL Database.
-- [Troubleshoot connectivity](troubleshoot-common-errors-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](use-resource-health-troubleshoot-connectivity.md).
+- [Troubleshoot connectivity](troubleshoot-common-errors-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](resource-health-to-troubleshoot-connectivity.md).
 - [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
 - [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
@@ -107,7 +107,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Connectivity](connect-query-content-reference-guide.md#libraries)
 - [Use Spark Connector](spark-connector.md)
 - [Authenticate app](application-authentication-get-client-id-keys.md)
-- [Use batching for better performance](../use-batching-to-improve-performance.md)
+- [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](troubleshoot-common-connectivity-issues.md)
 - [DNS aliases](../../sql-database/dns-alias-overview.md)
 - [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)

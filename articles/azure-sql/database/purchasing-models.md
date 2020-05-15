@@ -18,12 +18,12 @@ ms.date: 03/09/2020
 Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
 - [Virtual core (vCore)-based purchasing model](service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
-- [Database transaction unit (DTU)-based purchasing model](dtu-service-tiers.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
+- [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 There are two purchasing models:
 
-- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](technical-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
-- [DTU-based purchasing model](dtu-service-tiers.md) is available for [Azure SQL Database](single-database-manage.md).
+- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [DTU-based purchasing model](service-tiers-dtu.md) is available for [Azure SQL Database](single-database-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 
@@ -95,7 +95,7 @@ In the DTU-based purchasing model, you can choose between the basic, standard, a
 
 For a single database at a specific compute size within a [service tier](single-database-scale.md), Azure guarantees a certain level of resources for that database (independent of any other database in the Azure cloud). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
 
-The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](dtu-service-tiers.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
+The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](service-tiers-dtu.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
 
 The resources used by your workload don't impact the resources available to other SQL Databases in the Azure cloud. Likewise, the resources used by other workloads don't impact the resources available to your SQL Database.
 
@@ -168,4 +168,4 @@ Yes, you can easily convert your database to any supported performance objective
 ## Next steps
 
 - For more information about the vCore-based purchasing model, see [vCore-based purchasing model](service-tiers-vcore.md).
-- For more information about the DTU-based purchasing model, see [DTU-based purchasing model](dtu-service-tiers.md).
+- For more information about the DTU-based purchasing model, see [DTU-based purchasing model](service-tiers-dtu.md).

@@ -24,12 +24,12 @@ To complete this tutorial, you need:
 
   || SQL Database | SQL Managed Instance |
   |:--- |:--- |:---|
-  | Create| [Portal](quickstart-create-single-database.md) | [Portal](../managed-instance/quickstart-create-instance.md) |
+  | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
-  | Configure | [Server-level IP firewall rule](quickstart-firewall-create-server-level-portal.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
+  | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
   |||[Connectivity from on-site](../managed-instance/point-to-site-p2s-configure.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/quickstart-restore-sample-database.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md)
   |||Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -321,7 +321,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](tutorial-design-first-database.md)
+- [Design your first Azure SQL Database](design-first-database-tutorial.md)
 - [Golang driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Report issues or ask questions](https://github.com/denisenkom/go-mssqldb/issues)
 

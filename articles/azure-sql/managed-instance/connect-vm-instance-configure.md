@@ -22,7 +22,7 @@ For a quickstart showing how to connect from an on-premises client computer usin
 
 ## Prerequisites
 
-This quickstart uses the resources created in [Create a SQL Managed Instance](quickstart-create-instance.md) as its starting point.
+This quickstart uses the resources created in [Create a SQL Managed Instance](instance-create-quickstart.md) as its starting point.
 
 ## Sign in to the Azure portal
 
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 The following steps create a new subnet in the SQL Managed Instance VNet so an Azure virtual machine can connect to the SQL Managed Instance. The SQL Managed Instance subnet is dedicated to SQL Managed Instances. You can't create any other resources, like Azure virtual machines, in that subnet.
 
-1. Open the resource group for the SQL Managed Instance that you created in the [Create a SQL Managed Instance](quickstart-create-instance.md) quickstart. Select the virtual network for your SQL Managed Instance.
+1. Open the resource group for the SQL Managed Instance that you created in the [Create a SQL Managed Instance](instance-create-quickstart.md) quickstart. Select the virtual network for your SQL Managed Instance.
 
    ![SQL Managed Instance resources](./media/connect-vm-instance-configure/resources.png)
 
@@ -74,7 +74,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
    | Setting| Suggested value | Description |
    | ---------------- | ----------------- | ----------- |
    | **Subscription** | A valid subscription | Must be a subscription in which you have permission to create new resources. |
-   | **Resource Group** |The resource group that you specified in the [Create SQL Managed Instance](quickstart-create-instance.md) quickstart.|This resource group must be the one in which the VNet exists.|
+   | **Resource Group** |The resource group that you specified in the [Create SQL Managed Instance](instance-create-quickstart.md) quickstart.|This resource group must be the one in which the VNet exists.|
    | **Location** | The location for the resource group | This value is populated based on the resource group selected. |
    | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
    |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username any time you [connect to the VM](#connect-to-virtual-machine).|
@@ -88,7 +88,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
    ![create client VM](./media/connect-vm-instance-configure/create-client-sql-vm.png)
 
-   If you used the suggested VNet name and the default subnet in [creating your SQL Managed Instance](quickstart-create-instance.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
+   If you used the suggested VNet name and the default subnet in [creating your SQL Managed Instance](instance-create-quickstart.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
 
 3. Select the **I agree to the terms and conditions stated above** checkbox.
 4. Select **Purchase** to deploy the Azure VM in your network.
@@ -141,4 +141,4 @@ After you connect, you can view your system and user databases in the Databases 
 
 - For a quickstart showing how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](point-to-site-p2s-configure.md).
 - For an overview of the connection options for applications, see [Connect your applications to SQL Managed Instance](connect-application-instance.md).
-- To restore an existing SQL Server database from on-premises to a SQL Managed Instance, you can use the [Azure Database Migration Service (DMS) for migration](../../dms/tutorial-sql-server-to-managed-instance.md) or the [T-SQL RESTORE command](quickstart-restore-sample-database.md) to restore from a database backup file.
+- To restore an existing SQL Server database from on-premises to a SQL Managed Instance, you can use the [Azure Database Migration Service (DMS) for migration](../../dms/tutorial-sql-server-to-managed-instance.md) or the [T-SQL RESTORE command](restore-sample-database-quickstart.md) to restore from a database backup file.

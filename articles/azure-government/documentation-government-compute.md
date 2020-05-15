@@ -49,7 +49,7 @@ For details on this service and how to use it, see [Azure Virtual Machine Scale 
 The only variation is the [available sizes of Virtual Machines in Azure Government](https://azure.microsoft.com/regions/services/). 
 
 ## Batch 
-For details on this service and how to use it, see [Azure Batch documentation](../batch/batch-technical-overview.md).
+For details on this service and how to use it, see [Azure Batch documentation](../azure-sql/database/sql-database-paas-overview.md).
 
 ### Variations
 The URLs for accessing and managing the Batch service are different:

@@ -14,7 +14,7 @@ ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database?
 
-The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [server](logical-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](dtu-service-tiers.md) or [vCore-based purchasing model](service-tiers-vcore.md) and a guaranteed compute size.
+The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [server](logical-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](service-tiers-dtu.md) or [vCore-based purchasing model](service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
 > Single database is one deployment option for Azure SQL Database. The other is [elastic pools](elastic-pool-overview.md).
@@ -32,11 +32,11 @@ A single database can be moved into or out of an [elastic pool](elastic-pool-ove
 
 ## Monitoring and alerting
 
-You use the built-in [performance monitoring](performance-guidance.md) and [alerting tools](alerts-insights-configure-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](configure-streaming-export-metrics-diagnostic-telemtry-logging.md) for easier monitoring.
+You use the built-in [performance monitoring](performance-guidance.md) and [alerting tools](alerts-insights-configure-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](metrics-diagnostic-telemtry-logging-streaming-export-configure.md) for easier monitoring.
 
 ## Availability capabilities
 
-Single databases and elastic pools provide many availability characteristics. For information, see [Availability characteristics](technical-overview.md#availability-capabilities).
+Single databases and elastic pools provide many availability characteristics. For information, see [Availability characteristics](sql-database-paas-overview.md#availability-capabilities).
 
 ## Transact-SQL differences
 

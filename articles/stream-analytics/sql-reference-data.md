@@ -63,7 +63,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Create a SQL Database table
 
-Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL database using SSMS](../azure-sql/database/tutorial-design-first-database.md) for details.
+Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL database using SSMS](../azure-sql/database/design-first-database-tutorial.md) for details.
 
 The example table used in the following example was created from the following statement:
 

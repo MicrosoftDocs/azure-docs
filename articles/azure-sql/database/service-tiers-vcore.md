@@ -109,7 +109,7 @@ In the Azure portal, you can select the hardware generation for a SQL Database o
 
 **To select a hardware generation when creating a SQL Database or pool**
 
-For detailed information, see [Create a SQL Database](quickstart-create-single-database.md).
+For detailed information, see [Create a SQL Database](single-database-create-quickstart.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
 
@@ -132,7 +132,7 @@ Follow the steps to change configuration, and select the hardware generation as 
 
 **To select a hardware generation when creating a SQL Managed Instance**
 
-For detailed information, see [Create a SQL Managed Instance](../managed-instance/quickstart-create-instance.md).
+For detailed information, see [Create a SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
 
@@ -218,8 +218,8 @@ Approved support requests are typically fulfilled within 5 business days.
 ## Next steps
 
 To get started, see: 
-- [Creating a SQL Database using the Azure portal](quickstart-create-single-database.md)
-- [Creating a SQL Managed Instance using the Azure portal](../managed-instance/quickstart-create-instance.md)
+- [Creating a SQL Database using the Azure portal](single-database-create-quickstart.md)
+- [Creating a SQL Managed Instance using the Azure portal](../managed-instance/instance-create-quickstart.md)
 
 For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
