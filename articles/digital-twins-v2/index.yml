@@ -36,7 +36,7 @@ landingContent:
           - text: Connect an end-to-end solution
             url: tutorial-end-to-end.md
 
-- title: Learn
+  - title: Learn
     linkLists:
       - linkListType: concept
         links:
@@ -51,7 +51,7 @@ landingContent:
           - text: Query language
             url: concepts-query-language.md
 
-- title: Develop
+  - title: Develop
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -65,7 +65,7 @@ landingContent:
         links:
           - text: Authenticate a client application
             url: how-to-authenticate-client.md
-
+            
   - title: API reference
     linkLists:
       - linkListType: how-to-guide
