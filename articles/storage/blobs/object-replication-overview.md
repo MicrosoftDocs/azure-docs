@@ -21,6 +21,8 @@ Object replication (preview) asynchronously copies block blobs between a source 
 - **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
 - **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
 
+To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
+
 ## How object replication works
 
 Object replication asynchronously copies a specified set of block blobs from a container in one storage account to a container in another account. Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication on the source account, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
@@ -60,10 +62,12 @@ During the preview, there are no additional costs associated with replicating da
 
 Object replication requires that the following Azure Storage features are enabled:
 
-- [Change feed (preview)](storage-blob-change-feed.md)
-- [Blob versioning (preview)](versioning-overview.md)
+Before you configure object replication, enable its prerequisites. Change feed must be enabled on the source account, and blob versioning must be enabled on both the source and destination account. For more information about enabling these features, see these articles:
 
-Enable these features for the storage account before you enable object replication. Be sure to register for the change feed and blob versioning previews before you enable them.
+- [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
+- [Enable and manage blob versioning](versioning-enable.md)
+
+Be sure to register for the change feed and blob versioning previews before you enable them.
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -136,4 +140,4 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 ## Next steps
 
-- [Configure object replication (preview)](object-replication-manage.md)
+- [Configure object replication (preview)](object-replication-configure.md)

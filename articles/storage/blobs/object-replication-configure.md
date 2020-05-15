@@ -26,6 +26,11 @@ Before you configure object replication, create the source and destination stora
 
 Also create the source and destination containers in their respective storage accounts, if they do not already exist.
 
+Finally, enable the following prerequisites:
+
+- [Change feed (preview)](storage-blob-change-feed.md) on the source account
+- [Blob versioning (preview)](versioning-overview.md) on the source and destination accounts
+
 # [Azure portal](#tab/portal)
 
 To create a replication policy and add replication rules in the Azure portal, follow these steps:
@@ -56,30 +61,60 @@ To create a replication policy and add replication rules in the Azure portal, fo
 
 # [PowerShell](#tab/powershell)
 
-Install and import the PowerShell preview module which supports object replication:
+### Install the preview module
 
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.13.4-preview –AllowPrerelease –AllowClobber –Force
+To create a replication policy and add replication rules using PowerShell, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
-Import-Module Az.Storage -RequiredVersion 1.13.4
+1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 
-To start working with Azure PowerShell, sign in with your Azure credentials.
+1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
+    ```powershell
+    Install-Module PowerShellGet –Repository PSGallery –Force
+    ```
+
+1. Close and reopen the PowerShell window after installing PowerShellGet.
+
+1. Install the latest version of Azure PowerShell:
+
+    ```powershell
+    Install-Module Az –Repository PSGallery –AllowClobber
+    ```
+
+1. Install the Az.Storage preview module:
+
+    ```powershell
+    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.14.1-preview -AllowPrerelease -AllowClobber -Force
+    ```
+
+For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+
+### Configure replication policy and rules
+
+Before running the example, use the Azure portal or an Azure Resource Manager template to enable blob versioning on the source and destination accounts.
+
+```powershell
+# Sign in to your Azure account.
 Connect-AzAccount
 
-Enable both Change feed and Versioning on the source storage account. Make sure
-you’re already registered for [Change feed](https://azure.microsoft.com/blog/change-feed-support-now-available-in-preview-for-azure-blob-storage/) and Versioning capabilities.
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$srcAccountName = "<source-storage-account>"
+$srcContainerName = "<source-container>"
+$destAccountName = "<destination-storage-account>"
+$destContainerName = "<destination-container>"
 
-Update-AzStorageBlobServiceProperty -ResourceGroupName \<resource group\> -StorageAccountName \<source storage account\> -EnableChangeFeed \$true -IsVersioningEnabled \$true
+# Enable change feed on the source account.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $srcAccountName `
+    -EnableChangeFeed $true
 
-Enable Versioning on the destination storage account.
+# View the service settings.
+Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName
+```
 
-Update-AzStorageBlobServiceProperty -ResourceGroupName \<resource group\> -StorageAccountName \<destination storage account\> -IsVersioningEnabled \$true
 
-Create source and destination containers you’re planning to replicate the data between.
-
-Get-AzStorageAccount -ResourceGroupName \<resource group\> -StorageAccountName \<source account\> \| New-AzStorageContainer \<source container\>
-
-Get-AzStorageAccount -ResourceGroupName \<resource group\> -StorageAccountName \<destination account\> \| New-AzStorageContainer \<destination container\>
 
 Create a new replication rule and specify the desired prefix and replication behavior for the objects, that existed prior to configuring object replication.
 
@@ -237,12 +272,6 @@ az storage account ors-policy remove \\
 \--resource-group \<resource group\>
 
 ---
-
-## Python SDK
-
-<https://github.com/zfchen95/azure-rest-api-specs-pr/blob/ors1018/specification/storage/resource-manager/Microsoft.Storage/stable/2019-06-01/examples/StorageAccountUpdateObjectReplicationPolicyOnDestination.json>
-
-<https://github.com/zfchen95/azure-rest-api-specs-pr/blob/ors1018/specification/storage/resource-manager/Microsoft.Storage/stable/2019-06-01/examples/StorageAccountUpdateObjectReplicationPolicyOnSource.json>
 
 ## Next steps
 
