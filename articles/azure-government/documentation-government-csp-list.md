@@ -293,7 +293,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
-|[Software Services Group (dba Secant Technolgies)](https://www.secantcorp.com/)|
+|[Software Services Group (dba Secant Technologies)](https://www.secantcorp.com/)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
 |[Solution Systems Inc.](https://www.solsyst.com/)|
 |[Stabilify](http://www.stabilify.net/)|
