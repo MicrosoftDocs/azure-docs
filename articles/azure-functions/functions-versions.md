@@ -25,7 +25,6 @@ This article details some of the differences between the various versions, how y
 
 Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
 
-Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. 
 The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
