@@ -224,4 +224,4 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 - For information about service tiers, see [Service tiers](purchasing-models.md)
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
-- For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
+- For a features and comparison list, see [SQL common features](features-comparison.md).

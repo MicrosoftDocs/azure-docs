@@ -29,7 +29,7 @@ Built-in security control articles are available for the following services:
 - [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 - [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)
-- [Azure SQL Database](../../sql-database/sql-database-security-controls.md)
+- [Azure SQL Database](../../azure-sql/database/security-controls.md)
 - [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
 - [Linux Virtual Machines](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
 - [Windows Virtual Machines](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)

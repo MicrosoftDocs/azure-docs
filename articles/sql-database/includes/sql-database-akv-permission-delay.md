@@ -1,2 +1,4 @@
-> [!NOTE]
-> It may take around 10 minutes for any permission changes to take effect for the key vault. This includes revoking access permissions to the TDE protector in AKV, and users within this time frame may still have access permissions.
+---
+redirect_url: /azure/azure-sql/includes/sql-database-akv-permission-delay
+redirect_document_id: true
+---

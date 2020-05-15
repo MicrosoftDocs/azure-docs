@@ -18,7 +18,7 @@ This article provides many example scenarios to get started working with Elastic
 
 The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](../azure-sql/database/job-automation-overview.md#job-database).
 
-Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
 ## Create a credential for job execution
 
@@ -1343,5 +1343,5 @@ Shows all members of all target groups.
 
 ## Next steps
 
-- [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
+- [Create and manage Elastic Jobs using PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md)
 - [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

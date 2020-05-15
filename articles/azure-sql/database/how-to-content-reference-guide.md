@@ -83,9 +83,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Elastic Database Jobs
 
-- [Create and manage](../../sql-database/elastic-jobs-powershell.md) Elastic Database Jobs using PowerShell.
+- [Create and manage](elastic-jobs-powershell-create.md) Elastic Database Jobs using PowerShell.
 - [Create and manage](../../sql-database/elastic-jobs-tsql.md) Elastic Database Jobs using Transact-SQL.
-- [Migrate from old Elastic job](../../sql-database/elastic-jobs-migrate.md).
+- [Migrate from old Elastic job](elastic-jobs-migrate.md).
 
 ## Database sharding
 
@@ -109,8 +109,8 @@ In this article you can find a content reference of various guides, scripts, and
 - [Authenticate app](application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](troubleshoot-common-connectivity-issues.md)
-- [DNS aliases](../../sql-database/dns-alias-overview.md)
-- [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)
+- [DNS aliases](dns-alias-overview.md)
+- [Setup DNS alias PowerShell](dns-alias-powershell-create.md)
 - [Ports - ADO.NET](adonet-v12-develop-direct-route-ports.md)
 - [C and C ++](develop-cplusplus-simple.md)
 - [Excel](connect-excel.md)
@@ -123,9 +123,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ### Design Multi-tenant SaaS applications
 
-- [SaaS design patterns](../../sql-database/saas-tenancy-app-design-patterns.md)
+- [SaaS design patterns](saas-tenancy-app-design-patterns.md)
 - [SaaS video indexer](../../sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [SaaS app security](../../sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [SaaS app security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
 - Learn more about [How-to guides for SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

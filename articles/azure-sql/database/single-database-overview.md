@@ -57,4 +57,4 @@ SQL Database provides a range of [built-in security and compliance](security-ove
 
 - To quickly get started with a single database, start with the [Single database quickstart guide](quickstart-content-reference-guide.md).
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](../../sql-database/sql-database-features.md).
+- For information about supported features, see [Features](features-comparison.md).

@@ -45,7 +45,7 @@ The following Microsoft Learn modules help you learn for free about Azure SQL Da
 
 ## Next steps
 
-- Find a [high-level list of supported features in Azure SQL Database](../../sql-database/sql-database-features.md).
+- Find a [high-level list of supported features in Azure SQL Database](features-comparison.md).
 - Learn how to make your [database more secure](secure-database-tutorial.md).
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](how-to-content-reference-guide.md).
 - Find more sample scripts written in [PowerShell](powershell-script-content-guide.md) and [Azure CLI](az-cli-script-samples-content-guide.md).

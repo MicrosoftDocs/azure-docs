@@ -70,7 +70,7 @@ Learn more about the [recommended migration process](migrate-to-instance-from-sq
 
 ## Next steps
 
-- Find a [high-level list of supported features in SQL Managed Instance here](../../sql-database/sql-database-features.md) and [details and known issues here](transact-sql-tsql-differences-sql-server.md).
+- Find a [high-level list of supported features in SQL Managed Instance here](../database/features-comparison.md) and [details and known issues here](transact-sql-tsql-differences-sql-server.md).
 - Learn about [technical characteristics of SQL Managed Instance](resource-limits.md#service-tier-characteristics).
 - Find more advanced how-to's in [how to use a SQL Managed Instance](how-to-content-reference-guide.md).
 - [Identify the right Azure SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

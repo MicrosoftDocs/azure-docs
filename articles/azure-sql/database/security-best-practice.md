@@ -140,7 +140,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
     - [bcp Utility](https://docs.microsoft.com/sql/tools/bcp-utility): option -G (interactive)
 
 - Implement your applications to connect to Azure SQL Database or Azure SQL Managed Instance using interactive authentication with MFA support.
-  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](../../sql-database/active-directory-interactive-connect-azure-sql-db.md).
+  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), MFA does not apply.
 

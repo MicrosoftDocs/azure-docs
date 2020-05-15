@@ -23,7 +23,7 @@ SaaS developers build applications on top of large scale data-tiers consisting o
 - Over-provision resources based on peak usage and over pay, or
 - Under-provision to save cost, at the expense of performance and customer satisfaction during peaks.
 
-Elastic pools solve this problem by ensuring that databases get the performance resources they need when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
+Elastic pools solve this problem by ensuring that databases get the performance resources they need when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -130,7 +130,7 @@ The following steps can help you estimate whether a pool is more cost-effective 
 
 ### Elastic jobs and elastic pools
 
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](../../sql-database/elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases.
+With a pool, management tasks are simplified by running scripts in **[elastic jobs](elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases.
 
 For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](elastic-scale-introduction.md).
 
@@ -222,6 +222,6 @@ For more information, see [create SQL Database alerts in Azure portal](alerts-in
 
 - For pricing information, see [Elastic pool pricing](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - To scale elastic pools, see [Scaling elastic pools](elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/monitor-and-scale-pool-powershell.md)
-- To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
-- For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+- To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
+- For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md).
 - To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](elastic-pool-resource-management.md).

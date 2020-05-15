@@ -729,4 +729,4 @@ For more information, see the following topics:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](../azure-sql/database/policy-samples.md)

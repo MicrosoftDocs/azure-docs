@@ -73,7 +73,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code on GitHub  [..
 
 <!-- Docs.ms.com references. -->
 
-[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
+[saas-tenancy-app-design-patterns-md]:../azure-sql/database/saas-tenancy-app-design-patterns.md
 
 <!-- WWWeb http references. -->
 

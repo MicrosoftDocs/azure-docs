@@ -59,4 +59,4 @@ To set or update the license type by using the REST API:
 ## Next steps
 
 - For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](../paas-vs-sql-server-iaas.md).
-- For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](../../sql-database/sql-database-features.md).
+- For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](features-comparison.md).

@@ -179,7 +179,7 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 2. Back up the key material of the TDE protector in Key Vault.
 3. Remove the potentially compromised key from Key Vault
 
-[!INCLUDE [sql-database-akv-permission-delay](../../sql-database/includes/sql-database-akv-permission-delay.md)]
+[!INCLUDE [sql-database-akv-permission-delay](../includes/sql-database-akv-permission-delay.md)]
 
 ## Next steps
 

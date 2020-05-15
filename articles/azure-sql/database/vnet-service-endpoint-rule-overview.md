@@ -290,8 +290,8 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 [expressroute-indexmd-744v]: ../../expressroute/index.yml
 [rbac-what-is-813s]:../../role-based-access-control/overview.md
 [sql-db-firewall-rules-config-715d]:firewall-configure.md
-[sql-db-vnet-service-endpoint-rule-powershell-md-52d]: ../../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md
-[sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: ../../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
+[sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
+[sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml

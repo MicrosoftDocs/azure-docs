@@ -80,4 +80,4 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](../azure-sql/database/policy-samples.md)	
