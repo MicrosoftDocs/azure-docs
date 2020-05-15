@@ -16,10 +16,6 @@ We recommend you review [Limitations and constraints](#limitations-and-constrain
 
 ## Disclaimers
 
-- Azure Monitor CMK is an early access feature and enabled for registered subscriptions.
-
-- The CMK deployment described in this article is delivered in production quality and supported as such although it's an early access feature.
-
 - The CMK capability is delivered on a dedicated Log Analytics cluster, which is a physical cluster and a data store that is suitable for customers sending 1TB per day or more
 
 - The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated Log Analytics cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
@@ -92,8 +88,7 @@ The following rules apply:
 
 ## CMK provisioning procedure
 
-1. Subscription whitelisting -- this is required for this early access
-    feature
+1. Subscription whitelisting -- To assure that we have the required capacity in your region for dedicated Log Analytics cluster, we need to verify and whitelist your subscription beforehand
 2. Creating Azure Key Vault and storing key
 3. Creating a *Cluster* resource
 5. Granting permissions to your Key Vault
@@ -628,4 +623,6 @@ All your data remains accessible after the key rotation operation including data
 - If you fail to deploy your *Cluster* resource, verify that your Azure Key Vault, *Cluster* resource and associated Log Analytics workspaces are in the same region. The can be in different subscriptions.
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the *Cluster* resource to resume data ingestion and ability to query data.
+
+- For support and help related to customer managed key, use your contacts into Microsoft.
 

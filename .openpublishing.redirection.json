@@ -17731,6 +17731,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/quickstart-create-apache-spark-pool.md",
+      "redirect_url": "/synapse-analytics/quickstart-create-apache-spark-pool-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
+      "redirect_url": "/synapse-analytics/quickstart-create-sql-pool-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false

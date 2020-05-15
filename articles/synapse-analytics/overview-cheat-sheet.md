@@ -50,7 +50,7 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 - [Use SQL on-demand](quickstart-sql-on-demand.md)
-- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
 
