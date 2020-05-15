@@ -69,7 +69,7 @@ The V2 prediction API will not be deprecated for at least 9 months after the V3 
 
 ### Changes by slot name and version name
 
-The [format of the V3 endpoint HTTP](developer-reference-resource.md##rest-endpoints) call has changed.
+The [format of the V3 endpoint HTTP](developer-reference-resource.md#rest-endpoints) call has changed.
 
 If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
 
