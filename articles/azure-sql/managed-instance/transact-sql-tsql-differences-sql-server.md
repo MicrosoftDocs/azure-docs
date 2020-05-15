@@ -403,14 +403,14 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 ### Replication
 
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
-- [Transactional Replication](../database/transactional-replication-overview.md) is available for public preview on SQL Managed Instance with some constraints:
+- [Transactional Replication](../database/replication-transactional-overview.md) is available for public preview on SQL Managed Instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on SQL Managed Instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](../database/transactional-replication-overview.md#supportability-matrix) for more information.
-    - Transactional Replication has some [additional networking requirements](../database/transactional-replication-overview.md#requirements).
+    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](../database/replication-transactional-overview.md#supportability-matrix) for more information.
+    - Transactional Replication has some [additional networking requirements](../database/replication-transactional-overview.md#requirements).
 
 For more information about configuring transactional replication, see the following tutorials:
-- [Replication between a SQL MI publisher and SQL MI subscriber](tutorial-replication-between-two-instances-configure.md)
-- [Replication between an SQL MI publisher, SQL MI distributor, and SQL Server subscriber](tutorial-configure-replication-two-instances-and-sql-server.md)
+- [Replication between a SQL MI publisher and SQL MI subscriber](replication-between-two-instances-configure-tutorial.md)
+- [Replication between an SQL MI publisher, SQL MI distributor, and SQL Server subscriber](replication-two-instances-and-sql-server-configure-tutorial.md)
 
 ### RESTORE statement 
 
@@ -535,4 +535,4 @@ A SQL Managed Instance places verbose information in error logs. There are many 
 - For more information about SQL Managed Instances, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../../sql-database/sql-database-features.md).
 - For release updates and known issues state, see [SQL Managed Instance release notes](../database/doc-changes-updates-release-notes.md)
-- For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](quickstart-create-instance.md).
+- For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).

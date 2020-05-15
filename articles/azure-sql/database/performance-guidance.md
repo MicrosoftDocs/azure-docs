@@ -252,7 +252,7 @@ If you use a scale-out architecture in Azure SQL Database and Azure SQL Managed 
 
 For applications that access data by using high-volume, frequent, ad hoc querying, a substantial amount of response time is spent on network communication between the application tier and the database tier. Even when both the application and the database are in the same data center, the network latency between the two might be magnified by a large number of data access operations. To reduce the network round trips for the data access operations, consider using the option to either batch the ad hoc queries, or to compile them as stored procedures. If you batch the ad hoc queries, you can send multiple queries as one large batch in a single trip to the database. If you compile ad hoc queries in a stored procedure, you could achieve the same result as if you batch them. Using a stored procedure also gives you the benefit of increasing the chances of caching the query plans in the database so you can use the stored procedure again.
 
-Some applications are write-intensive. Sometimes you can reduce the total IO load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for database applications in Azure](../use-batching-to-improve-performance.md). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
+Some applications are write-intensive. Sometimes you can reduce the total IO load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for database applications in Azure](../performance-improve-use-batching.md). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
 
 ### Application-tier caching
 
@@ -260,7 +260,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 
-- For more information about DTU-based service tiers, see [DTU-based purchasing model](dtu-service-tiers.md).
+- For more information about DTU-based service tiers, see [DTU-based purchasing model](service-tiers-dtu.md).
 - For more information about vCore-based service tiers, see [vCore-based purchasing model](service-tiers-vcore.md).
 - For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
 - For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)

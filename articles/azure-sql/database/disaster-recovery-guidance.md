@@ -63,7 +63,7 @@ The Azure teams work diligently to restore service availability as quickly as po
 
 ## Fail over to geo-replicated secondary server in the failover group
 
-If your application's downtime can result in business liability, you should be using failover groups. It enables the application to quickly restore availability in a different region in case of an outage. For a tutorial, see [Implement a geo-distributed database](tutorial-geo-distributed-application-configure.md).
+If your application's downtime can result in business liability, you should be using failover groups. It enables the application to quickly restore availability in a different region in case of an outage. For a tutorial, see [Implement a geo-distributed database](geo-distributed-application-configure-tutorial.md).
 
 To restore availability of the database(s) you need to initiate the failover to the secondary server using one of the supported methods.
 

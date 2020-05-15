@@ -26,7 +26,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](../azure-sql/managed-instance/instance-create-quickstart.md)]
 
 ## Clone the sample application
 

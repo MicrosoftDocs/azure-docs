@@ -122,7 +122,7 @@ For examples showing how to create logins and users, see:
 - [Creating Azure AD contained users](aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
-> For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](tutorial-secure-database.md).
+> For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](secure-database-tutorial.md).
 
 ## Using fixed and custom database roles
 

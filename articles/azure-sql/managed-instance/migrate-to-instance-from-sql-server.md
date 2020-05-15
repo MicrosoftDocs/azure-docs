@@ -83,7 +83,7 @@ You can choose compute and storage resources at deployment time and then change 
 
 ![managed instance sizing](./media/migrate-to-instance-from-sql-server/managed-instance-sizing.png)
 
-To learn how to create the VNet infrastructure and a managed instance, see [Create a managed instance](quickstart-create-instance.md).
+To learn how to create the VNet infrastructure and a managed instance, see [Create a managed instance](instance-create-quickstart.md).
 
 > [!IMPORTANT]
 > It is important to keep your destination VNet and subnet always in accordance with [managed instance VNet requirements](connectivity-architecture-overview.md#network-requirements). Any incompatibility can prevent you from creating new instances or using those that you already created. Learn more about [creating new](virtual-network-subnet-create-arm-template.md) and [configuring existing](vnet-existing-add-subnet.md) networks.
@@ -127,14 +127,14 @@ The following table provides more information regarding the methods you can use 
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
 ||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure storage to managed instance|[RESTORE FROM URL with SAS CREDENTIAL](quickstart-restore-sample-database.md)|
+|Restore from Azure storage to managed instance|[RESTORE FROM URL with SAS CREDENTIAL](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
 >
 > - When migrating a database protected by [Transparent Data Encryption](../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, the corresponding certificate from the on-premises or Azure VM SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to managed instance](tde-certificate-migrate.md)
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
-For a quickstart showing how to restore a database backup to a managed instance using a SAS credential, see [Restore from backup to a managed instance](quickstart-restore-sample-database.md).
+For a quickstart showing how to restore a database backup to a managed instance using a SAS credential, see [Restore from backup to a managed instance](restore-sample-database-quickstart.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -197,5 +197,5 @@ In addition to advanced management and security features, managed instance provi
 ## Next steps
 
 - For information about Azure SQL Managed Instance, see [What is Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md).
-- For a tutorial that includes a restore from backup, see [Create an Azure SQL Managed Instance](quickstart-create-instance.md).
+- For a tutorial that includes a restore from backup, see [Create an Azure SQL Managed Instance](instance-create-quickstart.md).
 - For tutorial showing migration using DMS, see [Migrate your on-premises database to Azure SQL Managed Instance using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).  

@@ -59,7 +59,7 @@ Use Azure AD B2C to facilitate identity verification and proofing by collecting 
 
 ![A diagram showing the user flow for third-party identity proofing](./media/overview/scenario-idproofing.png)
 
-These are just some of the things you can do with Azure AD B2C as your business-to-customer identity platform. The following sections of this overview walk you through a demo application that uses Azure AD B2C. You're also welcome to move on directly to a more in-depth [technical overview of Azure AD B2C](technical-overview.md).
+These are just some of the things you can do with Azure AD B2C as your business-to-customer identity platform. The following sections of this overview walk you through a demo application that uses Azure AD B2C. You're also welcome to move on directly to a more in-depth [technical overview of Azure AD B2C](../azure-sql/database/sql-database-paas-overview.md).
 
 ## Example: WoodGrove Groceries
 
@@ -122,7 +122,7 @@ If you'd like to jump right into the code to see how the WoodGrove Groceries app
 Now that you have an idea of what Azure AD B2C is and some of the scenarios it can help with, dig a little deeper into its features and technical aspects.
 
 > [!div class="nextstepaction"]
-> [Azure AD B2C technical overview >](technical-overview.md)
+> [Azure AD B2C technical overview >](../azure-sql/database/sql-database-paas-overview.md)
 
 <!-- LINKS - External -->
 [woodgrove]: https://aka.ms/ciamdemo

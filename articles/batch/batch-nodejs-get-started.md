@@ -13,7 +13,7 @@ Learn the basics of building a Batch client in Node.js using [Azure Batch Node.j
 ## Prerequisites
 This article assumes that you have a working knowledge of Node.js and familiarity with Linux. It also assumes that you have an Azure account setup with access rights to create Batch and Storage services.
 
-We recommend reading [Azure Batch Technical Overview](batch-technical-overview.md) before you go through the steps outlined this article.
+We recommend reading [Azure Batch Technical Overview](../azure-sql/database/sql-database-paas-overview.md) before you go through the steps outlined this article.
 
 ## The tutorial scenario
 Let us understand the batch workflow scenario. We have a simple script written in Python that downloads all csv files from an Azure Blob storage container and converts them to JSON. To process multiple storage account containers in parallel, we can deploy the script as an Azure Batch job.

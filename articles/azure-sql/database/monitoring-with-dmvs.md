@@ -746,4 +746,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## See also
 
-[Introduction to Azure SQL Database and Azure SQL Managed Instance](technical-overview.md)
+[Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)

@@ -83,7 +83,7 @@ By using Service Fabric, you can:
 
 * For more information:
   * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
-  * [Terminology overview](service-fabric-technical-overview.md)
+  * [Terminology overview](../azure-sql/database/sql-database-paas-overview.md)
 * Setting up your [Windows development environment](service-fabric-get-started.md)  
 * Setting up your [Linux development environment](service-fabric-get-started-linux.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)

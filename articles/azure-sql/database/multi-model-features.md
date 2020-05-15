@@ -24,7 +24,7 @@ You should consider using multi-model capabilities of Azure SQL Database and Azu
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
 - You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
-- You want to apply database features such as [in-memory technologies](../in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](transactional-replication-overview.md) or [readable replicas](read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
+- You want to apply database features such as [in-memory technologies](../in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](replication-transactional-overview.md) or [readable replicas](read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
 
 ## Overview
 

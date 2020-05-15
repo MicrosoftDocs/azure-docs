@@ -17,7 +17,7 @@ ms.reviewer: jroth
 # Overview of SQL Server on Azure Virtual Machines (Linux)
 
 > [!div class="op_single_selector"]
-> * [Windows](../windows/what-is-sql-on-azure-vm-iaas-overview.md)
+> * [Windows](../windows/sql-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](what-is-sql-on-linux-vm-iaas-overview.md)
 
 SQL Server on Azure virtual machines enables you to use full versions of SQL Server in the Cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
@@ -38,7 +38,7 @@ To get started, choose a SQL Server virtual machine image with your required ver
 | **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
 
 > [!NOTE]
-> To see the available Windows SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Windows)](../windows/what-is-sql-on-azure-vm-iaas-overview.md).
+> To see the available Windows SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Windows)](../windows/sql-on-azure-vm-iaas-what-is-overview.md).
 
 ## <a id="packages"></a> Installed packages
 

@@ -9,7 +9,7 @@ ms.date: 12/08/2017
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric has a large surface area, however, and there's a lot to learn.  This article provides a synopsis of Service Fabric and describes the core concepts, programming models, application lifecycle, testing, clusters, and health monitoring. Read the [Overview](service-fabric-overview.md) and [What are microservices?](service-fabric-overview-microservices.md) for an introduction and how Service Fabric can be used to create microservices. This article does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
 
 ## Core concepts
-[Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
+[Service Fabric terminology](../azure-sql/database/sql-database-paas-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 ### Design time: service type, service package and manifest, application type, application package and manifest
 A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. This is defined in a ServiceManifest.xml file. The service type is composed of executable code and service configuration settings, which are loaded at run time, and static data that is consumed by the service.

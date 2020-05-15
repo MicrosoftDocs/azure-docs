@@ -523,7 +523,7 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
 - Learn how to [set up a new Azure virtual network](virtual-network-subnet-create-arm-template.md) or an [existing Azure virtual network](vnet-existing-add-subnet.md) where you can deploy SQL Managed Instances.
 - [Calculate the size of the subnet](vnet-subnet-determine-size.md) where you want to deploy the SQL Managed Instances.
 - Learn how to create a SQL Managed Instance:
-  - From the [Azure portal](quickstart-create-instance.md).
+  - From the [Azure portal](instance-create-quickstart.md).
   - By using [PowerShell](scripts/create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).

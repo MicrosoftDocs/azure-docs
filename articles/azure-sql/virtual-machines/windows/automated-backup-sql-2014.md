@@ -111,7 +111,7 @@ $resourcegroupname = "resourcegroupname"
 
 If the SQL Server IaaS Agent extension is installed, you should see it listed as “SqlIaaSAgent” or “SQLIaaSExtension”. **ProvisioningState** for the extension should also show “Succeeded”.
 
-If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md). 
+If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -278,4 +278,4 @@ You can find additional backup and restore guidance for SQL Server on Azure VMs 
 
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-on-azure-vm-iaas-what-is-overview.md).

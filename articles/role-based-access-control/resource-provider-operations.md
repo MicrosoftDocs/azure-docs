@@ -9696,7 +9696,7 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 
 ## Microsoft.SqlVirtualMachine
 
-Azure service: [SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/what-is-sql-on-azure-vm-iaas-overview.md)
+Azure service: [SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |

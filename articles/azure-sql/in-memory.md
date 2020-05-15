@@ -161,7 +161,7 @@ In-depth video about the technology:
 
 ### Data size and storage for columnstore indexes
 
-Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [DTU-based purchasing model](database/dtu-service-tiers.md) and [vCore-based purchasing model](database/service-tiers-vcore.md) articles.
+Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [DTU-based purchasing model](database/service-tiers-dtu.md) and [vCore-based purchasing model](database/service-tiers-vcore.md) articles.
 
 When you use clustered columnstore indexes, columnar compression is used for the base table storage. This compression can significantly reduce the storage footprint of your user data, which means that you can fit more data in the database. And the compression can be further increased with [columnar archival compression](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). The amount of compression that you can achieve depends on the nature of the data, but 10 times the compression is not uncommon.
 

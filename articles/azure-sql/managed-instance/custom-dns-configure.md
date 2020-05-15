@@ -28,5 +28,5 @@ Because SQL Managed Instance uses the same DNS for its inner workings, configure
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-managed-instance-paas-overview.md)
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](quickstart-create-instance.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](instance-create-quickstart.md).
 - For information about configuring a VNet for a Managed Instance, see [VNet configuration for Managed Instances](connectivity-architecture-overview.md)

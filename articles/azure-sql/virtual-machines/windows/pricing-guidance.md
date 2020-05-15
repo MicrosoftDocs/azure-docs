@@ -19,7 +19,7 @@ ms.custom: "seo-lt-2019"
 ---
 # Pricing guidance for Azure SQL Server VMs
 
-This article provides pricing guidance for [SQL Server virtual machines](what-is-sql-on-azure-vm-iaas-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+This article provides pricing guidance for [SQL Server virtual machines](sql-on-azure-vm-iaas-what-is-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 
 > [!TIP]
 > If you only need to find out a cost estimate for a specific combination of SQL Server edition and virtual machine size, see the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Select your platform and SQL Server edition from the **OS/Software** list.
@@ -86,14 +86,14 @@ To create a SQL Server 2017 Azure VM with one of these pay-as-you-go images, see
 >It does not include additional SQL Server licensing costs for Web, Standard, and Enterprise editions. To get the most accurate pricing estimate, select your operating system and SQL Server edition on the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](change-licensing-model-azure-hybrid-benefit-ahb.md). 
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ## <a id="byol"></a> Bring your own license (BYOL)
 
 **Bringing your own SQL Server license through License Mobility**, also referred to as **BYOL**, means using an existing SQL Server Volume License with Software Assurance in an Azure VM. A SQL Server VM using BYOL only charges for the cost of running the VM, not for SQL Server licensing, given that you have already acquired licenses and Software Assurance through a Volume Licensing program.
 
 > [!IMPORTANT]
-> BYOL images require an Enterprise Agreement with Software Assurance. They are not available as a part of the Azure Cloud Solution Partner (CSP) at this time. CSP customers can bring their own license by deploying a pay-as-you-go image and then enabling the [Azure Hybrid Benefit](change-licensing-model-azure-hybrid-benefit-ahb.md).
+> BYOL images require an Enterprise Agreement with Software Assurance. They are not available as a part of the Azure Cloud Solution Partner (CSP) at this time. CSP customers can bring their own license by deploying a pay-as-you-go image and then enabling the [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md).
 
 > [!NOTE]
 > The BYOL images are currently only available for Windows virtual machines. However, you can manually install SQL Server on a Linux-only VM. See the guidelines in the [Linux SQL VM FAQ](../linux/frequently-asked-questions-faq.md).
@@ -108,7 +108,7 @@ To use BYOL with a SQL Server VM, you must have a license for SQL Server Standar
 
 | BYOL benefit | Description |
 |-----|-----|
-| **Cost savings** | The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) offers up to 55% savings. For more information, see [Switch licensing model](change-licensing-model-azure-hybrid-benefit-ahb.md) |
+| **Cost savings** | The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) offers up to 55% savings. For more information, see [Switch licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Free passive secondary replica** | Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (for example, using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
 
 To create a SQL Server 2017 Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":
@@ -120,7 +120,7 @@ To create a SQL Server 2017 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you are using in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](change-licensing-model-azure-hybrid-benefit-ahb.md). 
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
 
@@ -165,5 +165,5 @@ For general Azure pricing guidance, see [Prevent unexpected costs with Azure bil
 
 For an overview of SQL Server running on Azure Virtual Machines, see the following articles:
 
-- [Overview of SQL Server on Windows VMs](what-is-sql-on-azure-vm-iaas-overview.md)
+- [Overview of SQL Server on Windows VMs](sql-on-azure-vm-iaas-what-is-overview.md)
 - [Overview of SQL Server on Linux VMs](../linux/what-is-sql-on-linux-vm-iaas-overview.md)

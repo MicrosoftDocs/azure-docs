@@ -95,7 +95,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 Use the [Windows Import/Export Service method](../../../storage/common/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
 ## Next steps
-For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](sql-on-azure-vm-iaas-what-is-overview.md).
 
 > [!TIP]
 > If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).

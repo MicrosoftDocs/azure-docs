@@ -564,4 +564,4 @@ Finally, you're ready to configure the availability group. You'll use the SQL Se
 ## Next steps
 You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../../../azure-sql/virtual-machines/windows/what-is-sql-on-azure-vm-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../../../azure-sql/virtual-machines/windows/sql-on-azure-vm-iaas-what-is-overview.md).

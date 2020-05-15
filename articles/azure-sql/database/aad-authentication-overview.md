@@ -14,7 +14,7 @@ ms.date: 04/23/2020
 ---
 # Use Azure Active Directory Authentication for authentication with Azure SQL
 
-Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD).
+Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > This article applies to Azure SQL Database, SQL Managed Instance, and Azure Synapse. For simplicity, Azure SQL is used when referring to all three.
@@ -154,7 +154,7 @@ The following authentication methods are supported for Azure AD server principal
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, SQL Managed Instance or Azure Synapse, see [Configure and manage Azure Active Directory authentication with SQL Database, SQL Managed Instance, or Azure Synapse](aad-authentication-configure.md).
-- For a tutorial of using Azure AD server principals (logins) with SQL Managed Instances, see [Azure AD server principals (logins) with SQL Managed Instances](../managed-instance/tutorial-configure-aad-security.md)
+- For a tutorial of using Azure AD server principals (logins) with SQL Managed Instances, see [Azure AD server principals (logins) with SQL Managed Instances](../managed-instance/aad-security-configure-tutorial.md)
 - For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and permissions](logins-create-manage.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).

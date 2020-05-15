@@ -48,7 +48,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Feature configuration
 
 - [Configure Azure AD auth](../database/aad-authentication-configure.md)
-- [Configure Conditional Access](../database/conditional-access-confugre.md)
+- [Configure Conditional Access](../database/conditional-access-configure.md)
 - [Multi-factor AAD auth](../ssms-mfa-authentication.md)
 - [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](../database/temporal-tables-retention-policy.md)
@@ -56,8 +56,8 @@ In this article you can find a content reference to various guides, scripts, and
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
-- [Configure Azure Automation](../database/manage-automation.md)
-- [Transactional replication](tutorial-replication-between-two-instances-configure.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
+- [Configure Azure Automation](../database/automation-manage.md)
+- [Transactional replication](replication-between-two-instances-configure-tutorial.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
 - [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
 - [Creating alerts](../../sql-database/sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
 
@@ -81,7 +81,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
 - [Use Spark Connector](../../cosmos-db/spark-connector.md)
 - [Authenticate app](../database/application-authentication-get-client-id-keys.md)
-- [Use batching for better performance](../use-batching-to-improve-performance.md)
+- [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)
 - [DNS aliases](../../sql-database/dns-alias-overview.md)
 - [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)
@@ -105,4 +105,4 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Next steps
 
-Get started by [deploying your SQL Managed Instance](quickstart-create-instance.md)
+Get started by [deploying your SQL Managed Instance](instance-create-quickstart.md)

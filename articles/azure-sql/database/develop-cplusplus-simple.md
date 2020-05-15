@@ -36,7 +36,7 @@ Connecting to Azure SQL Database is no different and currently there are two way
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
 
-See the [getting started page](quickstart-create-single-database.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL Database using the Azure portal.
+See the [getting started page](single-database-create-quickstart.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL Database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 

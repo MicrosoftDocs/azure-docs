@@ -277,7 +277,7 @@ SQL Managed Instance targets user scenarios with mass database migration from on
 
 The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a SQL Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](quickstart-restore-sample-database.md). This quickstart shows you have to upload a backup file to Azure blob storage and secure it using a Shared access signature (SAS) key.
+- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](restore-sample-database-quickstart.md). This quickstart shows you have to upload a backup file to Azure blob storage and secure it using a Shared access signature (SAS) key.
 - For information about restore from URL, see [Native RESTORE from URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 > [!IMPORTANT]
@@ -312,7 +312,7 @@ Some key differences:
 
 ### Administration features
 
-SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](../database/high-availability-sla.md), [dynamic instance resizing and configuration](../database/single-database-scale.md), [backups](../database/automated-backups-overview.md), [database replication](tutorial-replication-between-two-instances-configure.md) (including system databases), [high availability configuration](../database/high-availability-sla.md), and configuration of health and [performance monitoring](../../azure-monitor/insights/azure-sql.md) data streams.
+SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](../database/high-availability-sla.md), [dynamic instance resizing and configuration](../database/single-database-scale.md), [backups](../database/automated-backups-overview.md), [database replication](replication-between-two-instances-configure-tutorial.md) (including system databases), [high availability configuration](../database/high-availability-sla.md), and configuration of health and [performance monitoring](../../azure-monitor/insights/azure-sql.md) data streams.
 
 For more information see [a list of supported and unsupported SQL Managed Instance features](../../sql-database/sql-database-features.md), and [T-SQL differences between SQL Managed Instance and SQL Server](transact-sql-tsql-differences-sql-server.md)
 
@@ -329,10 +329,10 @@ The following table shows several properties, accessible through Transact-SQL, t
 
 ## Next steps
 
-- To learn how to create your first SQL Managed Instance, see [Quickstart guide](quickstart-create-instance.md).
+- To learn how to create your first SQL Managed Instance, see [Quickstart guide](instance-create-quickstart.md).
 - For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
-- For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](quickstart-create-instance.md).
+- For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](instance-create-quickstart.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
 - For advanced monitoring of SQL Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Managed Instance using Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - For pricing information, see [SQL Database managed instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

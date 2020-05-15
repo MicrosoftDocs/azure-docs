@@ -130,7 +130,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <mysql_serve
 
 ### Create a database in Azure SQL Database
 
-Create a database with an [S0 performance level](../azure-sql/database/dtu-service-tiers.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
+Create a database with an [S0 performance level](../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0

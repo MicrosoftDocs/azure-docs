@@ -328,5 +328,5 @@ You can find additional backup and restore guidance for SQL Server on Azure VMs 
 
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-on-azure-vm-iaas-what-is-overview.md).
 

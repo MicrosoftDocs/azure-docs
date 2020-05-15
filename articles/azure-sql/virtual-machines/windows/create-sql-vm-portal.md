@@ -19,7 +19,7 @@ ms.custom: "seo-lt-2019"
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
 
-This guide provides details on the different options available when you create a Windows SQL Server virtual machine in the Azure portal. This article covers more configuration options than the [SQL Server VM quickstart](quickstart-create-sql-vm-portal.md), which goes more through one possible provisioning task. 
+This guide provides details on the different options available when you create a Windows SQL Server virtual machine in the Azure portal. This article covers more configuration options than the [SQL Server VM quickstart](sql-vm-create-portal-quickstart.md), which goes more through one possible provisioning task. 
 
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
@@ -40,7 +40,7 @@ When you create a SQL Server virtual machine, you can select one of several pre-
    ![Select SQL VM image](./media/create-sql-vm-portal/select-sql-vm-image-portal.png)
 
    > [!TIP]
-   > The Developer edition is used in this walkthrough because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md#payasyougo).
+   > The Developer edition is used in this walkthrough because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](sql-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
    > [!TIP]
    > Licensing costs for SQL Server are incorporated into the per-second pricing of the VM you create and varies by edition and cores. However, SQL Server Developer edition is free for development/testing (not production), and SQL Express is free for lightweight workloads (less than 1 GB of memory, less than 10 GB of storage). You can also bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. 
@@ -187,7 +187,7 @@ The following table lists the parameters required to configure Azure Key Vault I
 | **Principal secret** |Azure Active Directory service principal secret. This secret is also referred to as the Client Secret. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Credential name** |**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |mycred1 |
 
-For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](configure-azure-key-vault-integration.md).
+For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](azure-key-vault-integration-configure.md).
 
 ### Storage configuration
 
@@ -278,4 +278,4 @@ The following sections show how to connect over the internet to your SQL Server 
 
 ## Next steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](what-is-sql-on-azure-vm-iaas-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](sql-on-azure-vm-iaas-what-is-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.md).

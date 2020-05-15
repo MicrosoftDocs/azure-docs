@@ -14,7 +14,7 @@ ms.date: 03/10/2020
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](database/configure-streaming-export-metrics-diagnostic-telemtry-logging.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
@@ -53,7 +53,7 @@ The following section describes detectable performance patterns in more detail.
 
 This detectable performance pattern combines performance issues that are related to reaching available resource limits, worker limits, and session limits. After this performance issue is detected, a description field of the diagnostics log indicates whether the performance issue is related to resource, worker, or session limits.
 
-Resources on Azure SQL Database are typically referred to [DTU](database/dtu-service-tiers.md) or [vCore](database/service-tiers-vcore.md) resources, and resources on Azure SQL Managed Instance are referred to as vCore resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
+Resources on Azure SQL Database are typically referred to [DTU](database/service-tiers-dtu.md) or [vCore](database/service-tiers-vcore.md) resources, and resources on Azure SQL Managed Instance are referred to as vCore resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
 
 The session limits resource denotes the number of available concurrent logins to the database. This performance pattern is recognized when applications that are connected to the databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
 

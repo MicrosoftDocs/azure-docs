@@ -27,9 +27,9 @@ You don’t need to worry about purchasing hardware and changing underlying infr
 
 ![Scale database performance](./media/scale-resources/scale-performance.svg)
 
-Azure SQL Database offers the [DTU-based purchasing model](dtu-service-tiers.md) and the [vCore-based purchasing model](service-tiers-vcore.md).
+Azure SQL Database offers the [DTU-based purchasing model](service-tiers-dtu.md) and the [vCore-based purchasing model](service-tiers-vcore.md).
 
-- The [DTU-based purchasing model](dtu-service-tiers.md) offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
+- The [DTU-based purchasing model](service-tiers-dtu.md) offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. This purchasing model offers three service tiers: General Purpose, Business Critical, and Hyperscale.
 
 You can build your first app on a small, single database at a low cost per month in the Basic, Standard, or General Purpose service tier and then change its service tier manually or programmatically at any time to the Premium or Business Critical service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
@@ -40,7 +40,7 @@ You can build your first app on a small, single database at a low cost per month
 Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs.
 However, there are scripts that can help automate scalability for a single Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/monitor-and-scale-database-powershell.md).
 
-You can change [DTU service tiers](dtu-service-tiers.md) or [vCore characteristics](resource-limits-vcore-single-databases.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
+You can change [DTU service tiers](service-tiers-dtu.md) or [vCore characteristics](resource-limits-vcore-single-databases.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
 
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/scale-resources/single_db_dtus.png)
 

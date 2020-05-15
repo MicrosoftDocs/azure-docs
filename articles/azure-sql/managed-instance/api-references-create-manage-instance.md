@@ -18,7 +18,7 @@ You can create and manage Azure SQL Database Managed Instances using the Azure p
 
 ## Azure portal: Create a managed instance
 
-For a quickstart showing you how to create an Azure SQL Database Managed Instance, see [Quickstart: Create an Azure SQL Database Managed Instance](quickstart-create-instance.md).
+For a quickstart showing you how to create an Azure SQL Database Managed Instance, see [Quickstart: Create an Azure SQL Database Managed Instance](instance-create-quickstart.md).
 
 ## PowerShell: Create and manage managed instances
 

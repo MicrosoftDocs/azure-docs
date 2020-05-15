@@ -15,7 +15,7 @@ ms.date: 03/27/2020
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
-This article shows you how to create and populate Azure AD, and then use Azure AD with [Azure SQL Database](technical-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](aad-authentication-overview.md).
+This article shows you how to create and populate Azure AD, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](aad-authentication-overview.md).
 
 ## Azure AD authentication methods
 

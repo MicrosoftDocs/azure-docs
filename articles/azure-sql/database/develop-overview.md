@@ -37,7 +37,7 @@ In your client connection logic, override the default timeout to be 30 seconds. 
 
 If you are using a [connection pool](https://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
 
-Avoid long-running transactions because any infrastructure or connection failure might roll back the transaction. If possible, split the transaction in the multiple smaller transactions and use [batching to improve performance](../use-batching-to-improve-performance.md).
+Avoid long-running transactions because any infrastructure or connection failure might roll back the transaction. If possible, split the transaction in the multiple smaller transactions and use [batching to improve performance](../performance-improve-use-batching.md).
 
 ## Resiliency
 
@@ -54,4 +54,4 @@ For more information about how to prepare for planned maintenance events on your
 
 ## Next steps
 
-Explore all the [capabilities of SQL Database](technical-overview.md).
+Explore all the [capabilities of SQL Database](sql-database-paas-overview.md).

@@ -19,12 +19,12 @@ ms.date: 01/22/2020
 
 |Context|Term|More information|
 |:---|:---|:---|
-|Azure service|Azure SQL Database or SQL Database|[Azure SQL Database](technical-overview.md)|
-|Purchasing model|DTU-based purchasing model|[DTU-based purchasing model](dtu-service-tiers.md)|
+|Azure service|Azure SQL Database or SQL Database|[Azure SQL Database](sql-database-paas-overview.md)|
+|Purchasing model|DTU-based purchasing model|[DTU-based purchasing model](service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](service-tiers-vcore.md)|
 |Deployment option |Single database|[Single databases](single-database-overview.md)|
 ||Elastic pool|[Elastic pool](elastic-pool-overview.md)|
-|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [SQL Database service tiers](service-tiers-vcore.md#service-tiers). For service tiers in the DTU model, see [DTU model](dtu-service-tiers.md#compare-the-dtu-based-service-tiers).|
+|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [SQL Database service tiers](service-tiers-vcore.md#service-tiers). For service tiers in the DTU model, see [DTU model](service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Compute tier|Serverless compute|[Serverless compute](service-tiers-vcore.md#compute-tiers)
 ||Provisioned compute|[Provisioned compute](service-tiers-vcore.md#compute-tiers)
 |Compute generation|Gen5, M-series, Fsv2-series|[Hardware generations](service-tiers-vcore.md#hardware-generations)

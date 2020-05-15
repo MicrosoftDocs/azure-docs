@@ -19,7 +19,7 @@ In this quickstart, you use Node.js to connect to an Azure SQL Database and use 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](quickstart-create-single-database.md)
+- An [Azure SQL Database](single-database-create-quickstart.md)
 - [Node.js](https://nodejs.org)-related software
 
   # [macOS](#tab/macos)
@@ -42,9 +42,9 @@ In this quickstart, you use Node.js to connect to an Azure SQL Database and use 
 > [!NOTE]
 > You can optionally choose to use an Azure SQL Managed Instance.
 >
-> To create and configure, use the [Azure Portal](../managed-instance/quickstart-create-instance.md), [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](../managed-instance/point-to-site-p2s-configure.md) or [VM](../managed-instance/connect-vm-instance-configure.md) connectivity.
+> To create and configure, use the [Azure Portal](../managed-instance/instance-create-quickstart.md), [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](../managed-instance/point-to-site-p2s-configure.md) or [VM](../managed-instance/connect-vm-instance-configure.md) connectivity.
 >
-> To load data, see [restore with BACPAC](database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](../managed-instance/quickstart-restore-sample-database.md).
+> To load data, see [restore with BACPAC](database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](../managed-instance/restore-sample-database-quickstart.md).
 
 ## Get SQL server connection information
 
@@ -150,4 +150,4 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
 
 - [Get started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli)
 
-- Design your first Azure SQL Database using [.NET](tutorial-design-first-database-csharp.md) or [SSMS](tutorial-design-first-database.md)
+- Design your first Azure SQL Database using [.NET](design-first-database-csharp-tutorial.md) or [SSMS](design-first-database-tutorial.md)

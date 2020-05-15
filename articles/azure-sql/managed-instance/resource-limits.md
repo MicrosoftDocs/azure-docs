@@ -150,4 +150,4 @@ If you need more SQL Managed Instances in your current regions, send a support r
 
 - For more information about SQL Managed Instance, see [What is a SQL Managed Instance?](sql-managed-instance-paas-overview.md).
 - For pricing information, see [SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- To learn how to create your first SQL Managed Instance, see [the quickstart guide](quickstart-create-instance.md).
+- To learn how to create your first SQL Managed Instance, see [the quickstart guide](instance-create-quickstart.md).

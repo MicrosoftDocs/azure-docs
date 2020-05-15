@@ -146,4 +146,4 @@ The following table lists the requirements to connect to SQL Server running in a
 
 To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](create-sql-vm-portal.md).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](what-is-sql-on-azure-vm-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](sql-on-azure-vm-iaas-what-is-overview.md).

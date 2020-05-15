@@ -55,7 +55,7 @@ This article provides a general workflow for moving resources to a different reg
 
 ### Prepare resources
 
-1. Create a [failover group](tutorial-add-single-database-failover-group.md#2---create-the-failover-group) between the server of the source to the server of the target.  
+1. Create a [failover group](failover-group--add-single-database-tutorial.md#2---create-the-failover-group) between the server of the source to the server of the target.  
 1. Add the databases you want to move to the failover group.
     - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](auto-failover-group-overview.md#best-practices-for-sql-database).
 
@@ -105,7 +105,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 ### Prepare to move
 
-1. Create a separate [failover group](tutorial-add-elastic-pool-failover-group.md#3---create-the-failover-group) between each elastic pool on the source server and its counterpart elastic pool on the target server.
+1. Create a separate [failover group](failover-group-add-elastic-pool-tutorial.md#3---create-the-failover-group) between each elastic pool on the source server and its counterpart elastic pool on the target server.
 1. Add all the databases in the pool to the failover group.
     - Replication of the added databases will be initiated automatically. For more information, see [best practices for failover groups with elastic pools](auto-failover-group-overview.md#best-practices-for-sql-database).
 
