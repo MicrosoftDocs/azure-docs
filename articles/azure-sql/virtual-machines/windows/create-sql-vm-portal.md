@@ -24,7 +24,7 @@ This guide provides details on the different options available when you create a
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
 > [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,12 +40,12 @@ When you create a SQL Server virtual machine, you can select one of several pre-
    ![Select SQL VM image](./media/create-sql-vm-portal/select-sql-vm-image-portal.png)
 
    > [!TIP]
-   > The Developer edition is used in this walkthrough because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   > The Developer edition is used in this walkthrough because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md#payasyougo).
 
    > [!TIP]
    > Licensing costs for SQL Server are incorporated into the per-second pricing of the VM you create and varies by edition and cores. However, SQL Server Developer edition is free for development/testing (not production), and SQL Express is free for lightweight workloads (less than 1 GB of memory, less than 10 GB of storage). You can also bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. 
    >
-   > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md).
+   > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md).
 
 
 1. Select **Create**.
@@ -70,12 +70,12 @@ On the **Basics** tab, provide the following information:
     1. Choose a location for your **Region**. 
     1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Availability](../../windows/availability.md). 
     1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_.  
-    1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+    1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md).
 
     ![Instance details](./media/create-sql-vm-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
-> The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This estimate is the cost of the VM alone. For the Express and Developer editions of SQL Server, this estimate is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) and [Sizes for virtual machines](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This estimate is the cost of the VM alone. For the Express and Developer editions of SQL Server, this estimate is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) and [Sizes for virtual machines](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Under **Administrator account**, provide a username and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
@@ -154,7 +154,7 @@ If you would prefer to not enable connections to the Database Engine via the int
 * **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
 * **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
 
-In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication. You can edit Network Security Group after the VM is created. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-security.md).
+In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication. You can edit Network Security Group after the VM is created. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](security-considerations-best-practices.md).
 
 
 
@@ -203,7 +203,7 @@ Under **Storage optimized for**, select one of the following options:
 
 ![SQL VM Storage configuration](./media/create-sql-vm-portal/sql-vm-storage-configuration.png)
 
-You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-storage-configuration.md). 
+You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](storage-configuration.md). 
 
 ### SQL Server License
 If you're a Software Assurance customer, you can utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 
@@ -266,7 +266,7 @@ Access to the machine enables you to directly change machine and SQL Server sett
 In this walkthrough, you selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
 
 > [!NOTE]
-> If you did not select Public during provisioning, then you can change your SQL connectivity settings through the portal after provisioning. For more information, see  [Change your SQL connectivity settings](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md#change).
+> If you did not select Public during provisioning, then you can change your SQL connectivity settings through the portal after provisioning. For more information, see  [Change your SQL connectivity settings](ways-to-connect-to-sql.md#change).
 
 The following sections show how to connect over the internet to your SQL Server VM instance.
 
@@ -278,4 +278,4 @@ The following sections show how to connect over the internet to your SQL Server 
 
 ## Next steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) and the [Frequently Asked Questions](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](what-is-sql-on-azure-vm-iaas-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.md).

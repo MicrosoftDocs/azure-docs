@@ -22,7 +22,7 @@ This quickstart steps through creating a SQL Server virtual machine with Azure P
 
 > [!TIP]
 > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](create-sql-vm-powershell.md).
-> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -144,7 +144,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Install the SQL IaaS Agent
 
-To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
+To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
 
    ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
@@ -172,7 +172,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 1. In the **Connect to Server** dialog box, keep the defaults. The server name is the name of the VM. Authentication is set to **Windows Authentication**. Select **Connect**.
 
-You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md) from the portal or manually.
+You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](ways-to-connect-to-sql.md) from the portal or manually.
 
 ## Clean up resources
 

@@ -24,7 +24,7 @@ This article describes how to use the [Azure CLI](/cli/azure/sql/vm?view=azure-c
 To automate the setup of an Always On availability group by using the Azure CLI, you must have the following prerequisites: 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same availability set or different availability zones* that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same availability set or different availability zones* that have been [registered with the SQL VM resource provider](register-with-sql-resource-provider.md).  
 - The [Azure CLI](/cli/azure/install-azure-cli). 
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you need only one available IP address for the availability group listener. 
 
@@ -214,9 +214,9 @@ az sql vm group ag-listener delete --group-name <cluster name> --name <listener 
 
 For more information, see the following articles: 
 
-* [Overview of SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [FAQ for SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
-* [Release notes for SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Overview of SQL Server VMs](what-is-sql-on-azure-vm-iaas-overview.md)
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+* [Release notes for SQL Server VMs](doc-changes-updates-release-notes.md)
 * [Switching licensing models for a SQL Server VM](change-licensing-model-azure-hybrid-benefit-ahb.md)
 * [Overview of Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
 * [Configuration of a server instance for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   

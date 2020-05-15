@@ -30,7 +30,7 @@ Once the edition of SQL Server has been changed internally to the SQL Server VM,
 To do an in-place change of the edition of SQL Server, you need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md).
+- A [SQL Server VM on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](register-with-sql-resource-provider.md).
 - Setup media with the **desired edition** of SQL Server. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has their desired edition (typically located in `C:\SQLServerFull`). 
 
 
@@ -71,7 +71,7 @@ After the SQL Server edition is downgraded, modify the edition property of the S
 
 ## Change edition in portal 
 
-Once you've changed the edition of SQL Server using the installation media, and you've registered your SQL Server VM with the [SQL VM resource provider](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md), you can then use the Azure portal to modify the Edition property of the SQL Server VM for billing purposes. To do so, follow these steps: 
+Once you've changed the edition of SQL Server using the installation media, and you've registered your SQL Server VM with the [SQL VM resource provider](register-with-sql-resource-provider.md), you can then use the Azure portal to modify the Edition property of the SQL Server VM for billing purposes. To do so, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Go to your SQL Server virtual machine resource. 
@@ -87,16 +87,16 @@ Once you've changed the edition of SQL Server using the installation media, and 
 
 - The edition property for the SQL Server VM must match the edition of the SQL Server instance installed for all SQL Server virtual machines, including both pay-as-you-go and bring-your-own-license types of licenses.
 - If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
-- The ability to change the edition is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md).
+- The ability to change the edition is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](register-with-sql-resource-provider.md).
 - Adding a SQL Server VM to an availability set requires re-creating the VM. Any VMs added to an availability set will go back to the default edition, and the edition will need to be modified again.
 
 ## Next steps
 
 For more information, see the following articles: 
 
-* [Overview of SQL Server on a Windows VM](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [FAQ for SQL Server on a Windows VM](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
-* [Pricing guidance for SQL Server on a Windows VM](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Overview of SQL Server on a Windows VM](what-is-sql-on-azure-vm-iaas-overview.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
+* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
 
 

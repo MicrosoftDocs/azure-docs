@@ -20,14 +20,14 @@ ms.reviewer: jroth
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-create-sql-vm-portal.md)
-> * [Linux](../../../virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine.md)
+> * [Linux](../linux/provision-virtual-machine.md)
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 
 
   > [!TIP]
   > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](create-sql-vm-portal.md).
-  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -77,7 +77,7 @@ On the **Basics** tab, provide the following information:
 On the **SQL Server settings** tab, configure the following options:
 
 1. Under **Security & Networking**, select _Public (Internet_) for **SQL Connectivity** and change the port to `1401` to avoid using a well-known port number in the public scenario. 
-1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default setting for [**Azure Key Vault integration**](configure-azure-key-vault-integration.md). **Storage configuration** is not available for the basic SQL Server VM image but you can find more information about available options for other images at [storage configuration](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
+1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default setting for [**Azure Key Vault integration**](configure-azure-key-vault-integration.md). **Storage configuration** is not available for the basic SQL Server VM image but you can find more information about available options for other images at [storage configuration](storage-configuration.md#new-vms).  
 
    ![SQL server security settings](./media/quickstart-create-sql-vm-portal/sql-server-settings.png)
 

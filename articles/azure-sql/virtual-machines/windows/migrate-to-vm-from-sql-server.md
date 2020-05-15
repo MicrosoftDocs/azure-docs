@@ -25,7 +25,7 @@ There are a number of methods to migrate an on-premises SQL Server user database
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 and SQL Server 2008 R2 are approaching the [end of their support life cycle](https://www.microsoft.com/sql-server/sql-server-2008) for on-premises instances. To extend support, you can either migrate your SQL Server instance to an Azure VM, or buy Extended Security Updates to keep it on-premises. For more information, see [Extend support for SQL Server 2008 and 2008 R2 with Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 and SQL Server 2008 R2 are approaching the [end of their support life cycle](https://www.microsoft.com/sql-server/sql-server-2008) for on-premises instances. To extend support, you can either migrate your SQL Server instance to an Azure VM, or buy Extended Security Updates to keep it on-premises. For more information, see [Extend support for SQL Server 2008 and 2008 R2 with Azure](sql-server-2008-extend-end-of-support.md)
 
 ## What are the primary migration methods?
 The primary migration methods are:
@@ -68,7 +68,7 @@ Back up your database with compression, copy the backup to the VM, and then rest
 
 1. Perform a full database backup to an on-premises location.
 2. Create or upload a virtual machine with the version of SQL Server desired.
-3. Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md).
+3. Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](ways-to-connect-to-sql.md).
 4. Copy your backup file(s) to your VM using remote desktop, Windows Explorer or the copy command from a command prompt.
 
 ## Backup to URL and restore
@@ -95,10 +95,10 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 Use the [Windows Import/Export Service method](../../../storage/common/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
 ## Next steps
-For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](what-is-sql-on-azure-vm-iaas-overview.md).
 
 > [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 For instructions on creating an Azure SQL Server Virtual Machine from a captured image, see [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) on the CSS SQL Server Engineers blog.
 

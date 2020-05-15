@@ -161,7 +161,7 @@ For additional information about storage space and storage pools, see:
 * [Windows Server Backup and Storage Pools](https://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
-[Performance best practices for SQL Server in Azure virtual machines](../../../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+[Performance best practices for SQL Server in Azure virtual machines](performance-guidelines-best-practices.md).
 
 ### SQL Server settings
 On **SQL Server settings**, review and modify the SQL Server virtual machine name prefix, SQL Server version, SQL Server service account and password, and the SQL auto-patching maintenance schedule.
