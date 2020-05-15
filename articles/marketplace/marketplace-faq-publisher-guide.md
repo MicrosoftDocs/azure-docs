@@ -6,7 +6,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/08/2020
 ms.author: dsindona
 ---
 
@@ -296,7 +296,7 @@ For more information, go to [payout account and tax forms](https://docs.microsof
 
 ### Are returns and refunds supported with the commercial marketplace?
 
-To receive refunds, customers can cancel subscriptions within a specified time frame. Offers that are billed according to usage after a solution has been used are not eligible for refunds.
+To receive refunds, customers can cancel subscriptions within a specified time frame. For monthly subscriptions, it is 24 hours, and for annual subscriptions, it is 14 days. Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
 ## Resources
 

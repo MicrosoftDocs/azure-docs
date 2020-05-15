@@ -38,7 +38,7 @@ There is also an option to manage your subscription with your own keys. Customer
 
 Follow these steps to enable customer-managed keys for Translator:
 
-1. Create your new regional Translator Text or regional Cognitive Services resource. This will not work with a global resource.
+1. Create your new regional Translator or regional Cognitive Services resource. This will not work with a global resource.
 2. Enabled Managed Identity in the Azure portal, and add your customer-managed key information.
 3. Create a new workspace in Custom Translator and associate this subscription information.
 
