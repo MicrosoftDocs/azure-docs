@@ -1034,6 +1034,8 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
+      - name: Import notebooks from GitHub
+        href: import-github-notebooks.md
       - name: Use built-in notebook commands
         href: use-notebook-features-and-commands.md
     - name : Server-side programming
