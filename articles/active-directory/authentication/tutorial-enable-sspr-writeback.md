@@ -60,7 +60,7 @@ If don't assign these permissions, writeback appears to be configured correctly,
 
 > [!TIP]
 >
-> If the passwords for some user accounts aren't written back to the on-premises directory, make sure that that inheritance isn't disabled for the account in the on-prem AD DS environment. The write permissions for passwords must be applied to descendant objects for the feature to work correctly.
+> If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly.
 
 To set up the appropriate permissions for password writeback to occur, complete the following steps:
 
