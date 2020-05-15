@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Differences from previous release
+title: Differences from previous version
 titleSuffix: Azure Digital Twins
-description: Understand what has changed in the new release of Azure Digital Twins
+description: Understand what has changed in the new version of Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,17 +15,20 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# How has Azure Digital Twins changed since the previous release (2018)?
+# How is the new Azure Digital Twins different from the previous version (2018)?
 
-The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous release are still the same in the current public preview, some of the interfaces and implementation details have changed with the new release. The new release also aims to be more flexible and accessible. These changes were motivated by customer feedback.
+The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous version have carried through to the new service in public preview now, many of the interfaces and implementation details have changed to make the service more flexible and accessible. These changes were motivated by customer feedback.
 
-If you used Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to work with the new version differently.
+> [!IMPORTANT]
+> In light of the new service's expanded capabilities, the previous Azure Digital Twins service will be retired by the end of year 2020.
+
+If you used the first version of Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to work with the new service, and take advantage of its features.
 
 ## Differences by topic
 
-The chart below provides a side-by-side view of major concepts that have changed between the previous release and the new (current) release.
+The chart below provides a side-by-side view of concepts that have changed between the previous version of the service and the new (current) service.
 
-| Topic | In previous release | In new release | Tips and best practices |
+| Topic | In previous version | In new version | Tips and best practices |
 | --- | --- | --- | --- |
 | **Models**<br>*More flexible* | The previous release was mainly designed for building management, so it came with a built-in vocabulary for buildings. Models were expected to align with building concepts. Also, blobs were supported to attach unstructured data to a space. | The new Azure Digital Twins is domain-agnostic. You can define your own custom vocabulary and custom models for your solution. Also, blobs are not directly supported. | Take advantage of the new representation options that an open vocabulary enables for your environment. The possibility to represent processes, concepts, and arbitrary objects may suggest reimagining your digital representation.<br>Learn more in [Concepts: Object models](concepts-models.md).<br>To include unstructured content with a model, you can manage a separate blob store, and provide a link to the relevant document as a property on your model. |
 | **The twin graph**<br>*More flexible*| The previous release supported a tree data structure to represent your environment. Digital twins were connected with hierarchical relationships. | With the new release, your digital twins can be connected into arbitrary graph topologies, organized however you want. | This gives you more flexibility to express the complex relationships of the real world. Any twin can have a relationship with any other twin. You can even create relationships between twins not directly linked in your main topology, as a technique to make your queries shallow and performant.<br>Learn more in [Concepts: Digital twins and the twin graph](concepts-twins-graph.md). |
