@@ -67,7 +67,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview
+    - name: JavaScript
+      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview
 - name: Resources
   items:
   - name: Pricing and limits
