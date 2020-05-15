@@ -30,7 +30,7 @@ landingContent:
           - text: What is SQL Database?
             url: sql-database-technical-overview.md
           - text: Which SQL Database option should I choose?
-            url: sql-database-paas-vs-sql-server-iaas.md
+            url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
           - text: Purchasing options
             url: sql-database-purchase-models.md
           - text: Service tiers
@@ -82,7 +82,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Which SQL Database option should I choose?
-            url: sql-database-paas-vs-sql-server-iaas.md
+            url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
           - text: Migrate to SQL database
             url: sql-database-single-database-migrate.md
           - text: Migrate to SQL managed instance

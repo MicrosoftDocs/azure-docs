@@ -4,7 +4,7 @@
 - name: Overview
   items: 
   - name: Overview-old
-    href: sql-database-paas-vs-sql-server-iaas.md
+    href: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Overview-new
     href: what-is-azure-sql-iaas-vs-paas.md
   - name: SQL Managed Instance rebrand

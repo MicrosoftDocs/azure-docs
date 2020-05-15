@@ -143,7 +143,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 
 ### SQL
 * [SQL Server documentation](https://docs.microsoft.com/sql/index)
-* [Azure SQL Database comparison](../../paas-vs-sql-server-iaas.md)
+* [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## Next steps
 

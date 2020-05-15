@@ -427,7 +427,7 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 <!-- Article link reference IDs. -->
 
-[saas-concept-design-patterns-563e]:../azure-sql/database/saas-tenancy-app-design-patterns.md
+[saas-concept-design-patterns-563e]: saas-tenancy-app-design-patterns.md
 
 [saas-how-welcome-wingtip-app-679t]: saas-tenancy-welcome-wingtip-tickets-app.md
 

@@ -676,7 +676,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 For detailed steps configuring a failover group, see the following tutorials:
 
-- [Add a single database to a failover group](failover-group--add-single-database-tutorial.md)
+- [Add a single database to a failover group](failover-group-add-single-database-tutorial.md)
 - [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
 - [Add a managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 

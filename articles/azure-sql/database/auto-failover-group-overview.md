@@ -150,7 +150,7 @@ The auto-failover group must be configured on the primary server and will connec
 ![auto failover](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
-> See [Add SQL Database to a failover group](failover-group--add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
+> See [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -462,7 +462,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For detailed tutorials, see
-  - [Add SQL Database to a failover group](failover-group--add-single-database-tutorial.md)
+  - [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md)
   - [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
   - [Add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 - For sample scripts, see:

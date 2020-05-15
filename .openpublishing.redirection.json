@@ -53374,7 +53374,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-paas-vs-sql-server-iaas.md",
-            "redirect_url": "/azure/azure-sql/paas-vs-sql-server-iaas",
+            "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
             "redirect_document_id": true
         },
         {
