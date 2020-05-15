@@ -53526,6 +53526,121 @@
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-change-edition.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-sql-server-edition",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/provision-virtual-machine",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/frequently-asked-questions-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-listener-tutorial.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/tutorial-rhel-ha-listener",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-stonith-tutorial.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/tutorial-rhel-ha-stonith",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/what-is-sql-on-linux-vm-iaas-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-dedicated-host.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/dedicated-host",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-manage-portal.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manage-sql-vm-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-move-different-region.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/register-with-sql-resource-provider",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-security.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/automate-management-sql-server-iaas-agent-extension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/what-is-sql-on-azure-vm-iaas-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/pricing-guidance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-storage-configuration.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/storage-configuration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-workgroup-availability-group.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/configure-clusterless-workgroup-availability-group",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/use-azure-storage-sql-server-backup-restore",
+            "redirect_document_id": true
         }
     ]
 }
