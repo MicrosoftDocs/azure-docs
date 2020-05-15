@@ -50,7 +50,7 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 
 Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
-To continue with the tutorial and build the application yourself, continue on to the next section, [Prerequisites](#prerequisites).
+To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
 
 ## Prerequisites
 
@@ -330,7 +330,7 @@ Modify the values in the `msalConfig` section as described here:
   - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` should be one of the following:
-  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com`.
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
