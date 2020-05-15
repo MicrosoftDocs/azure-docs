@@ -110,11 +110,11 @@ In this section, you create a logic app by using the **Correlated in-order deliv
 
    The Logic App Designer now shows the **Correlated in-order delivery using service bus sessions** template, which contains a pre-populated workflow with a trigger and actions, including two scopes that implement error handling that follow the `Try-Catch` pattern.
 
-Now you can either learn more about the trigger and actions in the template, or jump ahead to [provide the values for the logic app template](#fill-template).
+Now you can either learn more about the trigger and actions in the template, or jump ahead to [provide the values for the logic app template](#complete-template).
 
-<a name="review-template"></a>
+<a name="template-summary"></a>
 
-## Review the template
+## Template summary
 
 Here is the top-level workflow in the **Correlated in-order delivery using service bus sessions** template when the details are collapsed:
 
@@ -122,7 +122,7 @@ Here is the top-level workflow in the **Correlated in-order delivery using servi
 
 | Name | Description |
 |------|-------------|
-| **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. <p><p>The term *peek-lock* means that the trigger sends a request to retrieve a message from the queue. If a message exists, the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). |
+| **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. <p><p>The term *peek-lock* means that the trigger sends a request to retrieve a message from the queue. If a message exists, the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. For technical information about the trigger, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). |
 | **`Init isDone`** | This **Initialize variable** action creates a variable that tracks whether the next Service Bus action finishes reading messages in the queue. By default, the variable's Boolean value is set to `false`. |
 | **`Try`** | This **Scope** action contains the actions that run to process a message. If a problem happens in the `Try` scope, the subsequent `Catch` **Scope** action handles that problem. For more information, see ["Try" scope](#try-scope). |
 | **`Catch`**| This **Scope** action contains the actions that run if a problem happens in the preceding `Try` scope. For more information, see ["Catch" scope](#catch-scope). |
@@ -138,19 +138,31 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 | Name | Description |
 |------|-------------|
-| `Send initial message to topic` | This Service Bus **Send message** action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. |
-| (parallel branch) | This action creates two paths: <p><p>- Branch #1: Continue processing the message. <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. <p><p>Both paths join up later in the **Close session in a queue** action. |
+| `Send initial message to topic` | This Service Bus **Send message** action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
+| (parallel branch) | This parallel branch action creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue** action. |
 |||
 
-### Branch #1: Continue processing messages
+<a name="complete-initial-message"></a>
+
+#### Branch #1: Complete initial message in queue
 
 | Name | Description |
 |------|-------------|
-| `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. |
+| `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. For details, see [Handle the initial message](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
+| `Set isDone = true` | When no more messages exist, this **Set variable** action sets `isDone` to `true`. |
 | `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or until one hour passes. For more information about the actions in this loop, see [Renew session lock until cancelled](#renew-session-while-messages-exist). |
-| `Close a session in a queue and succeed` | Complete the session for the queue and return |
 |||
+
+<a name="abandon-initial-message"></a>
+
+#### Branch #2: Abandon initial message from the queue
+
+If anything goes wrong while processing the initial message, the Service Bus **Abandon initial message from the queue** action releases the message for another workflow instance run to pick up and process.
+
+#### Close a session in a queue and succeed
+
+This Service Bus action completes the session for the queue and return
 
 <a name="catch-scope"></a>
 
@@ -164,34 +176,38 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | **Terminate** action ||
 |||
 
-<a name="fill-template"></a>
+<a name="complete-template"></a>
 
 ## Complete the template
 
-To provide the values for the trigger and actions in the **Correlated in-order delivery using service bus sessions** template, follow these steps. You have to provide all the required values, which are marked by an asterisk (**\***), before you can save your work.
+To provide the values for the trigger and actions in the **Correlated in-order delivery using service bus sessions** template, follow these steps. You have to provide all the required values, which are marked by an asterisk (**\***), before you can save your logic app.
+
+<a name="initialize-session"></a>
 
 ### Initialize the session
 
-For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property, for example:
+* For the **When a message is received in a queue (peek-lock)** trigger, provide this information so that the template can initialize a session by using the **Session id** property, for example:
 
-![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
+  ![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
 
-| Property | Required for this scenario | Value | Description |
-|----------|----------------------------|-------|-------------|
-| **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
-| **Queue type** | Yes | **Main** | Your primary Service Bus queue |
-| **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
-| **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message |
-| **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
-|||||
+  | Property | Required for this scenario | Value | Description |
+  |----------|----------------------------|-------|-------------|
+  | **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
+  | **Queue type** | Yes | **Main** | Your primary Service Bus queue |
+  | **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
+  | **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message |
+  | **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
+  |||||
 
-For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
 
 After initializing the session, the workflow uses the **Initialize variable** action to create a variable that tracks whether the next Service Bus action finishes reading messages in the queue and set the variable's Boolean value is set to `false`.
 
 !["Initialize Variable" action details for "Init isDone"](./media/send-related-messages-sequential-convoy/init-is-done-variable.png)
 
 Next, in the **Try** block, the workflow performs actions on the first message that's read.
+
+<a name="handle-initial-message"></a>
 
 ### Handle the initial message
 
@@ -206,6 +222,8 @@ The first action, which is **Send initial message to topic**, sends the message 
 1. In the **Abandon initial message from the queue** action, provide the name for your Service Bus queue, and keep all the other default property values in the action.
 
    ![Service Bus action details for "Abandon initial message from the queue"](./media/send-related-messages-sequential-convoy/abandon-initial-message-from-queue.png)
+
+Next, you'll provide the necessary information for the actions that follow the **Complete initial message in queue** action. You'll start with the actions in the **While there are more messages for the session in the queue** loop.
 
 <a name="while-more-messages-for-session"></a>
 
@@ -246,6 +264,8 @@ This **Until** loop runs these actions while messages exist in the queue or unti
 
    After the **While there are more messages for the session in the queue** is done, the workflow sets the `isDone` variable to `true`.
 
+Next, you'll provide the necessary information for the actions in the **Renew session lock until cancelled** loop.
+
 <a name="renew-session-while-messages-exist"></a>
 
 ### Renew session lock until cancelled
@@ -254,13 +274,33 @@ This **Until** loop makes sure that the session lock is held by this logic app w
 
 * Delay for 25 seconds or an amount of time that's less than the lock timeout duration for the queue that's being processed. The smallest lock duration is 30 seconds, so the default value is enough. However, you can optimize the number of times that the loop runs by adjusting appropriately.
 
-* Check whether the `isDone` variable is set to `true`. If `isDone` is not set to `true`, the workflow is still processing messages, so the workflow renews the lock on the session in the queue, and checks the loop condition again. If `isDone` is set to `true`, the workflow doesn't renew the lock on the session in the queue, and exits the loop.
+* Check whether the `isDone` variable is set to `true`.
 
-![Until loop - "Renew session lock until cancelled"](./media/send-related-messages-sequential-convoy/renew-lock-until-session-cancelled.png)
+  * If `isDone` is not set to `true`, the workflow is still processing messages, so the workflow renews the lock on the session in the queue, and checks the loop condition again.
 
-1. In the **Renew lock on the session in a queue** action, provide the name for your Service Bus queue.
+    You need to provide the name for your Service Bus queue in the Service Bus action, [**Renew lock on the session in a queue**](#renew-lock-on-session).
 
-   ![Service Bus action - "Renew lock on session in the queue"](./media/send-related-messages-sequential-convoy/renew-lock-on-session-in-queue.png)
+  * If `isDone` is set to `true`, the workflow doesn't renew the lock on the session in the queue, and exits the loop.
 
-1. 
+  ![Until loop - "Renew session lock until cancelled"](./media/send-related-messages-sequential-convoy/renew-lock-until-session-cancelled.png)
 
+<a name="renew-lock-on-session"></a>
+
+#### Renew lock on the session in a queue
+
+This Service Bus action renews the lock on the session in the queue while the workflow is still processing messages.
+
+* In the **Renew lock on the session in a queue** action, provide the name for your Service Bus queue.
+
+  ![Service Bus action - "Renew lock on session in the queue"](./media/send-related-messages-sequential-convoy/renew-lock-on-session-in-queue.png)
+
+Next, you'll provide the necessary information for the **Close a session in a queue and succeed** action.
+
+<a name="close-session"></a>
+
+### Close a session in a queue and succeed
+
+
+## Next steps
+
+* Learn more about the [Service Bus connector's triggers and actions](https://docs.microsoft.com/connectors/servicebus/)
