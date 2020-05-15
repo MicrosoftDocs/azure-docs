@@ -1,15 +1,15 @@
 - name: Overview
   items:
   - name: What is a SQL Server VM?
-    href: what-is-sql-on-azure-vm-iaas-overview.md
+    href: sql-server-on-azure-vm-iaas-what-is-overview.md
   - name: Doc changes
     href: doc-changes-updates-release-notes.md
 - name: Quickstarts
   items:
   - name: Create SQL VM - Portal
-    href: quickstart-create-sql-vm-portal.md
+    href: sql-vm-create-portal-quickstart.md
   - name: Create SQL VM - PowerShell
-    href: quickstart-create-sql-vm-powershell.md
+    href: sql-vm-create-powershell-quickstart.md
 - name: Concepts
   items:
   - name: Best practices
@@ -25,7 +25,7 @@
     - name: High availability options
       href: business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - name: Always On availability group
-      href: manually-configure-availability-group-multiple-regions.md
+      href: availability-group-manually-configure-multiple-regions.md
     - name: Backup and restore
       href: backup-restore.md
     - name: Automated backup for SQL Server 2014
@@ -51,7 +51,7 @@
       - name: Automated Patching
         href: automated-patching.md
       - name: Configure Azure Key Vault Integration
-        href: configure-azure-key-vault-integration.md
+        href: azure-key-vault-integration-configure.md
 - name: How-to guides
   items:
   - name: Create SQL VM
@@ -64,19 +64,19 @@
     displayName: resource provider, registration
     items:
     - name: Single VM
-      href: register-with-sql-resource-provider.md
+      href: sql-vm-resource-provider-register.md
     - name: Bulk register multiple VMs
-      href: bulk-register-with-sql-resource-provider.md
+      href: sql-vm-resource-provider-bulk-register.md
   - name: Manage
     items: 
     - name: Licensing model
       displayName: ahb, ahub, payg, change, modify, update
-      href: change-licensing-model-azure-hybrid-benefit-ahb.md
+      href: licensing-model-azure-hybrid-benefit-ahb-change.md
     - name: Edition 
       displayName: change, modify, update
       href: change-sql-server-edition.md
     - name: Azure Storage for backup & restore
-      href: use-azure-storage-sql-server-backup-restore.md
+      href: azure-storage-sql-server-backup-restore-use.md
   - name: Migrate
     items:
     - name: SQL Server database to VM
@@ -88,31 +88,31 @@
     - name: Always On availability group
       items:
       - name: Azure SQL VM CLI
-        href: configure-availability-group-az-cli.md
+        href: availability-group-az-cli-configure.md
       - name: Azure portal template
-        href: configure-availability-group-azure-marketplace-template.md
+        href: availability-group-azure-marketplace-template-configure.md
       - name: Azure Quickstart templates
-        href: configure-availability-group-quickstart-template.md
+        href: availability-group-quickstart-template-configure.md
       - name: Multiple regions
-        href: manually-configure-availability-group-multiple-regions.md
+        href: availability-group-manually-configure-multiple-regions.md
       - name: Domain-independent (workgroup)
-        href: configure-clusterless-workgroup-availability-group.md
+        href: availability-group-clusterless-workgroup-configure.md
       - name: Configure manually
         items:
         - name: Prerequisites
-          href: tutorial-prerequisites-manually-configure-availability-group.md
+          href: availability-group-manually-configure-prerequisites-tutorial.md
         - name: Tutorial
-          href: tutorial-manually-configure-availability-group.md
+          href: availability-group-manually-configure-tutorial.md
         - name: Load balancer - Azure portal
-          href: configure-availability-group-load-balancer-portal.md
+          href: availability-group-load-balancer-portal-configure.md
         - name: Load balancer - Azure PowerShell
-          href: configure-availability-group-listener-powershell.md
+          href: availability-group-listener-powershell-configure.md
     - name: Failover Cluster Instance
       items:
       - name: With Storage Spaces Direct
-        href: manually-configure-failover-cluster-instance-storage-spaces-direct.md
+        href: failover-cluster-instance-storage-spaces-direct-manually-configure.md
       - name: With Premium File Share
-        href: manually-configure-failover-cluster-instance-premium-file-share.md
+        href: failover-cluster-instance-premium-file-share-manually-configure.md
 - name: Reference
   items:
   - name: Azure PowerShell

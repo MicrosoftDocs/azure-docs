@@ -19210,7 +19210,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
-            "redirect_url": "/azure/virtual-machines/windows/sql/sql-resource-provider-register",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register",
             "redirect_document_id": false
         },
         {
@@ -53519,7 +53519,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-bulk-register-with-resource-provider.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-resource-provider-bulk-register",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register",
             "redirect_document_id": true
         },
         {
@@ -53584,7 +53584,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-resource-provider-register",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register",
             "redirect_document_id": true
         },
         {
