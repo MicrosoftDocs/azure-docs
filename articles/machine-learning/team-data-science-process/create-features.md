@@ -21,7 +21,7 @@ In this article, you learn about feature engineering and its role in enhancing d
 
 Normally **feature engineering** is applied first to generate additional features, and then **feature selection** is done to eliminate irrelevant, redundant, or highly correlated features.
 
-Feature engineering and selection are part of the [modeling stage](team-data-science-process/lifecycle-modeling.md) of the Team Data Science Process (TDSP). To learn more about the TDSP and the data science lifecycle, see [What is the TDSP?](overview.md)
+Feature engineering and selection are part of the [modeling stage](lifecycle-modeling.md) of the Team Data Science Process (TDSP). To learn more about the TDSP and the data science lifecycle, see [What is the TDSP?](overview.md)
 
 ## What is feature engineering?
 
@@ -33,7 +33,7 @@ Engineered features that enhance training provide information that better differ
 
 ## Example 1: Add temporal features for a regression model
 
-Let's use the experiment [Demand forecasting of bikes rentals]((https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)) in Azure Machine Learning Studio (classic) to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for bike rentals within a specific month/day/hour.
+Let's use the experiment [Demand forecasting of bikes rentals](https://gallery.azure.ai/Experiment/Regression-Demand-estimation-4) in Azure Machine Learning Studio (classic) to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for bike rentals within a specific month/day/hour.
 
 ### Bike rental dataset
 
