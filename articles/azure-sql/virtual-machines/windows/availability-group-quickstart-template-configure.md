@@ -34,7 +34,7 @@ Other parts of the availability group configuration must be done manually, such 
 To automate the setup of an Always On availability group by using quickstart templates, you must have the following prerequisites: 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](sql-resource-provider-register-with.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](sql-resource-provider-register.md).  
 - Two available (not used by any entity) IP addresses: one for the internal load balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, you need only one available IP address.  
 
 ## Permissions
@@ -204,7 +204,7 @@ After you make these changes, try to deploy the Azure quickstart template once m
 
 For more information, see the following articles: 
 
-* [Overview of SQL Server VMs](sql-on-azure-vm-iaas-what-is-overview.md)
+* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server VMs](../../database/frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server VMs](pricing-guidance.md)
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)

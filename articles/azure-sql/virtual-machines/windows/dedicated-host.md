@@ -70,7 +70,7 @@ A: Customers can use the value of their existing Windows Server and SQL Server l
 
 For more information, see the following articles: 
 
-* [Overview of SQL Server on a Windows VM](sql-on-azure-vm-iaas-what-is-overview.md)
+* [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)

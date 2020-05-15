@@ -83,11 +83,11 @@ To create a replica in a remote data center, do the following steps:
    - Have a load balancing rule specific to the SQL Server in the same region.  
    - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial-.md#joinDomain).
+1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
 
-1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial-.md#setServiceAccount).
+1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
 
 1. [Add the new SQL Server to the Windows Server Failover Cluster](availability-group-manually-configure-tutorial.md#addNode).
 
@@ -145,7 +145,7 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-.md#endpoint-firewall).
+1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 

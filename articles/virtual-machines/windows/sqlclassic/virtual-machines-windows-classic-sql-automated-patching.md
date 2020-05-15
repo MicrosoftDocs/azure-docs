@@ -91,5 +91,5 @@ To disable Automated Patching, run the same script without the -Enable parameter
 ## Next steps
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../../../azure-sql/virtual-machines/windows/sql-on-azure-vm-iaas-what-is-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

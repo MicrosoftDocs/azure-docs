@@ -30,7 +30,7 @@ This tutorial will go over steps on how to create an availability group listener
 
 ## Prerequisite
 
-Completed [**Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure**](rhel-ha-stonith-tutorial.md)
+Completed [**Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure**](rhel-high-availability-stonith-tutorial.md)
 
 ## Create the load balancer in the Azure portal
 

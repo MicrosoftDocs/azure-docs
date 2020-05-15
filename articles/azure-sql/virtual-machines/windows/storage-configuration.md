@@ -29,7 +29,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](sql-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+* Provisioned with a [SQL Server gallery image](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
 * Uses [premium SSDs](../../../virtual-machines/windows/disks-types.md).
 
@@ -148,4 +148,4 @@ The following table describes the three workload type options available and thei
 
 ## Next steps
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](sql-on-azure-vm-iaas-what-is-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).

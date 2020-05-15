@@ -750,7 +750,7 @@ On all SQL Servers, save the credentials used for the SQL Server login.
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-    ![availability-group-joined.png](./media/rhel-ha-stonith-tutorial/availability-group-joined.png)
+    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### Add a database to the availability group
 
@@ -981,4 +981,4 @@ For more information on testing a fence device, see the following [Red Hat](http
 In order to utilize an Availability Group Listener for your SQL Servers, you will need to create and configure a load balancer.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure](rhel-ha-listener-tutorial.md)
+> [Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure](rhel-high-availability-listener-tutorial.md)

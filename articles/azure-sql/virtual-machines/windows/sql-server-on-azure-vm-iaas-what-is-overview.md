@@ -19,7 +19,7 @@ ms.reviewer: jroth
 # What is SQL Server on Azure Virtual Machines? (Windows)
 
 > [!div class="op_single_selector"]
-> * [Windows](sql-on-azure-vm-iaas-what-is-overview.md)
+> * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](../linux/what-is-sql-on-linux-vm-iaas-overview.md)
 
 [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you to use full versions of SQL Server in the Cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
@@ -103,18 +103,18 @@ The Azure portal provides a single page where you can manage [all of your Azure 
 
 To access the **Azure SQL resources** page, select **Azure SQL** in the Azure portal menu, or search for and select **Azure SQL** from any page.
 
-![Search for Azure SQL](./media/sql-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
+![Search for Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, database servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
-![Create Azure SQL resource](./media/sql-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
+![Create Azure SQL resource](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
 After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
 
-![databases tile details](./media/sql-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
+![databases tile details](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
 For details, see:
 

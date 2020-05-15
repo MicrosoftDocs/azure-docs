@@ -461,7 +461,7 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 Repeat the steps on the other SQL Server VM.
 
   >[!NOTE]
-  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure-md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
 
 
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM

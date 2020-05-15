@@ -47,10 +47,10 @@ The following table lists the prerequisites that you need to complete before sta
 |![Square](./media/availability-group-manually-configure-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
 
-Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial-.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
+Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
   >[!NOTE]
-  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure-md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
+  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -63,7 +63,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
    >[!TIP]
-   >If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-.md), you created an account called **CORP\Install**. Use this account.
+   >If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial.md), you created an account called **CORP\Install**. Use this account.
 
 2. In the **Server Manager** dashboard, select **Tools**, and then click **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**.
@@ -295,7 +295,7 @@ You are now ready to configure an Availability Group using the following steps:
 
    ![New AG Wizard, Specify Replicas (Complete)](./media/availability-group-manually-configure-tutorial/64-newagreplica.png)
 
-6. Click **Endpoints** to see the database mirroring endpoint for this Availability Group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](availability-group-manually-configure-prerequisites-tutorial-.md#endpoint-firewall).
+6. Click **Endpoints** to see the database mirroring endpoint for this Availability Group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 

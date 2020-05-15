@@ -19,7 +19,7 @@ ms.custom: "seo-lt-2019"
 ---
 # Pricing guidance for Azure SQL Server VMs
 
-This article provides pricing guidance for [SQL Server virtual machines](sql-on-azure-vm-iaas-what-is-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+This article provides pricing guidance for [SQL Server virtual machines](sql-server-on-azure-vm-iaas-what-is-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 
 > [!TIP]
 > If you only need to find out a cost estimate for a specific combination of SQL Server edition and virtual machine size, see the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Select your platform and SQL Server edition from the **OS/Software** list.
@@ -165,5 +165,5 @@ For general Azure pricing guidance, see [Prevent unexpected costs with Azure bil
 
 For an overview of SQL Server running on Azure Virtual Machines, see the following articles:
 
-- [Overview of SQL Server on Windows VMs](sql-on-azure-vm-iaas-what-is-overview.md)
+- [Overview of SQL Server on Windows VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 - [Overview of SQL Server on Linux VMs](../linux/what-is-sql-on-linux-vm-iaas-overview.md)

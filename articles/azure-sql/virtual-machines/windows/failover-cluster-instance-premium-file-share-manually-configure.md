@@ -40,7 +40,7 @@ You should also have a general understanding of these technologies:
 - [Azure resource groups](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-resource-provider-register-with.md#management-modes) of the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](automate-management-sql-server-iaas-agent-extension.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md), based on managed premium disks or ultra disks.  
 
@@ -58,7 +58,7 @@ With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on
 
 If you have Enterprise Agreement with Software Assurance, you can use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images, and use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines, see [Get started with SQL VMs](sql-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
+To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines, see [Get started with SQL VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -120,7 +120,7 @@ With these prerequisites in place, you can start building your failover cluster.
       >[!IMPORTANT]
       >You can't set or change the availability set after you've created a virtual machine.
 
-   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](sql-on-azure-vm-iaas-what-is-overview.md).
+   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, the SQL Server installation software, and the required key.
 
@@ -154,7 +154,7 @@ With these prerequisites in place, you can start building your failover cluster.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.
    | File share | 445 | Port used by the file share service.
 
-1. [Add the virtual machines to your pre-existing domain](availability-group-manually-configure-prerequisites-tutorial-.md#joinDomain).
+1. [Add the virtual machines to your pre-existing domain](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
 
 After you create and configure the virtual machines, you can configure the premium file share.
 
@@ -194,7 +194,7 @@ The next step is to configure the failover cluster. In this step, you'll complet
 
 1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
-1. [Add Failover Clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial-.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add Failover Clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    To install Failover Clustering from the UI, take these steps on both virtual machines:
    1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
