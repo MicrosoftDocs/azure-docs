@@ -14,42 +14,6 @@ ms.reviewer:
 
 Find Azure Storage API reference, readme files, and client library packages.
 
-## REST APIs
-
-This section contains reference material for REST developers.
-
-### Blobs
-
-The following table lists reference and sample documentation for Azure Blob storage REST APIs.
-
-| Reference documentation | Overview |
-| ----------------------- | -------- |
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api) | [Blob service concepts](/rest/api/storageservices/blob-service-concepts) |
-
-### Queues
-
-The following table lists reference and sample documentation for Azure Queue storage REST APIs.
-
-| Reference documentation | Overview |
-| ----------------------- | -------- |
-| [Queue service REST API](/rest/api/storageservices/queue-service-rest-api) | [Queue service concepts](/rest/api/storageservices/queue-service-concepts) |
-
-### Files
-
-The following table lists reference and sample documentation for Azure File storage REST APIs.
-
-| Reference documentation | Overview |
-| ----------------------- | -------- |
-| [File service REST API](/rest/api/storageservices/file-service-rest-api) | [File service concepts](/rest/api/storageservices/file-service-concepts) |
-
-### Tables
-
-The following table lists reference and sample documentation for Azure Table storage REST APIs.
-
-| Reference documentation | Overview |
-| ----------------------- | -------- |
-| [Table Service REST API](/rest/api/storageservices/table-service-rest-api) | [Table service concepts](/rest/api/storageservices/table-service-concepts)
-
 ## .NET APIs
 
 This section contains reference material for .NET developers.
@@ -81,13 +45,6 @@ The following table lists reference and sample documentation for Azure File Shar
 | 12.x | [Azure File Shares client library v12 for .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Develop for Azure Files with .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
 
-### Tables
-
-The following table lists reference and sample documentation for Azure Table storage .NET APIs.
-
-|  Version  | Reference documentation | Package | Quickstart |
-| :-------: | ----------------------- | ------- | ---------- |
-
 ### Storage management
 
 The following table lists reference documentation for Azure Storage management .NET APIs.
@@ -118,6 +75,20 @@ The following table lists reference and sample documentation for Azure Blob stor
 | 12.x | [Azure Storage - Blobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Quickstart: Manage blobs with Java v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-java) |
 | 8.x | [com.microsoft.azure.storage.blob](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Quickstart: Manage blobs with Java v8 SDK](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
 
+### Queues
+
+The following table lists reference and sample documentation for Azure Queue storage JavaScript APIs.
+
+|  Version  | Reference documentation | Package | Quickstart |
+| :-------: | ----------------------- | ------- | ---------- |
+
+### File Shares
+
+The following table lists reference and sample documentation for Azure File Shares PyJavaScriptthon APIs.
+
+|  Version  | Reference documentation | Package | Quickstart |
+| :-------: | ----------------------- | ------- | ---------- |
+
 ## Python APIs
 
 This section contains reference material for Python developers.
@@ -139,13 +110,6 @@ The following table lists reference and sample documentation for Azure Queue sto
 ### File Shares
 
 The following table lists reference and sample documentation for Azure File Shares Python APIs.
-
-|  Version  | Reference documentation | Package | Quickstart |
-| :-------: | ----------------------- | ------- | ---------- |
-
-### Tables
-
-The following table lists reference and sample documentation for Azure Tables storage Python APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -175,12 +139,41 @@ The following table lists reference and sample documentation for Azure File Shar
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 
+## REST APIs
+
+This section contains reference material for REST developers.
+
+### Blobs
+
+The following table lists reference and sample documentation for Azure Blob storage REST APIs.
+
+| Reference documentation | Overview |
+| ----------------------- | -------- |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api) | [Blob service concepts](/rest/api/storageservices/blob-service-concepts) |
+
+### Queues
+
+The following table lists reference and sample documentation for Azure Queue storage REST APIs.
+
+| Reference documentation | Overview |
+| ----------------------- | -------- |
+| [Queue service REST API](/rest/api/storageservices/queue-service-rest-api) | [Queue service concepts](/rest/api/storageservices/queue-service-concepts) |
+
+### File Shares
+
+The following table lists reference and sample documentation for Azure File Shares REST APIs.
+
+| Reference documentation | Overview |
+| ----------------------- | -------- |
+| [File service REST API](/rest/api/storageservices/file-service-rest-api) | [File service concepts](/rest/api/storageservices/file-service-concepts) |
+
 ### Tables
 
-The following table lists reference and sample documentation for Azure Tables storage JavaScript APIs.
+The following table lists reference and sample documentation for Azure Table storage REST APIs.
 
-|  Version  | Reference documentation | Package | Quickstart |
-| :-------: | ----------------------- | ------- | ---------- |
+| Reference documentation | Overview |
+| ----------------------- | -------- |
+| [Table Service REST API](/rest/api/storageservices/table-service-rest-api) | [Table service concepts](/rest/api/storageservices/table-service-concepts)
 
 ## Other languages and platforms
 
@@ -198,7 +191,8 @@ The following table contains links to the latest version of reference content.
 
 | Version | Platform |
 | ------- | -------- |
-| 3.8.0 | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
+|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
+|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
 
 ## Tools
 
