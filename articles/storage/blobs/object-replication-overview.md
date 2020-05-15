@@ -1,5 +1,5 @@
 ---
-title: Object replication (preview)
+title: Object replication overview (preview)
 titleSuffix: Azure Storage
 description: Configure object replication (preview) to asynchronously replicate block blobs between two storage accounts.
 services: storage
@@ -14,40 +14,32 @@ ms.subservice: blobs
 
 # Object replication (preview)
 
-With object replication (preview), you can asynchronously replicate block blobs between two storage accounts.
+Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. The source and destination accounts may be in different regions. Some scenarios supported by object replication include:
 
-- Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
-- 
-
-
-Object replication unblocks a new set of common replication scenarios:
-
-- Minimize latency – have your users consume the data locally rather than issuing cross-region read requests.
-- Increase efficiency – have your compute clusters process/transform the same set of objects locally in different regions.
-- Optimize data distribution – have your data consolidated in a single location for processing/analytics and then distribute only resulting dashboards to your offices worldwide.
-- Optimize cost – tier down your data to Archive upon replication completion using Lifecycle Management policies to optimize the cost.
+- **Minimizing latency.** By replicating data across regions, object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
+- **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
+- **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
+- **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
 
 ## How object replication works
 
 Object replication asynchronously copies a specified set of block blobs from a container in one storage account to a container in another account. Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication on the source account, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
 
-???You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.???
-
 ### Configure a replication policy
 
 To use object replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
 
-A storage account can serve as the source account for up to two destination accounts. For example, suppose you wish to replicate data from a source account to two destination accounts that are in different regions, to reduce latency. You can configure two separate replication policies to replicate data to each of the destination accounts.
+A storage account can serve as the source account for up to two destination accounts. Each destination account may be in a different region. You can configure two separate replication policies to replicate data to each of the destination accounts.
+
+The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 403 (Forbidden).
 
 ### Create rules on the replication policy
 
 You can specify up to 10 replication rules for each replication policy. Each rule defines a single source and destination container, and each source and destination container can be used in only one rule.
 
-The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 403 (Forbidden).
-
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can also specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
-A replication rule can also filter block blobs by prefix. If you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
+You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
 ## About the preview
 
@@ -73,7 +65,7 @@ Object replication requires that the following Azure Storage features are enable
 
 Enable these features for the storage account before you enable object replication. Be sure to register for the change feed and blob versioning previews before you enable them.
 
-Enabling these prerequisites may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Register for the preview
 
