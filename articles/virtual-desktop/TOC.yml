@@ -50,8 +50,8 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
-      - name: Create an FSLogix profile container
-        href: create-profile-domain-controller.md
+      - name: Store storage profiles with Azure Files
+        href: store-storage-profiles.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
