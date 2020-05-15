@@ -153,7 +153,7 @@ Get started with SQL Server on Azure virtual machines:
 
 Get answers to commonly asked questions about SQL VMs:
 
-* [SQL Server on Azure Virtual Machines FAQ](../../database/frequently-asked-questions-faq.md)
+* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.md)
 
 View Reference Architectures for running N-tier applications on SQL Server in IaaS
 

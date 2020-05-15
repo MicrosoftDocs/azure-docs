@@ -19,15 +19,15 @@ ms.reviewer: jroth
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../../../azure-sql/virtual-machines/windows/automate-management-sql-server-iaas-agent-extension.md)
-> * [Classic](../classic/sql-server-agent-extension.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [Classic](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
 The SQL Server IaaS Agent Extension (SQLIaaSAgent) runs on Azure virtual machines to automate administration tasks. This topic provides an overview of the services supported by the extension as well as instructions for installation, status, and removal.
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [SQL Server Agent Extension for SQL Server VMs Resource Manager](../../../azure-sql/virtual-machines/windows/automate-management-sql-server-iaas-agent-extension.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [SQL Server Agent Extension for SQL Server VMs Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md).
 
 ## Supported services
 The SQL Server IaaS Agent Extension supports the following administration tasks:

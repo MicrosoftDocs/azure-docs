@@ -52979,7 +52979,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-managed-instance-transactional-replication.md",
-            "redirect_url": "/azure/azure-sql/database/replication-transactional-overview",
+            "redirect_url": "/azure/azure-sql/managed-instance/replication-transactional-overview",
             "redirect_document_id": true
         },
         {
@@ -53544,12 +53544,12 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-stonith-tutorial.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/linux/rhel-high-availabiliy-stonith-tutorial",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-on-linux-vm-what-is-iaas-overview",
+            "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
             "redirect_document_id": true
         },
         {
@@ -53640,6 +53640,11 @@
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/replication-to-sql-database.md",
+            "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
             "redirect_document_id": true
         }
     ]
