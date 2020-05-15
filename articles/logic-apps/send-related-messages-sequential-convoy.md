@@ -138,8 +138,9 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 | Name | Description |
 |------|-------------|
-| `Send initial message to topic` | This Service Bus **Send message** action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
-| (parallel branch) | This parallel branch action creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue** action. |
+| `Send initial message to topic` | This Service Bus action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
+| (parallel branch) | This parallel branch action creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
+| `Close a session in a queue and succeed` | This Service Bus action joins the previously described branches and closes the session after either of the following events happen: <p><p>- The workflow finishes processing available messages in the queue. <br>- The workflow abandons the initial message because something went wrong. <p><p>For details, see [Close a session in a queue and succeed](#close-session-succeed). |
 |||
 
 <a name="complete-initial-message"></a>
@@ -148,7 +149,7 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 | Name | Description |
 |------|-------------|
-| `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. For details, see [Handle the initial message](#handle-initial-message). |
+| `Complete initial message in queue` | This Service Bus action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. For details, see [Handle the initial message](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
 | `Set isDone = true` | When no more messages exist, this **Set variable** action sets `isDone` to `true`. |
 | `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or until one hour passes. For more information about the actions in this loop, see [Renew session lock until cancelled](#renew-session-while-messages-exist). |
@@ -158,11 +159,7 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 #### Branch #2: Abandon initial message from the queue
 
-If anything goes wrong while processing the initial message, the Service Bus **Abandon initial message from the queue** action releases the message for another workflow instance run to pick up and process.
-
-#### Close a session in a queue and succeed
-
-This Service Bus action completes the session for the queue and return
+If anything goes wrong while processing the initial message, the Service Bus action, **Abandon initial message from the queue**, releases the message for another workflow instance run to pick up and process. For details, see [Handle the initial message](#handle-initial-message).
 
 <a name="catch-scope"></a>
 
@@ -171,9 +168,9 @@ This Service Bus action completes the session for the queue and return
 | Name | Description |
 |------|-------------|
 | `Close a session in a queue and fail` | |
-| **Find failure msg from `Try` block** action | |
-| **Select error details** action ||
-| **Terminate** action ||
+| `Find failure msg from 'Try' block`  | |
+| `Select error details` ||
+| `Terminate` ||
 |||
 
 <a name="complete-template"></a>
@@ -215,11 +212,11 @@ The first action, which is **Send initial message to topic**, sends the message 
 
 ![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
 
-1. In the **Complete initial message in queue** action, provide the name for your Service Bus queue, and keep all the other default property values in the action.
+1. In the Service Bus action, **Complete initial message in queue**, provide the name for your Service Bus queue, and keep all the other default property values in the action.
 
    ![Service Bus action details for "Complete initial message in queue"](./media/send-related-messages-sequential-convoy/complete-initial-message-queue.png)
 
-1. In the **Abandon initial message from the queue** action, provide the name for your Service Bus queue, and keep all the other default property values in the action.
+1. In the Service Bus action, **Abandon initial message from the queue**, provide the name for your Service Bus queue, and keep all the other default property values in the action.
 
    ![Service Bus action details for "Abandon initial message from the queue"](./media/send-related-messages-sequential-convoy/abandon-initial-message-from-queue.png)
 
@@ -237,7 +234,7 @@ This **Until** loop runs these actions while messages exist in the queue or unti
 
 ![Until loop - Process messages while in queue](./media/send-related-messages-sequential-convoy/while-more-messages-for-session-in-queue.png)
 
-1. In the **Get additional messages from session** action, provide the name for your Service Bus queue. Otherwise, keep all the other default property values in the action.
+1. In the Service Bus action, **Get additional messages from session**, provide the name for your Service Bus queue. Otherwise, keep all the other default property values in the action.
 
    > [!NOTE]
    > By default, the maximum number of messages is set to `175`, but this limit 
@@ -258,7 +255,7 @@ This **Until** loop runs these actions while messages exist in the queue or unti
 
    !["For each" loop - Process each message one at a time](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
-1. For the **Complete the message in a queue** and **Abandon the message in a queue** actions, provide the name for your Service Bus queue.
+1. For the Service Bus actions, **Complete the message in a queue** and **Abandon the message in a queue**, provide the name for your Service Bus queue.
 
    ![Service Bus actions - "Complete the message in a queue" and "Abandon the message in a queue"](./media/send-related-messages-sequential-convoy/abandon-or-complete-message-in-queue.png)
 
@@ -290,16 +287,23 @@ This **Until** loop makes sure that the session lock is held by this logic app w
 
 This Service Bus action renews the lock on the session in the queue while the workflow is still processing messages.
 
-* In the **Renew lock on the session in a queue** action, provide the name for your Service Bus queue.
+* In the Service Bus action, **Renew lock on the session in a queue**, provide the name for your Service Bus queue.
 
   ![Service Bus action - "Renew lock on session in the queue"](./media/send-related-messages-sequential-convoy/renew-lock-on-session-in-queue.png)
 
-Next, you'll provide the necessary information for the **Close a session in a queue and succeed** action.
+Next, you'll provide the necessary information for the Service Bus action, **Close a session in a queue and succeed**.
 
-<a name="close-session"></a>
+<a name="close-session-succeed"></a>
 
 ### Close a session in a queue and succeed
 
+This Service Bus action closes the session in the queue after either the workflow finishes processing all the available messages in the queue, or the workflow abandons the initial message because something went wrong.
+
+* In the Service Bus action, **Close a session in a queue and succeed**, provide the name for your Service Bus queue.
+
+  ![Service Bus action - "Close a session in a queue and succeed"](./media/send-related-messages-sequential-convoy/close-session-in-queue.png)
+
+### Close a session in a queue and succeed
 
 ## Next steps
 
