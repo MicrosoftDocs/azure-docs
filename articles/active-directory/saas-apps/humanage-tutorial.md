@@ -79,14 +79,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL:
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://cppatest.cslab.com.ar/#/saml/< CUSTOMER NAME >`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL:
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://cppa.cslab.com.ar/#/entityId/< CUSTOMER NAME >`
 
+    c. In the **Reply URL** textbox, type a URL using the following pattern:
+    `https://authapi.cslab.com.ar/api/SamlConsume/< CUSTOMER NAME >`
+
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Humanage support team](mailto:support@cardinalconsulting.atlassian.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Humanage support team](mailto:support@cardinalconsulting.atlassian.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
