@@ -48,7 +48,7 @@ To complete the tutorial, make sure you have the following items:
 
 ## 1 - Create a database
 
-[!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
+[!INCLUDE [sql-database-create-single-database](../../sql-database/includes/sql-database-create-single-database.md)]
 
 ## 2 - Create the failover group
 

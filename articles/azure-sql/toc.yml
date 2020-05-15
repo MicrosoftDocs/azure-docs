@@ -16,56 +16,56 @@
   - name: Common concepts 
     itemS: 
     - name: Feature comparison
-      href: sql-database-features.md
+      href: database/features-comparison.md
     - name: Release notes
       items:
       - name: Release notes
-        href: sql-database-release-notes.md
+        href: database/doc-changes-updates-release-notes.md
       - name: Gateway IP address updates
-        href: sql-database-gateway-migration.md
+        href: database/gateway-migration.md
       - name: Periodic maintenance events
-        href: sql-database-planned-maintenance.md
+        href: database/planned-maintenance.md
 
     - name: Purchasing models
       items:
       - name: Overview
-        href: sql-database-purchase-models.md
+        href: database/purchasing-models.md
       - name: vCore model
         items:
         - name: vCore model overview
-          href: sql-database-service-tiers-vcore.md
+          href: database/service-tiers-vcore.md
         - name: Serverless
-          href: sql-database-serverless.md
+          href: database/serverless-tier-overview.md
         - name: Azure Hybrid Benefit
-          href: sql-database-azure-hybrid-benefit.md
+          href: database/azure-hybrid-benefit.md
         - name: Reserved capacity
-          href: sql-database-reserved-capacity.md
+          href: database/reserved-capacity-overview.md
       - name: DTU model overview
-        href: sql-database-service-tiers-dtu.md
+        href: database/service-tiers-dtu.md
       - name: Migrate from DTU to vCore
-        href: sql-database-dtu-to-vcore.md
+        href: migrate-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
-        href: sql-database-service-tiers-general-purpose-business-critical.md
+        href: database/service-tiers-general-purpose-business-critical.md
         displayName: provisioned compute tier
       - name: General purpose / Standard
-        href: sql-database-service-tier-general-purpose.md
+        href: database/service-tier-general-purpose.md
       - name: Business critical / Premium
-        href: sql-database-service-tier-business-critical.md
+        href: database/service-tier-business-critical.md
       - name: Hyperscale
-        href: sql-database-service-tier-hyperscale.md
+        href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
-        href: sql-database-service-tier-hyperscale-faq.md
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
       - name: Migrate from Premium RS
-        href: sql-database-service-tiers-prs.md
+        href: database/service-tiers-prs.md
     - name: Security
       items:
       - name: Security overview
-        href: sql-database-security-overview.md
+        href: database/security-overview.md
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Security best practices
-        href: sql-database-security-best-practice.md
+        href: database/security-best-practice.md
       - name: Logins, user accounts, roles, and permissions
         href: sql-database-manage-logins.md
 
@@ -107,7 +107,7 @@
       - name: Auditing
         items:
         - name: Azure SQL Auditing
-          href: sql-database-auditing.md
+          href: /azure-sql/database/auditing-overview.md
         - name: Audit to storage account behind VNet or firewall
           href: create-auditing-storage-account-vnet-firewall.md
         - name: Audit log format
@@ -217,7 +217,7 @@
     - name: Monitor and tune
       items:
       - name: Monitor and tune documentation
-        href: sql-database-monitoring-tuning-index.yml
+        href: database/monitoring-tuning-index.yml
       - name: Monitoring and performance overview
         href: sql-database-monitor-tune-overview.md
       - name: Database advisors and Query Performance Insight
@@ -389,13 +389,13 @@
         - name: SaaS design patterns
           href: saas-tenancy-app-design-patterns.md
         - name: SaaS video indexer
-          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+          href: database/saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: SaaS app security
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
         - name: Multi-tenant SaaS sample application
           items:
           - name: Wingtip Tickets sample
-            href: saas-tenancy-welcome-wingtip-tickets-app.md
+            href: database/saas-tenancy-welcome-wingtip-tickets-app.md
           - name: General guidance
             href: saas-tenancy-wingtip-app-guidance-tips.md
           - name: Single application
@@ -452,7 +452,7 @@
 - name: Azure SQL Database
   items:
   - name: Azure SQL Database documentation
-    href: sql-database-single-index.yml
+    href: database/index.yml
   - name: Overview
     items:
     - name: Overview
@@ -529,7 +529,7 @@
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md
         - name: Connectivity settings
-          href: sql-database-connectivity-settings.md
+          href: datbase/connectivity-settings.md
       - name: Data sync
         items:
         - name: Data Sync Agent
@@ -621,7 +621,7 @@
     - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
-      href: sql-database-threat-detection.md
+      href: sql-database-threat-detection-configure.md
     - name: Configure backup retention using Azure Blob storage
       href: sql-database-long-term-backup-retention-configure.md
     - name: Configure Elastic Database jobs
@@ -685,7 +685,7 @@
       - name: Create and manage (PowerShell)
         href: elastic-jobs-powershell.md
       - name: Create and manage (T-SQL)
-        href: elastic-jobs-tsql.md
+        href: database/elastic-jobs-tsql-create-manage.md
       - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
 
@@ -813,7 +813,7 @@
     - name: Verify built-in firewall protection
       href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: Configure threat detection
-      href: sql-database-managed-instance-threat-detection.md
+      href: sql-database-managed-instance-threat-detection-configure.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: Create alerts

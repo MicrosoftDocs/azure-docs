@@ -14,7 +14,7 @@ ms.date: 01/14/2019
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
 
-This tutorial explores a full disaster recovery scenario for a multitenant SaaS application implemented with the database per tenant model. You use [geo-restore](recovery-using-backups.md) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [geo-replication](sql-database-geo-replication-overview.md) to repatriate changed databases to their original region.
+This tutorial explores a full disaster recovery scenario for a multitenant SaaS application implemented with the database per tenant model. You use [geo-restore](recovery-using-backups.md) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [geo-replication](geo-replication-overview.md) to repatriate changed databases to their original region.
 
 ![Geo-restore-architecture](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -60,7 +60,7 @@ This tutorial uses features of Azure SQL Database and the Azure platform to addr
 * [Shard management recovery features](elastic-database-recovery-manager.md) of the EDCL, to maintain database location entries in the catalog during recovery and repatriation.  
 * [Geo-restore](../../key-vault/general/disaster-recovery-guidance.md), to recover the catalog and tenant databases from automatically maintained geo-redundant backups. 
 * [Asynchronous restore operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), sent in tenant-priority order, are queued for each pool by the system and processed in batches so the pool isn't overloaded. These operations can be canceled before or during execution if necessary.   
-* [Geo-replication](sql-database-geo-replication-overview.md), to repatriate databases to the original region after the outage. There is no data loss and minimal impact on the tenant when you use geo-replication.
+* [Geo-replication](geo-replication-overview.md), to repatriate databases to the original region after the outage. There is no data loss and minimal impact on the tenant when you use geo-replication.
 * [SQL server DNS aliases](../../sql-database/dns-alias-overview.md), to allow the catalog sync process to connect to the active catalog regardless of its location.  
 
 ## Get the disaster recovery scripts

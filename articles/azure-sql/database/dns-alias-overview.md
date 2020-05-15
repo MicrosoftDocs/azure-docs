@@ -14,7 +14,7 @@ ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
-Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](../azure-sql/database/logical-servers.md) name.
+Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](logical-servers.md) name.
 
 A *DNS alias* can be used in place of the server name. Client programs can use the alias in their connection strings. The DNS alias provides a translation layer that can redirect your client programs to different servers. This layer spares you the difficulties of having to find and edit all the clients and their connection strings.
 
@@ -54,7 +54,7 @@ The following properties apply to each DNS alias for your server:
   - When you drop a server, the Azure system also drops all DNS aliases that refer to the server.
 - *Not bound to any region:* DNS aliases are not bound to a region. Any DNS aliases can be updated to refer to a server that resides in any geographic region.
   - However, when updating an alias to refer to another server, both servers must exist in the same Azure *subscription*.
-- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
+- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).
 
 ## Manage your DNS aliases
 
@@ -100,7 +100,7 @@ Presently, a DNS alias has the following limitations:
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
 - _Table auditing is not supported:_ You cannot use a DNS alias on a server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
-  - We recommend that you move to [Blob Auditing](../../sql-database/sql-database-auditing.md).
+  - We recommend that you move to [Blob Auditing](../../azure-sql/database/auditing-overview.md).
 
 ## Related resources
 

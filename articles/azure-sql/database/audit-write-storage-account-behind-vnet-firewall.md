@@ -23,7 +23,7 @@ This article explains two ways to configure Azure SQL Database and Azure storage
 
 To learn more about the VNet concepts, Best practices and many more, see [What is Azure Virtual Network](../../virtual-network/virtual-networks-overview.md).
 
-To learn more about how to create a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+To learn more about how to create a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ## Prerequisites
 

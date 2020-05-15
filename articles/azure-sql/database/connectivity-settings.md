@@ -143,4 +143,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - For information on how to change the connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
-[1]: ../azure-sql/database/media/quickstart-create-single-database/manage-connectivity-settings.png
+[1]: media/single-database-create-quickstart/manage-connectivity-settings.png

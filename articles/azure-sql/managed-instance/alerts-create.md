@@ -33,12 +33,7 @@ You can configure an alert to do the following when it triggers:
 * Call Azure runbook
 * Call an external ticketing ITSM compatible system
 
-You can configure and get information about alert rules using the following interfaces:
-
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Command-Line Interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+You can configure and get information about alert rules using [the Azure portal, PowerShell or the Azure CLI](../../azure-monitor/platform/alerts-classic-portal.md) or [Azure Monitor REST API](/rest/api/monitor/alertrules). 
 
 ## Alerting metrics available for managed instance
 

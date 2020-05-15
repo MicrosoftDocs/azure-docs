@@ -106,7 +106,7 @@ You create the first server-level firewall setting by using the [Azure portal](h
 To improve performance, server-level IP firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
-> You can use [Database Auditing](../../sql-database/sql-database-auditing.md) to audit server-level and database-level firewall changes.
+> You can use [Database Auditing](../../azure-sql/database/auditing-overview.md) to audit server-level and database-level firewall changes.
 
 ### Use the Azure portal to manage server-level IP firewall rules
 

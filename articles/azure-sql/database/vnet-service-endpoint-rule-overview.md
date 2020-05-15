@@ -287,7 +287,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../../azure-resource-manager/management/deployment-models.md
-[expressroute-indexmd-744v]: ../../expressroute/index.yml
+[expressroute-indexmd-744v]:../index.yml
 [rbac-what-is-813s]:../../role-based-access-control/overview.md
 [sql-db-firewall-rules-config-715d]:firewall-configure.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md

@@ -27,13 +27,13 @@ If you have not used Elastic jobs, [learn more about the job automation concepts
 
 ## Create, run, and manage jobs
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#create-a-target-group-servers).
+1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](elastic-jobs-tsql-create-manage.md#create-a-credential-for-job-execution).
+2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](elastic-jobs-tsql-create-manage.md#create-a-target-group-servers).
 3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](logins-create-manage.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell-create.md).
-4. Create a job using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-5. Add job steps using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell-create.md#run-the-job) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#begin-unplanned-execution-of-a-job).
-7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell-create.md#monitor-status-of-job-executions) or [T-SQL](../../sql-database/elastic-jobs-tsql.md#monitor-job-execution-status).
+4. Create a job using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](elastic-jobs-tsql-create-manage.md#deploy-new-schema-to-many-databases).
+5. Add job steps using [PowerShell](elastic-jobs-powershell-create.md) or [T-SQL](elastic-jobs-tsql-create-manage.md#deploy-new-schema-to-many-databases).
+6. Run a job using [PowerShell](elastic-jobs-powershell-create.md#run-the-job) or [T-SQL](elastic-jobs-tsql-create-manage.md#begin-unplanned-execution-of-a-job).
+7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell-create.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status).
 
    ![Portal](./media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -94,4 +94,4 @@ Similarly, a script must be able to execute successfully by logically testing fo
 ## Next steps
 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
-- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](../../sql-database/elastic-jobs-tsql.md)
+- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

@@ -110,7 +110,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 
-An important aspect of the information-protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../sql-database/sql-database-auditing.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
+An important aspect of the information-protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
 ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -185,5 +185,5 @@ You can use the REST API to programmatically manage classifications and recommen
 ## <a id="next-steps"></a>Next steps
 
 - Learn more about [Advanced Data Security](advanced-data-security.md).
-- Consider configuring [Azure SQL Auditing](../../sql-database/sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
+- Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data discovery and classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).

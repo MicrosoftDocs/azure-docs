@@ -105,7 +105,7 @@ You don't need to explicitly follow this workflow. It explains how to debug the 
    * $shardMap object is initialized from the _tenantcatalog_ shard map in the catalog database. A catalog object is composed and returned. It's used in the higher-level script.
 * **Calculate the new tenant key.** A hash function is used to create the tenant key from the tenant name.
 * **Check if the tenant key already exists.** The catalog is checked to make sure the key is available.
-* **The tenant database is provisioned with New-TenantDatabase.** Use F11 to step into how the database is provisioned by using an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md).
+* **The tenant database is provisioned with New-TenantDatabase.** Use F11 to step into how the database is provisioned by using an [Azure Resource Manager template](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     The database name is constructed from the tenant name to make it clear which shard belongs to which tenant. You also can use other database naming conventions. A Resource Manager template creates a tenant database by copying a template database (_baseTenantDB_) on the catalog server. As an alternative, you can create a database and initialize it by importing a bacpac. Or you can execute an initialization script from a well-known location.
 
@@ -134,7 +134,7 @@ This exercise provisions a batch of 17 tenants. We recommend that you provision 
    * **$DemoScenario** = **3**, *Provision a batch of tenants*.
 2. To run the script, press F5.
 
-The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. The templates provision databases in parallel and handle retries, if needed. The script is idempotent, so if it fails or stops for any reason, run it again.
+The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) that controls the batch and delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. The templates provision databases in parallel and handle retries, if needed. The script is idempotent, so if it fails or stops for any reason, run it again.
 
 ### Verify the batch of tenants that successfully deployed
 

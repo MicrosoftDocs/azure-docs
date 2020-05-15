@@ -71,5 +71,5 @@ Advanced data security settings for your server or managed instance can also be 
 
 - Learn more about [Data Discovery & Classification](data-discovery-and-classification-overview.md)
 - Learn more about [vulnerability Assessment](sql-vulnerability-assessment.md)
-- Learn more about [Advanced Threat Protection](threat-detection.md)
+- Learn more about [Advanced Threat Protection](threat-detection-configure.md)
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

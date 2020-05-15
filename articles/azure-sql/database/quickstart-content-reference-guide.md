@@ -14,7 +14,7 @@ ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
-[A single database](../../sql-database/sql-database-single-index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
+[A single database](../index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
 
 ## Quickstart overview
 

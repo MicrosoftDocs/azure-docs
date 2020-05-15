@@ -282,4 +282,4 @@ To ensure resources aren't overburdened when running jobs against databases in a
 - [What is SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
 - [How to create and manage elastic jobs](elastic-jobs-overview.md)
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
-- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](../../sql-database/elastic-jobs-tsql.md)
+- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

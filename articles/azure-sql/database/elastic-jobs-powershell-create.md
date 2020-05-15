@@ -307,4 +307,4 @@ In this tutorial, you ran a Transact-SQL script against a set of databases. You 
 > * Monitor the job
 
 > [!div class="nextstepaction"]
-> [Manage Elastic Jobs using Transact-SQL](../../sql-database/elastic-jobs-tsql.md)
+> [Manage Elastic Jobs using Transact-SQL](elastic-jobs-tsql-create-manage.md)

@@ -17,24 +17,24 @@ This article documents the security controls that are built into Azure SQL Datab
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
-SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](../managed-instance/sql-managed-instance-paas-overview.md). The following entries apply to both offerings except where otherwise noted.
+SQL Database includes both [single database](../index.yml) and [managed instance](../managed-instance/sql-managed-instance-paas-overview.md). The following entries apply to both offerings except where otherwise noted.
 
 ## Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
+| Service endpoint support| Yes | Applies to [single database](../index.yml) only. |
 | Azure Virtual Network injection support| Yes | Applies to [managed instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
 | Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
-| Forced tunneling support| Yes | [Managed instance](../managed-instance/sql-managed-instance-paas-overview.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
+| Forced tunneling support| Yes | [Managed instance](../managed-instance/sql-managed-instance-paas-overview.md) via an [ExpressRoute](../expressroute/../index.yml) VPN. |
 
 ## Monitoring & logging
 
 | Security control | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](../../sql-database/sql-database-auditing.md). |
+| Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/../index.yml) integration via [SQL auditing](../../azure-sql/database/auditing-overview.md). |
 | Control-plane and management-plane logging and audit| Yes | Yes for some events only |
-| Data-plane logging and audit | Yes | Via [SQL audit](../../sql-database/sql-database-auditing.md) |
+| Data-plane logging and audit | Yes | Via [SQL audit](../../azure-sql/database/auditing-overview.md) |
 
 ## Identity
 
@@ -49,7 +49,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 |---|---|--|
 | Server-side encryption at rest: Microsoft-managed keys | Yes | Called "encryption-in-use," as described in the article [Always Encrypted](always-encrypted-certificate-store-configure.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-tde-overview.md).|
 | Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
-| Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
+| Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/../index.yml). |
 | Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](always-encrypted-certificate-store-configure.md). |
 | Encrypted API calls| Yes | Using HTTPS/TLS. |
 
@@ -69,4 +69,4 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## Next steps
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).

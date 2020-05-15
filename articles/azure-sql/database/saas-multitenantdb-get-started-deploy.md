@@ -258,7 +258,7 @@ In this tutorial you learned:
 > - How to view pool utilization to monitor tenant activity.
 > - How to delete sample resources to stop related billing.
 
-Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md).
+Now try the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md).
 
 
 <!--  Link references.

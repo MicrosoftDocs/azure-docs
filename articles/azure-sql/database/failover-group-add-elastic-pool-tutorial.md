@@ -31,7 +31,7 @@ To complete this tutorial, make sure you have:
 
 ## 1 - Create a single database
 
-[!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
+[!INCLUDE [sql-database-create-single-database](../../sql-database/includes/sql-database-create-single-database.md)]
 
 ## 2 - Add database to an elastic pool
 

@@ -98,7 +98,7 @@ In this article you can find a content reference to various guides, scripts, and
 ### Design Multi-tenant SaaS applications
 
 - [SaaS design patterns](../database/saas-tenancy-app-design-patterns.md)
-- [SaaS video indexer](../../sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS video indexer](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS app security](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 

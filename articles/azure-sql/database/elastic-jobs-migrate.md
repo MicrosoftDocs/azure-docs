@@ -624,4 +624,4 @@ $jobs | Set-AzSqlElasticJob -Enable
 ## Next steps
 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
-- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](../../sql-database/elastic-jobs-tsql.md)
+- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

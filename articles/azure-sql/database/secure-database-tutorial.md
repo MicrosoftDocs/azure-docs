@@ -226,7 +226,7 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../sql-database/sql-database-auditing.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../azure-sql/database/auditing-overview.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
 
 ### Advanced data security
 
@@ -294,7 +294,7 @@ To enable auditing:
     ![Audit records](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> See [SQL database auditing](../../sql-database/sql-database-auditing.md) on how to further customize audit events using PowerShell or REST API.
+> See [SQL database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
 
 ### Dynamic data masking
 

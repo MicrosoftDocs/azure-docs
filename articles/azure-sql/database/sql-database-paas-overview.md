@@ -173,13 +173,13 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 
   This service can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
-- [Threat detection](threat-detection.md):
+- [Threat detection](threat-detection-configure.md):
 
   This feature detects anomalous activities that indicate unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Threat detection alerts provide details of the suspicious activity, and recommend action on how to investigate and mitigate the threat.
 
 ### Auditing for compliance and security
 
-[Auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations.
+[Auditing](../../azure-sql/database/auditing-overview.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations.
 
 ### Data encryption
 
@@ -208,7 +208,7 @@ SQL Database makes building and maintaining applications easier and more product
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on macOS, Linux, and Windows. SQL Database supports the same [connection libraries](connect-query-content-reference-guide.md#libraries) as SQL Server.
 
-[!INCLUDE [sql-database-create-manage-portal](../includes/sql-database-create-manage-portal.md)]
+[!INCLUDE [sql-database-create-manage-portal](../../sql-database/includes/sql-database-create-manage-portal.md)]
 
 ## SQL Database frequently asked questions
 

@@ -39,7 +39,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
 - [Configure Azure Automation](automation-manage.md)
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
-- [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
+- [Configure threat detection](threat-detection-configure.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
 - [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
@@ -84,7 +84,7 @@ In this article you can find a content reference of various guides, scripts, and
 ## Elastic Database Jobs
 
 - [Create and manage](elastic-jobs-powershell-create.md) Elastic Database Jobs using PowerShell.
-- [Create and manage](../../sql-database/elastic-jobs-tsql.md) Elastic Database Jobs using Transact-SQL.
+- [Create and manage](elastic-jobs-tsql-create-manage.md) Elastic Database Jobs using Transact-SQL.
 - [Migrate from old Elastic job](elastic-jobs-migrate.md).
 
 ## Database sharding
@@ -124,7 +124,7 @@ In this article you can find a content reference of various guides, scripts, and
 ### Design Multi-tenant SaaS applications
 
 - [SaaS design patterns](saas-tenancy-app-design-patterns.md)
-- [SaaS video indexer](../../sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS video indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS app security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
