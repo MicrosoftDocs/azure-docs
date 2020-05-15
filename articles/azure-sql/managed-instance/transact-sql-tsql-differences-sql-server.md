@@ -403,10 +403,10 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 ### Replication
 
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
-- [Transactional Replication](../database/replication-transactional-overview.md) is available for public preview on SQL Managed Instance with some constraints:
+- [Transactional Replication](replication-transactional-overview.md) is available for public preview on SQL Managed Instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on SQL Managed Instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](../database/replication-transactional-overview.md#supportability-matrix) for more information.
-    - Transactional Replication has some [additional networking requirements](../database/replication-transactional-overview.md#requirements).
+    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](replication-transactional-overview.md#supportability-matrix) for more information.
+    - Transactional Replication has some [additional networking requirements](replication-transactional-overview.md#requirements).
 
 For more information about configuring transactional replication, see the following tutorials:
 - [Replication between a SQL MI publisher and SQL MI subscriber](replication-between-two-instances-configure-tutorial.md)
