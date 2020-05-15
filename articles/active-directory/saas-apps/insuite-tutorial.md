@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -89,10 +89,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `DreamArts_insuite_TENANTNAME`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [insuite Client support team](mailto:e-support@dreamarts.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    c. In the **Reply URL** text box, type a URL using one of the following pattern:
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+    | | |
+    |-|-|
+    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
+    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [insuite Client support team](mailto:e-support@dreamarts.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
