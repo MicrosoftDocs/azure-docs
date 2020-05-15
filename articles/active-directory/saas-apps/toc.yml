@@ -405,6 +405,8 @@
         href: datadog-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
+      - name: Datava Enterprise Service Platform
+        href: datava-enterprise-service-platform-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
       - name: Degreed
