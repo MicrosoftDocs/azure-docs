@@ -1,5 +1,5 @@
 ---
-title: Configure object-level replication
+title: Configure object replication (preview)
 titleSuffix: Azure Storage
 description: 
 services: storage
@@ -12,7 +12,7 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Object-level replication (preview)
+# Configure object replication (preview)
 
 With object-level replication (preview), you can automatically replicate block blobs from one storage account to another in any Azure region.
 
@@ -29,9 +29,9 @@ Object-level replication unblocks a new set of common replication scenarios:
 
 You can enable object replication using various methods including Azure Portal, Azure CLI, Azure PowerShell, ARM and Azure Storage Management SDKs.
 
-#### Portal experience
+# [Azure portal](#tab/portal)
 
-In the Portal, choose the source account and go to ‘Object replication’ tab.
+In the Portal, choose the source account and go to Object replication’ tab.
 
 ![](media/a52b28461668a4e7e0c38daff6a7f8ab.png)
 
@@ -61,7 +61,7 @@ Using the ‘Object replication’ tab, you can further review the list of polic
 
 ![](media/14fcf960963c53f4a01be40bc55a2cb5.png)
 
-#### Azure PowerShell experience
+# [PowerShell](#tab/powershell)
 
 Install and import the PowerShell preview module which supports object replication:
 
@@ -124,7 +124,7 @@ Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -Stor
 
 Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<source storage account\> \| Remove-AzStorageObjectReplicationPolicy
 
-#### Azure CLI experience
+# [Azure CLI](#tab/cli)
 
 Refer to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) article to install and import the preview module supporting object replication capability.
 
@@ -243,28 +243,14 @@ az storage account ors-policy remove \\
 
 \--resource-group \<resource group\>
 
-#### Python SDK
+---
+
+## Python SDK
 
 <https://github.com/zfchen95/azure-rest-api-specs-pr/blob/ors1018/specification/storage/resource-manager/Microsoft.Storage/stable/2019-06-01/examples/StorageAccountUpdateObjectReplicationPolicyOnDestination.json>
 
 <https://github.com/zfchen95/azure-rest-api-specs-pr/blob/ors1018/specification/storage/resource-manager/Microsoft.Storage/stable/2019-06-01/examples/StorageAccountUpdateObjectReplicationPolicyOnSource.json>
 
-### Configuration considerations
+## Next steps
 
-Once object replication is enabled for a set of source and destination accounts, consider the following user experience:
-
-- Replication is eventually consistent. This capability replicates the data object by object (blob by blob) hence the replication latency is dependent on the size on the object.
-
-- Changes are read from the Change feed every minute and then replicated to the destination account.
-
-- Deletes are propagated to the destination account/container. With Versioning enabled deleting a blob creates a new historical version of the blob.
-
-- Data that existed prior to object replication being configured can be replicated to the destination container by using MinCreationTime parameter.
-
-### Known limitations
-
-Once object replication is enabled for a set of source and destination accounts, consider the following user experience:
-
-- When enabling object replication for a pair of source-destination accounts, a replication policy is created. object replication supports creating 2 replication policies with up to 10 rules within each policy. Rule defines the scope of the replication.
-
-- Destination container is read-only. You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.
+- [Object-level replication (preview)](object-replication-overview.md)

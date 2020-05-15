@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Object-level replication (preview)
 
-With object-level replication (preview), you can asynchronously replicate block blobs between two storage accounts. 
+With object-level replication (preview), you can asynchronously replicate block blobs between two storage accounts.
 
 - Object-level replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
 - 
@@ -31,11 +31,13 @@ Object-level replication unblocks a new set of common replication scenarios:
 
 Object-level replication asynchronously copies a specified set of block blobs from a container in one storage account to the same container in a destination account. To use object-level replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
 
+Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+
+???You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.???
+
 ### Configure a replication policy
 
-An account can serve as the source account for up to two destination accounts. For example, suppose you wish to replicate data from a source account to two destination accounts that are in different regions, to reduce latency. You can configure two separate replication policies to replicate data to each of the destination accounts.
-
-To enable Object Replication both source and destination accounts should exist or be created in those regions.
+A storage account can serve as the source account for up to two destination accounts. For example, suppose you wish to replicate data from a source account to two destination accounts that are in different regions, to reduce latency. You can configure two separate replication policies to replicate data to each of the destination accounts.
 
 ### Create rules on the replication policy
 
@@ -47,44 +49,9 @@ When you create a replication rule, by default only new block blobs that are sub
 
 A replication rule can also filter block blobs by prefix. If you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-
-
-
-- Destination container is read-only. You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.
-
-
-Once object replication is enabled for a set of source and destination accounts, consider the following user experience:
-
-- Replication is eventually consistent. This capability replicates the data object by object (blob by blob) hence the replication latency is dependent on the size on the object.
-
-- Changes are read from the Change feed every minute and then replicated to the destination account.
-
-- Deletes are propagated to the destination account/container. With Versioning enabled deleting a blob creates a new historical version of the blob.
-
-- Data that existed prior to object replication being configured can be replicated to the destination container by using MinCreationTime parameter.
-
-Once object replication is enabled for a set of source and destination accounts, consider the following user experience:
-
-- When enabling object replication for a pair of source-destination accounts, a replication policy is created. object replication supports creating 2 replication policies with up to 10 rules within each policy. Rule defines the scope of the replication.
-
-- Destination container is read-only. You can configure the destination container’s Access Policy, delete and tier down the objects to Archive in the destination container when necessary.
-
-
-### Prerequisites
-
-Object replication requires:
-
-- [General purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and is available for block blobs only.
-
-- Versioning to be enabled on both source and destination accounts.
-
-- Change feed to be enabled only on the source account.
-
-These prerequisites incur additional cost – please refer to [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/) for more details. During preview there will be no additional cost associated with replicating data between storage accounts. Regional replication cost (both within the geography and across geographies) will be announced once the capability reaches general availability.
-
 ## About the preview
 
-Object-level replication is available in the following regions in preview:
+Object replication is supported for general-purpose v2 storage accounts only. Object-level replication is available in the following regions in preview:
 
 - US East 2
 - US Central
@@ -92,8 +59,21 @@ Object-level replication is available in the following regions in preview:
 
 Both the source and destination accounts must reside in one of these regions in order to use object-level replication. The accounts can be in two different regions.
 
+During the preview, there are no additional costs associated with replicating data between storage accounts.
+
 > [!IMPORTANT]
 > The object-level replication preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+### Prerequisites for object replication
+
+Object replication requires that the following Azure Storage features are enabled:
+
+- [Change feed (preview)](storage-blob-change-feed.md)
+- [Blob versioning (preview)](versioning-overview.md)
+
+Enable these features for the storage account before you enable object replication. Be sure to register for the change feed and blob versioning previews before you enable them.
+
+Enabling these prerequisites may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Register for the preview
 
@@ -162,11 +142,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 ---
 
-## Configuration considerations
+## Next steps
 
-
-## Known limitations
-
-
-
-
+- [Configure object replication (preview)](object-replication-manage.md)
