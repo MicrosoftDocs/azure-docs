@@ -37,7 +37,7 @@ Let's use the experiment [Demand forecasting of bikes rentals](https://gallery.a
 
 ### Bike rental dataset
 
-The dataset, "Bike Rental UCI dataset" is based on real data from the Capital Bikeshare company. It represents the number of bike rentals within a specific hour of a day for the years 2011 and 2012. It contains 17,379 rows and 17 columns.
+The [Bike Rental UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset/) is based on real data from a bike share company based in the United States. It represents the number of bike rentals within a specific hour of a day for the years 2011 and 2012. It contains 17,379 rows and 17 columns.
 
 The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is the count, which represents the bike rentals within a specific hour. Count ranges from 1 to 977.
 
