@@ -23,7 +23,7 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
 - GUI (graphical user interface) remote desktop
 
 > [!IMPORTANT] 
-> SSH is configured automatically so that both students and the instructor can SSH into Linux VMs without any additional setup. However, if students need to connect to using a GUI remote desktop, the instructor may need to **enable remote desktop** for the lab.  Also, the instructor must install the appropriate desktop environment and service on the VMs.  For details, see [Enable remote desktop for Linux virtual machines](how-to-enable-remote-desktop-linux.md).
+> SSH is configured automatically so that both students and the instructor can SSH into Linux VMs without any additional setup. However, if students need to connect to using a GUI remote desktop, the instructor may need to do additional setup.  For details, see [Enable remote desktop for Linux virtual machines](how-to-enable-remote-desktop-linux.md).
 
 ## Connect to the student VM using SSH
 
@@ -31,19 +31,19 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
    
 1. On the tile, toggle the button to start the VM if it's in stopped state. 
 
-1. Select **Connect**. You see two options to connect to the VM: **SSH** and **Remote Desktop**.
+2. Select **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
     ![Student VM - connection options](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-1. Select the **SSH** option and you will see the **Connect to your virtual machine** dialog box:  
+3. Select the **SSH** option and you will see the **Connect to your virtual machine** dialog box:  
 
     ![SSH connection string](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-1. Click the **Copy** button next to the text box to copy the SSH connection information to the clipboard. 
+4. Click the **Copy** button next to the text box to copy the SSH connection information to the clipboard. 
 
-1. Save the SSH connection information, such as in Textpad, so that you can use this connection information in the next step.
+5. Save the SSH connection information, such as in Textpad, so that you can use this connection information in the next step.
 
-1. From an SSH terminal (like [Putty](https://www.putty.org/)), connect to your VM.
+6. From an SSH terminal (like [Putty](https://www.putty.org/)), connect to your VM.
 
 ## Connect to the student VM using GUI remote desktop
 The instructor may choose to configure VMs so that students can also connect using a GUI remote desktop.  In this case, students need to find out from their instructor whether to connect to their VMs using the **Microsoft Remote Desktop (RDP)** or **X2Go** client application.  Both of these applications allow a student to connect remotely to their VM and display the Linux graphical desktop on their local computer.
@@ -51,12 +51,12 @@ The instructor may choose to configure VMs so that students can also connect usi
 ### Connect to the student VM using Microsoft Remote Desktop (RDP)
 Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, etc). Here are the steps to connect: 
 
-1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **Remote Desktop**.
+1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
     ![Student VM - connection options](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
-1. Select the **RDP** option.  When the RDP file is downloaded onto your machine, save it to your VM.
+2. Select the **RDP** option.  When the RDP file is downloaded onto your machine, save it to your VM.
 
-1. If you are connecting from a Windows computer, typically, the Remote Desktop client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
+3. If you are connecting from a Windows computer, typically, the Microsoft Remote Desktop (RDP) client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
 
     Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-rdp.md).
