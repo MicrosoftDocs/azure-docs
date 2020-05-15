@@ -22,7 +22,7 @@ An Enterprise enrollment or Microsoft Customer Agreement billing administrator c
 1. To filter the results, select **Timespan**, **Type**, or **Description**.
 1. Select **Apply**.
 
-![Screenshot showing reservation transactions in the Azure portal](./media/view-reservation-purchase-refunds/azure-portal-reservation-transactions.png)
+[![Screenshot showing reservation transactions in the Azure portal](./media/view-reservation-purchase-refunds/azure-portal-reservation-transactions.png)](./media/view-reservation-purchase-refunds/azure-portal-reservation-transactions.png#lightbox)
 
 ## View reservation transactions in Power BI
 
