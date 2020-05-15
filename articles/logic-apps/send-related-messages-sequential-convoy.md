@@ -147,8 +147,8 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | Name | Description |
 |------|-------------|
 | `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. |
-| `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. The loop also checks the number of remaining messages, and if none exist, the loop is done. <p><p>For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
-| `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or for 1 hour. To change the loop's time limit, edit the loop's **Timeout** property. |
+| `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
+| `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or until one hour passes. For more information about the actions in this loop, see [Renew session lock until cancelled](#renew-session-while-messages-exist). |
 | `Close a session in a queue and succeed` | Complete the session for the queue and return |
 |||
 
@@ -211,11 +211,11 @@ The first action, which is **Send initial message to topic**, sends the message 
 
 ### While there are more messages for the session in the queue
 
-This **Until** loop runs these actions while messages exist in the queue or until one hour passes. If you want to change the loop's time limit, edit the loop's **Timeout** property value.
+This **Until** loop runs these actions while messages exist in the queue or until one hour passes. To change the loop's time limit, edit the loop's **Timeout** property value.
 
 * Get additional messages from the queue while messages exist.
 
-* Check the number of remaining messages. If this number is 0, set the `isDone` value to `true` because no messages remain. Otherwise, process the message.
+* Check the number of remaining messages. If messages still exist, continue processing messages. If no more messages exist, the workflow sets the `isDone` variable to `true`, and exits the loop.
 
 ![Until loop - Process messages while in queue](./media/send-related-messages-sequential-convoy/while-more-messages-for-session-in-queue.png)
 
@@ -226,15 +226,41 @@ This **Until** loop runs these actions while messages exist in the queue or unti
    > is affected by the message size and maximum message size property for the 
    > service bus, currently 256K for Standard and 1MB for Premium.
 
-   Next, the **Process messages if we got any** condition checks whether the number of remaining messages is zero. If false, more messages exist, so continue processing. If true, no more messages remain, so set the `isDone` variable to `true`.
+   ![Service Bus action - "Get additional messages from session"](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
+
+   Next, the workflow splits into these parallel branches:
+
+   * If an error or failure happens while checking for additional messages, set the `isDone` variable to `true`.
+
+   * The **Process messages if we got any** condition checks whether the number of remaining messages is zero. If false and more messages exist, continue processing. If true and no more messages exist, the workflow sets the `isDone` variable to `true`.
 
    ![Condition - Process messages if any](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
 
-   In the **If false** section, a **For each** loop processes the messages in first-in, first-out order (FIFO). The loop's **Concurrency Control** setting is set to `1`, so that only a single message is processed at a time.
+   In the **If false** section, a **For each** loop processes each message in first-in, first-out order (FIFO). In the loop's **Settings**, the **Concurrency Control** setting is set to `1`, so only a single message is processed at a time.
 
    !["For each" loop - Process each message one at a time](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
-1.   and has the concurrent for the **Complete the message in a queue** and **Abandon the message in a queue** actions, provide the name for your Service Bus queue.
+1. For the **Complete the message in a queue** and **Abandon the message in a queue** actions, provide the name for your Service Bus queue.
 
-1. In the **Complete the message in a queue** action, provide the name for your Service Bus queue.
+   ![Service Bus actions - "Complete the message in a queue" and "Abandon the message in a queue"](./media/send-related-messages-sequential-convoy/abandon-or-complete-message-in-queue.png)
+
+   After the **While there are more messages for the session in the queue** is done, the workflow sets the `isDone` variable to `true`.
+
+<a name="renew-session-while-messages-exist"></a>
+
+### Renew session lock until cancelled
+
+This **Until** loop makes sure that the session lock is held by this logic app while messages exist in the queue or until one hour passes by running these actions. To change the loop's time limit, edit the loop's **Timeout** property value.
+
+* Delay for 25 seconds or an amount of time that's less than the lock timeout duration for the queue that's being processed. The smallest lock duration is 30 seconds, so the default value is enough. However, you can optimize the number of times that the loop runs by adjusting appropriately.
+
+* Check whether the `isDone` variable is set to `true`. If `isDone` is not set to `true`, the workflow is still processing messages, so the workflow renews the lock on the session in the queue, and checks the loop condition again. If `isDone` is set to `true`, the workflow doesn't renew the lock on the session in the queue, and exits the loop.
+
+![Until loop - "Renew session lock until cancelled"](./media/send-related-messages-sequential-convoy/renew-lock-until-session-cancelled.png)
+
+1. In the **Renew lock on the session in a queue** action, provide the name for your Service Bus queue.
+
+   ![Service Bus action - "Renew lock on session in the queue"](./media/send-related-messages-sequential-convoy/renew-lock-on-session-in-queue.png)
+
+1. 
 
