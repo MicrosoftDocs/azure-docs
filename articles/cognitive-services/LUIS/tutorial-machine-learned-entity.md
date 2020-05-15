@@ -129,6 +129,8 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. Select **@ SizeList** from the drop-down list.
 
+<a name="add-prebuilt-number-entity-to-app"></a>
+
 ### Add prebuilt number entity
 
 Adding a prebuilt number entity will also help extraction.
@@ -157,6 +159,7 @@ On the Entity detail page for **Order** entity, select the asterisk, `*`, for bo
 > ![Add structure to entity](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
+<a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
 
 ## Label example utterances
 
