@@ -8,9 +8,9 @@ ms.service: notification-hubs
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 05/14/2020
+ms.date: 05/15/2020
 ms.reviewer: thsomasu
-ms.lastreviewed: 05/14/2020
+ms.lastreviewed: 05/15/2020
 ---
 
 # Quickstart: create a notification hub using an Azure Resource Manager template
@@ -42,44 +42,39 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 ## Deploy the template
 
-Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
+Select the following image to sign in to Azure and open a template. The template takes a Notification Hubs namespace name as a parameter. The template then creates a namespace with that name and a notification hub named **MyHub** within that namespace.
 
 [![Deploy to Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## Review deployed resources
 
-<!-- You can also use the title "Validate the deployment". -->
-
 You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzNotificationHub -Namespace "ContosoNamespace" -ResourceGroup "ContosoNotificationsGroup"
+Get-AzNotificationHubsNamespace -Namespace "ContosoNamespace"
+```
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az notification-hub show --resource-group ContosoNotificationsGroup --namespace-name ContosoNamespace --name MyHub
+az notification-hub namespace show --resource-group ContosoNotificationsGroup --name ContosoNamespace
+```
 
 ## Clean up resources
 
 When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-<!--
-
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
-
-Here are the samples for Azure CLI and Azure PowerShell:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
--->
-
 ## Next steps
-
-<!-- You can either make the next steps similar to the next steps in your other quickstarts, or point users to the following tutorial.-->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
