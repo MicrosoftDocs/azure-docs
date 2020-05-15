@@ -248,7 +248,7 @@ All the functions that want to leverage class based model need to be the method 
 
 All the hub methods **must**  have a `[SignalRTrigger]` attribute and **must** use parameterless constructor. Then the **method name** is treated as parameter **event**.
 
-By default, `category=messages` except the method name is one of the following name:
+By default, `category=messages` except the method name is one of the following names:
 
 * **OnConnected**: Treated as `category=connections, event=connected`
 * **OnDisconnected**: Treated as `category=connections, event=disconnected`
