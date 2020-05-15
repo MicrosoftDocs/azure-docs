@@ -35,9 +35,9 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 | Administration feature | Description |
 | --- | --- |
-| **SQL Server automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](virtual-machines-windows-sql-server-iaas-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **SQL Server automated patching** |Configures a maintenance window during which important Windows updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
-| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
+| **SQL Server automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](virtual-machines-windows-sql-server-iaas-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md). |
+| **SQL Server automated patching** |Configures a maintenance window during which important Windows updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-patching.md). |
+| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/configure-azure-key-vault-integration.md). |
 
 After the SQL Server Iaas Agent Extension is installed and running, it makes the administration features available:
 

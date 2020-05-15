@@ -74,5 +74,5 @@ The following SQL Server components are used when backing up to the Azure Blob s
 
 If you have any problems, review the topic [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx).
 
-For other SQL Server backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+For other SQL Server backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/backup-restore.md).
 

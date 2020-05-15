@@ -22,7 +22,7 @@ This article describes how to register your SQL Server virtual machine (VM) in A
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, you should register your SQL Server VM with the resource provider for:
 
-- **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](virtual-machines-windows-sql-automated-patching.md), [automated backup](virtual-machines-windows-sql-automated-backup-v2.md), as well as monitoring and manageability capabilities. It also unlocks [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these features were only available to SQL Server VM images deployed from Azure Marketplace. 
+- **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](../../../azure-sql/virtual-machines/windows/automated-patching.md), [automated backup](../../../azure-sql/virtual-machines/windows/automated-backup.md), as well as monitoring and manageability capabilities. It also unlocks [licensing](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md) and [edition](../../../azure-sql/virtual-machines/windows/change-sql-server-edition.md) flexibility. Previously, these features were only available to SQL Server VM images deployed from Azure Marketplace. 
 
 - **Compliance**: Registering with the SQL VM resource provider offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
 
@@ -57,7 +57,7 @@ For more information about the benefits of using the SQL VM resource provider, w
 To register your SQL Server VM with the resource provider, you'll need: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- An Azure Resource Model [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) deployed to the public  or Azure Government cloud. 
+- An Azure Resource Model [SQL Server VM](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md) deployed to the public  or Azure Government cloud. 
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## Management modes

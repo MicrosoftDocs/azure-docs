@@ -28,11 +28,11 @@ Azure virtual machines run in many different [geographic regions](https://azure.
 
 ## Automated updates
 
-SQL Server Azure VMs can use [Automated Patching](virtual-machines-windows-sql-automated-patching.md) to schedule a maintenance window for installing important windows and SQL Server updates automatically.
+SQL Server Azure VMs can use [Automated Patching](../../../azure-sql/virtual-machines/windows/automated-patching.md) to schedule a maintenance window for installing important windows and SQL Server updates automatically.
 
 ## Automated backups
 
-SQL Server Azure VMs can take advantage of [Automated Backup](virtual-machines-windows-sql-automated-backup-v2.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
+SQL Server Azure VMs can take advantage of [Automated Backup](../../../azure-sql/virtual-machines/windows/automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
 
 Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. A fully-managed backup solution, it supports Always On availability groups, long-term retention, point-in-time recovery, and central management and monitoring. For more information, see [Azure Backup for SQL Server in Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
   
@@ -67,12 +67,12 @@ The following table provides a matrix of pay-as-you-go SQL Server images.
 To see the available Linux SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> It is now possible to change the licensing model of a pay-per-usage SQL Server VM to use your own license. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
+> It is now possible to change the licensing model of a pay-per-usage SQL Server VM to use your own license. For more information, see [How to change the licensing model for a SQL VM](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md). 
 
 ### <a id="BYOL"></a> Bring your own license
 You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing.  Bringing your own license can save you money over time for continuous production workloads. For requirements to use this option, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
 
-To bring your own license, you can either convert an existing pay-per-usage SQL VM, or you can deploy an image with the prefixed **{BYOL}**. For more information about switching your licensing model between pay-per-usage and BYOL, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
+To bring your own license, you can either convert an existing pay-per-usage SQL VM, or you can deploy an image with the prefixed **{BYOL}**. For more information about switching your licensing model between pay-per-usage and BYOL, see [How to change the licensing model for a SQL VM](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md). 
 
 | Version | Operating system | Edition |
 | --- | --- | --- |
@@ -88,14 +88,14 @@ It is possible to deploy an older image of SQL Server that is not available in t
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
-For more information about deploying SQL Server VMs using PowerShell, view [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+For more information about deploying SQL Server VMs using PowerShell, view [How to provision SQL Server virtual machines with Azure PowerShell](../../../azure-sql/virtual-machines/windows/create-sql-vm-powershell.md).
 
 
 ### Connect to the VM
 After creating your SQL Server VM, connect to it from applications or tools, such as SQL Server Management Studio (SSMS). For instructions, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-sql-connect.md).
 
 ### Migrate your data
-If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
+If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ## Create and manage Azure SQL resources with the Azure portal
 
@@ -121,7 +121,7 @@ For details, see:
 - [Create a single database](../../../azure-sql/database/quickstart-create-single-database.md)
 - [Create an elastic pool](../../../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
 - [Create a managed instance](../../../azure-sql/managed-instance/quickstart-create-instance.md)
-- [Create a SQL virtual machine](quickstart-sql-vm-create-portal.md)
+- [Create a SQL virtual machine](../../../azure-sql/virtual-machines/windows/quickstart-create-sql-vm-portal.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
 Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).
@@ -149,7 +149,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 
 Get started with SQL Server on Azure virtual machines:
 
-* [Create a SQL Server VM in the Azure portal](quickstart-sql-vm-create-portal.md)
+* [Create a SQL Server VM in the Azure portal](../../../azure-sql/virtual-machines/windows/quickstart-create-sql-vm-portal.md)
 
 Get answers to commonly asked questions about SQL VMs:
 

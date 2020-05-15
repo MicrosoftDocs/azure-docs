@@ -74,7 +74,7 @@ The following diagram demonstrates a simple on-premises scenario and how you can
 
 Deploying the business layer (business logic and data access components) on the same physical tier as the presentation layer can maximize application performance, unless you must use a separate tier due to scalability or security concerns.
 
-Since this is a very common pattern to start with, you might find the following article on migration useful for moving your data to your SQL Server VM: [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
+Since this is a very common pattern to start with, you might find the following article on migration useful for moving your data to your SQL Server VM: [Migrating a Database to SQL Server on an Azure VM](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ## 3-tier (simple): multiple virtual machines
 In this application pattern, you deploy a 3-tier application in Azure by placing each application tier in a different virtual machine. This provides a flexible environment for an easy scale-up and scale-out scenarios. When one virtual machine contains your client/web application, the other one hosts your business components, and the other one hosts the database server.
@@ -243,7 +243,7 @@ In n-tier hybrid application pattern, you can implement the following workflow i
       * With secure point-to-site connection, you can establish network connectivity between your virtual network in Azure and your individual computers running anywhere. It is mostly recommended for development and test purposes.
       
       For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-sql-connect.md).
-4. Set up scheduled jobs and alerts that back up on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+4. Set up scheduled jobs and alerts that back up on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/backup-restore.md).
 5. Depending on your application’s needs, you can implement one of the following three common scenarios:
    
    1. You can keep your web server, application server, and insensitive data in a database server in Azure whereas you keep the sensitive data on-premises.

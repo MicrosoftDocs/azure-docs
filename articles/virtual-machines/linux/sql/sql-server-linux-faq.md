@@ -102,5 +102,5 @@ This article provides answers to some of the most common questions about running
 **Windows VMs**:
 
 * [Overview of SQL Server on a Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [Provision a SQL Server Windows VM](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [Provision a SQL Server Windows VM](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
 * [FAQ (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

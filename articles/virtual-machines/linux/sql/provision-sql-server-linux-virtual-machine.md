@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 > [!div class="op_single_selector"]
 > * [Linux](provision-sql-server-linux-virtual-machine.md)
-> * [Windows](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+> * [Windows](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
 
 In this quickstart tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed.
 

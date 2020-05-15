@@ -46,7 +46,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure portal?**
 
-   Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+   Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](../../../azure-sql/virtual-machines/windows/create-sql-vm-powershell.md).
    
 1. **Is it possible to create a generalized Azure SQL Server Marketplace image of my SQL Server VM and use it to deploy VMs?**
 
@@ -70,32 +70,32 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images either through the Azure portal or via [PowerShell](virtual-machines-windows-ps-sql-create.md). However, you have the ability to deploy a Windows VM and self-install SQL Server to it. You must then [register your SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. 
+   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images either through the Azure portal or via [PowerShell](../../../azure-sql/virtual-machines/windows/create-sql-vm-powershell.md). However, you have the ability to deploy a Windows VM and self-install SQL Server to it. You must then [register your SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. 
 
 
 ## Creation
 
 1. **How do I create an Azure virtual machine with SQL Server?**
 
-   The easiest method is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL Server VM from the portal, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). You can select a virtual machine image that uses pay-per-second SQL Server licensing, or you can use an image that allows you to bring your own SQL Server license. You also have the option of manually installing SQL Server on a VM with either a freely licensed edition (Developer or Express) or by reusing an on-premises license. Be sure to [register your SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+   The easiest method is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL Server VM from the portal, see [Provision a SQL Server virtual machine in the Azure portal](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md). You can select a virtual machine image that uses pay-per-second SQL Server licensing, or you can use an image that allows you to bring your own SQL Server license. You also have the option of manually installing SQL Server on a VM with either a freely licensed edition (Developer or Express) or by reusing an on-premises license. Be sure to [register your SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. **How can I migrate my on-premises SQL Server database to the Cloud?**
 
-   First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md).
+   First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ## Licensing
 
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-   There are three ways to do this. If you're an enterprise agreement (EA) customer, you can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [software assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) for features such as portal management, automated backup and automated patching. 
+   There are three ways to do this. If you're an enterprise agreement (EA) customer, you can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [software assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) for features such as portal management, automated backup and automated patching. 
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Currently, this facility is only available for public and Azure Government cloud customers.
+   Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md). Currently, this facility is only available for public and Azure Government cloud customers.
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
-   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL Server VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
+   No. [Changing the licensing model](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL Server VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
    
 1. **Is it possible to switch licensing model on a SQL Server VM deployed using classic model?**
 
@@ -107,7 +107,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
-   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.
+   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](../../../azure-sql/virtual-machines/windows/change-licensing-model-azure-hybrid-benefit-ahb.md) to bring-your-own-license.
    
  
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
@@ -182,7 +182,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I change to a different version/edition of the SQL Server in an Azure VM?**
 
-   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). There is no billing difference for different versions of SQL Server, so once the version of SQL Server has been changed, no further action is needed.
+   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](../../../azure-sql/virtual-machines/windows/change-sql-server-edition.md). There is no billing difference for different versions of SQL Server, so once the version of SQL Server has been changed, no further action is needed.
 
 1. **Where can I get the setup media to change the edition or version of SQL Server?**
 
@@ -190,7 +190,7 @@ This article provides answers to some of the most common questions about running
    
 1. **How are updates and service packs applied on a SQL Server VM?**
 
-   Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
+   Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](../../../azure-sql/virtual-machines/windows/automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
 
 1. **Can I upgrade my SQL Server 2008 / 2008 R2 instance after registering it with the SQL Server VM resource provider?**
 
@@ -206,7 +206,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Are SQL Server failover cluster instances (FCI) supported on Azure VMs?**
 
-   Yes. You can install a failover cluster instance using either [premium file shares (PFS)](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) or [storage spaces direct (S2D)](virtual-machines-windows-portal-sql-create-failover-cluster.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Yes. You can install a failover cluster instance using either [premium file shares (PFS)](../../../azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-premium-file-share.md) or [storage spaces direct (S2D)](../../../azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-storage-spaces-direct.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > At this time, the _full_ [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.
@@ -228,8 +228,8 @@ This article provides answers to some of the most common questions about running
 **Windows VMs**:
 
 * [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
-* [Provision a SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
-* [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
+* [Provision a SQL Server Windows VM](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
+* [Migrating a Database to SQL Server on an Azure VM](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 * [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
 * [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)

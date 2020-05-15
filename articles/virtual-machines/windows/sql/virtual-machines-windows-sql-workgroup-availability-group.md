@@ -100,7 +100,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## Create the failover cluster
 
-In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](../../../azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-storage-spaces-direct.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
 
 Notable differences between the tutorial and what should be done for a workgroup cluster:
 - Uncheck **Storage**, and **Storage Spaces Direct** when running the cluster validation. 
@@ -126,11 +126,11 @@ Once the cluster has been created, assign a static Cluster IP address. To do so,
 
 ## Create a cloud witness 
 
-In this step, configure a cloud share witness. If you're unfamiliar with the steps, see the [failover cluster tutorial](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness). 
+In this step, configure a cloud share witness. If you're unfamiliar with the steps, see the [failover cluster tutorial](../../../azure-sql/virtual-machines/windows/manually-configure-failover-cluster-instance-storage-spaces-direct.md#create-a-cloud-witness). 
 
 ## Enable availability group feature 
 
-In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups). 
+In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](../../../azure-sql/virtual-machines/windows/tutorial-manually-configure-availability-group.md#enable-availability-groups). 
 
 ## Create keys and certificate
 
@@ -275,18 +275,18 @@ If there are any other nodes in the cluster, repeat these steps there also, modi
 
 ## Configure availability group
 
-In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
+In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](../../../azure-sql/virtual-machines/windows/tutorial-manually-configure-availability-group.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
 
    > [!NOTE]
    > If there is a failure during the synchronization process, you may need to grant `NT AUTHORITY\SYSTEM` sysadmin rights to create cluster resources on the first node, such as `AGNode1` temporarily. 
 
 ## Configure load balancer
 
-In this final step, configure the load balancer using either the [Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md) or [PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+In this final step, configure the load balancer using either the [Azure portal](../../../azure-sql/virtual-machines/windows/configure-availability-group-load-balancer-portal.md) or [PowerShell](../../../azure-sql/virtual-machines/windows/configure-availability-group-listener-powershell.md)
 
 
 ## Next Steps
 
-You can also use [Az SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) to configure an availability group. 
+You can also use [Az SQL VM CLI](../../../azure-sql/virtual-machines/windows/configure-availability-group-az-cli.md) to configure an availability group. 
 
 

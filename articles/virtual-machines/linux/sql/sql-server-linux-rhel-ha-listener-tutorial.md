@@ -34,7 +34,7 @@ Completed [**Tutorial: Configure availability groups for SQL Server on RHEL virt
 
 ## Create the load balancer in the Azure portal
 
-The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal) section of the [Load balancer - Azure portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md) article.
+The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../../../azure-sql/virtual-machines/windows/configure-availability-group-load-balancer-portal.md#create-and-configure-the-load-balancer-in-the-azure-portal) section of the [Load balancer - Azure portal](../../../azure-sql/virtual-machines/windows/configure-availability-group-load-balancer-portal.md) article.
 
 ### Create the load balancer
 
@@ -288,4 +288,4 @@ At this point, the resource group has a load balancer that connects to all SQL S
 For more information on Load balancers in Azure, see:
 
 > [!div class="nextstepaction"]
-> [Configure a load balancer for an availability group on Azure SQL Server VMs](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+> [Configure a load balancer for an availability group on Azure SQL Server VMs](../../../azure-sql/virtual-machines/windows/configure-availability-group-load-balancer-portal.md)
