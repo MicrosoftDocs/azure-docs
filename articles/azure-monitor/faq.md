@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 
 ---
 
@@ -504,6 +504,12 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 ## Azure Monitor for containers
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+### Health feature is in limited private preview
+
+We have received a lot of great feedback from customers about our Health feature. There is a lot of interest around this feature and excitement over its potential. We are planning to make a series of changes to add functionality and address the feedback we have received.
+
+To minimize impact of these changes to new customers, we plan to move the feature to private preview by the end of June 2020. You will receive in-product notifications to move to the private preview. To request additional information and participation in this limited preview, contact askcoin@microsoft.com.
 
 ### What does *Other Processes* represent under the Node view?
 
