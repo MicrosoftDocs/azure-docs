@@ -158,17 +158,17 @@ The following procedure shows how to create an alert that triggers the automatio
     2. Enter a **short name** for the action group.
     3. Select the **subscription**  in which you want to create this action group.
     4. Select the **resource group**. 
-    5. In the **Actions** section, do the following steps:
-        1. Enter a **name for the action**. For example: **Increase messaging units**. 
-        2. For **Action type**, select **Automation Runbook**. 
-        3. On the **Configure Runbook** page, do the following steps:
-        1. For **Runbook source**, select **User**. 
-        2. For **Subscription**, select your Azure **subscription** that contains the automation account. 
-        3. For **Automation account**, select your **automation account**.
-        4. For **Runbook**, select your runbook. 
-        5. Select **OK** on the **Configure Runbook** page. 
-        6. Select **OK** on the **Add action group** page. 
-            ![Configure runbook](./media/automate-update-messaging-units/configure-runbook.png)
+    5. In the **Actions** section, enter a **name for the action**, and select **Automation Runbook** for **Action type**. 
+
+        ![Add action group page](./media/automate-update-messaging-units/add-action-group-page.png)
+8. On the **Configure Runbook** page, do the following steps:
+    1. For **Runbook source**, select **User**. 
+    2. For **Subscription**, select your Azure **subscription** that contains the automation account. 
+    3. For **Automation account**, select your **automation account**.
+    4. For **Runbook**, select your runbook. 
+    5. Select **OK** on the **Configure Runbook** page. 
+        ![Configure runbook](./media/automate-update-messaging-units/configure-runbook.png)
+9. Select **OK** on the **Add action group** page. 
 5. Now, on the **Create alert rule** page, enter a **name for the rule**, and then select **Create alert rule**. 
     ![Create alert rule](./media/automate-update-messaging-units/create-alert-rule.png)
 
