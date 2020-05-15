@@ -131,9 +131,9 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
-    | `s_eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
-    | `s_iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+    | `EventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `EventHubName`                | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `IotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
