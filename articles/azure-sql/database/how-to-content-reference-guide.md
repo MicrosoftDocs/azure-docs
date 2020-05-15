@@ -38,7 +38,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
 - [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
 - [Configure Azure Automation](automation-manage.md)
-- [Configure transactional replication](../../sql-database/replication-to-sql-database.md) to replicate your date between databases.
+- [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 

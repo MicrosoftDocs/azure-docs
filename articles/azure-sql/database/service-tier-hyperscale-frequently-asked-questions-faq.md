@@ -213,7 +213,7 @@ Yes. You can use all existing migration technologies to migrate to Hyperscale, i
 
 ### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale, and how can I minimize it
 
-Downtime for migration to Hyperscale is the same as the downtime when you migrate your databases to other Azure SQL Database service tiers. You can use [transactional replication](../../sql-database/replication-to-sql-database.md#data-migration-scenario
+Downtime for migration to Hyperscale is the same as the downtime when you migrate your databases to other Azure SQL Database service tiers. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large databases (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
 
 ### How much time would it take to bring in X amount of data to Hyperscale
