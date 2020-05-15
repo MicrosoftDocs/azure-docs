@@ -36,7 +36,7 @@
     href: how-to-authenticate-client.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md
-  - name: Set up an Azure Function
+  - name: Set up an Azure Function for processing data
     href: how-to-create-azure-function.md
   - name: Use the APIs and SDKs
     href: how-to-use-apis-sdks.md
