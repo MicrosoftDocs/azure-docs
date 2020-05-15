@@ -48,7 +48,7 @@ Select the following image to sign in to Azure and open a template. The template
 
 ## Review deployed resources
 
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed Notification Hubs namespace and hub:
 
 # [PowerShell](#tab/PowerShell)
 
@@ -63,6 +63,14 @@ Get-AzNotificationHubsNamespace -Namespace "ContosoNamespace"
 az notification-hub show --resource-group ContosoNotificationsGroup --namespace-name ContosoNamespace --name MyHub
 az notification-hub namespace show --resource-group ContosoNotificationsGroup --name ContosoNamespace
 ```
+
+---
+
+The output looks similar to:
+
+:::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment":::
+
+---
 
 ## Clean up resources
 
