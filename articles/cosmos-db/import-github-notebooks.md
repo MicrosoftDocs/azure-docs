@@ -37,6 +37,8 @@ You can connect to your own GitHub repositories or other public GitHub repositor
 
 1. Select **OK** to complete the import operation. All the notebooks available in the selected branch of your repo are imported into your Azure Cosmos account.
 
+After you integrate with a GitHub account, only you can see the list of repositories and notebooks in your Azure Cosmos account. This statement is true even if multiple users log into the Azure Cosmos DB account and add their own accounts. In other words, multiple users can use the same Azure Cosmos account to connect the notebook workspace to GitHub. However, each user only sees the list of repositories and notebooks they have imported. The notebooks imported by others are not visible to you.
+
 ## Edit a notebook and push changes to GitHub
 
 You can edit an existing notebook or add a new notebook to the repo and save the changes back to GitHub.
