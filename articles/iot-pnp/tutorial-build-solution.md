@@ -198,6 +198,13 @@ To use the Node Service SDK to interact with sample device, navigate to the serv
 1. Run the `get_digital_twin.js` script to find the device model ID:
 
     ```cmd/bash
+    npm install
+    node get_digital_twin.js
+    ```
+
+    You see output similar to:
+
+    ```text
     getting digital twin for device EM_Device01...
     device metadata:
     {
@@ -208,12 +215,19 @@ To use the Node Service SDK to interact with sample device, navigate to the serv
 1. Run the `invoke_component_command.js` to call the `turnOn` command:
 
     ```cmd/bash
-    azure-iot-sdk-node\digitaltwins\samples\service\javascript>node invoke_component_command.js
+    node invoke_component_command.js
+    ```
+
+    You see output similar to:
+
+    ```text
     invoking command turnOn on component instancesensor for device EM_Device01...
     null
     ```
 
     The sample device shows output similar to the output shown when you used the Azure IoT Explorer.
+
+For more information, see the [Interact with an IoT Plug and Play Preview device that's connected to your solution](./quickstart-service-python.md) quickstart.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
