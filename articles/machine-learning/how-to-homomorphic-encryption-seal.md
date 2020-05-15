@@ -12,13 +12,11 @@ ms.topic: conceptual
 #intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted image data
 ---
 
-# Deploy an image classification model for encrypted inferencing in Azure Container Instance (ACI)
+# How to deploy an encrypted image classification service
 
-This tutorial is **a new addition to the two-part series**. In the [previous tutorial](img-classification-part1-training.ipynb), you trained machine learning models and then registered a model in your workspace on the cloud.  
+Learn how to deploy an image classification model as a encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself.
 
-Now, you're ready to deploy the model as a encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
-
-In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
+In this part of the tutorial, you use Azure Machine Learning service to:
 
 > * Set up your testing environment
 > * Retrieve the model from your workspace
@@ -28,13 +26,9 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 
 ACI is a great solution for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
-
 ## Prerequisites
 
 Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](train-models.ipynb) notebook.  
-
-
-<!-- #endregion -->
 
 ```python
 # If you did NOT complete the tutorial, you can instead run this cell 
@@ -157,7 +151,7 @@ def run(raw_data):
     blob_service_client = BlobServiceClient.from_connection_string(conn_str=conn_str)
     blob_client = blob_service_client.get_blob_client(container=container, blob=key_id)
     public_keys = blob_client.download_blob().readall()
-    
+
     result = {}
     # make prediction
     result = server.predict(data, public_keys)
@@ -180,6 +174,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 ```
 
 ### Deploy in ACI
+
 Estimated time to complete: **about 2-5 minutes**
 
 Configure the image and deploy. The following code goes through these steps:
@@ -220,11 +215,8 @@ Get the scoring web service's HTTP endpoint, which accepts REST client calls. Th
 print(service.scoring_uri)
 ```
 
-## Test the model
-
-
-
 ### Download test data
+
 Download the test data to the **./data/** directory
 
 ```python
@@ -254,11 +246,9 @@ X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte
 y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
 ```
 
-<!-- #region -->
 ### Predict test data
 
 Feed the test dataset to the model to get predictions.
-
 
 The following code goes through these steps:
 
@@ -328,7 +318,6 @@ raw_data = edp.encrypt(X_test[sample_index])
 
 Feed the test dataset to the model to get predictions. We will need to send the connection string to the blob storage where the public keys were uploaded 
 
-
 ```python
 import json
 from azureml.core import Webservice
@@ -354,7 +343,7 @@ print ('Received encrypted inference results')
 Use the client to decrypt the results
 
 ```python
-import numpy as np 
+import numpy as np
 
 results = edp.decrypt(eresult)
 
@@ -375,8 +364,6 @@ To keep the resource group and workspace for other tutorials and exploration, yo
 service.delete()
 ```
 
-<!-- #region -->
-
 If you're not going to use what you've created here, delete the resources you just created with this quickstart so you don't incur any charges. In the Azure portal, select and delete your resource group. You can also keep the resource group, but delete a single workspace by displaying the workspace properties and selecting the Delete button.
 
 ## Next steps
@@ -388,8 +375,3 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Test the model locally
 > * Deploy the model to ACI
 > * Test the deployed model
- 
-You can also try out the [regression tutorial](regression-part1-data-prep.ipynb).
-<!-- #endregion -->
-
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/tutorials/img-classification-part2-deploy.png)
