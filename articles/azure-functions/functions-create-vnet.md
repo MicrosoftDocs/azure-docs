@@ -1,12 +1,9 @@
 ---
 title: Integrate Azure Functions with an Azure virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: article
-ms.date: 5/03/2019
+ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
 #Customer intent: As an enterprise developer, I want create a function that can connect to a virtual network so that I can manage a WordPress app running on a VM in the virtual network.
@@ -22,9 +19,6 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Connect the function app to the virtual network
 > * Create a function proxy to access WordPress resources
 > * Request a WordPress file from inside the virtual network
-
-> [!NOTE]  
-> This tutorial creates a function app in the Premium plan. This hosting plan is currently in preview. For more information, see [Premium plan].
 
 ## Topology
 
@@ -63,7 +57,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you're done with this tutorial. |
     | **Virtual machine name** | VNET-Wordpress | The VM name needs to be unique in the resource group |
     | **[Region](https://azure.microsoft.com/regions/)** | (Europe) West Europe | Choose a region near you or near the functions that access the VM. |
     | **Size** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |
@@ -102,17 +96,15 @@ You now have a WordPress site deployed entirely within your virtual network. Thi
 
 With a WordPress site running in a VM in a virtual network, you can now connect your function app to that virtual network.
 
-1. In your new function app, select **Platform features** > **Networking**.
-
-    ![Choose networking in the function app](./media/functions-create-vnet/networking-0.png)
+1. In your new function app, select **Networking** in the left menu.
 
 1. Under **VNet Integration**, select **Click here to configure**.
 
-    ![Status for configuring a network feature](./media/functions-create-vnet/Networking-1.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Choose networking in the function app":::
 
-1. On the virtual network integration page, select **Add VNet (preview)**.
+1. On the **VNET Integration** page, select **Add VNet**.
 
-    ![Add the VNet Integration preview](./media/functions-create-vnet/networking-2.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Add the VNet Integration preview":::
 
 1. In **Network Feature Status**, use the settings in the table below the image:
 
@@ -126,7 +118,7 @@ With a WordPress site running in a VM in a virtual network, you can now connect 
     | **Virtual network address block** | 10.10.0.0/16 | Choose the same address block used by the WordPress site. You should only have one address block defined. |
     | **Address range** | 10.10.2.0/24   | The subnet size restricts the total number of instances that your Premium plan function app can scale out to. This example uses a `/24` subnet with 254 available host addresses. This subnet is over-provisioned, but easy to calculate. |
 
-1. Select **OK** to add the subnet. Close the VNet Integration and Network Feature Status pages to return to your function app page.
+1. Select **OK** to add the subnet. Close the **VNet Integration** and **Network Feature Status** pages to return to your function app page.
 
 The function app can now access the virtual network where the WordPress site is running. Next, you use [Azure Functions Proxies](functions-proxies.md) to return a file from the WordPress site.
 
@@ -134,9 +126,9 @@ The function app can now access the virtual network where the WordPress site is 
 
 With VNet Integration enabled, you can create a proxy in your function app to forward requests to the VM running in the virtual network.
 
-1. In your function app, select  **Proxies** > **+**, then use the proxy settings in the table below the image:
+1. In your function app, select  **Proxies** from the left menu, and then select **Add**. Use the proxy settings in the table below the image:
 
-    ![Define the proxy settings](./media/functions-create-vnet/create-proxy.png)
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Define the proxy settings":::
 
     | Setting  | Suggested value  | Description      |
     | -------- | ---------------- | ---------------- |

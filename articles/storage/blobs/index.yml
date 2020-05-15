@@ -7,7 +7,7 @@ metadata:
   title: Azure Blob storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. # Required; article description that is displayed in search results. < 160 chars.
   services: storage
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
   ms.subservice: blobs
   ms.topic: landing-page # Required
   ms.collection: collection
@@ -32,9 +32,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use Azure portal
+          - text: Upload, download, and list blobs - portal
             url: storage-quickstart-blobs-portal.md
-          - text: Use Storage Explorer
+          - text: Use Storage Explorer to manage blobs
             url: storage-quickstart-blobs-storage-explorer.md
       - linkListType: concept
         links:
@@ -42,15 +42,23 @@ landingContent:
             url: ../common/storage-account-overview.md
           - text: Data redundancy
             url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
       - linkListType: how-to-guide
         links:
           - text: Create a storage account
-            url: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Create a block blob storage account
             url: storage-blob-create-account-block-blob.md
           - text: Configure a custom domain
             url: storage-custom-domain-name.md
+  # Card
+  - title: Search and understand blob data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use AI to understand blob data 
+            url: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Search your blob content
+            url: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
   - title: Analytics and insights
     linkLists:
@@ -89,10 +97,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use .NET
+          - text: Azure Blob storage for .NET
             url: storage-quickstart-blobs-dotnet.md
-          - text: Use Python
+          - text: Azure Blob storage for Java
+            url: storage-quickstart-blobs-java.md
+          - text: Azure Blob storage for Python
             url: storage-quickstart-blobs-python.md
+          - text: Azure Blob storage for JavaScript using Node.js
+            url: storage-quickstart-blobs-nodejs.md
+          - text: Azure Blob storage for JavaScript in a browser
+            url: quickstart-blobs-javascript-browser.md
           - text: Route events to a web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
           - text: Host a static website
@@ -119,10 +133,10 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access blob data with an Azure AD account
-            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
-          - text: Manage access rights with RBAC 
+            url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Manage access rights with RBAC
             url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Use a managed identity to authorize access to Blob storage 
+          - text: Use a managed identity to authorize access to Blob storage
             url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
   - title: Transfer data
@@ -145,9 +159,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Scalability and performance
-            url: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: scalability-targets.md
           - text: Performance and scalability checklist
-            url: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: storage-performance-checklist.md
       - linkListType: tutorial
         links:
           - text: Optimize for performance and scalability
@@ -157,9 +171,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Hot, cool, and archive storage 
+          - text: Hot, cool, and archive storage
             url: storage-blob-storage-tiers.md
-          - text: Manage the Blob storage lifecycle 
+          - text: Manage the Blob storage lifecycle
             url: storage-lifecycle-management-concepts.md
-
-

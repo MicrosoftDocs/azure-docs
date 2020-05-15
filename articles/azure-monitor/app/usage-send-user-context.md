@@ -1,19 +1,12 @@
 ---
-title: Send user context IDs to enable usage experiences in Azure Application Insights | Microsoft Docs
+title: User context IDs to track activity - Azure Application Insights
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 01/03/2019
-ms.reviewer: abgreg;mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/03/2019
+
+ms.reviewer: abgreg;mbullwin
 ---
 
 # Send user context IDs to enable usage experiences in Azure Application Insights
@@ -54,7 +47,7 @@ If the ID contains personally identifying information about the user, it is not 
 
 ## ASP.NET apps: Setting the user context in an ITelemetryInitializer
 
-Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Pass the session ID through the request telemetry, and set the Context.User.Id and the Context.Session.Id.
+Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Pass the session ID through the request telemetry, and set the Context.User.Id and the Context.Session.Id.
 
 This example sets the user ID to an identifier that expires after the session. If possible, use a user ID that persists across sessions.
 

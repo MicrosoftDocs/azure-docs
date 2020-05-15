@@ -1,6 +1,6 @@
 ---
 title: IoT solution accelerators FAQ - Azure | Microsoft Docs
-description: Frequently asked questions for IoT solution accelerators
+description: This article answers the frequently asked questions for IoT solution accelerators. It includes links to the GitHub repositories.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -77,7 +77,7 @@ Yes. Any solution that exists today continues to work in your Azure subscription
 
 ### How many IoT Hub instances can I provision in a subscription?
 
-By default you can provision [10 IoT hubs per subscription](../azure-subscription-service-limits.md#iot-hub-limits). You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every solution accelerator provisions a new IoT Hub, you can only provision up to 10 solution accelerators in a given subscription.
+By default you can provision [10 IoT hubs per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every solution accelerator provisions a new IoT Hub, you can only provision up to 10 solution accelerators in a given subscription.
 
 ### How many Azure Cosmos DB instances can I provision in a subscription?
 

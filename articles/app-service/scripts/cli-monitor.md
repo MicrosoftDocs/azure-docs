@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Monitor an app with web server logs | Microsoft Docs
-description: Azure CLI Script Sample - Monitor an app in App Service with web server logs
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Monitor an app with web server logs'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to monitor an app with web server logs.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Monitor an App Service app with web server logs using Azure CLI

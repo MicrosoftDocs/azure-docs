@@ -1,14 +1,14 @@
 ---
-title: Release notes for Data Management Gateway | Microsoft Docs
+title: Release notes for Data Management Gateway 
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -38,7 +38,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 ## 2.10.6347.7
 ### Enhancements-
 - You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
-- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- HDFS connector now supports self-signed public certificate by letting you skip TLS validation.
 - Fixed: Issue with gateway offline during update (due to clock skew)
 
 

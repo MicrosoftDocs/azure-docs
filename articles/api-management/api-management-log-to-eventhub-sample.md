@@ -1,5 +1,6 @@
 ---
-title: Monitor APIs with Azure API Management, Event Hubs, and Moesif | Microsoft Docs
+title: Monitor APIs with Azure API Management, Event Hubs, and Moesif
+titleSuffix: Azure API Management
 description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Moesif for HTTP  logging and monitoring
 services: api-management
 documentationcenter: ''

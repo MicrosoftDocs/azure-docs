@@ -1,5 +1,5 @@
 --- 
-title: Connect Azure virtual network to CloudSimple using ExpressRoute
+title: Connect Azure virtual network to CloudSimple using ExpressRoute - Azure VMware Solution by CloudSimple
 description: Describes how to obtain peering information for a connection between the Azure virtual network and your CloudSimple environment
 author: sharaths-cs
 ms.author: b-shsury 
@@ -25,15 +25,22 @@ An authorization key is required for the ExpressRoute connection between your Pr
 * Problem subtype: **Authorization key for Azure VNET connection**
 * Subject: **Request for authorization key for Azure VNET connection**
 
-## Obtain peering information for Azure virtual network to CloudSimple connection
+## Get peering information from CloudSimple portal
 
-To set up the connection, you must establish a link between Azure virtual network and your CloudSimple environment.  As part of the procedure, you must supply the peer circuit URI and authorization key. Obtain the URI and authorization key from [CloudSimple portal](access-cloudsimple-portal.md).  Select **Network** on the side menu, and then select **Azure Network Connection**. Or select **Account** on the side menu and then select **Azure network connection**.
+To set up the connection, you must establish a connection between Azure virtual network and your CloudSimple environment.  As part of the procedure, you must supply the peer circuit URI and authorization key. Obtain the URI and authorization key from [CloudSimple portal](access-cloudsimple-portal.md).  Select **Network** on the side menu, and then select **Azure Network Connection**. Or select **Account** on the side menu and then select **Azure network connection**.
 
-Notice the copy icons for peer circuit URI and for the authorization key for each of the regions. For each Private Cloud you want to connect:
+Copy peer circuit URI and for the authorization key for each of the regions using *copy* icon. For each CloudSimple region you want to connect:
 
-* Click **Copy** to copy the URI. Paste it into a file where it can be available to add to the Azure portal.  
-* Click **Copy** to copy the authorization key and paste it into the file as well.
+1. Click **Copy** to copy the URI. Paste it into a file where it can be available to add to the Azure portal.  
+2. Click **Copy** to copy the authorization key and paste it into the file as well.
 
-![Virtual Network Connection page](media/network-virt-conn-page.png)
+Copy the authorization key and peer circuit URI that is in **Available** state.  **Used** status indicates that the key has already been used to create a virtual network connection.
+
+![Virtual Network Connection page](media/virtual-network-connection.png)
 
 For details on setting up the Azure virtual network to CloudSimple link, see [Connect your CloudSimple Private Cloud environment to the Azure virtual network using ExpressRoute](azure-expressroute-connection.md).
+
+## Next steps
+
+* [Azure virtual network connection to Private Cloud](azure-expressroute-connection.md)
+* [Connect to on-premises network using Azure ExpressRoute](on-premises-connection.md)

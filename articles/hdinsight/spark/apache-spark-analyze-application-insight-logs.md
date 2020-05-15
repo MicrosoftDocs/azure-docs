@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
 ---
 
 # Analyze Application Insights telemetry logs with Apache Spark on HDInsight
@@ -36,7 +36,7 @@ The following diagram illustrates the service architecture of this example:
 
 ![Data flowing from Application Insights to blob storage, then Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
-### Azure storage
+### Azure Storage
 
 Application Insights can be configured to continuously export telemetry information to blobs. HDInsight can then read data stored in the blobs. However, there are some requirements that you must follow:
 
@@ -55,19 +55,17 @@ Application Insights provides [export data model](../../azure-monitor/app/export
 
 ## Export telemetry data
 
-Follow the steps in [Configure Continuous Export](../../azure-monitor/app/export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure storage blob.
+Follow the steps in [Configure Continuous Export](../../azure-monitor/app/export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure Storage blob.
 
 ## Configure HDInsight to access the data
 
-If you are creating an HDInsight cluster, add the storage account during cluster creation.
+If you're creating an HDInsight cluster, add the storage account during cluster creation.
 
 To add the Azure Storage Account to an existing cluster, use the information in the [Add additional Storage Accounts](../hdinsight-hadoop-add-storage.md) document.
 
 ## Analyze the data: PySpark
 
-1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ section.
-
-    ![Azure portal cluster dashboard pyspark](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/jupyter` where CLUSTERNAME is the name of your cluster.
 
 2. In the upper right corner of the Jupyter page, select **New**, and then **PySpark**. A new browser tab containing a Python-based Jupyter Notebook opens.
 
@@ -88,22 +86,23 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure storage account name and blob container name that contains Application Insights data.
+
+5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure Storage account name and blob container name that contains Application Insights data.
 
    ```python
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     Use **SHIFT+ENTER** to execute this cell. You see a result similar to the following text:
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
+    The wasbs path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasbs path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
 
    > [!NOTE]  
-   > For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. Your directory structure may be different.
+   > For the remainder of the steps in this section, the `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. Your directory structure may be different.
 
 6. In the next cell, enter the following code: Replace `WASB_PATH` with the path from the previous step.
 
@@ -181,6 +180,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Use the following to register the dataframe as a temporary table and run a query against the data:
 
    ```python
@@ -189,7 +189,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
    df.show()
    ```
 
-    This query returns the city information for the top 20 records where context.location.city is not null.
+    This query returns the city information for the top 20 records where context.location.city isn't null.
 
    > [!NOTE]  
    > The context structure is present in all telemetry logged by Application Insights. The city element may not be populated in your logs. Use the schema to identify other elements that you can query that may contain data for your logs.
@@ -208,11 +208,10 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 ## Analyze the data: Scala
 
-1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ section.
-
-    ![Azure portal cluster dashboard Scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/jupyter` where CLUSTERNAME is the name of your cluster.
 
 2. In the upper right corner of the Jupyter page, select **New**, and then **Scala**. A new browser tab containing a Scala-based Jupyter Notebook appears.
+
 3. In the first field (called a **cell**) on the page, enter the following text:
 
    ```scala
@@ -230,22 +229,23 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure storage account name and blob container name that contains Application Insights logs.
+
+5. A new cell is created below the first one. Enter the following text in the new cell. Replace `CONTAINER` and `STORAGEACCOUNT` with the Azure Storage account name and blob container name that contains Application Insights logs.
 
    ```scala
    %%bash
-   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
     Use **SHIFT+ENTER** to execute this cell. You see a result similar to the following text:
 
         Found 1 items
-        drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
+        drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
+    The wasbs path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasbs path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
 
    > [!NOTE]  
-   > For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app.
+   > For the remainder of the steps in this section, the `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app.
 
 6. In the next cell, enter the following code: Replace `WASB\_PATH` with the path from the previous step.
 
@@ -330,15 +330,13 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
    ```scala
    jsonData.registerTempTable("requests")
-   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city isn't null limit 10").show()
    ```
 
-    This query returns the city information for the top 20 records where context.location.city is not null.
+    This query returns the city information for the top 20 records where context.location.city isn't null.
 
    > [!NOTE]  
    > The context structure is present in all telemetry logged by Application Insights. The city element may not be populated in your logs. Use the schema to identify other elements that you can query that may contain data for your logs.
-   >
-   >
 
     This query returns information similar to the following text:
 

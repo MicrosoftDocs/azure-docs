@@ -1,21 +1,9 @@
 ---
-title: Introduction to Reliable Collections in Azure Service Fabric stateful services | Microsoft Docs
+title: Introduction to Reliable Collections
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
 
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 1/3/2019
-ms.author: atsenthi
-
+ms.date: 3/10/2020
 ---
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
 
@@ -31,10 +19,9 @@ The key difference between Reliable Collections and other high-availability tech
 Reliable Collections can be thought of as the natural evolution of the **System.Collections** classes: a new set of collections that are designed for the cloud and multi-computer applications without increasing complexity for the developer. As such, Reliable Collections are:
 
 * Replicated: State changes are replicated for high availability.
-* Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-* Because writes are persisted and replicated, you cannot create a volatile ReliableDictionary, ReliableQueue, or other reliable collection that only persists data in memory.
 * Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
 * Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
+* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
 
 Reliable Collections provide strong consistency guarantees out of the box to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction has been logged on a majority quorum of replicas, including the primary.
@@ -65,5 +52,5 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
-  * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+  * [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

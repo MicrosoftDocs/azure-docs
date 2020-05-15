@@ -1,12 +1,11 @@
 ---
-title: Developer best practices - Resource management in Azure Kubernetes Services (AKS)
+title: Resource management best practices
+titleSuffix: Azure Kubernetes Service
 description: Learn the application developer best practices for resource management in Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
-
-ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/13/2019
 ms.author: zarhoads
 ---
 
@@ -27,16 +26,24 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 A primary way to manage the compute resources within an AKS cluster is to use pod requests and limits. These requests and limits let the Kubernetes scheduler know what compute resources a pod should be assigned.
 
-* **Pod requests** define a set amount of CPU and memory that the pod needs. These requests should be the amount of compute resources the pod needs to provide an acceptable level of performance.
-    * When the Kubernetes scheduler tries to place a pod on a node, the pod requests are used to determine which node has sufficient resources available.
-    * Monitor the performance of your application to adjust these requests to make sure you don't define less resources that required to maintain an acceptable level of performance.
-* **Pod limits** are the maximum amount of CPU and memory that a pod can use. These limits help prevent one or two runaway pods from taking too much CPU and memory from the node. This scenario would reduce the performance of the node and other pods that run on it.
+* **Pod CPU/Memory requests** define a set amount of CPU and memory that the pod needs on a regular basis.
+    * When the Kubernetes scheduler tries to place a pod on a node, the pod requests are used to determine which node has sufficient resources available for scheduling.
+    * Not setting a pod request will default it to the limit defined.
+    * It is very important to monitor the performance of your application to adjust these requests. If insufficient requests are made, your application may receive degraded performance due to over scheduling a node. If requests are overestimated, your application  may have increased difficulty getting scheduled.
+* **Pod CPU/Memory limits** are the maximum amount of CPU and memory that a pod can use. These limits help define which pods should be killed in the event of node instability due to insufficient resources. Without proper limits set pods will be killed until resource pressure is lifted.
+    * Pod limits help define when a pod has lost control of resource consumption. When a limit is exceeded, the pod is prioritized for killing to maintain node health and minimize impact to pods sharing the node.
+    * Not setting a pod limit defaults it to the highest available value on a given node.
     * Don't set a pod limit higher than your nodes can support. Each AKS node reserves a set amount of CPU and memory for the core Kubernetes components. Your application may try to consume too many resources on the node for other pods to successfully run.
-    * Again, monitor the performance of your application at different times during the day or week. Determine when the peak demand is, and align the pod limits to the resources required to meet the application's needs.
+    * Again, it is very important to monitor the performance of your application at different times during the day or week. Determine when the peak demand is, and align the pod limits to the resources required to meet the application's max needs.
 
-In your pod specifications, it's best practice to define these requests and limits. If you don't include these values, the Kubernetes scheduler doesn't understand what resources are needed. The scheduler may schedule the pod on a node without sufficient resources to provide acceptable application performance. The cluster administrator may set *resource quotas* on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
+In your pod specifications, it's **best practice and very important** to define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler cannot take into account the resources your applications require to aid in scheduling decisions.
 
-When you define a CPU request or limit, the value is measured in CPU units. *1.0* CPU equates to one underlying virtual CPU core on the node. The same measurement is used for GPUs. You can also define a fractional request or limit, typically in millicpu. For example, *100m* is *0.1* of an underlying virtual CPU core.
+If the scheduler places a pod on a node with insufficient resources, application performance will be degraded. It is highly recommended for cluster administrators to set *resource quotas* on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
+
+When you define a CPU request or limit, the value is measured in CPU units. 
+* *1.0* CPU equates to one underlying virtual CPU core on the node. 
+* The same measurement is used for GPUs.
+* You can define fractions measured in millicores. For example, *100m* is *0.1* of an underlying vCPU core.
 
 In the following basic example for a single NGINX pod, the pod requests *100m* of CPU time, and *128Mi* of memory. The resource limits for the pod are set to *250m* CPU and *256Mi* memory:
 

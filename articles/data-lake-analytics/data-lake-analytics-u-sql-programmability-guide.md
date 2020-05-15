@@ -1786,13 +1786,13 @@ It is a typical tab-delimited TSV file with a properties column that contains ca
 The user-defined applier can be called as a new instance of applier object:
 
 ```
-CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 Or with the invocation of a wrapper factory method:
 
 ```csharp
-	CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+	CROSS APPLY MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 ## Use user-defined combiners

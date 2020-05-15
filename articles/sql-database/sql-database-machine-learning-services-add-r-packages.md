@@ -1,5 +1,5 @@
 ---
-title: Add an R package to Azure SQL Database Machine Learning Services (preview)
+title: Add an R package to Machine Learning Services (preview)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: This article explains how to install an R package that isn't already installed in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
+ROBOTS: NOINDEX
 ---
 
 # Add an R package to Azure SQL Database Machine Learning Services (preview)

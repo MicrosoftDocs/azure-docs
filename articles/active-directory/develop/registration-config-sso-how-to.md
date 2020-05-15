@@ -1,23 +1,18 @@
 ---
-title: Configure application single sign-on | Microsoft Docs
+title: Configure application single sign-on
 description: How to configure single sign-on for a custom application you are developing and registering with Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
+ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # How to configure single sign-on for an application
@@ -42,6 +37,6 @@ For iOS, see [Enabling Cross App SSO in iOS](https://docs.microsoft.com/azure/ac
 
 [Integrating Apps to AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -1,21 +1,11 @@
 ---
-title: Delete Azure Service Fabric actors | Microsoft Docs
-description: Learn how to manually delete Service Fabric Reliable Actors and their state.
-services: service-fabric
-documentationcenter: .net
+title: Delete Azure Service Fabric actors 
+description: Learn how to manually and fully delete Reliable Actors and their state in an Azure Service Fabric application.
 author: amanbha
-manager: chackdan
-editor: vturecek
 
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-
 ---
 # Delete Reliable Actors and their state
 Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is reactivated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never reactivated, it may be necessary to clean up their data.

@@ -1,35 +1,35 @@
 ---
-title: "Migrate your face data across subscriptions - Face API"
+title: "Migrate your face data across subscriptions - Face"
 titleSuffix: Azure Cognitive Services
-description: This guide shows you how to migrate your stored face data from one Face API subscription to another.
+description: This guide shows you how to migrate your stored face data from one Face subscription to another.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
+ms.author: nitinme
 ---
 
 # Migrate your face data to a different Face subscription
 
-This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face API subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object by using a free trial subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
+This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object by using a free trial subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
 
-This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face API .NET client library with C#.
+This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face .NET client library with C#.
 
 ## Prerequisites
 
 You need the following items:
 
-- Two Face API subscription keys, one with the existing data and one to migrate to. To subscribe to the Face API service and get your key, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- The Face API subscription ID string that corresponds to the target subscription. To find it, select **Overview** in the Azure portal. 
+- Two Face subscription keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- The Face subscription ID string that corresponds to the target subscription. To find it, select **Overview** in the Azure portal. 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
 ## Create the Visual Studio project
 
-This guide uses a simple console app to run the face data migration. For a full implementation, see the [Face API snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) on GitHub.
+This guide uses a simple console app to run the face data migration. For a full implementation, see the [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) on GitHub.
 
 1. In Visual Studio, create a new Console app .NET Framework project. Name it **FaceApiSnapshotSample**.
 1. Get the required NuGet packages. Right-click your project in the Solution Explorer, and select **Manage NuGet Packages**. Select the **Browse** tab, and select **Include prerelease**. Find and install the following package:
@@ -229,7 +229,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 Next, see the relevant API reference documentation, explore a sample app that uses the Snapshot feature, or follow a how-to guide to start using the other API operations mentioned here:
 
 - [Snapshot reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Face API snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Add faces](how-to-add-faces.md)
 - [Detect faces in an image](HowtoDetectFacesinImage.md)
 - [Identify faces in an image](HowtoIdentifyFacesinImage.md)

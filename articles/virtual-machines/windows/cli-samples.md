@@ -1,18 +1,9 @@
 ---
-title: Azure CLI Samples Windows | Microsoft Docs
+title: Azure CLI Samples Windows 
 description: Azure CLI Samples Windows
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-windows
-
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn

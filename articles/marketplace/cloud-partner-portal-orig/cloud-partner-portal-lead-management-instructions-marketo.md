@@ -1,12 +1,12 @@
 ---
 title: Configure lead management in Marketo | Azure Marketplace
 description: Configure lead management for Marketo for Azure marketplace customers.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Configure lead management in Marketo
@@ -36,7 +36,7 @@ This article describes how to set up Marketo to handle Microsoft sales leads.
 `<script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>`
 
     <form id="mktoForm_1179"></form>
-    <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
+    <script>MktoForms2.loadForm("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
 1. Copy the values shown in Embed Code so you can configure the **Server Id**, **Munchkin Id**, and **Form Id** in the Marketo fields on the Cloud Partner Portal.
 
@@ -44,4 +44,4 @@ Use the next example as a guide for getting the Ids you need from the Marketo Em
 
 - Server Id = **ys12**
 - Munchkin Id = **123-PQR-789**
-- Form Id = **1179**\
+- Form Id = **1179**

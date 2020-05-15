@@ -3,7 +3,7 @@ title: Compare Azure Content Delivery Network (CDN) product features | Microsoft
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: mdgattuso
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
-ms.author: magattus
+ms.date: 11/15/2019
+ms.author: allensu
 ms.custom: mvc
 
 ---
@@ -39,11 +39,11 @@ The following table compares the features available with each product.
 | [Global server load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Purge all and Wildcard purge are not supported by Azure CDN from Akamai currently |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Cache/header settings (using [caching rules](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Customizable, rules based content delivery engine (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Cache/header settings (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| URL redirect/rewrite (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Mobile device rules (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Cache/header settings (using [caching rules](cdn-caching-rules.md))  |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Customizable, rules based content delivery engine |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  | | |**&#x2713;** using [rules engine](cdn-rules-engine.md) |
+| Cache/header settings  |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md) | | |**&#x2713;** using [Premium rules engine](cdn-rules-engine.md) |
+| URL redirect/rewrite |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  | | |**&#x2713;** using [Premium rules engine](cdn-rules-engine.md) |
+| Mobile device rules  |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md) | | |**&#x2713;** using [Premium rules engine](cdn-rules-engine.md) |
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -55,7 +55,8 @@ The following table compares the features available with each product.
 | [Geo-filtering](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
+| [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
+| Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](https://docs.microsoft.com/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Analytics and reporting** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |

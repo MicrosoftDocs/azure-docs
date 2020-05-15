@@ -1,0 +1,71 @@
+### YamlMime:Landing
+ 
+title: Azure Media Services v2 (legacy) documentation
+summary: No new features are being added to Media Services v2. Check out the latest version, Media Services v3. 
+
+metadata:
+  title: Azure Media Services v2 (legacy) documentation
+  description: Learn how to securely stream on-demand or live broadcast-quality video with Media Services v2.
+  services: media-services
+  ms.service: media-services
+  ms.subservice:
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
+ 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+ 
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Media Services v2
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Media Services v2 overview
+            url: media-services-overview.md
+          - text: Migrate to Media Services v3
+            url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+      - linkListType: whats-new
+        links:         
+        - text: "What's new in Media Services v2?"
+          url: media-services-release-notes.md
+      - linkListType: concept
+        links:         
+        - text: Legacy components
+          url: legacy-components.md            
+
+# Card
+  - title: Stream live
+    linkLists:  
+      - linkListType: concept
+        links:
+          - text: Overview
+            url: media-services-manage-channels-overview.md   
+      - linkListType: how-to-guide
+        links: 
+          - text: Create a Media Services account with portal
+            url: media-services-portal-create-account.md 
+          - text: Connect programmatically
+            url: media-services-use-aad-auth-to-access-ams-api.md 
+          - text: Stream live with the Azure portal
+            url: media-services-portal-live-passthrough-get-started.md
+          - text: Stream live with .NET
+            url: media-services-dotnet-live-encode-with-onpremises-encoders.md
+            
+# Card
+  - title: Deliver video on-demand
+    linkLists:        
+      - linkListType: how-to-guide
+        links:
+          - text: Use the Azure portal
+            url: media-services-portal-vod-get-started.md
+          - text: Use .NET
+            url: media-services-dotnet-get-started.md
+          - text: Use REST
+            url: media-services-rest-get-started.md
+
+

@@ -1,0 +1,82 @@
+### YamlMime:Landing
+
+title: Voice assistants documentation
+summary: Voice assistants using the Speech service empowers developers to create natural, human-like conversational interfaces for their applications and experiences.
+metadata:
+  title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/10/2020
+  ms.author: trbye
+
+landingContent:
+- title: About voice assistants
+  linkLists:
+    - linkListType: overview
+      links:
+      - text: What is a voice assistant?
+        url: voice-assistants.md
+      - text: What is a Custom Commands app?
+        url: custom-commands.md
+      - text: What is Direct Line Speech?
+        url: direct-line-speech.md
+    - linkListType: reference
+      links:
+        - text: Voice assistants FAQ
+          url: faq-voice-assistants.md
+        - text: Voice assistants pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - linkListType: get-started
+      links:
+        - text: Build and deploy a sample Voice Assistant to your Azure subscription (GitHub)
+          url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+- title: Develop with Custom Commands
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Create a Custom Commands app
+          url: quickstart-custom-speech-commands-create-new.md
+        - text: Create a custom command with parameters
+          url: quickstart-custom-speech-commands-create-parameters.md
+        - text: Use Custom Commands with Custom Voice
+          url: quickstart-custom-speech-commands-select-custom-voice.md
+        - text: Use Custom Commands with the Speech SDK
+          url: quickstart-custom-speech-commands-speech-sdk.md
+    - linkListType: how-to-guide
+      links:
+      - text: Fulfill commands from a client
+        url: how-to-custom-speech-commands-fulfill-sdk.md
+      - text: Add parameter validation
+        url: how-to-custom-speech-commands-validations.md
+      - text: Add a confirmation
+        url: how-to-custom-speech-commands-confirmations.md
+      - text: Add a one-step correction
+        url: how-to-custom-speech-commands-one-step-correction.md
+- title: Develop with Direct Line Speech
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: C# (UWP)
+          url: quickstart-voice-assistant-csharp-uwp.md
+        - text: Java (Windows, macOS, Linux)
+          url: quickstart-voice-assistant-java-jre.md
+        - text: Java (Android)
+          url: quickstart-voice-assistant-java-android.md
+    - linkListType: tutorial
+      links:
+        - text: Voice enable your bot with Speech SDK
+          url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Develop with Custom Keyword
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create a Custom Keyword
+          url: speech-devices-sdk-create-kws.md
+    - linkListType: reference
+      links:
+        - text: Custom Keyword naming guidelines
+          url: speech-devices-sdk-kws-guidelines.md

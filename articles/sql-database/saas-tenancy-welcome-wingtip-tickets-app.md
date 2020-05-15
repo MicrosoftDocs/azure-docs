@@ -1,5 +1,5 @@
 ﻿---
-title: "Welcome to Wingtips app - Azure SQL Database | Microsoft Docs"
+title: Welcome to Wingtips app
 description: "Learn about database tenancy models, and about the sample Wingtips SaaS application, for Azure SQL Database in the cloud environment."
 keywords: "sql database tutorial"
 services: sql-database

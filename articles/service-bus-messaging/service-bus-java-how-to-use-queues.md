@@ -1,6 +1,6 @@
 ---
 title: Use Azure Service Bus queues with Java
-description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
+description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,13 +12,14 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# Use Azure Service Bus queues with Java to send and receive messages
+# Quickstart: Use Azure Service Bus queues with Java to send and receive messages
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
@@ -36,9 +37,12 @@ In this tutorial, you learn how to create Java applications to send messages to 
 
 
 ## Configure your application to use Service Bus
-Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. 
+
+If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you are using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
 ![Add Microsoft Azure Libraries for Java to your Eclipse project](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
 
 Add the following `import` statements to the top of the Java file:
 
@@ -140,14 +144,16 @@ messages. When Service Bus receives a request, it finds the next message
 to be consumed, locks it to prevent other consumers receiving it, and
 then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-marks the message as being consumed and remove it from the queue.
+completes the second stage of the receive process by calling **complete()**
+on the received message. When Service Bus sees the **complete()** call, it
+marks the message as being consumed and remove it from the queue. 
 
 The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive into
-our `TestQueue`:
+below uses the callback model with a registered message handler
+and processes messages as they arrive into our `TestQueue`. This mode
+calls **complete()** automatically as the callback returns normally and calls
+**abandon()** if the callback throws an exception. 
 
 ```java
     public void run() throws Exception {
@@ -203,11 +209,11 @@ our `TestQueue`:
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This causes Service Bus
-to unlock the message within the queue and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+then it can call the **abandon()** method on client object with the 
+received message's lock token obtained via **getLockToken()**. This 
+causes Service Bus to unlock the message within the queue and make 
+it available to be received again, either by the same consuming 
+application or by another consuming application.
 
 There is also a timeout associated with a message locked within the
 queue, and if the application fails to process the message before the
@@ -216,7 +222,7 @@ Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
+but before the **complete()** request is issued, then the message
 is redelivered to the application when it restarts. This is often
 called *At Least Once Processing*; that is, each message is
 processed at least once but in certain situations the same message may
@@ -234,7 +240,7 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
+[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

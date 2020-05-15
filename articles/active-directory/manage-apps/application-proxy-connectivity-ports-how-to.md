@@ -1,5 +1,5 @@
 ---
-title: How to open the firewall ports required for an Application Proxy application | Microsoft Docs
+title: How to open firewall ports required for an Application Proxy app
 description: Find out what ports to open for the Azure AD Application Proxy to work correctly
 services: active-directory
 documentationcenter: ''

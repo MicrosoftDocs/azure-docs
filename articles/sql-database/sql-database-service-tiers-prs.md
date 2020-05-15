@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Premium RS service tier retirement | Microsoft Docs
+title: Premium RS service tier retirement
 description: The Premium RS service tier is being retired and support for it is ending - see migration options.  
 services: sql-database
 ms.service: sql-database

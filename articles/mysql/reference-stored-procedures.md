@@ -1,11 +1,11 @@
 ---
-title: Azure Database for MySQL management stored procedures
+title: Management stored procedures - Azure Database for MySQL
 description: Learn which stored procedures in Azure Database for MySQL are useful to help you configure data-in replication, set the timezone, and kill queries.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 3/18/2020
 ---
 
 # Azure Database for MySQL management stored procedures
@@ -20,7 +20,7 @@ The following stored procedures are used to set up or remove Data-in Replication
 
 |**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|To transfer data with SSL mode, pass in the CA certificate’s context into the master_ssl_ca parameter. </br><br>To transfer data without SSL, pass in an empty string into the master_ssl_ca parameter.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|To transfer data with SSL mode, pass in the CA certificate's context into the master_ssl_ca parameter. </br><br>To transfer data without SSL, pass in an empty string into the master_ssl_ca parameter.|
 |*mysql.az_replication _start*|N/A|N/A|Starts replication.|
 |*mysql.az_replication _stop*|N/A|N/A|Stops replication.|
 |*mysql.az_replication _remove_master*|N/A|N/A|Removes the replication relationship between the master and replica.|

@@ -1,6 +1,6 @@
 ---
-title: Governance of Azure DevTest Labs infrastructure
-description: This article provides guidance for governance of Azure DevTest Labs infrastructure.
+title: Application migration and integration in Azure DevTest Labs
+description: This article provides guidance for governance of Azure DevTest Labs infrastructure in the context of application migration and integration. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 
@@ -90,7 +90,7 @@ When should I create a new virtual network for my DevTest Labs environment vs. u
 ### Answer
 If your VMs need to interact with existing infrastructure, then you should consider using an existing virtual network inside your DevTest Labs environment. In addition, if you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions. You should also consider using the VNet peering pattern here (Hub-Spoke model). This approach enables vnet/subnet communication across subscriptions within a given region although peering across regions is an up-coming feature in Azure networking.
 
-Otherwise, each DevTest Labs environment could have its own virtual network. However, note that there are [limits](../azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
+Otherwise, each DevTest Labs environment could have its own virtual network. However, note that there are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 
 ## Shared, public, or private IP
 
@@ -114,7 +114,7 @@ Is there a rule in terms of how many virtual machines I should set per user, or 
 When considering the number of virtual machines per user or per lab, there are three main concerns:
 
 - The **overall cost** that the team can spend on resources in the lab. It’s easy to spin up many machines. To control costs, one mechanism is to limit the number of VMs per user and/or per lab
-- The total number of virtual machines in a lab is impacted by the [subscription level quotas](../azure-subscription-service-limits.md) available. One of the upper limits is 800 resource groups per subscription. DevTest Labs currently creates a new resource group for each VM (unless shared public IPs are used). If there are 10 labs in a subscription, labs could fit approximately 79 virtual machines in each lab (800 upper limit – 10 resource groups for the 10 labs themselves) = 79 virtual machines per lab.
+- The total number of virtual machines in a lab is impacted by the [subscription level quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) available. One of the upper limits is 800 resource groups per subscription. DevTest Labs currently creates a new resource group for each VM (unless shared public IPs are used). If there are 10 labs in a subscription, labs could fit approximately 79 virtual machines in each lab (800 upper limit – 10 resource groups for the 10 labs themselves) = 79 virtual machines per lab.
 - If the lab is connected to on-premises via Express Route (for example), there are **defined IP address spaces available** for the VNet/Subnet. To ensure that VMs in the lab don't fail to be created (error: can’t get IP address), lab owners can specify the max VMs per lab aligned with the IP address space available.
 
 ## Use Resource Manager templates

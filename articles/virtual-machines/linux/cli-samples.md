@@ -1,22 +1,11 @@
 ---
-title: Azure CLI Samples | Microsoft Docs
+title: Azure CLI Samples 
 description: Azure CLI Samples
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.custom: mvc
 
 ---
 # Azure CLI Samples for Linux virtual machines

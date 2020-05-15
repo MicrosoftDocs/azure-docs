@@ -1,6 +1,6 @@
 ---
 title: What is OPC Twin - Azure | Microsoft Docs
-description: Overview of OPC Twin
+description: This article provides an overview of OPC Twin. OPC Twin provides discovery, registration, and remote control of industrial devices through REST APIs.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018

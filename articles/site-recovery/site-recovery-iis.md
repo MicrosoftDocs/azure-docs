@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery fo a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
+title: Set up disaster recovery for an IIS web app using Azure Site Recovery 
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -13,7 +13,7 @@ ms.author: mayg
 
 Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some applications, like applications used for payroll processing, financial applications, and customer-facing websites, might be critical to an organization. To prevent loss of productivity, it's important for the organization to have these applications continuously up and running. More importantly, having these applications consistently available can help prevent damage to the brand or image of the organization.
 
-Critical web applications are typically set up as multi-tier applications: the web, database, and application are on different tiers. In addition to being spread across various tiers, the applications might also use multiple servers in each tier to load balance the traffic. Moreover, the mappings between various tiers and on the web server might be based on static IP addresses. On failover, some of these mappings need to be updated, especially if multiple websites are configured on the web server. If web applications use SSL, you must update certificate bindings.
+Critical web applications are typically set up as multi-tier applications: the web, database, and application are on different tiers. In addition to being spread across various tiers, the applications might also use multiple servers in each tier to load balance the traffic. Moreover, the mappings between various tiers and on the web server might be based on static IP addresses. On failover, some of these mappings need to be updated, especially if multiple websites are configured on the web server. If web applications use TLS, you must update certificate bindings.
 
 Traditional recovery methods that aren't based on replication involve backing up various configuration files, registry settings, bindings, custom components (COM or .NET), content, and certificates. Files are recovered through a set of manual steps. The traditional recovery methods of backing up and manually recovering files are cumbersome, error-prone, and not scalable. For example, you might easily forget to back up certificates. After failover, you're left with no choice but to buy new certificates for the server.
 
@@ -113,22 +113,22 @@ Every site consists of binding information. The binding information includes the
 >
 > If you set the site binding to **All unassigned**, you don't need to update this binding post-failover. Also, if the IP address associated with a site isn't changed post-failover, you don't need to update the site binding. (The retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites. Updating them might not be feasible for your organization.)
 
-![Screenshot that shows setting the SSL binding](./media/site-recovery-iis/sslbinding.png)
+![Screenshot that shows setting the TLS/SSL binding](./media/site-recovery-iis/sslbinding.png)
 
 If you associated the IP address with a site, update all site bindings with the new IP address. To change the site bindings, add an [IIS web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in the recovery plan.
 
 #### Update the load balancer IP address
 If you have an ARR virtual machine, to update the IP address, add an [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4.
 
-#### SSL certificate binding for an HTTPS connection
-A website might have an associated SSL certificate that helps ensure a secure communication between the web server and the user’s browser. If the website has an HTTPS connection, and also has an associated HTTPS site binding to the IP address of the IIS server with an SSL certificate binding, you must add a new site binding  for the certificate with the IP address of the IIS virtual machine post-failover.
+#### TLS/SSL certificate binding for an HTTPS connection
+A website might have an associated TLS/SSL certificate that helps ensure a secure communication between the web server and the user’s browser. If the website has an HTTPS connection, and also has an associated HTTPS site binding to the IP address of the IIS server with a TLS/SSL certificate binding, you must add a new site binding  for the certificate with the IP address of the IIS virtual machine post-failover.
 
-The SSL certificate can be issued against these components:
+The TLS/SSL certificate can be issued against these components:
 
 * The fully qualified domain name of the website.
 * The name of the server.
 * A wildcard certificate for the domain name.  
-* An IP address. If the SSL certificate is issued against the IP address of the IIS server, another SSL certificate needs to be issued against the IP address of the IIS server on the Azure site. An additional SSL binding for this certificate needs to be created. Because of this, we recommend not using an SSL certificate issued against the IP address. This option is less widely used and will soon be deprecated in accordance with new certificate authority/browser forum changes.
+* An IP address. If the TLS/SSL certificate is issued against the IP address of the IIS server, another TLS/SSL certificate needs to be issued against the IP address of the IIS server on the Azure site. An additional TLS binding for this certificate needs to be created. Because of this, we recommend not using a TLS/SSL certificate issued against the IP address. This option is less widely used and will soon be deprecated in accordance with new certificate authority/browser forum changes.
 
 #### Update the dependency between the web tier and the application tier
 If you have an application-specific dependency that's based on the IP address of the virtual machines, you must update this dependency post-failover.

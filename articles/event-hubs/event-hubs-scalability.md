@@ -1,6 +1,6 @@
 ---
 title: Scalability - Azure Event Hubs | Microsoft Docs
-description: Provides information on how to scale Azure Event Hubs. 
+description: This article provides information on how to scale Azure Event Hubs by using partitions and throughput units. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

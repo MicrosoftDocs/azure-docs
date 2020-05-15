@@ -1,22 +1,23 @@
 ---
-title: Schema mapping in copy activity | Microsoft Docs
+title: Schema mapping in copy activity 
 description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data when copying data.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 04/15/2020
 ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how the Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when executing the data copy.
 
@@ -257,11 +258,11 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }
@@ -276,11 +277,7 @@ Copy activity performs source types to sink types mapping with the following 2-s
 1. Convert from native source types to Azure Data Factory interim data types
 2. Convert from Azure Data Factory interim data types to native sink type
 
-You can find the mapping between native type to interim type in the "Data type mapping" section in each connector topic.
-
-### Supported data types
-
-Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuration:
+Copy activity supports the following interim data types: 
 
 * Byte[]
 * Boolean

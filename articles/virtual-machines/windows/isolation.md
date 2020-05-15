@@ -1,16 +1,9 @@
 ---
-title: Isolation for Windows VMs in Azure | Microsoft Docs
+title: Isolation for Windows VMs in Azure 
 description: Learn about VM isolation works in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-
-ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn

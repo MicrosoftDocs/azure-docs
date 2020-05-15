@@ -1,5 +1,5 @@
 ---
-title: About ExpressRoute Direct - Azure | Microsoft Docs
+title: 'About Azure ExpressRoute Direct'
 description: This page provides an overview of ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
+
 
 ---
 

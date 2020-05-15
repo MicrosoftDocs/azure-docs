@@ -26,7 +26,7 @@ Serial Console works in the same manner for VMs and virtual machine scale set in
 For Serial Console documentation for Windows, see [Serial Console for Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
+> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
 
 
 ## Prerequisites
@@ -60,6 +60,7 @@ Distribution      | Serial console access
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Serial console access enabled by default.
 CentOS      | Serial console access enabled by default.
+Debian      | Serial console access enabled by default.
 Ubuntu      | Serial console access enabled by default.
 CoreOS      | Serial console access enabled by default.
 SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you're using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console.
@@ -98,7 +99,7 @@ All data that is sent back and forth is encrypted on the wire.
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.
 
 > [!CAUTION]
-> No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII.
+> No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. If you are inputting any dataor commands that contain secrets or PII, we would recommend using SSH unless serial console is absolutely necessary.
 
 ### Concurrent usage
 If a user is connected to the serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected to the same session.
@@ -120,7 +121,7 @@ We're aware of some issues with the serial console and the VM's operating system
 
 Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
-Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This issue can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to connect to the serial port.
+Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | GRUB may not be configured correctly. Run the following commands: `grub2-mkconfig -o /etc/grub2-efi.cfg` and/or `grub2-mkconfig -o /etc/grub2.cfg`. For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This issue can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to connect to the serial port.
 Serial console text only takes up a portion of the screen size (often after using a text editor). | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. Install xterm or a similar utility to provide you with the `resize` command, and then run `resize`.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 Erratic keyboard input in SLES BYOS images. Keyboard input is only sporadically recognized. | This is an issue with the Plymouth package. Plymouth should not be run in Azure as you don't need a splash screen and Plymouth interferes with the platform ability to use Serial Console. Remove Plymouth with `sudo zypper remove plymouth` and then reboot. Alternatively, modify the kernel line of your GRUB config by appending `plymouth.enable=0` to the end of the line. You can do this by [editing the boot entry at boot time](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), or by editing the GRUB_CMDLINE_LINUX line in `/etc/default/grub`, rebuilding GRUB with `grub2-mkconfig -o /boot/grub2/grub.cfg`,  and then rebooting.
@@ -166,7 +167,7 @@ A. Yes. Because the serial console doesn't require SSH keys, you only need to se
 ## Next steps
 * Use the serial console to [access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 * Use the serial console for [NMI and SysRq calls](serial-console-nmi-sysrq.md).
-* Learn how to use the serial console to [enable GRUB in various distros](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+* Learn how to use the serial console to [enable GRUB in various distros](serial-console-grub-proactive-configuration.md)
 * The serial console is also available for [Windows VMs](../windows/serial-console.md).
 * Learn more about [boot diagnostics](boot-diagnostics.md).
 

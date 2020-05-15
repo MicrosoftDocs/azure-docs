@@ -28,12 +28,7 @@ Before you deploy, complete the following configuration prerequisites for Data B
 
 ### For service
 
-Before you begin, make sure that:
-- You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
@@ -102,7 +97,7 @@ Take the following steps to order Data Box Disk.
 
     ![Supply order details](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. 
+14. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Customers using the service in Japan, Singapore, Korea, and West Europe have the option to select self-managed shipping while placing the order. After the order is placed successfully, you will receive an email with instructions to pick up the device from the designated Azure Datacenter.
 
     ![Provide shipping address](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 15. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses. 

@@ -1,19 +1,13 @@
 ---
-title: Disaster recovery and geo-distribution in Durable Functions - Azure
+title: Disaster recovery and geo-distribution Azure Durable Functions
 description: Learn about disaster recovery and geo-distribution in Durable Functions.
-services: functions
 author: MS-Santi
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ---
 
-# Disaster recovery and geo-distribution
-
-## Overview
+# Disaster recovery and geo-distribution in Azure Durable Functions
 
 In Durable Functions, all state is persisted in Azure Storage. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The described scenarios propose deployment options to increase availability and minimize downtime during disaster recovery activities.

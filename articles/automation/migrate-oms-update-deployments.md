@@ -1,18 +1,14 @@
 ---
-title: Migrate your OMS Update Deployments to Azure
+title: Migrate your OMS update Deployments to Azure
 description: This article describes how to migrate your existing OMS Update deployments to Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
-# Migrate your OMS Update Deployments to Azure
+# Migrate your OMS update deployments to Azure
 
-The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. This article provides the information you need to migrate to the Azure portal.
 
 ## Key information
 
@@ -21,7 +17,7 @@ The Operations Management Suite (OMS) portal is being [deprecated](../azure-moni
 
 ## Access the Azure portal
 
-From your OMS workspace, click **Open in Azure**. This navigates to the Log Analytics workspace that OMS used.
+From your OMS workspace, click **Open in Azure**. This selection navigates to the Log Analytics workspace that OMS has been using.
 
 ![Open in Azure - OMS portal](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -29,11 +25,13 @@ In the Azure portal, click **Automation Account**
 
 ![Azure Monitor logs](media/migrate-oms-update-deployments/log-analytics.png)
 
-In your Automation Account, click **Update Management** to open up Update Management.
+In your Automation account, click **Update Management**.
 
 ![Update Management](media/migrate-oms-update-deployments/azure-automation.png)
 
-In the future you can go directly to the Azure portal, under **All services**, select **Automation Accounts** under **Management Tools**, select the appropriate Automation Account, and click **Update Management**.
+In the Azure portal, select **Automation Accounts** under **All services**. 
+
+Under **Management Tools**, select the appropriate Automation account, and click **Update Management**.
 
 ## Recreate existing deployments
 
@@ -47,9 +45,9 @@ To create a new update deployment, go to the Azure portal, select the Automation
 
 ![Schedule update deployment](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
+The New Update Deployment pane opens. Enter values for the properties described in the following table and then click **Create**:
 
-For Machines to update, select the saved search used by the existing OMS deployment.
+For **Machines to update**, select the saved search used by the existing OMS deployment.
 
 | Property | Description |
 | --- | --- |
@@ -70,4 +68,4 @@ As mentioned previously, once your new deployments are configured through the Az
 
 ## Next steps
 
-To learn more about Update Management in Azure, see [Update Management](automation-update-management.md)
+To learn more about Update Management in Azure, see [Update Management](automation-update-management.md).

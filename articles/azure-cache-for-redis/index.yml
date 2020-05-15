@@ -1,0 +1,98 @@
+### YamlMime:Landing
+title: Azure Cache for Redis Documentation
+summary: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Azure Cache for Redis from any application on Azure.
+metadata:
+  title: Azure Cache for Redis Documentation
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: cache
+  ms.topic: landing-page
+  author: yegu-ms
+  ms.author: yegu
+  ms.date: 12/16/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Cache for Redis
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cache for Redis?
+            url: cache-overview.md
+          - text: Learn about Azure Cache for Redis Premium tier
+            url: cache-premium-tier-intro.md
+      - linkListType: video
+        links:
+          - text: Administration options 
+            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
+          - text: Security caching
+            url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
+          - text: Best practices
+            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
+          - text: Improve performance
+            url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+      - linkListType: whats-new
+        links:
+          - text: Frequently asked questions
+            url: cache-faq.md
+          - text: Best practices for Azure Cache for Redis
+            url: cache-best-practices.md
+          - text: ASP.NET Session State Provider for Azure Cache for Redis
+            url: cache-aspnet-session-state-provider.md
+  - title: 'Quickstarts: Azure Cache for Redis'
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Code a .NET Framework app
+            url: cache-dotnet-how-to-use-azure-redis-cache.md
+          - text: Code a .NET Core app
+            url: cache-dotnet-core-quickstart.md
+          - text: Code an ASP.NET web app
+            url: cache-web-app-howto.md
+          - text: Code a Java app
+            url: cache-java-get-started.md
+          - text: Code a Node.js app
+            url: cache-nodejs-get-started.md
+          - text: Code a Python app
+            url: cache-python-get-started.md
+      - linkListType: tutorial
+        links:
+          - text: Create a cache-aside leaderboard on ASP.NET
+            url: cache-web-app-cache-aside-leaderboard.md
+      - linkListType: get-started
+        links:
+          - text: Samples
+            url: cache-redis-samples.md
+  - title: SDKs and command-lines
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET
+            url: /dotnet/api/microsoft.azure.management.redis
+          - text: Java
+            url: /java/api/com.microsoft.azure.management.redis.rediscache
+          - text: REST API
+            url: /rest/api/redis/
+          - text: Redis Client
+            url: https://redis.io/clients
+          - text: Redis commands
+            url: https://redis.io/commands
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.rediscache
+          - text: Azure CLI
+            url: /cli/azure/redis
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot client-side issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot server-side issues
+            url: cache-troubleshoot-server.md
+          - text: Troubleshoot timeouts
+            url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot data loss issues
+            url: cache-troubleshoot-data-loss.md            

@@ -1,5 +1,5 @@
 ---
-title: SQL Server availability groups - Azure virtual machines - Prereqs | Microsoft Docs
+title: "Tutorial: Prerequisites for availability group"
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure VMs."
 services: virtual-machines
 documentationCenter: na
@@ -11,16 +11,16 @@ tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
 
-ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
-# Complete the prerequisites for creating Always On availability groups on Azure virtual machines
+# Prerequisites for creating Always On availability groups on SQL Server on Azure virtual machines
 
 This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure virtual machines (VMs)](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When you've finished the prerequisites, you have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
 
@@ -150,7 +150,7 @@ Configure two availability sets according to the parameters in the following tab
 After you create the availability sets, return to the resource group in the Azure portal.
 
 ## Create domain controllers
-After you've created the network, subnets, availability sets, and an Internet-facing load balancer, you're ready to create the virtual machines for the domain controllers.
+After you've created the network, subnets, and availability sets, you're ready to create the virtual machines for the domain controllers.
 
 ### Create virtual machines for the domain controllers
 To create and configure the domain controllers, return to the **SQL-HA-RG** resource group.

@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus authorization rule using Azure Resource Manager template | Microsoft Docs
+title: Create a Service Bus authorization rule using an Azure template
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,9 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-
 ---
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
 
@@ -54,6 +53,7 @@ With Azure Resource Manager, you define parameters for values you want to specif
 The template defines the following parameters.
 
 ### serviceBusNamespaceName
+
 The name of the Service Bus namespace to create.
 
 ```json
@@ -63,6 +63,7 @@ The name of the Service Bus namespace to create.
 ```
 
 ### namespaceAuthorizationRuleName
+
 The name of the authorization rule for the namespace.
 
 ```json
@@ -72,6 +73,7 @@ The name of the authorization rule for the namespace.
 ```
 
 ### serviceBusQueueName
+
 The name of the queue in the Service Bus namespace.
 
 ```json
@@ -81,6 +83,7 @@ The name of the queue in the Service Bus namespace.
 ```
 
 ### serviceBusApiVersion
+
 The Service Bus API version of the template.
 
 ```json
@@ -93,6 +96,7 @@ The Service Bus API version of the template.
 ```
 
 ## Resources to deploy
+
 Creates a standard Service Bus namespace of type **Messaging**, and a Service Bus authorization rule for namespace and entity.
 
 ```json
@@ -148,28 +152,32 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
 For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [queues](/azure/templates/microsoft.servicebus/namespaces/queues), and [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## Commands to run deployment
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## Next steps
+
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
 * [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

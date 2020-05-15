@@ -1,11 +1,8 @@
 ---
-title: Manage Azure Service Fabric applications using Azure Service Fabric CLI (sfctl)
+title: Manage Azure Service Fabric applications using sfctl
 description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure Service Fabric CLI
-services: service-fabric
 author: Christina-Kang
-manager: chackdan
 
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
@@ -46,7 +43,7 @@ Before you create an application, upload the application package to the Service 
 For example, if your application package is in the `app_package_dir` directory, use the following commands to upload
 the directory:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -56,7 +53,7 @@ For large application packages, you can specify the `--show-progress` option to 
 
 When the upload is finished, provision the application. To provision the application, use the following command:
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
@@ -68,7 +65,7 @@ It's recommended that you remove the application package after the application i
 
 To delete the application package from the image store, use the following command:
 
-```azurecli
+```shell
 sfctl store delete --content-path app_package_dir
 ```
 
@@ -78,7 +75,7 @@ sfctl store delete --content-path app_package_dir
 
 After you provision the application, use the following command to name and create your application:
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -93,7 +90,7 @@ After you have created an application, create services from the application. In 
 stateless service from our application. The services that you can create from an application are defined in a service
 manifest in the previously provisioned application package.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -102,7 +99,7 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 To verify everything is healthy, use the following health commands:
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
@@ -110,7 +107,7 @@ sfctl service list --application-id TestApp
 To verify that the service is healthy, use similar commands to retrieve the health of both the service and the
 application:
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -125,7 +122,7 @@ To remove an application, complete the following tasks:
 
 To delete the application, use the following command:
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -134,7 +131,7 @@ sfctl application delete --application-id TestEdApp
 After you delete the application, you can unprovision the application type if you no longer need it. To unprovision
 the application type, use the following command:
 
-```azurecli
+```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
@@ -149,7 +146,7 @@ of the application. For more information, see the documentation on
 
 To perform an upgrade, first provision the next version of the application using the same commands as before:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
@@ -157,7 +154,7 @@ sfctl store delete --content-path app_package_dir_2
 
 It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 

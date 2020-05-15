@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Create an application gateway with URL path-based routing rules - Azure portal
+title: 'Tutorial: URL path-based routing rules using portal - Azure Application Gateway'
 description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
@@ -203,4 +203,4 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 ## Next steps
 
-- [Enabling end to end SSL on Azure Application Gateway](application-gateway-backend-ssl.md)
+- [Enabling end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)

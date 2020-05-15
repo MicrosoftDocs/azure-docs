@@ -67,7 +67,7 @@ ms.author: sngun
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
 ### <a name="2.3.0"/>2.3.0
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="2.2.1"/>2.2.1
 * Bug fix for aggregate dictionary.
@@ -80,7 +80,7 @@ ms.author: sngun
 
 ### <a name="2.1.0"/>2.1.0
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
-* Added an option for disabling SSL verification when running against Cosmos DB Emulator.
+* Added an option for disabling TLS verification when running against Cosmos DB Emulator.
 * Removed the restriction of dependent requests module to be exactly 2.10.0.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Added support for enabling script logging during stored procedure execution.

@@ -1,6 +1,6 @@
 ---
-title: Update Machine Learning models using Azure Data Factory | Microsoft Docs
-description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning
+title: Update Machine Learning models using Azure Data Factory 
+description: Describes how to create predictive pipelines using Azure Data Factory and Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -36,10 +36,10 @@ This article complements the main Azure Data Factory - Azure Machine Learning in
 ## Overview
 Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are:
 
-1. Create an experiment in [Azure ML Studio](https://studio.azureml.net).
-2. When you are satisfied with the model, use Azure ML Studio to publish web services for both the **training experiment** and scoring/**predictive experiment**.
+1. Create an experiment in [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
+2. When you are satisfied with the model, use Azure Machine Learning Studio (classic) to publish web services for both the **training experiment** and scoring/**predictive experiment**.
 
-The following table describes the web services used in this example.  See [Retrain Machine Learning models programmatically](../../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
+The following table describes the web services used in this example.  See [Retrain Machine Learning Studio (classic) models programmatically](../../machine-learning/studio/retrain-machine-learning-model.md) for details.
 
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
 - **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
@@ -83,7 +83,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey**in AzureML linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Azure Machine Learning linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
 
 ```json
 {
@@ -133,7 +133,7 @@ Here is the sample JSON definition of the linked service:
 ```
 
 ### Training input dataset:
-The following dataset represents the input training data for the Azure ML training web service. The Azure ML Batch Execution activity takes this dataset as an input.
+The following dataset represents the input training data for the Azure Machine Learning training web service. The Azure Machine Learning Batch Execution activity takes this dataset as an input.
 
 ```JSON
 {
@@ -187,7 +187,7 @@ The following dataset represents the output iLearner file from the Azure ML trai
 }
 ```
 
-### Linked service for Azure ML training endpoint
+### Linked service for Azure Machine Learning training endpoint
 The following JSON snippet defines an Azure Machine Learning linked service that points to the default endpoint of the training web service.
 
 ```JSON
@@ -203,12 +203,12 @@ The following JSON snippet defines an Azure Machine Learning linked service that
 }
 ```
 
-In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **apiKey**:
+In **Azure Machine Learning Studio (classic)**, do the following to get values for **mlEndpoint** and **apiKey**:
 
 1. Click **WEB SERVICES** on the left menu.
 2. Click the **training web service** in the list of web services.
 3. Click copy next to **API key** text box. Paste the key in the clipboard into the Data Factory JSON editor.
-4. In the **Azure ML studio**, click **BATCH EXECUTION** link.
+4. In the **Azure Machine Learning Studio (classic)**, click **BATCH EXECUTION** link.
 5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.   
 
 ### Linked Service for Azure ML updatable scoring endpoint:

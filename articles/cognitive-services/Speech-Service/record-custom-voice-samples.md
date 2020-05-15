@@ -1,5 +1,5 @@
 ---
-title: "Record custom voice samples - Speech Service"
+title: "Record custom voice samples - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 04/13/2020
 ms.author: erhopf
 ---
 

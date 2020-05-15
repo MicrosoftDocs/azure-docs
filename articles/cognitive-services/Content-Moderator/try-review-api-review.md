@@ -3,14 +3,14 @@ title: Create moderation reviews with REST API console - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use the Azure Content Moderator Review APIs to create image or text reviews for human moderation.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
+ms.author: pafarley
 # reviews how-to for REST API
 ---
 

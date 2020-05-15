@@ -1,18 +1,11 @@
 ---
 title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: mbullwin
+
 ---
+
 # Troubleshooting and Q and A for Application Insights for Java
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
@@ -51,7 +44,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
-* Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
 **I see data about requests and response times, but no page view, browser, or user data.**

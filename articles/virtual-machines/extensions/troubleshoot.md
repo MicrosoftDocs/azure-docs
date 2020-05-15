@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Windows VM extension failures | Microsoft Docs
+title: Troubleshooting Windows VM extension failures 
 description: Learn about troubleshooting Azure Windows VM extension failures
 services: virtual-machines-windows
 documentationcenter: ''

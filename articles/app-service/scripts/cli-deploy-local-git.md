@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Create app and deploy code from local Git repo | Microsoft Docs
-description: Azure CLI Script Sample - Create an App Service app and deploy code from a local Git repository
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Deploy from local Git repo'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to deploy code from a local Git repository.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Create an App Service app and deploy code from a local Git repository using Azure CLI

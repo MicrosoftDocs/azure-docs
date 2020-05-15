@@ -1,21 +1,14 @@
 ﻿---
-title: Azure PowerShell Script Sample - Back up a web app | Microsoft Docs
-description: Azure PowerShell Script Sample - Back up a web app
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'PowerShell: Back up an app'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to back up an app.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Back up a web app using PowerShell

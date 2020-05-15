@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
@@ -24,9 +24,11 @@ To use a control, place it in the desired location in the developer portal templ
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- The values for the parameters are passed in as part of the data model for the template. In most cases, you can simply paste in the provided example for each control for it to work correctly. For more information on the parameter values, you can see the data model section for each template in which a control may be used.  
-  
- For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+The values for the parameters are passed in as part of the data model for the template. In most cases, you can simply paste in the provided example for each control for it to work correctly. For more information on the parameter values, you can see the data model section for each template in which a control may be used.  
+
+For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -56,7 +58,7 @@ To use a control, place it in the desired location in the developer portal templ
   
 |Parameter|Description|  
 |---------------|-----------------|  
-|appId|The id of the application.|  
+|appId|The ID of the application.|  
   
 ### Developer portal templates  
  The `app-actions` control may be used in the following developer portal templates:  
@@ -200,7 +202,7 @@ To use a control, place it in the desired location in the developer portal templ
   
 |Parameter|Description|  
 |---------------|-----------------|  
-|subscriptionId|The id of the subscription to cancel.|  
+|subscriptionId|The ID of the subscription to cancel.|  
 |cancelUrl|The subscription cancels URL.|  
   
 ### Developer portal templates  

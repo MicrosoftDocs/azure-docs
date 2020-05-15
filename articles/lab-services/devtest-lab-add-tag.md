@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
 
 ---
@@ -48,6 +48,9 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 
     ![Manage tags](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
+> [!NOTE]
+> Tags created at the lab level flow through all billable resources that the lab spins up in your subscription. For example, lab level tags flow to the underlying compute VMs of lab VMs.You can use tags in the context of cost management. Lab level tags show up in the tag filter for the cost management.
+
 ## Understanding limitations to tags
 
 The following limitations apply to tags:
@@ -62,4 +65,4 @@ The following limitations apply to tags:
 
 ## Next steps
 * You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [Set policies and schedules](devtest-lab-set-lab-policy.md).
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Explore the [DevTest Labs Azure Resource Manager quickstart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

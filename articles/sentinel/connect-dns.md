@@ -3,7 +3,7 @@ title: Connect DNS data in Azure Sentinel| Microsoft Docs
 description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect your domain name server
@@ -70,7 +70,17 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 In Log Analytics, search for the schema **DnsEvents** and make sure there are events.
 
+## Troubleshooting
+
+If Lookup Queries do not show up in Azure Sentinel, follow these steps so the queries are displayed properly:
+1. Turn ON the [DNS Analytics logs on your servers](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+2. Make sure DNSEvents appear in your Log Analytics collection list.
+3. Turn ON [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
+4. In Azure DNS Analytics, under **Configuration**, change any of the settings, save it, then change it back if you need to, and then save it again.
+5. Check Azure DNS analytics to make sure the queries are now being displayed.
+
 ## Next steps
+
 In this document, you learned how to connect DNS on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).

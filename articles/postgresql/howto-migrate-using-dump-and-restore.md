@@ -1,5 +1,5 @@
 ---
-title: How To Dump and Restore in Azure Database for PostgreSQL - Single Server
+title: Dump and restore - Azure Database for PostgreSQL - Single Server
 description: Describes how to extract a PostgreSQL database into a dump file and restore from a file created by pg_dump in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
@@ -29,7 +29,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## Restore the data into the target Azure Database for PostrgeSQL using pg_restore
+## Restore the data into the target Azure Database for PostgreSQL using pg_restore
 After you've created the target database, you can use the pg_restore command and the -d, --dbname parameter to restore the data into the target database from the dump file.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -37,7 +37,7 @@ pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@ser
 Including the --no-owner parameter causes all objects created during the restore to be owned by the user specified with --username. For more information, see the official PostgreSQL documentation on [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> If your PostgreSQL server requires SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with SSL. Without SSL, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
 > In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 >

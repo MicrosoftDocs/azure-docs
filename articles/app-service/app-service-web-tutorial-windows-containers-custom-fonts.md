@@ -1,22 +1,11 @@
 ---
-title: Build ASP.NET app with Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service and deploy custom software in the container.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 04/03/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+title: 'Tutorial: Legacy app with container (Preview)'
+description: Learn how to migrate a custom Windows container into Azure App Service and deploy custom software in the container.
+ms.topic: tutorial
+ms.date: 10/22/2019
+ms.custom: mvc, seodec18
 ---
+
 # Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
@@ -87,6 +76,10 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 You can find _InstallFont.ps1_ in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
+> [!NOTE]
+> To test the Windows container locally, make sure that Docker is started on your local machine.
+>
+
 ## Publish to Azure Container Registry
 
 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images hosted in Azure Container Registry.
@@ -132,27 +125,34 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 From the left menu, select **Create a resource** > **Web** > **Web App for Containers**.
 
-### Configure the new web app
+### Configure app basics
 
-In the create interface, configure the settings according to the following table:
+In the **Basics** tab, configure the settings according to the following table, then click **Next: Docker**.
 
 | Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
-|**App Name**| Type a unique name. | The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name. |
-|**Resource Group**| Select **Use existing** and type **myResourceGroup**. |  |
-|**OS**| Windows (Preview) | |
+|**Subscription**| Make sure the correct subscription is selected. |  |
+|**Resource Group**| Select **Create new**, type **myResourceGroup**, and click **OK**. |  |
+|**Name**| Type a unique name. | The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
+|**Publish**| Docker container | |
+|**Operating System**| Windows | |
+|**Region**| West Europe | |
+|**Windows Plan**| Select **Create new**, type **myAppServicePlan**, and click **OK**. | |
 
-### Configure App Service plan
+Your **Basics** tab should look like this:
 
-Click **App Service plan/Location** > **Create new**. Give the new plan a name, select **West Europe** as the location, and click **OK**.
+![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
+### Configure Windows container
 
-### Configure container
+In the **Docker** tab, configure your custom Windows container as shown in the following table, and select **Review + create**.
 
-Click **Configure container** > **Azure Container Registry**. Select the registry, image, and tag you created earlier in [Publish to Azure Container Registry](#publish-to-azure-container-registry), and click **OK**.
-
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
+| Setting  | Suggested value |
+| ----------------- | ------------ |
+|**Image Source**| Azure Container Register |
+|**Registry**| Select [the registry you created earlier](#publish-to-azure-container-registry). |
+|**Image**| customfontsample |
+|**Tag**| latest |
 
 ### Complete app creation
 
@@ -180,9 +180,9 @@ Wait a few minutes and try again, until you get the homepage with the beautiful 
 
 ## See container start-up logs
 
-It may take some time for the Windows container to load. To see the progress, navigate to the following URL by replacing *\<app_name>* with the name of your app.
+It may take some time for the Windows container to load. To see the progress, navigate to the following URL by replacing *\<app-name>* with the name of your app.
 ```
-https://<app_name>.scm.azurewebsites.net/api/logstream
+https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
 The streamed logs looks like this:

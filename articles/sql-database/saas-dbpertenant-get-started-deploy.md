@@ -1,5 +1,5 @@
 ﻿---
-title: Database-per-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs 
+title: Database-per-tenant SaaS tutorial
 description: Deploy and explore the Wingtip Tickets SaaS multitenant application that demonstrates the database-per-tenant pattern and other SaaS patterns by using Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -122,7 +122,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traff
 
     | URL part        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *single* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
+    | events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *single* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
     | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |

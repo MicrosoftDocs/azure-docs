@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: notification-hubs
- author: spelluru
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 04/02/2018
- ms.author: spelluru
+ ms.date: 11/07/2019
+ ms.author: sethm
  ms.custom: include file
 ---
 
@@ -28,9 +28,11 @@ This section shows how to send notifications using a console app. The code broad
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
             "<connection string with full access>", "<hub name>");
+
+    // Apple requires the apns-push-type header for all requests
+    var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
 
     // Sending the notification as a template notification. All template registrations that contain 
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 

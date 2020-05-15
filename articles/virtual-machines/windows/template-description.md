@@ -1,18 +1,9 @@
 ---
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
@@ -25,7 +16,7 @@ This article describes aspects of an Azure Resource Manager template that apply 
 
 There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 
@@ -153,7 +144,7 @@ This example shows a typical resource section of a template for creating a speci
 
 When you deploy resources using a template, you have to specify a version of the API to use. The example shows the virtual machine resource using this apiVersion element:
 
-```
+```json
 "apiVersion": "2016-04-30-preview",
 ```
 
@@ -170,7 +161,7 @@ Use these opportunities for getting the latest API versions:
 
 [Parameters](../../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
-```        
+```json
 "parameters": {
   "adminUsername": { "type": "string" },
   "adminPassword": { "type": "securestring" },
@@ -182,7 +173,7 @@ When you deploy the example template, you enter values for the name and password
 
 [Variables](../../resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
-```
+```json
 "variables": { 
   "storageName": "mystore1",
   "accountid": "[concat('/subscriptions/', subscription().subscriptionId, 
@@ -219,7 +210,7 @@ When you deploy the example template, variable values are used for the name and 
 
 When you need more than one virtual machine for your application, you can use a copy element in a template. This optional element loops through creating the number of VMs that you specified as a parameter:
 
-```
+```json
 "copy": {
   "name": "virtualMachineLoop",	
   "count": "[parameters('numberOfInstances')]"
@@ -228,7 +219,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the names of the operating system disks are myOSDisk1, myOSDisk2, and myOSDisk3:
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -243,7 +234,7 @@ Also, notice in the example that the loop index is used when specifying some of 
 
 Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can’t use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
-```
+```json
 "networkInterfaces": [ { 
   "id": "[resourceId('Microsoft.Network/networkInterfaces',
     concat('myNIC', copyindex()))]" 
@@ -254,7 +245,7 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
-```
+```json
 "dependsOn": [
   "[concat('Microsoft.Network/networkInterfaces/', 'myNIC', copyindex())]" 
 ],
@@ -264,7 +255,7 @@ Resource Manager deploys in parallel any resources that aren't dependent on anot
 
 How do you know if a dependency is required? Look at the values you set in the template. If an element in the virtual machine resource definition points to another resource that is deployed in the same template, you need a dependency. For example, your example virtual machine defines a network profile:
 
-```
+```json
 "networkProfile": { 
   "networkInterfaces": [ { 
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
@@ -280,7 +271,7 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](sizes.md)
-- [name](/azure/architecture/best-practices/naming-conventions) and credentials
+- [name](/azure/architecture/best-practices/resource-naming) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics
@@ -293,7 +284,7 @@ In Azure, vhd files can represent [disks or images](managed-disks-overview.md?to
 
 When you create a VM, you must decide what operating system to use. The imageReference element is used to define the operating system of a new VM. The example shows a definition for a Windows Server operating system:
 
-```
+```json
 "imageReference": { 
   "publisher": "MicrosoftWindowsServer", 
   "offer": "WindowsServer", 
@@ -304,7 +295,7 @@ When you create a VM, you must decide what operating system to use. The imageRef
 
 If you want to create a Linux operating system, you might use this definition:
 
-```
+```json
 "imageReference": {
   "publisher": "Canonical",
   "offer": "UbuntuServer",
@@ -315,7 +306,7 @@ If you want to create a Linux operating system, you might use this definition:
 
 Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](cli-ps-findimage.md):
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -327,7 +318,7 @@ Configuration settings for the operating system disk are assigned with the osDis
 
 If you want to create virtual machines from existing disks, remove the imageReference and the osProfile elements and define these disk settings:
 
-```
+```json
 "osDisk": { 
   "osType": "Windows",
   "managedDisk": { 
@@ -342,7 +333,7 @@ If you want to create virtual machines from existing disks, remove the imageRefe
 
 If you want to create a virtual machine from a managed image, change the imageReference element and define these disk settings:
 
-```
+```json
 "storageProfile": { 
   "imageReference": {
     "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
@@ -360,7 +351,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
 
 You can optionally add data disks to the VMs. The [number of disks](sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
-```
+```json
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
@@ -376,7 +367,7 @@ You can optionally add data disks to the VMs. The [number of disks](sizes.md) de
 
 Although [extensions](extensions-features.md) are a separate resource, they're closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](extensions-diagnostics-template.md) being added to the VMs:
 
-```
+```json
 { 
   "name": "Microsoft.Insights.VMDiagnosticsSettings", 
   "type": "extensions", 
@@ -411,7 +402,7 @@ This extension resource uses the storageName variable and the diagnostic variabl
 
 There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
 
-```
+```json
 {
   "name": "MyCustomScriptExtension",
   "type": "extensions",

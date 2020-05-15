@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:  [mvc, amqp]
 ms.date: 11/06/2018
 ms.author: dobett
 
@@ -38,7 +38,7 @@ To follow the steps in this how-to guide, you need:
 * Postman. You can download [Postman for Mac, windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
-* An [Azure storage account deployed to your Azure subscription](../storage/common/storage-quickstart-create-account.md). You need the storage account's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
+* An [Azure storage account deployed to your Azure subscription](../storage/common/storage-account-create.md). You need the storage account's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 
 ## Prepare your development environment
 
@@ -204,7 +204,7 @@ Open the **WebService\appsettings.ini** file and modify the settings as follows:
 
 #### Configure the solution to include your new device model files
 
-By default, your new device model JSON and JS files won’t be copied into the built solution. You need to explicitly include them.
+By default, your new device model JSON and JS files won't be copied into the built solution. You need to explicitly include them.
 
 Add an entry to the **services\services.csproj** file for each file you want included. For example:
 
@@ -232,7 +232,7 @@ The following script assumes that the name of your IoT hub is
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Deploy containers with Helm in Azure Kubernetes
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in Azure Container Service 
-services: container-service
 author: sauryadas
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
@@ -32,7 +30,7 @@ Helm has two components:
 
 * [Install and configure `kubectl`](../container-service-connect.md) on a local computer
 
-* [Install Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) on a local computer
+* [Install Helm](https://helm.sh/docs/intro/quickstart/) on a local computer
 
 ## Helm basics 
 
@@ -147,5 +145,5 @@ You can now use standard SQL commands to create databases, tables, etc. For exam
  
 ## Next steps
 
-* For more information about managing Kubernetes charts, see the [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* For more information about managing Kubernetes charts, see the [Helm documentation](https://helm.sh/docs/). 
 

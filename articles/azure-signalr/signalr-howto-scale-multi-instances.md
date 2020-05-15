@@ -1,5 +1,5 @@
 ---
-title: How to scale with multiple instances for Azure SignalR Service
+title: Scale with multiple instances - Azure SignalR Service
 description: In many scaling scenarios, customer often needs to provision multiple instances and configure to use them together, to create a large-scale deployment. For example, sharding requires multiple instances support.
 author: sffamily
 ms.service: signalr
@@ -217,7 +217,7 @@ In cross-region cases, network can be unstable. For one app server located in *E
 
 ![Cross-Geo Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-When a client tries `/negotiate` with the app server, with the default router, SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When endpoint is available, SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
+When a client tries `/negotiate` with the app server, with the default router, SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint is not available, SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
 
 In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints are not available, the client is redirected to endpoints in other regions. Fail-over section below describes the scenario in detail.
 

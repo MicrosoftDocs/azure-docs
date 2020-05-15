@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Host your domain and subdomain in Azure DNS
-description: This tutorial shows you how to configure Azure DNS to host your DNS zones.
+title: 'Tutorial: Host your domain and subdomain - Azure DNS'
+description: In this article, learn how to configure Azure DNS to host your DNS zones.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
+ms.author: rohink
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 ---
 
@@ -36,11 +36,11 @@ The example domain used for this tutorial is contoso.net, but use your own domai
 
 ## Create a DNS zone
 
-1. Sign in to the Azure portal.
-1. On the upper left, select **Create a resource** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
+1. Go to the [Azure portal](https://portal.azure.com/) to create a DNS zone. Search for and select **DNS zones**.
 
    ![DNS zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
+1. Select **Create DNS zone**.
 1. On the **Create DNS zone** page, enter the following values, and then select **Create**:
 
    | **Setting** | **Value** | **Details** |

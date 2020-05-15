@@ -1,13 +1,12 @@
 ---
-title: How to roll X.509 certificates in Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to roll X.509 certificates with your Device Provisioning service instance
+title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
+description: How to roll X.509 certificates with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ---
 
 # How to roll X.509 device certificates

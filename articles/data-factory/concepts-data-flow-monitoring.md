@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow Visual Monitoring
+title: Mapping data flow Visual Monitoring
 description: How to visually monitor Azure Data Factory Data Flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.custom: seo-lt-2019
+ms.date: 04/17/2020
 ---
 
 # Monitor Data Flows
 
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 After you have completed building and debugging your data flow, you will want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline from Azure Data Factory using Triggers. Or you can use the Trigger Now option from the Azure Data Factory Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
 
@@ -19,13 +20,17 @@ When you execute your pipeline, you will be able to monitor the pipeline and all
 
 ![Data Flow Monitoring](media/data-flow/mon001.png "Data Flow Monitoring")
 
-You will see stats at this level as well including the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
+You will see statistics at this level as well including the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
 
 ![Data Flow Monitoring](media/data-flow/mon002.png "Data Flow Monitoring")
 
 When you are in the graphical node monitoring view, you will see a simplified view-only version of your data flow graph.
 
 ![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitoring")
+
+Here is a video overview of monitoring performance of your data flows from the ADF monitoring screen:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## View Data Flow Execution Plans
 
@@ -42,6 +47,11 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Computed: You use the column for conditional processing or within an expression in your data flow, but do not land it in the Sink
   * Derived: The column is a new column that you generated in your flow, i.e. it was not present in the Source
   * Mapped: The column originated from the source and your are mapping it to a sink field
+  * Data flow status: The current status of your execution
+  * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
+  * Number of transforms: How many transformation steps are being executed in your flow
+  
+![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
   
 ## Monitor Icons
 

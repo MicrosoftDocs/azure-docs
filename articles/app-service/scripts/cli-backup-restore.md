@@ -1,21 +1,15 @@
 ---
-title: Azure CLI Script Sample - Restore a web app from a backup | Microsoft Docs
-description: Azure CLI Script Sample - Restore a web app from a backup
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Restore an app from a backup'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to restore an app from a backup.
+author: msangapu-msft
 tags: azure-service-management
 
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Restore a web app from a backup using CLI

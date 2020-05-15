@@ -1,22 +1,11 @@
 ---
-title: Use Docker Compose on a Linux VM in Azure | Microsoft Docs
-description: How to install and use Docker and Compose on Linux virtual machines with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
+title: Use Docker Compose 
+description: How to install and use Docker and Compose on Linux virtual machines with the Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-
 ---
 # Get started with Docker and Compose to define and run a multi-container application in Azure
 With [Compose](https://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.

@@ -20,8 +20,6 @@ ms.author: genli
 
 This article describes how to troubleshoot issues when you connect to an Azure virtual machine (VM) and Remote Desktop Services, or TermService, isn't starting or fails to start.
 
-> [!NOTE]  
-> Azure has two different deployment models to create and work with resources: [Azure Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of the classic deployment model.
 
 ## Symptoms
 
@@ -111,7 +109,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 #### TermService service is stopped because of an Access Denied problem
 
 1. Connect to [Serial Console](serial-console-windows.md) and open a PowerShell instance.
-2. Download the Process Monitor tool by running the following script:
+2. Download the Process Monitor tool by running the following script:
 
    ```
    remove-module psreadline  
@@ -139,16 +137,16 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
    procmon /Terminate 
    ```
 
-5. Collect the file **c:\temp\ProcMonTrace.PML**:
+5. Collect the file **c:\temp\ProcMonTrace.PML**:
 
     1. [Attach a data disk to the VM](../windows/attach-managed-disk-portal.md
 ).
     2. Use Serial Console you can copy the file to the new drive. For example, `copy C:\temp\ProcMonTrace.PML F:\`. In this command, F is the driver letter of the attached data disk.
     3. Detach the data drive and attach it on a working VM that has Process Monitor ubstakke installed.
 
-6. Open **ProcMonTrace.PML** by using Process Monitor the working VM. Then filter by **Result is ACCESS DENIED**, as shown in the following screenshot：
+6. Open **ProcMonTrace.PML** by using Process Monitor the working VM. Then filter by **Result is ACCESS DENIED**, as shown in the following screenshot：
 
-    ![Filter by result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filter by result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign-in account that's used on the service doesn't have ACL permission to access these objects. To know the correct ACL permission for the sign-in account, you can check on a healthy VM. 

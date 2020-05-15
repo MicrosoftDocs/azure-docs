@@ -110,7 +110,7 @@ To get started, download [Microsoft Azure Government cloud for mainframe applica
 
 ## Next steps
 
-Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. For detailed guidance about choosing a partner solution, see the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) website.
+Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. 
 
 See also:
 

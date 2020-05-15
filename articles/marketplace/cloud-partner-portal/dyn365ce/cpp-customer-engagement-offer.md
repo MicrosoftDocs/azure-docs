@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement offer for the Azure Marketplace 
 description: Deprecated this CPP article, linked to PC article; was "Explains how to create a Dynamics 365 for Customer Engagement offer for the AppSource Marketplace by using the Cloud Partner Portal."
-services: Dynamics 365 for Customer Engagement, AppSource Marketplace, Cloud Partner Portal, 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Customer Engagement offer

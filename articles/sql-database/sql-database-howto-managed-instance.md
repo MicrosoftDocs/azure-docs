@@ -1,5 +1,5 @@
 ---
-title: How to configure an Azure SQL Database managed instance | Microsoft Docs
+title: How to configure a managed instance
 description: Learn how to configure and manage Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
@@ -37,6 +37,7 @@ In this article you can find various guides, scripts, and explanation that can h
 
 - [Transactional replication](replication-with-sql-database-managed-instance.md) enables you to replicate your data between managed instances, or from on-premises SQL Server to a managed instance, and vice versa. Find more information how to use and configure transaction replication in this guide.
 - [Configure threat detection](sql-database-managed-instance-threat-detection.md) – [threat detection](sql-database-threat-detection-overview.md) is a built-in Azure SQL Database feature that detects various potential attacks such as SQL Injection or access from suspicious locations. In this guide you can learn how to enable and configure [threat detection](sql-database-threat-detection-overview.md) for a managed instance.
+- [Creating alerts](sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for managed instance. In this guide you will learn how to enable and configure alerts for managed instance.
 
 ## Next steps
 

@@ -2,19 +2,22 @@
 title: How to configure a container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 # Configure Form Recognizer containers
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
 You configure the Form Recognizer container run-time environment by using the `docker run` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker run commands"](#example-docker-run-commands) section. The container-specific settings are the billing settings.
+
+> [!IMPORTANT]
+> The Form Recognizer containers currently use version 1.0 of the Form Recognizer API. You can access the latest version of the API by using the managed service instead.
 
 ## Configuration settings
 
@@ -41,7 +44,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 

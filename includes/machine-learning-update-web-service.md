@@ -1,8 +1,8 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/16/2020
 ms.author: larryfr
 ---
 
@@ -10,6 +10,8 @@ To update a web service, use the `update` method. You can update the web service
 
 > [!IMPORTANT]
 > When you create a new version of a model, you must manually update each service that you want to use it.
+>
+> You can not use the SDK to update a web service published from the Azure Machine Learning designer.
 
 **Using the SDK**
 
@@ -56,6 +58,6 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > In this example, a JSON document is used to pass the model information from the registration command into the update command.
 >
-> To update the service to use a new entry script or environment, create an [inference configuration file](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) and specify it with the `ic` parameter.
+> To update the service to use a new entry script or environment, create an [inference configuration file](/azure/machine-learning/reference-azure-machine-learning-cli#inference-configuration-schema) and specify it with the `ic` parameter.
 
 For more information, see the [az ml service update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) documentation.

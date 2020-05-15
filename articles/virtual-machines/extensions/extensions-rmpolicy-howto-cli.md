@@ -1,5 +1,5 @@
 ---
-title: Use Azure Policy to restrict VM extension installation | Microsoft Docs
+title: Use Azure Policy to restrict VM extension installation 
 description: Use Azure Policy to restrict VM extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.reviewer: cynthn
 
 # Use Azure Policy to restrict extensions installation on Linux VMs
 
-If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure policy using the CLI to restrict extensions for VMs within a resource group. 
+If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the CLI to restrict extensions for VMs within a resource group. 
 
 This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
@@ -31,7 +31,7 @@ This example shows you how to deny installing extensions published by 'Microsoft
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
-```azurecli-interactive 
+```bash
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
@@ -72,7 +72,7 @@ This example shows you how to create a parameters file for Linux VMs in Cloud Sh
 
 In the [bash Cloud Shell](https://shell.azure.com/bash), type:
 
-```azurecli-interactive
+```bash
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 

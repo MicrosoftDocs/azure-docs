@@ -1,23 +1,14 @@
 ---
-title: Create ASP.NET Core app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
+title: 'Quickstart: Run a Linux ASP.NET Core app'
+description: Get started with Linux apps on Azure App Service by deploying your first ASP.NET Core app to a Linux container in App Service.
 keywords: azure app service, web app, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
-ms.date: 03/27/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.date: 04/22/2020
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create an ASP.NET Core app in App Service on Linux
 
 > [!NOTE]
@@ -37,7 +28,7 @@ You can follow the steps in this article using a Mac, Windows, or Linux machine.
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">Install .NET Core</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
 
 ## Create the app locally
 
@@ -93,7 +84,7 @@ git commit -m "first commit"
 Browse to your newly created app. Replace _&lt;app-name>_ with your app name.
 
 ```bash
-http://<app-name>.azurewebsites.net
+https://<app-name>.azurewebsites.net
 ```
 
 Here is what your new app should look like:
@@ -102,34 +93,32 @@ Here is what your new app should look like:
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-Counting objects: 22, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (18/18), done.
-Writing objects: 100% (22/22), 51.21 KiB | 3.94 MiB/s, done.
-Total 22 (delta 1), reused 0 (delta 0)
+<pre>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '741f16d1db'.
-remote: Generating deployment script.
-remote: Project file path: ./hellodotnetcore.csproj
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
-remote: ...............................................................................................
-remote:   Restoring packages for /home/site/repository/hellodotnetcore.csproj...
-remote: ....................................
-remote:   Installing System.Xml.XPath 4.0.1.
-remote:   Installing System.Diagnostics.Tracing 4.1.0.
-remote:   Installing System.Threading.Tasks.Extensions 4.0.0.
-remote:   Installing System.Reflection.Emit.ILGeneration 4.0.1.
-remote:   ...
-remote: Finished successfully.
-remote: Running post deployment command(s)...
+remote: Preparing deployment for commit id 'd6b54472f7'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote:
+remote: Oryx Version      : 0.2.20200114.13, Commit: 204922f30f8e8d41f5241b8c218425ef89106d1d, ReleaseTagName: 20200114.13
+remote: Build Operation ID: |imoMY2y77/s=.40ca2a87_
+remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
+.
+.
+.
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
- * [new branch]      master -> master
-```
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
+To https://&lt;app-name&gt;.scm.azurewebsites.net:443/&lt;app-name&gt;.git
+   d87e6ca..d6b5447  master -> master
+</pre>
 
 ## Browse to the app
 

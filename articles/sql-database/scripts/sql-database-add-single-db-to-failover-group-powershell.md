@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example- Failover group - Azure SQL Database single database | Microsoft Docs
+title: PowerShell example- Failover group - Azure SQL Database single database 
 description: Azure PowerShell example script to create an Azure SQL Database single database, add it to a failover group, and test failover. 
 services: sql-database
 ms.service: sql-database

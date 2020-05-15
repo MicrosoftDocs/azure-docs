@@ -3,7 +3,7 @@ title: Limits and quotas IoT Plug and Play Preview | Microsoft Docs
 description: Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -22,19 +22,19 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Number of device capability models (DCMs) or interfaces that can be registered per hub | 1500 ||
 | Maximum number of interfaces that can be registered per device | 40 ||
 | Maximum number of DCMs that can be registered per device | 1 ||
-| Maximum size of interface/DCM file | 512 chars ||
+| Maximum size of interface/DCM file | 512 KB ||
 | Maximum size of an interface name | 256 chars ||
 | Maximum size of a property name  | 64 bytes, 7 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
 | Maximum size of a property value | 512 bytes ||
 | Maximum size of a command name | 100 bytes ||
 | Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Resolution API calls across SKU (regardless of units) | 100 request/second ||
+| Resolution API calls across SKU (regardless of units) | 100 requests/second ||
 
 ## Model Repository
 
 For the public preview, the following limits and quotas apply to a model repository:
 
-| Limits, restrictions, and throttles| Value |
+| Limits, restrictions, and throttles | Value |
 |-----|-----|
 | Number of company model repositories per Azure Active Directory tenant | 1 |
 | Number of authorization keys per model repository | 10  |

@@ -1,16 +1,9 @@
 ---
-title: How to Configure an App Service Environment v1 - Azure
-description: Configuration, management, and monitoring of the App Service Environment v1
-services: app-service
-documentationcenter: ''
+title: Configure ASE v1
+description: Configuration, management, and monitoring of the App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

@@ -1,21 +1,9 @@
 ---
-title: Connect securely to an Azure Service Fabric cluster | Microsoft Docs
+title: Connect securely to an Azure Service Fabric cluster 
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: atsenthi
-
 ---
 # Connect to a secure cluster
 
@@ -34,7 +22,7 @@ You can connect to a cluster using the `sfctl cluster select` command.
 Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single PFX
 file. For password protected PEM files, you will be prompted automatically to enter the password. If you obtained the client certificate as a PFX file, first convert the PFX file to a PEM file using the following command. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
@@ -42,7 +30,7 @@ If your .pfx file is not password protected, use -passin pass: for the last para
 
 To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -51,7 +39,7 @@ Password protected pem files will prompt for password prior to running any comma
 To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
 file.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -61,14 +49,14 @@ verification, specify the `--no-verify` option. For example:
 > [!WARNING]
 > Do not use the `no-verify` option when connecting to production Service Fabric clusters.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 In addition, you can specify paths to directories of trusted CA certs, or individual certs. To specify these
 paths, use the `--ca` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 

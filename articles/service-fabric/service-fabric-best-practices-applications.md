@@ -1,17 +1,9 @@
 ---
-title: Azure Service Fabric application design best practices | Microsoft Docs
-description: Best practices for developing Service Fabric applications.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric application design best practices 
+description: Best practices and design considerations for developing applications and services using Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
+
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
 ---
@@ -34,7 +26,7 @@ Become familiar with the [general architecture](https://docs.microsoft.com/azure
 Use an API gateway service that communicates to back-end services that can then be scaled out. The most common API gateway services used are:
 
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), which is [integrated with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), using the [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) to read from Event Hub partitions.
+- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), using the [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) to read from Event Hub partitions.
 - [Træfik reverse proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), using the [Azure Service Fabric provider](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 
@@ -62,8 +54,8 @@ Save costs and improve availability:
 ## How to work with Reliable Services
 Service Fabric Reliable Services enables you to easily create stateless and stateful services. For more information, see the [introduction to Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
 - Always honor the [cancellation token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) in the `RunAsync()` method for stateless and stateful services and the `ChangeRole()` method for stateful services. If you don't, Service Fabric doesn't know if your service can be closed. For example, if you don't honor the cancellation token, much longer application upgrade times can occur.
--	Open and close [communication listeners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) in a timely way, and honor the cancellation tokens.
--	Never mix sync code with async code. For example, don't use `.GetAwaiter().GetResult()` in your async calls. Use async *all the way* through the call stack.
+-    Open and close [communication listeners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) in a timely way, and honor the cancellation tokens.
+-    Never mix sync code with async code. For example, don't use `.GetAwaiter().GetResult()` in your async calls. Use async *all the way* through the call stack.
 
 ## How to work with Reliable Actors
 Service Fabric Reliable Actors enables you to easily create stateful, virtual actors. For more information, see the [introduction to Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -72,8 +64,8 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 - Make the actor state as [granular as possible](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
 - Manage the [actor's life cycle](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Delete actors if you're not going to use them again. Deleting unneeded actors is especially important when you're using the [volatile state provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), because all the state is stored in memory.
 - Because of their [turn-based concurrency](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), actors are best used as independent objects. Don't create graphs of multi-actor, synchronous method calls (each of which most likely becomes a separate network call) or create circular actor requests. These will significantly affect performance and scale.
-- Don’t mix sync code with async code. Use async consistently to prevent performance issues.
-- Don’t make long-running calls in actors. Long-running calls will block other calls to the same actor, due to the turn-based concurrency.
+- Don't mix sync code with async code. Use async consistently to prevent performance issues.
+- Don't make long-running calls in actors. Long-running calls will block other calls to the same actor, due to the turn-based concurrency.
 - If you're communicating with other services by using [Service Fabric remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) and you're creating a `ServiceProxyFactory`, create the factory at the [actor-service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) level and *not* at the actor level.
 
 
@@ -81,7 +73,7 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 Be thorough about adding [application logging](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) in service calls. It will help you diagnose scenarios in which services call each other. For example, when A calls B calls C calls D, the call could fail anywhere. If you don't have enough logging, failures are hard to diagnose. If the services are logging too much because of call volumes, be sure to at least log errors and warnings.
 
 ## IoT and messaging applications
-When you're reading messages from [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integrates with Service Fabric Reliable Services to maintain the state of reading from the event hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
+When you're reading messages from [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor integrates with Service Fabric Reliable Services to maintain the state of reading from the event hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
 
 
 ## Design guidance on Azure

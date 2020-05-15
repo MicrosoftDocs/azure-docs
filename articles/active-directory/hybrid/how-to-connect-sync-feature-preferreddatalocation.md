@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -46,6 +46,7 @@ The geos in Office 365 available for Multi-Geo are:
 | Japan | JPN |
 | Korea | KOR |
 | South Africa | ZAF |
+| Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |
@@ -61,14 +62,14 @@ Azure AD Connect supports synchronization of the **preferredDataLocation** attri
 * The schema of the object type **User** in the Azure AD Connector is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
 * The schema of the object type **Person** in the metaverse is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
 
-By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. You must also identify an attribute to hold the Office 365 geo for your users, because there is no **preferredDataLocation** attribute in on-premises Active Directory. This is going to be different for each organization.
+By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. The Active Directory schema in Windows Server 2019 has an attribute **msDS-preferredDataLocation** you should use for this purpose. If you have not updated the Active Directory schema and cannot do so, then you must identify an attribute to hold the Office 365 geo for your users. This is going to be different for each organization.
 
 > [!IMPORTANT]
-> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. Azure AD no longer allows the **preferredDataLocation** attribute on **synchronized User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
+> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
 
 Before enabling synchronization:
 
-* Decide which on-premises Active Directory attribute to be used as the source attribute. It should be of the type, **single-valued string**. In the steps that follow, one of the **extensionAttributes** is used.
+* If you have not upgraded the Active Directory schema to 2019, then decide which on-premises Active Directory attribute to be used as the source attribute. It should be of the type, **single-valued string**.
 * If you have previously configured the **preferredDataLocation** attribute on existing **synchronized User objects** in Azure AD by using Azure AD PowerShell, you must backport the attribute values to the corresponding **User** objects in on-premises Active Directory.
 
     > [!IMPORTANT]
@@ -91,8 +92,20 @@ To avoid unintended changes being exported to Azure AD, ensure that no synchroni
 
 ![Screenshot of Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## Step 2: Add the source attribute to the on-premises Active Directory Connector schema
-Not all Azure AD attributes are imported into the on-premises Active Directory Connector space. If you have selected to use an attribute that is not synchronized by default, then you need to import it. To add the source attribute to the list of the imported attributes:
+## Step 2: Refresh the schema for Active Directory
+If you have updated the Active Directory schema to 2019 and Connect was installed before the schema extension, then the Connect schema cache does not have the updated schema. You must then refresh the schema from the wizard for it to appear in the UI.
+
+1. Start the Azure AD Connect wizard from the desktop.
+2. Select the option **Refresh directory schema** and click **Next**.
+3. Enter your Azure AD credentials and click **Next**.
+4. On the **Refresh Directory Schema** page, make sure all forests are selected and click **Next**.
+5. When completed, close the wizard.
+
+![Screenshot of Refresh Directory Schema in the Connect wizard](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-refreshschema.png)
+
+## Step 3: Add the source attribute to the on-premises Active Directory Connector schema
+**This step is only needed if you run Connect version 1.3.21 or older. If you are on 1.4.18 or newer, then skip to step 5.**  
+Not all Azure AD attributes are imported into the on-premises Active Directory connector space. If you have selected to use an attribute that is not synchronized by default, then you need to import it. To add the source attribute to the list of the imported attributes:
 
 1. Select the **Connectors** tab in the Synchronization Service Manager.
 2. Right-click the on-premises Active Directory Connector, and select **Properties**.
@@ -102,7 +115,8 @@ Not all Azure AD attributes are imported into the on-premises Active Directory C
 
 ![Screenshot of Synchronization Service Manager and Properties dialog box](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
-## Step 3: Add **preferredDataLocation** to the Azure AD Connector schema
+## Step 4: Add **preferredDataLocation** to the Azure AD Connector schema
+**This step is only needed if you run Connect version 1.3.21 or older. If you are on 1.4.18 or newer, then skip to step 5.**  
 By default, the **preferredDataLocation** attribute is not imported into the Azure AD Connector space. To add it to the list of imported attributes:
 
 1. Select the **Connectors** tab in the Synchronization Service Manager.
@@ -113,7 +127,7 @@ By default, the **preferredDataLocation** attribute is not imported into the Azu
 
 ![Screenshot of Synchronization Service Manager and Properties dialog box](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-## Step 4: Create an inbound synchronization rule
+## Step 5: Create an inbound synchronization rule
 The inbound synchronization rule permits the attribute value to flow from the source attribute in on-premises Active Directory to the metaverse.
 
 1. Start the **Synchronization Rules Editor** by going to **START** > **Synchronization Rules Editor**.
@@ -142,7 +156,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 
 ![Screenshot of Create inbound synchronization rule](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
-## Step 5: Create an outbound synchronization rule
+## Step 6: Create an outbound synchronization rule
 The outbound synchronization rule permits the attribute value to flow from the metaverse to the **preferredDataLocation** attribute in Azure AD:
 
 1. Go to the **Synchronization Rules Editor**.
@@ -167,7 +181,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from an on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation** tab, and implement the following transformation rule:
 
@@ -179,7 +193,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
 
 ![Screenshot of Create outbound synchronization rule](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
-## Step 6: Run full synchronization cycle
+## Step 7: Run full synchronization cycle
 In general, full synchronization cycle is required. This is because you have added new attributes to both the Active Directory and Azure AD Connector schema, and introduced custom synchronization rules. Verify the changes before exporting them to Azure AD. You can use the following steps to verify the changes, while manually running the steps that make up a full synchronization cycle.
 
 1. Run **Full import** on the on-premises Active Directory Connector:
@@ -227,13 +241,13 @@ In general, full synchronization cycle is required. This is because you have add
 > [!NOTE]
 > You might notice that the steps do not include the full synchronization step on the Azure AD Connector, or the export step on the Active Directory Connector. The steps are not required, because the attribute values are flowing from on-premises Active Directory to Azure AD only.
 
-## Step 7: Re-enable sync scheduler
+## Step 8: Re-enable sync scheduler
 Re-enable the built-in sync scheduler:
 
 1. Start a PowerShell session.
 2. Re-enable scheduled synchronization by running this cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## Step 8: Verify the result
+## Step 9: Verify the result
 It is now time to verify the configuration and enable it for your users.
 
 1. Add the geo to the selected attribute on a user. The list of available geos can be found in this table.  
@@ -242,7 +256,6 @@ It is now time to verify the configuration and enable it for your users.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  
 ![Screenshot of Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assuming your tenant has been marked to be able to use this feature, the mailbox is moved to the correct geo. This can be verified by looking at the server name where the mailbox is located.
-4. To verify that this setting has been effective over many mailboxes, use the script in the [TechNet gallery](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). This script also has a list of the server prefixes of all Office 365 datacenters, and which geo it is located in. It can be used as a reference in the previous step to verify the location of the mailbox.
 
 ## Next steps
 

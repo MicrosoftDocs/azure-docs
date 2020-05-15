@@ -1,9 +1,9 @@
 ---
-title: Use Azure Resource Health to monitor SQL Database health | Microsoft Docs
+title: Use Azure Resource Health to monitor database health
 description: Use Azure Resource Health to monitor SQL Database health, helps you diagnose and get support when an Azure issue impacts your SQL resources.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

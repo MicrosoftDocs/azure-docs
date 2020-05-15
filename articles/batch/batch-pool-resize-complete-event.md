@@ -1,17 +1,9 @@
 ---
-title: "Azure Batch pool resize complete event | Microsoft Docs"
-description: Reference for Batch pool resize complete event.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
+title: Azure Batch pool resize complete event
+description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
+ms.author: labrenne
 ---
 
 # Pool resize complete event

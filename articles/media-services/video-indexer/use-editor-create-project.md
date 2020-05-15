@@ -1,6 +1,6 @@
 ---
 title: Use the Video Indexer editor to create projects
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This topic demonstrates how to use the Video Indexer editor to create projects.
 services: media-services
 author: Juliako

@@ -1,10 +1,10 @@
 ---
 title: ATAN in Azure Cosmos DB query language
-description: Learn about SQL system function ATAN in Azure Cosmos DB.
+description: Learn about how the Arctangent (ATAN ) SQL system function in Azure Cosmos DB returns the angle, in radians, whose tangent is the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -40,6 +40,9 @@ SELECT ATAN(-45.01) AS atan
 [{"atan": -1.5485826962062663}]  
 ```  
   
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

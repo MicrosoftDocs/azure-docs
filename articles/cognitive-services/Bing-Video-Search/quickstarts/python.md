@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and Python"
+title: "Quickstart: Search for videos using the REST API and Python - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Python.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -36,7 +36,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     import requests
     from IPython.display import HTML
     ```
-2.  Create variables for your subscription key, search endpoint, and a search term.
+2.  Create variables for your subscription key, search endpoint, and a search term. `search_url` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```python
     subscription_key = None

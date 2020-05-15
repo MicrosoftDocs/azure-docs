@@ -9,7 +9,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: diberry
 ---
 
@@ -28,15 +28,15 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     ```kusto
     requests
     | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration, performanceBucket
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | project timestamp, id, url, resultCode, duration, performanceBucket
+    | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
     | join kind= inner (
     traces | extend id = operation_ParentId
     ) on id
     | extend question = tostring(customDimensions['Question'])
     | extend answer = tostring(customDimensions['Answer'])
     | extend score = tostring(customDimensions['Score'])
-    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId
     ```
 
     Select **Run** to run the query.
@@ -48,53 +48,72 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 ### Total 90-day traffic
 
 ```kusto
-    //Total Traffic
-    requests
-    | where url endswith "generateAnswer" and name startswith "POST"
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
-    | summarize ChatCount=count() by bin(timestamp, 1d), KbId
+//Total Traffic
+requests
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
 ### Total question traffic in a given time period
 
 ```kusto
-    //Total Question Traffic in a given time period
-    let startDate = todatetime('2018-02-18');
-    let endDate = todatetime('2018-03-12');
-    requests
-    | where timestamp <= endDate and timestamp >=startDate
-    | where url endswith "generateAnswer" and name startswith "POST" 
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
-    | summarize ChatCount=count() by KbId
+//Total Question Traffic in a given time period
+let startDate = todatetime('2019-01-01');
+let endDate = todatetime('2020-12-31');
+requests
+| where timestamp <= endDate and timestamp >=startDate
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| summarize ChatCount=count() by KbId
 ```
 
 ### User traffic
 
 ```kusto
-    //User Traffic
-    requests
-    | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-    | join kind= inner (
-    traces | extend id = operation_ParentId 
-    ) on id
-    | extend UserId = tostring(customDimensions['UserId'])
-    | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
+//User Traffic
+requests
+| where url endswith "generateAnswer"
+| project timestamp, id, url, resultCode, duration
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| join kind= inner (
+traces | extend id = operation_ParentId
+) on id
+| extend UserId = tostring(customDimensions['UserId'])
+| summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
 ### Latency distribution of questions
 
 ```kusto
-    //Latency distribution of questions
-    requests
-    | where url endswith "generateAnswer" and name startswith "POST"
-    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-    | project timestamp, id, name, resultCode, performanceBucket, KbId
-    | summarize count() by performanceBucket, KbId
+//Latency distribution of questions
+requests
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| project timestamp, id, name, resultCode, performanceBucket, KbId
+| summarize count() by performanceBucket, KbId
+```
+
+### Unanswered questions
+
+```kusto
+// Unanswered questions
+requests
+| where url endswith "generateAnswer"
+| project timestamp, id, url
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
+| join kind= inner (
+traces | extend id = operation_ParentId
+) on id
+| extend question = tostring(customDimensions['Question'])
+| extend answer = tostring(customDimensions['Answer'])
+| extend score = tostring(customDimensions['Score'])
+| where  score  == "0" and message == "QnAMaker GenerateAnswer"
+| project timestamp, KbId, question, answer, score
+| order  by timestamp  desc
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Choose capactiy](./improve-knowledge-base.md)

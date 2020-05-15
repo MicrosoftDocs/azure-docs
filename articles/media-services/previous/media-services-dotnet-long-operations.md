@@ -1,13 +1,13 @@
 ---
 title: Polling Long-Running Operations | Microsoft Docs
-description: This topic shows how to poll long-running operations.
+description: Azure Media Services offers APIs that send requests to Media Services to start operations (for example, create, start, stop, or delete a channel), these operations are long-running. This topic shows how to poll long-running operations.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
+writer: juliako
 manager: femila
 editor: ''
 
-ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-
 ---
+
 # Delivering Live Streaming with Azure Media Services
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
 title: Azure Government extensions | Microsoft Docs
-description: This article lists virtual machine extensions available in Azure Government
+description: This article lists virtual machine extensions available in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''

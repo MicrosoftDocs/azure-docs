@@ -1,28 +1,31 @@
 ---
 title: Azure HDInsight management IP addresses
-description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user defined routes for virtual networking with Azure HDInsight.
+description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user-defined routes for virtual networking with Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.custom: hdinsightactive
+ms.date: 03/03/2020
 ---
 
 # HDInsight management IP addresses
 
-If you use network security groups (NSGs) or user defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
+> [!Important]
+> In most cases, you can now use the [service tag](hdinsight-service-tags.md) feature for network security groups, instead of manually adding IP addresses. New regions will only be added for service tags and the static IP addresses will eventually be deprecated.
+
+If you use network security groups (NSGs) or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region-specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
 
 The following sections discuss the specific IP addresses that must be allowed.
 
 ## Azure DNS service
 
-If you are using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you are using custom DNS, skip this step.
+If you're using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you're using custom DNS, skip this step.
 
 ## Health and management services: All regions
 
-Allow traffic from the following IP addresses for Azure HDInsight health and management services which apply to all Azure regions:
+Allow traffic from the following IP addresses for Azure HDInsight health and management services, which apply to all Azure regions:
 
 | Source IP address | Destination  | Direction |
 | ---- | ----- | ----- |
@@ -36,7 +39,7 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located:
 
 > [!IMPORTANT]  
-> If the Azure region you are using is not listed, then only use the four IP addresses from previous section.
+> If the Azure region you are using is not listed, then use the [service tag](hdinsight-service-tags.md) feature for network security groups.
 
 | Country | Region | Allowed Source IP addresses | Allowed Destination | Direction |
 | ---- | ---- | ---- | ---- | ----- |
@@ -70,13 +73,15 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |
 | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | \*:443 | Inbound |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inbound |
+| &nbsp; | UAE North | 65.52.252.96</br>65.52.252.97 | \*:443 | Inbound |
 
 For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-For more information, see the [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic) section.
+For more information, see [Control network traffic](./control-network-traffic.md).
 
-If you are using user-defined routes (UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
+If you're using user-defined routes (UDRs), you should specify a route and allow outbound traffic from the virtual network to the above IPs with the next hop set to "Internet".
 
 ## Next steps
 
 * [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)
+* [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md)

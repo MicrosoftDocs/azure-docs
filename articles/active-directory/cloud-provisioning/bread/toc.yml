@@ -1,0 +1,24 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
+    tocHref: /azure/active-directory/manage-apps/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Cloud provisioning
+      tocHref: /azure/active-directory/manage-apps/
+      topicHref: /azure/active-directory/cloud-provisioning/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/hybrid/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Cloud provisioning
+      tocHref: /azure/active-directory/hybrid/
+      topicHref: /azure/active-directory/cloud-provisioning/index
+

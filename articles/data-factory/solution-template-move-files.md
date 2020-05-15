@@ -1,19 +1,21 @@
 ---
-title: Move files between file-based storage by using Azure Data Factory | Microsoft Docs
+title: Move files between file-based storage
 description: Learn how to use a solution template to move files between file-based storage by using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
+ms.reviewer: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 7/12/2019
 ---
+
 # Move files with Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes a solution template that you can use to move files from one folder to another between file-based stores. One of the common scenarios of using this template: Files are continually dropped to a landing folder of your source store. By creating a schedule trigger, ADF pipeline can periodically move those files from the source to the destination store.  The way that ADF pipeline achieves "moving files" is getting the files from the landing folder, copying each of them to another folder on the destination store and then deleting the same files from the landing folder on the source store.
 
@@ -31,9 +33,11 @@ The template contains five activities:
 - **Copy** copies one file from the source to the destination store.
 - **Delete** deletes the same one file from the source store.
 
-The template defines two parameters:
-- *FolderPath_SourceStore* is the folder path of your source store where you want to move files from. 
-- *FolderPath_DestinationStore* is the folder path of your destination store where you want to move files to. 
+The template defines four parameters:
+- *SourceStore_Location* is the folder path of your source store where you want to move files from. 
+- *SourceStore_Directory* is the subfolder path of your source store where you want to move files from.
+- *DestinationStore_Location* is the folder path of your destination store where you want to move files to. 
+- *DestinationStore_Directory* is the subfolder path of your destination store where you want to move files to.
 
 ## How to use this solution template
 
@@ -45,9 +49,7 @@ The template defines two parameters:
 
     ![Create a new connection to the destination](media/solution-template-move-files/move-files2.png)
 
-3. Select **Use this template**.
-
-    ![Use this template](media/solution-template-move-files/move-files3.png)
+3. Select **Use this template** tab.
 	
 4. You'll see the pipeline, as in the following example:
 

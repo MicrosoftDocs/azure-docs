@@ -1,13 +1,12 @@
 ---
 title: How to create Dynamics 365 for Operations offer via Cloud Partner portal 
 description: Deprecated CPP article, linked to PC article; was "How to create Dynamics 365 for Operations offer via Cloud Partner portal"
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # How to create Dynamics 365 for Operations offer via Cloud Partner portal

@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop
+    topicHref: /azure/virtual-desktop/index
+    items: 
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/clients/rdp-files
+       topicHref: /azure/virtual-desktop/index
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/virtual-machine-recs
+       topicHref: /azure/virtual-desktop/index
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/network-guidance
+       topicHref: /azure/virtual-desktop/index

@@ -1,5 +1,5 @@
 ---
-title: Serverless database computing - Azure Functions and Azure Cosmos DB
+title: Serverless database computing with Azure Cosmos DB and Azure Functions 
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -99,13 +99,13 @@ In retail implementations, when a user adds an item to their basket you now have
 
      Any department can create an Azure Functions for Cosmos DB by listening to the change feed, and be sure they won't delay critical order processing events in the process.
 
-In all of these use cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
+In all of these use cases, because the function has decoupled the app itself, you don't need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 
 ## Tooling
 
 Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2019.
 
-* In the Azure Functions portal, you can create a trigger. For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc).
+* In the Azure Functions portal, you can create a trigger. For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal](../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * In the Azure Cosmos DB portal, you can add an Azure Functions trigger for Cosmos DB to an existing Azure Function app in the same resource group.
 * In Visual Studio 2019, you can create the trigger using the [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
@@ -141,12 +141,6 @@ If you're not sure whether Flow, Logic Apps, Azure Functions, or WebJobs are bes
 
 Now let's connect Azure Cosmos DB and Azure Functions for real: 
 
-* [Create an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
-* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Create an Azure Functions trigger for Cosmos DB in the Azure portal](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
+* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb-v2.md)

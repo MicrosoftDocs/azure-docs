@@ -1,15 +1,16 @@
 ---
-title: General claims transformation examples for the Identity Experience Framework schema of Azure Active Directory B2C
-description: General claims transformation examples for the Identity Experience Framework schema of Azure Active Directory B2C.
+title: General claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: General claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
-ms.author: marsma
+ms.date: 02/03/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -18,6 +19,35 @@ ms.subservice: B2C
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 This article provides examples for using general claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+
+## CopyClaim
+
+Copy value of a claim to another. Both claims must be from the same type.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string, int | The claim type which is to be copied. |
+| OutputClaim | outputClaim | string, int | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+Use this claims transformation to copy a value from a string or numeric claim, to another claim. The following example copies the externalEmail claim value to email claim.
+
+```XML
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: bob@contoso.com
+- Output claims:
+    - **outputClaim**: bob@contoso.com
 
 ## DoesClaimExist
 

@@ -157,8 +157,8 @@ Keep in mind the following best practices when provisioning shares or volumes on
 
 * The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
 * A maximum of 16 volumes/shares can be created on the virtual array. For the size limits of the locally pinned and tiered volumes/shares, always refer to the [StorSimple Virtual Array limits](storsimple-ova-limits.md).
-* When creating a volume, factor in the expected data consumption as well as future growth. The volume cannot be expanded later.
-* Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
+* When creating a volume, factor in the expected data consumption as well as future growth. The volume or share cannot be expanded later.
+* Once the volume/share has been created, you cannot shrink the size of the volume/share on StorSimple.
 * When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data (volume expansion is currently not supported).
 * For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs.
 
@@ -195,8 +195,8 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 ### Data security and encryption
 Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
-* Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-overview.md).
-* When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
+* Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/general/overview.md).
+* When configuring the storage account via the StorSimple Manager service, make sure that you enable the TLS mode to create a secure channel for network communication between your StorSimple device and the cloud.
 * Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
 * Data on your virtual array is compressed and deduplicated before it is sent to Azure. We don't recommend using the Data Deduplication role service on your Windows Server host.
 

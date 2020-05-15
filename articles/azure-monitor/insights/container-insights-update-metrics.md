@@ -1,22 +1,18 @@
 ---
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/06/2019
-ms.author: magoedte
+ms.date: 11/11/2019
+
 ---
 
 # How to update Azure Monitor for containers to enable metrics
+
 Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
+
+>[!NOTE]
+>This feature does not currently support Azure Red Hat OpenShift clusters.
+>
 
 The following metrics are enabled as part of this feature:
 
@@ -29,8 +25,12 @@ Updating the cluster to support these new capabilities can be performed from the
 
 Either process assigns the **Monitoring Metrics Publisher** role to the cluster’s service principal so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## Prerequisites 
-Before you start, make sure that you are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
+## Prerequisites
+
+Before you start, confirm the following:
+
+* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
+* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -43,6 +43,7 @@ For existing AKS clusters monitored by Azure Monitor for containers, after selec
 Clicking **Enable** will initiate the process to upgrade the cluster. This process can take several seconds to finish, and you can track its progress under Notifications from the menu.
 
 ## Upgrade all clusters using Bash in Azure Command Shell
+
 Perform the following steps to update all clusters in your subscription using Bash in Azure Command Shell.
 
 1. Run the following command by using the Azure CLI.  Edit the value for **subscriptionId** using the value from the **AKS Overview** page for the AKS cluster.
@@ -60,6 +61,7 @@ Perform the following steps to update all clusters in your subscription using Ba
     ```
 
 ## Upgrade per cluster using Azure CLI
+
 Perform the following steps to update a specific cluster in your subscription using Azure CLI.
 
 1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
@@ -72,6 +74,7 @@ Perform the following steps to update a specific cluster in your subscription us
     ``` 
 
 ## Upgrade all clusters using Azure PowerShell
+
 Perform the following steps to update all clusters in your subscription using Azure PowerShell.
 
 1. Copy and paste the following script into your file:
@@ -327,6 +330,7 @@ Perform the following steps to update all clusters in your subscription using Az
     ```
 
 ## Upgrade per cluster using Azure PowerShell
+
 Perform the following steps to update a specific cluster using Azure PowerShell.
 
 1. Copy and paste the following script into your file:
@@ -521,7 +525,7 @@ Perform the following steps to update a specific cluster using Azure PowerShell.
     }
 
     #
-    #   Check AKS cluster existance and access check
+    #   Check AKS cluster existence and access check
     #
     Write-Host("Checking aks cluster exists...")
     $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue
@@ -577,4 +581,5 @@ Perform the following steps to update a specific cluster using Azure PowerShell.
     ```
 
 ## Verify update 
+
 After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  

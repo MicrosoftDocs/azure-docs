@@ -1,16 +1,13 @@
 ---
 title: Understand the lifecycle of a blueprint
-description: Learn about the lifecycle that a blueprint goes through and details about each stage.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 07/30/2019
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.service: blueprints
 ---
 # Understand the lifecycle of an Azure Blueprint
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
-lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant.
+lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant. Azure
 Blueprints supports standard lifecycle operations. It then builds upon them to provide additional
 levels of status that support common continuous integration and continuous deployment pipelines for
 organizations that manage their Infrastructure as Code – a key element in DevOps.
@@ -35,25 +32,26 @@ A never published blueprint in **Draft** mode displays a different icon on the *
 Definitions** page than ones that have been **Published**. The **Latest Version** is displayed as
 **Draft** for these never published blueprints.
 
-Create and edit a blueprint with the [Azure portal](../create-blueprint-portal.md#create-a-blueprint)
-or [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
+Create and edit a blueprint with the
+[Azure portal](../create-blueprint-portal.md#create-a-blueprint) or
+[REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
 ## Publishing a blueprint
 
 Once all planned changes have been made to a blueprint in **Draft** mode, it can be **Published**
-and made available for assignment. The **Published** version of the blueprint can't be altered.
-Once **Published**, the blueprint displays with a different icon than **Draft** blueprints and
-displays the provided version number in the **Latest Version** column.
+and made available for assignment. The **Published** version of the blueprint can't be altered. Once
+**Published**, the blueprint displays with a different icon than **Draft** blueprints and displays
+the provided version number in the **Latest Version** column.
 
 Publish a blueprint with the [Azure portal](../create-blueprint-portal.md#publish-a-blueprint) or
 [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
 
 ## Creating and editing a new version of the blueprint
 
-A **Published** version of a blueprint can't be altered. However, a new version of the blueprint
-can be added to the existing blueprint and modified as needed. Make changes to an existing
-blueprint by editing it. When the new changes are saved, the blueprint now has **Unpublished
-Changes**. These changes are a new **Draft** version of the blueprint.
+A **Published** version of a blueprint can't be altered. However, a new version of the blueprint can
+be added to the existing blueprint and modified as needed. Make changes to an existing blueprint by
+editing it. When the new changes are saved, the blueprint now has **Unpublished Changes**. These
+changes are a new **Draft** version of the blueprint.
 
 Edit a blueprint with the [Azure portal](../create-blueprint-portal.md#edit-a-blueprint).
 
@@ -65,7 +63,8 @@ Blueprint** button is available on the edit blueprint page. If the button isn't 
 blueprint has already been **Published** and has no **Unpublished Changes**.
 
 > [!NOTE]
-> A single blueprint can have multiple **Published** versions that can each be assigned to subscriptions.
+> A single blueprint can have multiple **Published** versions that can each be assigned to
+> subscriptions.
 
 To publish a blueprint with **Unpublished Changes**, use the same steps for publishing a new
 blueprint.
@@ -77,14 +76,15 @@ version of a blueprint can also be deleted. Deleting a version of a blueprint do
 impact on other versions of that blueprint.
 
 > [!NOTE]
-> It's not possible to delete a blueprint that has active assignments. Delete the
-> assignments first and then delete the version you wish to remove.
+> It's not possible to delete a blueprint that has active assignments. Delete the assignments first
+> and then delete the version you wish to remove.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Click on it to open the edit page.
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate
+   the blueprint you want to delete a version of. Select it to open the edit page.
 
-1. Click the **Published versions** tab and locate the version you wish to delete.
+1. Select the **Published versions** tab and locate the version you wish to delete.
 
 1. Right-click on the version to delete and select **Delete this version**.
 
@@ -92,12 +92,12 @@ impact on other versions of that blueprint.
 
 The core blueprint can also be deleted. Deleting the core blueprint also deletes any blueprint
 versions of that blueprint, including both **Draft** and **Published** blueprints. As with deleting
-a version of a blueprint, deleting the core blueprint doesn't remove the existing assignments of
-any of the blueprint versions.
+a version of a blueprint, deleting the core blueprint doesn't remove the existing assignments of any
+of the blueprint versions.
 
 > [!NOTE]
-> It's not possible to delete a blueprint that has active assignments. Delete the
-> assignments first and then delete the version you wish to remove.
+> It's not possible to delete a blueprint that has active assignments. Delete the assignments first
+> and then delete the version you wish to remove.
 
 Delete a blueprint with the [Azure portal](../create-blueprint-portal.md#delete-a-blueprint) or
 [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
@@ -109,9 +109,9 @@ mode of a version of the blueprint is **Published**, then that version can be as
 subscription. This lifecycle enables versions of a blueprint to be used and actively assigned while
 a newer version is being developed.
 
-As versions of blueprints are assigned, it's important to understand where they're assigned and
-with what parameters they've been assigned with. The parameters can either be static or dynamic. To
-learn more, see [static and dynamic parameters](parameters.md).
+As versions of blueprints are assigned, it's important to understand where they're assigned and with
+what parameters they've been assigned with. The parameters can either be static or dynamic. To learn
+more, see [static and dynamic parameters](parameters.md).
 
 ### Updating assignments
 

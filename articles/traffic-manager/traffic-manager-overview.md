@@ -2,17 +2,16 @@
 title: Azure Traffic Manager | Microsoft Docs
 description: This article provides an overview of Azure Traffic Manager. Find out if it is the right choice for load balancing user traffic for your application.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
 ms.devlang: na
-ms.topic: article
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
-ms.author: allensu
+ms.date: 11/23/2019
+ms.author: rohink
 ---
 
 # What is Traffic Manager?
@@ -22,8 +21,10 @@ Traffic Manager uses DNS to direct client requests to the most appropriate servi
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md). If you are looking for regional load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). Your end-to-end scenarios might benefit from combining these solutions as needed.
+>
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-Traffic Manager offers following features:
+Traffic Manager offers the following features:
 
 ## Increase application availability
 

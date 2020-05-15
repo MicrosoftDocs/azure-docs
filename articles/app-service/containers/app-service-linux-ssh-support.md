@@ -1,17 +1,10 @@
 ---
-title: SSH support for App Service on Linux - Azure | Microsoft Docs
-description: Learn about using SSH with Azure App Service on Linux.
+title: SSH access for Linux containers
+description: You can open an SSH session to a Linux container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.
 keywords: azure app service, web app, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
@@ -20,11 +13,9 @@ ms.custom: seodec18
 ---
 # SSH support for Azure App Service on Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
 
-![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-For custom Docker images, by configuring SSH server in your custom image.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
 
@@ -57,7 +48,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 The command output gives you the information you need to open an SSH session.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -65,20 +56,20 @@ Start your favorite client and connect to port 21382
 
 Open an SSH session with your container with the client of your choice, using the local port. The following example uses the default [ssh](https://ss64.com/bash/ssh.html) command:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 When being prompted, type `yes` to continue connecting. You are then prompted for the password. Use `Docker!`, which was shown to you earlier.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 Once you're authenticated, you should see the session welcome screen.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -94,7 +85,7 @@ You are now connected to your connector.
 
 Try running the [top](https://ss64.com/bash/top.html) command. You should be able to see your app's process in the process list. In the example output below, it's the one with `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738
@@ -118,7 +109,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## Next steps
 
-You can post questions and concerns on the [Azure forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+You can post questions and concerns on the [Azure forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 For more information on Web App for Containers, see:
 

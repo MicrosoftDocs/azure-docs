@@ -1,23 +1,11 @@
 ---
-title: Introduction to microservices on Azure| Microsoft Docs
+title: Introduction to microservices on Azure
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-
-ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/18/2019
-ms.author: atsenthi
-
+ms.date: 01/07/2020
+ms.custom: sfrev
 ---
-# Why use a microservices approach to building applications?
+# Why use a microservices approach to building applications
 
 For software developers, factoring an application into component parts is nothing new. Typically, a tiered approach is used, with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that developers are building distributed applications for the cloud.
 
@@ -41,7 +29,7 @@ During the client/server era, we tended to focus on building tiered applications
 
 There are benefits to a monolithic design approach. Monolithic applications are often simpler to design, and calls between components are faster because these calls are often over interprocess communication (IPC). Also, everyone tests a single product, which tends to be a more efficient use of human resources. The downside is that there's a tight coupling between tiered layers, and you can't scale individual components. If you need to do fixes or upgrades, you have to wait for others to finish their testing. It's harder to be agile.
 
-Microservices address these downsides and more closely align with the preceding business requirements. But they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you can scale up or down, test, deploy, and manage independently. One important benefit of a microservices approach is that teams are driven more by business scenarios than by technology. Smaller teams develop a microservice based on a customer scenario and use any technologies that they want to use.
+Microservices address these downsides and more closely align with the preceding business requirements. But they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you can scale out or in, test, deploy, and manage independently. One important benefit of a microservices approach is that teams are driven more by business scenarios than by technology. Smaller teams develop a microservice based on a customer scenario and use any technologies that they want to use.
 
 In other words, the organization doesn’t need to standardize tech to maintain microservice applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, like a particular NoSQL store or web application framework, is preferable.
 
@@ -135,7 +123,8 @@ It might seem obvious, and it's often overlooked, but a microservice needs to re
 
 Health is different from diagnostics. Health is about the microservice reporting its current state to take appropriate actions. A good example is working with upgrade and deployment mechanisms to maintain availability. Though a service might be currently unhealthy because of a process crash or machine reboot, the service might still be operational. The last thing you need is to make the situation worse by starting an upgrade. The best approach is to investigate first or allow time for the microservice to recover. Health events from a microservice help us make informed decisions and, in effect, help create self-healing services.
 
-## Guidance for designing microservices on Azure 
+## Guidance for designing microservices on Azure
+
 Visit the Azure architecture center for guidance on [designing and building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
 ## Service Fabric as a microservices platform
@@ -192,7 +181,6 @@ At this stage, your application is fully composed of (or split into) microservic
 Maybe. At Microsoft, as more teams began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been using microservices for years. For other teams, the microservices approach was new. Teams found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology for building services.
 
 The objective of Service Fabric is to reduce the complexities of building microservice applications so that you don't have to go through as many costly redesigns. Start small, scale when needed, deprecate services, add new ones, and evolve with customer usage. We also know that there are many other problems yet to be solved to make microservices more approachable for most developers. Containers and the actor programming model are examples of small steps in that direction. We're sure more innovations will emerge to make a microservices approach easier.
-
 
 ## Next steps
 

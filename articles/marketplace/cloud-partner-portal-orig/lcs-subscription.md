@@ -1,13 +1,12 @@
 ---
 title: LCS Subscription 
 description: Deprecated this CPP article, linked to PC article; was "Introduction to a tutorial for creating a subscription."
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # LCS Subscription

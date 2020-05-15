@@ -1,7 +1,6 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -20,6 +19,9 @@ ms.author: allensu
 
 
 >[!NOTE] 
+>This content has been superseded by [IPv6 for Azure VNet Overview](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
+
+>[!NOTE]
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
@@ -74,7 +76,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Standard SKU Load Balancers do not currently support IPv6 addresses.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **currently not supported**.
 
 ## Next steps
 

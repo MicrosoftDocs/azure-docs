@@ -1,12 +1,12 @@
 ---
 title: Apache Ambari heartbeat issues in Azure HDInsight
 description: Review of various reasons for Apache Ambari heartbeat issues in Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
 ---
 
 # Apache Ambari heartbeat issues in Azure HDInsight
@@ -17,7 +17,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ### Issue
 
-Ambari agent has high CPU utilization, which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost. The heartbeat lost alert is usually transient. 
+Ambari agent has high CPU utilization, which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost. The heartbeat lost alert is usually transient.
 
 ### Cause
 
@@ -56,7 +56,7 @@ Due to various ambari-agent bugs, in rare cases, your ambari-agent can have high
 
 ### Issue
 
-Ambari agent has not started which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost.
+Ambari agent hasn't started which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost.
 
 ### Cause
 
@@ -76,7 +76,22 @@ The alerts are caused by the Ambari agent not running.
     ps -ef | grep failover
     ```
 
-    If failover controller services are not running, it is likely due to a problem prevent hdinsight-agent from starting failover controller. Check hdinsight-agent log from `/var/log/hdinsight-agent/hdinsight-agent.out` file.
+    If failover controller services aren't running, it's likely due to a problem prevent hdinsight-agent from starting failover controller. Check hdinsight-agent log from `/var/log/hdinsight-agent/hdinsight-agent.out` file.
+
+## Scenario: Heartbeat lost for Ambari
+
+### Issue
+
+Ambari heartbeat agent was lost.
+
+### Cause
+
+OMS logs are causing high CPU utilization.
+
+### Resolution
+
+* Disable Azure Monitor logging using the [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) PowerShell cmdlet.
+* Delete the `mdsd.warn` log file
 
 ---
 
@@ -88,4 +103,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

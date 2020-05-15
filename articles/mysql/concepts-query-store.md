@@ -1,18 +1,15 @@
 ﻿---
-title: Query Store in Azure Database for MySQL
+title: Query Store - Azure Database for MySQL
 description: Learn about the Query Store feature in Azure Database for MySQL to help you track performance over time.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 5/12/2020
 ---
 # Monitor Azure Database for MySQL performance with Query Store
 
-**Applies to:** Azure Database for MySQL 5.7
-
-> [!IMPORTANT]
-> Query Store is in preview.
+**Applies to:** Azure Database for MySQL 5.7, 8.0
 
 The Query Store feature in Azure Database for MySQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MySQL instance.
 
@@ -64,6 +61,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## Finding wait queries
+
+> [!NOTE]
+> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely. 
 
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
 
@@ -168,7 +168,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 - If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
-- Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
+- Wait statistics uses sample to capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
 
 ## Next steps
 

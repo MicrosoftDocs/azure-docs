@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure internal Load Balancer by using PowerShell
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer by using the Azure PowerShell module with Azure Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -43,7 +43,7 @@ To deploy a load balancer, the following objects must be created:
 * Probe configuration: The health status probes for virtual machines.
 * Inbound NAT rules: The port rules for direct access to virtual machines.
 
-For more information about load balancer components, see [Azure Resource Manager support for load balancer](load-balancer-arm.md).
+For more information about load balancer components, see [Azure Load Balancer components](components.md).
 
 The following steps explain how to configure a load balancer between two virtual machines.
 

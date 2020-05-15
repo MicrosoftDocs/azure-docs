@@ -1,16 +1,16 @@
 ---
-title: "Create and manage Azure SQL Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
+title: Create and manage Elastic Database Jobs with Transact-SQL (T-SQL)
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 01/25/2019
+ms.date: 02/07/2020
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 
@@ -183,10 +183,13 @@ For example, to group all results from the same job execution together, use the 
 
 The following example creates a new job to collect performance data from multiple databases.
 
-By default the job agent will look to create the table to store the returned results in. As a result the login associated with the credential used for the output credential will need to have sufficient permissions to perform this. If you want to manually create the table ahead of time then it needs to have the following properties:
+By default, the job agent will create the output table to store returned results. Therefore, the database principal associated with the output credential must at a minimum have the following permissions: `CREATE TABLE` on the database, `ALTER`, `SELECT`, `INSERT`, `DELETE` on the output table or its schema, and `SELECT` on the [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) catalog view.
+
+If you want to manually create the table ahead of time then it needs to have the following properties:
 1. Columns with the correct name and data types for the result set.
 2. Additional column for internal_execution_id with the data type of uniqueidentifier.
 3. A nonclustered index named `IX_<TableName>_Internal_Execution_ID` on the internal_execution_id column.
+4. All permissions listed above except for `CREATE TABLE` permission on the database.
 
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following commands:
 
@@ -426,7 +429,7 @@ Adds a new job.
 #### Syntax  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
 	[ , [ @description = ] 'description' ]   
 	[ , [ @enabled = ] enabled ]
@@ -491,7 +494,7 @@ Updates an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
 	[ , [ @new_name = ] 'new_name' ]
 	[ , [ @description = ] 'description' ]   
@@ -554,7 +557,7 @@ Deletes an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
 	[ , [ @force = ] force ]
 ```
@@ -587,7 +590,7 @@ Adds a step to a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -712,7 +715,7 @@ Updates a job step.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -838,7 +841,7 @@ Removes a job step from a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -884,7 +887,7 @@ Starts executing a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -915,7 +918,7 @@ Stops a job execution.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -944,7 +947,7 @@ Adds a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -976,7 +979,7 @@ Deletes a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1003,7 +1006,7 @@ Adds a database or group of databases to a target group.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1094,7 +1097,7 @@ Removes a target group member from a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
      	[ , [ @target_id = ] 'target_id']
 ```
@@ -1146,7 +1149,7 @@ Removes the history records for a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
@@ -1199,7 +1202,7 @@ The following views are available in the [jobs database](sql-database-job-automa
 |[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Shows all steps in all versions of each job.    |
 |[target_groups](#target_groups-view)     |      Shows all target groups.   |
-|[target_group_members](#target_groups_members-view)     |   Shows all members of all target groups.      |
+|[target_group_members](#target_group_members-view)     |   Shows all members of all target groups.      |
 
 
 ### <a name="job_executions-view"></a>job_executions view
@@ -1314,9 +1317,9 @@ Lists all target groups.
 |**target_group_name**|	nvarchar(128)	|The name of the target group, a collection of databases. 
 |**target_group_id**	|uniqueidentifier	|Unique ID of the target group.
 
-### <a name="target_groups_members-view"></a>target_groups_members view
+### <a name="target_group_members-view"></a>target_group_members view
 
-[jobs].[target_groups_members]
+[jobs].[target_group_members]
 
 Shows all members of all target groups.
 

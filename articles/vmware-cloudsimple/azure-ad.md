@@ -81,7 +81,7 @@ You can optionally configure other Azure AD features.  These are not required fo
     |------------|-----------------|
     | **Name** | Name of the identity source. |
     | **Base DN for users** | Base distinguished name for users.  For Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Example: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **Domain name** | FDQN of the domain, for example, example.com. Do not provide an IP address in this text box. |
+    | **Domain name** | FQDN of the domain, for example, example.com. Do not provide an IP address in this text box. |
     | **Domain alias** | *(optional)* The domain NetBIOS name. Add the NetBIOS name of the Active Directory domain as an alias of the identity source if you are using SSPI authentications. |
     | **Base DN for groups** | The base distinguished name for groups. For Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Example: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **Primary Server URL** | Primary domain controller LDAP server for the domain.<br><br>Use the format `ldaps://hostname:port`. The port is typically 636 for LDAPS connections. <br><br>A certificate that establishes trust for the LDAPS endpoint of the Active Directory server is required when you use `ldaps://` in the primary or secondary LDAP URL. |
@@ -93,3 +93,10 @@ You can optionally configure other Azure AD features.  These are not required fo
 3. Sign in to your Private Cloud vCenter after the privileges are escalated.
 4. Follow the instructions in [Add an identity source on vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) using the values from the previous step to set up Azure Active Directory as an identity source.
 5. Add users/groups from Azure AD to vCenter groups as described in the VMware topic [Add Members to a vCenter Single Sign-On Group](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
+
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group.
+
+## Next steps
+
+* [Learn about Private Cloud permission model](learn-private-cloud-permissions.md)

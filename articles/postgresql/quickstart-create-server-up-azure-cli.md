@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Database for PostgreSQL - Single Server with CLI command az postgres up'
+title: 'Quickstart: Create server - az postgres up - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create Azure Database for PostgreSQL - Single Server using Azure CLI (command-line interface) up command.
 author: rachel-msft
 ms.author: raagyema
@@ -57,7 +57,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup is retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.
-ssl-enforcement | Disabled | Whether ssl should be enabled or not for this server.
+ssl-enforcement | Disabled | Whether TLS/SSL should be enabled or not for this server.
 storage-size | 5120 | The storage capacity of the server (unit is megabytes).
 version | 10 | The PostgreSQL major version.
 admin-user | System generated | The username for the administrator.

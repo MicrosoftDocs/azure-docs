@@ -12,46 +12,49 @@ manager: dikamath
 
 # Networking prerequisites for Azure VMware Solution by CloudSimple
 
-Azure VMware Solution by CloudSimple offers a VMware Private Cloud environment that is accessible for users and applications from On-premises environments, from enterprise managed devices as well as from Azure resources. The connectivity is delivered using networking services such as VPNs and ExpressRoute connections.  Some of the Network Services require you to specify network address ranges for enabling the services.  Tables in this article describe the set of address ranges and corresponding services that use the specified addresses.  Some of the addressed are mandatory and some depend on the services you want to deploy.  These address spaces should not overlap with any of your On-premises subnets, Azure Virtual Network subnets, or planned CloudSimple workload subnets.
+Azure VMware Solution by CloudSimple offers a VMware private cloud environment that's accessible for users and applications from on-premises environments, enterprise-managed devices, and Azure resources. The connectivity is delivered through networking services such as VPNs and Azure ExpressRoute connections. Some of these networking services require you to specify network address ranges for enabling the services. 
 
-## Network address ranges required for creating a Private Cloud
+Tables in this article describe the set of address ranges and corresponding services that use the specified addresses. Some of the addresses are mandatory and some depend on the services you want to deploy. These address spaces should not overlap with any of your on-premises subnets, Azure Virtual Network subnets, or planned CloudSimple workload subnets.
 
-During the creation of CloudSimple service and a Private Cloud, following network CIDR range is required.
+## Network address ranges required for creating a private cloud
 
-| Name/Used for     | Description                                                                                                                            | Address Range            |
+During the creation of a CloudSimple service and a private cloud, you must comply with the specified network classless inter-domain routing (CIDR) ranges, as follows.
+
+| Name/used for     | Description                                                                                                                            | Address range            |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Gateway CIDR      | Required for edge services (VPN gateways).  This CIDR is required during CloudSimple Service creation and must be from RFC 1918 space. | /28                      |
-| vSphere/vSAN CIDR | Required for VMware management networks. This CIDR must be specified during Private Cloud creation.                                    | /24 or /23 or /22 or /21 |
+| Gateway CIDR      | Required for edge services (VPN gateways).  This CIDR is required during CloudSimple Service creation and must be from the RFC 1918 space. | /28                      |
+| vSphere/vSAN CIDR | Required for VMware management networks. This CIDR must be specified during private cloud creation.                                    | /24 or /23 or /22 or /21 |
 
-## Network address range required for Azure network connection to on-premises network
+## Network address range required for Azure network connection to an on-premises network
 
-Connecting from [on-premises network to the Private Cloud network using ExpressRoute](on-premises-connection.md) establishes a Global Reach connection.  The connection will exchange routes via BGP between your on-premises network, Private Cloud network, and your Azure networks.
+Connecting from an [on-premises network to the private cloud network through ExpressRoute](on-premises-connection.md) establishes a Global Reach connection.  The connection uses Border Gateway Protocol (BGP) to exchange routes between your on-premises network, your private cloud network, and your Azure networks.
 
-| Name/Used for             | Description                                                                                                                                                                             | Address Range |
+| Name/used for             | Description                                                                                                                                                                             | Address range |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| ExpressRoute Peering CIDR | Required when using ExpressRoute Global Reach is used for On-premises connectivity. This CIDR needs to be provided when a Global Reach connection request is made via a support ticket. | /29           |
+| ExpressRoute Peering CIDR | Required when you use ExpressRoute Global Reach for on-premises connectivity. This CIDR must be provided when a Global Reach connection request is made through a support ticket. | /29           |
 
-## Network address range required for using site-to-site VPN connection to on-premises network
+## Network address range required for using a site-to-site VPN connection to an on-premises network
 
-Connecting from [on-premises network to the Private Cloud network using site-to-site VPN](vpn-gateway.md) requires the following IP addresses, on-premises network, and identifiers. 
+Connecting from an [on-premises network to the private cloud network by using site-to-site VPN](vpn-gateway.md) requires the following IP addresses, on-premises network, and identifiers. 
 
-| Address/Address Range | Description                                                                                                                                                                                                                                                           |
+| Address/address range | Description                                                                                                                                                                                                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Peer IP               | On-premises VPN gateway public IP address. Required to establish site-to-site VPN connection between on-premises datacenter and the CloudSimple Service region. This IP is required during site-to-site VPN gateway creation.                                         |
-| Peer Identifier       | Peer identifier of the on-premises VPN gateway. This is usually the same as **peer IP**.  If a unique identifier is specified on your on-premises VPN gateway, the identifier needs to be specified.  Peer ID is required during Site-to-Site VPN Gateway creation.   |
-| On-premises Networks   | On-premises prefixes that need access CloudSimple networks in the region.  Include all prefixes from on-premises network which will access the CloudSimple network including the client network from where users will access.                                         |
+| Peer IP               | On-premises VPN gateway public IP address. Required to establish a site-to-site VPN connection between an on-premises datacenter and the CloudSimple Service region. This IP address is required during site-to-site VPN gateway creation.                                         |
+| Peer identifier       | Peer identifier of the on-premises VPN gateway. This is usually the same as **peer IP**.  If a unique identifier is specified on your on-premises VPN gateway, the identifier must be specified.  Peer ID is required during site-to-site VPN gateway creation.   |
+| On-premises networks   | On-premises prefixes that need access CloudSimple networks in the region.  Include all prefixes from an on-premises network that will access the CloudSimple network, including the client network from where users will access the network.                                         |
 
 ## Network address range required for using point-to-site VPN connections
 
-Point-to-Site VPN connection allows access to the CloudSimple network from a client machine.  [Setting up of point-to-site VPN](vpn-gateway.md) requires the following network address range to be specified.
+A point-to-site VPN connection enables access to the CloudSimple network from a client machine.  [To set up point-to-site VPN](vpn-gateway.md), you must specify the following network address range.
 
-| Address/Address Range | Description                                                                                                                                                                                                                                                                                                  |
+| Address/address range | Description                                                                                                                                                                                                                                                                                                  |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Client subnet         | DHCP addresses will be given from the client subnet when you connect using point-to-site VPN. This subnet is required while creating a point-to-site VPN gateway on CloudSimple portal.  The network will be divided into two subnets and one will be used for UDP connection and other for TCP connections. |
+| Client subnet         | DHCP addresses are provided by the client subnet when you connect by using a point-to-site VPN. This subnet is required while you're creating a point-to-site VPN gateway on a CloudSimple portal.  The network is divided into two subnets; one for the UDP connection and the other for TCP connections. |
 
 ## Next steps
 
-* [Quickstart - Create CloudSimple service](quickstart-create-cloudsimple-service.md)
-* [quickstart-create-private-cloud](quickstart-create-private-cloud.md)
+* [On-premises firewall setup for accessing your private cloud](on-premises-firewall-configuration.md)
+* [Quickstart - Create a CloudSimple service](quickstart-create-cloudsimple-service.md)
+* [Quickstart- Configure a private cloud](quickstart-create-private-cloud.md)
 * Learn more about [Azure network connections](cloudsimple-azure-network-connection.md)
 * Learn more about [VPN gateways](cloudsimple-vpn-gateways.md)

@@ -1,19 +1,15 @@
 ---
-title: "Use Azure Dev Spaces to interact with Windows containers"
-titleSuffix: Azure Dev Spaces
+title: "Interact with Windows containers"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
-ms.date: 07/25/2019
+ms.date: 01/16/2020
 ms.topic: "conceptual"
 description: "Learn how to run Azure Dev Spaces on an existing cluster with Windows containers"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers"
 ---
 
-# Use Azure Dev Spaces to interact with Windows containers
+# Interact with Windows containers using Azure Dev Spaces
 
-You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers.
+You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers. At this time, you cannot debug or attach to Windows containers with Azure Dev Spaces.
 
 ## Set up your cluster
 
@@ -35,8 +31,9 @@ The following example output shows a cluster with both a Windows and Linux node.
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
-aksnpwin987654                      Ready    agent   108s   v1.14.1
+aks-nodepool1-12345678-vmss000000   Ready    agent   13m    v1.14.8
+aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
+aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
 Apply a [taint][using-taints] to your Windows nodes. The taint on your Windows nodes prevents Dev Spaces from scheduling Linux containers to run on your Windows nodes. The following command example command applies a taint to the *aksnpwin987654* Windows node from the previous example.
@@ -59,20 +56,12 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm][helm-installed] to run the Windows service on your cluster. Install Helm on your cluster and grant it the correct permissions:
-
-```console
-helm init --wait
-kubectl create serviceaccount --namespace kube-system tiller
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-``` 
-
-Navigate to the `charts` directory and run the Windows service:
+The sample application uses [Helm 3][helm-installed] to run the Windows service on your cluster. Navigate to the `charts` directory and use Helm run the Windows service:
 
 ```console
 cd charts/
-helm install . --namespace dev
+kubectl create ns dev
+helm install windows-service . --namespace dev
 ```
 
 The above command uses Helm to run your Windows service in the *dev* namespace. If you don't have a namespace named *dev*, it will be created.
@@ -121,16 +110,15 @@ spec:
 Use `helm list` to list the deployment for your Windows service:
 
 ```cmd
-$ helm list
-NAME         	REVISION	UPDATED                 	STATUS  	CHART         	APP VERSION	NAMESPACE
-gilded-jackal	1       	Wed Jul 24 15:45:59 2019	DEPLOYED	mywebapi-0.1.0	1.0        	dev  
+$ helm list --namespace dev
+NAME         	  REVISION	UPDATED                 	STATUS  	CHART         	APP VERSION	NAMESPACE
+windows-service	1       	Wed Jul 24 15:45:59 2019	DEPLOYED	mywebapi-0.1.0	1.0        	dev  
 ```
 
-In the above example, the name of your deployment is *gilded-jackal*. Update your Windows service with the new configuration using `helm upgrade`:
+In the above example, the name of your deployment is *windows-service*. Update your Windows service with the new configuration using `helm upgrade`:
 
 ```cmd
-$ helm upgrade gilded-jackal . --namespace dev
-Release "gilded-jackal" has been upgraded.
+helm upgrade windows-service . --namespace dev
 ```
 
 Since you updated your `deployment.yaml`, Dev Spaces will not try and instrument your service.
@@ -141,11 +129,16 @@ Navigate to the `webfrontend` directory and use the `azds prep` and `azds up` co
 
 ```console
 cd ../../webfrontend-linux/
-azds prep --public
+azds prep --enable-ingress
 azds up
 ```
 
-The `azds prep --public` command generates the Helm chart and Dockerfiles for your application. The `azds up` command runs your service in the namespace.
+The `azds prep --enable-ingress` command generates the Helm chart and Dockerfiles for your application.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](../how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
+The `azds up` command runs your service in the namespace.
 
 ```console
 $ azds up
@@ -176,7 +169,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Manage Azure disks with the Azure CLI | Microsoft Docs
+title: Tutorial - Manage Azure disks with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure disks for virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -31,7 +31,6 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 
@@ -45,7 +44,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
+To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. The size of the virtual machine determines how many data disks can be attached to a VM.
 
 ## VM disk types
 
@@ -115,7 +114,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 
@@ -264,7 +263,6 @@ In this tutorial, you learned about VM disks topics such as:
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 Advance to the next tutorial to learn about automating VM configuration.

@@ -1,17 +1,12 @@
 ---
 title: Overview of Insights in Azure Monitor | Microsoft Docs
 description: Insights provide a customized monitoring experience in Azure Monitor for particular applications and services. This article provides a brief description of each of the insights that are currently available.
-services: azure-monitor
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 05/22/2019
+author: bwren
 ms.author: bwren
+ms.date: 05/22/2019
+
 ---
 
 # Overview of Insights in Azure Monitor
@@ -46,6 +41,11 @@ Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual mach
 See [What is Azure Monitor for VMs?](vminsights-overview.md)
 
 ![Azure Monitor for VMs](media/insights-overview/vm-insights.png)
+
+## Azure Monitor for Networks (preview)
+[Azure Monitor for Networks](network-insights-overview.md) provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name.
+
+![Azure Monitor for Networks](media/insights-overview/network-insights.png)
 
 ## Next steps
 * Learn more about the [Azure Monitor data platform](../platform/data-platform.md) leveraged by insights.

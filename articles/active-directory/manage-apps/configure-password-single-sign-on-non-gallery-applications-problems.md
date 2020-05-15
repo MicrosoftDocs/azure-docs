@@ -1,5 +1,5 @@
 ---
-title: Problems configuring password SSO for a non-gallery application | Microsoft Docs
+title: Problems configuring password SSO for a non-gallery apps
 description: Common problems that occur when you configure password single sign-on (SSO) for custom apps that aren't in the Azure AD application gallery.
 services: active-directory
 documentationcenter: ''

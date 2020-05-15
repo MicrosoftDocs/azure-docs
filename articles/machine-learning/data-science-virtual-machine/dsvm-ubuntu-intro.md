@@ -1,43 +1,38 @@
 ---
-title: 'Quickstart: Create an Ubuntu DSVM' 
+title: 'Quickstart: Create an Ubuntu Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine for Linux (Ubuntu) to do analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 03/10/2020
 
 # Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-Get up and running with the Ubuntu Data Science Virtual Machine.
+Get up and running with the Ubuntu 18.04 Data Science Virtual Machine.
 
 ## Prerequisites
 
-To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+To create an Ubuntu 18.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
-Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
+Here are the steps to create an instance of the Data Science Virtual Machine Ubuntu 18.04:
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine for Linux (Ubuntu)."
-    
-    ![Ubuntu VM Listing](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04"
 
 1. On the subsequent window, select **Create**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Button to create an Ubuntu machine")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. You should be redirected to the "Create a virtual machine" blade.
    
-   ![Basics tab corresponding to Ubuntu Virtual Machine](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Enter the following information to configure each step of the wizard:
 
     1. **Basics**:
@@ -121,13 +116,14 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
       ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
    1. From your local machine, open a web browser and navigate to https:\//your-vm-ip:8000, replacing "your-vm-ip" with the IP address you took note of earlier.
+   1. Your browser will probably prevent you from opening the page directly, telling you that there is a certificate error. The DSVM is providing security via a self-signed certificate. Most browsers will allow you to click through after this warning. Many browsers will continue to provide some kind of visual warning about the certificate throughout your Web session.
    1. Enter the username and password that you used to create the VM, and sign in. 
 
       ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
    1. Browse the many sample notebooks that are available.
 
-JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub, and then browse to the URL https:\//your-vm-ip:8000/user/your-username/lab, replacing "your-username" with the username you chose when configuring the VM.
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub, and then browse to the URL https:\//your-vm-ip:8000/user/your-username/lab, replacing "your-username" with the username you chose when configuring the VM. Again, you may be initially blocked from accessing the site due to a certificate error.
 
 You can set JupyterLab as the default notebook server by adding this line to `/etc/jupyterhub/jupyterhub_config.py`:
 

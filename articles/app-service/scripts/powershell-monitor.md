@@ -1,20 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Microsoft Docs
-description: Azure PowerShell Script Sample - Monitor a web app with web server logs
-services: app-service\web
-documentationcenter: 
-author: syntaxc4
-manager: erikre
-editor: 
+title: 'PowerShell: Monitor with web server logs'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to monitor an app with web server logs.
 tags: azure-service-management
 
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
 ---
 
@@ -48,7 +39,6 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifies a web app's configuration. |
-| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Gets a web app's metrics. |
 
 ## Next steps
 

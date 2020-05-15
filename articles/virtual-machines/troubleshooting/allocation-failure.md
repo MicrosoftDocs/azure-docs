@@ -3,7 +3,7 @@ title: Troubleshooting Azure VM allocation failures | Microsoft Docs
 description: Troubleshoot allocation failures when you create, restart, or resize a VM in Azure
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -12,7 +12,7 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines 
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
+ms.author: daberry
 
 ---
 # Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
@@ -75,15 +75,17 @@ If you are using availability zones, try another zone within the region that may
 
 If your allocation request is large (more than 500 cores), see the guidance in the following sections to break up the request into smaller deployments.
 
+Try [redeploying the VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Redeploying the VM allocates the VM to a new cluster within the region.
+
 ## Allocation failures for older VM sizes (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
 As we expand Azure infrastructure, we deploy newer-generation hardware that’s designed to support the latest virtual machine types. Some of the older series VMs do not run on our latest generation infrastructure. For this reason, customers may occasionally experience allocation failures for these legacy SKUs. To avoid this problem, we encourage customers who are using legacy series virtual machines to consider moving to the equivalent newer VMs per the following recommendations: These VMs are optimized for the latest hardware and will let you take advantage of better pricing and performance. 
 
 |Legacy VM-series/size|Recommended newer VM-series/size|More information|
 |----------------------|----------------------------|--------------------|
-|Av1-series|[Av2-series](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 or DSv1-series (D1 to D5)|[Dv3 or DSv3-series](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 or DSv1-series (D11 to D14)|[Ev3 or ESv3-series](../windows/sizes-memory.md#ev3-series)|
+|Av1-series|[Av2-series](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 or DSv1-series (D1 to D5)|[Dv3 or DSv3-series](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 or DSv1-series (D11 to D14)|[Ev3 or ESv3-series](../ev3-esv3-series.md)|
 |D15v2 or DS15v2|If you are using theResource Manager deployment model in order to take advantage of the larger VM sizes, consider moving to D16v3/DS16v3 or D32v3/DS32v3. These are designed to run on the latest generation hardware. If you are using the Resource Manager deployment model to make sure your VM instance is isolated to hardware dedicated to a single customer, consider moving to the new isolated VM sizes, E64i_v3 or E64is_v3, which are designed to run on the latest generation hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## Allocation failures for large deployments (more than 500 cores)

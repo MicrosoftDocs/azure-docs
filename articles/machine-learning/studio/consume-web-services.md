@@ -1,25 +1,27 @@
 ---
 title: Consume web service
-titleSuffix: Azure Machine Learning Studio
-description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
+titleSuffix: ML Studio (classic) - Azure
+description: Once a machine learning service is deployed from Azure Machine Learning Studio (classic), the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
 ---
-# How to consume an Azure Machine Learning Studio web service
+# How to consume an Azure Machine Learning Studio (classic) web service
 
-Once you deploy an Azure Machine Learning Studio predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio here:
+Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
-* For a tutorial on how to create an experiment in Machine Learning Studio, see [Create your first experiment](create-experiment.md).
-* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+You can find more information about how to create and deploy a Machine Learning Web service using Machine Learning Studio (classic) here:
+
+* For a tutorial on how to create an experiment in Machine Learning Studio (classic), see [Create your first experiment](create-experiment.md).
+* For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -27,14 +29,14 @@ You can find more information about how to create and deploy a Machine Learning 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-Azure Machine Learning Studio has two types of services:
+Azure Machine Learning Studio (classic) has two types of services:
 
-* Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
+* Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](deploy-a-machine-learning-web-service.md).
 
-## Get an Azure Machine Learning Studio authorization key
+## Get an authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
 ### From the Microsoft Azure Machine Learning Web Services portal
@@ -56,10 +58,10 @@ To retrieve the API key for a Classic Machine Learning Web service:
 5. Copy and save the **Primary Key**.
 
 ### Classic Web service
- You can also retrieve a key for a Classic Web service from Machine Learning Studio.
+ You can also retrieve a key for a Classic Web service from Machine Learning Studio (classic).
 
-#### Machine Learning Studio
-1. In Machine Learning Studio, click **WEB SERVICES** on the left.
+#### Machine Learning Studio (classic)
+1. In Machine Learning Studio (classic), click **WEB SERVICES** on the left.
 2. Click a Web service. The **API key** is on the **DASHBOARD** tab.
 
 ## <a id="connect"></a>Connect to a Machine Learning Web service
@@ -99,7 +101,7 @@ To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Clie
 **To run the code sample**
 
 1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
-2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning Studio authorization key** above.
+2. Assign apiKey with the key from a Web service. See **Get an authorization key** above.
 3. Assign serviceUri with the Request URI.
 
 **Here is what a complete request will look like.**
@@ -195,12 +197,12 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 **To run the code sample**
 
 1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
-2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning Studio authorization key** section near the beginning of this article.
+2. Assign apiKey with the key from a Web service. See the **Get an authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.
 
 **Here is what a complete request will look like.**
 ```python
-import urllib2 # urllib.request for Python 3.X
+import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
 
 data = {
@@ -224,7 +226,7 @@ url = '<your-api-uri>'
 api_key = '<your-api-key>'
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-# "urllib.request.Request(uri, body, headers)" for Python 3.X
+# "urllib.request.Request(url, body, headers)" for Python 3.X
 req = urllib2.Request(url, body, headers)
 
 try:
@@ -251,7 +253,7 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 library("RCurl")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
+# Accept TLS/SSL certificates issued by public Certificate Authorities
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()

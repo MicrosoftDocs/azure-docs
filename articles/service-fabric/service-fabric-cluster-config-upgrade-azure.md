@@ -1,21 +1,11 @@
 ---
-title: Upgrade the configuration of an Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade the configuration of an Azure Service Fabric cluster 
 description: Learn how to upgrade the configuration that runs a Service Fabric cluster in Azure using a Resource Manager template.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-
 ---
 # Upgrade the configuration of a cluster in Azure 
 
@@ -58,4 +48,4 @@ You can also customize cluster settings in one of the following ways with Azure 
 
 ## Next steps
 * Learn about the [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).

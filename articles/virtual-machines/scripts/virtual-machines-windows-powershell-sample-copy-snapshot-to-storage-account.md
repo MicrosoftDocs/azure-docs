@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in different region | Microsoft Docs
+title: Export/Copy snapshot as VHD to a storage account in different region - PowerShell Sample
 description: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in same different region
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -26,7 +26,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 
@@ -40,8 +40,8 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 | Command | Notes |
 |---|---|
 | [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Generates SAS URI for a snapshot that is used to copy it to a storage account. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Creates a storage account context using the account name and key. This context can be used to perform read/write operations on the storage account. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copies the underlying VHD of a snapshot to a storage account |
+| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | Creates a storage account context using the account name and key. This context can be used to perform read/write operations on the storage account. |
+| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | Copies the underlying VHD of a snapshot to a storage account |
 
 ## Next steps
 

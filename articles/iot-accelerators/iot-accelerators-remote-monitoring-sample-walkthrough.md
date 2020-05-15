@@ -1,6 +1,6 @@
 ---
 title: Remote Monitoring solution accelerator overview - Azure | Microsoft Docs
-description: An overview of the Remote Monitoring solution accelerator.
+description: This article provides an overview of some of the key elements of the Remote Monitoring solution to enable you to understand how it works. 
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -120,9 +120,6 @@ The ASA jobs deliver the telemetry from the connected devices to Time Series Ins
 ### Azure Time Series Insights
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
-
-> [!NOTE]
-> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
 
 ### Configuration microservice
 

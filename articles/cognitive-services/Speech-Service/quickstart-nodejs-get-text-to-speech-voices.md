@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: List text-to-speech voices, Node.js - Speech Service"
+title: "Quickstart: List text-to-speech voices, Node.js - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Node.js. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 04/13/2020
 ms.author: erhopf
 ---
 
@@ -16,15 +16,15 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Node.js. The list is returned as JSON, and voice availability varies by region. For a list of supported regions, see [regions](regions.md).
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Services resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
 
 ## Prerequisites
 
 This quickstart requires:
 
-* [Node 8.12.x or later](https://nodejs.org/en/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Services. [Get one for free!](get-started.md).
+* <a href="https://nodejs.org/en/" target="_blank">Node 8.12.x or later <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
+* An Azure subscription key for the Speech service. [Get one for free!](get-started.md).
 
 ## Create a project and require dependencies
 
@@ -43,9 +43,9 @@ const fs = require('fs');
 
 ## Get an access token
 
-The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This function exchanges your Speech Services subscription key for an access token using the `issueToken` endpoint.
+The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This function exchanges your Speech service subscription key for an access token using the `issueToken` endpoint.
 
-This sample assumes that your Speech Services subscription is in the West US region. If you're using a different region, update the value for `uri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+This sample assumes that your Speech service subscription is in the West US region. If you're using a different region, update the value for `uri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copy this code into your project:
 
@@ -70,7 +70,7 @@ In the next section, we'll create the function to get the list of voices and sav
 
 ## Make a request and save the response
 
-Here you're going to build the request and save the list of returned voices. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `uri`. For more information, see [Speech Services regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Here you're going to build the request and save the list of returned voices. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `uri`. For more information, see [Speech service regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Next, add required headers for the request. Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the response is written to file.
 

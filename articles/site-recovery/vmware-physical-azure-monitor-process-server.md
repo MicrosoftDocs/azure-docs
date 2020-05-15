@@ -1,11 +1,11 @@
 ---
 title: Monitor the Azure Site Recovery process server
-description: This article describes how to monitor Azure Site Recovery process server.
+description: This article describes how to monitor Azure Site Recovery process server used for VMware VM/physical server disaster recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
 
 ---

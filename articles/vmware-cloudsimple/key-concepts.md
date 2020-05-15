@@ -1,6 +1,7 @@
 ---
-title: Key concepts for administering Azure VMware Solution by CloudSimple 
-description: Describes key concepts for administering Azure VMware Solution by CloudSimple
+title: Key concepts for administering Azure VMware Solution by CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple 
+description: Describes key concepts for administering Azure VMware Solutions by CloudSimple
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 04/24/2019 
@@ -9,15 +10,15 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Key concepts for administration of Azure VMware Solution by CloudSimple
+# Key concepts for administration of Azure VMware Solutions by CloudSimple
 
-Administering Azure VMware Solution by CloudSimple requires an understanding of the following concepts:
+Administering Azure VMware Solutions by CloudSimple requires an understanding of the following concepts:
 
-* CloudSimple service, which is displayed as Azure VMware Solution by CloudSimple - Service
-* CloudSimple node, which is displayed as Azure VMware Solution by CloudSimple - Node
+* CloudSimple service, which is displayed as Azure VMware Solutions by CloudSimple - Service
+* CloudSimple node, which is displayed as Azure VMware Solutions by CloudSimple - Node
 * CloudSimple private cloud
 * Service networking
-* CloudSimple virtual machine, which is displayed as Azure VMware Solution by CloudSimple - Virtual machine
+* CloudSimple virtual machine, which is displayed as Azure VMware Solutions by CloudSimple - Virtual machine
 
 ## CloudSimple service
 
@@ -54,4 +55,4 @@ With the CloudSimple service, you can manage VMware virtual machines from the Az
 Learn more about:
 
 * [CloudSimple virtual machines](cloudsimple-virtual-machines.md)
-* [Azure subscription mapping](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)
+* [Azure subscription mapping](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-subscription-mapping/)

@@ -3,7 +3,7 @@ title: Renew an Azure Application Gateway certificate
 description: Learn how to renew a certificate associated with an application gateway listener.
 services: application-gateway
 author: vhorne
-manager: jpconnock
+
 ms.service: application-gateway
 ms.topic: article
 ms.date: 8/15/2018
@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Renew Application Gateway certificates
 
-At some point, you'll need to renew your certificates if you configured your application gateway for SSL encryption.
+At some point, you'll need to renew your certificates if you configured your application gateway for TLS/SSL encryption.
 
 You can renew a certificate associated with a listener using either the Azure portal, Azure PowerShell, or Azure CLI:
 
@@ -58,4 +58,4 @@ az network application-gateway ssl-cert update \
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](application-gateway-ssl-portal.md)
+To learn how to configure TLS Offloading with Azure Application Gateway, see [Configure TLS Offload](application-gateway-ssl-portal.md)

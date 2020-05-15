@@ -1,5 +1,5 @@
 ---
-title: Integrate environments into Azure Pipelines in Azure DevTest Labs | Microsoft Docs
+title: Integrate environments into Azure Pipelines in Azure DevTest Labs
 description: Learn how to integrate Azure DevTest Labs environments into your Azure DevOps continuous integration (CI) and continuous delivery (CD) pipelines. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
@@ -59,7 +59,7 @@ The next stage of the deployment is to create the environment to be used for dev
 4. For **Template Name**, select the name of the environment that you saved to your source code repository*. 
 5. The **Lab Name**, **Repository Name**, and **Template Name** are the friendly representations of the Azure resource IDs. Manually entering the friendly name will cause failures, use the drop-down lists to select the information.
 6. For **Environment Name**, enter a name to uniquely identify the environment instance within the lab.  It must be unique within the lab.
-7. The **Parameter File** and the **Parameters**, allow custom parameters to be passed to the environment. Either or both can be used to set the parameter values. For this example, the Parameters section will be used. Use the names of the variables that you defined in the environment, for example: `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. The **Parameter File** and the **Parameters**, allow custom parameters to be passed to the environment. Either or both can be used to set the parameter values. For this example, the Parameters section will be used. Use the names of the variables that you defined in the environment, for example: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
 8. Information within the environment template can be passed through in the output section of the template. Check **Create output variables based on the environment template output** so other tasks can use the data. `$(Reference name.Output Name)` is the pattern to follow. For example, if the Reference Name was DTL and the output name in the template was location the variable would be `$(DTL.location)`.
 
 ## Delete the environment

@@ -1,8 +1,7 @@
 ---
-title: How to use Azure Queue storage from Python - Azure Storage
-description: Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages.
+title: How to use Azure Queue storage v2.1 from Python - Azure Storage
+description: Learn how to use the Azure Queue service v2.1 from Python to create and delete queues, and insert, get, and delete messages.
 author: mhopkins-msft
-ms.service: storage
 
 ms.author: mhopkins
 ms.date: 09/17/2019
@@ -10,17 +9,20 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
+ms.custom: seo-javascript-october2019
 ---
 
-# How to use Azure Queue storage from Python
+# How to use Azure Queue storage v2.1 from Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
+This article demonstrates common scenarios using the Azure Queue storage service. The scenarios covered include inserting, peeking, getting, and deleting queue messages, and creating and deleting queues.
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Azure Queue storage service. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python]. The scenarios covered include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues. For more information on queues, refer to the [Next steps](#next-steps) section.
+The samples in this article are written in Python and use the [Microsoft Azure Storage SDK for Python]. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -35,7 +37,7 @@ The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python
 To install via the Python Package Index (PyPI), type:
 
 ```bash
-pip install azure-storage-queue
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]

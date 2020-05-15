@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure IoT Edge documentation
-summary: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, or "at the edge," instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to events.
+summary: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
 
 metadata:
   title: Azure IoT Edge documentation
-  description: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, or "at the edge," instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to events.
+  description: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
   services: iot-edge
   ms.service: iot-edge
   ms.topic: landing-page
@@ -96,7 +96,7 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Deploy and monitor at scale using the Azure CLI
-            url: how-to-deploy-monitor-cli.md
+            url: how-to-deploy-cli-at-scale.md
           - text: Create a CI/CD pipeline with Azure Pipelines
             url: how-to-ci-cd.md
       - linkListType: deploy

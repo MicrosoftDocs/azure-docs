@@ -1,20 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Connect an app to a SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Connect an App Service app to a SQL database
-services: app-service\web
-documentationcenter: 
-author: syntaxc4
-manager: erikre
-editor: 
+title: 'PowerShell: Connect to SQL Database'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to connect an app to a SQL Database.
 tags: azure-service-management
 
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
 ---
 

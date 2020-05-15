@@ -1,16 +1,16 @@
 ---
-title: Load terabytes of data into SQL Data Warehouse | Microsoft Docs
+title: Load terabytes of data into SQL Data Warehouse
 description: Demonstrates how 1 TB of data can be loaded into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -23,7 +23,7 @@ robots: noindex
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure SQL Data Warehouse by using Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
-[Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
+[Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
 
 Getting started with Azure SQL Data Warehouse is now easier than ever using **Azure Data Factory**.  Azure Data Factory is a fully managed cloud-based data integration service, which can be used to populate a SQL Data Warehouse with the data from your existing system, and saving you valuable time while evaluating SQL Data Warehouse and building your analytics solutions. Here are the key benefits of loading data into Azure SQL Data Warehouse using Azure Data Factory:
 
@@ -44,8 +44,8 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 >
 
 ## Prerequisites
-* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-quickstart-create-account.md).
-* [TPC-H](http://www.tpc.org/tpch/) data: we are going to use TPC-H as the testing dataset.  To do that, you need to use `dbgen` from TPC-H toolkit, which helps you generate the dataset.  You can either download source code for `dbgen` from [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) and compile it yourself, or download the compiled binary from [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Run dbgen.exe with the following commands to generate 1 TB flat file for `lineitem` table spread across 10 files:
+* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-account-create.md).
+* [TPC-H](http://www.tpc.org/tpch/) data: we are going to use TPC-H as the testing dataset.  To do that, you need to use `dbgen` from TPC-H toolkit, which helps you generate the dataset.  You can either download source code for `dbgen` from [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) and compile it yourself, or download the compiled binary from [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Run dbgen.exe with the following commands to generate 1 TB flat file for `lineitem` table spread across 10 files:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -83,7 +83,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
     To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
 * Create destination table schema in Azure SQL Data Warehouse database, by running the following DDL statement:
 
-	```SQL  
+    ```SQL  
     CREATE TABLE [dbo].[lineitem]
     (
         [L_ORDERKEY] [bigint] NOT NULL,
@@ -117,7 +117,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 3. In the **New data factory** pane:
 
    1. Enter **LoadIntoSQLDWDataFactory** for the **name**.
-       The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LoadIntoSQLDWDataFactory” is not available**, change the name of the data factory (for example, yournameLoadIntoSQLDWDataFactory) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.  
+       The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name "LoadIntoSQLDWDataFactory" is not available**, change the name of the data factory (for example, yournameLoadIntoSQLDWDataFactory) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.  
    2. Select your Azure **subscription**.
    3. For Resource Group, do one of the following steps:
       1. Select **Use existing** to select an existing resource group.
@@ -144,41 +144,41 @@ In the **Properties** page:
 2. Select **Run once now** option.   
 3. Click **Next**.  
 
-	![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    ![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## Step 2: Configure source
 This section shows you the steps to configure the source: Azure Blob containing the 1-TB TPC-H line item files.
 
 1. Select the **Azure Blob Storage** as the data store and click **Next**.
 
-	![Copy Wizard - Select source page](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Copy Wizard - Select source page](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
 2. Fill in the connection information for the Azure Blob storage account, and click **Next**.
 
-	![Copy Wizard - Source connection information](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Copy Wizard - Source connection information](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
 3. Choose the **folder** containing the TPC-H line item files and click **Next**.
 
-	![Copy Wizard - select input folder](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    ![Copy Wizard - select input folder](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Upon clicking **Next**, the file format settings are detected automatically.  Check to make sure that column delimiter is ‘|’ instead of the default comma ‘,’.  Click **Next** after you have previewed the data.
+4. Upon clicking **Next**, the file format settings are detected automatically.  Check to make sure that column delimiter is '|' instead of the default comma ','.  Click **Next** after you have previewed the data.
 
-	![Copy Wizard - file format settings](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Copy Wizard - file format settings](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## Step 3: Configure destination
 This section shows you how to configure the destination: `lineitem` table in the Azure SQL Data Warehouse database.
 
 1. Choose **Azure SQL Data Warehouse** as the destination store and click **Next**.
 
-	![Copy Wizard - select destination data store](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![Copy Wizard - select destination data store](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
 2. Fill in the connection information for Azure SQL Data Warehouse.  Make sure you specify the user that is a member of the role `xlargerc` (see the **prerequisites** section for detailed instructions), and click **Next**.
 
-	![Copy Wizard - destination connection info](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Copy Wizard - destination connection info](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
 3. Choose the destination table and click **Next**.
 
-	![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    ![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
 4. In Schema mapping page, leave "Apply column mapping" option unchecked and click **Next**.
 
@@ -191,17 +191,17 @@ This section shows you how to configure the destination: `lineitem` table in the
 ## Step 5: Deploy and monitor load results
 1. Click **Finish** button to deploy.
 
-	![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
 2. After the deployment is complete, click `Click here to monitor copy pipeline` to monitor the copy run progress. Select the copy pipeline you created in the **Activity Windows** list.
 
-	![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-	You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
+    You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 
-	As you can see from the following screenshot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
+    As you can see from the following screenshot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
 
-	![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## Best practices
 Here are a few best practices for running your Azure SQL Data Warehouse database:
@@ -211,7 +211,7 @@ Here are a few best practices for running your Azure SQL Data Warehouse database
 * For faster load speeds, consider using heap for transient data.
 * Create statistics after you finish loading Azure SQL Data Warehouse.
 
-See [Best practices for Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
+See [Best practices for Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
 
 ## Next steps
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article provides details about the Copy Wizard.

@@ -1,5 +1,5 @@
 ---
-title: FAQs and known issues with managed identities for Azure resources
+title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # FAQs and known issues with managed identities for Azure resources

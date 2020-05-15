@@ -15,6 +15,8 @@
     href: documentation-government-get-started-connect-with-cli.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
+  - name: Visual Studio
+    href: documentation-government-connect-vs.md
 - name: Tutorials
   items:
   - name: Deploy App Services
@@ -22,7 +24,9 @@
   - name: Create Virtual Machines
     href: documentation-government-quickstarts-vm.md
 - name: Concepts
-  items: 
+  items:
+  - name: Considerations for Naming Azure Resources
+    href: documentation-government-concept-naming-resources.md
   - name: Guidance for developers
     href: documentation-government-developer-guide.md
   - name: Plan
@@ -49,8 +53,6 @@
     href: documentation-government-get-started-connect-to-storage.md    
   - name: Use Cognitive Services API
     href: documentation-government-cognitiveservices.md     
-  - name: Deploy Kubernetes cluster
-    href: documentation-government-k8.md
   - name: Integrate Azure AD Authentication
     href: documentation-government-aad-auth-qs.md
   - name: Use DISA CAP
@@ -117,6 +119,8 @@
     href: compliance/azure-services-in-fedramp-auditscope.md
   - name: Secure Azure Computing Architecture 
     href: compliance/secure-azure-computing-architecture.md
+  - name: Accelerate your path to ATO with Azure
+    href: compliance/documentation-accelerate-compliance.md
 - name: Resources
   items:
   - name: Azure Government Website

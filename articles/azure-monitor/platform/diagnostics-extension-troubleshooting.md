@@ -1,14 +1,14 @@
 ---
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.author: robb
+
 ---
+
 # Azure Diagnostics troubleshooting
 This article describes troubleshooting information that's relevant to using Azure Diagnostics. For more information about Azure diagnostics, see [Azure Diagnostics overview](diagnostics-extension-overview.md).
 
@@ -46,7 +46,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## Metric data doesn't appear in the Azure portal
-Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there.
+Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there and ensure that the [resource provider](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft.Insights is registered.
 
 Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
@@ -203,15 +203,15 @@ This code generates four tables:
 
 | Event | Table name |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider="prov1" &lt;Event id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
+| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
+| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
 
 ## References
 
 ### How to check Diagnostics extension configuration
-The easiest way to check your extension configuration is to go to [Azure Resource Explorer](http://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
+The easiest way to check your extension configuration is to go to [Azure Resource Explorer](https://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the Log artifacts path section.
 
@@ -292,5 +292,5 @@ The portal experience in the virtual machines shows certain performance counters
 
 - Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it. **Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account.
 
-- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the ["Azure Monitor" sink](diagnostics-extension-schema.md#diagnostics-extension-111).
+- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the Azure Monitor sink.
 

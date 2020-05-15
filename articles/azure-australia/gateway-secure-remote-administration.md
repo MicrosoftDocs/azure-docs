@@ -1,18 +1,18 @@
 ---
-title: Secure remote administration of your Gateway in Azure Australia
+title: Secure remote administration of gateway in Azure Australia
 description: Guidance on configuring secure remote administration within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Secure remote administration of your Gateway in Azure Australia
 
 It's critical to the availability and integrity of any system that administrative activities are conducted securely and are controlled. Administrative activities should be done from a secure device, over a secure connection, and be backed by strong authentication and authorisation processes. Secure Remote Administration ensures that only authorised actions are performed and only by authorised administrators.
 
-This article provides information on implementing a secure remote administration capability for an internet accessible system hosted in Azure that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
+This article provides information on implementing a secure remote administration capability for an internet accessible system hosted in Azure that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC's Information Security Manual (ISM).
 
 ## Australian Cyber Security Centre (ACSC) requirements
 
@@ -22,12 +22,12 @@ This document discusses the importance of secure administration and suggests one
 
 |Element   |Description   |
 |---|---|
-|Privileged access control   |Controlling access to privileged accounts is a fundamental security control that will protect privileged accounts from misuse. The access control methodology will encompass the concepts of ‘least privilege’ and ‘need to have’ as well as processes and procedures for managing service accounts and staff movements.   |
+|Privileged access control   |Controlling access to privileged accounts is a fundamental security control that will protect privileged accounts from misuse. The access control methodology will encompass the concepts of 'least privilege' and 'need to have' as well as processes and procedures for managing service accounts and staff movements.   |
 |Multi-factor authentication   |Implementing additional factors of authentication beyond usernames and passphrases, such as physical tokens or smartcards, can help protect critical assets. If an adversary compromises credentials for privileged accounts, as all administrative actions would first need to go through some form of multi-factor authentication, the consequences can be greatly reduced.|
 |Privileged workstations|The use of a known secure environment for administrative tasks can result in a lesser risk of the network being compromised due to the implementation of additional security controls.|
 |Logging and auditing   |Automated generation, collection, and analysis of security and administrative related events from workstations, servers, network devices, and jump boxes will enable detection of compromises and attempted compromises. Automation enables organisations to respond more quickly, reducing the implications of a compromise.|
 |Network segmentation and segregation|Segmenting a network into logical zones such as differing security domains, and further segregating these logical networks by restricting the types of data that flow from one zone to another, restricts lateral movement. Segmentation prevents an adversary from gaining access to additional resources.|
-|Jump boxes|A jump box is a hardened remote access server, commonly utilising Microsoft’s Remote Desktop Services or Secure Shell (SSH) software. Jump boxes act as a stepping point for administrators accessing critical systems with all administrative actions performed from the dedicated host.|
+|Jump boxes|A jump box is a hardened remote access server, commonly utilising Microsoft's Remote Desktop Services or Secure Shell (SSH) software. Jump boxes act as a stepping point for administrators accessing critical systems with all administrative actions performed from the dedicated host.|
 
 This article provides a reference architecture for how the elements above can be used for secure administration of systems deployed in Azure.
 
@@ -115,7 +115,7 @@ This section provides information on the purpose of each component and its role 
 
 ## Secure devices
 
-The physical devices used by privileged users to perform administrative functions are valuable targets for malicious actors. Maintaining the security and integrity of the physical devices and ensuring that they are free from malicious software and protecting them from compromise is a key part of providing a secure remote administration capability. This involves high priority security configuration as specified in the ACSC’s Essential Eight Strategies to Mitigate Cyber Security Incidents such as application whitelisting, patching applications, application hardening, and patching operating systems. These capabilities must be installed, configured, audited, validated, and reported on to ensure the state of a device is compliant with organisation requirements.
+The physical devices used by privileged users to perform administrative functions are valuable targets for malicious actors. Maintaining the security and integrity of the physical devices and ensuring that they are free from malicious software and protecting them from compromise is a key part of providing a secure remote administration capability. This involves high priority security configuration as specified in the ACSC's Essential Eight Strategies to Mitigate Cyber Security Incidents such as application whitelisting, patching applications, application hardening, and patching operating systems. These capabilities must be installed, configured, audited, validated, and reported on to ensure the state of a device is compliant with organisation requirements.
 
 ### Privileged workstation
 
@@ -250,7 +250,7 @@ Azure MFA is an authentication service provided within Azure Active Directory to
 
 ## Strong authorisation
 
-Once a privileged account has been securely identified, it can be granted access to resources. Authorisation controls and manages the privileges that are assigned to a specific account. Strong Authorisation processes align with the ACSC’s Essential Eight strategy for mitigating cyber security incidents of restricting administrative privileges.
+Once a privileged account has been securely identified, it can be granted access to resources. Authorisation controls and manages the privileges that are assigned to a specific account. Strong Authorisation processes align with the ACSC's Essential Eight strategy for mitigating cyber security incidents of restricting administrative privileges.
 
 ### Identity and access management
 

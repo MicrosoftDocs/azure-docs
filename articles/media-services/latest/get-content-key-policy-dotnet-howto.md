@@ -1,5 +1,5 @@
 ---
-title: Get a signing key from the existing policy using Media Services v3 .NET SDK - Azure | Microsoft Docs
+title: Get a signing key from a policy using Azure Media Services v3 .NET
 description: This topic shows how to get a signing key from the existing policy using Media Services v3 .NET SDK.
 services: media-services
 documentationcenter: ''
@@ -10,7 +10,6 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.custom: 
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18

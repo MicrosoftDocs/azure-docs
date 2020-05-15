@@ -4,7 +4,7 @@ description: Manage projects, templates, image-streams in an Azure Red Hat OpenS
 services: openshift
 keywords:  red hat openshift projects requests self-provisioner
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
@@ -63,7 +63,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 2. Edit the self-provisioners cluster role binding.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
 3. Remove the role from the ARO update process by adding the following annotation: `openshift.io/reconcile-protect: "true"`.
@@ -79,7 +79,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 4. Change the cluster role binding to prevent `system:authenticated:oauth` from creating projects:
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding

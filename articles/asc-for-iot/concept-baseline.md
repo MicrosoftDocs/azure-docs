@@ -1,7 +1,6 @@
 ---
-
-title: Understand Azure Security Center for IoT baseline| Microsoft Docs
-description: Learn about the concept of Azure Security Center for IoT baseline. 
+title: Baseline and custom checks
+description: Learn about the concept of Azure Security Center for IoT baseline.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-
 ---
+
 # Azure Security Center for IoT baseline and custom checks
 
 This article explains Azure Security Center for IoT baseline, and summarizes all associated properties of baseline custom checks.
 
 ## Baseline
 
-A baseline establishes standard behavior for each device and makes it easier to establish unusual behavior or deviation from expected norms.  
+A baseline establishes standard behavior for each device and makes it easier to establish unusual behavior or deviation from expected norms.
 
 ## Baseline custom checks
 
-Baseline custom checks establish a custom list of checks for each device baseline using the **Module identity twin** of the device. 
+Baseline custom checks establish a custom list of checks for each device baseline using the **Module identity twin** of the device.
 
 ## Setting baseline properties
 
@@ -52,7 +51,7 @@ To configure baseline custom checks:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }

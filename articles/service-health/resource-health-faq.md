@@ -1,13 +1,8 @@
 ---
-title: Azure Resource Health FAQ | Microsoft Docs
+title: Azure Resource Health FAQ
 description: Overview of Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.workload: Supportability
-
 ---
 
 # Azure Resource Health FAQ
@@ -37,7 +32,7 @@ The health status is set to unknown when Resource Health stops receiving informa
 ## How can I get help for a resource that is unavailable?
 You can submit a support request from the Resource Health blade. You do not need a support agreement with Microsoft to open a request when the resource is unavailable because platform events.
 
-## Does Resource Health differentiate between unavailability cased by platform problems versus something I did?
+## Does Resource Health differentiate between unavailability caused by platform problems versus something I did?
 Yes, when a resource is unavailable, Resource Health identifies the root cause within one of these categories: 
 -	User initiated action
 -	Planned event 

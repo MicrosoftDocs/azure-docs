@@ -86,7 +86,7 @@ Recall that the service is stateless. No data is stored in your account. Results
 
 ## Step 3: View results
 
-All POST requests return a JSON formatted response with the IDs and detected properties.
+All POST requests return a JSON formatted response with the IDs and detected properties. The order of the returned key phrases is determined internally, by the model.
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 

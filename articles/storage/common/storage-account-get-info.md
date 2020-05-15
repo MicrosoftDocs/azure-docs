@@ -1,5 +1,6 @@
 ---
-title: Get storage account type and SKU name with .NET - Azure Storage
+title: Get storage account type and SKU name with .NET
+titleSuffix: Azure Storage
 description: Learn how to get Azure Storage account type and SKU name using the .NET client library.
 services: storage
 author: mhopkins-msft
@@ -13,7 +14,7 @@ ms.topic: conceptual
 
 # Get storage account type and SKU name with .NET
 
-This article shows how to get the Azure Storage account type and SKU name for a blob by using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+This article shows how to get the Azure Storage account type and SKU name for a blob by using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 Account information is available on service versions beginning with version 2018-03-28.
 
@@ -59,6 +60,4 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
 
-- [Manage a storage account](storage-account-manage.md)
-- [Upgrade a storage account](storage-account-upgrade.md)
 - [Get Account Information operation (REST)](/rest/api/storageservices/get-account-information)

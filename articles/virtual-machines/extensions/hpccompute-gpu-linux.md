@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Linux VMs | Microsoft Docs
+title: NVIDIA GPU Driver Extension - Azure Linux VMs 
 description: Microsoft Azure Extension for installing NVIDIA GPU Drivers on N-series compute VMs running Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -137,15 +137,15 @@ Set-AzVMExtension
 The following example mirrors the above Azure Resource Manager and PowerShell examples and also adds custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel and installs a specific CUDA toolkit version driver.
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverLinux `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
-    "updateOS": true, `
-    "driverVersion": "9.1.85", `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.2 \
+  --settings '{ \
+    "updateOS": true, \
+    "driverVersion": "9.1.85", \
   }'
 ```
 

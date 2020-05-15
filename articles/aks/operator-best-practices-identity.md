@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Identity in Azure Kubernetes Services (AKS)
+title: Best practices for managing identity
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: mlearned
+
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -44,7 +42,7 @@ To create an AKS cluster that uses Azure AD, see [Integrate Azure Active Directo
 
 **Best practice guidance** - Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least amount of permissions required. Integrate with Azure AD so any change in user status or group membership is automatically updated and access to cluster resources is current.
 
-In Kubernetes, you can provide granular control of access to resources in the cluster. Permissions can be defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are the applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
+In Kubernetes, you can provide granular control of access to resources in the cluster. Permissions can be defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are then applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 As an example, you can create a Role that grants full access to resources in the namespace named *finance-app*, as shown in the following example YAML manifest:
 
@@ -118,7 +116,7 @@ This best practices article focused on authentication and authorization for your
 
 For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-cluster-isolation]
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 

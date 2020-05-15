@@ -1,13 +1,13 @@
 ---
-title: 'Move a public peering to Microsoft peering - Azure ExpressRoute | Microsoft Docs'
+title: 'Azure ExpressRoute: Move a public peering to Microsoft peering'
 description: This article shows you the steps to move your public peering to Microsoft peering on ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 ---
 
 # Move a public peering to Microsoft peering
@@ -78,9 +78,8 @@ Configure route filters using any of the following articles:
 
 After verifying that the Microsoft peering is configured and the prefixes you wish to consume are correctly advertised on Microsoft peering, you can then delete the public peering. To delete the public peering, use any of the following articles:
 
-* [Delete Azure public peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Delete Azure public peering using Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Delete Azure public peering using CLI](howto-routing-cli.md#deletepublic)
+* [Delete Azure public peering using Azure PowerShell](about-public-peering.md#powershell)
+* [Delete Azure public peering using CLI](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. View peerings
   

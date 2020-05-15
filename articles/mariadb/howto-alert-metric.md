@@ -1,11 +1,11 @@
 ---
-title: Configure metrics alerts for Azure Database for MariaDB in Azure portal
+title: Configure metric alerts - Azure portal - Azure Database for MariaDB
 description: This article describes how to configure and access metric alerts for Azure Database for MariaDB from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 3/18/2020
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for MariaDB

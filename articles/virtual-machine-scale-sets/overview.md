@@ -1,22 +1,14 @@
 ---
-title: Azure virtual machine scale sets overview | Microsoft Docs
+title: Azure virtual machine scale sets overview
 description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: mimckitt
+ms.author: mimckitt
 ms.topic: overview
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.subservice:
 ms.date: 09/26/2019
-ms.author: manayar
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # What are virtual machine scale sets?
@@ -31,7 +23,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
 - **Easy to create and manage multiple VMs**
     - When you have many VMs that run your application, it's important to maintain a consistent configuration across your environment. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.
     - With scale sets, all VM instances are created from the same base OS image and configuration. This approach lets you easily manage hundreds of VMs without additional configuration tasks or network management.
-    - Scale sets support the use of the [Azure load balancer](../load-balancer/load-balancer-overview.md) for basic layer-4 traffic distribution, and [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) for more advanced layer-7 traffic distribution and SSL termination.
+    - Scale sets support the use of the [Azure load balancer](../load-balancer/load-balancer-overview.md) for basic layer-4 traffic distribution, and [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) for more advanced layer-7 traffic distribution and TLS termination.
 
 - **Provides high availability and application resiliency**
     - Scale sets are used to run multiple instances of your application. If one of these VM instances has a problem, customers continue to access your application through one of the other VM instances with minimal interruption.

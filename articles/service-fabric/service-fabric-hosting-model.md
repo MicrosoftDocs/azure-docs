@@ -1,19 +1,11 @@
 ---
-title: Azure Service Fabric hosting model | Microsoft Docs
+title: Azure Service Fabric hosting model 
 description: Describes the relationship between replicas (or instances) of a deployed Service Fabric service and the service-host process.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-
 ---
 # Azure Service Fabric hosting model
 This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.
@@ -171,6 +163,10 @@ In the activation of 'MultiTypeServicePackage' for the replica of partition **P1
 
 
 In the preceding example, you might think that if 'MyCodePackageA' registers both 'MyServiceTypeA' and 'MyServiceTypeB', and there is no 'MyCodePackageB', then there is no redundant *CodePackage* running. Although this is correct, this application model does not align with the Exclusive Process hosting model. If the goal is to put each replica in its own dedicated process, you do not need to register both *ServiceTypes* from same *CodePackage*. Instead, you simply put each *ServiceType* in its own *ServicePackage*.
+
+### Reliable Services and Actor forking subprocesses
+
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancellation tokens are only sent to registered processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancellation token.
 
 ## Next steps
 [Package an application][a4] and get it ready to deploy.

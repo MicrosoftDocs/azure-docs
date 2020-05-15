@@ -1,23 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Functions documentation # <60 chars
-summary: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. # < 160 chars
+title: Azure Functions documentation 
+summary: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. 
 
 metadata:
-  title: Azure Functions documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Functions documentation 
+  description: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. 
   ms.service: azure-functions 
   ms.topic: landing-page # Required
   author: ggailey777 
   ms.author: azfundocs 
   ms.date: 09/17/2019 
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
   - title: About Azure Functions
     linkLists:
       - linkListType: overview
@@ -38,8 +33,6 @@ landingContent:
         links:
           - text: Where should I host my code?
             url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
-
-  # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -47,13 +40,13 @@ landingContent:
           - text: Create your first function (C#)
             url: functions-create-your-first-function-visual-studio.md
           - text: Create your first function (Java)
-            url: functions-create-first-java-maven.md
+            url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
           - text: Create your first function (JavaScript)
-            url: functions-create-first-function-vs-code.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
           - text: Create your first function (PowerShell)
-            url: functions-create-first-function-powershell.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
           - text: Create your first function (Python)
-            url: functions-create-first-function-python.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-python
       - linkListType: learn
         links:
           - text: Create serverless logic
@@ -62,8 +55,6 @@ landingContent:
         links:
           - text: Watch how to get started
             url: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
- 
-  # Card
   - title: Develop functions
     linkLists:
       - linkListType: concept
@@ -82,14 +73,14 @@ landingContent:
             url: functions-bindings-error-pages.md
       - linkListType: learn
         links:
-          - text: Develop/test/deploy with Visual Studio
+          - text: Develop functions using Visual Studio
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
+          - text: Develop functions from the command line
+            url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
       - linkListType: video
         links:
           - text: Develop with Visual Studio Code
             url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/
- 
-  # Card
   - title: Connect to services
     linkLists:
       - linkListType: concept
@@ -110,8 +101,6 @@ landingContent:
             url: /learn/modules/chain-azure-functions-data-using-bindings/index
           - text: Connect to GitHub webhook
             url: /learn/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/index
-  
-  # Card
   - title: Deploy functions
     linkLists:
       - linkListType: deploy
@@ -130,7 +119,6 @@ landingContent:
             url: functions-how-to-azure-devops.md
           - text: Deploy using the Jenkins plugin
             url: /azure/jenkins/jenkins-azure-functions-deploy
-  # Card
   - title: Performance and monitoring
     linkLists:
       - linkListType: concept
@@ -145,8 +133,6 @@ landingContent:
         links:
           - text: Troubleshooting
             url: functions-recover-storage-account.md 
-
-  # Card
   - title: Long-running functions
     linkLists:
       - linkListType: overview
@@ -159,8 +145,6 @@ landingContent:
         links:
           - text: Create a long-running serverless workflow
             url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/index
-
-  # Card
   - title: Samples
     linkLists:
       - linkListType: download

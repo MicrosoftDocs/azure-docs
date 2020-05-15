@@ -1,11 +1,10 @@
 ---
-title: Tutorial - Add a sample model to an Azure Analysis Services server | Microsoft Docs
+title: Tutorial - Add a sample model- Azure Analysis Services | Microsoft Docs
 description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, from the portal, I want to add a basic sample model database to my server for testing tool and client connections and queries.
@@ -39,7 +38,7 @@ Sign in to the [portal](https://portal.azure.com/).
 
     ![Create a sample model](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. In **New model** > **Choose a datasource**,  verify **Sample data** is selected, and then click **Add**.
+2. In **New model** > **Choose a data source**,  verify **Sample data** is selected, and then click **Add**.
 
     ![Select sample data](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
@@ -69,6 +68,6 @@ These steps describe how to delete a model from a server by using SSMS.
 In this tutorial, you learned how to add a basic, sample model to your server. Now that you have a model database, you can connect to it from SQL Server Management Studio and add user roles. To learn more, continue with the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure server administrator and user roles](analysis-services-database-users.md)
+> [Tutorial: Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
 
 

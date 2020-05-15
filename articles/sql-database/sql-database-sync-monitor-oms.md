@@ -1,5 +1,5 @@
 ---
-title: "Monitor Azure SQL Data Sync with Azure Monitor logs | Microsoft Docs"
+title: Monitor SQL Data Sync with Azure Monitor logs
 description: "Learn how to monitor Azure SQL Data Sync by using Azure Monitor logs"
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
@@ -131,7 +131,7 @@ To create an alert that uses Azure Monitor logs, do the following things. As a p
 
 2.  Create a query to select the errors and warnings by sync group within the interval you selected. For example:
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
 3.  After running the query, select the bell that says **Alert**.
 

@@ -1,53 +1,58 @@
 ---
-title: Azure Backup Monitoring Alert FAQ
-description: 'Answers to common questions about: The Azure Backup Monitoring Alert'
+title: Monitoring Alert and Reports FAQ
+description: In this article, discover answers to common questions about the Azure Backup Monitoring Alert and Azure Backup reports.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
 ---
 
 # Azure Backup Monitoring Alert - FAQ
-This article answers common questions about the Azure monitoring alert.
+
+This article answers common questions about Azure Backup monitoring and reporting.
 
 ## Configure Azure Backup reports
 
-### How do I check if reporting data has started flowing into a storage account?
-Go to the storage account you configured, and select containers. If the container has an entry for insights-logs-azurebackupreport, it indicates that reporting data has started flowing in.
+### How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
 
-### What is the frequency of data push to a storage account and the Azure Backup content pack in Power BI?
-  For Day 0 users, it takes around 24 hours to push data to a storage account. After this initial push is finished, data is refreshed with the frequency shown in the following figure.
+Navigate to the LA Workspace you have configured, navigate to the **Logs** menu item, and run the query CoreAzureBackup | take 1. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
-  * Data related to **Jobs**, **Alerts**, **Backup Items**, **Vaults**, **Protected Servers**, and **Policies** is pushed to a customer storage account as and when it's logged.
+### What is the frequency of data push to an LA Workspace?
 
-  * Data related to **Storage** is pushed to a customer storage account every 24 hours.
+The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace 20 to 30 minutes after it's pushed from the Recovery Services vault. Here are further details about the lag:
 
-       ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+* Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
+* Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they finish.
+* For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they finish.
+* For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
+* Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least once per day.
+* A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
-  * Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
+### How long can I retain reporting data?
 
-### How long can I retain reports?
-When you configure a storage account, you can select a retention period for report data in the storage account. Follow step 6 in the [Configure storage account for reports](backup-azure-configure-reports.md#configure-storage-account-for-reports) section. You also can [analyze reports in Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) and save them for a longer retention period, based on your needs.
+After you create an LA Workspace, you can choose to retain data for a maximum of 2 years. By default, an LA Workspace retains data for 31 days.
 
-### Will I see all my data in reports after I configure the storage account?
- All the data generated after you configure a storage account is pushed to the storage account and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it's sent to reports.
+### Will I see all my data in reports after I configure the LA Workspace?
 
-### If I already configured the storage account to view reports, can I change the configuration to use another storage account?
-Yes, you can change the configuration to point to a different storage account. Use the newly configured storage account while you connect to the Azure Backup content pack. Also, after a different storage account is configured, new data flows in this storage account. Older data (before you change the configuration) still remains in the older storage account.
+ All the data generated after you configure diagnostics settings is pushed to the LA Workspace and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it is sent to reports.
 
 ### Can I view reports across vaults and subscriptions?
-Yes, you can configure the same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. Then you can use this storage account while you connect to the Azure Backup content pack in Power BI to view the reports. The storage account selected must be in the same region as the Recovery Services vault.
+
+Yes, you can view reports across vaults and subscriptions as well as regions. Your data may reside in a single LA Workspace or a group of LA Workspaces.
+
+### Can I view reports across tenants?
+
+If you are an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
 
 ### How long does it take for the Azure backup agent job status to reflect in the portal?
+
 The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
 
 ### When a backup job fails, how long does it take to raise an alert?
+
 An alert is raised within 20 mins of the Azure backup failure.
 
 ### Is there a case where an email won’t be sent if notifications are configured?
+
 Yes. In the following situations, notifications are not sent.
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
@@ -57,13 +62,16 @@ Yes. In the following situations, notifications are not sent.
 ## Recovery Services Vault
 
 ### How long does it take for the Azure backup agent job status to reflect in the portal?
+
 The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
 
 ### When a backup job fails, how long does it take to raise an alert?
+
 An alert is raised within 20 mins of the Azure backup failure.
 
 ### Is there a case where an email won’t be sent if notifications are configured?
-Yes. In the following situations, notifications are not sent.
+
+Yes. In the following situations, notifications are not sent:
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
 * When a job is canceled
@@ -73,5 +81,5 @@ Yes. In the following situations, notifications are not sent.
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
-- [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent
+* [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+* [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

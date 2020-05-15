@@ -1,36 +1,21 @@
 ---
-title: Monitor AKS cluster performance with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/17/2019
-ms.author: magoedte
+title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
+ms.topic: conceptual
+ms.date: 03/26/2020
 ---
 
-# Understand AKS cluster performance with Azure Monitor for containers
-With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of your Azure Kubernetes Service (AKS) clusters from two perspectives. You can monitor directly from an AKS cluster, or you can monitor all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when you monitor a specific AKS cluster.
+# Monitor your Kubernetes cluster performance with Azure Monitor for containers
+
+With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
 
 This article helps you understand the two perspectives, and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view that shows the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows AKS clusters discovered that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
+Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
 
-The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
-
-- Memory RSS metric isn't available for Windows node and containers.
-- Disk storage capacity information isn't available for Windows nodes.
-- Live logs support is available with the exception of Windows container logs.
-- Only pod environments are monitored, not Docker environments.
-- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers. 
+The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are described [here](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) in the overview article.
 
 ## Sign in to the Azure portal
 
@@ -38,13 +23,24 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Multi-cluster view from Azure Monitor
 
-To view the health status of all AKS clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
+To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
+You can scope the results presented in the grid to show clusters that are:
+
+* **Azure** - AKS and AKS-Engine clusters hosted in Azure Kubernetes Service
+* **Azure Stack (Preview)** - AKS-Engine clusters hosted on Azure Stack
+* **Non-Azure (Preview)** - Kubernetes clusters hosted on-premises
+* **All** - View all the Kubernetes clusters hosted in Azure, Azure Stack, and on-premises environments that are onboarded to Azure Monitor for containers
+
+To view clusters from a specific environment, select it from the **Environments** pill on the top-left corner of the page.
+
+![Environment pill selector example](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
+
 On the **Monitored clusters** tab, you learn the following:
 
-- How many clusters are in a Critical or unhealthy state, versus how many are Healthy or not reporting (referred to as an Unknown state).
+- How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an Unknown state).
 - Whether all of the [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments are healthy.
 - How many nodes and user and system pods are deployed per cluster.
 - How much disk space is available and if there's a capacity issue.
@@ -56,7 +52,7 @@ The health statuses included are:
 * **Warning**: One or more issues are detected that must be addressed or the health condition could become critical.
 * **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an Unknown state.
 * **Not found**: Either the workspace, the resource group, or subscription that contains the workspace for this solution was deleted.
-* **Unauthorized**: User doesn’t have required permissions to read the data in the workspace.
+* **Unauthorized**: User doesn't have required permissions to read the data in the workspace.
 * **Error**: An error occurred while attempting to read data from the workspace.
 * **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
@@ -83,18 +79,21 @@ The following table provides a breakdown of the calculation that controls the he
 | |Critical |<60% |
 | |Unknown |If not reported in last 30 minutes |
 
-From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.  ​
+From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.
 
-## View performance directly from an AKS cluster
+## View performance directly from a cluster
 
-Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** from the left pane. Information about your AKS cluster is organized into four perspectives:
+Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** > **Cluster** from the left pane, or when you selected a cluster from the multi-cluster view. Information about your cluster is organized into four perspectives:
 
 - Cluster
 - Nodes 
 - Controllers 
 - Containers
 
-The default page opens when you select **Insights** > **Cluster**. Four line performance charts display key performance metrics of your cluster. 
+>[!NOTE]
+>The experience described in the remainder of this article are also applicable for viewing performance and health status of your Kubernetes clusters hosted on Azure Stack or other environment when selected from the multi-cluster view. 
+
+The default page opens and displays four line performance charts that show key performance metrics of your cluster. 
 
 ![Example performance charts on the Cluster tab](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -137,13 +136,9 @@ You can [split](../platform/metrics-charts.md#apply-splitting-to-a-chart) a metr
 
 When you switch to the **Nodes**, **Controllers**, and **Containers** tabs, a property pane automatically displays on the right side of the page. It shows the properties of the item selected, which includes the labels you defined to organize Kubernetes objects. When a Linux node is selected, the **Local Disk Capacity** section also shows the available disk space and the percentage used for each disk presented to the node. Select the **>>** link in the pane to view or hide the pane.
 
-![Example Kubernetes perspectives properties panes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
-
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes events with predefined log searches by selecting the **View Kubernetes event logs** link at the top of the pane. For more information about how to view Kubernetes log data, see [Search logs to analyze data](container-insights-log-search.md). While you review cluster resources, you can see container logs and events in real time. For more information about this feature and the configuration required to grant and control access, see [View logs in real time with Azure Monitor for containers](container-insights-live-logs.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **View live data (preview)** link at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Setup the Live Data (preview)](container-insights-livedata-setup.md). While you review cluster resources, you can see this data from the container in real-time. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md). To view Kubernetes log data stored in your workspace based on pre-defined log searches, select **View container logs** from the **View in analytics** drop-down list. For additional information about this topic, see [Search logs to analyze data](container-insights-log-search.md#search-logs-to-analyze-data).
 
 Use the **+ Add Filter** option at the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool**. After you select the filter scope, select one of the values shown in the **Select value(s)** field. After the filter is configured, it's applied globally while viewing any perspective of the AKS cluster. The formula only supports the equal sign. You can add additional filters on top of the first one to further narrow your results. For example, if you specify a filter by **Node**, you can only select **Service** or **Namespace** for the second filter.
-
-![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
 Specifying a filter in one tab continues to be applied when you select another. It's deleted after you select the **x** symbol next to the specified filter. 
 
@@ -199,6 +194,20 @@ The information that's presented when you view the **Nodes** tab is described in
 | Uptime | Represents the time since a node started or was rebooted. |
 | Controller | Only for containers and pods. It shows which controller it resides in. Not all pods are in a controller, so some might display **N/A**. | 
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric percentage of the controller. |
+
+You may notice a workload after expanding a node named **Other process**. It represents non-containerized processes that run on your node, and includes:
+
+* Self-managed or managed Kubernetes non-containerized processes
+
+* Container run-time processes  
+
+* Kubelet  
+
+* System processes running on your node
+
+* Other non-Kubernetes workloads running on node hardware or VM
+
+It is calculated by: *Total usage from CAdvisor* - *Usage from containerized process*.  
 
 In the selector, select **Controllers**.
 
@@ -308,4 +317,7 @@ You access these workbooks by selecting each one from the **View Workbooks** dro
 ## Next steps
 
 - Review [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
+
+- View [monitor cluster health](container-insights-health.md) to learn about viewing the health status your Kubernetes cluster.

@@ -1,17 +1,19 @@
 ---
 title: Retrieve operations API | Azure Marketplace
 description: Retrieves all the operations on the offer or to get a particular operation for the specified operationId.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
-ms.author: pabutler
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
 
-Retrieve operations
-===================
+# Retrieve operations
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 Retrieves all the operations on the offer or to get a particular operation for the specified operationId. The client may use
 query parameters to filter on running operations.
@@ -25,21 +27,18 @@ query parameters to filter on running operations.
 ```
 
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**          |      **Description**                                                                                           | **Data type** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Publisher identifier, for example `Contoso`                                                                   |  String       |
 |  offerId           |  Offer identifier                                                                                              |  String       |
 |  operationId       |  GUID that uniquely identifies the operation on the offer. The operationId may be retrieved by using this API, and is also returned in the HTTP header of the response for any long running operation, such as the [Publish offer](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
-|  filteredStatus    | Optional query parameter  used to filter by status (for example `running`) on the collection returned by this API.  |   String |
-|  api-version       | Latest version of API                                                                                           |    Date      |
+|  api-version       | Latest version of API |    Date      |
 |  |  |  |
 
+## Header
 
-Header
-------
 
 |  **Name**          |  **Value**           |
 |  ---------------   | -------------------- |
@@ -48,8 +47,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Response
 
@@ -164,25 +162,35 @@ Body example
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### Response body properties
 
 |  **Name**                    |  **Description**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID that uniquely identifies the operation                                                       |
-|  submissionType              | Identifies the type of operation being reported for the offer, for example `Publish/GGoLive`      |
+|  submissionType              | Identifies the type of operation being reported for the offer, for example `Publish/GoLive`      |
 |  createdDateTime             | UTC datetime when the operation was created                                                       |
 |  lastActionDateTime          | UTC datetime when the last update was done on the operation                                       |
 |  status                      | Status of the operation, either `not started` \| `running` \| `failed` \| `completed`. Only one operation can have status `running` at a time. |
 |  error                       | Error message for failed operations                                                               |
 |  |  |
 
+### Response step properties
+
+|  **Name**                    |  **Description**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| estimatedTimeFrame | The estimated duration of this operation |
+| id | The unique identifier for the step process |
+| description | Description of the step |
+| stepName | The friendly name for the step |
+| status | The status of the step, either `notStarted` \| `running` \| `failed` \| `completed` |
+| messages | Any notifications or warnings encountered during the step. Array of strings |
+| progressPercentage | An integer from 0 to 100 indicating the progression of the step |
+| | |
 
 ### Response status codes
 

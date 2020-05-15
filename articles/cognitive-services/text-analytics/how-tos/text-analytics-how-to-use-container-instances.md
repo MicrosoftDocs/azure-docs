@@ -3,13 +3,13 @@ title: Run Azure Container Instances - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the text analytics containers to the Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Deploy a Text Analytics container to Azure Container Instances

@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Create a Geo AI DSVM' 
+title: 'Quickstart: Create a Geo AI Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Geo AI Data Science Virtual Machine on Azure for geospatial analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm

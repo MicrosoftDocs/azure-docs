@@ -1,21 +1,12 @@
 ---
-title: Introduction to FreeBSD on Azure | Microsoft Docs
+title: Introduction to FreeBSD on Azure 
 description: Learn about using FreeBSD virtual machines on Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: thomas1206
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
-ms.author: huishao
+ms.author: mimckitt
 
 ---
 # Introduction to FreeBSD on Azure

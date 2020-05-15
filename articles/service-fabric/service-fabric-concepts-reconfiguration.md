@@ -1,21 +1,11 @@
 ---
-title: Reconfiguration in Azure Service Fabric | Microsoft Docs
-description: Understand reconfiguration of partitions in Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Reconfiguration in Azure Service Fabric 
+description: Learn about configurations for stateful service replicas and the process of reconfiguration Service Fabric uses to maintain consistency and availability during the change.
 author: appi101
-manager: anuragg
-editor: 
 
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-
 ---
 
 # Reconfiguration in Azure Service Fabric

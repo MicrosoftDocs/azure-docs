@@ -1,99 +1,94 @@
 ---
-title: How to troubleshoot Azure Functions Runtime is unreachable.
+title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-services: functions
-documentationcenter: 
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
 
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ---
 
-# How to troubleshoot "functions runtime is unreachable"
+# Troubleshoot error: "Azure Functions Runtime is unreachable"
 
+This article helps you troubleshoot the following error string that appears in the Azure portal:
 
-## Error text
-This doc is intended to troubleshoot the following error when displayed in the Functions portal.
+> "Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration."
 
-`Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
+This issue occurs when the Azure Functions Runtime can't start. The most common reason for the issue is that the function app has lost access to its storage account. For more information, see [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
 
-### Summary
-This issue occurs when the Azure Functions Runtime cannot start. The most common reason for this error to occur is the function app losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+The rest of this article helps you troubleshoot the following causes of this error, including how to identify and resolve each case.
 
-### Troubleshooting
-We'll walk through the four most common error cases, how to identify, and how to resolve each case.
+## Storage account was deleted
 
-1. Storage Account deleted
-1. Storage Account application settings deleted
-1. Storage Account credentials invalid
-1. Storage Account Inaccessible
-1. Daily Execution Quota Full
+Every function app requires a storage account to operate. If that account is deleted, your function won't work.
 
-## Storage account deleted
+Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account wrapped up in a connection string. For more information, see [App settings reference for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
-Every function app requires a storage account to operate. If that account is deleted your Function will not work.
+Search for your storage account in the Azure portal to see whether it still exists. If it has been deleted, re-create the storage account and replace your storage connection strings. Your function code is lost, and you need to redeploy it.
 
-### How to find your storage account
+## Storage account application settings were deleted
 
-Start by looking up your storage account name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
-
-Search for your storage account in the Azure portal to see if it still exists. If it has been deleted, you will need to recreate a storage account and replace your storage connection strings. Your function code is lost and you will need to redeploy it again.
-
-## Storage account application settings deleted
-
-In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. Deleting app settings is most commonly done when using deployment slots or Azure Resource Manager scripts to set application settings.
+In the preceding step, if you can't find a storage account connection string, it was likely deleted or overwritten. Deleting application settings most commonly happens when you're using deployment slots or Azure Resource Manager scripts to set application settings.
 
 ### Required application settings
 
-* Required
+* Required:
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
-* Required for Consumption Plan Functions
+* Required for consumption plan functions:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[Read about these application settings here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+For more information, see [App settings reference for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
 ### Guidance
 
-* Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not modify these settings as part of automated deployments.
-* These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
+* Don't check "slot setting" for any of these settings. If you swap deployment slots, the function app breaks.
+* Don't modify these settings as part of automated deployments.
+* These settings must be provided and valid at creation time. An automated deployment that doesn't contain these settings results in a function app that won't run, even if the settings are added later.
 
-## Storage account credentials invalid
+## Storage account credentials are invalid
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+The previously discussed storage account connection strings must be updated if you regenerate storage keys. For more information about storage key management, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-## Storage account inaccessible
+## Storage account is inaccessible
 
-Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
+Your function app must be able to access the storage account. Common issues that block a function app's access to a storage account are:
 
-* Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
-* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* The function app is deployed to your App Service Environment without the correct network rules to allow traffic to and from the storage account.
 
-## Daily Execution Quota Full
+* The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-If you have a Daily Execution Quota configured, your Function App will be temporarily disabled and many of the portal controls will become unavailable. 
+## Daily execution quota is full
 
-* To verify, check open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Remove the quota and restart your app to resolve the issue.
+If you have a daily execution quota configured, your function app is temporarily disabled, which causes many of the portal controls to become unavailable. 
 
-## Next Steps
+To verify the quota in the [Azure portal](https://portal.azure.com), select **Platform Features** > **Function App Settings** in your function app. If you're over the **Daily Usage Quota** you've set, the following message is displayed:
 
-Now that your Function App is back and operational take a look at our quickstarts and developer references to get up and running again!
+  > "The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame."
 
-* [Create your first Azure Function](functions-create-first-azure-function.md)  
-  Jump right in and create your first function using the Azure Functions quickstart. 
-* [Azure Functions developer reference](functions-reference.md)  
-  Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
-* [Testing Azure Functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
-* [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/overview.md)  
-  Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
+To resolve this issue, remove or increase the daily quota, and then restart your app. Otherwise, the execution of your app is blocked until the next day.
+
+## App is behind a firewall
+
+Your function runtime might be unreachable for either of the following reasons:
+
+* Your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic.
+
+* Your function app has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) that are configured to block internet access. 
+
+The Azure portal makes calls directly to the running app to fetch the list of functions, and it makes HTTP calls to the Kudu endpoint. Platform-level settings under the **Platform Features** tab are still available.
+
+To verify your App Service Environment configuration:
+1. Go to the network security group (NSG) of the subnet where the App Service Environment resides.
+1. Validate the inbound rules to allow traffic that's coming from the public IP of the computer where you're accessing the application. 
+   
+You can also use the portal from a computer that's connected to the virtual network that's running your app or to a virtual machine that's running in your virtual network. 
+
+For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+
+## Next steps
+
+Learn about monitoring your function apps:
+
+> [!div class="nextstepaction"]
+> [Monitor Azure Functions](functions-monitoring.md)

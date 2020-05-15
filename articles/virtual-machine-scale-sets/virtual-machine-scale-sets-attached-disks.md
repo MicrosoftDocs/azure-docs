@@ -1,21 +1,14 @@
 ---
-title: Azure Virtual Machine Scale Sets Attached Data Disks | Microsoft Docs
-description: Learn how to use attached data disks with virtual machine scale sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+title: Azure Virtual Machine Scale Sets Attached Data Disks
+description: Learn how to use attached data disks with virtual machine scale sets through outlines of specific use cases.
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 4/25/2017
-ms.author: manayar
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Azure virtual machine scale sets and attached data disks
@@ -89,12 +82,12 @@ To automatically prepare the data disk(s) in a Linux cluster, add the following:
 
 
 ## Adding pre-populated data disks to an existing scale set
-Data disks specified in the scale set model are always empty. However, you may attach an existing data disk to a specific VM in a scale set. This feature is in preview, with examples on [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). If you wish to propagate data across all VMs in the scale set, you may duplicate your data disk and attach it to each VM in the scale set, you may create a custom image that contains the data and provision the scale set from this custom image, or you may use Azure Files or a similar data storage offering.
+Data disks specified in the scale set model are always empty. However, you may attach an existing data disk to a specific VM in a scale set. If you wish to propagate data across all VMs in the scale set, you may duplicate your data disk and attach it to each VM in the scale set, or create a custom image that contains the data and provision the scale set from this custom image, or you may use Azure Files or a similar data storage offering.
 
 
 ## Additional notes
 Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) or later of the Microsoft.Compute API.
 
-Azure portal support for attached data disks in scale sets is initially limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
+Azure portal support for attached data disks in scale sets is limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
 
 

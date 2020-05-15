@@ -1,11 +1,10 @@
 ---
 title: Regions in which Video Indexer is available - Azure  
-titlesuffix: Azure Media Services
-description: This article talks about Azure regions in which Video Indexer is available.  
+titleSuffix: Azure Media Services
+description: This article talks about Azure regions in which Azure Media Services Video Indexer is available.
 services: media-services
 author: anikaz
 manager: johndeu
-
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
@@ -19,9 +18,9 @@ Video Indexer APIs contain a **location** parameter that you should set to the A
 
 ## Locations
 
-The **location** parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put *"trial"* as the value. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+The `location` parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put `"trial"` as the value. `trial` is the default value for the `location` parameter. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](/cli/azure):
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 

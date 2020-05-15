@@ -122,7 +122,7 @@ This example demonstrates how to support pre-flight requests, such as those with
 |cors|Root element.|Yes|N/A|
 |allowed-origins|Contains `origin` elements that describe the allowed origins for cross-domain requests. `allowed-origins` can contain either a single `origin` element that specifies `*` to allow any origin, or one or more `origin` elements that contain a URI.|Yes|N/A|
 |origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
-|allowed-methods|This element is required if methods other than GET or POST are allowed. Contains `method` elements that specify the supported HTTP verbs.|No|If this section is not present, GET and POST are supported.|
+|allowed-methods|This element is required if methods other than GET or POST are allowed. Contains `method` elements that specify the supported HTTP verbs. The value `*` indicates all methods.|No|If this section is not present, GET and POST are supported.|
 |method|Specifies an HTTP verb.|At least one `method` element is required if the `allowed-methods` section is present.|N/A|
 |allowed-headers|This element contains `header` elements specifying names of the headers that can be included in the request.|No|N/A|
 |expose-headers|This element contains `header` elements specifying names of the headers that will be accessible by the client.|No|N/A|
@@ -132,8 +132,8 @@ This example demonstrates how to support pre-flight requests, such as those with
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client’s ability to submit credentials in cross-domain requests.|No|false|
-|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent’s ability to cache pre-flight response.|No|0|
+|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
+|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache pre-flight response.|No|0|
 
 ### Usage
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

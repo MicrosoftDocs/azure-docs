@@ -33,7 +33,7 @@ After a share snapshot is created, it can be read, copied, or deleted, but not m
 Share snapshot capability is provided at the file share level. Retrieval is provided at individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, the REST API, the portal, the client library, or PowerShell/CLI tooling.
 
 A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the
-time at which the share snapshot was taken. For example, if a file share URI is http://storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
+time at which the share snapshot was taken. For example, if a file share URI is http:\//storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -67,7 +67,7 @@ You can copy individual files in a file share snapshot over to its base share or
 
 The share snapshot remains intact after copying, but the base file share is overwritten with a copy of the data that was available in the share snapshot. All the restored files count toward "changed content."
 
-You can copy a file in a share snapshot to a destination with a different name. The resulting destination file is a writable file and not a share snapshot.
+You can copy a file in a share snapshot to a different destination with a different name. The resulting destination file is a writable file and not a share snapshot. In this case, your base file share will remain intact.
 
 When a destination file is overwritten with a copy, any
 share snapshots associated with the original destination file remain intact.

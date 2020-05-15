@@ -1,16 +1,16 @@
 ---
-title: Prepare Azure resources for disaster recovery of on-premises machines
+title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 
 ---
-# Prepare Azure resources for disaster recovery of on-premises machines
+# Prepare Azure resources for Hyper-V disaster recovery
 
  [Azure Site Recovery](site-recovery-overview.md) helps business continuity and disaster recovery (BCDR) by keeping business apps running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 

@@ -5,10 +5,10 @@ description: Deploying LDAP Authentication and Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -34,8 +34,8 @@ To configure LDAP authentication, install the Azure Multi-Factor Authentication 
 
    ![LDAP Authentication in MFA Server](./media/howto-mfaserver-dir-ldap/ldap2.png)
 
-3. On the Clients tab, change the TCP port and SSL port if the Azure Multi-Factor Authentication LDAP service should bind to non-standard ports to listen for LDAP requests.
-4. If you plan to use LDAPS from the client to the Azure Multi-Factor Authentication Server, an SSL certificate must be installed on the same server as MFA Server. Click **Browse** next to the SSL certificate box, and select a certificate to use for the secure connection.
+3. On the Clients tab, change the TCP port and SSL (TLS) port if the Azure Multi-Factor Authentication LDAP service should bind to non-standard ports to listen for LDAP requests.
+4. If you plan to use LDAPS from the client to the Azure Multi-Factor Authentication Server, an TLS/SSL certificate must be installed on the same server as MFA Server. Click **Browse** next to the SSL (TLS) certificate box, and select a certificate to use for the secure connection.
 5. Click **Add**.
 6. In the Add LDAP Client dialog box, enter the IP address of the appliance, server, or application that authenticates to the Server and an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 7. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or are exempt from two-step verification, leave the box unchecked. See the MFA Server help file for additional information on this feature.
@@ -75,5 +75,5 @@ After you complete these steps, the MFA Server listens on the configured ports f
 To configure the LDAP client, use the guidelines:
 
 * Configure your appliance, server, or application to authenticate via LDAP to the Azure Multi-Factor Authentication Server as though it were your LDAP directory. Use the same settings that you would normally use to connect directly to your LDAP directory, except for the server name or IP address, which will be that of the Azure Multi-Factor Authentication Server.
-* Configure the LDAP timeout to 30-60 seconds so that there is time to validate the user’s credentials with the LDAP directory, perform the second-step verification, receive their response, and respond to the LDAP access request.
-* If using LDAPS, the appliance or server making the LDAP queries must trust the SSL certificate installed on the Azure Multi-Factor Authentication Server.
+* Configure the LDAP timeout to 30-60 seconds so that there is time to validate the user's credentials with the LDAP directory, perform the second-step verification, receive their response, and respond to the LDAP access request.
+* If using LDAPS, the appliance or server making the LDAP queries must trust the TLS/SSL certificate installed on the Azure Multi-Factor Authentication Server.

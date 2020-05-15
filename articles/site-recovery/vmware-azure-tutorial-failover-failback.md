@@ -1,18 +1,14 @@
 ---
-title: Fail over and fail back VMware VMs and physical servers during disaster recovery to Azure with Site Recovery | Microsoft Docs
-description: Learn how to fail over VMware VMs and physical servers to Azure, and how to fail back to the on-premises site, during disaster recovery to Azure by using Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+title: Fail over VMware VMs to Azure with Site Recovery 
+description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
-ms.author: raynew
+ms.date: 12/16/2019
 ms.custom: MVC
 ---
-# Fail over and fail back VMware VMs
+# Fail over  VMware VMs
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to [Azure Site Recovery](site-recovery-overview.md).
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
 This is the fifth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises machines.
 
@@ -20,28 +16,21 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Verify that the VMware VM properties conform with Azure requirements.
-> * Run a failover to Azure.
+> * Fail over specific VMs to Azure.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible and don't show all possible settings and paths. If you want to learn about failover in detail, see [Fail over VMs and physical servers](site-recovery-failover.md).
+
+[Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
 ## Before you start
 
 Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
-2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) environment for disaster recovery. If you're setting up disaster recovery for physical servers, review the [support matrix](vmware-physical-secondary-support-matrix.md).
-3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md), [Hyper-V VMs](hyper-v-azure-tutorial.md), or [physical machines](physical-azure-disaster-recovery.md).
+2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery. 
+3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
-
-## Failover and failback
-
-Failover and failback have four stages:
-
-1. **Fail over to Azure:** When your on-premises primary site goes down, fail machines over to Azure. After failover, Azure VMs are created from replicated data.
-2. **Reprotect Azure VMs:** In Azure, reprotect the Azure VMs so that they start replicating back to on-premises VMware VMs. The on-premises VM is turned off during reprotection, to help ensure data consistency.
-3. **Fail over to on-premises:** When your on-premises site is up and running, run a failover to fail back from Azure.
-4. **Reprotect on-premises VMs:** After data has failed back, reprotect the on-premises VMs to which you failed back, so that they start replicating to Azure.
 
 ## Verify VM properties
 
@@ -93,7 +82,7 @@ In some scenarios, failover requires additional processing that takes around 8 t
 
 ## Connect to failed-over VM
 
-1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met]((ailover-failback-overview.md#connect-to-azure-after-failover).
 2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.

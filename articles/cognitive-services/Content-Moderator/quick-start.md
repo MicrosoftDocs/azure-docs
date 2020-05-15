@@ -3,20 +3,20 @@ title: "Quickstart: Try Content Moderator on the web - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
-ms.author: sajagtap
+ms.date: 03/13/2020
+ms.author: pafarley
 
 ---
 
 # Quickstart: Try Content Moderator on the web
 
-In this quickstart, you will use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
+In this quickstart, you'll use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
 ## Prerequisites
 
@@ -29,9 +29,23 @@ The Content Moderator Review tool is a web-based tool that allows human reviewer
 
 ## Create a review team
 
-Next, create a review team. In a working scenario, this will be the group of people who will manually review the service's moderation decisions. For now, you only need to create a team name. If you wish to invite colleagues to the team, you can do so by entering their email addresses here.
+Next, create a review team. In a working scenario, this will be the group of people who will manually review the service's moderation decisions. To create a team, you'll need to select a **Region**, and provide a **Team Name** and a **Team ID**. If you wish to invite colleagues to the team, you can do so by entering their email addresses here.
 
-![Invite team member](images/QuickStart-2-small.png)
+> [!NOTE]
+> **Team Name** is a friendly name for your review team. This is the name displayed in the Azure portal. The **Team ID** is what's used to identify your review team programatically.
+
+> [!div class="mx-imgBorder"]
+> ![Invite team member](images/create-team.png)
+
+If you choose to encrypt data using a customer-managed key (CMK), you'll be prompted for the **Resource ID** for your Content Moderator resource in the E0 pricing tier. The resource you provide must be new. 
+
+> [!div class="mx-imgBorder"]
+> ![Invite team member with CMK](images/create-team-cmk.png)
+
+If you try to reuse a Content Moderator resource, you'll see this warning: 
+
+> [!div class="mx-imgBorder"]
+> ![CMK failure](images/create-team-cmk-fail.png)
 
 ## Upload sample content
 
@@ -65,6 +79,6 @@ Or, continue with the next steps to get started using the Moderation APIs in you
 ## Next steps
 
 Learn how to use the Moderation APIs themselves in your app.
-- Implement image moderation. Use the [API console](try-image-api.md) or the [C# quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
-- Implement text moderation. Use the [API console](try-text-api.md) or use the [C# quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personal data.
+- Implement image moderation. Use the [API console](try-image-api.md) or follow the the [.NET SDK quickstart](dotnet-sdk-quickstart.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
+- Implement text moderation. Use the [API console](try-text-api.md) or use the [.NET SDK quickstart](dotnet-sdk-quickstart.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personal data.
 - Implement video moderation. Follow the [Video moderation how-to guide for C#](video-moderation-api.md) to scan videos and detect potential adult and racy content. 

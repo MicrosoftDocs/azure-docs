@@ -31,9 +31,9 @@ In the **New device** panel, choose **IoT Edge device**. You can leave the defau
 
 It's also possible to register an IoT Edge device directly with the IoT Hub instance in your solution accelerator. You need to know the name of the IoT hub in your solution accelerator before you follow any of these how-to guides:
 
-- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device-portal.md)
-- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device-cli.md)
-- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
+- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
+- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
+- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
 
 When you register a device directly with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Device Explorer** page in the web UI.
 

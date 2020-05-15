@@ -1,16 +1,16 @@
 ---
-title: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
-description: Learn how to create Azure Cosmos DB SQL API resources using a C# console application.
+title: 'Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account'
+description: 'Tutorial: Learn how to create Azure Cosmos DB SQL API resources using a C# console application.'
 author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 11/05/2019
 ms.author: kirankk
 
 ---
-# Build a .NET console app to manage data in Azure Cosmos DB SQL API account
+# Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -253,6 +253,16 @@ A database is the logical container of items partitioned across containers. Eith
 
 1. Select F5 to run your application.
 
+   > [!NOTE]
+   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](performance-tips.md#networking) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+   ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+   ```
+
 Congratulations! You've successfully created an Azure Cosmos database.  
 
 ## <a id="CreateColl"></a>Step 5: Create a container
@@ -300,9 +310,11 @@ First, let's create a `Family` class that represents objects stored within Azure
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
+
 1. Back in *Program.cs*, add the `AddItemsToContainerAsync` method after your `CreateContainerAsync` method.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
+
 
     The code checks to make sure an item with the same ID doesn't already exist. We'll insert two items, one each for the *Andersen Family* and the *Wakefield Family*.
 

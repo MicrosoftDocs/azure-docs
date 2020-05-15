@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Add guest users in the Azure portal - Azure Active Directory'
+title: 'Quickstart: Add guest users in the Azure portal - Azure AD'
 description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 01/23/2020
 
 ms.author: mimart
 author: msmimart
@@ -44,9 +44,13 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing where to select the New guest user option](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.	Under **User name**, enter the email address of the external user. Under **Include a personal message with the invitation**, type a welcome message. 
+5. On the **New user** page, select **Invite user** and then add the guest user's information. 
 
-    ![Screenshot showing where to enter the guest user invitation message](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **Name.** The first and last name of the guest user.
+   - **Email address (required)**. The email address of the guest user.
+   - **Personal message (optional)** Include a personal welcome message to the guest user.
+   - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
+   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. 
 
 6. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**. 
 7.	After you send the invitation, the user account is automatically added to the directory as a guest.

@@ -1,0 +1,163 @@
+### YamlMime:Landing
+
+title: Troubleshoot Linux virtual machines in Azure # < 60 chars
+summary: Documentation for troubleshooting Linux virtual machines in Azure. # < 160 chars
+
+metadata:
+  title: Troubleshoot Linux virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Documentation for troubleshooting and managing Linux virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
+  services: virtual-machines-linux
+  ms.service: virtual-machines-linux #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: genlin  #Required; your GitHub user alias, with correct capitalization.
+  ms.author: genli #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/09/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Troubleshoot deployment failures
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
+            url: allocation-failure.md
+          - text: Troubleshoot deployment issues when creating a new virtual machine in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm
+          - text: Resolve errors for invalid template
+            url: ../../azure-resource-manager/templates/error-invalid-template.md
+          - text: Resolve errors for SKU not available
+            url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+
+  # Card (optional)
+  - title: VM deployment guidance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare and upload a non-endorsed image for Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic
+          - text: Create or clone an image of a generalized VM in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/capture-image
+
+  # Card
+  - title: Can't connect to my VM
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to use boot diagnostics to troubleshoot Linux virtual machines in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+          - text: How to reset local Linux password on Azure VMs
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
+          - text: Reset Remote Access to address remote server issues using PowerShell or CLI
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection
+          - text: Quick steps to diagnose & address common SSH connection issues
+            url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
+
+  # Card
+  - title: Password reset
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Reset the SSH key or password using VM Access Extension 
+            url: https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#ways-to-use-the-vmaccess-extension
+          - text:  Reset local password for Azure Linux VM using offline method
+            url: https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/reset-password
+
+  # Card
+  - title: VM is not booting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Resolve boot errors when starting your VM after applying specific kernel changes
+            url: https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues
+          - text:  Use Serial console to access GRUB to modify boot configuration Mode
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode
+          - text:  How to use boot diagnostics to troubleshoot Linux virtual machines in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+          - text:  Understanding FSTAB errors and mitigation steps
+            url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
+
+  # Card
+  - title: Can't start or stop VM
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshoot deploying Windows virtual machine issues in Azure
+            url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+          - text:  Troubleshoot allocation failures (Classic deployment model)
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+
+  # Card
+  - title: Unexpected VM restart
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  How to view VM reboot logs to identify the cause of reboot
+            url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
+
+  # Card
+  - title: Virtual Disk management issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Virtual Disks FAQ
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks
+          - text:  Troubleshoot allocation failures when resizing a VM
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+          - text:  Understanding the temporary drive on your VM
+            url: https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk
+          - text:  Overview of Azure Managed Disks
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+          - text:  FAQ about Azure VM disks and managed and unmanaged premium disks
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks
+
+  # Card
+  - title: Disk encryption issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Azure disk encryption scenarios on Linux VM
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux
+          - text:  Troubleshoot disk encryption issues 
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-troubleshooting
+          - text:  Azure disk encryption FAQ
+            url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-faq
+                    
+   # Card
+  - title: VM performance issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshoot Azure VM performance issues
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows
+          - text:  Performance diagnostics for Azure VM
+            url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics
+             
+   # Card
+  - title: VM Extension issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  General troubleshooting steps for extensions
+            url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+          - text:  Installing the extension in your VM
+            url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
+          - text:  Custom Script Extension for Windows
+            url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+           
+   # Card
+  - title: Backup and restore
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text:  Troubleshoot Azure VM backup in Azure Portal
+            url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+          - text:  Troubleshoot Azure Backup Server
+            url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
+          - text:  Review the features of Azure Backup
+            url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
+          - text:  Understand how to backup Azure virtual machines to Recovery Services vaults
+            url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm

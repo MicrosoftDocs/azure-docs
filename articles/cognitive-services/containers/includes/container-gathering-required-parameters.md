@@ -1,21 +1,18 @@
 ---
 title: Gathering required parameters
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: The parameters for all Cognitive Services' containers
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 09/18/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Gathering required parameters
 
 There are three primary parameters for all Cognitive Services' containers that are required. The end-user license agreement (EULA) must be present with a value of `accept`. Additionally, both an Endpoint URL and API Key are needed.
-
-> [!NOTE]
-> The only exception to these three required parameters is when containers are considered "Offline" containers. Offline containers do not report usage, are not metered and follow a different billing methodology.
 
 ### Endpoint URI `{ENDPOINT_URI}`
 

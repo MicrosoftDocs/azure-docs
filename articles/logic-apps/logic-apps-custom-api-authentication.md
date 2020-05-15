@@ -1,25 +1,22 @@
 ---
-title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
-description: Set up authentication for calling custom APIs from Azure Logic Apps
+title: Add authentication for securing calls to custom APIs
+description: How to set up authentication to improve security for calls to custom APIs from Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ---
 
-# Secure calls to custom APIs from Azure Logic Apps
+# Increase security for calls to custom APIs from Azure Logic Apps
 
-To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
+To improve security for calls to your APIs, you can set up Azure Active Directory (Azure AD) 
 authentication through the Azure portal so you don't have to update your code. 
 Or, you can require and enforce authentication through your API's code.
 
 ## Authentication options for your API
 
-You can secure calls to your custom API in these ways:
+You can improve security for calls to your custom API in these ways:
 
 * [No code changes](#no-code): Protect your API with 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 
@@ -128,11 +125,13 @@ In PowerShell, run these commands:
 
 1. `Add-AzAccount`
 
-2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
+1. `$SecurePassword = Read-Host -AsSecureString`
 
-3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+1. Enter a password and press Enter.
 
-4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
+1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+
+1. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
@@ -194,7 +193,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
 
 **Turn on authentication when you deploy with an Azure Resource Manager template**
 
-You must still create an Azure AD application identity for your web app or API app 
+You still need to create an Azure AD application identity for your web app or API app 
 that differs from the app identity for your logic app. To create the application identity, 
 follow the previous steps in Part 2 for the Azure portal. 
 
@@ -212,19 +211,21 @@ After you get the client ID and tenant ID, include these IDs
 as a subresource of your web app or API app in your deployment template:
 
 ``` json
-"resources": [ {
-    "apiVersion": "2015-08-01",
-    "name": "web",
-    "type": "config",
-    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-    "properties": {
-        "siteAuthEnabled": true,
-        "siteAuthSettings": {
-            "clientId": "{client-ID}",
-            "issuer": "https://sts.windows.net/{tenant-ID}/",
-        }
-    }
-} ]
+"resources": [ 
+   {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "config",
+      "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+      "properties": {
+         "siteAuthEnabled": true,
+         "siteAuthSettings": {
+            "clientId": "<client-ID>",
+            "issuer": "https://sts.windows.net/<tenant-ID>/"
+         }
+      }
+   } 
+]
 ```
 
 To automatically deploy a blank web app and a logic app together with 
@@ -238,13 +239,21 @@ or click **Deploy to Azure** here:
 The previous template already has this authorization section set up, 
 but if you are directly authoring the logic app, you must include the full authorization section.
 
-Open your logic app definition in code view, go to the **HTTP** action section, 
-find the **Authorization** section, and include this line:
+Open your logic app definition in code view, go to the **HTTP** action definition, 
+find the **Authorization** section, and include these properties:
 
-`{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
+```json
+{
+   "tenant": "<tenant-ID>",
+   "audience": "<client-ID-from-Part-2-web-app-or-API app>", 
+   "clientId": "<client-ID-from-Part-1-logic-app>",
+   "secret": "<key-from-Part-1-logic-app>", 
+   "type": "ActiveDirectoryOAuth"
+}
+```
 
-| Element | Required | Description | 
-| ------- | -------- | ----------- | 
+| Property | Required | Description | 
+| -------- | -------- | ----------- | 
 | tenant | Yes | The GUID for the Azure AD tenant | 
 | audience | Yes | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
 | clientId | Yes | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
@@ -257,10 +266,9 @@ For example:
 ``` json
 {
    "actions": {
-      "some-action": {
-         "conditions": [],
+      "HTTP": {
          "inputs": {
-            "method": "post",
+            "method": "POST",
             "uri": "https://your-api-azurewebsites.net/api/your-method",
             "authentication": {
                "tenant": "tenant-ID",
@@ -269,7 +277,7 @@ For example:
                "secret": "key-from-azure-ad-app-for-logic-app",
                "type": "ActiveDirectoryOAuth"
             }
-         },
+         }
       }
    }
 }
@@ -283,20 +291,24 @@ For example:
 
 #### Certificate authentication
 
-To validate the incoming requests from your logic app to your web app or API app, 
-you can use client certificates. To set up your code, learn 
-[how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
+To validate the incoming requests from your logic app to your web app or API app, you can use client certificates. To set up your code, learn [how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-In the **Authorization** section, include this line: 
+In the **Authorization** section, include these properties:
 
-`{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
+```json
+{
+   "type": "ClientCertificate",
+   "password": "<password>",
+   "pfx": "<long-pfx-key>"
+} 
+```
 
-| Element | Required | Description | 
-| ------- | -------- | ----------- | 
-| type | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. | 
-| password | Yes | The password for accessing the client certificate (PFX file) | 
-| pfx | Yes | The base64-encoded contents of the client certificate (PFX file) | 
-|||| 
+| Property | Required | Description |
+| -------- | -------- | ----------- |
+| `type` | Yes | The authentication type. For TLS/SSL client certificates, the value must be `ClientCertificate`. |
+| `password` | No | The password for accessing the client certificate (PFX file) |
+| `pfx` | Yes | The base64-encoded contents of the client certificate (PFX file) |
+||||
 
 <a name="basic"></a>
 
@@ -307,12 +319,18 @@ you can use basic authentication, such as a username and password.
 Basic authentication is a common pattern, and you can use this 
 authentication in any language used to build your web app or API app.
 
-In the **Authorization** section, include this line:
+In the **Authorization** section, include these properties:
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+```json
+{
+   "type": "Basic",
+   "username": "<username>",
+   "password": "<password>"
+}
+```
 
-| Element | Required | Description | 
-| ------- | -------- | ----------- | 
+| Property | Required | Description | 
+| -------- | -------- | ----------- | 
 | type | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. | 
 | username | Yes | The username that you want to use for authentication | 
 | password | Yes | The password that you want to use for authentication | 

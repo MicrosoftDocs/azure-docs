@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -205,7 +206,7 @@ In order to enable Azure AD users to log into Mindflash, they must be provisione
     b. Click **Add**.
 
 >[!NOTE]
->You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts. 
+>You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision Azure AD user accounts. 
 > 
 
 ### Test single sign-on 

@@ -164,7 +164,7 @@ the **Note** field, click **Upload** to upload the federation metadata file you 
 7. Associate the Alibaba Cloud RAM role (AADrole) with the Azure AD user (u2):
 To associate the RAM role with the Azure AD user, you must create a role in Azure AD by following these steps:
 
-	a. Sign on to the [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+	a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 	b. Click **modify permissions** to obtain required permissions for creating a role.
 

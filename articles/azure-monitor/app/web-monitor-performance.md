@@ -1,19 +1,12 @@
 ---
 title: Monitor your app's health and usage with Application Insights
 description: Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/10/2018
+
 ms.reviewer: sdash
-ms.author: mbullwin
 ---
+
 # Monitor performance in web applications
 
 
@@ -29,8 +22,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 * [ASP.NET web apps](../../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](../../azure-monitor/app/asp-net-exceptions.md)
   * [Add dependency monitoring](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE web apps](../../azure-monitor/app/java-get-started.md)
-  * [Add dependency monitoring](../../azure-monitor/app/java-agent.md)
+* [Java EE web apps](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
 ## <a name="view"></a>Exploring performance metrics
 In [the Azure portal](https://portal.azure.com), browse to the Application Insights resource that you set up for your application. The overview blade shows basic performance data:

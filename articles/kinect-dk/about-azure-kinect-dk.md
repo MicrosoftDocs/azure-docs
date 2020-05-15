@@ -1,6 +1,6 @@
 ---
 title: About Azure Kinect DK
-description: Azure Kinect DK overview
+description: Overview of the Azure Kinect developer kit (DK) tools and integrated services.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -11,7 +11,9 @@ keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, sp
 
 # About Azure Kinect DK
 
-Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and software development kits (SDKs). It is available for purchase in [Microsoft online store](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq?activetab=pivot:overviewtab).
+ ![Azure Kinect DK](./media/index/device-image.jpg)
+
+Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and software development kits (SDKs). It is available for purchase in [Microsoft online store](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
 
 The Azure Kinect DK development environment consists of the following multiple SDKs:
 

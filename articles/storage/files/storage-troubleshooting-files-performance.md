@@ -18,7 +18,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -38,6 +38,9 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 ![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
+> [!NOTE]
+> To receive an alert if a file share is throttled, see [How to create an alert if a file share is throttled](#how-to-create-an-alert-if-a-file-share-is-throttled).
+
 ### Solution
 
 - Increase share provisioned capacity by specifying a higher quota on your share.
@@ -53,6 +56,7 @@ To confirm if most of your requests are metadata centric, you can use the same s
 ### Workaround
 
 - Check if the application can be modified to reduce the number of metadata operations.
+- Add a VHD on the file share and mount VHD over SMB from the client to perform files operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local, offering performance similar to a local direct-attached storage.
 
 ### Cause 3: Single-threaded application
 
@@ -94,7 +98,7 @@ This is a known issue with the implementation of SMB client on Linux.
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every **fsync** call. For Azure Files, this option does not interfere with data consistency, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
 ## High latencies for metadata heavy workloads involving extensive open/close operations.
 
@@ -163,3 +167,38 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 ### Workaround
 
 - Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+
+## How to create an alert if a file share is throttled
+
+1. In the [Azure portal](https://portal.azure.com), click on **Monitor**. 
+
+2. Click **Alerts** and then click **+ New alert rule**.
+
+3. Click **Select** to select the **storage account/file** resource that contains the file share that you want to alert on and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
+
+4. Click **Add** to add a condition.
+
+5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
+
+6. On the **Configure signal logic** blade, go to the **Response type** dimension, click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST). 
+
+  > [!NOTE]
+  > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled.  To add the dimension value, click the **+** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #6.
+
+7. Go to the **File Share** dimension, click the **Dimension values** drop-down and select the file share(s) that you want to alert on. 
+
+  > [!NOTE]
+  > If the file share is a standard file share, the dimension values drop-down will be blank because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account. 
+
+8. Define the **alert parameters** (threshold, operator, aggregation granularity and frequency) which are used to evaluate the metric alert rule and click **Done**.
+
+  > [!TIP]
+  > If you are using a static threshold, the metric chart can help determine a reasonable threshold if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+
+9. Add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+
+10. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+
+11. Click **Create alert rule** to create the alert.
+
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

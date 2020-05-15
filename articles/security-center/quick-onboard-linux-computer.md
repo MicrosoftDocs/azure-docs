@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Linux computers to Security Center | Microsoft Docs
+title: Onboard Linux computers to Azure Security Center | Microsoft Docs
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na
@@ -18,14 +18,14 @@ ms.author: memildin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning an Agent. The Agent is called the Microsoft Monitoring Agent (MMA), but it is also known as the OMS agent.
+After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning an Agent. The Agent is called the Log Analytics agent, but it is also known as the OMS agent.
 
 This quickstart shows you how to install the Agent on a Linux computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-You must be on Security Center’s Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center’s Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+You must be on Security Center's Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center's Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Add new Linux computer
 

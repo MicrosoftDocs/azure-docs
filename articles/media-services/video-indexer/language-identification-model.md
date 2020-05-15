@@ -1,6 +1,6 @@
 ---
-title: Automatically identify the spoken language with Video Indexer - Azure  
-titlesuffix: Azure Media Services
+title: Use Video Indexer to auto identify spoken languages  - Azure
+titleSuffix: Azure Media Services
 description: This article describes how the Video Indexer language identification model is used to automatically identifying the spoken language in a video.
 services: media-services
 author: juliako
@@ -9,13 +9,17 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 04/12/2020
 ms.author: ellbe
 ---
 
 # Automatically identify the spoken language with language identification model
 
-Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. Currently LID supports English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). 
+Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
+
+Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
+
+Make sure to review the [Guidelines and limitations](#guidelines-and-limitations) section below.
 
 ## Choosing auto language identification on indexing
 
@@ -45,7 +49,10 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 
 ## Guidelines and limitations
 
-* Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese.
+* Automatic language identification (LID) supports the following languages: 
+
+    English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian).
+* Even though Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 

@@ -1,5 +1,5 @@
 ---
-title: Security controls for Azure SQL Database
+title: Security controls
 description: A checklist of security controls for evaluating Azure SQL Database
 services: sql-database
 author: msmbaldwin
@@ -51,7 +51,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 | Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
 | Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
 | Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
-| Encrypted API calls| Yes | Using HTTPS/SSL. |
+| Encrypted API calls| Yes | Using HTTPS/TLS. |
 
 ## Configuration management
 

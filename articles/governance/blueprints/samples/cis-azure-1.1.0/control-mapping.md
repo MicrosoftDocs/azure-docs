@@ -1,11 +1,8 @@
 ---
-title: Sample - CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping
+title: CIS Microsoft Azure Foundations Benchmark blueprint sample controls
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/01/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
 
@@ -39,7 +36,7 @@ This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions t
 when multi-factor authentication isn't enabled on privileged Azure Active Directory accounts.
 
 - MFA should be enabled on accounts with owner permissions on your subscription
-- MFA should be enabled on accounts with write permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
 
 ## 1.2 Ensure that multi-factor authentication is enabled for all non-privileged users
 
@@ -54,23 +51,31 @@ accounts.
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you monitor
 for guest accounts that may need removed.
 
-- External accounts with owner permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+
+## 1.23 Ensure that no custom subscription owner roles are created
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you monitor
+for custom subscription owner roles that may need removed.
+
+- Custom subscription owner roles should not exist
 
 ## 2.1 Ensure that standard pricing tier is selected
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 monitor networks and virtual machines where the Security Center standard tier isn't enabled.
 
- - Security Center standard pricing tier should be selected
+- Security Center standard pricing tier should be selected
 
 ## 2.2 Ensure that 'Automatic provisioning of monitoring agent' is set to 'On'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure automatic provisioning of the Log Analytics agent is enabled.
 
-- Automatic provisioning of the Log Analytics monitoring agent should be enabled on your subscription
+- Automatic provisioning of the Log Analytics monitoring agent should be enabled on your
+  subscription
 
 ## 2.3 Ensure ASC Default policy setting "Monitor System Updates" is not "Disabled"
 
@@ -105,14 +110,7 @@ ensure virtual machine disks are encrypted.
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 protect Internet-facing virtual machines.
 
-- Network Security Group Rules for Internet facing virtual machines should be hardened
-
-## 2.8 Ensure ASC Default policy setting "Monitor Web Application Firewall" is not "Disabled"
-
-This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-protect virtual machines running web applications.
-
-- The NSGs rules for web applications on IaaS should be hardened
+- Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
 
 ## 2.9 Ensure ASC Default policy setting "Enable Next Generation Firewall(NGFW) Monitoring" is not "Disabled"
 
@@ -122,7 +120,7 @@ referenced by this CIS Microsoft Azure Foundations Benchmark recommendation has 
 new recommendations. The policies referenced below address the new recommendations.
 
 - Subnets should be associated with a Network Security Group
-- Virtual machines should be associated with a Network Security Group
+- Internet-facing virtual machines should be protected with Network Security Groups
 
 ## 2.10 Ensure ASC Default policy setting "Monitor Vulnerability Assessment" is not "Disabled"
 
@@ -155,7 +153,7 @@ ensure Adaptive Application Controls is enabled on virtual machines.
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps ensure
 SQL server auditing is enabled.
 
-- Auditing should be enabled on advanced data security settings on SQL Server
+- Auditing on SQL server should be enabled
 
 ## 2.15 Ensure ASC Default policy setting "Monitor SQL Encryption" is not "Disabled"
 
@@ -218,7 +216,7 @@ monitor storage accounts that don't allow access from trusted Microsoft services
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps ensure
 SQL server auditing is enabled. 
 
-- Auditing should be enabled on advanced data security settings on SQL Server
+- Auditing on SQL server should be enabled
 
 ## 4.2 Ensure that 'AuditActionGroups' in 'auditing' policy for a SQL server is set properly
 
@@ -239,8 +237,8 @@ ensure SQL server logs are retained for at least 90 days.
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security is enabled on SQL servers and SQL managed instances.
 
-- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
+- Advanced data security should be enabled on your SQL managed instances
 
 ## 4.5 Ensure that 'Threat Detection types' is set to 'All'
 
@@ -257,20 +255,20 @@ advanced threat protection is properly configured on SQL servers and SQL managed
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Advanced data security settings for SQL managed instance should contain an email address to
-  receive security alerts
 - Advanced data security settings for SQL server should contain an email address to receive security
   alerts
+- Advanced data security settings for SQL managed instance should contain an email address to
+  receive security alerts
 
 ## 4.7 Ensure that 'Email service and co-administrators' is 'Enabled'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Email notifications to admins and subscription owners should be enabled in SQL managed instance
-  advanced data security settings
 - Email notifications to admins and subscription owners should be enabled in SQL server advanced
   data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance
+  advanced data security settings
 
 ## 4.8 Ensure that Azure Active Directory Admin is configured
 
@@ -292,22 +290,50 @@ This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions t
 the transparent data encrypted protector for SQL servers and SQL managed instances is encrypted with
 your own key.
 
-- SQL managed instance TDE protector should be encrypted with your own key
 - SQL server TDE protector should be encrypted with your own key
+- SQL managed instance TDE protector should be encrypted with your own key
 
 ## 4.11 Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure MySQL database servers enforce SSL connections.
+ensure MySQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for MySQL database servers
+
+## 4.12 Ensure server parameter 'log_checkpoints' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log checkpoints.
+
+- Log checkpoints should be enabled for PostgreSQL database servers
 
 ## 4.13 Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure PostgreSQL database servers enforce SSL connections.
+ensure PostgreSQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for PostgreSQL database servers
+
+## 4.14 Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log connections.
+
+- Log connections should be enabled for PostgreSQL database servers
+
+## 4.15 Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log disconnections.
+
+- Disconnections should be logged for PostgreSQL database servers.
+
+## 4.16 Ensure server parameter 'log_duration' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log the duration of completed statements.
+
+- Log duration should be enabled for PostgreSQL database servers
 
 ## 4.17 Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server
 
@@ -353,12 +379,96 @@ ensure that the log profile is properly configured.
 
 - Azure Monitor should collect activity logs from all regions
 
+## 5.1.6 Ensure the storage account containing the container with activity logs is encrypted with BYOK (Use Your Own Key)
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that storage accounts containing activity logs are encrypted with BYOK.
+
+- Storage account containing the container with activity logs must be encrypted with BYOK
+
 ## 5.1.7 Ensure that logging for Azure KeyVault is 'Enabled'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure diagnostic logs are enabled for key vaults.
 
 - Diagnostic logs in Key Vault should be enabled
+
+## 5.2.1 Ensure that Activity Log Alert exists for Create Policy Assignment
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Policy operations
+
+## 5.2.2 Ensure that Activity Log Alert exists for Create or Update Network Security Group
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Administrative operations
+
+## 5.2.3 Ensure that Activity Log Alert exists for Delete Network Security Group
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Administrative operations
+
+## 5.2.4 Ensure that Activity Log Alert exists for Create or Update Network Security Group Rule
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Administrative operations
+
+## 5.2.5 Ensure that activity log alert exists for the Delete Network Security Group Rule
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Administrative operations
+
+## 5.2.6 Ensure that Activity Log Alert exists for Create or Update Security Solution
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Security operations
+
+## 5.2.7 Ensure that Activity Log Alert exists for Delete Security Solution
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Security operations
+
+## 5.2.8 Ensure that Activity Log Alert exists for Create or Update or Delete SQL Server Firewall Rule
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Administrative operations
+
+## 5.2.9 Ensure that Activity Log Alert exists for Update Security Policy
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that specific activity log alerts exists.
+
+- An activity log alert should exist for specific Security operations
+
+## 6.1 Ensure that RDP access is restricted from the internet
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that RDP access is restricted.
+
+- RDP access from the Internet should be blocked
+
+## 6.2 Ensure that SSH access is restricted from the internet
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure that SSH access is restricted.
+
+- SSH access from the Internet should be blocked
 
 ## 6.5 Ensure that Network Watcher is 'Enabled'
 
@@ -397,7 +507,7 @@ ensure that only approved virtual machine extensions are installed. This policy 
 a parameter array that specifies all approved virtual machine extensions. This policy initiative
 definition contains suggested defaults that customers should validate. 
 
- - Only approved VM extensions should be installed
+- Only approved VM extensions should be installed
 
 ## 7.5 Ensure that the latest OS Patches for all Virtual Machines are applied
 
@@ -425,7 +535,16 @@ ensure that key vault objects are recoverable in the case of accidental deletion
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure role-based access control is used to managed permissions in Kubernetes service clusters
 
-- \[Preview\]: Role-Based Access Control (RBAC) should be used on Kubernetes Services
+- Role-Based Access Control (RBAC) should be used on Kubernetes Services
+
+## 9.1 Ensure App Service Authentication is set on Azure App Service
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure requests to App Service apps are authenticated.
+
+- Authentication should be enabled on your API app
+- Authentication should be enabled on your Function app
+- Authentication should be enabled on your web app
 
 ## 9.2 Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service
 
@@ -434,17 +553,89 @@ ensure web applications are accessible only over secure connections.
 
 - Web Application should only be accessible over HTTPS
 
+## 9.3 Ensure web app is using the latest version of TLS encryption
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+web apps are using the latest TLS version.
+
+- Latest TLS version should be used in your API App
+- Latest TLS version should be used in your Function App
+- Latest TLS version should be used in your Web App
+
+## 9.4 Ensure the web app has 'Client Certificates (Incoming client certificates)' set to 'On'
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+only clients with valid certificates are able to reach a web app.
+
+- Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'
+- Ensure Function app has 'Client Certificates (Incoming client certificates)' set to 'On'
+- Ensure WEB app has 'Client Certificates (Incoming client certificates)' set to 'On'
+
+## 9.5 Ensure that Register with Azure Active Directory is enabled on App Service
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using a managed identity.
+
+- Ensure that Register with Azure Active Directory is enabled on API app
+- Ensure that Register with Azure Active Directory is enabled on Function App
+- Ensure that Register with Azure Active Directory is enabled on WEB App
+
+## 9.6 Ensure that '.Net Framework' version is the latest, if used as a part of the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of the .Net Framework.
+
+- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
+
+## 9.7 Ensure that 'PHP version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of PHP.
+
+- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the Function app
+- Ensure that 'PHP version' is the latest, if used as a part of the WEB app
+
+## 9.8 Ensure that 'Python version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of Python.
+
+- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the Function app
+- Ensure that 'Python version' is the latest, if used as a part of the Web app
+
+## 9.9 Ensure that 'Java version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of Java.
+
+- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the Function app
+- Ensure that 'Java version' is the latest, if used as a part of the Web app
+
+## 9.10 Ensure that 'HTTP Version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of HTTP.
+
+- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the Function app
+- Ensure that 'HTTP Version' is the latest, if used to run the Web app
+
 ## Next steps
 
 Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark
-blueprint, visit the following article to learn about the blueprint or visit Azure Policy in the
+blueprint, visit the following articles to learn about the blueprint or visit Azure Policy in the
 Azure portal to assign the initiative:
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
-> [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

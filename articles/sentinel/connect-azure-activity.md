@@ -3,7 +3,7 @@ title: Connect Azure Activity data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Azure Activity data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,36 +14,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
-ms.author: rkarlin
+ms.date: 03/22/2020
+ms.author: yelevin
 
 ---
 # Connect data from Azure Activity log
 
-
-
-You can stream logs from [Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) into Azure Sentinel with a single click. The Activity log is a subscription log that provides insight into subscription-level events that occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. Using the Activity log, you can determine the ‘what, who, and when’ for any write operation (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model. 
-
+You can stream logs from [Azure Activity log](../azure-monitor/platform/platform-logs-overview.md) into Azure Sentinel with a single click. The Activity log is a subscription log that records and displays subscription-level events across Azure, from Azure Resource Manager operational data to updates on Service Health events. Using the Activity log, you can determine the 'what, who, and when' for any write operation (PUT, POST, DELETE) performed on the resources in your subscription. You can also learn the status of the operation and other relevant properties. The Activity log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model. 
 
 ## Prerequisites
 
-- User with global administrator or security administrator permissions
+- Your user must have Contributor permissions to the Log Analytics workspace.
+- Your user must have Reader permissions to any subscription whose logs you want to stream into Azure Sentinel.
 
+## Set up the Azure Activity connector
 
-## Connect to Azure Activity log
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Azure Activity**, and then on the **Open connector page** button on the lower right.
 
-1. In Azure Sentinel, select **Data connectors** and then click the **Azure Activity log** tile.
+2. Under the **Instructions** tab, click the **Configure Azure Activity logs >** link.
 
-2. In the Azure Activity log pane, select the subscriptions you want to stream into Azure Sentinel. 
+3. In the **Azure Activity log** pane, select the subscriptions whose logs you want to stream into Azure Sentinel. 
 
-3. Click **Connect**.
+4. In the subscription pane that opens to the right, click **Connect**.
 
-4. To use the relevant schema in Log Analytics for the Azure Activity alerts, search for **AzureActivity**.
-
-
- 
+5. To use the relevant schema in Log Analytics for Azure Activity alerts, type `AzureActivity` in the query window.
 
 ## Next steps
 In this document, you learned how to connect Azure Activity log to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.

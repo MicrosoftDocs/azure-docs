@@ -1,12 +1,12 @@
 ---
-title: Deploy Azure API for FHIR using Azure portal
-description: Deploy Azure API for FHIR using Azure portal.
+title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
-ms.date: 02/07/2019
+ms.date: 03/15/2020
 ms.author: mihansen
 ---
 
@@ -26,35 +26,31 @@ Open the [Azure portal](https://portal.azure.com) and click **Create a resource*
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-![Search for Healthcare APIs](media/quickstart-paas-portal/portal-search-healthcare-apis.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
 
 ## Create Azure API for FHIR account
 
 Select **Create** to create a new Azure API for FHIR account:
 
-![Create Azure API for FHIR account](media/quickstart-paas-portal/portal-create-healthcare-apis.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Create Azure API for FHIR account":::
 
 ## Enter account details
 
 Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
 
-![New healthcare api details](media/quickstart-paas-portal/portal-new-healthcareapi-details.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="New healthcare api details":::
 
 Confirm creation and await FHIR API deployment.
 
-## Additional settings
+## Additional settings (optional)
 
-Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR, enable SMART on FHIR if needed, and configure Cosmos DB throughput:
+You can also click **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
 
-- **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
-- **Audience:** You can specify audience, that is different from https:\//azurehealthcareapis.com.
-- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
-- **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
-- **Cosmos DB throughput:** Azure API for FHIR relies on Cosmos DB as its underlying database. Here you can specify Cosmos DB throughput settings for your Azure API for FHIR. You can change this setting later in the Cosmos DB blade. For details on Cosmos DB RUs please read [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Default Authentication settings":::
 
-![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
+Notice that the box for entering allowed object IDs is grayed out, since we use Azure RBAC for configuring role assignments in this case.
 
-See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
+If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server. For more information, see the [local RBAC configuration](configure-local-rbac.md) guide.
 
 ## Fetch FHIR API capability statement
 
@@ -66,7 +62,7 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

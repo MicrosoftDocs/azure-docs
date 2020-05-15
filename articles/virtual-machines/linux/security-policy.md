@@ -1,17 +1,10 @@
 ﻿---
-title: Secure and use policies on your Linux VMs in Azure | Microsoft Docs
-description: Learn about security and policies for Linux and virtual machines in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Secure and use policies
+description: Learn about security and policies for virtual machines in Azure.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual

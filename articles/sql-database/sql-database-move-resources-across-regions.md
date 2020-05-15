@@ -1,5 +1,5 @@
 ---
-title: How to move Azure SQL Database resources to another region | Microsoft Docs
+title: How to move resources to another region
 description: Learn how to move  your Azure SQL Database, Azure SQL elastic pool, or Azure SQL managed instance to another region.
 services: sql-database
 ms.service: sql-database

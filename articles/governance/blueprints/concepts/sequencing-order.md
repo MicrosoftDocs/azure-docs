@@ -1,11 +1,8 @@
 ---
 title: Understand the deployment sequence order
-description: Learn about the lifecycle that a blueprint definition goes through and details about each stage.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/22/2019
+description: Learn about the default order that blueprint artifacts are deployed in during a blueprint assignment and how to customize the deployment order.
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.service: blueprints
 ---
 # Understand the deployment sequence in Azure Blueprints
 
@@ -45,17 +42,18 @@ created within that resource group:
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a
 specific order. The most common use pattern of this scenario is when a blueprint definition includes
-several Azure Resource Manager templates. Blueprints handles this pattern by allowing the sequencing
-order to be defined.
+several Azure Resource Manager templates. Azure Blueprints handles this pattern by allowing the
+sequencing order to be defined.
 
 The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
 definition, for resource groups, and artifact objects support this property. `dependsOn` is a string
 array of artifact names that the particular artifact needs to be created before it's created.
 
 > [!NOTE]
-> When creating blueprint objects, each artifact resource gets its name from the filename, if using [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact),
-> or the URL endpoint, if using [REST API](/rest/api/blueprints/artifacts/createorupdate).
-> _resourceGroup_ references in artifacts must match those defined in the blueprint definition.
+> When creating blueprint objects, each artifact resource gets its name from the filename, if using
+> [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), or the URL endpoint, if
+> using [REST API](/rest/api/blueprints/artifacts/createorupdate). _resourceGroup_ references in
+> artifacts must match those defined in the blueprint definition.
 
 ### Example - ordered resource group
 
@@ -154,11 +152,11 @@ During the creation process, a topological sort is used to create the dependency
 blueprints artifacts. The check makes sure each level of dependency between resource groups and
 artifacts is supported.
 
-If an artifact dependency is declared that wouldn't alter the default order, then no change is
-made. An example is a resource group that depends on a subscription level policy. Another example
-is a resource group 'standard-rg' child policy assignment that depends on resource group
-'standard-rg' child role assignment. In both cases, the `dependsOn` wouldn't have altered the
-default sequencing order and no changes would be made.
+If an artifact dependency is declared that wouldn't alter the default order, then no change is made.
+An example is a resource group that depends on a subscription level policy. Another example is a
+resource group 'standard-rg' child policy assignment that depends on resource group 'standard-rg'
+child role assignment. In both cases, the `dependsOn` wouldn't have altered the default sequencing
+order and no changes would be made.
 
 ## Next steps
 

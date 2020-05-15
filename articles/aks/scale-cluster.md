@@ -3,8 +3,6 @@ title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
@@ -24,9 +22,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 
 The following example output shows that the *name* is *nodepool1*:
 
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
-
+```output
 [
   {
     "count": 1,
@@ -70,7 +66,7 @@ The following example output shows the cluster has successfully scaled to one no
 
 ## Next steps
 
-In this article, you manually scaled an AKS cluster to increase or decrease the number of nodes. You can also use the [cluster autoscaler][cluster-autoscaler] (currently in preview in AKS) to automatically scale your cluster.
+In this article, you manually scaled an AKS cluster to increase or decrease the number of nodes. You can also use the [cluster autoscaler][cluster-autoscaler] to automatically scale your cluster.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

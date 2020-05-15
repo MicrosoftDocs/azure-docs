@@ -13,7 +13,7 @@ ms.date: 04/02/2019
 ms.author: anroth
 ---
 
-# Use your Model with the Prediction API
+# Use your model with the prediction API
 
 After you've train your model, you can test images programmatically by submitting them to the Prediction API endpoint.
 
@@ -130,8 +130,4 @@ When you run the application, you are prompted to enter a path to an image file 
 
 In this guide, you learned how to submit images to your custom image classifier/detector and receive a response programmatically with the C# SDK. Next, learn how to complete end-to-end scenarios with C#, or get started using a different language SDK.
 
-* [Quickstart: .NET SDK](csharp-tutorial.md)
-* [Quickstart: Python SDK](python-tutorial.md)
-* [Quickstart: Java SDK](java-tutorial.md)
-* [Quickstart: Node SDK](node-tutorial.md)
-* [Quickstart: Go SDK](go-tutorial.md)
+* [Quickstart: Custom Vision SDK](quickstarts/image-classification.md)

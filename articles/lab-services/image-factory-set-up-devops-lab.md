@@ -1,6 +1,6 @@
 ---
-title: Run an image factory from Azure DevOps in Azure DevTest Labs | Microsoft Docs
-description: Learn how to create a custom image factory in Azure DevTest Labs.
+title: Run an image factory from Azure DevOps in Azure DevTest Labs
+description: This article covers all the preparations needed to run the image factory from Azure DevOps (formerly Visual Studio Team Services).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
@@ -84,7 +84,7 @@ To simplify the command-line parameters, encapsulate the key values that drive t
 | MachineUserName | ImageFactoryUser | The built-in admin account username for the virtual machines. This is a transient account. |
 | StandardTimeoutMinutes | 30 | The timeout we should wait for regular Azure operations. |
 | SubscriptionId |	0000000000-0000-0000-0000-0000000000000	| The ID of the subscription where the lab exists and that the service endpoint has access to. |
-| VMSize | Standard_A3 | The size of the virtual machine to use for the **Create** step. The VMs created are transient. The size must be the one that's [enabled for the lab](devtest-lab-set-lab-policy.md). Confirm that there's enough [subscription cores quota](../azure-subscription-service-limits.md).
+| VMSize | Standard_A3 | The size of the virtual machine to use for the **Create** step. The VMs created are transient. The size must be the one that's [enabled for the lab](devtest-lab-set-lab-policy.md). Confirm that there's enough [subscription cores quota](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ![Build variables](./media/set-up-devops-lab/configure-build-variables.png)
 

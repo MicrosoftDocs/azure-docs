@@ -1,9 +1,9 @@
 ---
-title: Multiple routes with Azure Maps | Microsoft Docs
-description: Find routes for different modes of travel using Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 03/07/2019
+title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
+description: In this tutorial, you'll learn how to find routes for different modes of travel using Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,9 +11,9 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Find routes for different modes of travel using Azure Maps
+# Tutorial: Find routes for different modes of travel using Azure Maps
 
-This tutorial shows how to use your Azure Maps account and the route service to find the route to your point of interest, prioritized by your mode of travel. You display two different routes on your map, one for cars and one for trucks that may have route restrictions because of height, weight, or hazardous cargo. In this tutorial, you learn how to:
+This tutorial shows how to use your Azure Maps account and the route service. The route service can find the route to your point of interest, prioritized by your mode of travel. You can display two different routes on your map, one for cars and one for trucks. The routing service takes into consideration limitations because of the height and weight of the vehicle, or if the vehicle is carrying hazardous cargo. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new web page using the map control API
@@ -22,8 +22,7 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 > * Display multiple routes on your map
 
 ## Prerequisites
-
-Before you proceed, follow the instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and select the S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new map
 
@@ -113,13 +112,13 @@ The following steps show you how to create a static HTML page embedded with the 
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles, you should see the streets with the current traffic data.
 
-   ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![View traffic on a map](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 
 ## Define how the route will be rendered
 
-In this tutorial, two routes will be calculated and rendered on the map. One route using roads accessible to cars and the other accessible to trucks. When rendered we will display a symbol icon for the start and end of the route, and different colored lines for each route path.
+In this tutorial, two routes will be calculated and rendered on the map. One route using roads accessible to cars and the other accessible to trucks. When rendered we'll display a symbol icon for the start and end of the route, and different colored lines for each route path.
 
 1. After initializing the map, add the following JavaScript code in the maps `ready` event handler.
 
@@ -154,7 +153,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
     });
     ```
     
-    In the maps `ready` event handler, a data source is created to store the route lines as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    In the maps `ready` event handler, a data source is created to store the route lines and the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This ensures that the route line doesn't cover the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object. 
     
 2. For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office. In the maps `ready` event handler, add the following code.
 
@@ -188,7 +187,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
     The start and end points are added to the data source. The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function. A padding is added to compensate for the pixel dimensions of the symbol icons.
 
-4. Save the file and refresh your browser to see the pins displayed on your map. Now the map is centered over Seattle, and you can see the round blue pin marking the start point and the blue pin marking the finish point.
+4. Save the file and refresh your browser to see the pins displayed on your map. Now the map is centered over Seattle. You can see the round blue pin marking the start point and the blue pin marking the finish point.
 
    ![View map with start and finish points](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -196,7 +195,11 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to the end point based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
+This section shows you how to use the Maps route service API. The route API is used to find multiple routes from a given start point to the end point, based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes. Not only do the APIs plan routes between two locations, but they also consider the current traffic conditions. 
+
+The route API allows users to plan routes in the future using Azure's extensive historic traffic database. The API can predict route durations for a given day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). 
+
+All of the following code blocks should be added **within the map load eventListener** to ensure they load after the map completely loads.
 
 1. In the GetMap function, add the following to Javascript code.
 
@@ -240,7 +243,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. It also adds an index of 0 to ensure that it is rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. An index of 0 ensures that it's rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
 
 3. Add the following JavaScript code to construct a route for a car and display the results.
 
@@ -266,7 +269,7 @@ This section shows how to use the Maps route service API to find multiple routes
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway.
+    The truck route is thick blue, and the car route is thin purple. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a USHazmatClass2 cargo type, is directed to use a different highway.
 
 ## Next steps
 

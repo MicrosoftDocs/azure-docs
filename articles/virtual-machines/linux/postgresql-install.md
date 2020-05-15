@@ -1,16 +1,9 @@
 ---
-title: Set up PostgreSQL on a Linux VM | Microsoft Docs
+title: Set up PostgreSQL on a Linux VM 
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -23,7 +16,6 @@ PostgreSQL is an advanced open-source database similar to Oracle and DB2. It inc
 
 In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Install PostgreSQL
 > [!NOTE]
@@ -62,7 +54,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:
+5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (`contrib`), run the following command instead:
    
         # gmake install-world
    

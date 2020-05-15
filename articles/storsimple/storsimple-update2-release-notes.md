@@ -3,7 +3,7 @@ title: StorSimple 8000 Series Update 2 release notes | Microsoft Docs
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # StorSimple 8000 Series Update 2 release notes

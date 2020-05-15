@@ -1,5 +1,5 @@
 ---
-title: Key differences for Azure SQL Database Machine Learning Services (preview)
+title: Key differences for Machine Learning Services (preview)
 description: This topic describes key differences between Azure SQL Database Machine Learning Services (with R) and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,15 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 03/01/2019
+ms.date: 11/20/2019
+ROBOTS: NOINDEX
 ---
+
 # Key differences between Machine Learning Services in Azure SQL Database (preview) and SQL Server
 
 The functionality of Azure SQL Database Machine Learning Services (with R) in  (preview) is similar to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Below are some key differences.
 
-> [!IMPORTANT]
-> Azure SQL Database Machine Learning Services is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Language support
 
@@ -28,7 +27,7 @@ SQL Server has support for R and Python through the [extensibility framework](ht
 
 - R is the only supported language in SQL Database. There is no support for Python at this time.
 - The R version is 3.4.4.
-- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](sql-database-machine-learning-services-overview.md#signup), machine learning is enabled for your SQL database.
+- There is no need to configure `external scripts enabled` via `sp_configure`.
 
 ## Package management
 

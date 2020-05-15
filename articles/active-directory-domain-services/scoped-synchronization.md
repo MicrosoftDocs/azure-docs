@@ -9,14 +9,16 @@ ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services
 
-To provide authentication services, Azure Active Directory Domain Services (Azure AD DS) synchronizes users and groups from Azure AD. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Azure AD using Azure AD Connect, and then synchronized to Azure AD DS. By default, all users and groups from an Azure AD directory are synchronized to an Azure AD DS managed domain. If you have specific needs, you can instead choose to synchronize only a defined set of users.
+To provide authentication services, Azure Active Directory Domain Services (Azure AD DS) synchronizes users and groups from Azure AD. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Azure AD using Azure AD Connect, and then synchronized to Azure AD DS.
+
+By default, all users and groups from an Azure AD directory are synchronized to an Azure AD DS managed domain. If you have specific needs, you can instead choose to synchronize only a defined set of users.
 
 This article shows you how to create an Azure AD DS managed domain that uses scoped synchronization and then change or disable the set of scoped users.
 
@@ -41,7 +43,7 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 | Disable scoped synchronization | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Changing the scope of synchronization causes the Azure AD DS managed domain to resynchronize all data.
+> Changing the scope of synchronization causes the Azure AD DS managed domain to resynchronize all data. The following considerations apply:
 > 
 >  * When you change the synchronization scope for an Azure AD DS managed domain, a full resynchronization occurs.
 >  * Objects that are no longer required in the Azure AD DS managed domain are deleted. New objects are created in the managed domain.
@@ -49,7 +51,9 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 
 ## Enable scoped synchronization using the Azure portal
 
-1. Follow the [tutorial to create and configure an Azure AD DS instance](tutorial-create-instance.md). Complete all prerequisites and deployment steps other than for synchronization scope.
+To enable scoped synchronization in the Azure portal, complete the the following steps:
+
+1. Follow the [tutorial to create and configure an Azure AD DS instance](tutorial-create-instance-advanced.md). Complete all prerequisites and deployment steps other than for synchronization scope.
 1. Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS instance.
 
 The Azure AD DS managed domain can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your Azure AD DS managed domain shows the current status throughout this deployment stage.
@@ -58,13 +62,13 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Modify scoped synchronization using the Azure portal
 
 To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, select your Azure AD DS instance, such as *contoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. To add a group, choose **+ Select groups** at the top, then choose the groups to add.
 1. To remove a group from the synchronization scope, select it from the list of currently synchronized groups and choose **Remove groups**.
@@ -76,7 +80,7 @@ Changing the scope of synchronization causes the Azure AD DS managed domain to r
 
 To disable group-based scoped synchronization for an Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, select your Azure AD DS instance, such as *contoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. Set the synchronization scope from **Scoped** to **All**, then select **Save synchronization scope**.
 
@@ -167,7 +171,7 @@ Write-Output "******************************************************************
 
 ## Enable scoped synchronization using PowerShell
 
-Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
+Use PowerShell to complete the following set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
 
 1. Complete the following tasks from the article to enable Azure AD DS using PowerShell. Stop at the step to actually create the managed domain. You configure the scoped synchronization you create the Azure AD DS managed domain.
 
@@ -188,11 +192,11 @@ Use PowerShell to complete this set of steps. Refer to the instructions to [enab
 
 1. Now create the Azure AD DS managed domain and enable group-based scoped synchronization. Include *"filteredSync" = "Enabled"* in the *-Properties* parameter.
 
-    Set your Azure subscription ID, and then provide a name for the managed domain, such as *contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet. Set the resource group name, virtual network name, and region to the values used in the previous steps to create the supporting Azure resources:
+    Set your Azure subscription ID, and then provide a name for the managed domain, such as *aaddscontoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet. Set the resource group name, virtual network name, and region to the values used in the previous steps to create the supporting Azure resources:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aaddscontoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"
@@ -211,9 +215,11 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
+* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
-## Modify scoped synchronization using Powershell
+## Modify scoped synchronization using PowerShell
 
 To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, re-run the [PowerShell script](#powershell-script-for-scoped-synchronization) and specify the new list of groups. In the following example, the groups to synchronize no longer includes *GroupName2*, and now includes *GroupName3*.
 

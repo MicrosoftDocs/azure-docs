@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Scale app worldwide with Traffic Manager | Microsoft Docs
-description: Azure CLI Script Sample - Scale an App Service app worldwide with a high-availability architecture
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Scale app with Traffic Manager'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to scale an worldwide with Traffic Manager.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Scale an App Service app worldwide with a high-availability architecture using Azure CLI

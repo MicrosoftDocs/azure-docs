@@ -1,17 +1,18 @@
 ---
-title: "Quickstart: Use Azure Storage Explorer to create a blob in object storage"
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container and a blob. Next, you learn how to download the blob to your local computer, and how to view all of the blobs in a container. You also learn how to create a snapshot of a blob, manage container access policies, and create a shared access signature.
+title: Quickstart - Create a blob with Azure Storage Explorer
+titleSuffix: Azure Storage
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ---
 
-# Quickstart: Use Azure Storage Explorer to create a blob in object storage
+# Quickstart: Use Azure Storage Explorer to create a blob
 
 In this quickstart, you learn how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create a container and a blob. Next, you learn how to download the blob to your local computer, and how to view all of the blobs in a container. You also learn how to create a snapshot of a blob, manage container access policies, and create a shared access signature.
 

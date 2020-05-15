@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Azure API Management template data model reference
@@ -20,9 +20,9 @@ This topic describes the entity and type representations for common items used i
   
  For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-The developer portal is not available in the Consumption tier.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Reference
 
@@ -124,7 +124,7 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|number|The id of the comment.|  
+|`Id`|number|The ID of the comment.|  
 |`CommentText`|string|The body of the comment. May include HTML.|  
 |`DeveloperCompany`|string|The company name of the developer.|  
 |`PostedOn`|DateTime|The date and time the comment was posted.|  
@@ -135,7 +135,7 @@ The developer portal is not available in the Consumption tier.
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
 |`Id`|string|The unique identifier for the issue.|  
-|`ApiID`|string|The id for the API for which this issue was reported.|  
+|`ApiID`|string|The ID for the API for which this issue was reported.|  
 |`Title`|string|Title of the issue.|  
 |`Description`|string|Description of the issue.|  
 |`SubscriptionDeveloperName`|string|First name of the developer that reported the issue.|  
@@ -205,8 +205,8 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`ApiId`|string|The id of the current API.|  
-|`CurrentOperationId`|string|The id of the current operation.|  
+|`ApiId`|string|The ID of the current API.|  
+|`CurrentOperationId`|string|The ID of the current operation.|  
 |`Action`|string|The menu type.|  
 |`MenuItems`|Collection of [Operation menu item](#MenuItem) entities.|The operations for the current API.|  
   
@@ -215,7 +215,7 @@ The developer portal is not available in the Consumption tier.
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|string|The id of the operation.|  
+|`Id`|string|The ID of the operation.|  
 |`Title`|string|The description of the operation.|  
 |`HttpMethod`|string|The Http method of the operation.|  
   

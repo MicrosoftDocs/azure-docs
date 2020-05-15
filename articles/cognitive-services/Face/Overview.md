@@ -1,30 +1,32 @@
 ---
-title: What is the Face API?
+title: What is the Face service?
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Face service to detect and analyze faces in images.
+description: The Azure Cognitive Services Face service provides algorithms that are used to detect, recognize, and analyze human faces in images.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-#Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face API does so I can determine if I should use its features.
+#Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
 
-# What is the Azure Face API?
+# What is the Azure Face service?
 
-The Azure Cognitive Services Face API provides algorithms that are used to detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios are security, natural user interface, image content analysis and management, mobile apps, and robotics.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-The Face API provides several different functions. Each function is outlined in the following sections. Read on to learn more about them.
+The Azure Cognitive Services Face service provides algorithms that detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios include security, natural user interface, image content analysis and management, mobile apps, and robotics.
+
+The Face service provides several different functions which are each outlined in the following sections.
 
 ## Face detection
 
-The Face API detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes. Examples are head pose, gender, age, emotion, facial hair, and glasses.
+The Face service detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes. Examples are head pose, gender, age, emotion, facial hair, and glasses.
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). If you want to do further operations with face data, use the Face API, which is the service discussed in this article.
+> The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). If you want to do further operations with face data, use the Face service, which is the service discussed in this article.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
@@ -32,7 +34,7 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Face verification
 
-The Verify API performs an authentication against two detected faces or from one detected face to one person object. Practically, it evaluates whether two faces belong to the same person. This capability is potentially useful in security scenarios. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
+The Verify API does an authentication against two detected faces or from one detected face to one person object. Practically, it evaluates whether two faces belong to the same person. This capability is potentially useful in security scenarios. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
 
 ## Find similar faces
 
@@ -42,11 +44,11 @@ The following example shows the target face:
 
 ![A woman smiling](./Images/FaceFindSimilar.QueryFace.jpg)
 
-And these are the candidate faces:
+And these images are the candidate faces:
 
 ![Five images of people smiling. Images a and b show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the matchPerson mode returns a and b, which show the same person as the target face. The matchFace mode returns a, b, c, and d, exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
+To find four similar faces, the matchPerson mode returns a and b, which show the same person as the target face. The matchFace mode returns a, b, c, and d&mdash;exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
 ## Face grouping
 
@@ -60,19 +62,19 @@ The following image shows an example of a database named `"myfriends"`. Each gro
 
 ![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-After you create and train a database, you can perform identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
+After you create and train a database, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
 For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
-## Use containers
+## Containers
 
 [Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces by installing a standardized Docker container closer to your data.
 
 ## Sample apps
 
-The following sample applications show a few ways to use the Face API:
+The following sample applications show a few ways to use the Face service:
 
-- [Microsoft Face API: Windows Client Library and sample](https://github.com/Microsoft/Cognitive-Face-Windows) is a WPF app that demonstrates several scenarios of Face detection, analysis, and identification.
+- [Face API: Windows Client Library and sample](https://github.com/Microsoft/Cognitive-Face-Windows) is a WPF app that demonstrates several scenarios of Face detection, analysis, and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) is a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
 
 ## Data privacy and security

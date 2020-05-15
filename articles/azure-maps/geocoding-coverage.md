@@ -1,9 +1,9 @@
 ---
-title: Geocoding coverage in Azure Maps | Microsoft Docs
-description: Learn about Geocoding Coverage in Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 03/22/2019
+title: Geocoding coverage | Microsoft Azure Maps
+description: The process of converting location address to latitude and longitude coordinates is known as geocoding. In this article, you will learn about regions with Geocoding Coverage in Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
+ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: timlt
 
 # Azure Maps geocoding coverage
 
-When you search for a location with Azure Maps, the search service takes your search terms and returns the latitude and longitude coordinates, a process called geocoding. However, Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region. 
+When you search for a location with Azure Maps, the search service, for example [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), takes your search terms and returns the latitude and longitude coordinates. This process is called geocoding. However, Azure Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region. 
 
 The ability to geocode in a country/region is dependent upon the road data coverage and the geocoding precision of the geocoding service. The following categorizations are used specify the level of geocoding support in each country/region.
 * **Address points** - Addresses data can be resolved to a latitude/longitude coordinate within the address parcel (property boundary). Sometimes referred to as 'Rooftop' accurate. This is the highest level of accuracy available for addresses. 
@@ -26,7 +26,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
-| Antigua And Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Antigua and Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -65,7 +65,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Puerto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Kitts And Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint Kitts and Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Pierre and Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -122,7 +122,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua New Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Paracel Islands                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
@@ -130,7 +129,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Solomon Islands                                     |                 |                |              |      ✓     |          ✓         |
 | Southern Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Spratly Islands                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
