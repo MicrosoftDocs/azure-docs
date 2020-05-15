@@ -53384,12 +53384,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication-configure.md",
-            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication-configure",
+            "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-configure",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication.md",
-            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication",
+            "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-overview",
             "redirect_document_id": true
         },
         {

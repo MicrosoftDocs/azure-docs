@@ -41,7 +41,7 @@ The interactive method that also supports Azure multi-factor authentication (MFA
 Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
-For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](ssms-mfa-authentication-configure.md).
+For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](mfa-authentication-ssms-configure.md).
 
 ### Azure AD domain name or tenant ID parameter
 
@@ -68,7 +68,7 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 
 ## Next steps
 
-- For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](ssms-mfa-authentication-configure.md).
+- For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](mfa-authentication-ssms-configure.md).
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](database/logins-create-manage.md)  
 - Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](database/firewall-configure.md)  
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](database/aad-authentication-configure.md)  

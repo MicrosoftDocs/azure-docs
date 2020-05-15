@@ -15,7 +15,7 @@ ms.date: 08/27/2019
 ---
 # Configure multi-factor authentication for SQL Server Management Studio and Azure AD
 
-This article shows you how to use Azure Active Directory multi-factor authentication (MFA) with SQL Server Management Studio. Azure AD MFA can be used when connecting SSMS or SqlPackage.exe to [Azure SQL Database](database/sql-database-paas-overview.md), [Azure SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics (formerly SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](ssms-mfa-authentication.md).
+This article shows you how to use Azure Active Directory multi-factor authentication (MFA) with SQL Server Management Studio. Azure AD MFA can be used when connecting SSMS or SqlPackage.exe to [Azure SQL Database](database/sql-database-paas-overview.md), [Azure SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics (formerly SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](mfa-authentication-ssms-overview.md).
 
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse (formerly Azure SQL Data Warehouse) are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](database/logical-servers.md) that hosts databases for Azure SQL Database and Azure Synapse.
@@ -35,13 +35,13 @@ The following steps show how to connect using the latest SSMS.
    ![1mfa-universal-connect][1]  
 2. Complete the **User name** box with the Azure Active Directory credentials, in the format `user_name@domain.com`.  
    ![1mfa-universal-connect-user](./media/ssms-mfa-authentication-configure/1mfa-universal-connect-user.png)
-3. If you are connecting as a guest user, you no longer need to complete the AD domain name or tenant ID field for guest users because SSMS 18.x or later automatically recognizes it. For more information, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](ssms-mfa-authentication.md).
+3. If you are connecting as a guest user, you no longer need to complete the AD domain name or tenant ID field for guest users because SSMS 18.x or later automatically recognizes it. For more information, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](mfa-authentication-ssms-overview.md).
    ![mfa-no-tenant-ssms](./media/ssms-mfa-authentication-configure/mfa-no-tenant-ssms.png)
 
    However, If you are connecting as a guest user using SSMS 17.x or older, you must click **Options**, and on the **Connection Property** dialog box, and complete the **AD domain name or tenant ID** box.
    ![mfa-tenant-ssms](./media/ssms-mfa-authentication-configure/mfa-tenant-ssms.png)
 
-4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](ssms-mfa-authentication.md). Then click **Connect**.  
+4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](mfa-authentication-ssms-overview.md). Then click **Connect**.  
 5. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity. No password is required if a user is part of a domain federated with Azure AD.  
    ![2mfa-sign-in][2]  
 
@@ -60,7 +60,7 @@ When verification is complete, SSMS connects normally presuming valid credential
 
 ## Next steps
 
-- For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](ssms-mfa-authentication.md).  
+- For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](mfa-authentication-ssms-overview.md).  
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](database/logins-create-manage.md)  
 - Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](/database/firewall-configure.md)  
 - When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.

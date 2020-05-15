@@ -49,8 +49,8 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Configure Azure AD auth](../database/aad-authentication-configure.md)
 - [Configure Conditional Access](../database/conditional-access-configure.md)
-- [Multi-factor AAD auth](../ssms-mfa-authentication.md)
-- [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
+- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
+- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
 - [Configure temporal retention policy](../database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)

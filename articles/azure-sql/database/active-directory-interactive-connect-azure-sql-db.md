@@ -34,7 +34,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
-For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](../ssms-mfa-authentication-configure.md).
+For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](../mfa-authentication-ssms-configure.md).
 
 > [!TIP]
 > You can search .NET Framework APIs with the [.NET API Browser tool page](https://docs.microsoft.com/dotnet/api/).
@@ -133,7 +133,7 @@ Run SSMS from the same computer, in the same building, where you plan to run the
 
 Run SSMS again, this time with **Authentication** set to **Azure Active Directory - Universal with MFA**. This option requires SSMS version 17.5 or later.
 
-For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](../ssms-mfa-authentication-configure.md).
+For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](../mfa-authentication-ssms-configure.md).
 
 > [!NOTE]
 > If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.

@@ -3,12 +3,8 @@
 
 - name: Overview
   items: 
-  - name: Overview-old
-    href: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
-  - name: Overview-new
+  - name: Azure SQL 
     href: what-is-azure-sql-iaas-vs-paas.md
-  - name: SQL Managed Instance rebrand
-    href: azure-sql-managed-instance-rebrand.md
  
 
 - name: Common SQL DB & SQL MI docs 
@@ -43,7 +39,7 @@
       - name: DTU model overview
         href: database/service-tiers-dtu.md
       - name: Migrate from DTU to vCore
-        href: migrate-dtu-to-vcore.md
+        href: database/migrate-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
@@ -67,17 +63,17 @@
       - name: Security best practices
         href: database/security-best-practice.md
       - name: Logins, user accounts, roles, and permissions
-        href: sql-database-manage-logins.md
+        href: database/logins-create-manage.md
 
       - name: Azure AD Authentication
-        href: sql-database-aad-authentication.md
+        href: database/aad-authentication-overview.md
         items:
         - name: Configure Azure AD auth
-          href: sql-database-aad-authentication-configure.md
+          href: database/aad-authentication-configure.md
         - name: Multi-factor AAD auth
-          href: sql-database-ssms-mfa-authentication.md
+          href: mfa-authentication-ssms-overview.md
         - name: Configure multi-factor auth
-          href: sql-database-ssms-mfa-authentication-configure.md
+          href: sql-database-mfa-authentication-ssms-configure.md
         - name: Conditional Access
           href: sql-database-conditional-access.md
 
