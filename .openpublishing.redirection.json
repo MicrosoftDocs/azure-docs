@@ -811,6 +811,12 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint"
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
