@@ -76,11 +76,11 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 2. Copy this fully qualified server name to use when connecting to your server and its databases.
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png)
+   ![server name](../azure-sql/database/media/quickstart-create-single-database/server-name.png)
 
 3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the server opens.
 
-   ![server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![server-level IP firewall rule](../azure-sql/database/media/quickstart-create-single-database/server-firewall-rule.png)
 
 4. Choose **Add client IP** on the toolbar to add your virtual machine's public IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -148,7 +148,7 @@ Depending on your environment, you might need to [Configure Azure Storage firewa
 
 ## Next steps
 
-- To learn how to connect to and query an imported SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md).
+- To learn how to connect to and query an imported SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](../azure-sql/database/connect-query-ssms.md).
 - For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).
-- For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](sql-database-single-database-migrate.md).
+- For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](../azure-sql/database/migrate-to-database-from-sql-server.md).
 - To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

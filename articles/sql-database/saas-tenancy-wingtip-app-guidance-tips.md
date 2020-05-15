@@ -76,7 +76,7 @@ The deployment initially has tenants and catalog servers to connect to. The nami
    - **Database per tenant:** *tenants1-dpt-&lt;User&gt;*  and *catalog-dpt-&lt;User&gt;* servers
    - **Multi-tenant database:** *tenants1-mt-&lt;User&gt;* and *catalog-mt-&lt;User&gt;* servers
 
-To ensure a successful demo connection, all servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
+To ensure a successful demo connection, all servers have a [firewall rule](../azure-sql/database/firewall-configure.md) allowing all IPs through.
 
 
 1. Open *SSMS* and connect to the tenants. The server name depends on the database tenancy pattern you've selected (see below for specifics):

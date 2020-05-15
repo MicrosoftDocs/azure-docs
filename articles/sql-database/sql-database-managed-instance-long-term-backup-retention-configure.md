@@ -15,7 +15,7 @@ ms.date: 04/29/2020
 ---
 # Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
 
-In Azure SQL Database managed instance, you can configure a [long-term backup retention](sql-database-long-term-retention.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
+In Azure SQL Database managed instance, you can configure a [long-term backup retention](../azure-sql/database/long-term-retention-overview.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
 
    > [!IMPORTANT]
    > LTR for managed instances is currently in limited preview and available for EA and CSP subscriptions on a case by case basis. To request enrollment, please create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Database Managed Instance and for the problem type select **Backup, Restore, and Business Continuity/Long-term backup retention**. In your request, please state you would like to be enrolled in the limited public preview of LTR for managed instance.
@@ -137,9 +137,9 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 > To restore from an LTR backup after the instance has been deleted, you must have permissions scoped to the subscription of the instance and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](../azure-sql/database/recovery-using-backups.md#point-in-time-restore).
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
-- To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
+- To learn about service-generated automatic backups, see [automatic backups](../azure-sql/database/automated-backups-overview.md)
+- To learn about long-term backup retention, see [long-term backup retention](../azure-sql/database/long-term-retention-overview.md)

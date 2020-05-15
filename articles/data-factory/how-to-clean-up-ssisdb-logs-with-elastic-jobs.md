@@ -186,7 +186,7 @@ The following sample Transact-SQL scripts create a new Elastic Job to trigger th
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Grant appropriate permissions for the SSISDB database. The SSISDB catalog must have proper permissions for the stored procedure to run SSISDB log cleanup successfully. For detailed guidance, see [Manage logins](../sql-database/sql-database-manage-logins.md).
+4. Grant appropriate permissions for the SSISDB database. The SSISDB catalog must have proper permissions for the stored procedure to run SSISDB log cleanup successfully. For detailed guidance, see [Manage logins](../azure-sql/database/logins-create-manage.md).
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 

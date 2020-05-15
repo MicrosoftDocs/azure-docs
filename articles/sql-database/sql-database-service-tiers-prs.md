@@ -20,13 +20,13 @@ The following are the migration destinations and pricing options that may be sui
 
 - vCore service tiers
 
-  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availability. The vCore-based purchasing model also offers the **Hyperscale** service tier that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
+  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](../azure-sql/database/service-tiers-vcore.md). These two service tiers are in general availability. The vCore-based purchasing model also offers the **Hyperscale** service tier that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](../azure-sql/database/dtu-service-tiers.md) at a price closer to the Premium RS service tier.
 - Dev/Test pricing
 
   [Dev/test pricing](https://azure.microsoft.com/pricing/dev-test/) provides savings up to 55% versus license-included rates with your Visual Studio subscription.
 - Azure Hybrid Benefit and reserved capacity pricing
 
-  [Azure Hybrid Benefit and reserved capacity pricing](https://azure.microsoft.com/pricing/details/sql-database/) provide savings up to 80% versus license-included rates. For more information on these options, see [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) and [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md).
+  [Azure Hybrid Benefit and reserved capacity pricing](https://azure.microsoft.com/pricing/details/sql-database/) provide savings up to 80% versus license-included rates. For more information on these options, see [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) and [Azure SQL Database reserved capacity](../azure-sql/database/reserved-capacity-overview.md).
 
 ## Act now to migrate your Premium RS databases to alternative SQL Database service tiers
 
@@ -77,7 +77,7 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 ## Take advantage of our new offers
 
-Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server. You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
+Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server. You can combine the hybrid benefit with [Azure SQL Database reserved capacity](../azure-sql/database/reserved-capacity-overview.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
 
 If you have any questions or concerns regarding this change or if you require migration assistance, contact [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -93,5 +93,5 @@ You can copy any database with a Premium RS compute size to a database with a DT
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md)
-- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](../azure-sql/database/resource-limits-vcore-single-databases.md)
+- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](../azure-sql/database/resource-limits-vcore-elastic-pools.md).

@@ -13,7 +13,7 @@ ms.custom: azure-synapse, sqldbrb=1
 ---
 # Azure SQL Auditing
 
-Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.
+Auditing for [Azure SQL Database](../azure-sql/database/technical-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.
 
 Auditing also:
 
@@ -22,7 +22,7 @@ Auditing also:
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of Azure SQL compliance certifications.
 
 > [!NOTE]
-> For information on Azure SQL Managed Instance auditing, see the following article, [Get started with Azure SQL Database managed instance auditing](sql-database-managed-instance-auditing.md).
+> For information on Azure SQL Managed Instance auditing, see the following article, [Get started with Azure SQL Database managed instance auditing](../azure-sql/managed-instance/auditing-configure.md).
 
 ## <a id="overview"></a>Overview
 
@@ -43,7 +43,7 @@ You can use SQL database auditing to:
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
-An auditing policy can be defined for a specific database or as a default [server](sql-database-servers.md) policy in Azure (which hosts SQL Database or Azure Synapse):
+An auditing policy can be defined for a specific database or as a default [server](../azure-sql/database/logical-servers.md) policy in Azure (which hosts SQL Database or Azure Synapse):
 
 - A server policy applies to all existing and newly created databases on the server.
 
@@ -101,7 +101,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 - After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 - For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 - When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
-- Auditing on [Read-Only Replicas](sql-database-read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](sql-database-audit-log-format.md).
+- Auditing on [Read-Only Replicas](../azure-sql/database/read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](../azure-sql/database/audit-log-format.md).
 
 ### <a id="audit-log-analytics-destination"></a>Audit to Log Analytics destination
   
@@ -177,7 +177,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file, or to a table.
 
-- Use Power BI. You can view and analyze audit log data in Power BI. For more information and to access a downloadable template, see [Analyze audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Use Power BI. You can view and analyze audit log data in Power BI. For more information and to access a downloadable template, see [Analyze audit log data in Power BI](https://techcommunity.microsoft.com/t5/azure-database-support-blog/sql-azure-blob-auditing-basic-power-bi-dashboard/ba-p/368895).
 - Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](https://storageexplorer.com/).
   - After you have downloaded a log file locally, double-click the file to open, view, and analyze the logs in SSMS.
   - You can also download multiple files simultaneously via Azure Storage Explorer. To do so, right-click a specific subfolder and select **Save as** to save in a local folder.
@@ -187,11 +187,10 @@ If you chose to write audit logs to an Azure storage account, there are several 
   - After downloading several files or a subfolder that contains log files, you can merge them locally as described in the SSMS Merge Audit Files instructions described previously.
   - View blob auditing logs programmatically:
 
-    - [Query Extended Events Files](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
+    - [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
 
 ## <a id="production-practices"></a>Production practices
 
-<!--The description in this section refers to preceding screen captures.-->
 
 ### Auditing geo-replicated databases
 
@@ -231,7 +230,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - [Remove Database Auditing Policy (Remove-AzSqlDatabaseAudit)](/powershell/module/az.sql/remove-azsqldatabaseaudit)
 - [Remove Server Auditing Policy (Remove-AzSqlServerAudit)](/powershell/module/az.sql/remove-azsqlserveraudit)
 
-For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+For a script example, see [Configure auditing and threat detection using PowerShell](../azure-sql/database/scripts/configure-auditing-threat-detection-powershell.md).
 
 ### Using REST API
 

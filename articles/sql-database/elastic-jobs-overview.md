@@ -16,7 +16,7 @@ ms.date: 12/18/2018
 
 In this article, you will learn how to create, configure, and manage elastic jobs.
 
-If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
+If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](../azure-sql/database/job-automation-overview.md).
 
 ## Create and configure the agent
 
@@ -29,7 +29,7 @@ If you have not used Elastic jobs, [learn more about the job automation concepts
 
 1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-manage-logins.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
+3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](../azure-sql/database/logins-create-manage.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
 4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Add job steps using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-unplanned-execution-of-a-job).

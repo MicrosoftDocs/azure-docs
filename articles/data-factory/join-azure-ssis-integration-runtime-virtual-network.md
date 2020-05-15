@@ -60,7 +60,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 If you host your SSIS catalog in an Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-If you host your SSIS catalog in a SQL Managed instance with private endpoint, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the SQL Managed instance. To join your Azure-SSIS IR to a different virtual network than the SQL Managed instance, we recommend either virtual network peering (which is limited to the same region) or a connection from virtual network to virtual network. For more information, see [Connect your application to Azure SQL Managed instance](../sql-database/sql-database-managed-instance-connect-app.md).
+If you host your SSIS catalog in a SQL Managed instance with private endpoint, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the SQL Managed instance. To join your Azure-SSIS IR to a different virtual network than the SQL Managed instance, we recommend either virtual network peering (which is limited to the same region) or a connection from virtual network to virtual network. For more information, see [Connect your application to Azure SQL Managed instance](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## Access to Azure services
 

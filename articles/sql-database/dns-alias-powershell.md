@@ -1,4 +1,4 @@
-﻿---
+---
 title: DNS Alias (PowerShell & Azure CLI)
 description: PowerShell and Azure CLI cmdlets enable you to redirect new client connections to a different SQL server in Azure, without having to touch any client configuration.
 keywords: dns sql database
@@ -15,7 +15,7 @@ ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database
 
-This article provides a PowerShell script that demonstrates how you can manage a DNS alias for the [SQL server](sql-database-servers.md) hosting your Azure SQL Database.
+This article provides a PowerShell script that demonstrates how you can manage a DNS alias for the [SQL server](../azure-sql/database/logical-servers.md) hosting your Azure SQL Database.
 
 > [!NOTE]
 > This article has been updated to use either the Azure PowerShell Az module or Azure CLI. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020.
@@ -24,7 +24,7 @@ This article provides a PowerShell script that demonstrates how you can manage a
 
 ## DNS alias in connection string
 
-To connect a [logical SQL server](sql-database-servers.md), a client such as SQL Server Management Studio (SSMS) can provide the DNS alias name instead of the true server name. In the following example server string, the alias *any-unique-alias-name* replaces the first dot-delimited node in the four node server string:
+To connect a [logical SQL server](../azure-sql/database/logical-servers.md), a client such as SQL Server Management Studio (SSMS) can provide the DNS alias name instead of the true server name. In the following example server string, the alias *any-unique-alias-name* replaces the first dot-delimited node in the four node server string:
 
    `<yourServer>.database.windows.net`
 

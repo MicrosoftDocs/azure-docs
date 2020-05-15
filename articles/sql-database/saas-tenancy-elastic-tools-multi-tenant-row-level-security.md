@@ -14,14 +14,14 @@ ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
 
-[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
+[Elastic database tools](../azure-sql/database/elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - **Elastic database tools** enable developers to scale out the data tier with standard sharding practices, by using .NET libraries and Azure service templates. Managing shards by using the [Elastic Database Client Library][s-d-elastic-database-client-library] helps automate and streamline many of the infrastructural tasks typically associated with sharding.
 - **Row-level security** enables developers to safely store data for multiple tenants in the same database. RLS security policies filter out rows that do not belong to the tenant executing a query. Centralizing the filter logic inside the database simplifies maintenance and reduces the risk of a security error. The alternative of relying on all client code to enforce security is risky.
 
 By using these features together, an application can store data for multiple tenants in the same shard database. It costs less per tenant when the tenants share a database. Yet the same application can also offer its premium tenants the option of paying for their own dedicated single-tenant shard. One benefit of single-tenant isolation is firmer performance guarantees. In a single-tenant database, there is no other tenant competing for resources.
 
-The goal is to use the elastic database client library [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) APIs to automatically connect each given tenant to the correct shard database. Only one shard contains particular TenantId value for the given tenant. The TenantId is the *sharding key*. After the connection is established, an RLS security policy within the database ensures that the given tenant can access only those data rows that contain its TenantId.
+The goal is to use the elastic database client library [data-dependent routing](../azure-sql/database/elastic-scale-data-dependent-routing.md) APIs to automatically connect each given tenant to the correct shard database. Only one shard contains particular TenantId value for the given tenant. The TenantId is the *sharding key*. After the connection is established, an RLS security policy within the database ensures that the given tenant can access only those data rows that contain its TenantId.
 
 > [!NOTE]
 > The tenant identifier might consist of more than one column. For convenience is this discussion, we informally assume a single-column TenantId.
@@ -37,7 +37,7 @@ The goal is to use the elastic database client library [data-dependent routing](
 - Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](https://go.microsoft.com/?linkid=9888163)
   - Fill in the information for your databases at the beginning of **Program.cs**
 
-This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. The project builds a simple console application for creating blogs and posts. The project includes four tenants, plus two multi-tenant shard databases. This configuration is illustrated in the preceding diagram.
+This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](../azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. The project builds a simple console application for creating blogs and posts. The project includes four tenants, plus two multi-tenant shard databases. This configuration is illustrated in the preceding diagram.
 
 Build and run the application. This run bootstraps the elastic database tools’ shard map manager, and performs the following tests:
 
@@ -58,7 +58,7 @@ An alternative to SESSION\_CONTEXT is to use [CONTEXT\_INFO](https://docs.micros
 
 ### Entity Framework
 
-For applications using Entity Framework, the easiest approach is to set the SESSION\_CONTEXT within the ElasticScaleContext override described in [Data-dependent routing using EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Create and execute a SqlCommand that sets TenantId in the SESSION\_CONTEXT to the shardingKey specified for the connection. Then return the connection brokered through data-dependent routing. This way, you only need to write code once to set the SESSION\_CONTEXT.
+For applications using Entity Framework, the easiest approach is to set the SESSION\_CONTEXT within the ElasticScaleContext override described in [Data-dependent routing using EF DbContext](../azure-sql/database/elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Create and execute a SqlCommand that sets TenantId in the SESSION\_CONTEXT to the shardingKey specified for the connection. Then return the connection brokered through data-dependent routing. This way, you only need to write code once to set the SESSION\_CONTEXT.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -343,8 +343,8 @@ Elastic database tools and row-level security can be used together to scale out 
 
 ## Additional resources
 
-- [What is an Azure elastic pool?](sql-database-elastic-pool.md)
-- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [What is an Azure elastic pool?](../azure-sql/database/elastic-pool-overview.md)
+- [Scaling out with Azure SQL Database](../azure-sql/database/elastic-scale-introduction.md)
 - [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
@@ -357,4 +357,4 @@ For questions, contact us on the [SQL Database forum](https://social.msdn.micros
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 [rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
-[s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
+[s-d-elastic-database-client-library]:../azure-sql/database/elastic-database-client-library.md

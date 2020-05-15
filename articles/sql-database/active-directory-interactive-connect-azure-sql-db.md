@@ -34,7 +34,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
-For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
+For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](../azure-sql/ssms-mfa-authentication-configure.md).
 
 > [!TIP]
 > You can search .NET Framework APIs with the [.NET API Browser tool page](https://docs.microsoft.com/dotnet/api/).
@@ -43,7 +43,7 @@ For screenshots of these dialog boxes, see [Configure multi-factor authenticatio
 
 ## Configure your C# application in the Azure portal
 
-Before you begin, you should have a [logical SQL server](sql-database-servers.md) created and available.
+Before you begin, you should have a [logical SQL server](../azure-sql/database/logical-servers.md) created and available.
 
 ### Register your app and set permissions
 
@@ -75,19 +75,19 @@ To register and set necessary permissions for your application:
 
 ### Set an Azure AD admin for your server
 
-For your C# program to run, a [logical SQL server](sql-database-servers.md) admin needs to assign an Azure AD admin for your server.
+For your C# program to run, a [logical SQL server](../azure-sql/database/logical-servers.md) admin needs to assign an Azure AD admin for your server.
 
 On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 
-An Azure AD admin for a [logical SQL server](sql-database-servers.md) can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
+An Azure AD admin for a [logical SQL server](../azure-sql/database/logical-servers.md) can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
-For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](sql-database-aad-authentication.md).
+For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](../azure-sql/database/aad-authentication-overview.md).
 
 ## New authentication enum value
 
@@ -127,13 +127,13 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 ### Verify server-level firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](../azure-sql/database/firewall-configure.md) for help.
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
 Run SSMS again, this time with **Authentication** set to **Azure Active Directory - Universal with MFA**. This option requires SSMS version 17.5 or later.
 
-For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
+For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](../azure-sql/ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
 > If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.

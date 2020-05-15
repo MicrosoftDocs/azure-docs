@@ -1,4 +1,4 @@
-﻿---
+---
 title: Welcome to Wingtips app
 description: "Learn about database tenancy models, and about the sample Wingtips SaaS application, for Azure SQL Database in the cloud environment."
 keywords: "sql database tutorial"
@@ -33,7 +33,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-sa] and code on GitHub  [..
 
 ## Database per tenant pattern
 
-The database per tenant pattern is effective for service providers that are concerned with tenant isolation and want to run a centralized service that allows cost-efficient use of shared resources. A database is created for each venue, or tenant, and all the databases are centrally managed. Databases can be hosted in elastic pools to provide cost-efficient and easy performance management, which leverages the unpredictable workload patterns of the tenants. A catalog database holds the mapping between tenants and their databases. This mapping is managed using the shard map management features of the [Elastic Database Client Library](sql-database-elastic-database-client-library.md), which  provides efficient connection management to the application.
+The database per tenant pattern is effective for service providers that are concerned with tenant isolation and want to run a centralized service that allows cost-efficient use of shared resources. A database is created for each venue, or tenant, and all the databases are centrally managed. Databases can be hosted in elastic pools to provide cost-efficient and easy performance management, which leverages the unpredictable workload patterns of the tenants. A catalog database holds the mapping between tenants and their databases. This mapping is managed using the shard map management features of the [Elastic Database Client Library](../azure-sql/database/elastic-database-client-library.md), which  provides efficient connection management to the application.
 
 Check out the [tutorials][docs-tutorials-for-wingtip-dpt] and code on GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 

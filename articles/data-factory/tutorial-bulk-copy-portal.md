@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a Azure Synapse Analytics (formerly SQL DW).
+Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../sql-database/quickstart-create-single-database.md) article. This tutorial copies all the tables from this sample database to a Azure Synapse Analytics (formerly SQL DW).
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
