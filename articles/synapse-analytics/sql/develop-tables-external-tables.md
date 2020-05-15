@@ -41,6 +41,8 @@ You can create external tables using SQL on-demand via the following steps:
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
 
+---
+
 ### Security
 
 User must have `SELECT` permission on external table to read the data.
@@ -69,7 +71,7 @@ WITH
 [;]
 ```
 
-#### [SQL on-demand](#tab/sql-ondemand)
+#### [SQL on-demand](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
