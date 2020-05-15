@@ -40,7 +40,7 @@ Infrastructure components must be running the required minimum version.
 4.  On-premises HCX IX and NE appliances should be able to reach vCenter
     and ESXi infrastructure.
 
-## Deploy the VMware HCX OVA
+## Deploy the VMware HCX OVA on-premises
 
 1. Sign in to AVS SDDC vCenter and select **HCX**.
 
