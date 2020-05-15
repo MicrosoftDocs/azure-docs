@@ -13,3 +13,4 @@ Use the following table to determine your access needs for your QnA Maker resour
 
 ## Next step
 
+* Learn how to resolve most common [troubleshooting issues](troubleshooting.md).
