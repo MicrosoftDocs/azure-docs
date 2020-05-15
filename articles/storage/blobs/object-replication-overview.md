@@ -1,7 +1,7 @@
 ---
 title: Object replication overview (preview)
 titleSuffix: Azure Storage
-description: Configure object replication (preview) to asynchronously replicate block blobs between two storage accounts.
+description: Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 services: storage
 author: tamram
 
@@ -16,7 +16,7 @@ ms.subservice: blobs
 
 Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. The source and destination accounts may be in different regions. Some scenarios supported by object replication include:
 
-- **Minimizing latency.** By replicating data across regions, object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
+- **Minimizing latency.** Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
 - **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
 - **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
 - **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
@@ -31,7 +31,7 @@ To use object replication, create a replication policy on the source account tha
 
 A storage account can serve as the source account for up to two destination accounts. Each destination account may be in a different region. You can configure two separate replication policies to replicate data to each of the destination accounts.
 
-The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 403 (Forbidden).
+The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 409 (Conflict).
 
 ### Create rules on the replication policy
 

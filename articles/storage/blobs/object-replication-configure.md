@@ -14,52 +14,45 @@ ms.subservice: blobs
 
 # Configure object replication (preview)
 
-With object replication (preview), you can automatically replicate block blobs from one storage account to another in any Azure region.
+Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. The source and destination accounts may be in different regions. For more information about object replication, see [Object replication (preview)](object-replication-overview.md).
 
-Object replication unblocks a new set of common replication scenarios:
+To use object replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
 
-- Minimize latency – have your users consume the data locally rather than issuing cross-region read requests.
-- Increase efficiency – have your compute clusters process/transform the same set of objects locally in different regions.
-- Optimize data distribution – have your data consolidated in a single location for processing/analytics and then distribute only resulting dashboards to your offices worldwide.
-- Optimize cost – tier down your data to Archive upon replication completion using Lifecycle Management policies to optimize the cost.
+This article describes how to configure object replication for your storage account by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
 
-## Getting started
+## Create a replication policy and rules
 
-### Configuration
+Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
-You can enable object replication using various methods including Azure Portal, Azure CLI, Azure PowerShell, ARM and Azure Storage Management SDKs.
+Also create the source and destination containers in their respective storage accounts, if they do not already exist.
 
 # [Azure portal](#tab/portal)
 
-In the Portal, choose the source account and go to Object replication’ tab.
+To create a replication policy and add replication rules in the Azure portal, follow these steps:
 
-![](media/a52b28461668a4e7e0c38daff6a7f8ab.png)
+1. Navigate to the source storage account in the Azure portal.
+1. Under **Settings**, select **Object replication**.
+1. Select **Set up replication**.
+1. Select the destination subscription and storage account.
+1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.
 
-Click ‘Create replication rules’, choose ‘Target destination account subscription’, ‘Target destination storage account’:
+    The following image shows a set of replication rules.
 
-![](media/1ef19f29cca4f683cc45ff126e0d8b90.png)
+    :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot showing replication rules in Azure portal":::
 
-Then specify ‘Source container’, ‘Destination container’, any ‘Filters’ you’d like to use, and the ‘Copy over’ parameter:
+1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix.
 
-![](media/593555b64f3424cf21d79360b3ae1db2.png)
+    The following image shows filters that restrict which blobs are copied as part of a replication rule.
 
-‘Copy over’ parameter allows you to specify the replication behavior for the data which existed prior to object replication being enabled. ‘Copy over’ parameter has the following three values:
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot showing filters for a replication rule":::
 
-- Everything. All the data that existed prior to object replication being enabled will be replicated to the destination account/container.
+1. By default, the copy scope is set to copy only new objects. To copy all objects in the container or to copy objects starting from a custom date and time, select the **change** link and configure the copy scope for the container pair.
 
-- Only new objects. Only new blobs added after object replication had been enabled will be replicated to the destination account/container.
+    The following image shows a custom copy scope.
 
-- Custom. Allows you to only replicate the blobs which were created after the specified time.
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot showing custom copy scope for object replication":::
 
-![](media/1495ca177f50696b024dfc21e9dd2a5a.png)
-
-Once all required fields are filled in, click ‘Save and apply’:
-
-![](media/5ffdde969dc1091e9010eaab42ade58b.png)
-
-Using the ‘Object replication’ tab, you can further review the list of policies that are in effect both in which the account is used as a source and as a destination:
-
-![](media/14fcf960963c53f4a01be40bc55a2cb5.png)
+1. Select **Save and apply** to create the replication policy and start replicating data.
 
 # [PowerShell](#tab/powershell)
 
