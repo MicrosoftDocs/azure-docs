@@ -55,7 +55,7 @@ The **SystemProperties** collection in a telemetry message now includes the foll
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | dt-subject | string | This value is set by the user and is the name of the component that implements the telemetry message. |
-| dt-schema | string | This value is set by iot hub after device discovery and model Id of the digital twin interface that acts as the device model. |
+| dt-schema | string | This value is set by iot hub after device discovery and model ID of the digital twin interface that acts as the device model. |
 
 The **iothub-interface-name** property is now deprecated.
 

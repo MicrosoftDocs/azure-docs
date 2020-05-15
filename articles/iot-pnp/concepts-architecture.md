@@ -38,7 +38,7 @@ The model repository uses RBAC to enable you to limit access to interface defini
 A device developer implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the developer to:
 
 - Connect securely to an IoT hub.
-- Register the device with your IoT hub and register the model Id that identifies the collection of interfaces the device implements.
+- Register the device with your IoT hub and register the model ID that identifies the collection of interfaces the device implements.
 - Update the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
 - Add command handlers for the commands defined in the DTDL interfaces the device implements.
 - Send telemetry to the IoT hub.
