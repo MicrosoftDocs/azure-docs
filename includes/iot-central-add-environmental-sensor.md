@@ -14,7 +14,7 @@
 
 Create a folder called `environmental-sensor` on your local machine.
 
-Download the [Environmental sensor capability model](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON file and save it in the `environmental-sensor` folder.
+Download the [Environmental sensor capability model](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) JSON file and save it in the `environmental-sensor` folder.
 
 Use a text editor to replace the two instances of `{YOUR_COMPANY_NAME_HERE}` with your company name in the `EnvironmentalSensorInline.capabilitymodel.json` file you downloaded.
 
