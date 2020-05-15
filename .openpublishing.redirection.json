@@ -812,15 +812,29 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-entity-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
     },
-      {
-        "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
-        "redirect_document_id": false
-      },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities"
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -853,13 +867,11 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
@@ -868,8 +880,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
@@ -2435,6 +2446,26 @@
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/analytics-usecases.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/lambda-architecture.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-java-get-started.md",
@@ -37627,8 +37658,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/java-add-certificate-ca-store.md",
@@ -44892,8 +44922,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/azure-monitor/app/previews.md",
@@ -49436,6 +49465,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/translator/translator-text-how-to-signup.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-how-to-signup",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/virtual-kubelet.md",
       "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
       "redirect_document_id": false
@@ -52083,6 +52117,41 @@
       "source_path": "articles/visual-studio/vs-storage-cloud-services-what-happened.md",
       "redirect_url": "/azure/storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database-edge/index.yml",
+      "redirect_url": "/azure/azure-sql-edge/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/deploy-onnx.md",
+      "redirect_url": "/azure/azure-sql-edge/deploy-onnx",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/deploy-portal.md",
+      "redirect_url": "/azure/azure-sql-edge/deploy-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/onnx-overview.md",
+      "redirect_url": "/azure/azure-sql-edge/onnx-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/overview.md",
+      "redirect_url": "/azure/azure-sql-edge/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/stream-analytics.md",
+      "redirect_url": "/azure/azure-sql-edge/stream-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/tutorial-sync-data-factory.md",
+      "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
+      "redirect_document_id": true
     }
  ]
 }
