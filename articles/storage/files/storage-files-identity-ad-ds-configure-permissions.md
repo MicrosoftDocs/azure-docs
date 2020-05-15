@@ -1,11 +1,11 @@
 ---
-title: Enable Active Directory authentication over SMB for Azure Files
-description: Learn how to enable identity-based authentication over SMB for Azure file shares through Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using AD credentials. 
+title: Control what a user can do at the file level - Azure file shares
+description: Learn how to configure NTFS permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
 author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: rogarana
 ---
 
@@ -13,9 +13,9 @@ ms.author: rogarana
 
 Before you begin this article, make sure you completed the previous article, [Assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
+After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
-## Example header
+## Supported permissions
 
 Azure Files supports the full set of basic and advanced NTFS permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
 
@@ -33,7 +33,7 @@ The following permissions are supported on the root directory of a file share:
 
 ## Mount a file share from the command prompt
 
-Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
+Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, refer to [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
@@ -63,10 +63,10 @@ Use the following Windows command to grant full permissions to all directories a
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, refer to [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## Next steps
 
 Now that the feature is enabled and completely configured, continue to the next article, where you mount your Azure file share from a domain-joined VM.
 
-[Mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)
+[Part four: mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)

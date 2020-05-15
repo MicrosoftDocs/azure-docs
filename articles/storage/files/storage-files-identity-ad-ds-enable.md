@@ -1,6 +1,6 @@
 ---
-title: Enable active directory domain services authentication for Azure Files
-description: Learn how to enable identity-based authentication over SMB for Azure file shares through Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using AD credentials. 
+title: Enable AD DS authentication (preview) to Azure file shares
+description: Learn how to enable active directory domain services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials. 
 author: roygara
 ms.service: storage
 ms.subservice: files
@@ -9,9 +9,9 @@ ms.date: 05/15/2020
 ms.author: rogarana
 ---
 
-# Part one: enable AD DS authentication for your storage account 
+# Part one: enable AD DS (preview) authentication for your storage account 
 
-This article describes the process required for enabling AD DS on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
+This article describes the process required for enabling active directory domain services (AD DS) on your storage account. After enabling the feature, you must configure your storage account and your AD DS (preview), in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
 ## Option one: Use the script
 

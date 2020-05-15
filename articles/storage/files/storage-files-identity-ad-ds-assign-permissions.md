@@ -1,6 +1,6 @@
 ---
-title: Enable Active Directory authentication over SMB for Azure Files
-description: Learn how to enable identity-based authentication over SMB for Azure file shares through Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using AD credentials. 
+title: Control access to Azure file shares - on-premises AD DS authentication
+description: Learn how to assign permissions to an active directory domain services identity that represents your storage account. This allows you control access with identity-based authentication.
 author: roygara
 ms.service: storage
 ms.subservice: files
@@ -13,7 +13,7 @@ ms.author: rogarana
 
 Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
 
-Once you've enabled AD DS authentication on your storage account, you must configure permissions in order to get the benefits of controlling access with identity-based authentication. You can configure permissions for your identities (a user, group, or service principal) at the share level. This process is similar to the process for Windows share permissions, where you specify the type of access that a particular user has to a file share. This article demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+Once you've enabled active directory domain services (AD DS) authentication on your storage account, you must configure permissions in order to get the benefits of controlling access with identity-based authentication. You can configure permissions for your identities (a user, group, or service principal) at the share level. This process is similar to the process for Windows share permissions, where you specify the type of access that a particular user has to a file share. This article demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
 
 ## Share-level permissions
 
