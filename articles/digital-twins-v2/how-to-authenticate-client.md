@@ -130,7 +130,7 @@ namespace Azure Digital TwinsGettingStarted
 ## Next steps
 
 Read more about how security works in Azure Digital Twins:
-* [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
+* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
 
 Or, now that authentication is set up, move on to creating models in your instance:
 * [How-to: Manage a twin model](how-to-manage-model.md)

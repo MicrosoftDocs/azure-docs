@@ -17,9 +17,11 @@ ms.service: digital-twins
 
 # Ingest IoT Hub telemetry into Azure Digital Twins
 
-Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis-sdks.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md). Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
+Azure Digital Twins is driven with data from IoT devices and other sources. A common source for device data to use in Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md).
 
-This how-to document walks through an example of ingesting telemetry from [IoT Hub](../iot-hub/about-iot-hub.md).
+During preview, the process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as an [Azure function](../azure-functions/functions-overview.md), that receives the data and uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
+
+This how-to document walks through the process for writing an Azure function that can ingest telemetry from IoT Hub.
 
 ## Example telemetry scenario
 
@@ -41,20 +43,20 @@ This scenario is outlined in a diagram below:
 
 Before continuing with this example, you'll need to complete the following prerequisites.
 1. Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-2. Create at least one Azure Function to process events from IoT Hub. See [How-to: Set up an Azure Function](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
+2. Create at least one Azure Function to process events from IoT Hub. See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
 3. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription for your Azure function. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure portal: Adding an event subscription":::
 
 4. In the *Create Event Subscription* page, fill the fields as follows:
-  * Under *EVENT SUBSCRIPTION DETAILS*, name the subscription what you would like
-  * Under *EVENT TYPES*, choose *Device Telemetry* as the event type to filter on
-      - Add filters to other event types if you would like
-  * Under *ENDPOINT DETAILS*, select your Azure function as an endpoint
+   * Under *EVENT SUBSCRIPTION DETAILS*, name the subscription what you would like
+   * Under *EVENT TYPES*, choose *Device Telemetry* as the event type to filter on
+      - Add filters to other event types, if you would like.
+   * Under *ENDPOINT DETAILS*, select your Azure function as an endpoint
 
 ## Create an Azure function in Visual Studio
 
-This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton function is this:
 
