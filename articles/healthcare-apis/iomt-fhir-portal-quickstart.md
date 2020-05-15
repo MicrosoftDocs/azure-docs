@@ -131,15 +131,33 @@ Add the following script to the JSON editor on the page and select **Save**.
 }
 ```
 
+## Generate a connection string
+
+IoMT device needs a connection string to connect and send messages to IoMT connector. On the **IoMT connector** page for the newly deployed IoMT connector, select **Manage Connections** button. Once on **Connections** page, click on **Add** button to create a new connection. Provide a friendly name for this connection on the overlay window and select the **Create** button.
+
+> [!div class="mx-imgBorder"]
+> ![IoMT connector new connection](media/quickstart-iomt-fhir-portal/portal-iomt-new-connection.jpg)
+
+Select the newly created connection from the **Connections** page and copy the value of **Primary connection string** field from the overlay window on the right.
+
+> [!div class="mx-imgBorder"]
+> ![IoMT connector connection string](media/quickstart-iomt-fhir-portal/portal-iomt-connection-string.jpg)
+
+Preserve this connection string to be used at a later step. 
+
 ## Set up a device simulator
 
 Set up a device simulator by creating a [continuous patient monitoring application](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template) on Azure IoT Central. 
 
 This application includes two device simulators: **Smart Vitals Patch** and **Smart Knee Brace**. The mapping templates configured in the previous section would transform heart rate value produced by Smart Vitals Patch to FHIR standard and save it in Azure API for FHIR. 
 
-## Send device simulator data to IoMT connector (preview)
+## Connect device simulator with IoMT connector (preview)
 
-Connect and start sending device data to IoMT connector by [setting up data export on your device simulator](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). Make sure to choose *Azure Event Hubs* as the export destination, IoMT connector name for **Event Hubs namespace**, *devicedata* for **Event Hub**, and keep **Telemetry** option *On* for **Data to Export**.
+Connect and start sending device data to IoMT connector by [setting up data export on your device simulator](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). Make sure to:
+- Pick *Azure Event Hubs* as the export destination.
+- Select *Use a connection string* value for **Event Hubs namespace** field.
+- Provide IoMT connector's connection string obtained in a previous step for the **Connection String** field.
+- Keep **Telemetry** option *On* for **Data to Export** field.
 
 ## View device data in Azure API for FHIR
 
@@ -157,18 +175,3 @@ To directly remove an IoMT connector instance, select the instance from **IoMT c
 > [!div class="mx-imgBorder"]
 > ![Delete IoMT connector instance](media/quickstart-iomt-fhir-portal/portal-iomt-connector-delete.jpg)
 
-## Next steps
-
-In this quickstart guide, you've deployed IoMT connector feature in your Azure API for FHIR resource. Select from below next steps to learn more about IoMT connector:
-
->[!div class="nextstepaction"]
->[IoMT connector architecture](to-be-filled.md)
-
->[!div class="nextstepaction"]
->[IoMT connector mapping templates](to-be-filled.md)
-
->[!div class="nextstepaction"]
->[Export Apple HealthKit data](to-be-filled.md)
-
->[!div class="nextstepaction"]
->[IoMT connector FAQs](to-be-filled.md)
