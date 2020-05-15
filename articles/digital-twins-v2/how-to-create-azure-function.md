@@ -252,7 +252,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 ### Assign access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Securing Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
@@ -265,7 +265,7 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 ## Next steps
 
 Read more about roles and security in Azure Digital Twins:
-* [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
+* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
 
 See how to use an Azure function to ingest IoT Hub data into Azure Digital Twins:
 * [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

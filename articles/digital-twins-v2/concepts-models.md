@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Twin models
+title: Object models
 titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe entities in your environment.
 author: baanders

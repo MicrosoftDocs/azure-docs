@@ -330,5 +330,5 @@ public class RelationshipRecord
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Concepts: Azure Digital Twins query language](concepts-query-language.md)
+* [Concepts: Query language](concepts-query-language.md)
 * [How-to: Query the twin graph](how-to-query-graph.md)

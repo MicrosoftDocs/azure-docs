@@ -16,17 +16,17 @@
     href: tutorial-end-to-end.md
 - name: Concepts
   items:
-  - name: Twin models
+  - name: Object models
     href: concepts-models.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
-  - name: Azure Digital Twins query language
+  - name: Query language
     href: concepts-query-language.md
   - name: Integration with other services
     href: concepts-integration.md
-  - name: Routing events
+  - name: Event routes
     href: concepts-route-events.md
-  - name: Securing Azure Digital Twins solutions
+  - name: Security for Azure Digital Twins solutions
     href: concepts-security.md
 - name: How-to guides
   items:
