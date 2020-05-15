@@ -127,7 +127,7 @@ From the log above, you can see bigfile.csv has been skipped due to another appl
 ## Copying tabular data 
 
 ### Supported scenarios
-Copy Activity supports three scenarios for detecting, skipping, and logging incompatible tabular data:
+Copy activity supports three scenarios for detecting, skipping, and logging incompatible tabular data:
 
 - **Incompatibility between the source data type and the sink native type**. 
 
@@ -139,7 +139,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 
 - **Primary key violation when writing to SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
-    For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy Activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
+    For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
 
 >[!NOTE]
 >- For loading data into SQL Data Warehouse using PolyBase, configure PolyBase's native fault tolerance settings by specifying reject policies via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" in copy activity. You can still enable redirecting PolyBase incompatible rows to Blob or ADLS as normal as shown below.
@@ -147,7 +147,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 >- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### Configuration
-The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:
+The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:
 
 ```json
 "typeProperties": { 
@@ -216,12 +216,12 @@ Timestamp, Level, OperationName, OperationItem, Message
 From the sample log file above, you can see one row "data1, data2, data3" has been skipped due to type conversion issue from source to destination store. Another row "data4, data5, data6" has been skipped due to PK violation issue from source to destination store. 
 
 
-## Copying tabular data (Legacy):
+## Copying tabular data (legacy):
 
 The following is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
 
 ### Configuration
-The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:
+The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:
 
 ```json
 "typeProperties": {
@@ -277,7 +277,7 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ```
 
 ## Next steps
-See the other Copy Activity articles:
+See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance](copy-activity-performance.md)

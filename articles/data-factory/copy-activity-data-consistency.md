@@ -24,9 +24,9 @@ When you move data from source to destination store, Azure Data Factory copy act
 
 > [!IMPORTANT]
 > This feature is currently in preview with the following limitations we are actively working on:
-> 1. Data consistency verification is available only on binary files copying between file-based stores with 'PreserveHierarchy' behavior in copy activity. For copying tabular data, data consistency verification is not available in copy activity yet.
-> 2. When you enable session log setting in copy activity to log the inconsistent files being skipped, the completeness of log file can not be 100% guaranteed if copy activity failed.
-> 3. The session log contains inconsistent files only, where the successfully copied files are not logged so far.
+>- Data consistency verification is available only on binary files copying between file-based stores with 'PreserveHierarchy' behavior in copy activity. For copying tabular data, data consistency verification is not available in copy activity yet.
+>- When you enable session log setting in copy activity to log the inconsistent files being skipped, the completeness of log file can not be 100% guaranteed if copy activity failed.
+>- The session log contains inconsistent files only, where the successfully copied files are not logged so far.
 
 ## Supported data stores
 
