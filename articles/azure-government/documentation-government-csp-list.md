@@ -307,7 +307,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sumo Logic](https://www.sumologic.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
