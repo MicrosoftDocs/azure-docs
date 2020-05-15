@@ -2,15 +2,11 @@
 title: 'Azure AD Connect sync V2 endpoint public preview  | Microsoft Docs'
 description: This topic documents updates to the Azure AD connect sync endpoints.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.subservice: hybrid
