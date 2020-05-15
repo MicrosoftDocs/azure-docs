@@ -41,7 +41,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
    az extension add --name azure-cli-ml
    ```
 
-[!INCLUDE [iot-hub-cli-version-info](../includes/iot-hub-cli-verson-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-verson-info.md)]
 
 
 2. Declare the variables required by the PowerShell script.
