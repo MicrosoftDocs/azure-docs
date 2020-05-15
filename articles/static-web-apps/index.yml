@@ -39,6 +39,10 @@ landingContent:
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API
             url: /learn/modules/publish-app-service-static-web-app-api
+      - linksListType: video
+        links:
+          - text: Build and deploy a static web app
+            url: https://aka.ms/staticwebappsqs
   - title: Key concepts
     linkLists: 
       - linkListType: concept
