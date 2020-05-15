@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 05/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -85,8 +85,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<COLORMASTER_HOST>.com/<TENANT_NAME>`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<COLORMASTER_HOST>.com/<TENANT_NAME>`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ColorTokens ZTNA Client support team](mailto:support@colortokens.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [ColorTokens ZTNA Client support team](mailto:support@colortokens.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. ColorTokens ZTNA application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
