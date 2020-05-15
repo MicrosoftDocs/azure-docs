@@ -23,13 +23,13 @@ The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a g
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
-For more information about the resource provider, see [SQL VM resource provider](sql-resource-provider-register.md). 
+For more information about the resource provider, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
 
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-resource-provider-register.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-vm-resource-provider-register.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
@@ -217,7 +217,7 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 When you register SQL Server VMs with the resource provider using the provided script, consider the following:
 
-- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-resource-provider-register.md#management-modes).
+- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-vm-resource-provider-register.md#management-modes).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script

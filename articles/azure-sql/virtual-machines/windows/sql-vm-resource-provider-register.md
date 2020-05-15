@@ -94,7 +94,7 @@ To register your SQL Server VM with the SQL VM resource provider, you must first
 1. Enter **sql** in the filter to bring up the SQL-related resource providers. 
 1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.SqlVirtualMachine** provider, depending on your desired action. 
 
-![Modify the provider](./media/sql-resource-provider-register/select-resource-provider-sql.png)
+![Modify the provider](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
 
 ### Command line
@@ -245,11 +245,11 @@ To upgrade the agent mode to full:
 1. Select your SQL Server virtual machine, and select **Overview**. 
 1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
 
-   ![Selections for changing the mode from the portal](./media/sql-resource-provider-register/change-sql-iaas-mode-portal.png)
+   ![Selections for changing the mode from the portal](./media/sql-vm-resource-provider-register/change-sql-iaas-mode-portal.png)
 
 1. Select the **I agree to restart the SQL Server service on the virtual machine** check box, and then select **Confirm** to upgrade your IaaS mode to full. 
 
-    ![Check box for agreeing to restart the SQL Server service on the virtual machine](./media/sql-resource-provider-register/enable-full-mode-iaas.png)
+    ![Check box for agreeing to restart the SQL Server service on the virtual machine](./media/sql-vm-resource-provider-register/enable-full-mode-iaas.png)
 
 ### Command line
 
@@ -286,7 +286,7 @@ You can verify if your SQL Server VM has already been registered with the SQL VM
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL VM resource provider. 
 1. View the value under **Status**. If **Status** is **Succeeded**, then the SQL Server VM has been registered with the SQL VM resource provider successfully. 
 
-![Verify status with SQL RP registration](./media/sql-resource-provider-register/verify-registration-status.png)
+![Verify status with SQL RP registration](./media/sql-vm-resource-provider-register/verify-registration-status.png)
 
 ### Command line
 
@@ -323,15 +323,15 @@ To unregister your SQL Server VM with the resource provider using the Azure port
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to the SQL Server VM resource. 
   
-   ![SQL virtual machines resource](./media/sql-resource-provider-register/sql-vm-manage.png)
+   ![SQL virtual machines resource](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
 1. Select **Delete**. 
 
-   ![Delete SQL VM resource provider](./media/sql-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![Delete SQL VM resource provider](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. Type the name of the SQL virtual machine and **clear the checkbox next to the virtual machine**.
 
-   ![Delete SQL VM resource provider](./media/sql-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![Delete SQL VM resource provider](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Failure to clear the checkbox next to the virtual machine name will *delete* the virtual machine entirely. Clear the checkbox to unregister the SQL Server VM from the resource provider but *not delete the actual virtual machine*. 

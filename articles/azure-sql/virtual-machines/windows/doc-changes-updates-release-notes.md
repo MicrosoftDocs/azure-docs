@@ -31,7 +31,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 |Changes | Details |
  --- | --- |
 | **Free DR replica in Azure** | You can host a [free passive instance](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
-| **Bulk resource provider registration** | You can now [bulk register](sql-vm-resource-provider-register-bulk.md) SQL virtual machines with the resource provider. | 
+| **Bulk resource provider registration** | You can now [bulk register](sql-vm-resource-provider-bulk-register.md) SQL virtual machines with the resource provider. | 
 |**Performance Optimized Storage Configuration** | You can now [fully customize your storage configuration](storage-configuration.md#new-vms) when creating a new SQL Server VM. |
 |**Premium file share for FCI** | You can now create a failover cluster instance using a [Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md) instead of the original method of [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 | **Azure dedicated host** | You can run your SQL Server VM on an [Azure Dedicated Host](dedicated-host.md). | 
