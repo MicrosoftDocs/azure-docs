@@ -9,6 +9,17 @@ ms.date: 05/15/2020
 
 At times, you may find it necessary to handle both task and application failures within your Batch solution. This article talks about types of errors and how to resolve them.
 
+## Error codes
+
+General types of errors include:
+
+- Networking failures for requests that never reached Batch, or when the Batch response didn't reach the client in time.
+- Internal server errors (standard 5xx status code HTTP response).
+- Throttling-related errors, such as 429 or 503 status code HTTP responses with the Retry-after header.
+- 4xx errors such as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition.
+
+For detailed information about specific error codes, including error codes for REST API, Batch service, and job task/scheduling, see [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## Application failures
 
 During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As described in [Files and directories](files-and-directories.md), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node.
@@ -17,7 +28,7 @@ You can use the Azure portal or one of the Batch SDKs to download these files. F
 
 ## Task errors
 
-Task errors fall into these categories:
+Task errors fall into several categories.
 
 ### Pre-processing errors
 
@@ -84,35 +95,14 @@ In situations where some of your tasks are failing, your Batch client applicatio
 > [!IMPORTANT]
 > With the actions described above, youc can specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node by using the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
 
-## Next steps
-
-- Learn how to [check for pool and node errors](batch-pool-node-error-checking.md).
-- Learn how to [check for job and task errors](batch-job-task-error-checking.md).
-
-
-
-
-## This was the old topic. Detecting and handling Batch service errors
-
-It is important to remember to check for errors when working with a REST service API. It isn't uncommon for errors to occur when running batch jobs.
-
-## Common errors 
-
-- Networking failures - these are requests that never reached Batch or the Batch response didn't reach the client in time.
-- Internal server errors - these are standard 5xx status code HTTP response.
-- Throttling can cause errors such as 429 or 503 status code HTTP responses with the Retry-after header.
-- 4xx errors that include such errors as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition.
-
-For detailed information about the various types of error codes and specific error codes, see [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
-
-## When to retry
+## Retry after errors
 
 The Batch APIs will notify you if there is a failure. They can all be retried, and they all include a global retry handler for that purpose. It is best to use this built-in mechanism.
 
 After a failure, you should wait a bit (several seconds between retries) before retrying. If you retry too frequently or too quickly, the retry handler will throttle.
 
-### For more information  
+## Next steps
 
-[Batch APIs and tools](batch-apis-tools.md) links to API reference information. The .NET API, for example, has a [RetryPolicyProvider class]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) where the required retry policy should be specified. 
-
-For detailed information about each API and their default retry policies, read [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+- Learn how to [check for pool and node errors](batch-pool-node-error-checking.md).
+- Learn how to [check for job and task errors](batch-job-task-error-checking.md).
+- Review the list of [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
