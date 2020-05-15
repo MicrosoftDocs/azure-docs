@@ -76,7 +76,7 @@ The output looks similar to:
 
 When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
