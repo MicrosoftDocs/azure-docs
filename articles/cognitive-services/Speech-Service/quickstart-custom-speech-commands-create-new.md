@@ -15,7 +15,7 @@ ms.author: donkim
 # Quickstart: Create a Custom Commands Preview app
 
 In this quickstart, you'll learn how to create and test a Custom Commands application.
-The created application will process utterances like "turn on the tv" and reply with a simple message "Ok, turning on the tv".
+The application will process utterances like "turn on the tv" and reply with a simple message like "Ok, turning on the tv."
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ The created application will process utterances like "turn on the tv" and reply 
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
   > [!NOTE]
-  > At this time, Custom Commands only supports speech subscriptions in  westus, westus2 and neur regions.
+  > At this time, Custom Commands only supports Speech subscriptions in the  westus, westus2 and neur regions.
 
 ## Go to the Speech Studio for Custom Commands
 
-1. Open your web browser, and navigate to the [Speech Studio](https://speech.microsoft.com/)
+1. In a web browser, go to [Speech Studio](https://speech.microsoft.com/).
 1. Enter your credentials to sign in to the portal.
 
    - The default view is your list of Speech subscriptions.
