@@ -24,7 +24,7 @@ After you've planned your schema with entities, keep the **Entity palette** visi
 To access the **Entity Palette**, select the **@** symbol in the contextual toolbar above the example utterance list.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of entity palette on Intent details page.](media/label-suggested-utterances/entity-palette-shows-entity-schema.png)
+> ![Screenshot of entity palette on Intent details page.](media/label-utterances/entity-palette-from-tool-bar.png)
 
 ## Label entity from in-place menu
 
