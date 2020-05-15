@@ -57,10 +57,6 @@ Are there any other reasons we want to cover for dropped messages?
 <a id="last-known-errors"></a>
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
-<a id="endpoint-health"></a>
-## Endpoint health
-[!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
-
 ## Diagnostic logs
 
 The following are the error codes and operation names used in the diagnostics logs.
