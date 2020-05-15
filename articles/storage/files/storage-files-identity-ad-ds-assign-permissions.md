@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: rogarana
 ---
 
@@ -29,9 +29,6 @@ There are three Azure built-in roles for granting share-level permissions to use
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
 You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
-
-> [!NOTE]
-> Remember to [sync your AD DS credentials to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
 
 ## Assign an RBAC role
 

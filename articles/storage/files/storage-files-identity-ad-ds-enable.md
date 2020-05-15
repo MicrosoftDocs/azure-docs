@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/15/2020
 ms.author: rogarana
 ---
 
@@ -13,21 +13,23 @@ ms.author: rogarana
 
 This article describes the process required for enabling AD DS on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
-### Example header
+## Option one: Use the script
 
-The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to do run the command manually, you should select the account best suited for your environment.
+The script in this article makes the necessary modifications and enables the feature for you. Since some parts of the script will be interacting with your on-premises AD DS, we explain what the script does, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the script. Though we recommend using the script, if you are unable to do so, we provide the steps so that you may perform them manually.
 
-The AD DS account created by the cmdlet represents the storage account. If the AD DS account is created under an organizational unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the account password before that gate results in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD DS account password](storage-files-identity-ad-ds-update-password.md).
-
-You can use the following script to perform the registration and enable the feature or, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
-
-## Script prerequisites
+### Script prerequisites
 
 - [Download and unzip the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases)
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor RBAC role permissions.
 
-### Domain join your storage account
+### Offline domain join
+
+The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to do run the command manually, you should select the account best suited for your environment.
+
+The AD DS account created by the cmdlet represents the storage account. If the AD DS account is created under an organizational unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the account password before that gate results in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD DS account password](storage-files-identity-ad-ds-update-password.md).
+
+### Use the script to enable AD DS authentication
 
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 > [!IMPORTANT]
@@ -70,12 +72,9 @@ Join-AzStorageAccountForAuth `
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-The following description summarizes all actions performed when the `Join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
+## Option 2: Manually preform the script actions
 
-> [!NOTE]
-> If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the section 1.3 [Confirm that the feature is enabled](#confirm-the-feature-is-enabled). You do not need to perform the manual steps.
-
-## (Optional) manual steps
+If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm that the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
 ### Checking environment
 

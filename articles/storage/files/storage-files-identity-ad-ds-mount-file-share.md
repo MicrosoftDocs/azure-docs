@@ -15,7 +15,7 @@ Before you begin this article, make sure you complete the previous article, [Con
 
 The process described in this article verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share-level RBAC role assignment can take some time to take effect. 
 
-Sign in to the VM by using the AD DS credentials to which you have granted permissions, as shown in the following image.
+Sign in to the VM by using the AD DS credentials that you granted permissions, as shown in the following image.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
