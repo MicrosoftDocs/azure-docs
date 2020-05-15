@@ -568,6 +568,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
+      - name: Azure Policy support
+        href: policy.md
     - name: Service quotas
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
