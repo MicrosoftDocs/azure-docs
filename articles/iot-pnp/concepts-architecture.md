@@ -39,8 +39,8 @@ A device developer implements the code to run on an IoT device using one of the 
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and register the model Id that identifies the collection of interfaces the device implements.
-- Code the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
-- Code command handlers for the commands defined in the DTDL interfaces the device implements.
+- Update the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
+- Add command handlers for the commands defined in the DTDL interfaces the device implements.
 - Send telemetry to the IoT hub.
 
 ## IoT Hub
