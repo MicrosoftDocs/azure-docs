@@ -30,7 +30,7 @@ This package will be available to use from any notebook in the Azure Cosmos acco
 
 You can use the ``%%sql`` magic command to run a [SQL query](sql-query-getting-started.md) against any container in your account. Use the syntax:
 
-```bash
+```python
 %%sql --database {database_id} --container {container_id}
 {Query text}
 ```
@@ -40,7 +40,7 @@ You can use the ``%%sql`` magic command to run a [SQL query](sql-query-getting-s
 The query text must be on a new line.
 
 For example: 
-```bash
+```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
@@ -50,7 +50,7 @@ Run ```%%sql?``` in a cell to see the help documentation for the sql magic comma
 
 You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use the syntax: 
 
-```bash
+```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
 {Query text}
 ```
@@ -61,11 +61,11 @@ The query text must be on a new line.
 
 For example:
 
-```bash
+```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
-```bash
+```python
 df_cosmos.head(10)
 
     Action    ItemRevenue    Country    Item
@@ -83,7 +83,7 @@ df_cosmos.head(10)
 ## Set default database for queries
 You can set the default database ```%%sql``` commands will use for the notebook. Replace ```{database_id}``` with the name of your database.
 
-```bash
+```python
 %database {database_id}
 ```
 Run ```%database?``` in a cell to see documentation in the notebook.
@@ -91,7 +91,7 @@ Run ```%database?``` in a cell to see documentation in the notebook.
 ## Set default container for queries
 You can set the default container ```%%sql``` commands will use for the notebook. Replace ```{container_id}``` with the name of your container.
 
-```bash
+```python
 %container {container_id}
 ```
 Run ```%container?``` in a cell to see documentation in the notebook.
@@ -99,7 +99,7 @@ Run ```%container?``` in a cell to see documentation in the notebook.
 ## Upload JSON items to a container
 You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Azure Cosmos container. Use the following command to upload the items:
 
-```bash
+```python
 %%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
 ```
 
@@ -108,11 +108,11 @@ You can use the ``%%upload`` magic command to upload data from a JSON file to a 
 
 For example:
 
-```bash
+```python
 %%upload --database databaseName --container containerName --url 
 https://contoso.com/path/to/data.json
 ```
-```bash
+```
 Documents successfully uploaded to ContainerName
 Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
@@ -123,7 +123,7 @@ With the output statistics, you can calculate the effective RU/s used to upload 
 ## Run another notebook in current notebook 
 You can use the ``%%run`` magic command to run another notebook in your workspace from your current notebook. Use the syntax:
 
-```bash
+```python
 %%run ./path/to/{notebookName}.ipynb
 ```
 Replace ``{notebookName}`` with the name of the notebook you want to run. The notebook must be in your current 'My Notebooks' workspace. 

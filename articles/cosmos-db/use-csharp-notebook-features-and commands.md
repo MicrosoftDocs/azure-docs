@@ -53,7 +53,7 @@ See [.NET SDK samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/mast
 > The built-in Azure Cosmos DB .NET SDK is only supported for SQL (Core) API accounts. For other APIs, you will need to [install the relevant .NET driver](#install-a-new-nuget-package) that corresponds to the API. 
 
 ## Set custom options using ```CosmosClientOptions```
-For more flexibility, you can set custom [``CosmosClientOptions``](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions). You can use this to:
+For more flexibility, you can set custom ``CosmosClientOptions`` to pass in your ``CosmosClient`` instance. You can use this to:
 
 - Set an application name in the user-agent suffix to include in every request 
 - Set the preferred region to be used to operations against the service
@@ -120,7 +120,7 @@ You can use the built-in dictionary viewer to view a variable. In a cell, put th
 ## Upload JSON items to a container
 You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Azure Cosmos container. Use the following command to upload the items:
 
-```bash
+```csharp
 %%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
 ```
 
@@ -129,11 +129,11 @@ You can use the ``%%upload`` magic command to upload data from a JSON file to a 
 
 For example:
 
-```bash
+```csharp
 %%upload --database databaseName --container containerName --url 
 https://contoso.com/path/to/data.json
 ```
-```bash
+```
 Documents successfully uploaded to ContainerName
 Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
@@ -144,7 +144,7 @@ With the output statistics, you can calculate the effective RU/s used to upload 
 ## Run another notebook in current notebook 
 You can use the ``%%run`` magic command to run another notebook in your workspace from your current notebook. Use the syntax:
 
-```bash
+```csharp
 %%run ./path/to/{notebookName}.ipynb
 ```
 Replace ``{notebookName}`` with the name of the notebook you want to run. The notebook must be in your current 'My Notebooks' workspace. 
