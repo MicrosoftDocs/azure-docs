@@ -29,11 +29,11 @@ landingContent:
             url: tutorial-code.md
       - linkListType: tutorial
         links:
-          - text: Explore Azure Digital Twins with a command-line app
+          - text: Explore the basics with a sample client app
             url: tutorial-command-line-app.md
       - linkListType: tutorial
         links:
-          - text: Build an end-to-end solution
+          - text: Connect an end-to-end solution
             url: tutorial-end-to-end.md
 
 - title: Learn
