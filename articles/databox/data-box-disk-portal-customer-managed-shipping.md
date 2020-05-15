@@ -15,7 +15,7 @@ ms.author: v-grpr
 
 This article describes self-managed shipping tasks to order, pick-up, and drop-off of an Azure Data Box Disk device. You can manage the Data Box Disk using the Azure portal. You have the option of choosing a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box Disk device from a datacenter and also return the device back to the datacenter.
 
-It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-of. At pick-up and drop-off, you, or point of contact, will be assigned an authorization code. This authorization code is needed during device pick-up and drop-off at the datacenter.
+It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. You, or your point of contact, will be required to present the authorization code obtained from the Azure portal during device pick-up and drop-off.
 
 ## Prerequisites
 
@@ -39,11 +39,11 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
 2. When choosing shipping type, select the **Self-managed shipping** option. This option is only available if you are located in a supported region.
 
-3. Once you have provided your shipping address, you will need to validate itand complete your order.
+3. Once you have provided your shipping address, you will need to validate it and complete your order.
 
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Once the device has shipped from Microsoft, you can schedule a pickup. In your Azure Data Box Disk order, go to **Overview** and then select **Schedule pickup**.
+4. Once the device has been prepared, you can schedule a pickup. In your Azure Data Box Disk order, go to **Overview** and then select **Schedule pickup**.
 
    ![Ordering a Data Box device for pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -51,7 +51,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-6. After you have scheduled your device pickup, you will be able to view your device authorization code in the  **Schedule pickup for Azure**.
+6. After you have scheduled your device pickup, you will be able to view your authorization code in the  **Schedule pickup for Azure**.
 
    ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
@@ -65,24 +65,24 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Picked up](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01a.png)
 
-8. Now that you have the disks, you need to copy data to your Data Box Disk from data servers. After the data copy is complete, you can prepare to ship the Data Box Disk.
+8. Once you have picked up the device, you may copy data to the Data Box Disk(s) at your site. After the data copy is complete, you can prepare to ship the Data Box Disk.
 
     The authorization code for drop off will be available in Azure portal under **Schedule drop off**.
-    Once you have finished data copy, you will need to contact operations to schedule an appointment for the drop off. If you plan on using a point of contact, you will need to include their personal details. The datacenter will also need to the authorization code.
+    nce you have finished data copy, you will need to contact operations to schedule an appointment for the drop off. You will need to share the details of the person coming to the datacenter to drop off the disks. The datacenter will also need to verify the authorization code at the time of drop-off.
 
    > [!NOTE]
    >
    > Do not share the authorization code over email. This is only to be verified at the datacenter during drop off.
 
-9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then you should now be at **Ready to receive success** state of the Azure portal. You will also need to confirm that the datacenter also has your authorization code.
+9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then you should now be at the **Ready to receive at Azure datacenter** state in the Azure portal.
 
    ![Viewing your authorization code](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
-10. After you have dropped of the device at the datacenter and your ID and authorization code is verified, the order status should be at **Received**.
+10. After your ID and authorization code have been verified and you have dropped off the device at the datacenter, the order status should be **Received**.
 
     ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 
-11. From this point on, data will be uploaded to Azure. Your order status should be at **Data copy in progress**.
+11. Once the disks have been inspected and connected at the datacenter, your data will uploaded to Azure automatically. Your order status should be at **Data copy in progress**.
 
     ![Data Copy](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-copy-data-01.png)
 

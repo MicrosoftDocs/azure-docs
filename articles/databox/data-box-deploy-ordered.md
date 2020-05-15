@@ -35,8 +35,9 @@ Complete the following configuration prerequisites for Data Box service and devi
 ### For device
 
 Before you begin, make sure that:
-- You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-- Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+
+* You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
 
 ## Order Data Box
 
@@ -44,12 +45,12 @@ Perform the following steps in the Azure portal to order a device.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
-    
+
    [![Search Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Click **Create**.
 
-4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**. 
+4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -63,7 +64,7 @@ Perform the following steps in the Azure portal to order a device.
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. In **Order**, specify the **Order details**. Enter or select the following information and click **Next**.
-    
+
     |Setting  |Value  |
     |---------|---------|
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
@@ -87,7 +88,7 @@ Perform the following steps in the Azure portal to order a device.
 
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Customers using the service in Japan, Singapore, Korea, and West Europe have the option to select self-managed shipping while placing the order. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-8. After the order is placed successfully, you will receive an email with instructions to pick up the device from the designated Azure Datacenter. Click **Next** once the shipping details have been validated successfully.
+8. After the order is placed successfully, if self-managed shipping was selected, you will receive an email with instructions to pick up the device from the designated Azure Datacenter. Click **Next** once the shipping details have been validated successfully.
 
 9. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
@@ -103,10 +104,10 @@ After you have placed the order, you can track the status of the order from Azur
 
 If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
 
-- SMB shares are created for each storage account associated with the device.
-- For each share, access credentials such as username and password are generated.
-- Device password that helps unlock the device is also generated.
-- The Data Box is locked to prevent unauthorized access to the device at any point.
+* SMB shares are created for each storage account associated with the device.
+* For each share, access credentials such as username and password are generated.
+* Device password that helps unlock the device is also generated.
+* The Data Box is locked to prevent unauthorized access to the device at any point.
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
 
@@ -121,7 +122,7 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
 After placing an order, you can cancel it at any point before the order status is marked processed.
- 
+
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 ## Next steps
@@ -129,6 +130,7 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+>
 > * Prerequisites to deploy Data Box
 > * Order Data Box
 > * Track the order
@@ -138,5 +140,3 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
-
-

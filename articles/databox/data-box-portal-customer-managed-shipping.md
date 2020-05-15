@@ -15,7 +15,7 @@ ms.author: v-grpr
 
 This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of choosing a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter.
 
-It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact, will be assigned an authorization code. This authorization code is needed during device pick-up and drop-off at the datacenter.
+It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. You, or your point of contact, will be required to present the authorization code obtained from the Azure portal during pick up and device local user interface during drop-off.
 
 ## Prerequisites
 
@@ -25,7 +25,6 @@ Self-managed shipping for Azure Data Box is only available to the following regi
 2. Japan
 3. Singapore
 4. South Korea
-5. India
 
 For detailed information on how to create a Data Box order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
@@ -41,7 +40,7 @@ When you place a Data Box order, you can choose self-managed shipping option.
 3. Once you have provided your shipping address, you will need to validate it and complete your order.
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Once the device has shipped from Microsoft, you can schedule a pickup. In your Azure Data Box order, go to **Overview** and then select **Schedule pickup**.
+4. Once the device has been prepared, you can schedule a pickup. In your Azure Data Box order, go to **Overview** and then select **Schedule pickup**.
 
    ![Ordering a Data Box device for pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-01.png)
 
@@ -59,27 +58,27 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
    Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
 
-7. Your order automatically moves to the **Picked up** state once the device preparation is complete. You will receive an email instructing you to contact Microsoft to schedule a pickup appointment at the datacenter. 
+7. Your order automatically moves to the **Picked up** state once the device preparation is complete. You will receive an email instructing you to contact Microsoft to schedule a pickup appointment at the datacenter.
 
     ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-8. After the device is picked up, you need to copy data to your Data Box from data servers. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+8. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   The **Prepare to ship** step needs to complete without any critical errors, otherwise you will need to run this step again. After the prepare to ship completes successfully, you can view the authorization code for the drop off.
-
-   > [!NOTE]
+   The **Prepare to ship** step needs to complete without any critical errors, otherwise you will need to run this step again after making the necessary fixes. After the prepare to ship completes successfully, you can view the authorization code for the drop off on the device local user interface.
+<!-- Ansubram wants the NOTE commented out for now -->
+   <!-- > [!NOTE]
    >
-   > The authorization code is no longer available in the Azure portal once **Prepare to ship** is complete. It is available only in the device local UI.
+   > The authorization code is no longer available in the Azure portal once **Prepare to ship** is complete. It is available only in the device local UI. -->
 
-9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then your order status should be at **Ready to receive at Azure datacenter**. The datacenter also should have confirmed that they have the authorization code available. Select **Schedule drop-off** to receive your new authorization code.
+9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then your order status should be at **Ready to receive at Azure datacenter**. Follow the instructions under **Schedule drop-off** to return the device.
 
    ![Viewing your authorization code](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-10. After you have dropped of the device at the datacenter and your ID and authorization code is verified, the order status should be at **Received**.
+10. After your ID and authorization code have been verified and you have dropped off the device at the datacenter, the order status should be **Received**.
 
     ![Received Complete](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. From this point on, data will be uploaded to Azure. Your order status should be at **Data copy in progress**.
+11. Once the device is inspected and connected at the datacenter, your data will be uploaded to Azure automatically. Your order status should be at **Data copy in progress**.
 
     ![Data Copy](media\data-box-portal-customer-managed-shipping\data-box-copy-data-01.png)
 
