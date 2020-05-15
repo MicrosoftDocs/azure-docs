@@ -1,14 +1,13 @@
 ---
-title: Install Hybrid Cloud Extension
-description: set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud
+title: Install Hybrid Cloud Extension (HCX)
+description: Set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud
 ms.topic: how-to
 ms.date: 05/15/2020
 ---
 
-# HCX installation
+# Install HCX for Azure VMWare Solution
 
 In this article, set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. The HCX solution supports up to three external enterprise sites, where each external site must have its own HCX Enterprise activation (HEA) key in order to migrate to the AVS Private Cloud target. Hot/cold vMotion migrations for VMs to and from on-premises environments and your AVS private cloud are enabled by the solution.
-
 
 **Before you begin:**
 	
