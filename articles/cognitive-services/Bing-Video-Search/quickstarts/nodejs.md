@@ -14,9 +14,9 @@ ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Node.js
 
-Use this quickstart to make your first call to the Bing Video Search API. This simple JavaScript application sends an HTTP video search query to the API, and displays the JSON response. 
+Use this quickstart to make your first call to the Bing Video Search API. This simple JavaScript application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages. 
 
-Although this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) with additional error handling, and code annotations.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Although this application is written in JavaScript and uses Node.js, the API is 
     };
     ```
     
-1. When `end` is signaled, use `response.on()` to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
+1. In this function, use `response.on()` when `end` is signaled to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
 
     ```javascript
     response.on('end', function () {

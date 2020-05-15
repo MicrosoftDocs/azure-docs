@@ -15,11 +15,11 @@ ms.author: aahi
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Python
 
-Use this quickstart to make your first call to the Bing Video Search API. This simple Python application sends an HTTP video search query to the API, and displays the JSON response. 
+Use this quickstart to make your first call to the Bing Video Search API. This simple Python application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
 
-Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) with additional error handling, and code annotations.
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by selecting the **Launch Binder** badge: 
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by selecting the **launch binder** badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
@@ -32,7 +32,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 ## Initialize the application
 
-1. Create a new Python file in your favorite IDE or editor and import the following libraries:
+1. Create a new Python file in your favorite IDE or editor, and import the following libraries:
 
     ```python
     import requests

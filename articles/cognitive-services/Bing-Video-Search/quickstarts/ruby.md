@@ -15,9 +15,9 @@ ms.author: aahi
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-Use this quickstart to make your first call to the Bing Video Search API. This simple Ruby application sends an HTTP video search query to the API, and displays the JSON response. 
+Use this quickstart to make your first call to the Bing Video Search API. This simple Ruby application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
 
-Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) with additional error handling, and code annotations.
 
 ## Prerequisites
 

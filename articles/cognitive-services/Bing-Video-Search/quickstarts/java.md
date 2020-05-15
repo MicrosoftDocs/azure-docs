@@ -14,9 +14,9 @@ ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Java
 
-Use this quickstart to make your first call to the Bing Video Search API. This simple Java application sends an HTTP video search query to the API and displays the JSON response. 
+Use this quickstart to make your first call to the Bing Video Search API. This simple Java application sends an HTTP video search query to the API and displays the JSON response. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages. 
 
-Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, features, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, features, and code annotations.
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ In the `SearchVideos()` method, perform the following steps:
 
 ## Format the response
 
-1. Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to convert a JSON string to an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string. 
+Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to convert a JSON string to an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string.
 
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
