@@ -23,10 +23,6 @@ landingContent:
           url: overview-iot-plug-and-play.md
         - text: Preview updates May 2020
           url: overview-iot-plug-and-play-preview-updates.md
-    - linkListType: video
-      links:
-        - text: Introduction to IoT Plug and Play
-          url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
   - title: Develop devices
     linkLists:
     - linkListType: quickstart

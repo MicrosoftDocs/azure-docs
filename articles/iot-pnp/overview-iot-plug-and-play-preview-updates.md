@@ -17,7 +17,7 @@ This article describes the key changes in the SDKS, libraries, tools, and servic
 
 ## Digital Twins Definition Language (DTDL)
 
-This release adds support for DTDL v2 and deprecates [DTDL v1](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+This release adds support for [DTDL v2](https://aka.ms/dtdl-v2) and deprecates [DTDL v1](https://aka.ms/dtdl-v1).
 
 The following list shows the key differences between DTDL v1 and DTDL v2. In DTDL v2:
 
@@ -50,6 +50,15 @@ In this release, devices register their **Model ID** with IoT Hub on every conne
 
 You can use both the current and previous preview versions of the SDKs and Azure IoT Explorer tool with IoT Hub. However, if a device uses the previous preview version of the SDK, you must use the previous version of Azure IoT Explorer. Similarly, if a device uses the latest preview version of the SDK, you must use the latest version of Azure IoT Explorer.
 
+The **SystemProperties** collection in a telemetry message now includes the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| dt-subject | string | This value is set by the user and is the name of the component that implements the telemetry message. |
+| dt-schema | string | This value is set by iot hub after device discovery and model ID of the digital twin interface that acts as the device model. |
+
+The **iothub-interface-name** property is now deprecated.
+
 ## Microsoft defined interfaces
 
 The following Microsoft-defined interfaces are deprecated and aren't published in the new model repository:
@@ -69,6 +78,8 @@ This release reduces the number and size of the telemetry message a device needs
 ## DigitalTwinChangeEvents
 
 The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events) has changed to use the **JSON-Patch** format. This is a breaking change with no backward compatibility support.
+
+The **SystemProperties** collection in a digital twin change event now includes a **dt-schema** property that stores the **Model ID** reported by the device.
 
 ## VS Code extension
 

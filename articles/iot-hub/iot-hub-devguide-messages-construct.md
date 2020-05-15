@@ -53,6 +53,9 @@ For more information about how to encode and decode messages sent using differen
 | iothub-connection-module-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **moduleId** of the device that sent the message. | No | connectionModuleId |
 | iothub-connection-auth-generation-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **connectionDeviceGenerationId** (as per [Device identity properties](iot-hub-devguide-identity-registry.md#device-identity-properties)) of the device that sent the message. | No |connectionDeviceGenerationId |
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message.| No | connectionAuthMethod |
+| iothub-interface-name | The name of the digital twin interface that implements the telemetry message. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). Query on this system property is not available at this time.  | Yes | N/A |
+| dt-subject | The name of the component that implements the telemetry message. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). Query on this system property is not available at this time.| Yes | N/A |
+| dt-schema | This value is set by iot hub after device does discovery via connection and represents the ID of the digital twin interface which acts as the device model. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). Query on this system property is not available at this time.| No | N/A |
 
 ## System Properties of **C2D** IoT Hub messages
 
