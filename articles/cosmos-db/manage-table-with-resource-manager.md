@@ -119,7 +119,7 @@ This template will create an Azure Cosmos account for Table API with one table w
                 "description": "Throughput value when using Provisioned Throughput Policy for the table"
             }
         },
-        "maxAutoscaleThroughput": {
+        "autoscaleMaxThroughput": {
             "type": "int",
             "defaultValue": 4000,
             "minValue": 4000,
@@ -165,10 +165,10 @@ This template will create an Azure Cosmos account for Table API with one table w
        ],
         "throughputPolicy": {
             "Manual": {
-                  "Throughput": "[parameters('manualProvisionedThroughput')]"
+                  "throughput": "[parameters('manualProvisionedThroughput')]"
             },
             "Autoscale": {
-                  "autoscaleSettings": { "maxThroughput": "[parameters('maxAutoscaleThroughput')]" }
+                  "autoscaleSettings": { "maxThroughput": "[parameters('autoscaleMaxThroughput')]" }
             }
         },
         "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"

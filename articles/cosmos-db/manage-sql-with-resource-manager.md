@@ -124,7 +124,7 @@ This template creates an Azure Cosmos account in two regions with options for co
                 "description": "Throughput value when using Provisioned Throughput Policy for the container"
             }
         },
-        "maxAutoscaleThroughput": {
+        "autoscaleMaxThroughput": {
             "type": "int",
             "defaultValue": 4000,
             "minValue": 4000,
@@ -170,10 +170,10 @@ This template creates an Azure Cosmos account in two regions with options for co
         ],
         "throughputPolicy": {
             "Manual": {
-                "Throughput": "[parameters('manualProvisionedThroughput')]"
+                "throughput": "[parameters('manualProvisionedThroughput')]"
             },
             "Autoscale": {
-                "autoscaleSettings": { "maxThroughput": "[parameters('maxAutoscaleThroughput')]" }
+                "autoscaleSettings": { "maxThroughput": "[parameters('autoscaleMaxThroughput')]" }
             }
         },
         "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
@@ -334,7 +334,7 @@ This template creates an Azure Cosmos account in one region with a container wit
                 "description": "Throughput value when using Manual Throughput Policy for the container"
             }
         },
-        "maxAutoscaleThroughput": {
+        "autoscaleMaxThroughput": {
             "type": "int",
             "defaultValue": 4000,
             "minValue": 4000,
@@ -356,10 +356,10 @@ This template creates an Azure Cosmos account in one region with a container wit
         ],
         "throughputPolicy": {
             "Manual": {
-                "Throughput": "[parameters('manualProvisionedThroughput')]"
+                "throughput": "[parameters('manualProvisionedThroughput')]"
             },
             "Autoscale": {
-                "autoscaleSettings": { "maxThroughput": "[parameters('maxAutoscaleThroughput')]" }
+                "autoscaleSettings": { "maxThroughput": "[parameters('autoscaleMaxThroughput')]" }
             }
         },
         "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
