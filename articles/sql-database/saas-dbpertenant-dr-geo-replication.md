@@ -62,7 +62,7 @@ In this tutorial, these challenges are addressed using features of Azure SQL Dat
 * [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
 * [Geo-replication](sql-database-geo-replication-overview.md), to create asynchronously replicated read-only secondaries for all databases. During an outage, you fail over to the replicas in the recovery region.  After the outage is resolved, you fail back to the databases in the original region with no data loss.
 * [Asynchronous](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) failover operations sent in tenant-priority order, to minimize failover time for large numbers of databases.
-* [Shard management recovery features](sql-database-elastic-database-recovery-manager.md), to change database entries in the catalog during recovery and repatriation. These features allow the app to connect to tenant databases regardless of location without reconfiguring the app.
+* [Shard management recovery features](../azure-sql/database/elastic-database-recovery-manager.md), to change database entries in the catalog during recovery and repatriation. These features allow the app to connect to tenant databases regardless of location without reconfiguring the app.
 * [SQL server DNS aliases](dns-alias-overview.md), to enable seamless provisioning of new tenants regardless of which region the app is operating in. DNS aliases are also used to allow the catalog sync process to connect to the active catalog regardless of its location.
 
 ## Get the disaster recovery scripts 
@@ -119,7 +119,7 @@ Leave the PowerShell window running in the background and continue with the rest
 In this task, you start a process that deploys a duplicate app instance and replicates the catalog and all tenant databases to a recovery region.
 
 > [!Note]
-> This tutorial adds geo-replication protection to the Wingtip Tickets sample application. In a production scenario for an application that uses geo-replication, each tenant would be provisioned with a geo-replicated database from the outset. See [Designing highly available services using Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> This tutorial adds geo-replication protection to the Wingtip Tickets sample application. In a production scenario for an application that uses geo-replication, each tenant would be provisioned with a geo-replicated database from the outset. See [Designing highly available services using Azure SQL Database](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. In the *PowerShell ISE*, open the ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 script and set the following values:
 	* **$DemoScenario = 2**, Create mirror image recovery environment and replicate catalog and tenant databases
@@ -306,7 +306,7 @@ In this tutorial you learned how to:
 > * Fail over the application and catalog and tenant databases to the recovery region 
 > * Fail back the application, catalog and tenant databases to the original region after the outage is resolved
 
-You can learn more about the technologies Azure SQL Database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
+You can learn more about the technologies Azure SQL Database provides to enable business continuity in the [Business Continuity Overview](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) documentation.
 
 ## Additional resources
 

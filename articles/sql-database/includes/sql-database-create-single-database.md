@@ -8,9 +8,9 @@ ms.author: mathoma
 ms.reviewer: vanto
 ---
 
-In this step, you create a [logical SQL server](../sql-database-servers.md) and a [single database](../sql-database-single-database.md) that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
+In this step, you create a [logical SQL server](../../azure-sql/database/logical-servers.md) and a [single database](../../azure-sql/database/single-database-overview.md) that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
-All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server-level firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
+All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server-level firewall rules, see [Create a server-level firewall](../../azure-sql/database/quickstart-firewall-create-server-level-portal.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
 # [Portal](#tab/azure-portal)
 
@@ -61,7 +61,7 @@ To create a resource group, server, and single database in the Azure portal:
 
    ![Networking tab](../media/sql-database-single-database-get-started/networking.png)
   
-   For more information about firewall settings, see [Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
+   For more information about firewall settings, see [Allow Azure services and resources to access this server](../../azure-sql/database/network-access-controls-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
 1. Select **Review + create** at the bottom of the page.
@@ -150,7 +150,7 @@ The preceding code uses these Azure CLI commands:
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
 | [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Creates a database. |
 
-For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../sql-database-cli-samples.md).
+For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../../azure-sql/database/az-cli-script-samples-content-guide.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -237,6 +237,6 @@ The preceding code uses these PowerShell cmdlets:
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for a server. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database. |
 
-For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../sql-database-powershell-samples.md).
+For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../../azure-sql/database/powershell-script-content-guide.md).
 
 ---

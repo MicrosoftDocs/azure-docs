@@ -118,9 +118,9 @@ After selecting **+ Add**, view additional information about the different optio
 
 For details, see:
 
-- [Create a single database](../../../sql-database/sql-database-single-database-get-started.md)
-- [Create an elastic pool](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
-- [Create a managed instance](../../../sql-database/sql-database-managed-instance-get-started.md)
+- [Create a single database](../../../azure-sql/database/quickstart-create-single-database.md)
+- [Create an elastic pool](../../../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create a managed instance](../../../azure-sql/managed-instance/quickstart-create-instance.md)
 - [Create a SQL virtual machine](quickstart-sql-vm-create-portal.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
@@ -143,7 +143,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 
 ### SQL
 * [SQL Server documentation](https://docs.microsoft.com/sql/index)
-* [Azure SQL Database comparison](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+* [Azure SQL Database comparison](../../../azure-sql/paas-vs-sql-server-iaas.md)
 
 ## Next steps
 

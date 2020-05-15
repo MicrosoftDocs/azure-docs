@@ -21,7 +21,7 @@ In this article, you learn to restore a SQL using either the Azure portal or Pow
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](../../sql-database/sql-database-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore a deleted data warehouse through PowerShell
 
@@ -36,7 +36,7 @@ To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](/powershell/modul
     1. To restore the deleted SQL pool to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
     1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the server to another subscription.
 7. Verify that the restored data warehouse is online.
-8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"

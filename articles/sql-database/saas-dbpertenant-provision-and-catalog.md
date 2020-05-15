@@ -41,7 +41,7 @@ The catalog also can store additional tenant or database metadata, such as the s
 
 Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials.
 
-In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map.
+In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](../azure-sql/database/elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map.
 
 A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards. EDCL functions are used during tenant provisioning to create the entries in the shard map. They're used at run time by applications to connect to the correct database. EDCL caches connection information to minimize traffic to the catalog database and speed up the application.
 
@@ -94,7 +94,7 @@ Trace the script's execution by using the **Debug** menu options. Press F10 and 
 
 You don't need to explicitly follow this workflow. It explains how to debug the script.
 
-* **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
+* **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](../azure-sql/database/elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
 * **Import the SubscriptionManagement.psm1 module.** It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
 * **Get configuration details.** Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
 * **Get the catalog object.** Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
@@ -170,5 +170,5 @@ Try the [Performance monitoring tutorial](saas-dbpertenant-performance-monitorin
 ## Additional resources
 
 * Additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Elastic database client library](sql-database-elastic-database-client-library.md)
+* [Elastic database client library](../azure-sql/database/elastic-database-client-library.md)
 * [Debug scripts in the Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

@@ -83,7 +83,7 @@ In this step, you create a database in [Azure SQL Database](/azure/sql-database/
 
 ### Create a server in Azure SQL Database
 
-In the Cloud Shell, create a [server](../sql-database/sql-database-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
+In the Cloud Shell, create a [server](../azure-sql/database/logical-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
 
 Replace the *\<server-name>* placeholder with a *unique* name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice.
 
@@ -113,7 +113,7 @@ When the server is created, the Azure CLI shows information similar to the follo
 
 ### Configure a server firewall rule
 
-Create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources.
+Create a [server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources.
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -130,7 +130,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <mysql_serve
 
 ### Create a database in Azure SQL Database
 
-Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
+Create a database with an [S0 performance level](../azure-sql/database/dtu-service-tiers.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0

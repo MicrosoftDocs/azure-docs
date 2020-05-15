@@ -11,7 +11,7 @@ ms.author: jgao
 
 Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
-In this tutorial, you create a template to deploy a [logical SQL server](../../sql-database/sql-database-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
+In this tutorial, you create a template to deploy a [logical SQL server](../../azure-sql/database/logical-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -40,7 +40,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../../azure-sql/database/database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 The BACPAC file must be stored in an Azure Storage account before it can be imported by using an ARM template. The following PowerShell script prepares the BACPAC file with these steps:
 
@@ -234,7 +234,7 @@ Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 
-To access the server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+To access the server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 In the Azure portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You'll see two tables imported into the database.
 

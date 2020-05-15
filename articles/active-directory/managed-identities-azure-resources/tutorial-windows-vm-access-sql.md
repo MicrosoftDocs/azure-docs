@@ -39,7 +39,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 ## Grant access
 
-To grant your VM access to a database in Azure SQL Database, you can use an existing [logical SQL server](../../sql-database/sql-database-servers.md) or create a new one. To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
+To grant your VM access to a database in Azure SQL Database, you can use an existing [logical SQL server](../../azure-sql/database/logical-servers.md) or create a new one. To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
 
 There are two steps to granting your VM access to a database:
 
