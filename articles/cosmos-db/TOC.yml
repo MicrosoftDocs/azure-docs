@@ -119,8 +119,6 @@
         href: global-dist-under-the-hood.md
       - name: Regional presence
         href: regional-presence.md
-      - name: Transactional and analytical storage
-        href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
       - name: Partitioning overview
@@ -494,14 +492,16 @@
         href: change-feed-functions.md
       - name: Change feed pull model
         href: change-feed-pull-model.md
-    - name: Globally distributed analytics and AI
+    - name: Analytics with Synapse Link
       items:
-      - name: Analytics use cases
-        href: analytics-usecases.md
-      - name: Analytics - solution architectures
-        href: analytics-solution-architectures.md
-      - name: Lambda architecture
-        href: lambda-architecture.md
+      - name: Synapse Link for Azure Cosmos DB
+        href: synapse-link.md
+      - name: Analytical store - Overview
+        href: analytical-store-introduction.md
+      - name: Synapse Link FAQ
+        href: synapse-link-frequently-asked-questions.md
+      - name: Synapse Link use cases
+        href: synapse-link-use-cases.md
     - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
@@ -1020,6 +1020,10 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
+    - name: Analytics with Synapse Link
+      items:
+      - name: Configure Synapse Link
+        href: configure-synapse-link.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
