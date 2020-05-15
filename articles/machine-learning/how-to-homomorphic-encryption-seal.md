@@ -28,7 +28,7 @@ ACI is a great solution for testing and understanding the workflow. For scalable
 
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](train-models.ipynb) notebook.  
+Complete the model training in the [Train an image classification model with Azure Machine Learning tutorial](tutorial-train-models-with-aml.md).
 
 ```python
 # If you did NOT complete the tutorial, you can instead run this cell 
