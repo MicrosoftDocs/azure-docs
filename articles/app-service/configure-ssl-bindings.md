@@ -4,7 +4,7 @@ description: Secure HTTPS access to your custom domain by creating a TLS/SSL bin
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -78,7 +78,7 @@ Use the following table to help you configure the TLS binding in the **TLS/SSL B
 |-|-|
 | Custom domain | The domain name to add the TLS/SSL binding for. |
 | Private Certificate Thumbprint | The certificate to bind. |
-| TLS/SSL Type | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap A record for IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL is supported only in Production or Isolated tiers. </li></ul> |
+| TLS/SSL Type | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP SSL](#remap-records-for-ip-ssl).<br/>IP SSL is supported only in **Standard** tier or above. </li></ul> |
 
 Once the operation is complete, the custom domain's TLS/SSL state is changed to **Secure**.
 
@@ -87,15 +87,17 @@ Once the operation is complete, the custom domain's TLS/SSL state is changed to 
 > [!NOTE]
 > A **Secure** state in the **Custom domains** means that it is secured with a certificate, but App Service doesn't check if the certificate is self-signed or expired, for example, which can also cause browsers to show an error or warning.
 
-## Remap A record for IP SSL
+## Remap records for IP SSL
 
 If you don't use IP SSL in your app, skip to [Test HTTPS for your custom domain](#test-https).
 
-By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app.
+There are two changes you need to make, potentially:
 
-If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
+- By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app. If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
+    Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
+
+- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#map-a-cname-record) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
 ## Test HTTPS
 

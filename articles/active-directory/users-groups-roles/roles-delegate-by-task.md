@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/03/2020
+ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -73,9 +73,9 @@ Configure company properties | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Passthrough authentication | Global Administrator  | 
-Read all configuration | Global reader | Global Administrator  |
-Seamless single sign-on | Global Administrator  | 
+Passthrough authentication | Hybrid Identity Administrator  | 
+Read all configuration | Global reader | Hybrid Identity Administrator  |
+Seamless single sign-on | Hybrid Identity Administrator  | 
 
 ## Connect Health
 

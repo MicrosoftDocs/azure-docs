@@ -11,16 +11,16 @@ ms.topic: conceptual
 
 When you add a new file or registry key to track, Azure Automation enables it for the [Change Tracking and Inventory](change-tracking.md) feature. This article includes procedures for working with this feature.
 
-## Enable the full Change Tracking and Inventory solution
+## Enable the full Change Tracking and Inventory feature
 
-If you have enabled [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), you can use the full Change Tracking and Inventory solution as described below. Your settings are not removed by this process.
+If you have enabled [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), you can use the full Change Tracking and Inventory feature as described below. Your settings are not removed by this process.
 
 > [!NOTE]
-> Enabling the full Change Tracking and Inventory solution might cause additional charges. See [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/).
+> Enabling the full Change Tracking and Inventory feature might cause additional charges. See [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Remove the monitoring solution by navigating to the workspace and locating it in the [list of installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Click on the name of the solution to open its summary page and then click on **Delete**, as detailed in [Remove a monitoring solution](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. To re-enable the solution, navigate to the Automation account and select **Change tracking** under **Configuration Management**.
+3. To re-enable Change Tracking and Inventory, navigate to the Automation account and select **Change tracking** under **Configuration Management**.
 4. Choose the Log Analytics workspace and Automation account, confirm your workspace settings, and click **Enable**.
 
 ## <a name="onboard"></a>Onboard machines to Change Tracking and Inventory

@@ -63,6 +63,8 @@
           href: howto-set-up-template.md
         - name: Prepare and connect an MXChip IoT DevKit
           href: howto-connect-devkit.md
+        - name: Prepare and connect an Azure Sphere DevKit
+          href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
@@ -132,14 +134,6 @@
 
 - name: Resources
   items:
-  - name: Recent updates (either query)
-    href: https://azure.microsoft.com/updates/?category=iot&query=azure%20iot%20central
-  - name: Recent updates (or list...)
-    items:
-    - name: April 2020
-      href: https://azure.microsoft.com//updates/new-iot-central-pricing-plans/
-    - name: March 2020
-      href: https://azure.microsoft.com//updates/new-iot-central-pricing-plans/
   - name: Support and help options
     href: /azure/iot-fundamentals/iot-support-help
   - name: Industry application templates

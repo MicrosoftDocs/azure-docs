@@ -27,19 +27,11 @@ For improved security and management, Azure Red Hat OpenShift lets you integrate
 
 ## Cluster and node
 
-Azure Red Hat OpenShift nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs.
-
-## Virtual networks and ingress
-
-You can [connect a cluster's virtual network to an existing virtual network or create a virtual network when you create a cluster](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
-
-## Kubernetes certification
-
-Azure Red Hat OpenShift service has been CNCF certified as Kubernetes conformant.
+Azure Red Hat OpenShift nodes run on Azure virtual machines. You can connect storage to nodes and pods and upgrade cluster components.
 
 ## Next steps
 
 Learn the prerequisites for Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Set up your dev environment](howto-setup-environment.md)
+> [Set up your dev environment](tutorial-create-cluster.md)

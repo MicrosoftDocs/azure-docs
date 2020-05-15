@@ -47,7 +47,7 @@ These parameters may be included in the query string of the REST request.
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
-| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
+| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
 | `pronunciationScoreParams` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this parameter. | Optional |
 | `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
@@ -69,10 +69,10 @@ This table lists required and optional headers for speech-to-text requests.
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-| Format | Codec | Bitrate | Sample Rate  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16-bit  | 16 kHz, mono |
-| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
+| Format | Codec | Bit rate | Sample Rate  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
@@ -195,9 +195,10 @@ The `RecognitionStatus` field may contain these values:
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes the same data as the `simple` format, along with `NBest`, a list of alternative interpretations of the same recognition result. These results are ranked from most likely to least likely. The first entry is the same as the main recognition result.  When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
+The `detailed` format includes additional forms of recognized results.
+When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
-Each object in the `NBest` list includes:
+The object in the `NBest` list can include:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -239,13 +240,6 @@ A typical response for `detailed` recognition:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

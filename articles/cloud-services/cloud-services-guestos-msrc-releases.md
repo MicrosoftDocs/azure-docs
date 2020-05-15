@@ -3,15 +3,15 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/17/2020
-ms.author: raiye
+ms.date: 5/4/2020
+ms.author: yohaddad
 ---
 
 # Azure Guest OS
@@ -19,25 +19,24 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## April 2020 Guest OS
 
->[!NOTE]
->The April Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04  |  [4550965]  |  Windows Security  | 2.97 | Apr 14, 2020 |
-|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | Apr 14, 2020 |
-|  Rel 20-04  |  [4550971]  |  Windows Security  | 3.84 | Apr 14, 2020 |
-|  Rel 20-04  |  [4550970]  |  Windows Security  | 4.77 | Apr 14, 2020 |
-|  Rel 20-04  |  [4550929]  |  Latest Cumulative Update(LCU)  | 5.42 | Apr 14, 2020 |
-|  Rel 20-04  |  [4549949]  |  Latest Cumulative Update(LCU)  | 6.18 | Apr 14, 2020 |
-|  Rel 20-04  |  [4540688]  |  Monthly Rollup  | 2.97 | Mar 10, 2020 |
-|  Rel 20-04  |  [4550735]  |  Servicing Stack update  | 2.97 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540726]  |  Servicing Stack update  | 3.84 | Mar 10, 2020 |
-|  Rel 20-04  |  [4541510]  |  Monthly Rollup  | 3.84 | Mar 10, 2020 |
-|  Rel 20-04  |  [4541509]  |  Monthly Rollup  | 4.77 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540725]  |  Servicing Stack update  | 4.77 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540723]  |  Servicing Stack update  | 5.42 | Mar 10, 2020 |
-|  Rel 20-04  |  [4539571]  |  Servicing Stack update  | 6.18 | Mar 10, 2020 |
+|  Rel 20-04   |  [4550965]  |  Windows Security   |  [2.97]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550971]  |  Windows Security   |  [3.84]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550970]  |  Windows Security   |  [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550929]  |  Latest Cumulative Update(LCU)   |  [5.42]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4549949]  |  Latest Cumulative Update(LCU)   |  [6.18]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4540688]  |  Monthly Rollup   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4550735]  |  Servicing Stack update   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540726]  |  Servicing Stack update   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541510]  |  Monthly Rollup   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541509]  |  Monthly Rollup   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540725]  |  Servicing Stack update   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540723]  |  Servicing Stack update   |  [5.42]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4539571]  |  Servicing Stack update   |  [6.18]  |  Mar 10, 2020  |
+
 
 [4550965]: https://support.microsoft.com/kb/4550965
 [4550905]: https://support.microsoft.com/kb/4550905
@@ -53,6 +52,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## March 2020 Guest OS

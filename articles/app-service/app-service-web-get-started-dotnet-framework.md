@@ -134,6 +134,8 @@ The app name specified in the **App Service Create new** page is used as the URL
 
    The left menu provides different pages for configuring your app.
 
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
