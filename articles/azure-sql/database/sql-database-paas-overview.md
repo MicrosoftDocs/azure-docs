@@ -208,7 +208,7 @@ SQL Database makes building and maintaining applications easier and more product
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on macOS, Linux, and Windows. SQL Database supports the same [connection libraries](connect-query-content-reference-guide.md#libraries) as SQL Server.
 
-[!INCLUDE [sql-database-create-manage-portal](../../sql-database/includes/sql-database-create-manage-portal.md)]
+[!INCLUDE [sql-database-create-manage-portal](../includes/sql-database-create-manage-portal.md)]
 
 ## SQL Database frequently asked questions
 
