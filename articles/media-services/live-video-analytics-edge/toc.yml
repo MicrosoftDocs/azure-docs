@@ -32,3 +32,9 @@
       href: event-based-video-recording-concept.md
     - name: Live video analytics without video recording
       href: analyze-live-video-concept.md
+- name: Reference
+  items:
+  - name: Direct methods
+    href: direct-methods.md
+  - name: Module Twin configuration schema  
+    href: module-twin-configuration-schema.md

@@ -80,25 +80,33 @@ As covered in the [continuous video recording scenarios](continuous-video-record
 
 ## Examine the sample 
 
+### Browse to the src folder 
+
 1. Browse to src/quick-start folder in VS Code.
-1. You will see two folders – edge and app:
+1. You will see two folders – edge and app
 
-    * Edge folder contains .env file and deployment.template.json. The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
-    * App folder contains the following files
+#### Edge folder
 
-         * Appsettings.json has the settings required for the program (as covered in the previous section)
-         * Graphsettings.json has the Media Graph related settings required for the sample program. The settings are as follows
+Edge folder contains .env file and deployment.template.json. The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
+
+#### App folder
+
+App folder contains the following files
+
+* Appsettings.json has the settings required for the program (as covered in the previous section)
+* Graphsettings.json has the Media Graph related settings required for the sample program. The settings are as follows
+
     1. graphTopologyUrl points to the graph topology JSON
     1. graphInstanceName refers to the graph name that the sample program will use when creating the graph instance
     1. graphInstanceDescription refers to the graph description that the sample program will use when creating the graph instance.
-
-         * Cvr_app.csproj is the project file for VS Code
-         * Program.cs has the sample program code. The program does the following
+    
+        * Cvr_app.csproj is the project file for VS Code
+        * Program.cs has the sample program code. The program does the following
     1. Loads the app settings and graph setting
     1. Invoke the LVA on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph
     1. Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
     1. Deactivate the graph instance, delete the graph instance, and delete the graph topology
-
+    
 ## Run the sample  
 
 1. Right-click on src/quick-start/edge/deployment.template.json and select “Generate IoT Edge Deployment Manifest”. This will create the IoT Edge deployment manifest at src/quick-start/edge/config/deployment.json.
@@ -124,7 +132,7 @@ As covered in the [continuous video recording scenarios](continuous-video-record
 
 ## Examine the output  
 
-In the Media Graph <Link to diagram above>, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
+In the [Media Graph diagram](#overview), the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the [streaming messaging format](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) established for device-to-cloud communications by IoT Hub:
 
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
 * An opaque binary body
@@ -163,7 +171,7 @@ MediaGraph Deactivated
 
 You can see the Media Services asset that was created by the graph by logging in to the Azure portal, and view the video.
 
-1. Open your web browser, and go to the Microsoft Azure portal. Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Open your web browser, and go to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Media Services account among the resources you have in your subscription, and open the account blade
 1. Click on Assets in the left-hand column
 1. You will find an Asset listed with the name sampleAssetFromLVAEdge-{DateTime} – this is the naming pattern chosen in your Media Graph topology file
@@ -171,7 +179,7 @@ You can see the Media Services asset that was created by the graph by logging in
 1. In the Asset details page, click on the “Create new” below the Streaming URL text box
 
     ![Asset detail](./media/continuous-video-recording-tutorial/asset-detail.png)
-1. In the wizard that opens, accept the default options and hit "Add".<!-- You can see <TODO: link to the concept doc we have about playback-->
+1. In the wizard that opens, accept the default options and hit "Add". For more information, see [Video playback](video-playback-concept.md) 
 
     > [!TIP]
     > Make sure your Streaming Endpoint is up and running.
@@ -187,6 +195,5 @@ resources created in this tutorial.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> * Use an IP camera with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the ONVIF conformant products page by looking for devices that conform with profiles G, S, or T.<br/>
-> *	Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in Install Azure IoT Edge runtime on Linux and then follow instructions in this Quickstart guide to register the device with Azure IoT Hub.
+* Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.<br/>
+*	Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in Install [Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) and then follow instructions in [this Quickstart guide](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) to register the device with Azure IoT Hub.
