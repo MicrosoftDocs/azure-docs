@@ -53881,7 +53881,7 @@
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path": "articles/sql-database/active-directory-interactive-connect-azure-sql-db.md",
             "redirect_url": "/azure/azure-sql/database/active-directory-interactive-connect-azure-sql-db",
