@@ -17475,7 +17475,7 @@
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-auditing",
+            "redirect_url": "/azure/azure-sql/database/auditing-overview/sql-database-auditing",
             "redirect_document_id": false
         },
         {
@@ -53439,7 +53439,7 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr.md",
-            "redirect_url": "/azure/azure-sql/virtual-machines/windows/manually-configure-availability-group-multiple-regions",
+            "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions",
             "redirect_document_id": true
         },
         {
@@ -53874,12 +53874,12 @@
         },
         {
             "source_path": "articles/sql-database/what-is-azure-sql-iaas-vs-paas.md",
-            "redirect_url": "/azure/azure-sql/database/azure-sql-iaas-vs-paas-what-is-overview",
+            "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-database/sql-database-auditing.md",
-            "redirect_url": "/azure-sql/database/auditing-overview",
+            "redirect_url": "azure/azure-sql/database/auditing-overview",
             "redirect_document_id": true
         },
         {
