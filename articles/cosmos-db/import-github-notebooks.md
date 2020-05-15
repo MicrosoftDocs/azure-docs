@@ -53,5 +53,3 @@ In the regular GitHub flow after committing the changes, you will typically push
 
 * Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](cosmosdb-jupyter-notebooks.md)
 
-* [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
-* [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)
