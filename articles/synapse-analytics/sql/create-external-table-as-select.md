@@ -69,7 +69,7 @@ FROM
 
 ```
 
-## Use a external table created
+## Use the external table
 
 You can use the external table created through CETAS like a regular external table.
 
