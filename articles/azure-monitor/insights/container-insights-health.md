@@ -10,7 +10,7 @@ ms.date: 05/15/2020
 With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics.
 
 >[!NOTE]
->The Health feature is in a limited private preview. To request additional information and participation in this limited preview, contact askcoin@microsoft.com.
+>The Health feature is in a limited private preview. For additional information, review the Azure Monitor [FAQ](../faq.md#health-feature-is-in-limited-private-preview).
 >
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
