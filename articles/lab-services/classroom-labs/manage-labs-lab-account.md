@@ -16,7 +16,7 @@ ms.date: 05/15/2020
 ms.author: spelluru
 
 ---
-# View and delete labs in a lab account
+# Manage labs in a lab account
 This article shows you how a lab account owner or administrator can view all the labs in a lab account, and delete a lab in the lab account. 
 
 ## View labs in a lab account
