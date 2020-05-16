@@ -31,7 +31,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 - The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
-> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](data-sync-sql-server-configure.md#add-on-prem).
+> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ![Sync data between databases](./media/sql-data-sync-data-sql-server-sql-database/sync-data-overview.png)
 
@@ -81,8 +81,8 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ### Set up Data Sync in the Azure portal
 
-- [Set up Azure SQL Data Sync](data-sync-sql-server-configure.md)
-- Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](data-sync-agent.md)
+- [Set up Azure SQL Data Sync](sql-data-sync-sql-server-configure.md)
+- Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 
 ### Set up Data Sync with PowerShell
 

@@ -52249,7 +52249,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-data-sync-agent.md",
-            "redirect_url": "/azure/azure-sql/database/data-sync-agent",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-agent-overview",
             "redirect_document_id": true
         },
         {
@@ -52459,7 +52459,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-get-started-sql-data-sync.md",
-            "redirect_url": "/azure/azure-sql/database/data-sync-sql-server-configure",
+            "redirect_url": "/azure/azure-sql/database/sql-data-sync-sql-server-configure",
             "redirect_document_id": true
         },
         {
@@ -52954,7 +52954,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-glossary-terms.md",
-            "redirect_url": "/azure/azure-sql/database/glossary-terms",
+            "redirect_url": "/azure/azure-sql/glossary-terms",
             "redirect_document_id": true
         },
         {
