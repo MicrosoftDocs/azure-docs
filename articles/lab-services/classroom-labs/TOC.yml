@@ -60,7 +60,6 @@
       href: how-to-manage-lab-accounts.md
     - name: Manage labs in a lab account
       href: manage-labs-lab-account.md
-      href: how-to-manage-lab-accounts.md      
     - name: Configure automatic shutdown of VMs
       href: how-to-configure-lab-accounts.md
     - name: Add a lab creator
