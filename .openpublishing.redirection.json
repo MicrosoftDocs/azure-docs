@@ -53269,7 +53269,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-in-memory.md",
-            "redirect_url": "/azure/azure-sql/in-memory",
+            "redirect_url": "/azure/azure-sql/in-memory-oltp-overview",
             "redirect_document_id": true
         },
         {

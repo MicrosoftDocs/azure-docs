@@ -23,8 +23,13 @@
       href: identify-query-performance-issues.md
     - name: Monitor In-memory OLTP space
       href: in-memory-oltp-monitoring.md
-
-
+    - name: In-memory
+      href: in-memory-oltp-overview.md
+      items:
+      - name: Configure In-Memory OLTP
+        href: in-memory-oltp-migration.md
+      - name: Temporal tables
+        href: temporal-tables.md
 
 - name: Common SQL DB & SQL MI docs 
   items:
@@ -299,15 +304,7 @@
       items:
       - name: Multi-model capabilities
         href: database/multi-model-features.md
-      - name: In-memory
-        href: in-memory-oltp-overview.md
-        items:
-        - name: Configure In-Memory OLTP
-          href: sql-database-in-memory-oltp-migration.md
-      - name: Transactional replication
-        href: sql-database-managed-instance-transactional-replication.md
-      - name: Temporal tables
-        href: sql-database-temporal-tables.md
+
       - name: Job automation
         href: sql-database-job-automation-overview.md
 
@@ -760,6 +757,8 @@
 
   - name: Concepts
     items:
+    - name: Transactional replication
+      href: managed-instance/replication-transactional-overview.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
