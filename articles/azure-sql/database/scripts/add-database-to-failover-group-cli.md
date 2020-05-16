@@ -1,5 +1,5 @@
 ---
-title: "Az CLI: Add database to failover group" 
+title: "Azure CLI: Add database to failover group" 
 description: Azure CLI example script to create an Azure SQL Database, add it to a auto-failover group, and test failover. 
 services: sql-database
 ms.service: sql-database

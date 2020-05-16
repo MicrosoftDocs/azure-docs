@@ -57,7 +57,7 @@ If you've established on-premises to Azure connection successfully and you can't
 
 ## Connect the developers box
 
-It is also possible to connect your developers box to the SQL Managed Instance. SQL Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the SQL Managed Instance virtual network. To do so, configure a Point-to-Site connection to a virtual network using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to an Azure SQL Database SQL Managed Instance from on-premises computer](point-to-site-p2s-configure.md).
+It is also possible to connect your developers box to the SQL Managed Instance. SQL Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the SQL Managed Instance virtual network. To do so, configure a Point-to-Site connection to a virtual network using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to Azure SQL Managed Instance from on-premises computer](point-to-site-p2s-configure.md).
 
 ## Connect with VNet peering
 

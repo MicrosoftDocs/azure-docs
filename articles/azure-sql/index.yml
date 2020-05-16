@@ -83,9 +83,9 @@ landingContent:
         links:
           - text: Which SQL Database option should I choose?
             url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
-          - text: Migrate to SQL database
+          - text: Migrate to SQL Database
             url: sql-database-single-database-migrate.md
-          - text: Migrate to SQL managed instance
+          - text: Migrate to SQL Managed Instance
             url: sql-database-managed-instance-migrate.md
 
 

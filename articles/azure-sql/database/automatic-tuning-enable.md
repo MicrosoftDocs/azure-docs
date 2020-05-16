@@ -18,6 +18,7 @@ Azure SQL Database are automatically managed data services that constantly monit
 
 Automatic tuning can be enabled at the server or the database level through:
 
+
 - The [Azure portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) calls
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands
@@ -30,14 +31,14 @@ Automatic tuning can be enabled at the server or the database level through:
 
 ## Enable automatic tuning on server
 
-On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
+On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is disabled, and DROP_INDEX is disabled.
 
 > [!IMPORTANT]
-> As of March, 2020 changes to Azure defaults for automatic tuning will take effect as follows:
+> As of March, 2020 the Azure defaults for automatic tuning are as follows:
 >
-> - New Azure defaults will be FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
-> - Existing servers with no automatic tuning preferences configured will be automatically configured to INHERIT the new Azure defaults. This applies to all customers currently having server settings for automatic tuning in an undefined state.
-> - New servers created will automatically be configured to INHERIT the new Azure defaults (unlike earlier when automatic tuning configuration was in an undefined state upon new server creation).
+> - FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
+> - Existing servers with no automatic tuning preferences configured are automatically configured to INHERIT the Azure defaults. This applies to all customers currently having server settings for automatic tuning in an undefined state.
+> - New servers created will automatically be configured to INHERIT the Azure defaults (unlike earlier when automatic tuning configuration was in an undefined state upon new server creation).
 
 ### Azure portal
 
@@ -58,7 +59,7 @@ Find out more about using REST API to enable automatic tuning on a **server**, s
 
 ## Enable automatic tuning on an individual database
 
-Azure SQL Database enables you to individually specify the automatic tuning configuration for each database. On the database level you can choose to inherit automatic tuning configuration from the parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
+Azure SQL Database enables you to individually specify the automatic tuning configuration for each database. On the database level you can choose to inherit automatic tuning configuration from the parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is disabled, and DROP_INDEX is disabled.
 
 > [!TIP]
 > The general recommendation is to manage the automatic tuning configuration at **server level** so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database only if you need that database to have different settings than others inheriting settings from the same server.
@@ -92,7 +93,7 @@ Setting automatic tuning to AUTO will apply Azure Defaults. Setting it to INHERI
 To configure individual automatic tuning options via T-SQL, connect to the database and execute the query such as this one:
 
 ```SQL
-ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
+ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = ON, DROP_INDEX = OFF)
 ```
 
 Setting the individual tuning option to ON, will override any setting that database inherited and enable the tuning option. Setting it to OFF, will also override any setting that database inherited and disable the tuning option. Automatic tuning option, for which DEFAULT is specified, will inherit the automatic tuning configuration from the server level settings.  

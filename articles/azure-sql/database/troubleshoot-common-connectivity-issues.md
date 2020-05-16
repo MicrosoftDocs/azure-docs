@@ -1,6 +1,6 @@
 ---
 title: Working with transient errors
-description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database.
+description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Microsoft Azure SQL.
 keywords: sql connection,connection string,connectivity issues,transient error,connection error
 services: sql-database
 ms.service: sql-database
@@ -14,9 +14,9 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ---
-# Troubleshooting transient connection errors to Azure SQL Database
+# Troubleshooting transient connection errors to Microsoft Azure SQL
 
-This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
+This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
@@ -187,8 +187,7 @@ For example, when your client program is hosted on a Windows computer, you can u
 
 If your client program is hosted on an Azure virtual machine (VM), read [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md).
 
-For background information about configuration of ports and IP addresses, see
-[Azure SQL Database firewall](firewall-configure.md).
+For background information about configuration of ports and IP addresses Azure SQL Database, see [Azure SQL Database firewall](firewall-configure.md).
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
@@ -198,7 +197,7 @@ If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection*
 
 #### Starting with ADO.NET 4.6.2
 
-- The connection open attempt to be retried immediately for Azure SQL Database, thereby improving the performance of cloud-enabled apps.
+- The connection open attempt to be retried immediately for Azure SQL, thereby improving the performance of cloud-enabled apps.
 
 #### Starting with ADO.NET 4.6.1
 

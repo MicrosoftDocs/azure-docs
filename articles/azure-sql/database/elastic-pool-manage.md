@@ -62,7 +62,7 @@ To create and manage SQL Database elastic pools and pooled databases with Azure 
 To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
 
 > [!TIP]
-> For Azure CLI example scripts, see [Use CLI to move an Azure SQL database in a SQL elastic pool](scripts/move-database-between-elastic-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/scale-pool-cli.md).
+> For Azure CLI example scripts, see [Use CLI to move a database in SQL Database in a SQL elastic pool](scripts/move-database-between-elastic-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/scale-pool-cli.md).
 >
 
 | Cmdlet | Description |
@@ -88,7 +88,7 @@ To create and move databases within existing elastic pools or to return informat
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Move a database into, out of, or between elastic pools.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returns resource usage statistics for all the elastic pools on a server. For each elastic pool, there is one row for each 15 second reporting window (four rows per minute). This includes CPU, IO, Log, storage consumption and concurrent request/session utilization by all databases in the pool.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in a server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for a database in SQL Database or Azure SQL Data Warehouse. If logged on to the master database in a server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
 
 ## REST API
 

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell: Restore backup for an Azure SQL Database" 
-description: Azure PowerShell example script to restore an Azure SQL database to an earlier point in time from automatic backups
+title: "PowerShell: Restore backup for a database in SQL Database" 
+description: Azure PowerShell example script to restore a database in SQL Database to an earlier point in time from automatic backups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -14,7 +14,7 @@ ms.date: 03/27/2019
 ---
 # Use PowerShell to restore an Azure SQL Database to an earlier point in time
 
-This PowerShell script example restores an Azure SQL database to a specific point in time.  
+This PowerShell script example restores a database in SQL Database to a specific point in time.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]

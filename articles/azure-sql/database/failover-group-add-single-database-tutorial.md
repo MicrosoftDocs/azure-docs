@@ -167,7 +167,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-Create your failover group and add your database to it using AZ CLI.
+Create your failover group and add your database to it using Azure CLI.
 
    > [!NOTE]
    > The server login and firewall settings must match that of your primary server.
@@ -186,7 +186,7 @@ Create your failover group and add your database to it using AZ CLI.
    az sql failover-group create --name $failoverGroup --partner-server $failoverServer --resource-group $resourceGroup --server $server --add-db $database --failover-policy Automatic
    ```
 
-This portion of the tutorial uses the following Az CLI cmdlets:
+This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -286,7 +286,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-Test failover using the AZ CLI.
+Test failover using the Azure CLI.
 
 Verify which server is the secondary:
 
@@ -311,7 +311,7 @@ Revert failover group back to the primary server:
    echo "Successfully failed failover group back to" $server
    ```
 
-This portion of the tutorial uses the following Az CLI cmdlets:
+This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -354,7 +354,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-Delete the resource group by using AZ CLI.
+Delete the resource group by using Azure CLI.
 
    ```azurecli-interactive
    echo "Cleaning up resources by removing the resource group..."
@@ -362,7 +362,7 @@ Delete the resource group by using AZ CLI.
    echo "Successfully removed resource group" $resourceGroup
    ```
 
-This portion of the tutorial uses the following Az CLI cmdlets:
+This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|

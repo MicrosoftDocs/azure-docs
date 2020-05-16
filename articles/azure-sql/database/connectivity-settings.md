@@ -16,7 +16,7 @@ ms.date: 03/09/2020
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Database Managed Instance**
+> This article does *not* apply to **Azure SQL Managed Instance**
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** blade as shown in the screenshot below:
 

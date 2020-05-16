@@ -95,7 +95,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  Azure Monitor logs information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Azure Monitor logs, see [Send data to Azure Monitor logs with the HTTP Data Collector API (preview)](../../azure-monitor/platform/data-collector-api.md).
+    3.  Azure Monitor logs information. Find this information in Azure portal | Settings | Connected Sources. For more information about sending data to Azure Monitor logs, see [Send data to Azure Monitor logs with the HTTP Data Collector API (preview)](../../azure-monitor/platform/data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 

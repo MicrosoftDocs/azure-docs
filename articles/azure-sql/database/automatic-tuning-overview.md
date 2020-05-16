@@ -22,7 +22,7 @@ Azure SQL Database and Azure SQL Managed Instance automatic tuning might be one 
 
 ## What can automatic tuning do for you
 
-- Automated performance tuning of Azure SQL databases
+- Automated performance tuning of databases
 - Automated verification of performance gains
 - Automated rollback and self-correction
 - Tuning history
@@ -33,13 +33,13 @@ Azure SQL Database and Azure SQL Managed Instance automatic tuning might be one 
 
 ## Safe, Reliable, and Proven
 
-Tuning operations applied to databases in Azure SQL Database and Azure SQL Managed Instance are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, "Disabled by the system" message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
+Tuning operations applied to databases in Azure SQL Database are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, "Disabled by the system" message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
 
 Automatic tuning mechanisms are mature and have been perfected on several million databases running on Azure. Automated tuning operations applied are verified automatically to ensure there is a positive improvement to the workload performance. Regressed performance recommendations are dynamically detected and promptly reverted. Through the tuning history recorded, there exists a clear trace of tuning improvements made to each Azure SQL Database and Azure SQL Managed Instance .
 
 ![How does automatic tuning work](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-Azure SQL Database and Azure SQL Managed Instance automatic tuning is sharing its core logic with the SQL Server automatic tuning feature in the database engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database automatic tuning is sharing its core logic with the SQL Server automatic tuning feature in the database engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 For an overview of how automatic tuning works and for typical usage scenarios, see the embedded video:
 
@@ -47,7 +47,8 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 ## Enable automatic tuning
 
-You can [enable automatic tuning for single and pooled databases in the Azure portal](automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
+- You [enable automatic tuning for Azure SQL Database in the Azure portal](automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement.
+- You enable automatic tuning for Azure SQL Managed Instance using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
 
 ## Automatic tuning options
 

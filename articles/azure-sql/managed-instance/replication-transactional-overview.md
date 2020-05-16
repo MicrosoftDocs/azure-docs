@@ -91,9 +91,9 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 Transactional replication is useful in the following scenarios:
 
-- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
+- Publish changes made in one or more tables in a database and distribute them to one or many databases in a SQL Server instance or Azure SQL Database that subscribed for the changes.
 - Keep several distributed databases in synchronized state.
-- Migrate databases from one SQL Server or managed instance to another database by continuously publishing the changes.
+- Migrate databases from one SQL Server instance or Azure SQL Managed Instance to another database by continuously publishing the changes.
 
 ### Compare Data Sync with Transactional Replication
 
@@ -111,11 +111,11 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ![Single instance as Publisher and Distributor](./media/replication-transactional-overview/01-single-instance-asdbmi-pubdist.png)
 
-Publisher and distributor are configured within a single managed instance and distributing changes to other managed instance, single database, pooled database, or SQL Server on-premises.
+Publisher and distributor are configured within a single managed instance and distributing changes to other Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
 
 ### Publisher with remote distributor on SQL MI
 
-In this configuration, one managed instance publishes changes to distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on managed instance, single database, pooled database, or SQL Server.
+In this configuration, one managed instance publishes changes to distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
 
 ![Separate instances for Publisher and Distributor](./media/replication-transactional-overview/02-separate-instances-asdbmi-pubdist.png)
 

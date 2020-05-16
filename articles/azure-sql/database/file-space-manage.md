@@ -17,7 +17,7 @@ ms.date: 03/12/2019
 This article describes different types of storage space for databases in Azure SQL Database, and steps that can be taken when the file space allocated needs to be explicitly managed.
 
 > [!NOTE]
-> This article does not apply to Azure SQL Database Managed Instance.
+> This article does not apply to Azure SQL Managed Instance.
 
 ## Overview
 

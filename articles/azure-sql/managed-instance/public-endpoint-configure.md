@@ -28,7 +28,7 @@ In this article, you'll learn how to:
 
 Due to the sensitivity of data that is in a managed instance, the configuration to enable managed instance public endpoint requires a two-step process. This security measure adheres to separation of duties (SoD):
 
-- Enabling public endpoint on a managed instance needs to be done by the managed instance admin. The managed instance admin can be found on **Overview** page of your SQL managed instance resource.
+- Enabling public endpoint on a managed instance needs to be done by the managed instance admin. The managed instance admin can be found on **Overview** page of your managed instance resource.
 - Allowing traffic using a network security group that needs to be done by a network admin. For more information, see [network security group permissions](../../virtual-network/manage-network-security-group.md#permissions).
 
 ## Enabling public endpoint for a managed instance in the Azure portal
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## Obtaining the managed instance public endpoint connection string
 
-1. Navigate to the SQL managed instance configuration page that has been enabled for public endpoint. Select the **Connection strings** tab under the **Settings** configuration.
+1. Navigate to the managed instance configuration page that has been enabled for public endpoint. Select the **Connection strings** tab under the **Settings** configuration.
 1. Note that the public endpoint host name comes in the format <mi_name>.**public**.<dns_zone>.database.windows.net and that the port used for the connection is 3342.
 
     ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
