@@ -18,7 +18,7 @@ To check the SQL Data Sync activity log and detect errors and warnings, you prev
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
 > SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
@@ -194,7 +194,7 @@ Download the code samples described in this article from the following locations
 ## Next steps
 For more info about SQL Data Sync, see:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md)
+-   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
     - With PowerShell

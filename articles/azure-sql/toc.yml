@@ -531,7 +531,7 @@
       - name: Data sync
         items:
         - name: Data Sync Agent
-          href: database/data-sync-agent-overview.md
+          href: database/sql-data-sync-agent-overview.md
         - name: Replicate schema changes
           href: database/sql-data-sync-update-sync-schema.md
         - name: Monitor with OMS
@@ -837,7 +837,7 @@
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
       - name: Doc changes
-        href: virtual-machines/windows/virtual-machines/windows/doc-changes-updates-release-notes.md
+        href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
       - name: Create SQL VM - Portal
