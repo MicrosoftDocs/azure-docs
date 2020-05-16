@@ -19,7 +19,7 @@ ms.date: 05/04/2020
 This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
 
 > [!NOTE]
-> For SQL managed instance specific instructions, see [Create alerts for Azure SQL Managed Instance](../managed-instance/alerts-create.md).
+> For Azure SQL Managed Instance specific instructions, see [Create alerts for Azure SQL Managed Instance](../managed-instance/alerts-create.md).
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 

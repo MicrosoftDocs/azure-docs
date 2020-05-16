@@ -1,6 +1,6 @@
 ---
 title: Management API reference for managed instance
-description: Learn about creating and managing Azure SQL Database Managed Instances.
+description: Learn about creating and managing Azure SQL Managed Instances.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
-# Managed API reference for Azure SQL Database Managed Instances
+# Managed API reference for Azure SQL Managed Instances
 
-You can create and manage Azure SQL Database Managed Instances using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL. In this article, you can find an overview of functions and API that you can use to create and configure Managed Instance.
+You can create and manage Azure SQL Managed Instances using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL. In this article, you can find an overview of functions and API that you can use to create and configure Managed Instance.
 
 ## Azure portal: Create a managed instance
 
-For a quickstart showing you how to create an Azure SQL Database Managed Instance, see [Quickstart: Create an Azure SQL Database Managed Instance](instance-create-quickstart.md).
+For a quickstart showing you how to create an SQL Database Managed Instance, see [Quickstart: Create an SQL Managed Instance](instance-create-quickstart.md).
 
 ## PowerShell: Create and manage managed instances
 
@@ -29,15 +29,15 @@ For a quickstart showing you how to create an Azure SQL Database Managed Instanc
 To create and manage managed instances with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> For PowerShell example scripts, see [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> For PowerShell example scripts, see [Quick-start script: Create SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Description |
 | --- | --- |
-|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Creates an Azure SQL Database Managed Instance |
+|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Creates an Azure SQL Managed Instance |
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returns information about Azure SQL Managed Instance|
-|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Sets properties for an Azure SQL Database Managed Instance|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Sets properties for an Azure SQL Managed Instance|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Removes an Azure SQL Managed Database Instance|
-|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Creates an Azure SQL Database Managed Instance database|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Creates an Azure SQL Managed Instance database|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Returns information about Azure SQL Managed Instance database|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Removes an Azure SQL Managed Database Instance database|
 |[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restores an Azure SQL Managed Database Instance database|
@@ -66,7 +66,7 @@ To create and manage managed instances with [Azure CLI](/cli/azure), use the fol
 To create and manage instance database after the Managed Instance is created, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to a server and pass Transact-SQL commands.
 
 > [!TIP]
-> For quickstarts showing you have to configure and connect to a Managed Instance using SQL Server Management Studio on Microsoft Windows, see [Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance](connect-vm-instance-configure.md) and [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](point-to-site-p2s-configure.md).
+> For quickstarts showing you have to configure and connect to a SQL Managed Instance using SQL Server Management Studio on Microsoft Windows, see [Quickstart: Configure Azure VM to connect to an Azure SQL Managed Instance](connect-vm-instance-configure.md) and [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](point-to-site-p2s-configure.md).
 > [!IMPORTANT]
 > You cannot create or delete a Managed Instance using Transact-SQL.
 

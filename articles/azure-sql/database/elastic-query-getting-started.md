@@ -41,8 +41,9 @@ Here you will create a shard map manager along with several shards, followed by 
    In the next section, we create a sample database endpoint that supports richer querying of the data across shards.
 
 ## Create an elastic query database
+
 1. Open the [Azure portal](https://portal.azure.com) and log in.
-2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery."
+2. Create a new database in Azure SQL Database in the same server as your shard setup. Name the database "ElasticDBQuery."
 
     ![Azure portal and pricing tier][3]
 

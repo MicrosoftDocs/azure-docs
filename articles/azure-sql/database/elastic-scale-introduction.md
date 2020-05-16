@@ -11,11 +11,12 @@ ms.author: sstein
 ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database
-You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
+
+You can easily scale out databases in Azure SQL Database using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
 
 * [Elastic Database client library](elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](elastic-scale-get-started.md).
 * [Elastic Database split-merge tool](elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](elastic-scale-configure-deploy-split-and-merge.md).
-* [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
+* [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of databases in Azure SQL Database. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
 * [Elastic transactions](elastic-transactions-overview.md): This feature allows you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
 
@@ -23,7 +24,7 @@ The following graphic shows an architecture that includes the **Elastic Database
 
 In this graphic, colors of the database represent schemas. Databases with the same color share the same schema.
 
-1. A set of **Azure SQL databases** is hosted on Azure using sharding architecture.
+1. A set of **SQL databases** is hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
 3. A subset of the databases is put into an **elastic pool**. (See [What is a pool?](elastic-pool-overview.md)).
 4. An **Elastic Database job** runs scheduled or ad hoc T-SQL scripts against all databases.
@@ -34,6 +35,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 ![Elastic Database tools][1]
 
 ## Why use the tools?
+
 Achieving elasticity and scale for cloud applications has been straightforward for VMs and blob storage - simply add or subtract units, or increase power. But it has remained a challenge for stateful data processing in relational databases. Challenges emerged in these scenarios:
 
 * Growing and shrinking capacity for the relational database part of your workload.
@@ -42,6 +44,7 @@ Achieving elasticity and scale for cloud applications has been straightforward f
 Traditionally, scenarios like these have been addressed by investing in larger-scale servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically structured databases (a scale-out pattern known as "sharding") provides an alternative to traditional scale-up approaches both in terms of cost and elasticity.
 
 ## Horizontal and vertical scaling
+
 The following figure shows the horizontal and vertical dimensions of scaling, which are the basic ways the elastic databases can be scaled.
 
 ![Horizontal versus vertical scale-out][2]
@@ -56,6 +59,7 @@ Most cloud-scale database applications use a combination of these two strategies
 * Vertical scaling is accomplished using Azure PowerShell cmdlets to change the service tier, or by placing databases in an elastic pool.
 
 ## Sharding
+
 *Sharding* is a technique to distribute large amounts of identically structured data across a number of independent databases. It is especially popular with cloud developers creating Software as a Service (SAAS) offerings for end customers or businesses. These end customers are often referred to as "tenants". Sharding may be required for any number of reasons:  
 
 * The total amount of data is too large to fit within the constraints of an individual database
@@ -68,6 +72,7 @@ In other scenarios, such as ingestion of data from distributed devices, sharding
 Sharding works best when every transaction in an application can be restricted to a single value of a sharding key. That ensures that all transactions are local to a specific database.
 
 ## Multi-tenant and single-tenant
+
 Some applications use the simplest approach of creating a separate database for each tenant. This approach is the **single tenant sharding pattern** that provides isolation, backup/restore ability, and resource scaling at the granularity of the tenant. With single tenant sharding, each database is associated with a specific tenant ID value (or customer key value), but that key need not always be present in the data itself. It is the application's responsibility to route each request to the appropriate database - and the client library can simplify this.
 
 ![Single tenant versus multi-tenant][4]

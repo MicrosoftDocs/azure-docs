@@ -36,7 +36,7 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 In Azure SQL Managed Instance, querying a dynamic management view requires **VIEW SERVER STATE** permissions. For more information, see [System Dynamic Management Views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
-In an instance of on-premises SQL Server and in Azure SQL Database Managed Instance, dynamic management views return server state information. In Azure SQL Database, they return information regarding your current logical database only.
+In an instance of on-premises SQL Server and in Azure SQL Managed Instance, dynamic management views return server state information. In Azure SQL Database, they return information regarding your current logical database only.
 
 This article contains a collection of DMV queries that you can execute using SQL Server Management Studio or Azure Data Studio to detect the following types of query performance issues:
 
@@ -492,7 +492,8 @@ GO
 
 ## Monitoring connections
 
-You can use the [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) view to retrieve information about the connections established to a specific server and the details of each connection. In addition, the [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) view is helpful when retrieving information about all active user connections and internal tasks.
+You can use the [sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) view to retrieve information about the connections established to a specific server and managed instance and the details of each connection. In addition, the [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) view is helpful when retrieving information about all active user connections and internal tasks.
+
 The following query retrieves information on the current connection:
 
 ```sql
@@ -515,10 +516,11 @@ WHERE c.session_id = @@SPID;
 
 You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
-You can also monitor usage using these two views:
+You can also monitor usage using these views:
 
-- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Azure SQL Database: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Azure SQL Managed Instance: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
+- Both Azure SQL Database and Azure SQL Managed Instance: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### sys.dm_db_resource_stats
 
@@ -541,6 +543,22 @@ FROM sys.dm_db_resource_stats;
 
 For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
+### sys.server_resource_stats
+
+You can use [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) to return CPU usage, IO, and storage data for an Azure SQL Managed Instance. The data is collected and aggregated within five-minute intervals. There is one row for every 15 seconds reporting. The data returned includes CPU usage, storage size, IO utilization, and managed instance SKU. Historical data is retained for approximately 14 days.
+
+```sql
+DECLARE @s datetime;  
+DECLARE @e datetime;  
+SET @s= DateAdd(d,-7,GetUTCDate());  
+SET @e= GETUTCDATE();  
+SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
+FROM sys.server_resource_stats
+WHERE start_time BETWEEN @s AND @e  
+GROUP BY resource_name  
+HAVING AVG(avg_cpu_percent) >= 80
+```
+
 ### sys.resource_stats
 
 The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
@@ -556,7 +574,7 @@ Other application types might interpret the same graph differently. For example,
 The database engine exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
 > [!NOTE]
-> You must be connected to the **master** database to query **sys.resource_stats** in the following examples.
+> On Azure SQL Database, you must be connected to the **master** database to query **sys.resource_stats** in the following examples.
 
 This example shows you how the data in this view is exposed:
 

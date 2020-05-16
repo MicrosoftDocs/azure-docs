@@ -1,6 +1,6 @@
 ---
 title: Implement a geo-distributed solution
-description: Learn to configure your Azure SQL database and application for failover to a replicated database, and test failover.
+description: Learn to configure your database in Azure SQL Database and client application for failover to a replicated database, and test failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -14,12 +14,12 @@ ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
 
-Configure an Azure SQL database and application for failover to a remote region and test a failover plan. You learn how to:
+Configure a database in SQL Database and client application for failover to a remote region and test a failover plan. You learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a [failover group](auto-failover-group-overview.md)
-> - Run a Java application to query an Azure SQL database
+> - Run a Java application to query a database in SQL Database
 > - Test failover
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -368,7 +368,7 @@ In this tutorial, you configured an Azure SQL Database and application for failo
 > [!div class="checklist"]
 >
 > - Create a geo-replication failover group
-> - Run a Java application to query an Azure SQL database
+> - Run a Java application to query a database in SQL Database
 > - Test failover
 
 Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group:

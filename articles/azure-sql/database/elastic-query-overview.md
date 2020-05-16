@@ -21,7 +21,7 @@ The elastic query feature (in preview) enables you to run a Transact-SQL query t
 
 ### Azure SQL Database
 
-Query across Azure SQL databases completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
+Query across databases in Azure SQL Database completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
 
 ### Available on standard tier
 
@@ -61,7 +61,7 @@ Customer scenarios for elastic query are characterized by the following topologi
 
 To begin coding, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
 
-An elastic query can be used to make data located in a SQL database available to other SQL databases. This allows queries from one database to refer to tables in any other remote SQL database. The first step is to define an external data source for each remote database. The external data source is defined in the local database from which you want to gain access to tables located on the remote database. No changes are necessary on the remote database. For typical vertical partitioning scenarios where different databases have different schemas, elastic queries can be used to implement common use cases such as access to reference data and cross-database querying.
+An elastic query can be used to make data located in a database in SQL Database available to other databases in SQL Database. This allows queries from one database to refer to tables in any other remote SQL database. The first step is to define an external data source for each remote database. The external data source is defined in the local database from which you want to gain access to tables located on the remote database. No changes are necessary on the remote database. For typical vertical partitioning scenarios where different databases have different schemas, elastic queries can be used to implement common use cases such as access to reference data and cross-database querying.
 
 > [!IMPORTANT]
 > You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
@@ -73,13 +73,13 @@ An elastic query can be used to make data located in a SQL database available to
 
 ![Vertical partitioning - Using elastic query to query reference data][3]
 
-**Cross-database querying**: Elastic queries enable use cases that require querying across several SQL databases. Figure 3 shows four different databases: CRM, Inventory, HR, and Products. Queries performed in one of the databases also need access to one or all the other databases. Using an elastic query, you can configure your database for this case by running a few simple DDL statements on each of the four databases. After this one-time configuration, access to a remote table is as simple as referring to a local table from your T-SQL queries or from your BI tools. This approach is recommended if the remote queries do not return large results.
+**Cross-database querying**: Elastic queries enable use cases that require querying across several databases in SQL Database. Figure 3 shows four different databases: CRM, Inventory, HR, and Products. Queries performed in one of the databases also need access to one or all the other databases. Using an elastic query, you can configure your database for this case by running a few simple DDL statements on each of the four databases. After this one-time configuration, access to a remote table is as simple as referring to a local table from your T-SQL queries or from your BI tools. This approach is recommended if the remote queries do not return large results.
 
 **Figure 3** Vertical partitioning - Using elastic query to query across various databases
 
 ![Vertical partitioning - Using elastic query to query across various databases][4]
 
-The following steps configure elastic database queries for vertical partitioning scenarios that require access to a table located on remote SQL databases with the same schema:
+The following steps configure elastic database queries for vertical partitioning scenarios that require access to a table located on remote databases in SQL Database with the same schema:
 
 * [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 * [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
@@ -100,7 +100,7 @@ Using elastic query to perform reporting tasks over a sharded, that is, horizont
 > Elastic Query Database (head node) can be separate database, or it can be the same database that hosts the shard map.
 > Whatever configuration you choose, make sure that service tier and compute size of that database is high enough to handle the expected  amount of login/query requests.
 
-The following steps configure elastic database queries for horizontal partitioning scenarios that require access to a set of tables located on (typically) several remote SQL databases:
+The following steps configure elastic database queries for horizontal partitioning scenarios that require access to a set of tables located on (typically) several remote databases in SQL Database:
 
 * [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
 * [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential

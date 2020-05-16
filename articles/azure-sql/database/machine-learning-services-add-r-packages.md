@@ -24,7 +24,7 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 ## Prerequisites
 
-- Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
+- Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, macOS, and Linux. This article assumes you're using Windows.
 
 - This article includes an example of using [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
    
@@ -60,7 +60,7 @@ The output should look similar to the following.
 
 ## Add a package with sqlmlutils
 
-If you need to use a package that isn't already installed in your Azure SQL Database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R or Python client. Currently, only the R version of **sqlmlutils** is supported in Azure SQL Database.
+If you need to use a package that isn't already installed in your Azure SQL Database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with Microsoft Azure SQL and SQL Server databases and execute R or Python code in SQL from an R or Python client. Currently, only the R version of **sqlmlutils** is supported in Azure SQL Database.
 
 In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils** and **RODBCext** (a prerequisite for **sqlmlutils**), and add the **glue** package.
 
