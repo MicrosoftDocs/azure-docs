@@ -108,7 +108,7 @@ Data Sync doesn't handle circular references. Be sure to avoid them.
 
 ## Client agent issues
 
-To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent issues](data-sync-agent.md#agent-tshoot).
+To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent issues](sql-data-sync-agent-overview.md#agent-tshoot).
 
 ## Setup and maintenance issues
 
@@ -237,13 +237,13 @@ For more information about SQL Data Sync, see:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](data-sync-agent.md)
+-   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](sql-data-sync-agent-overview.md)
 -   Best practices - [Best practices for SQL Data Sync in Azure](sql-data-sync-best-practices.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](sql-data-sync-update-sync-schema.md)
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/update-sync-schema-in-sync-group.md)

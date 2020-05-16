@@ -25,7 +25,7 @@ It's based on the latest stable version of the [Microsoft SQL Server database en
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
 > [!NOTE]
-> For relevant terms and their definitions, see the [SQL Database terms glossary](glossary-terms.md).
+> For relevant terms and their definitions, see the [SQL Database terms glossary](../glossary-terms.md).
 
 ## Deployment models
 
