@@ -303,7 +303,9 @@ This Service Bus action closes the session in the queue after either the workflo
 
   ![Service Bus action - "Close a session in a queue and succeed"](./media/send-related-messages-sequential-convoy/close-session-in-queue.png)
 
-### Close a session in a queue and succeed
+The following sections describe the actions in the `Catch` section, which handle errors and exceptions that happen in your workflow.
+
+### Close a session in a queue and fail
 
 ## Next steps
 
