@@ -16,14 +16,14 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users and get an access token in a JavaScript SPA using the Auth Code Flow
+# Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
-In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. See [How the sample works](#how-the-sample-works) for an illustration.
 
-This quickstart uses MSAL.js 2.0 with the authorization code flow. To use MSAL.js 1.0 with the implicit flow, see [Sign in users in JavaScript single-page apps](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
 ## Prerequisites
 
