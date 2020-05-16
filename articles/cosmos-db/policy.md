@@ -17,13 +17,13 @@ Azure Policy provides built-in policy definitions. Custom policy definitions can
 
 ## Assigning a Built-in Policy Definition
 
-Policy _assignments_ are created from built-in policy _definitions_. Assignments are scoped to an Azure management group, an Azure subscription, or a resource group and will apply to resources within the scope. Optionally, specific resources can be excluded from the scope.
+Policy _assignments_ are created from policy _definitions_. Built-in or custom policy definitions can be used. Assignments are scoped to an Azure management group, an Azure subscription, or a resource group and will apply to resources within the scope. Optionally, specific resources can be excluded from the scope.
 
 Policy assignments can be created with the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure PowerShell](../governance/policy/assign-policy-powershell.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), or [ARM template](../governance/policy/assign-policy-template.md).
 
 To create a policy assignment from a built-in policy definition for Cosmos DB, follow the steps to [create a policy assignment with the Azure portal](../governance/policy/assign-policy-portal.md).
 
-At the step to select a policy definition, and enter `Cosmos DB` in the Search field to filter the list of available built-in policy definitions. Select one of the available built-in policy definitions, then the **Select** button to continue with policy assignment creation.
+At the step to select a policy definition, enter `Cosmos DB` in the Search field to filter the list of available built-in policy definitions. Select one of the available built-in policy definitions, then the **Select** button to continue with policy assignment creation.
 
 > [!TIP]
 > The built-in policy definition names shown on **Available Definitions** can also be used with Azure PowerShell, Azure CLI, or ARM templates to create policy assignments.
