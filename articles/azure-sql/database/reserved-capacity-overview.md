@@ -17,7 +17,7 @@ ms.date: 08/29/2019
 
 Save money with Azure SQL Database and SQL Managed Instance by committing to a reservation for compute resources compared to pay-as-you-go prices. With reserved capacity, you make a commitment for SQL Database and/or SQL Managed Instance use for a period of one or three years to get a significant discount on the compute costs. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
-You do not need to assign the reservation to specific SQL Database, or SQL Managed Instance.  Matching existing deployments that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you commit to usage for the compute costs for a period of one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the service. At the end of the reservation term, the billing benefit expires and the SQL Database or SQL Managed Instance are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+You do not need to assign the reservation to specific SQL Database, or SQL Managed Instance. Matching existing deployments that are already running or ones that are newly deployed automatically get the benefit. By purchasing a reservation, you commit to usage for the compute costs for a period of one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the service. At the end of the reservation term, the billing benefit expires and the SQL Database or SQL Managed Instance are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 You can buy reserved capacity in the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
 
@@ -66,7 +66,7 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## Limitation
 
-You cannot reserve DTU-based (basic, standard, or premium) SQL databases.
+You cannot reserve DTU-based (basic, standard, or premium) databases in SQL Database.
 
 ## Need help? Contact us
 

@@ -97,13 +97,13 @@ You can restore a deleted database to the deletion time, or an earlier point in 
 
 ### Deleted database restore by using the Azure portal
 
-You restore deleted databases from the Azure portal from the server and instance resource.
+You restore deleted databases from the Azure portal from the server or managed instance resource.
 
 #### SQL Database
 
 To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
-  ![Screenshot of restore deleted Azure SQL database](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Screenshot of restore deleted database](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### SQL Managed Instance
 
@@ -117,7 +117,7 @@ Use the following sample scripts to restore a deleted database for either SQL Da
 
 #### SQL Database
 
-For a sample PowerShell script showing how to restore a deleted Azure SQL database, see [Restore a SQL database using PowerShell](scripts/restore-database-powershell.md).
+For a sample PowerShell script showing how to restore a deleted database in Azure SQL Database, see [Restore a SQL database using PowerShell](scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
@@ -128,7 +128,7 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 
 ## Geo-restore
 
-You can restore a database (single, pooled, or managed instance) on any server in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
+You can restore a database on any SQL Database server or an instance database on any Managed Instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
 Geo-restore is the default recovery option when your database is unavailable because of an incident in the hosting region. You can restore the database to a server in any other region. There is a delay between when a backup is taken and when it is geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database. The following illustration shows a database restore from the last available backup in another region.
 
@@ -149,7 +149,7 @@ To geo-restore a single SQL database from the Azure portal in the region and ser
 
     ![Screenshot of Create SQL Database options](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-Complete the process of creating a new database from the backup. When you create the single Azure SQL database, it contains the restored geo-restore backup.
+Complete the process of creating a new database from the backup. When you create a database in Azure SQL Database, it contains the restored geo-restore backup.
 
 #### SQL Managed Instance
 

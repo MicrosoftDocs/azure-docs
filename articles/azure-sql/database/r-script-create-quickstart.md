@@ -25,7 +25,7 @@ In this quickstart, you create and run a set of R scripts using Machine Learning
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL database](single-database-create-quickstart.md) with a [server-level firewall rule](firewall-create-server-level-portal-quickstart.md)
+- A [database in Azure SQL Database](single-database-create-quickstart.md) with a [server-level firewall rule](firewall-create-server-level-portal-quickstart.md)
 - [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
