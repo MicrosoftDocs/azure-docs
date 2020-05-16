@@ -64,6 +64,10 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
+  - name: AMD GPU Drivers
+    items:
+    - name: Windows
+      href: hpccompute-amd-gpu-windows.md
   - name: Azure Monitor
     items:
     - name: Diagnostics extension

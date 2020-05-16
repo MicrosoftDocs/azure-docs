@@ -6,7 +6,7 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
 # What are Azure Open Datasets and how can you use them?
@@ -54,5 +54,5 @@ If you can't find the data you want, email us to [request a dataset](mailto:aod@
 
 ## Next steps
 * [Sample notebook](samples.md)
-* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK for Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)

@@ -605,6 +605,8 @@ The following examples show you how to use various options for creating statisti
 
 > [!NOTE]
 > You can create single-column statistics only at this moment.
+>
+> Procedure sp_create_file_statistics will be renamed to sp_create_openrowset_statistics. Public server role has ADMINISTER BULK OPERATIONS permission granted while public database role has EXECUTE permissions on sp_create_file_statistics and sp_drop_file_statistics. This might be changed in the future.
 
 The following stored procedure is used to create statistics:
 
@@ -691,6 +693,9 @@ To update statistics, you need to drop and create statistics. The following stor
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
+> [!NOTE]
+> Procedure sp_drop_file_statistics will be renamed to sp_drop_openrowset_statistics. Public server role has ADMINISTER BULK OPERATIONS permission granted while public database role has EXECUTE permissions on sp_create_file_statistics and sp_drop_file_statistics. This might be changed in the future.
 
 Arguments:
 [ @stmt = ] N'statement_text' -

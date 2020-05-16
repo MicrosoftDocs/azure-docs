@@ -286,7 +286,7 @@ The snippet above creates the two `PipelineData` objects for the metrics and mod
 
 ### Configure and create the automated ML pipeline step
 
-Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
+Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
 
 ```python
 from azureml.train.automl import AutoMLConfig

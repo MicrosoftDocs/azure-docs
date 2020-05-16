@@ -73,6 +73,9 @@ SELECT <select_criteria>
 
 Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> ORDER BY clause in SELECT part of CETAS is not supported.
+
 ## Permissions
 
 You need to have permissions to list folder content and write to LOCATION folder for CETAS to work.

@@ -269,7 +269,7 @@ Using Azure CLI, set the default subscription to one that has the account you wa
 
 #### Unauthorized access, access denied, forbidden, or similar error
 
-The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
+The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
 
 ### Common issues when deployed to Azure App Service
 

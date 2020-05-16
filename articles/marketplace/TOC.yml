@@ -199,19 +199,7 @@
       - name: Update existing offer
         href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
     - name: Consulting services
-      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-      - name: Create a consulting service offer
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-        items:
-        - name: Offer settings tab
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-        - name: Storefront details tab
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-      - name: Publish consulting service offer
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+      href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
     - name: Containers offer
       href: ./cloud-partner-portal/containers/cpp-containers-offer.md
       items:
@@ -292,26 +280,6 @@
       href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
     - name: Power BI App offer
       href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-      - name: Create Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-        - name: Technical Info tab
-          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-        - name: Storefront Details tab
-          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-        - name: Contacts tab
-          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-      - name: Create Power BI App technical assets
-        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-      - name: Publish Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
     - name: SaaS application offer
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
     - name: Virtual machine offer

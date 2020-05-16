@@ -567,4 +567,4 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Next steps
 
-* [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
+* [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)

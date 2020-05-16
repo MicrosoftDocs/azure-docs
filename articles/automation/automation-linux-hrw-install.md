@@ -68,6 +68,9 @@ To install and configure a Hybrid Runbook Worker on your Linux computer, follow 
 
 Before you proceed, note the Log Analytics workspace that your Automation account is linked to. Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
+>[!NOTE]
+> The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
+
 1. Enable the Automation Hybrid Worker solution in Azure by using one of the following methods:
 
    * Add the Automation Hybrid Worker solution to your subscription by using the procedure at [Add Azure Monitor log solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
