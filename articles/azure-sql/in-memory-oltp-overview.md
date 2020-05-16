@@ -138,7 +138,7 @@ You can always upgrade your database or instance to a higher tier, such as from 
 But downgrading the tier can negatively impact your database. The impact is especially apparent when you downgrade from Business Critical to General Purpose (or Premium to Standard or Basic) when your database contains In-Memory OLTP objects. Memory-optimized tables are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a General Purpose, Standard, or Basic elastic pool.
 
 > [!Important]
-> In-Memory OLTP isn't supported in the General Purpose, Standard or Basic tier. Therefore, it isn't possible to move a database that has any In-Memory OLTP objects to the one of these tiers.
+> In-Memory OLTP isn't supported in the General Purpose, Standard or Basic tier. Therefore, it isn't possible to move a database that has any In-Memory OLTP objects to one of these tiers.
 
 Before you downgrade the database to General Purpose, Standard, or Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
 

@@ -90,7 +90,9 @@ Document models can be used instead of the relational models in some specific sc
 Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
 
 The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
- support two spatial data types - the geometry data type and the geography data type.
+
+
+ The two supported two spatial data types: 
 
 - The geometry type represents data in a Euclidean (flat) coordinate system.
 - The geography type represents data in a round-earth coordinate system.
