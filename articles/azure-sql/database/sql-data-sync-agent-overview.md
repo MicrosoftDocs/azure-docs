@@ -134,7 +134,7 @@ These scenarios might cause this issue:
 
 You discover that the agent isn't running on a computer that hosts SQL Server. When you attempt to manually start the agent, you see a dialog box that displays the message, "Error 1069: The service did not start due to a logon failure."
 
-![Data Sync error 1069 dialog box](./mediasql-data-sync-agent-overview/sync-error-1069.png)
+![Data Sync error 1069 dialog box](./media/sql-data-sync-agent-overview/sync-error-1069.png)
 
 - **Cause**. A likely cause of this error is that the password on the local server has changed since you created the agent and agent password.
 
@@ -158,7 +158,7 @@ You discover that the agent isn't running on a computer that hosts SQL Server. W
 
 After you create or re-create a key for an agent, you try to submit the key through the SqlAzureDataSyncAgent application. The submission fails to complete.
 
-![Sync Error dialog box - Can't submit agent key](./mediasql-data-sync-agent-overview/sync-error-cant-submit-agent-key.png)
+![Sync Error dialog box - Can't submit agent key](./media/sql-data-sync-agent-overview/sync-error-cant-submit-agent-key.png)
 
 - **Prerequisites**. Before you proceed, check the following prerequisites:
 

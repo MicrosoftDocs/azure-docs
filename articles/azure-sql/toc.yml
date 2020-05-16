@@ -37,8 +37,6 @@
       - name: Try in-memory features
         href: in-memory-sample.md
 
-
-
 - name: Common SQL DB & SQL MI docs 
   items:
   - name: Common concepts 
@@ -449,9 +447,7 @@
           - name: ETL for analytics
             href: database/saas-multitenantdb-tenant-analytics.md
 
-
-
-- name: Azure SQL Database
+- name: SQL Database
   items:
   - name: Azure SQL Database documentation
     href: database/index.yml
@@ -700,7 +696,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: Azure SQL Managed Instance
+- name: SQL Managed Instance
   items:
   - name: Overview
     items:
@@ -832,6 +828,190 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
+- name: SQL Server on Azure VM
+  items: 
+  - name: Windows
+    items: 
+    - name: Overview
+      items:
+      - name: What is a SQL Server VM?
+        href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+      - name: Doc changes
+        href: virtual-machines/windows/virtual-machines/windows/doc-changes-updates-release-notes.md
+    - name: Quickstarts
+      items:
+      - name: Create SQL VM - Portal
+        href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
+      - name: Create SQL VM - PowerShell
+        href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+    - name: Concepts
+      items:
+      - name: Best practices
+        items:
+        - name: Performance best practices
+          href: virtual-machines/windows/performance-guidelines-best-practices.md
+        - name: Security considerations
+          href: virtual-machines/windows/security-considerations-best-practices.md
+        - name: Application patterns
+          href: virtual-machines/windows/application-patterns-development-strategies.md
+      - name: Business Continuity
+        items:
+        - name: High availability options
+          href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+        - name: Always On availability group
+          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+        - name: Backup and restore
+          href: virtual-machines/windows/backup-restore.md
+        - name: Automated backup for SQL Server 2014
+          href: virtual-machines/windows/automated-backup-sql-2014.md
+        - name: Automated backup for SQL Server 2016+
+          href: virtual-machines/windows/automated-backup.md
+      - name: Management
+        items:
+        - name: Dedicated host
+          href: virtual-machines/windows/dedicated-host.md
+        - name: With the Azure portal
+          href: virtual-machines/windows/manage-sql-vm-portal.md
+        - name: Extend support for SQL 2008 & R2
+          href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
+        - name: Connect to a VM
+          href: virtual-machines/windows/ways-to-connect-to-sql.md
+        - name: Configure storage
+          href: virtual-machines/windows/storage-configuration.md
+        - name: Automate management tasks
+          items:
+          - name: Use the SQL Server IaaS Agent Extension
+            href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
+          - name: Automated Patching
+            href: virtual-machines/windows/automated-patching.md
+          - name: Configure Azure Key Vault Integration
+            href: virtual-machines/windows/azure-key-vault-integration-configure.md
+    - name: How-to guides
+      items:
+      - name: Create SQL VM
+        items:
+        - name: Use the portal
+          href: virtual-machines/windows/create-sql-vm-portal.md
+        - name: Use Azure PowerShell
+          href: virtual-machines/windows/create-sql-vm-powershell.md
+      - name: Register with SQL VM RP
+        displayName: resource provider, registration
+        items:
+        - name: Single VM
+          href: virtual-machines/windows/sql-vm-resource-provider-register.md
+        - name: Bulk register multiple VMs
+          href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+      - name: Manage
+        items: 
+        - name: Licensing model
+          displayName: ahb, ahub, payg, change, modify, update
+          href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+        - name: Edition 
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Azure Storage for backup & restore
+          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+      - name: Migrate
+        items:
+        - name: SQL Server database to VM
+          href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
+        - name: VM to a new region
+          href: virtual-machines/windows/move-sql-vm-different-region.md
+      - name: Configure High Availability
+        items:
+        - name: Always On availability group
+          items:
+          - name: Azure SQL VM CLI
+            href: virtual-machines/windows/availability-group-az-cli-configure.md
+          - name: Azure portal template
+            href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
+          - name: Azure Quickstart templates
+            href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+          - name: Multiple regions
+            href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+          - name: Domain-independent (workgroup)
+            href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+          - name: Configure manually
+            items:
+            - name: Prerequisites
+              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+            - name: Tutorial
+              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+            - name: Load balancer - Azure portal
+              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+            - name: Load balancer - Azure PowerShell
+              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+        - name: Failover Cluster Instance
+          items:
+          - name: With Storage Spaces Direct
+            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+          - name: With Premium File Share
+            href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+    - name: Reference
+      items:
+      - name: Azure PowerShell
+        href: /powershell/azure/overview
+      - name: Azure CLI
+        href: /cli/azure/
+      - name: T-SQL
+        href: https://docs.microsoft.com/sql/t-sql/language-reference
+      - name: SQL Server Drivers
+        href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
+      - name: REST
+        href: /rest/api/
+    - name: Resources
+      items:
+      - name: FAQ
+        href: virtual-machines/windows/frequently-asked-questions-faq.md
+      - name: Pricing
+        href: virtual-machines/windows/pricing-guidance.md
+      - name: SQL Server Data Tools (SSDT)
+        href: /https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+      - name: SQL Server Management Studio (SSMS)
+        href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+      - name: SQL Server Tools
+        href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/?category=compute
+      - name: MSDN forum
+        href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+      - name: Stack Overflow
+        href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+  - name: Linux
+    items: 
+    - name: Overview
+      items:
+      - name: About Linux SQL Server VMs
+        href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+    - name: Quickstarts
+      items:
+      - name: Create SQL VM - Portal
+        href: virtual-machines/linux/provision-virtual-machine.md
+    - name: Tutorials
+      items:
+      - name: Setting up Azure RHEL VM availability group with STONITH
+        href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
+      - name: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
+        href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+    - name: Resources
+      items:
+      - name: FAQ
+        href: virtual-machines/linux/frequently-asked-questions-faq.md
+      - name: SQL Server on Linux Documentation
+        href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
+      - name: SQL Server Data Tools (SSDT)
+        href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+      - name: SQL Server Tools
+        href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/?category=compute
+      - name: Stack Overflow
+        href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+
+
+
+
+
 - name: Reference
   items:
   - name: Azure CLI
@@ -863,6 +1043,9 @@
     href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
+  - name: SQL Server Drivers
+    href: /sql/connect/sql-connection-libraries
+
 
 - name: Resources
   items:
