@@ -54,7 +54,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server in an Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
 
 > [!NOTE]
-> For connection information for SQL Server on an Azure VM, see [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
+> For connection information for SQL Server on an Azure VM, see [Connect to SQL Server](../virtual-machines/window/sql-vm-create-portal-quickstart-.md#connect-to-sql-server)
 
 ## Create Golang project and dependencies
 
