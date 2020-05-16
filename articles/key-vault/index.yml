@@ -121,6 +121,26 @@ conceptualContent:
         - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
           itemType: overview
           text: Key Vault with Virtual Machine Scale Sets
+    - title: Key Vault Integration
+      links:
+        - url: ../devops/pipelines/library/variable-groups.md?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+          itemType: overview
+          text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
+        - url: ../app-service/app-service-key-vault-references.md
+          itemType: overview
+          text: App Services - Reference Key Vault secrets in App Services
+        - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
+          itemType: overview
+          text: App Services - Maintain App Service certificates in Key Vault
+        - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
+          itemType: overview
+          text: AKS 
+        - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
+          itemType: overview
+          text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
+        - url: ../data-factory/store-credentials-in-key-vault.md
+          itemType: overview
+          text: Azure Data Factory - Maintain credentials in Key Vault
 
 
 
