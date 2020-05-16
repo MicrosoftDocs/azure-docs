@@ -28,7 +28,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 - **Free management**:  Registering with the SQL VM resource provider in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
 
-- **Simplified license management**: Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Az CLI, or PowerShell: 
+- **Simplified license management**: Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Azure CLI, or PowerShell: 
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -99,7 +99,7 @@ To register your SQL Server VM with the SQL VM resource provider, you must first
 
 ### Command line
 
-Register your SQL VM resource provider to your Azure subscription using either Az CLI or PowerShell. 
+Register your SQL VM resource provider to your Azure subscription using either Azure CLI or PowerShell. 
 
 # [AZ CLI](#tab/bash)
 
@@ -129,7 +129,7 @@ Failover Cluster Instances and multi-instance deployments can only be registered
 
 # [AZ CLI](#tab/bash)
 
-Register SQL Server VM in lightweight mode with the Az CLI: 
+Register SQL Server VM in lightweight mode with the Azure CLI: 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
@@ -175,12 +175,12 @@ SQL Server 2008 and 2008 R2 installed on Windows Server 2008 (_not R2_) can be r
 
 Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and `SQL2008-WS2008` or `SQL2008R2-WS2008`as the **sqlImageOffer**. 
 
-To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Az CLI or PowerShell code snippet: 
+To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Azure CLI or PowerShell code snippet: 
 
 
 # [AZ CLI](#tab/bash)
 
-Register your SQL Server 2008 VM in NoAgent mode with the Az CLI: 
+Register your SQL Server 2008 VM in NoAgent mode with the Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -189,7 +189,7 @@ Register your SQL Server 2008 VM in NoAgent mode with the Az CLI:
  ```
  
  
-Register your SQL Server 2008 R2 VM in NoAgent mode with the Az CLI: 
+Register your SQL Server 2008 R2 VM in NoAgent mode with the Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -225,7 +225,7 @@ Register SQL Server 2008 VM in NoAgent mode with PowerShell:
 
 ## Upgrade to full management mode 
 
-SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Az CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-rp) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Azure CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-rp) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
 
 You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
 
@@ -255,7 +255,7 @@ To upgrade the agent mode to full:
 
 # [AZ CLI](#tab/bash)
 
-Run the following Az CLI code snippet:
+Run the following Azure CLI code snippet:
 
   ```azurecli-interactive
   # Update to full mode
@@ -290,7 +290,7 @@ You can verify if your SQL Server VM has already been registered with the SQL VM
 
 ### Command line
 
-Verify current SQL Server VM registration status using either Az CLI or PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful. 
+Verify current SQL Server VM registration status using either Azure CLI or PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
 # [AZ CLI](#tab/bash)
 
