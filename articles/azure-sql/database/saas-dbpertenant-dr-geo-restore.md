@@ -363,7 +363,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > 
 > * Use the tenant catalog to hold periodically refreshed configuration information, which allows a mirror image recovery environment to be created in another region.
-> * Recover Azure SQL databases into the recovery region by using geo-restore.
+> * Recover databases into the recovery region by using geo-restore.
 > * Update the tenant catalog to reflect restored tenant database locations. 
 > * Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
 > * Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.

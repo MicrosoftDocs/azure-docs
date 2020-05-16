@@ -213,7 +213,7 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 **Guidance**: Enable auditing for Azure SQL Database to track database events and write them to an audit log in your Azure Storage Account, Log Analytics workspace, or Event Hubs.
 
-In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL Database and Azure SQL Managed Instance at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
 How to setup auditing for your Azure SQL Database:
 
@@ -553,7 +553,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-over
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: For Azure SQL databases storing or processing sensitive information, mark the database and related resources as sensitive using Tags. Configure Private Link in conjunction with Network Security Group Service Tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
+**Guidance**: For databases in Azure SQL Database storing or processing sensitive information, mark the database and related resources as sensitive using Tags. Configure Private Link in conjunction with Network Security Group Service Tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -623,7 +623,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.8: Encrypt sensitive information at rest
 
-**Guidance**: Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL managed instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL databases. The TDE encryption key can be managed by either Microsoft or the customer.
+**Guidance**: Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed databases in SQL Database and SQL Managed Instance. The TDE encryption key can be managed by either Microsoft or the customer.
 
 How to manage transparent data encryption and use your own encryption keys:
 

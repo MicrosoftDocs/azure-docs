@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ---
-# Replication to Azure SQL Database 
+# Replication to Azure SQL Database
 
 You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology.
 
@@ -23,9 +23,8 @@ You can configure an Azure SQL Database as the push subscriber in a one-way tran
   
 - Azure SQL Database can only be the push subscriber of a SQL Server publisher and distributor.  
 - The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- The distribution database and the replication agents cannot be placed on an Azure SQL database.  
+- The distribution database and the replication agents cannot be placed on an Azure SQL Database.  
 - [Snapshot](/sql/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
-
 
 ### Versions  
 
@@ -85,7 +84,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 ### Data Migration Scenario  
 
 1. Use transactional replication to replicate data from an on-premises SQL Server database to Azure SQL Database.  
-2. Redirect the client or middle-tier applications to update the Azure SQL database copy.  
+2. Redirect the client or middle-tier applications to update the database copy.  
 3. Stop updating the SQL Server version of the table and remove the publication.  
 
 ## Limitations

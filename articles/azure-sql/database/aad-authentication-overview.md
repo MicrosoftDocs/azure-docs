@@ -45,7 +45,7 @@ The configuration steps include the following procedures to configure and use Az
 
 1. Create and populate Azure AD.
 2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-3. Create an Azure Active Directory administrator for your Azure SQL databases.
+3. Create an Azure Active Directory administrator.
 4. Configure your client computers.
 5. Create contained database users in your database mapped to Azure AD identities.
 6. Connect to your database by using Azure AD identities.
@@ -162,17 +162,6 @@ The following authentication methods are supported for Azure AD server principal
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->
-
-
-
-
-[4]: ./media/sql-database-aad-authentication/4select-subscription.png
-[5]: ./media/sql-database-aad-authentication/5ad-settings-portal.png
-[6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
-[7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
-[8]: ./media/sql-database-aad-authentication/8choose-ad.png
-[9]: ./media/sql-database-aad-authentication/9ad-settings.png
-[10]: ./media/sql-database-aad-authentication/10choose-admin.png
-[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
-[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
-[13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+[1]: ./media/aad-authentication-overview/1aad-auth-diagram.png
+[2]: ./media/aad-authentication-overview/2subscription-relationship.png
+[3]: ./media/aad-authentication-overview/3admin-structure.png

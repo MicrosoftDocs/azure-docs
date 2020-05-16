@@ -101,7 +101,7 @@ Excess backup storage consumption will depend on the workload and the size of th
 - Avoid doing large write operations, like index rebuilds, more frequently than you need to.
 - For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and consider bulk load operations with row count around 1 million.
 - In the general purpose service tier, the provisioned data storage is less expensive than the price of the excess backup storage. If you have continually high excess backup storage costs, you might consider increasing the data storage to save on the backup storage.
-- Use TempDB instead of permanent tables in your ETL logic for storing temporary results. (Applicable only to managed instance.)
+- Use TempDB instead of permanent tables in your ETL logic for storing temporary results. (Applicable only to SQL Managed Instance.)
 - Consider turning off TDE encryption for databases that don't contain sensitive data (development or test databases, for example). Backups for non-encrypted databases are typically compressed with a higher compression ratio.
 
 > [!IMPORTANT]
@@ -117,11 +117,11 @@ There's no additional charge for backup storage for databases and elastic databa
 
 ### vCore model
 
-For single databases, a minimum backup storage amount equal to 100 percent of the database size is provided at no extra charge. For elastic database pools and managed instances, a minimum backup storage amount equal to 100 percent of the allocated data storage for the pool or instance size, respectively, is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and size of the individual databases.
+For single databases in SQL Database, a minimum backup storage amount equal to 100 percent of the database size is provided at no extra charge. For elastic pools in SQL Database and single instances and instance pools in SQL Managed Instance, a minimum backup storage amount equal to 100 percent of the allocated data storage for the pool or instance size, respectively, is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and size of the individual databases.
 
-Azure SQL Database and SQL Managed Instance will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases will have higher backup charges.
+SQL Database and SQL Managed Instance will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases will have higher backup charges.
 
-Assume an Azure SQL Database has accumulated 744 GB of backup storage and that this amount stays constant throughout an entire month. To convert this cumulative storage consumption to hourly usage, divide it by 744.0 (31 days per month * 24 hours per day). So SQL Database will report that the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this consumption and show a usage of 744 GB for the entire month. The cost will be based on the $/GB/month rate in your region.
+Assume a database has accumulated 744 GB of backup storage and that this amount stays constant throughout an entire month. To convert this cumulative storage consumption to hourly usage, divide it by 744.0 (31 days per month * 24 hours per day). So SQL Database will report that the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this consumption and show a usage of 744 GB for the entire month. The cost will be based on the $/GB/month rate in your region.
 
 Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month. Assume this increase (hypothetically) results in the total backup storage doubling to 1,488 GB. SQL Database would report 1 GB of usage for hours 1 through 372. It would report the usage as 2 GB for hours 373 through 744. This usage would be aggregated to a final bill of 1,116 GB/month.
 
@@ -135,26 +135,26 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
 ## Backup retention
 
-All Azure SQL databases (either single, pooled, or managed instance databases) have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to as long as 35 days.
+All databases in Microsoft Azure SQL have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to as long as 35 days.
 
 If you delete a database, Azure keeps the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that's four days old is saved for three more days.
 
 If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 > [!IMPORTANT]
-> If you delete the server or managed instance, all databases managed by that server or managed instance are also deleted. They can't be recovered. You can't restore a deleted server or managed instance. But if you configured long-term retention for Azure SQL Database, the backups for the databases with LTR won't be deleted, and these databases can be restored.
+> If you delete the server or managed instance, all databases managed by that server or managed instance are also deleted. They can't be recovered. You can't restore a deleted server or managed instance. But if you configured long-term retention for SQL Database, the backups for the databases with LTR won't be deleted, and these databases can be restored.
 
 ## Encrypted backups
 
-If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new single, pooled, or instance databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new databases in Azure SQL are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## Backup integrity
 
-On an ongoing basis, the Azure SQL engineering team automatically tests the restore of automated database backups of databases in Azure SQL Database. (This testing isn't available in Azure SQL Managed Instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
+On an ongoing basis, the Azure SQL engineering team automatically tests the restore of automated database backups of databases in SQL Database. (This testing isn't available in SQL Managed Instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
 
 SQL Managed Instance takes an automatic initial backup with `CHECKSUM` of databases restored with the native `RESTORE` command or with Azure Data Migration Service after the migration is completed.
 
-Any issues found during the integrity check will result in an alert to the engineering team. For more information, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+Any issues found during the integrity check will result in an alert to the engineering team. For more information, see [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## Compliance
 
@@ -194,7 +194,7 @@ Changes to PITR backup retention for SQL Managed Instance are done at an individ
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell AzureRM module is still supported by Azure SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For more information, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module are substantially identical to those in the AzureRm modules.
+> The PowerShell AzureRM module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For more information, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module are substantially identical to those in the AzureRm modules.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
@@ -237,7 +237,7 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 
 ## Next steps
 
-- Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other SQL Database business continuity solutions, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 - Get more information about how to [restore a database to a point in time by using the Azure portal](recovery-using-backups.md).
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).

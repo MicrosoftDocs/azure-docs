@@ -18,13 +18,13 @@ Multi-model databases enable you to store and work with data represented in mult
 
 ## When to use multi-model capabilities
 
-[Azure SQL family of services](../azure-sql-iaas-vs-paas-what-is-overview.md) are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, the Azure SQL family of services are not limited to relational-data only. The Azure SQL family of services enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
+[Azure SQL family of services](azure-sql-iaas-vs-paas-what-is-overview.md) are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, the Azure SQL family of services are not limited to relational-data only. The Azure SQL family of services enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
 You should consider using multi-model capabilities of the Azure SQL family of services in the following cases:
 
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
 - You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
-- You want to apply database features such as [in-memory technologies](../in-memory-oltp-overview.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](../managed-instance/replication-transactional-overview.md) or [readable replicas](read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
+- You want to apply database features such as [in-memory technologies](in-memory-oltp-overview.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](managed-instance/replication-transactional-overview.md) or [readable replicas](../database/read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
 
 ## Overview
 
@@ -73,7 +73,7 @@ The Azure SQL family of services let you work with JSON data easily and integrat
 
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql), [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql), and [ISJSON](/sql/t-sql/functions/isjson-transact-sql). The [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server) clause that lets you format data stored in your relational tables as JSON text.
 
-For more information, see [How to work with JSON data](json-features.md).
+For more information, see [How to work with JSON data](../json-features.md).
 [JSON](/sql/relational-databases/json/json-data-sql-server) is a core SQL Server database engine feature.
 
 ### When to use a JSON capability
@@ -90,7 +90,9 @@ Document models can be used instead of the relational models in some specific sc
 Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
 
 The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
- support two spatial data types - the geometry data type and the geography data type.
+
+
+ The two supported two spatial data types: 
 
 - The geometry type represents data in a Euclidean (flat) coordinate system.
 - The geography type represents data in a round-earth coordinate system.

@@ -52834,7 +52834,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-multi-model-features.md",
-            "redirect_url": "/azure/azure-sql/database/multi-model-features",
+            "redirect_url": "/azure/azure-sql/multi-model-features",
             "redirect_document_id": true
         },
         {
@@ -53655,11 +53655,6 @@
         {
             "source_path": "articles/sql-database/azure-sql-database-hangs-importing-exporting.md",
             "redirect_url": "/azure/azure-sql/database/database-import-export-hang",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/sql-database/azure-sql-managed-instance-rebrand.md",
-            "redirect_url": "/azure/azure-sql/managed-instance/azure-sql-managed-instance-rebrand",
             "redirect_document_id": true
         },
         {

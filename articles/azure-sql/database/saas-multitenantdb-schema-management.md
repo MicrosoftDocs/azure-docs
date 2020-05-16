@@ -66,7 +66,7 @@ The Wingtip Tickets SaaS Multi-tenant Database scripts and application source co
 
 ## Create a job agent database and new job agent
 
-This tutorial requires that you use PowerShell to create the job agent database and job agent. Like the MSDB database used by SQL Agent, a job agent uses an Azure SQL database to store job definitions, job status, and history. After the job agent is created, you can create and monitor jobs immediately.
+This tutorial requires that you use PowerShell to create the job agent database and job agent. Like the MSDB database used by SQL Agent, a job agent uses a database in Azure SQL Database to store job definitions, job status, and history. After the job agent is created, you can create and monitor jobs immediately.
 
 1. In **PowerShell ISE**, open *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Press **F5** to run the script.
