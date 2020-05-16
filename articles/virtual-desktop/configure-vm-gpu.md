@@ -92,5 +92,5 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 
 These instructions should have you up and running with GPU acceleration on one session host (one VM). Some additional considerations for enabling GPU acceleration across a larger host pool:
 
-* Consider using a [VM extension](/azure/virtual-machines/extensions/overview) to simplify driver installation and updates across a number of VMs. Use the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for VMs with NVIDIA GPUs, and use the AMD GPU Driver Extension (coming soon) for VMs with AMD GPUs.
+* Consider using a [VM extension](/azure/virtual-machines/extensions/overview) to simplify driver installation and updates across a number of VMs. Use the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for VMs with NVIDIA GPUs, and use the [AMD GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) for VMs with AMD GPUs.
 * Consider using Active Directory Group Policy to simplify group policy configuration across a number of VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](https://go.microsoft.com/fwlink/p/?LinkId=620889).
