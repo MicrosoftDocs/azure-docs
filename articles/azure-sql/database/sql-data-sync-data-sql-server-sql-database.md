@@ -236,7 +236,7 @@ Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues,
 
 ### Learn more about Azure SQL Database
 
-For more info about Azre SQL Database, see the following articles:
+For more info about Azure SQL Database, see the following articles:
 
 - [SQL Database Overview](sql-database-paas-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
