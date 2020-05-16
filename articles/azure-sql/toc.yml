@@ -107,35 +107,35 @@
         - name: Audit to storage account behind VNet or firewall
           href: database/audit-write-storage-account-behind-vnet-firewall.md
         - name: Audit log format
-          href: sql-database-audit-log-format.md
+          href: database/audit-log-format.md
 
       - name: Security management
         items:
         - name: Advanced data security
-          href: sql-database-advanced-data-security.md
+          href: database/advanced-data-security.md
         - name: Data discovery and classification
-          href: sql-database-data-discovery-and-classification.md
+          href: database/data-discovery-and-classification-overview.md
         - name: Vulnerability assessment
           items:
           - name: Vulnerability assessment  
-            href: sql-vulnerability-assessment.md
+            href: /database/sql-vulnerability-assessment.md
           - name: Storing VA scans behind firewalls and VNets
-            href: sql-database-vulnerability-assessment-storage.md
+            href: database/sql-database-vulnerability-assessment-storage.md
         - name: Advanced Threat Protection
-          href: sql-database-threat-detection-overview.md
+          href: database/threat-detection-overview.md
         - name: Security attributes
-          href: sql-database-security-attributes.md
+          href: database/security-controls.md
     - name: Connect and query
-      href: sql-database-connect-query.md
+      href: database/connect-query-content-reference-guide.md
       items:
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
           href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
         - name: SSMS
-          href: sql-database-connect-query-ssms.md
+          href: database/connect-query-ssms.md
         - name: Azure portal
-          href: sql-database-connect-query-portal.md
+          href: database/connect-query-portal.md
         - name: VS Code
           href: sql-database-connect-query-vscode.md
       - name: Connect and query from apps

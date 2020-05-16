@@ -55,7 +55,7 @@ This article provides a general workflow for moving resources to a different reg
 
 ### Prepare resources
 
-1. Create a [failover group](failover-group--add-single-database-tutorial.md#2---create-the-failover-group) between the server of the source to the server of the target.  
+1. Create a [failover group](failover-group-add-single-database-tutorial.md#2---create-the-failover-group) between the server of the source to the server of the target.  
 1. Add the databases you want to move to the failover group.
     - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](auto-failover-group-overview.md#best-practices-for-sql-database).
 

@@ -34,12 +34,12 @@ The following steps show how to connect using the latest SSMS.
 1. To connect using Universal Authentication, on the **Connect to Server** dialog box in SQL Server Management Studio (SSMS), select **Active Directory - Universal with MFA support**. (If you see **Active Directory Universal Authentication** you are not on the latest version of SSMS.)  
    ![1mfa-universal-connect][1]  
 2. Complete the **User name** box with the Azure Active Directory credentials, in the format `user_name@domain.com`.  
-   ![1mfa-universal-connect-user](./media/ssms-mfa-authentication-configure/1mfa-universal-connect-user.png)
+   ![1mfa-universal-connect-user](./media/mfa-authentication-ssms-configure/1mfa-universal-connect-user.png)
 3. If you are connecting as a guest user, you no longer need to complete the AD domain name or tenant ID field for guest users because SSMS 18.x or later automatically recognizes it. For more information, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](mfa-authentication-ssms-overview.md).
-   ![mfa-no-tenant-ssms](./media/ssms-mfa-authentication-configure/mfa-no-tenant-ssms.png)
+   ![mfa-no-tenant-ssms](./media/mfa-authentication-ssms-configure/mfa-no-tenant-ssms.png)
 
    However, If you are connecting as a guest user using SSMS 17.x or older, you must click **Options**, and on the **Connection Property** dialog box, and complete the **AD domain name or tenant ID** box.
-   ![mfa-tenant-ssms](./media/ssms-mfa-authentication-configure/mfa-tenant-ssms.png)
+   ![mfa-tenant-ssms](./media/mfa-authentication-ssms-configure/mfa-tenant-ssms.png)
 
 4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](mfa-authentication-ssms-overview.md). Then click **Connect**.  
 5. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity. No password is required if a user is part of a domain federated with Azure AD.  
