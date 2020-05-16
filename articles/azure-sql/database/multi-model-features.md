@@ -66,10 +66,8 @@ The Azure SQL family of services let you parse and query data represented in Jav
 
 JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
 
-The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
-let you work with JSON data easily and integrate your database with modern services. the Azure SQL family of services  let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
-The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
- provide the following functions for working with JSON data:
+
+The Azure SQL family of services let you work with JSON data easily and integrate your database with modern services, and provides the following functions for working with JSON data:
 
 ![JSON Functions](./media/multi-model-features/image_1.png)
 
@@ -97,7 +95,7 @@ The Azure SQL family of services let you parse and query data represented in Jav
 - The geometry type represents data in a Euclidean (flat) coordinate system.
 - The geography type represents data in a round-earth coordinate system.
 
-There area number of Spatial objects that can be used in the Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+There are a number of Spatial objects that can be used in the Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
 such as [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring),
 [Polygon](/sql/relational-databases/spatial/polygon), and so on.
 

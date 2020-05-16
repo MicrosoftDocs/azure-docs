@@ -66,7 +66,7 @@ Although most of the changes associated with the rebrand are superficial, there 
 
 Currently, when you deploy an Azure SQL Managed Instance, the billing statement will still reflect Azure SQL Database managed instance. 
 
-### Azure Portal 
+### Azure portal 
 
 There are places in the Azure portal where the name is still inconsistent. 
 
