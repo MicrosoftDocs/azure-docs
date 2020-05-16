@@ -33,7 +33,7 @@ The following permissions are supported on the root directory of a file share:
 
 ## Mount a file share from the command prompt
 
-Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, refer to [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
+Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
@@ -63,10 +63,10 @@ Use the following Windows command to grant full permissions to all directories a
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, refer to [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## Next steps
 
-Now that the feature is enabled and completely configured, continue to the next article, where you mount your Azure file share from a domain-joined VM.
+Now that the feature is enabled and configured, continue to the next article, where you mount your Azure file share from a domain-joined VM.
 
 [Part four: mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)

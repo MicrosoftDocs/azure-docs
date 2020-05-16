@@ -27,7 +27,7 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 
 If you run into issues mounting with AD DS credentials, refer to [Troubleshoot Azure Files problems in Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) for guidance.
 
-If your share mount succeeded, then you have successfully enabled and configured on-premises AD DS authentication for your Azure file shares.
+If mounting your file share succeeded, then you have successfully enabled and configured on-premises AD DS authentication for your Azure file shares.
 
 ## Next steps
 

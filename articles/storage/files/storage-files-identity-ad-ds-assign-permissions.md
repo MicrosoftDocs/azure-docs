@@ -17,13 +17,13 @@ Once you've enabled active directory domain services (AD DS) authentication on y
 
 ## Share-level permissions
 
-Generally, we recommend using share level permission for high level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
+Generally, we recommend using share level permission for high-level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
 
 There are three Azure built-in roles for granting share-level permissions to users:
 
 - **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB.
 - **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB.
-- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete and modify NTFS permissions in Azure Storage file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify NTFS permissions in Azure Storage file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.

@@ -9,7 +9,9 @@ ms.date: 05/15/2020
 ms.author: rogarana
 ---
 
-# Part one: enable AD DS (preview) authentication for your storage account 
+# Part one: enable AD DS (preview) authentication for your Azure file shares 
+
+Before you enable active directory domain services (AD DS) authentication, make sure you've read the [overview article](storage-files-identity-auth-active-directory-enable.md) to understand the supported scenarios and requirements.
 
 This article describes the process required for enabling active directory domain services (AD DS) on your storage account. After enabling the feature, you must configure your storage account and your AD DS (preview), in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
@@ -25,7 +27,7 @@ The script in this article makes the necessary modifications and enables the fea
 
 ### Offline domain join
 
-The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to do run the command manually, you should select the account best suited for your environment.
+The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to run the command manually, you should select the account best suited for your environment.
 
 The AD DS account created by the cmdlet represents the storage account. If the AD DS account is created under an organizational unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the account password before that gate results in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD DS account password](storage-files-identity-ad-ds-update-password.md).
 
@@ -72,7 +74,7 @@ Join-AzStorageAccountForAuth `
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## Option 2: Manually preform the script actions
+## Option 2: Manually perform the script actions
 
 If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm that the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
