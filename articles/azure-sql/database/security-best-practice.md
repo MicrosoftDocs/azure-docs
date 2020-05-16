@@ -131,7 +131,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
 - MFA can be enabled for the entire Azure AD or for the whole Active Directory federated with Azure AD.
 
 - Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by MFA authentication:
-  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](../ssms-mfa-authentication.md).
+  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](../mfa-authentication-ssms-overview.md).
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Use other SQL tools supporting MFA.
     - SSMS Wizard support for export/extract/deploy database  
@@ -140,7 +140,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
     - [bcp Utility](https://docs.microsoft.com/sql/tools/bcp-utility): option -G (interactive)
 
 - Implement your applications to connect to Azure SQL Database or Azure SQL Managed Instance using interactive authentication with MFA support.
-  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](../../sql-database/active-directory-interactive-connect-azure-sql-db.md).
+  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), MFA does not apply.
 
@@ -645,7 +645,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 - Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or a managed Instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
 
-- For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../sql-database/sql-database-auditing.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
+- For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
 ### Audit critical security events
 
@@ -653,13 +653,13 @@ Tracking of database events helps you understand database activity. You can gain
 
 **How to implement**:
 
-- Enable [SQL Database Auditing](../../sql-database/sql-database-auditing.md) or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to track database events and write them to an audit log in your Azure Storage account, Log Analytics workspace (preview), or Event Hubs (preview).
+- Enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md) or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to track database events and write them to an audit log in your Azure Storage account, Log Analytics workspace (preview), or Event Hubs (preview).
 
 - Audit logs can be written to an Azure Storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
 **Best practices**:
 
-- By configuring [SQL Database Auditing](../../sql-database/sql-database-auditing.md) on your server or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to audit events, all existing and newly created databases on that server will be audited.
+- By configuring [SQL Database Auditing](../../azure-sql/database/auditing-overview.md) on your server or [Managed Instance Auditing](../managed-instance/auditing-configure.md) to audit events, all existing and newly created databases on that server will be audited.
 - By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It's recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](../../sql-database/sql-database-auditing.md#manage-auditing). Configuring this will help control the number of audited actions, and minimize the risk of event loss. Custom audit configuration allow customers to capture only the audit data that is needed.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured.
 
@@ -668,7 +668,7 @@ Tracking of database events helps you understand database activity. You can gain
 
 **Further resources**:
 
-- [SQL Database Auditing](../../sql-database/sql-database-auditing.md)
+- [SQL Database Auditing](../../azure-sql/database/auditing-overview.md)
 - [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### Secure audit logs
@@ -739,7 +739,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination.
-  - In your [SQL Database Audit](../../sql-database/sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](data-discovery-and-classification-overview.md) and [Auditing access to sensitive data](data-discovery-and-classification-overview.md#audit-sensitive-data).
+  - In your [SQL Database Audit](../../azure-sql/database/auditing-overview.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](data-discovery-and-classification-overview.md) and [Auditing access to sensitive data](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Best practices**:
 

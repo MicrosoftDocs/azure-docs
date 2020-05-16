@@ -13,7 +13,7 @@ ms.date: 04/28/2020
 ---
 # SQL Database Audit Log Format
 
-[Azure SQL Database auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
+[Azure SQL Database auditing](auditing-overview.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
 
 ## Naming Conventions
 
@@ -86,4 +86,4 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 
 ## Next Steps
 
-Learn more about [Azure SQL Database auditing](../../sql-database/sql-database-auditing.md).
+Learn more about [Azure SQL Database auditing](auditing-overview.md).

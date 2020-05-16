@@ -158,4 +158,4 @@ To create and manage the servers, databases, and firewalls, use these REST API r
 ## Next steps
 
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](../../sql-database/sql-database-features.md).
+- For information about supported features, see [Features](features-comparison.md).

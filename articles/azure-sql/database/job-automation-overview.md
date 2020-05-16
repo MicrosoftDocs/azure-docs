@@ -187,7 +187,7 @@ The following image shows a job agent executing jobs across the different types 
 
 #### Elastic Job agent
 
-An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](../../sql-database/elastic-jobs-powershell.md) and REST are also supported).
+An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell-create.md) and REST are also supported).
 
 Creating an **Elastic Job agent** requires an existing Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
 
@@ -280,6 +280,6 @@ To ensure resources aren't overburdened when running jobs against databases in a
 ## Next steps
 
 - [What is SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
-- [How to create and manage elastic jobs](../../sql-database/elastic-jobs-overview.md)
-- [Create and manage Elastic Jobs using PowerShell](../../sql-database/elastic-jobs-powershell.md)
-- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](../../sql-database/elastic-jobs-tsql.md)
+- [How to create and manage elastic jobs](elastic-jobs-overview.md)
+- [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell-create.md)
+- [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

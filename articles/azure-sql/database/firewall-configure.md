@@ -50,7 +50,7 @@ Database-level IP firewall rules enable clients to access certain (secure) datab
 We recommend that you use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually.
 
 > [!NOTE]
-> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](geo-replication-security-configure.md).
+> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](active-geo-replication-security-configure.md).
 
 ## Server-level versus database-level IP firewall rules
 
@@ -106,7 +106,7 @@ You create the first server-level firewall setting by using the [Azure portal](h
 To improve performance, server-level IP firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
-> You can use [Database Auditing](../../sql-database/sql-database-auditing.md) to audit server-level and database-level firewall changes.
+> You can use [Database Auditing](../../azure-sql/database/auditing-overview.md) to audit server-level and database-level firewall changes.
 
 ### Use the Azure portal to manage server-level IP firewall rules
 

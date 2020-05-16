@@ -15,7 +15,7 @@ ms.date: 03/12/2019
 ---
 # What is a logical SQL server in Azure SQL Database and Azure Synapse?
 
-In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../sql-database/sql-database-auditing.md), [threat detection policies](threat-detection.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
+In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../azure-sql/database/auditing-overview.md), [threat detection policies](threat-detection-configure.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 
@@ -65,7 +65,7 @@ To manage an existing server, navigate to the server using a number of methods -
 
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database.
 
-   ![server firewall rule](./media/quickstart-create-single-database/server-firewall-rule.png)
+   ![server firewall rule](./media/single-database-create-quickstart/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](service-tiers-dtu.md) and [vCore-based purchasing model](service-tiers-vcore.md).
@@ -186,4 +186,4 @@ To create and manage servers, databases, and firewalls, use these REST API reque
 ## Next steps
 
 - To learn about migrating a SQL Server database to Azure SQL Database, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](../../sql-database/sql-database-features.md).
+- For information about supported features, see [Features](features-comparison.md).

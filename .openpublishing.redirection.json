@@ -17475,7 +17475,7 @@
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-auditing",
+            "redirect_url": "/azure/azure-sql/database/auditing-overview/sql-database-auditing",
             "redirect_document_id": false
         },
         {
@@ -32750,7 +32750,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-security-attributes.md",
-            "redirect_url": "/azure/sql-database/sql-database-security-controls",
+            "redirect_url": "/azure/azure-sql/database/security-controls",
             "redirect_document_id": false
         },
         {
@@ -52589,7 +52589,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-geo-replication-security-config.md",
-            "redirect_url": "/azure/azure-sql/database/geo-replication-security-configure",
+            "redirect_url": "/azure/azure-sql/database/active-geo-replication-security-configure",
             "redirect_document_id": true
         },
         {
@@ -52599,7 +52599,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-single-database-failover-group-tutorial.md",
-            "redirect_url": "/azure/azure-sql/database/failover-group--add-single-database-tutorial",
+            "redirect_url": "/azure/azure-sql/database/failover-group-add-single-database-tutorial",
             "redirect_document_id": true
         },
         {
@@ -52779,7 +52779,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-azure-hybrid-benefit.md",
-            "redirect_url": "/azure/azure-sql/database/azure-hybrid-benefit",
+            "redirect_url": "/azure/azure-sql/azure-hybrid-benefit",
             "redirect_document_id": true
         },
         {
@@ -52824,7 +52824,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-metrics-diag-logging.md",
-            "redirect_url": "/azure/azure-sql/database/metrics-diagnostic-telemtry-logging-streaming-export-configure",
+            "redirect_url": "/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure",
             "redirect_document_id": true
         },
         {
@@ -53269,7 +53269,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-in-memory.md",
-            "redirect_url": "/azure/azure-sql/in-memory",
+            "redirect_url": "/azure/azure-sql/in-memory-oltp-overview",
             "redirect_document_id": true
         },
         {
@@ -53374,7 +53374,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-paas-vs-sql-server-iaas.md",
-            "redirect_url": "/azure/azure-sql/paas-vs-sql-server-iaas",
+            "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
             "redirect_document_id": true
         },
         {
@@ -53384,12 +53384,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication-configure.md",
-            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication-configure",
+            "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-configure",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication.md",
-            "redirect_url": "/azure/azure-sql/ssms-mfa-authentication",
+            "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-overview",
             "redirect_document_id": true
         },
         {
@@ -53407,6 +53407,11 @@
             "redirect_url": "/azure/azure-sql/managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/sql-database/replication-to-sql-database.md",
+            "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
+            "redirect_document_id": true
+        },   
         {
             "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
             "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
@@ -53643,8 +53648,263 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sql-database/replication-to-sql-database.md",
-            "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
+            "source_path": "articles/sql-database/active-directory-interactive-connect-azure-sql-db.md",
+            "redirect_url": "/azure/azure-sql/database/active-directory-interactive-connect-azure-sql-db",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/azure-sql-database-hangs-importing-exporting.md",
+            "redirect_url": "/azure/azure-sql/database/database-import-export-hang",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/azure-sql-managed-instance-rebrand.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/azure-sql-managed-instance-rebrand",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/create-auditing-storage-account-vnet-firewall.md",
+            "redirect_url": "/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/dns-alias-overview.md",
+            "redirect_url": "/azure/azure-sql/database/dns-alias-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/dns-alias-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/dns-alias-powershell-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/elastic-jobs-migrate.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-jobs-migrate",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/elastic-jobs-overview.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-jobs-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/elastic-jobs-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-jobs-powershell-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/import-export-from-vm.md",
+            "redirect_url": "/azure/azure-sql/database/database-import-export-azure-services-off",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/policy-samples.md",
+            "redirect_url": "/azure/azure-sql/database/policy-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-dr-geo-restore.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-dr-geo-restore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-dr-geo-replication.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-dr-geo-replication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-log-analytics.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-log-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-get-started-deploy.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-get-started-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-performance-monitoring.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-performance-monitoring",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-restore-single-tenant.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-restore-single-tenant",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-provision-and-catalog.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-provision-and-catalog",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-wingtip-app-overview.md",
+            "redirect_url": "/azure/azure-sql/database/saas-dbpertenant-wingtip-app-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-adhoc-reporting.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-adhoc-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-get-started-deploy.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-get-started-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-performance-monitoring.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-performance-monitoring",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-provision-and-catalog.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-provision-and-catalog",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-schema-management.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-schema-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-multitenantdb-tenant-analytics.md",
+            "redirect_url": "/azure/azure-sql/database/saas-multitenantdb-tenant-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-standaloneapp-get-started-deploy.md",
+            "redirect_url": "/azure/azure-sql/database/saas-standaloneapp-get-started-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-standaloneapp-provision-and-catalog.md",
+            "redirect_url": "/azure/azure-sql/database/saas-standaloneapp-provision-and-catalog",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-app-design-patterns.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-app-design-patterns",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-cross-tenant-reporting.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-cross-tenant-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-elastic-tools-multi-tenant-row-level-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-schema-management.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-schema-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-tenant-analytics-adf.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-tenant-analytics-adf",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-tenant-analytics.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-tenant-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-wingtip-app-guidance-tips.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-wingtip-app-guidance-tips",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/security-baseline.md",
+            "redirect_url": "/azure/azure-sql/database/security-baseline",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-accelerated-database-recovery.md",
+            "redirect_url": "/azure/azure-sql/accelerated-database-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-features.md",
+            "redirect_url": "/azure/azure-sql/database/features-comparison",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-alerts.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/alerts-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-long-term-backup-retention-configure.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/long-term-backup-retention-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-enabling-service-aided-subnet-configuration.md",
+            "redirect_url": "/azure/azure-sql/managed-instance/subnet-service-aided-configuration-enable",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-security-controls.md",
+            "redirect_url": "/azure/azure-sql/database/security-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-service-tiers-prs.md",
+            "redirect_url": "/azure/azure-sql/database/service-tiers-prs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vnet-service-endpoint-rule-powershell.md",
+            "redirect_url": "/azure/azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vulnerability-assessment-rules.md",
+            "redirect_url": "/azure/azure-sql/database/sql-database-vulnerability-assessment-rules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-vulnerability-assessment-storage.md",
+            "redirect_url": "/azure/azure-sql/database/sql-database-vulnerability-assessment-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-auditing.md",
+            "redirect_url": "/azure/azure-sql/database/auditing-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-connectivity-settings.md",
+            "redirect_url": "/azure/azure-sql/database/connectivity-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/elastic-jobs-tsql.md",
+            "redirect_url": "/azure/azure-sql/database/elastic-jobs-tsql-create-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-video-index-wingtip-brk3120-20171011",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/saas-tenancy-welcome-wingtip-tickets-app.md",
+            "redirect_url": "/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-monitoring-tuning-index.yml",
+            "redirect_url": "/azure/azure-sql/database/monitoring-tuning-index",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-index.yml",
+            "redirect_url": "/azure/azure-sql/database/index",
             "redirect_document_id": true
         }
     ]

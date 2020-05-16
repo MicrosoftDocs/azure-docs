@@ -66,7 +66,7 @@ See the [Policy reference](api-management-policy-reference.md) for a full list o
 
 ## Policy samples
 
-See [Policy samples](policy-samples.md) for more code examples.
+See [Policy samples](../azure-sql/database/policy-samples.md) for more code examples.
 
 ## Examples
 
@@ -115,7 +115,7 @@ For more information working with policies, see:
 
 + [Transform APIs](transform-api.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](../azure-sql/database/policy-samples.md)	
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

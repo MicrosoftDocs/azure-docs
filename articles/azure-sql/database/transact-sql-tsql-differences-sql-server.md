@@ -24,7 +24,7 @@ In addition, there are some features and syntax that is not supported at all bec
 
 For example, high availability is built into Azure SQL Database using technology similar to [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). T-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On Availability Groups are also not supported.
 
-For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](../../sql-database/sql-database-features.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.
+For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.
 
 ## Transact-SQL syntax statements with partial differences
 
@@ -36,7 +36,7 @@ The core DDL (data definition language) statements are available, but some DDL s
 
 ## Transact-SQL syntax not supported in Azure SQL Database
 
-In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](../../sql-database/sql-database-features.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
+In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](features-comparison.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
 
 - Collation of system objects
 - Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](aad-authentication-overview.md).
@@ -82,4 +82,4 @@ In some cases, the general subject of an article can be used in a product, but t
 
 ## Next steps
 
-For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](../../sql-database/sql-database-features.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.
+For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.

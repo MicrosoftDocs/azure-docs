@@ -430,7 +430,7 @@ Use this method if you are logged into Windows using your Azure Active Directory
 
    ![Select AD Integrated Authentication][11]
 
-2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](../ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x.
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x.
 
    ![Select the database name][13]
 
@@ -454,7 +454,7 @@ Use this method to authenticate to SQL Database or SQL Managed Instance with Azu
 
 Use this method for interactive authentication with or without multi-factor authentication (MFA), with password being requested interactively. This method can be used to authenticate to SQL Database, SQL Managed Instance, and Azure Synapse for Azure AD cloud-only identity users, or those who use Azure AD hybrid identities.
 
-For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](../ssms-mfa-authentication.md).
+For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](../mfa-authentication-ssms-overview.md).
 
 ## Using an Azure AD identity to connect from a client application
 

@@ -31,7 +31,7 @@ Azure SQL Managed Instance is designed for customers looking to migrate a large 
 SQL Managed Instance combines the best features that are available both in Azure SQL Database and SQL Server database engine.
 
 > [!IMPORTANT]
-> SQL Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. A comparison of the features available is explained in [Feature comparison: Azure SQL Managed Instance versus SQL Server](../../sql-database/sql-database-features.md).
+> SQL Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. A comparison of the features available is explained in [Feature comparison: Azure SQL Managed Instance versus SQL Server](../database/features-comparison.md).
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
@@ -103,7 +103,7 @@ The following list outlines the key characteristics of the Business Critical ser
 - Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
 - Built-in [high availability](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Built-in additional [read-only database replica](../database/read-scale-out.md) that can be used for reporting and other read-only workloads
-- [In-Memory OLTP](../in-memory.md) that can be used for workload with high-performance requirements  
+- [In-Memory OLTP](../in-memory-oltp-overview.md) that can be used for workload with high-performance requirements  
 
 Find more information about the difference between service tiers in [SQL Managed Instance resource limits](resource-limits.md#service-tier-characteristics).
 
@@ -161,7 +161,7 @@ The following table summarizes operations and typical overall durations:
 
 SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
-SQL Managed Instance is available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](../../sql-database/sql-database-accelerated-database-recovery.md).
+SQL Managed Instance is available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](../accelerated-database-recovery.md).
 
 > [!IMPORTANT]
 > It's not recommended to scale compute or storage of Azure SQL Managed Instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
@@ -252,7 +252,7 @@ A new syntax is introduced to create Azure AD server principals (logins), **FROM
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Managed Instance enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../database/aad-authentication-overview.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](../ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL Managed Instance enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../database/aad-authentication-overview.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](../mfa-authentication-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
 
 ### Authentication
 
@@ -289,7 +289,7 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 ## SQL features supported
 
-SQL Managed Instance aims to deliver close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan. For a features and comparison list, see [SQL Managed Instance feature comparison](../../sql-database/sql-database-features.md), and for a list of T-SQL differences in SQL Managed Instance versus SQL Server, see [SQL Managed Instance T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
+SQL Managed Instance aims to deliver close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan. For a features and comparison list, see [SQL Managed Instance feature comparison](../database/features-comparison.md), and for a list of T-SQL differences in SQL Managed Instance versus SQL Server, see [SQL Managed Instance T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 SQL Managed Instance supports backward compatibility to SQL 2008 databases. Direct migration from SQL 2005 database servers is supported, compatibility level for migrated SQL 2005 databases are updated to SQL 2008.
   
@@ -314,7 +314,7 @@ Some key differences:
 
 SQL Managed Instance enables system administrator to spend less time on administrative tasks because the SQL Managed Instance service either performs them for you or greatly simplifies those tasks. For example, [OS / RDBMS installation and patching](../database/high-availability-sla.md), [dynamic instance resizing and configuration](../database/single-database-scale.md), [backups](../database/automated-backups-overview.md), [database replication](replication-between-two-instances-configure-tutorial.md) (including system databases), [high availability configuration](../database/high-availability-sla.md), and configuration of health and [performance monitoring](../../azure-monitor/insights/azure-sql.md) data streams.
 
-For more information see [a list of supported and unsupported SQL Managed Instance features](../../sql-database/sql-database-features.md), and [T-SQL differences between SQL Managed Instance and SQL Server](transact-sql-tsql-differences-sql-server.md)
+For more information see [a list of supported and unsupported SQL Managed Instance features](../database/features-comparison.md), and [T-SQL differences between SQL Managed Instance and SQL Server](transact-sql-tsql-differences-sql-server.md)
 
 ### Programmatically identify a managed instance
 
@@ -330,7 +330,7 @@ The following table shows several properties, accessible through Transact-SQL, t
 ## Next steps
 
 - To learn how to create your first SQL Managed Instance, see [Quickstart guide](instance-create-quickstart.md).
-- For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
+- For a features and comparison list, see [SQL common features](../database/features-comparison.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
 - For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](instance-create-quickstart.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).

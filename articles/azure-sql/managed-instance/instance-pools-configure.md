@@ -248,7 +248,7 @@ If there are multiple databases, repeat the process for each database.
 
 ## Next steps
 
-- For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
+- For a features and comparison list, see [SQL common features](../database/features-comparison.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
 - For a quickstart that creates a managed instance and restores a database from a backup file, see [create a SQL Managed Instance](instance-create-quickstart.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).

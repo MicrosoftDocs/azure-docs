@@ -30,8 +30,8 @@ In this article you can find a content reference of various guides, scripts, and
 
 - [Configure Azure AD auth](aad-authentication-configure.md)
 - [Configure Conditional Access](conditional-access-configure.md)
-- [Multi-factor AAD auth](../ssms-mfa-authentication.md)
-- [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
+- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
+- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
@@ -39,11 +39,11 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
 - [Configure Azure Automation](automation-manage.md)
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
-- [Configure threat detection](threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
+- [Configure threat detection](threat-detection-configure.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](dynamic-data-masking-configure-portal.md) to protect your sensitive data.
 - [Configure backup retention](long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. 
 - [Configure geo-replication](active-geo-replication-overview.md) to keep a replica of your database in another region.
-- [Configure security for geo-replicas](geo-replication-security-configure.md).
+- [Configure security for geo-replicas](active-geo-replication-security-configure.md).
 
 ## Monitor and tune your database
 
@@ -83,9 +83,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Elastic Database Jobs
 
-- [Create and manage](../../sql-database/elastic-jobs-powershell.md) Elastic Database Jobs using PowerShell.
-- [Create and manage](../../sql-database/elastic-jobs-tsql.md) Elastic Database Jobs using Transact-SQL.
-- [Migrate from old Elastic job](../../sql-database/elastic-jobs-migrate.md).
+- [Create and manage](elastic-jobs-powershell-create.md) Elastic Database Jobs using PowerShell.
+- [Create and manage](elastic-jobs-tsql-create-manage.md) Elastic Database Jobs using Transact-SQL.
+- [Migrate from old Elastic job](elastic-jobs-migrate.md).
 
 ## Database sharding
 
@@ -109,8 +109,8 @@ In this article you can find a content reference of various guides, scripts, and
 - [Authenticate app](application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](troubleshoot-common-connectivity-issues.md)
-- [DNS aliases](../../sql-database/dns-alias-overview.md)
-- [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)
+- [DNS aliases](dns-alias-overview.md)
+- [Setup DNS alias PowerShell](dns-alias-powershell-create.md)
 - [Ports - ADO.NET](adonet-v12-develop-direct-route-ports.md)
 - [C and C ++](develop-cplusplus-simple.md)
 - [Excel](connect-excel.md)
@@ -123,9 +123,9 @@ In this article you can find a content reference of various guides, scripts, and
 
 ### Design Multi-tenant SaaS applications
 
-- [SaaS design patterns](../../sql-database/saas-tenancy-app-design-patterns.md)
-- [SaaS video indexer](../../sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [SaaS app security](../../sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [SaaS design patterns](saas-tenancy-app-design-patterns.md)
+- [SaaS video indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS app security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
 - Learn more about [How-to guides for SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

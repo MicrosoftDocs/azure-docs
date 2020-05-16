@@ -198,4 +198,4 @@ You are now ready to [deploy your function app](../azure-functions/functions-cre
 
 * [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
 * [Secure Azure Cosmos DB keys using Azure Key Vault](access-secrets-from-keyvault.md)
-* [Security baseline for Azure Cosmos DB](security-baseline.md)
+* [Security baseline for Azure Cosmos DB](../azure-sql/database/security-baseline.md)

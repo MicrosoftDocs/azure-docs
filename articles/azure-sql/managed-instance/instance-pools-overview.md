@@ -145,7 +145,7 @@ For full details on instance pool pricing, refer to the *instance pools* section
 
 - To get started with instance pools, see [SQL Managed Instance pools how-to guide](instance-pools-configure.md).
 - To learn how to create your first SQL Managed Instance, see [Quickstart guide](instance-create-quickstart.md).
-- For a features and comparison list, see [SQL common features](../../sql-database/sql-database-features.md).
+- For a features and comparison list, see [SQL common features](../database/features-comparison.md).
 - For more information about VNet configuration, see [SQL Managed Instance VNet configuration](connectivity-architecture-overview.md).
 - For a quickstart that creates a SQL Managed Instance and restores a database from a backup file, see [create a SQL Managed Instance](instance-create-quickstart.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [SQL Managed Instance migration using DMS](../../dms/tutorial-sql-server-to-managed-instance.md).

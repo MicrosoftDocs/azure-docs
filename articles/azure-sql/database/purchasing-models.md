@@ -108,7 +108,7 @@ DTUs are most useful for understanding the relative resources that are allocated
 
 To gain deeper insight into the resource (DTU) consumption of your workload, use [query-performance insights](query-performance-insight.md) to:
 
-- Identify the top queries by CPU/duration/execution count that can potentially be tuned for improved performance. For example, an I/O-intensive query might benefit from [in-memory optimization techniques](../in-memory.md) to make better use of the available memory at a certain service tier and compute size.
+- Identify the top queries by CPU/duration/execution count that can potentially be tuned for improved performance. For example, an I/O-intensive query might benefit from [in-memory optimization techniques](../in-memory-oltp-overview.md) to make better use of the available memory at a certain service tier and compute size.
 - Drill down into the details of a query to view its text and its history of resource usage.
 - Access performance-tuning recommendations that show actions taken by [SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
 

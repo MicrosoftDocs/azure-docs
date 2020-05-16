@@ -81,7 +81,7 @@ Output of the Intelligent Insights can be streamed to one of several destination
 
 Integration of Azure SQL Analytics, Azure Event Hub, Azure Storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a database, and then configuring Intelligent Insights log data to be streamed into one of these destinations.
 
-For more information on how to enable Intelligent Insights logging and to configure metric and resource log data to be streamed to a consuming product, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md).
+For more information on how to enable Intelligent Insights logging and to configure metric and resource log data to be streamed to a consuming product, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 ### Set up with Azure SQL Analytics
 
@@ -89,7 +89,7 @@ Azure SQL Analytics solution provides graphical user interface, reporting and al
 
 Add Azure SQL Analytics to your Azure portal dashboard from the marketplace and to create a workspace, see [configure Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
 
-To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics workspace you've created in the previous step, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md).
+To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics workspace you've created in the previous step, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 The following example shows an Intelligent Insights viewed through Azure SQL Analytics:
 
@@ -97,13 +97,13 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
 ### Set up with Azure Storage
 
-To use Intelligent Insights with Storage, configure Intelligent Insights log data to be streamed to Storage, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md) and [Stream into Azure Storage](database/metrics-diagnostic-telemtry-logging-streaming-export-configure.md#stream-into-azure-storage).
+To use Intelligent Insights with Storage, configure Intelligent Insights log data to be streamed to Storage, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream into Azure Storage](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage).
 
 ### Custom integrations of Intelligent Insights log
 

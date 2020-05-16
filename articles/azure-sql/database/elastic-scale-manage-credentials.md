@@ -72,6 +72,6 @@ As with the admin credentials, do not use values in the form of "username@server
 
 [Securing your SQL Database](security-overview.md)
 
-[Elastic Database jobs](../../sql-database/elastic-jobs-overview.md)
+[Elastic Database jobs](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

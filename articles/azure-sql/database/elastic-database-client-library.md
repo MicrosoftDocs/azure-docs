@@ -30,7 +30,7 @@ To download:
 5. [Data dependent routing](elastic-scale-data-dependent-routing.md)
 6. [Multi-shard queries](elastic-scale-multishard-querying.md)
 7. [Adding a shard using Elastic Database tools](elastic-scale-add-a-shard.md)
-8. [Multi-tenant applications with elastic database tools and row-level security](../../sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+8. [Multi-tenant applications with elastic database tools and row-level security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 9. [Upgrade client library apps](elastic-scale-upgrade-client-library.md) 
 10. [Elastic queries overview](elastic-query-overview.md)
 11. [Elastic database tools glossary](elastic-scale-glossary.md)

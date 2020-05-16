@@ -69,7 +69,7 @@ When you configure SQL Server on Linux, you install the database engine package 
 ### SQL
 
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux)
-* [Azure SQL Database comparison](../../paas-vs-sql-server-iaas.md)
+* [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## Next steps
 

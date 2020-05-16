@@ -91,4 +91,4 @@ To create and manage Managed Instances, use these REST API requests.
 ## Next steps
 
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](../database/migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](../../sql-database/sql-database-features.md).
+- For information about supported features, see [Features](../database/features-comparison.md).

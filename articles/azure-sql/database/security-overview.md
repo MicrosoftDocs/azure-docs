@@ -55,7 +55,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](aad-authentication-overview.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
-    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](../ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
+    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](../mfa-authentication-ssms-overview.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
 
 > [!IMPORTANT]
 > Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
@@ -78,11 +78,11 @@ SQL Database and SQL Managed Instance secure customer data by providing auditing
 
 ### SQL auditing in Azure Monitor logs and Event Hubs
 
-SQL Database and SQL Managed Instance auditing tracks database activities and helps maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](../../sql-database/sql-database-auditing.md).  
+SQL Database and SQL Managed Instance auditing tracks database activities and helps maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](../../azure-sql/database/auditing-overview.md).  
 
 ### Advanced Threat Protection
 
-Advanced Threat Protection is analyzing your logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](threat-detection.md).
+Advanced Threat Protection is analyzing your logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](threat-detection-configure.md).
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -148,5 +148,5 @@ In addition to the above features and functionality that can help your applicati
 ## Next steps
 
 - For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database and SQL Managed Instance, see [Manage logins and user accounts](logins-create-manage.md).
-- For a discussion of database auditing, see [auditing](../../sql-database/sql-database-auditing.md).
-- For a discussion of threat detection, see [threat detection](threat-detection.md).
+- For a discussion of database auditing, see [auditing](../../azure-sql/database/auditing-overview.md).
+- For a discussion of threat detection, see [threat detection](threat-detection-configure.md).

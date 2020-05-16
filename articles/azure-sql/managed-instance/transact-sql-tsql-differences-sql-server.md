@@ -533,6 +533,6 @@ A SQL Managed Instance places verbose information in error logs. There are many 
 ## Next steps
 
 - For more information about SQL Managed Instances, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md)
-- For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../../sql-database/sql-database-features.md).
+- For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../database/features-comparison.md).
 - For release updates and known issues state, see [SQL Managed Instance release notes](../database/doc-changes-updates-release-notes.md)
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).

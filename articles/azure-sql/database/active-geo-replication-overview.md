@@ -104,7 +104,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Preparing secondary database for failover
 
-To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](geo-replication-security-configure.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](automated-backups-overview.md).
+To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](automated-backups-overview.md).
 
 > [!IMPORTANT]
 > If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](auto-failover-group-overview.md) for details.
@@ -289,4 +289,4 @@ As discussed previously, active geo-replication can also be managed programmatic
 - For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](recovery-using-backups.md).
-- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).

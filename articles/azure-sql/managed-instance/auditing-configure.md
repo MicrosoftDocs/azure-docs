@@ -204,7 +204,7 @@ There are several methods you can use to view blob auditing logs.
 
 - You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- For a full list of audit log consumption methods, refer to the [Get started with Azure SQL Database auditing](../../sql-database/sql-database-auditing.md).
+- For a full list of audit log consumption methods, refer to the [Get started with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
 
 ### Consume logs stored in Event Hub
 
@@ -237,7 +237,7 @@ The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob stor
 
 ## Next steps
 
-- For a full list of audit log consumption methods, refer to the [Get started with Azure SQL Database auditing](../../sql-database/sql-database-auditing.md).
+- For a full list of audit log consumption methods, refer to the [Get started with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
 - For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of compliance certifications.
 
 <!--Image references-->

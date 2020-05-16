@@ -14,7 +14,7 @@ ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage in Azure SQL Database and Azure SQL Managed Instance
 
-When using [In-Memory OLTP](in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage.
+When using [In-Memory OLTP](in-memory-oltp-overview.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage.
 
 ## Determine whether data fits within the In-Memory OLTP storage cap
 

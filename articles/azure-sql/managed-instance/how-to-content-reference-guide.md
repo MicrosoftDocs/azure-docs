@@ -49,8 +49,8 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Configure Azure AD auth](../database/aad-authentication-configure.md)
 - [Configure Conditional Access](../database/conditional-access-configure.md)
-- [Multi-factor AAD auth](../ssms-mfa-authentication.md)
-- [Configure multi-factor auth](../ssms-mfa-authentication-configure.md)
+- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
+- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
 - [Configure temporal retention policy](../database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
@@ -59,7 +59,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Configure Azure Automation](../database/automation-manage.md)
 - [Transactional replication](replication-between-two-instances-configure-tutorial.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
 - [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
-- [Creating alerts](../../sql-database/sql-database-managed-instance-alerts.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
+- [Creating alerts](alerts-create.md) enables you to setup alerts on monitored metrics such are CPU utilization, storage space consumption, IOPS and others for SQL Managed Instance. 
 
 ## Monitoring and tuning
 
@@ -83,8 +83,8 @@ In this article you can find a content reference to various guides, scripts, and
 - [Authenticate app](../database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)
-- [DNS aliases](../../sql-database/dns-alias-overview.md)
-- [Setup DNS alias PowerShell](../../sql-database/dns-alias-powershell.md)
+- [DNS aliases](../database/dns-alias-overview.md)
+- [Setup DNS alias PowerShell](../database/dns-alias-powershell-create.md)
 - [Ports - ADO.NET](../database/adonet-v12-develop-direct-route-ports.md)
 - [C and C ++](../database/develop-cplusplus-simple.md)
 - [Excel](../database/connect-excel.md)
@@ -97,9 +97,9 @@ In this article you can find a content reference to various guides, scripts, and
 
 ### Design Multi-tenant SaaS applications
 
-- [SaaS design patterns](../../sql-database/saas-tenancy-app-design-patterns.md)
-- [SaaS video indexer](../../sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [SaaS app security](../../sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [SaaS design patterns](../database/saas-tenancy-app-design-patterns.md)
+- [SaaS video indexer](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS app security](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 
 

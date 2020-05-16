@@ -60,5 +60,5 @@ You can update your backbend API from the Azure portal by following these steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [APIM policy samples](policy-samples.md)
+> [APIM policy samples](../azure-sql/database/policy-samples.md)
 > [Transform and protect a published API](transform-api.md)

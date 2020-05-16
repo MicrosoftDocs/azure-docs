@@ -39,11 +39,11 @@ Consider that this is a work in progress and not every document has been updated
 | Feature | Details |
 | ---| --- |
 | New Fsv2-series and M-series hardware generations| For information, see [Hardware generations](service-tiers-vcore.md#hardware-generations).|
-| Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../../sql-database/sql-database-accelerated-database-recovery.md).|
+| Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md).|
-| Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](../../sql-database/elastic-jobs-overview.md). |
+| Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](elastic-transactions-overview.md). |
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
@@ -61,7 +61,7 @@ Consider that this is a work in progress and not every document has been updated
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases placed on SQL Managed Instances, SQL Databases, or SQL Server instances, or update your tables when some rows are changed in other SQL Managed Instances or SQL Server instance. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
-| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](../../sql-database/sql-database-managed-instance-long-term-backup-retention-configure.md), which is currently in limited public preview.. | 
+| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), which is currently in limited public preview.. | 
 
 ---
 

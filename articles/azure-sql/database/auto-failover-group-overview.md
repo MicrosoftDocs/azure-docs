@@ -32,7 +32,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 - [PowerShell: Failover Group](scripts/add-database-to-failover-group-powershell.md)
 - [REST API: Failover group](/rest/api/sql/failovergroups).
 
-After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).
+After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
 
 To achieve real business continuity, adding database redundancy between datacenters is only part of the solution. Recovering an application (service) end-to-end after a catastrophic failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using active geo-replication](designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -150,7 +150,7 @@ The auto-failover group must be configured on the primary server and will connec
 ![auto failover](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
-> See [Add SQL Database to a failover group](failover-group--add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
+> See [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a SQL Database to a failover group.
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -462,7 +462,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For detailed tutorials, see
-  - [Add SQL Database to a failover group](failover-group--add-single-database-tutorial.md)
+  - [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md)
   - [Add an elastic pool to a failover group](failover-group-add-elastic-pool-tutorial.md)
   - [Add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
 - For sample scripts, see:
@@ -472,4 +472,4 @@ As discussed previously, auto-failover groups and active geo-replication can als
 - For a business continuity overview and scenarios, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](automated-backups-overview.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](recovery-using-backups.md).
-- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](geo-replication-security-configure.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
