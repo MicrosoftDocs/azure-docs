@@ -536,7 +536,7 @@ Guidance on troubleshooting issues with Azure AD Authentication can be found in 
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->
-[11]: ./media/sql-database-aad-authentication/active-directory-integrated.png
-[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
-[13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
+[11]: ./media/aad-authentication-configure/active-directory-integrated.png
+[12]: ./media/aad-authentication-configure/12connect-using-pw-auth2.png
+[13]: ./media/aad-authentication-configure/13connect-to-db2.png
 

@@ -162,6 +162,6 @@ The following authentication methods are supported for Azure AD server principal
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
-[2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
-[3]: ./media/sql-database-aad-authentication/3admin-structure.png
+[1]: ./media/aad-authentication-overview/1aad-auth-diagram.png
+[2]: ./media/aad-authentication-overview/2subscription-relationship.png
+[3]: ./media/aad-authentication-overview/3admin-structure.png
