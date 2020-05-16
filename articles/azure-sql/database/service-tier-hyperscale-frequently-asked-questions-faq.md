@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Hyperscale FAQ
-description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
+description: Answers to common questions customers ask about a database in SQL Database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -23,7 +23,7 @@ This article provides answers to frequently asked questions for customers consid
 
 ### What is a Hyperscale database
 
-A Hyperscale database is an Azure SQL database in the Hyperscale service tier that is backed by the Hyperscale scale-out storage technology. A Hyperscale database supports up to 100 TB of data and provides high throughput and performance, as well as rapid scaling to adapt to the workload requirements. Scaling is transparent to the application – connectivity, query processing, etc. work like any other Azure SQL database.
+A Hyperscale database is a database in SQL Database in the Hyperscale service tier that is backed by the Hyperscale scale-out storage technology. A Hyperscale database supports up to 100 TB of data and provides high throughput and performance, as well as rapid scaling to adapt to the workload requirements. Scaling is transparent to the application – connectivity, query processing, etc. work like any other database in Azure SQL Database.
 
 ### What resource types and purchasing models support Hyperscale
 
@@ -195,9 +195,9 @@ Yes. The data pages associated with a given table can end up in multiple data fi
 
 ## Data Migration Questions
 
-### Can I move my existing Azure SQL databases to the Hyperscale service tier
+### Can I move my existing databases in Azure SQL Database to the Hyperscale service tier
 
-Yes. You can move your existing Azure SQL databases to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale.
+Yes. You can move your existing databases in Azure SQL Database to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale.
   
 ### Can I move my Hyperscale databases to other service tiers
 
@@ -218,11 +218,11 @@ Downtime for migration to Hyperscale is the same as the downtime when you migrat
 
 ### How much time would it take to bring in X amount of data to Hyperscale
 
-Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time needed to move data into Azure SQL databases is also affected by available network throughput, source read speed and the target database service level objective.
+Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time needed to move data into databases in Azure SQL Database is also affected by available network throughput, source read speed and the target database service level objective.
 
 ### Can I read data from blob storage and do fast load (like Polybase in SQL Data Warehouse)
 
-You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other Azure SQL database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](spark-connector.md). The Spark connector to SQL supports bulk insert.
+You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other database in Azure SQL Database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](spark-connector.md). The Spark connector to SQL supports bulk insert.
 
 It is also possible to bulk read data from Azure Blob store using BULK INSERT or OPENROWSET: [Examples of Bulk Access to Data in Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 

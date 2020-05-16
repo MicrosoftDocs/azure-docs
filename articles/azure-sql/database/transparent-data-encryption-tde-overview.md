@@ -22,7 +22,7 @@ TDE performs real-time I/O encryption and decryption of the data at the page lev
 For Azure SQL Database and Azure Synapse, the TDE protector is set at the [server](logical-servers.md) level and is inherited by all databases associated with that server. For Azure SQL Managed Instance (BYOK feature in preview), the TDE protector is set at the instance level and it is inherited by all encrypted databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
 
 > [!IMPORTANT]
-> All newly created Azure SQL databases are encrypted by default by using service-managed transparent data encryption. Existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default. Existing Managed Instance databases created before February 2019 are not encrypted by default. Managed Instance databases created through restore inherit encryption status from the source.
+> All newly created databases in SQL Database and Azure Synapse are encrypted by default by using service-managed transparent data encryption. Existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default. Existing Managed Instance databases created before February 2019 are not encrypted by default. Managed Instance databases created through restore inherit encryption status from the source.
 
 > [!NOTE]
 > TDE cannot be used to encrypt the **master** database in SQL Database.  The **master** database contains objects that are needed to perform the TDE operations on the user databases.

@@ -118,7 +118,7 @@ In addition, SQL Database provides built-in [business continuity and global scal
 
 - [Automatic backups](automated-backups-overview.md):
 
-  SQL Database automatically performs full, differential, and transaction log backups of SQL databases to enable you to restore to any point in time. For single databases and pooled databases, you can configure SQL Database to store full database backups to Azure Storage for long-term backup retention. For managed instances, you can also perform copy-only backups for long-term backup retention.
+  SQL Database automatically performs full, differential, and transaction log backups of databases to enable you to restore to any point in time. For single databases and pooled databases, you can configure SQL Database to store full database backups to Azure Storage for long-term backup retention. For managed instances, you can also perform copy-only backups for long-term backup retention.
 
 - [Point-in-time restores](recovery-using-backups.md):
 
@@ -201,7 +201,7 @@ SQL Database makes building and maintaining applications easier and more product
   A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.
 - [SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt):
 
-  A free, downloadable client application for developing SQL Server relational databases, SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
+  A free, downloadable client application for developing SQL Server relational databases, Microsoft Azure SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
 - [Visual Studio Code](https://code.visualstudio.com/docs):
 
   A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.

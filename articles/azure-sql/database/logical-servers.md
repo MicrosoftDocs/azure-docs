@@ -50,7 +50,7 @@ To create a server (without a database, elastic pool, or data warehouse database
 
 ### Create a blank or sample SQL database in Azure SQL Database
 
-To create an Azure SQL database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the resource group and server ahead of time or while creating the database itself. You can create a blank database or create a sample database based on Adventure Works LT.
+To create a database in SQL Database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the resource group and server ahead of time or while creating the database itself. You can create a blank database or create a sample database based on Adventure Works LT.
 
   ![create database-1](./media/logical-servers/create-database-1.png)
 
@@ -70,7 +70,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](service-tiers-dtu.md) and [vCore-based purchasing model](service-tiers-vcore.md).
 > [!TIP]
-> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](single-database-create-quickstart.md).
+> For an Azure portal quickstart, see [Create a database in SQL Database in the Azure portal](single-database-create-quickstart.md).
 
 ## Manage servers, databases, and firewalls using PowerShell
 
@@ -142,7 +142,7 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies an Azure SQL database or elastic pool. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies database or elastic pool. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modifies a data warehouse database in Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for a database. If logged on to the master database for a server, returns information on all databases. For Azure Synapse, you must be connected to the master database.|

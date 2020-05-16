@@ -1,7 +1,7 @@
 ---
-title: What's new with Azure SQL Database & Azure SQL Managed Instance? 
-titleSuffix: 
-description: Learn about new features and improvements for Azure SQL Database & Azure SQL Managed Instance
+title: What's new? 
+titleSuffix: Azure SQL Database & SQL Managed Instance
+description: Learn about the new features and improvements for the Azure SQL Database & SQL Managed Instance service and documentation
 services: sql-database
 author: stevestein
 ms.service: sql-database
@@ -9,28 +9,12 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/04/2020
 ms.author: sstein
 ---
-# What's new in Azure SQL Database & Azure SQL Managed Instance? 
+# What's new in Azure SQL Database & SQL Managed Instance? 
 
-This article lists features in public preview and current known issues with Azure SQL Database and Azure SQL Managed Instance. 
-
-For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database).
-
-## What's new?
-
-Documentation for Azure SQL Database and Azure SQL Managed Instance has been split into separate sections. We've also updated how we refer to a managed instance from *Azure SQL Database managed instance* to *Azure SQL Managed Instance*.
-
-We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Database Managed Instance in individual 'shared' articles.
-
-This clarification between the different Azure SQL options should simplify and streamline the process of working with SQL in Azure, whether that be a single managed database in Azure SQL Database, a fully-fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
-
-Consider that this is a work in progress and not every document has been updated yet. For example, Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so please bear with us!
-
-> [!NOTE]
-> The features, functionalities, and capabilities of the product are entirely unchanged. You are still able to deploy the same SQL Managed Instance from the same [Azure portal](https://portal.azure.com), and you can still leverage all of the features and functionalities that were previously available prior to the name change.  
-
+This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Features in public preview
 
