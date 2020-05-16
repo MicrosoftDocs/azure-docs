@@ -1,6 +1,6 @@
 ---
-title: "Managed instance: Long-term backup retention (PowerShell)"
-description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Database managed instance using PowerShell."
+title: "Azure SQL Managed Instance: Long-term backup retention (PowerShell)"
+description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Managed Instance using PowerShell."
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,9 +13,9 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/29/2020
 ---
-# Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
+# Manage Azure SQL Managed Instance long-term backup retention (PowerShell)
 
-In Azure SQL Database managed instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
+In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
 
    > [!IMPORTANT]
    > LTR for managed instances is currently in limited preview and available for EA and CSP subscriptions on a case by case basis. To request enrollment, please create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Database Managed Instance and for the problem type select **Backup, Restore, and Business Continuity/Long-term backup retention**. In your request, please state you would like to be enrolled in the limited public preview of LTR for managed instance.

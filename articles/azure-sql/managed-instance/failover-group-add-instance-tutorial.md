@@ -394,17 +394,20 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Updates a network security group.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Adds a route to a route table. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Updates a route table.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Database SQL Managed Instance.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Managed Instance.  |
 
 ---
 
 ## 2 - Create secondary virtual network
+
 If you're using the Azure portal to create your SQL Managed Instance, you will need to create the virtual network separately because there is a requirement that the subnet of the primary and secondary SQL Managed Instance do not have overlapping ranges. If you're using PowerShell to configure your SQL Managed Instance, skip ahead to step 3. 
 
 # [Portal](#tab/azure-portal) 
+
 To verify the subnet range of your primary virtual network, follow these steps:
-1. In the [Azure portal](https://portal.azure.com), navigate to your resource group and select the virtual network for your primary instance. 
-1. Select **Subnets** under **Settings** and note the **Address range**. The subnet address range of the virtual network for the secondary SQL Managed Instance cannot overlap this. 
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your resource group and select the virtual network for your primary instance.  
+2. Select **Subnets** under **Settings** and note the **Address range**. The subnet address range of the virtual network for the secondary SQL Managed Instance cannot overlap this. 
 
 
    ![Primary subnet](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
@@ -452,7 +455,7 @@ Create the secondary SQL Managed Instance using the Azure portal.
 
     ![Select SQL Managed Instance](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. On the **Basics** tab of the **Create Azure SQL Database SQL Managed Instance** page, fill out the required fields to configure your secondary SQL Managed Instance. 
+1. On the **Basics** tab of the **Create Azure SQL Managed Instance** page, fill out the required fields to configure your secondary SQL Managed Instance. 
 
    The following table shows the values necessary for the secondary SQL Managed Instance:
  
@@ -720,7 +723,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Updates a network security group.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Adds a route to a route table. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Updates a route table.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Database SQL Managed Instance.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Managed Instance.  |
 
 ---
 
@@ -997,7 +1000,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 
 | Command | Notes |
 |---|---|
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Creates a new Azure SQL Database SQL Managed Instance failover group.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Creates a new Azure SQL Managed Instance failover group.  |
 
 
 ---
@@ -1122,13 +1125,13 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Updates a network security group.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Adds a route to a route table. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Updates a route table.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Database SQL Managed Instance.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Managed Instance.  |
 | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returns information about Azure SQL Managed Database Instance. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Creates an IP Configuration for a Virtual Network Gateway |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Creates a Virtual Network Gateway |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Creates a connection between the two virtual network gateways.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Creates a new Azure SQL Database SQL Managed Instance failover group.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Creates a new Azure SQL Managed Instance failover group.  |
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Gets or lists SQL Managed Instance failover groups.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Executes a failover of a SQL Managed Instance failover group. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group. | 

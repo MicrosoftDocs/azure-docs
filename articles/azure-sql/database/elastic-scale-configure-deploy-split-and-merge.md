@@ -173,7 +173,7 @@ The script files included are:
 2. *ExecuteSampleSplitMerge.ps1* - executes test operations on the test data tier (see table below for detailed description)
 3. *GetMappings.ps1* - top-level sample script that prints out the current state of the shard mappings.
 4. *ShardManagement.psm1*  - helper script that wraps the ShardManagement API
-5. *SqlDatabaseHelpers.psm1* - helper script for creating and managing SQL databases
+5. *SqlDatabaseHelpers.psm1* - helper script for creating and managing databases in SQL Database
 
    <table style="width:100%">
      <tr>
