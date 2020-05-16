@@ -74,6 +74,6 @@ Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ. 
-- To reach a wider audience, post a question on the [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- To reach a wider audience, post a question on the [Azure Lab Services — Tech community forum](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - For feature requests, submit your requests and ideas to [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

@@ -67,6 +67,19 @@ Refer to the following list to configure managed identity for Azure App Service 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+
+### Azure Kubernetes Service (AKS)
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | - | - | - | 
+| User assigned | ![Available][check] | - | - | - |
+
+
+For more information, see [Use managed identities in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-managed-identity).
+
+
+
 ### Azure Blueprints
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
