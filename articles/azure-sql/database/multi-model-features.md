@@ -18,7 +18,7 @@ Multi-model databases enable you to store and work with data represented in mult
 
 ## When to use multi-model capabilities
 
-[Azure SQL family of services](sql-database-paas-vs-sql-server-iaas.md) are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, the Azure SQL family of services are not limited to relational-data only. The Azure SQL family of services enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
+[Azure SQL family of services](../azure-sql-iaas-vs-paas-what-is-overview.md) are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, the Azure SQL family of services are not limited to relational-data only. The Azure SQL family of services enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
 You should consider using multi-model capabilities of the Azure SQL family of services in the following cases:
 
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
