@@ -307,7 +307,7 @@
     - name: Database features
       items:
       - name: Multi-model capabilities
-        href: database/multi-model-features.md
+        href: multi-model-features.md
       - name: Job automation
         href: database/job-automation-overview.md
 
@@ -465,6 +465,7 @@
   - name: Quickstarts
     items:
     - name: Create
+      href: database/quickstart-content-reference-guide.md
       items:
       - name: Using Azure portal
         href: database/single-database-create-quickstart.md
@@ -708,6 +709,7 @@
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
   - name: Quickstarts
+    href: managed-instance/quickstart-content-reference-guide.md
     items:
     - name: Create
       items:

@@ -52834,7 +52834,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-multi-model-features.md",
-            "redirect_url": "/azure/azure-sql/database/multi-model-features",
+            "redirect_url": "/azure/azure-sql/multi-model-features",
             "redirect_document_id": true
         },
         {
