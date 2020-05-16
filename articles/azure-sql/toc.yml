@@ -6,7 +6,7 @@
   - name: Overview
     items: 
     - name: Azure SQL 
-      href: what-is-azure-sql-iaas-vs-paas.md
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Concepts
     items: 
     - name: Accelerated database recovery
@@ -167,7 +167,7 @@
         - name: Azure portal
           href: database/connect-query-portal.md
         - name: VS Code
-          href: sql-database-connect-query-vscode.md
+          href: database/connect-query-vscode.md
       - name: Connect and query from apps
         items:
         - name: .NET with Visual Studio
@@ -175,7 +175,7 @@
         - name: .NET Core
           href: database/connect-query-dotnet-core.md
         - name: .NET with Active Directory MFA
-          href: database/active-directory-interactive-connect-azure-sql-db
+          href: database/active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: database/connect-query-go.md
         - name: Java
@@ -185,7 +185,7 @@
         - name: PHP
           href: database/connect-query-php.md
         - name: Python
-          href: database/connect-query-python
+          href: database/connect-query-python.md
         - name: Ruby
           href: database/connect-query-ruby.md
         - name: R
@@ -288,13 +288,13 @@
         - name: Database sharding
           href: database/elastic-scale-introduction.md
         - name: Glossary
-          href: elastic-scale-glossary.md
+          href: database/elastic-scale-glossary.md
         - name: Elastic client library
           href: database/elastic-database-client-library.md
         - name: Shard maps
           href: database/elastic-scale-shard-map-management.md
         - name: Query routing
-          href: database/elastic-scale-manage-credential.md
+          href: database/elastic-scale-data-dependent-routing.md
         - name: Manage credentials
           href: database/elastic-scale-manage-credentials.md
         - name: Move sharded data
@@ -357,7 +357,7 @@
       - name: Configure temporal retention policy
         href: database/temporal-tables-retention-policy.md
       - name: Authenticate app
-        href: application-authentication-get-client-id-keys.md
+        href: database/application-authentication-get-client-id-keys.md
       - name: Connectivity guidance
         href: database/troubleshoot-common-connectivity-issues.md
       - name: DNS aliases
@@ -393,7 +393,7 @@
         - name: SaaS video indexer
           href: database/saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: SaaS app security
-          href: sdatabase/aas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+          href: database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
         - name: Multi-tenant SaaS sample application
           items:
           - name: Wingtip Tickets sample
@@ -485,7 +485,7 @@
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Add to a failover group
-      href: database/failover-group--add-single-database-tutorial.md
+      href: database/failover-group-add-single-database-tutorial.md
     - name: Implement a geo-distributed database
       href: database/geo-distributed-application-configure-tutorial.md
     - name: Configure active geo-replication
@@ -518,7 +518,7 @@
         - name: vCore resource limits
           href: database/resource-limits-vcore-elastic-pools.md
         - name: DTU resource limits
-          href: sql-database-dtu-resource-limits-elastic-pools.md
+          href: database/resource-limits-dtu-elastic-pools.md
         - name: Scale resources
           href: database/elastic-pool-scale.md
         - name: Manage pool resources
@@ -655,7 +655,7 @@
       - name: Query horizontally-sharded data
         href: database/elastic-query-getting-started.md
       - name: Multi-shard queries
-        href: database/elastic-scale-multishard-querying".md
+        href: database/elastic-scale-multishard-querying.md
       - name: Move sharded data
         href: database/elastic-scale-configure-deploy-split-and-merge.md
       - name: Security configuration
@@ -687,14 +687,14 @@
       - name: Create and manage (T-SQL)
         href: database/elastic-jobs-tsql-create-manage.md
       - name: Migrate (from old Elastic jobs)
-        href: elastic-jobs-migrate.md
+        href: database/elastic-jobs-migrate.md
 
   - name: Samples
     items:
     - name: Azure CLI
-      href: database/az-cli-script-samples-content-guides.md?tabs=single-database
+      href: database/az-cli-script-samples-content-guide.md?tabs=single-database
     - name: Azure PowerShell
-      href: database/powershell-script-content-guide?tabs=single-database
+      href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
@@ -728,11 +728,11 @@
       - name: Public endpoint
         href: managed-instance/public-endpoint-configure.md
       - name: Client VM connection
-        href: managed-instance/connect-vm-instance-configure
+        href: managed-instance/connect-vm-instance-configure.md
       - name: Point-to-site connection
         href: managed-instance/point-to-site-p2s-configure.md
       - name: Long-term backup retention
-        href: managed-instance/long-term-backup-retention-configur.md
+        href: managed-instance/long-term-backup-retention-configure.md
     - name: Load data
       items:
       - name: Restore sample database
@@ -789,7 +789,7 @@
     - name: Overview
       href: managed-instance/how-to-content-reference-guide.md
     - name: Migrate to Managed instance
-      href: managed-instance/migrate-to-instance-from-sql-serve.md
+      href: managed-instance/migrate-to-instance-from-sql-server.md
     - name: Customize time zone
       href: managed-instance/timezones-overview.md
     - name: Configure connection types
