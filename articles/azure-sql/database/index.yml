@@ -59,7 +59,7 @@ landingContent:
           - text: Connectivity settings
             url: sql-database-connectivity-settings.md
           - text: Firewall rules
-            url: sql-database-server-level-firewall-rule.md
+            url: firewall-create-server-level-portal-quickstart
 
 
   # Card 
