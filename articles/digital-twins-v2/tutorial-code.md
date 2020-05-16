@@ -56,7 +56,7 @@ This will create several files inside your directory, including one called *Prog
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
 ```cmd/sh
-dotnet add package Azure.IoT.DigitalTwins
+dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.identity
 ```
 
