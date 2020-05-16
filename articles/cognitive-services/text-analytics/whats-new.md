@@ -16,6 +16,55 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## May 2020
+
+### Text Analytics API v3 General Availability
+
+Text Analysis API v3 is now generally available with the following updates:
+
+   * New model version 2020-04-01
+   * New properties in the JSON response:
+      * SentenceText in Sentiment Analysis
+      * Warnings for each document
+   * Changed the names of the following properties where applicable:
+      * score to confidenceScore
+      * type to category
+      * subtype to subcategory
+   * New languages in Sentiment Analysis v3:
+      * English (`en`)
+      * Japanese (`ja`)
+      * Korean (`ko`)
+      * Chinese Simplified (`zh-Hans`)
+      * Chinese Traditional (`zh-Hant`)
+      * French (`fr`)
+      * Italian (`it`)
+      * Spanish (`es`)
+      * Portuguese (`pt`)
+      * and German (`de`) 
+   * New category in Named Entity Recognition v3:
+      * Address
+   * New subcategories in Named Entity Recognition v3:
+      * Location - Geographical
+      * Location - Structural
+      * Organization - Stock Exchange
+      * Organization - Medical
+      * Organization - Sports
+      * Event - Cultural
+      * Event - Natural
+      * Event - Sports
+   * A new endpoint for Entity Linking 
+   
+**NOTE:** Text Analytics API v3 is not available in the following regions: `Central India`, `UAE North` and `South Africa North`
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+
+### Text Analytics API v3.1 Public Preview
+   * New feature - Opinion Mining
+   * New domain filter for Personally Identifiable Information (PII) to support Protected Health Information (PHI)
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-preview](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+
 ## February 2020
 
 ### SDK support for Text Analytics API v3 Public Preview
@@ -25,8 +74,8 @@ As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
    * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
-
-> [!div class="nextstepaction"]
+   
+   > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
