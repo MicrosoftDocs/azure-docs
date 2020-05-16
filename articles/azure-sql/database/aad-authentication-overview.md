@@ -45,7 +45,7 @@ The configuration steps include the following procedures to configure and use Az
 
 1. Create and populate Azure AD.
 2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-3. Create an Azure Active Directory administrator for your Azure SQL databases.
+3. Create an Azure Active Directory administrator.
 4. Configure your client computers.
 5. Create contained database users in your database mapped to Azure AD identities.
 6. Connect to your database by using Azure AD identities.

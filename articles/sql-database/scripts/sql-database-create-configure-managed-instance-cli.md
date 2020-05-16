@@ -1,6 +1,6 @@
 ---
-title: CLI example - create a managed instance in Azure SQL Database 
-description: Azure CLI example script to create a managed instance in Azure SQL Database
+title: "Azure CLI: Create a managed instance" 
+description: Azure CLI example script to create a managed instance in Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,9 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
 ---
-# Use CLI to create an Azure SQL Database managed instance
+# Use CLI to create an Azure SQL Managed Instance
 
-This Azure CLI script example creates an Azure SQL Database managed instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Database Managed Instance](../../azure-sql/managed-instance/connect-vm-instance-configure.md) and [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
+This Azure CLI script example creates an Azure SQL Managed Instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Managed Instance]../../azure-sql/managed-instance/connect-vm-instance-configure.md) and [Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 > [!IMPORTANT]
 > For limitations, see [supported regions](../../azure-sql/managed-instance/resource-limits.md#supported-regions) and [supported subscription types](../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types).

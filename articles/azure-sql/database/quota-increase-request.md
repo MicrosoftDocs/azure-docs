@@ -1,6 +1,6 @@
 ---
 title: Request a quota increase
-description: This page describes how to create a support request to increase the quotas for Azure SQL Database single databases, servers, and managed instances.
+description: This page describes how to create a support request to increase the quotas for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.date: 02/04/2020
 
 # Request quota increases for Azure SQL Database
 
-This article explains how to request a quota increase for Azure SQL Database for single databases, servers, and managed instances. It also explains how to enable subscription access to a region.
+This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region.
 
 ## <a id="newquota"></a> Create a new support request
 
@@ -105,7 +105,7 @@ For the **SQL Managed Instance** quota type, use the following steps:
 
    ![Managed instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
 
-For more information, see [Overview Azure SQL Database managed instance resource limits](../managed-instance/resource-limits.md).
+For more information, see [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
 
 ## Submit your request
 

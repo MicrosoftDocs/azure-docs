@@ -97,7 +97,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 7. In the AAD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](aad-authentication-overview.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Server.
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](aad-authentication-overview.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Database, SQL Managed Instance, or Azure Synapse.
 
     ![Add Azure Active Directory admin](./media/aad-authentication-configure/add-azure-active-directory-admin.png)
 
@@ -356,7 +356,7 @@ Since SQL Managed Instance supports Azure AD server principals (logins), using c
 However, using Azure Active Directory authentication with SQL Database and Azure Synapse requires using contained database users based on an Azure AD identity. A contained database user does not have a login in the master database, and maps to an identity in Azure AD that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to SQL Server, SQL Database, or Azure Synapse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database or Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
+> Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to SQL Database, SQL Managed Instance, or Azure Synapse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database, SQL Managed Instance, or Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
 
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.

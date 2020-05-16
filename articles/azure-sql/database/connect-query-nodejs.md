@@ -1,6 +1,6 @@
 ---
 title: Use Node.js to query a database
-description: How to use Node.js to create a program that connects to an Azure SQL Database and query it using T-SQL statements.
+description: How to use Node.js to create a program that connects to a Microsoft Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,14 +12,28 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
 ---
-# Quickstart: Use Node.js to query an Azure SQL Database
+# Quickstart: Use Node.js to query a Microsoft Azure SQL database
 
-In this quickstart, you use Node.js to connect to an Azure SQL Database and use T-SQL statements to query data.
+In this quickstart, you use Node.js to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
+To complete this quickstart, you need:
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure SQL Database](single-database-create-quickstart.md)
+
+  || SQL Database | SQL Managed instance | SQL Server in Azure VM |
+  |:--- |:--- |:---|:---|
+  | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) | [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
+  |||Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+
 - [Node.js](https://nodejs.org)-related software
 
   # [macOS](#tab/macos)
@@ -54,7 +68,10 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 2. Go to the **SQL Databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server in an Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+> [!NOTE]
+> For connection information for SQL SErver on an Azure VM, see [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
 
 ## Create the project
 

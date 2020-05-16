@@ -23,8 +23,26 @@ In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) 
 Completing this quickstart requires the following items:
 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
+<<<<<<< HEAD:articles/azure-sql/database/connect-query-ssms.md
 - The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](single-database-create-quickstart.md) quickstart.
     - The scripts in this article are written to use the AdventureWorksLT database. If you are using a SQL Managed Instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+=======
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL:
+
+  || SQL Database | SQL Managed instance | SQL Server in Azure VM |
+  |:--- |:--- |:---|:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) | [Portal](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) | [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+>>>>>>> fd7e0a09b531c2839afee0e6202a5b0ff99cde92:articles/sql-database/sql-database-connect-query-ssms.md
 
 If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](connect-query-portal.md).
 
@@ -36,7 +54,10 @@ Get the connection information you need to connect to your database. You'll need
 
 2. Navigate to the **SQL database** or **SQL managed instance** you want to query.
 
-3. On the **Overview** page, copy the fully qualified server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a SQL Managed Instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual server name.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server in an Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+> [!NOTE]
+> For connection information for SQL SErver on an Azure VM, see [Connect to SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md#connect-to-sql-server)
 
 ## Connect to your database
 
