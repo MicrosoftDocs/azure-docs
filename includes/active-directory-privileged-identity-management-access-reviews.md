@@ -31,7 +31,7 @@ ms.custom: include file
     ![Users scope to review role membership of](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews. Roles selected here include both [permanent and eligible roles](pim-how-to-add-role-to-user.md).
+    > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews. Roles selected here include both [permanent and eligible roles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
 
     If you are creating an access review of Azure AD roles, the following shows an example of the Review membership list.
 
