@@ -245,9 +245,9 @@ This template will create an Azure Cosmos account for Gremlin API with a databas
                             "/myPartitionKey"
                         ],
                         "kind": "Hash"
-                    },
-                    "options": "[variables('throughputPolicyToUse')]"
-                }
+                    }
+                },
+                "options": "[variables('throughputPolicyToUse')]"
             }
         }
     ]

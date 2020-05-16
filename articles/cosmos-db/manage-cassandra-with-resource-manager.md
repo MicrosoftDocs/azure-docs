@@ -228,9 +228,9 @@ This template creates an Azure Cosmos account in two regions with options for co
                   "clusterKeys": [
                     { "name": "loadid", "orderBy": "asc" }
                   ]
-                },
-               "options": "[variables('throughputPolicyToUse')]"
-            }
+                }
+            },
+            "options": "[variables('throughputPolicyToUse')]"
         }
       }
    ]
