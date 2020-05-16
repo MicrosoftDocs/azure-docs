@@ -132,9 +132,6 @@ conceptualContent:
         - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
-        - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
-          itemType: overview
-          text: AKS 
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
