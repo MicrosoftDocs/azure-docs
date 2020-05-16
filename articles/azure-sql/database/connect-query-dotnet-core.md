@@ -1,6 +1,6 @@
 ---
 title: Use .NET Core to query
-description: This topic shows you how to use .NET Core to create a program that connects to a Microsoft Azure SQL database and queries it using Transact-SQL statements.
+description: This topic shows you how to use .NET Core to create a program that connects to a database in Azure SQL Database and queries it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
