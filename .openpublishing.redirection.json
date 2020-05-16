@@ -52152,6 +52152,11 @@
       "source_path": "articles/sql-database-edge/tutorial-sync-data-factory.md",
       "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
       "redirect_document_id": true
-    }
+    },
+	{
+		"source_path":"articles/azure-monitor/app/alerts.md",
+		"redirect_url":"/articles/azure-monitor/platform/alerts-log",
+		"redirect_document_id": false 		
+	}
  ]
 }
