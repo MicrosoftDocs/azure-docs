@@ -10,7 +10,7 @@ ms.date: 05/11/2020
 
 # Create Azure Cosmos containers and databases with autoscale throughput
 
-Azure Cosmos DB allows you to set either manual or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
+Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
 
 > [!NOTE]
 > You can [enable autoscale for new databases and containers](how-to-provision-autoscale-throughput.md) only. It is not available for existing databases and containers.
@@ -67,8 +67,8 @@ For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 500
 When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s). After the first 25 containers, you will need to increment the autoscale maximum RU/s by 1000 RU/s for each additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
 
 ## Comparison – Containers configured with manual vs autoscale throughput
-
-|  | Containers with manual throughput  | Containers with autoscale throughput |
+For more detail, see this [documentation](how-to-choose-throughput-offer.md) on how to choose between standard (manual) and autoscale throughput.  
+|  | Containers with standard (manual) throughput  | Containers with autoscale throughput |
 |---------|---------|---------|
 | **Provisioned throughput (RU/s)** | Manually provisioned. | Automatically and instantaneously scaled based on the workload usage patterns. |
 | **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if you consume RU/s within the autoscale throughput range that you've set.    |
@@ -79,6 +79,7 @@ When you use database level throughput with autoscale, you can have the first 25
 ## Next steps
 
 * Review the [autoscale FAQ](autoscale-faq.md).
+* Learn how to [choose between manual and autoscale throughput](how-to-choose-throughput-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
 
