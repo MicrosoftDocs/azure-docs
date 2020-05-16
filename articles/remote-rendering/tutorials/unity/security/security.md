@@ -47,7 +47,7 @@ Securing the blob storage in this way is the first step to securing your remote 
 
 Because it's an Azure resource, Azure Remote Rendering's access can be controlled and managed using Azure Active Directory (AAD) and role assignments. This will allow you to determine which individuals or groups are using Azure Remote Rendering in a more controlled way.
 
-The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure login flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
+The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
 1. Follow the [How To: Configure authentication](../../../how-tos/authentication.md). Which involves registering a new Azure Active Directory application and configuring access to your Azure Remote Rendering instance.
 
@@ -85,7 +85,7 @@ public class AADAuthentication : BaseARRAuthentication
 
     string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
 
-    public void Awake()
+    public void OnEnable()
     {
         RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
         this.gameObject.AddComponent<ExecuteOnUnityThread>();
@@ -189,7 +189,7 @@ return await Task.FromResult(new AzureFrontendAccountInfo(accountDomain, azureRe
 
 Here, we create a new **AzureFrontendAccountInfo** object using the account domain, account ID, and access token. This token is then used by the ARR service to query, create, and join remote rendering sessions as long as the user is authorized based on the role-based permissions configured earlier.
 
-Because there are many different ways to authenticate with Azure: in-app, on a web service of your own, and more, this code is just the beginning. You'll likely want to add the ability to log out too. This can be done using the `Task RemoveAsync(IAccount account)` method provided by the client application.
+Because there are many different ways to authenticate with Azure: in-app, on a web service of your own, and more, this code is just the beginning. You'll likely want to add the ability to sign out too. This can be done using the `Task RemoveAsync(IAccount account)` method provided by the client application.
 
 Before building for the device, you'll need to include a file in your project's **Assets** folder. This will help the compiler build the application correctly using the *Microsoft.Identity.Client.dll* included in the **Tutorial Assets**.
 

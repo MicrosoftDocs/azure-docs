@@ -123,7 +123,7 @@ public class EntityOverrideController : BaseEntityOverrideController
 
     public override void ToggleTint(Color tintColor = default)
     {
-        if(tintColor != default) LocalOverride.RemoteComponent.TintColor = tintColor.toRemote();
+        if (tintColor != default) LocalOverride.RemoteComponent.TintColor = tintColor.toRemote();
         ToggleState(HierarchicalStates.UseTintColor);
     }
 
@@ -137,10 +137,10 @@ public class EntityOverrideController : BaseEntityOverrideController
             remoteStateOverride.Destroy();
         }
 
-        if(localOverride == null)
+        if (localOverride == null)
             localOverride = gameObject.GetComponent<ARRHierarchicalStateOverrideComponent>();
 
-        if(localOverride != null)
+        if (localOverride != null)
         {
             Destroy(localOverride);
         }
@@ -154,7 +154,7 @@ This implementation just toggles one state at a time. However, it's entirely pos
 
 To apply states to entities, we can modify the **RemoteEntityHelper** created previously.
 
-1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This will allow the use of a view controller provided in the **Tutorial Assets**. It should look like this when modified:
+1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This modification will allow the use of a view controller provided in the **Tutorial Assets**. It should look like this when modified:
 
 `public class RemoteEntityHelper : BaseRemoteEntityHelper`
 
@@ -168,6 +168,12 @@ public override BaseEntityOverrideController EnsureOverrideComponent(Entity enti
     if (overrideComponent == null)
         overrideComponent = entityGameObject.AddComponent<EntityOverrideController>();
     return overrideComponent;
+}
+
+public override HierarchicalEnableState GetState(Entity entity, HierarchicalStates feature)
+{
+    var overrideComponent = EnsureOverrideComponent(entity);
+    return overrideComponent.GetState(feature);
 }
 
 public override void ToggleHidden(Entity entity)
@@ -217,7 +223,7 @@ This code ensures an **EntityOverrideController** component is added to the targ
 
 ![Toggle Hidden](./media/toggle-hidden-pointer-event.png)
 
-Alternatively, now that these scripts have been added to the model, the **AppMenu** view controller should have additional interfaces enabled to interact with the **EntityOverrideController** script. Check out the **Model Tools** menu to see the unlocked view controllers.
+Now that these scripts have been added to the model, the **AppMenu** view controller should have additional interfaces enabled to interact with the **EntityOverrideController** script. Check out the **Model Tools** menu to see the unlocked view controllers.
 
 At this point, your **TestModel** GameObject's components should look something like this:
 
@@ -231,7 +237,7 @@ Here is an example of stacking overrides on a single entity. We used `Select` an
 
 [Cut planes](../../../overview/features/cut-planes.md) are a feature that can be added to any remote entity. Most commonly, you create a new remote entity that's not associated with any mesh data to hold the cut plane component. The position and orientation of the cut plane are determined by the position and orientation of the remote entity it's attached to.
 
-We'll create a script that automatically creates a remote entity, adds a cut plane component, and syncs the transform of a local object with the cut plane entity. Then, we can use the **CutPlaneViewController** to wrap the cut plane in an interface that'll allow us to manipulate it.
+We'll create a script that automatically: creates a remote entity, adds a cut plane component, and syncs the transform of a local object with the cut plane entity. Then, we can use the **CutPlaneViewController** to wrap the cut plane in an interface that will allow us to manipulate it.
 
 1. Create a new script named **RemoteCutPlane** and replace its code with the code below:
 
@@ -345,7 +351,7 @@ public override void DestroyCutPlane()
     if (remoteCutPlaneComponent == null)
         return; //Nothing to do!
 
-    remoteCutPlaneComponent.Destroy();
+    remoteCutPlaneComponent.Owner.Destroy();
     remoteCutPlaneComponent = null;
     CutPlaneReady = false;
 }
@@ -353,7 +359,7 @@ public override void DestroyCutPlane()
 
 Since the remote object is fairly simple and we're only cleaning up the remote end (and keeping our local object), it's straightforward to just call `Destroy` on the remote object and clear our reference to it.
 
-The **AppMenu** includes a view controller that will automatically attach to your cut plane and allow you to interact with it. It's not required that you use **AppMenu** or any of the view controllers, but they make for a better experience. Let's test the cut plane and its view controller.
+The **AppMenu** includes a view controller that will automatically attach to your cut plane and allow you to interact with it. It's not required that you use **AppMenu** or any of the view controllers, but they make for a better experience. Now test the cut plane and its view controller.
 
 1. Create a new, empty GameObject in the scene and name it **CutPlane**.
 1. Add the **RemoteCutPlane** component to the **CutPlane** GameObject.
@@ -508,7 +514,7 @@ Switching between sky lights can be done by calling `SetSky` with one of the str
 
 ### Lights
 
-The other light types: point, spot, and direction are remote entities with components attached to them, similar to the Cut Plane we created above. An important consideration when lighting your remote scene is attempting to match the lighting in your local scene. This means that locally rendered objects are lit the same way as your remotely rendered objects. This isn't always possible because many Unity applications for the HoloLens 2 do not use physically-based rendering for locally rendered objects. However, to a certain level, we can simulate Unity's simpler default lighting.
+The other light types: point, spot, and direction are remote entities with components attached to them, similar to the Cut Plane we created above. An important consideration when lighting your remote scene is attempting to match the lighting in your local scene. This strategy isn't always possible because many Unity applications for the HoloLens 2 do not use physically-based rendering for locally rendered objects. However, to a certain level, we can simulate Unity's simpler default lighting.
 
 This script creates different types of remote lights depending on the type of local Unity light the script is attached to. The remote light will duplicate the local light in its: position, rotation, color, and intensity. Where possible, the remote light will also set additional configuration.
 
@@ -688,7 +694,7 @@ Remotely rendered [materials](../../../concepts/materials.md) can be modified to
 > [!NOTE]
 > In many cases, if a feature or effect can be implemented using a **HierarchicalStateOverrideComponent**, it's ideal to use that instead of modifying the material.
 
-We'll create a script that accepts a target Entity and configures a few `OverrideMaterialProperty` objects to change the properties of the target Entity's material. We start by getting the target Entity's [**MeshComponent**](../../../concepts/meshes.md#meshcomponent), which contains a list of materials used on the mesh. For simplicity, we'll just use the first material found. This naive strategy can fail very easily depending on how the content was authored, so you'd likely want to take a more complex approach to select the appropriate material. 
+We'll create a script that accepts a target Entity and configures a few `OverrideMaterialProperty` objects to change the properties of the target Entity's material. We start by getting the target Entity's [**MeshComponent**](../../../concepts/meshes.md#meshcomponent), which contains a list of materials used on the mesh. For simplicity, we'll just use the first material found. This naive strategy can fail very easily depending on how the content was authored, so you'd likely want to take a more complex approach to select the appropriate material.
 
 From the material, we can access common values like albedo. The materials will need to be cast in their appropriate type to retrieve their values. Once we have a reference to the desired material, just set the values, and ARR will handle the syncing between the local material properties and the remote material.
 
@@ -716,11 +722,11 @@ public class EntityMaterialController : BaseEntityMaterialController
 
     private Entity targetEntity;
     public override Entity TargetEntity
-    { 
+    {
         get => targetEntity;
         set
         {
-            if(targetEntity != value)
+            if (targetEntity != value)
             {
                 if (targetEntity != null && RevertOnEntityChange)
                 {
@@ -816,6 +822,9 @@ public class EntityMaterialController : BaseEntityMaterialController
 
     private Color GetMaterialColor(ARRMaterial material)
     {
+        if (material == null)
+            return default;
+
         if (material.MaterialSubType == MaterialType.Color)
             return ((ColorMaterial)material).AlbedoColor.toUnity();
         else
@@ -824,6 +833,9 @@ public class EntityMaterialController : BaseEntityMaterialController
 
     private void ApplyMaterialColor(ARRMaterial material, Color color)
     {
+        if (material == null)
+            return;
+
         if (material.MaterialSubType == MaterialType.Color)
             ((ColorMaterial)material).AlbedoColor = color.toRemoteColor4();
         else
@@ -832,12 +844,18 @@ public class EntityMaterialController : BaseEntityMaterialController
 
     private void ApplyRoughnessValue(ARRMaterial material, float value)
     {
-        if(material.MaterialSubType == MaterialType.Pbr) //Only PBR has Roughness
+        if (material == null)
+            return;
+
+        if (material.MaterialSubType == MaterialType.Pbr) //Only PBR has Roughness
             ((PbrMaterial)material).Roughness = value;
     }
 
     private void ApplyMetalnessValue(ARRMaterial material, float value)
     {
+        if (material == null)
+            return;
+
         if (material.MaterialSubType == MaterialType.Pbr) //Only PBR has Metalness
             ((PbrMaterial)material).Metalness = value;
     }
@@ -882,6 +900,8 @@ Next, let's test the material controller.
 1. Use the material view controller to adjust the material on the targeted Entity.
 
 Since we're only modifying the first material of the mesh, you may not see the material changing. Use the hierarchical override **SeeThrough** to see if the material you're changing is inside the mesh.
+
+![Material edit example](./media/material-edit-example.png)
 
 ## Next steps
 

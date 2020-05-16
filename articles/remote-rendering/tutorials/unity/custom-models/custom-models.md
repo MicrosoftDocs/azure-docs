@@ -68,7 +68,7 @@ You can now add the prefab **AppMenu** to the scene, for visual feedback of the 
 1. Locate the **AppMenu** prefab in *Assets/RemoteRenderingTutorial/Prefabs/AppMenu*
 1. Drag the **AppMenu** prefab into the scene.
 1. You'll likely see a dialog for **TMP Importer**, since this is the first time we're including *Text Mesh Pro* assets in the scene. Follow the prompts to **Import TMP Essentials**. Then close the importer dialog, the examples and extras are not needed.
-1. Remove the bypass for authentication we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.
+1. Remove the bypass for authentication we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.\
  ![Remove bypass](./media/remove-bypass-event.png)
 1. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session.
 1. Test the view controller by pressing **Play** in the Unity Editor.
