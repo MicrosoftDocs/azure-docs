@@ -34,6 +34,10 @@
         href: load-from-csv-with-bcp.md
       - name: Batching for perf
         href: performance-improve-use-batching.md
+      - name: Try in-memory features
+        href: in-memory-sample.md
+
+
 
 - name: Common SQL DB & SQL MI docs 
   items:
@@ -122,7 +126,7 @@
         - name: Always encrypted
           items:
           - name: Use the certificate store
-            href: database/always-encrypted-certificate-store-configur.md
+            href: database/always-encrypted-certificate-store-configure.md
           - name: Use the Azure key vault
             href: database/always-encrypted-azure-key-vault-configure.md
 
@@ -562,126 +566,124 @@
         - name: vNet endpoints - PowerShell
           href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
       - name: Private Link
-        href: sql-database-private-endpoint-overview.md
+        href: database/private-endpoint-overview.md
 
 
       - name: Management API reference
-        href: sql-database-single-databases-manage.md
+        href: database/single-database-manage.md
 
       - name: Machine Learning Services
         items:
         - name: Overview
-          href: sql-database-machine-learning-services-overview.md
+          href: database/machine-learning-services-overview.md
         - name: Key differences
-          href: sql-database-machine-learning-services-differences.md
+          href: database/machine-learning-services-differences.md
         - name: Quickstarts
           items:
           - name: Create R scripts
-            href: sql-database-quickstart-r-create-script.md
+            href: database/r-script-create-quickstart.md
           - name: Train and score a model
-            href: sql-database-quickstart-r-train-score-model.md
+            href: database/r-train-score-model-create-quickstart.md
         - name: Tutorials
           items:
           - name: Build a predictive model in R
             items:
             - name: 1 - Prepare the data
-              href: sql-database-tutorial-predictive-model-prepare-data.md
+              href: database/predictive-model-prepare-data-tutorial.md
             - name: 2 - Create the model
-              href: sql-database-tutorial-predictive-model-build-compare.md
+              href: database/predictive-model-build-compare-tutorial.md
             - name: 3 - Deploy the model
-              href: sql-database-tutorial-predictive-model-deploy.md
+              href: database/predictive-model-deploy-tutorial.md
           - name: Build a clustering model in R
             items:
             - name: 1 - Prepare the data
-              href: sql-database-tutorial-clustering-model-prepare-data.md
+              href: database/clustering-model-prepare-data-tutorial.md
             - name: 2 - Create the model
-              href: sql-database-tutorial-clustering-model-build.md
+              href: database/clustering-model-build-tutorial.md
             - name: 3 - Deploy the model
-              href: sql-database-tutorial-clustering-model-deploy.md
+              href: database/clustering-model-deploy-tutorial.md
         - name: How to
           items:
             - name: Write advanced R functions
-              href: sql-database-machine-learning-services-functions.md
+              href: database/machine-learning-services-functions.md
             - name: Work with R and SQL data
-              href: sql-database-machine-learning-services-data-issues.md
+              href: database/machine-learning-services-data-issues.md
             - name: Add R packages
-              href: sql-database-machine-learning-services-add-r-packages.md
+              href: database/machine-learning-services-add-r-packages.md
 
 
   - name: How to
     items:
     - name: Overview
-      href: sql-database-howto-single-database.md
+      href: database/how-to-content-reference-guide.md
     - name: Migrate to a single/pooled database
-      href: sql-database-single-database-migrate.md
+      href: database/migrate-to-database-from-sql-server.md
     - name: Manage SQL database after migration
-      href: sql-database-manage-after-migration.md
+      href: database/manage-data-after-migrating-to-database.md
     - name: Configure replication
-      href: replication-to-sql-database.md
+      href: database/replication-to-sql-database.md
     - name: Configure threat detection
-      href: sql-database-threat-detection-configure.md
+      href: database/threat-detection-configure.md
     - name: Configure backup retention using Azure Blob storage
-      href: sql-database-long-term-backup-retention-configure.md
+      href: database/long-term-backup-retention-configure.md
     - name: Configure Elastic Database jobs
-      href: elastic-jobs-overview.md
+      href: database/elastic-jobs-overview.md
     - name: Configure dynamic data masking
-      href: sql-database-dynamic-data-masking-get-started-portal.md
+      href: database/dynamic-data-masking-configure-portal.md
     - name: Configure geo-replication - Portal
-      href: sql-database-geo-replication-portal.md
+      href: database/active-geo-replication-configure-portal.md
     - name: Configure security for geo-replicas
-      href: sql-database-geo-replication-security-config.md
-    - name: Try in-memory features
-      href: sql-database-in-memory-sample.md
+      href: database/active-geo-replication-security-configure.md
     - name: Enable automatic tuning
-      href: sql-database-automatic-tuning-enable.md
+      href: database/automatic-tuning-enable.md
     - name: Enable e-mail notifications for automatic tuning
-      href: sql-database-automatic-tuning-email-notifications.md
+      href: database/automatic-tuning-email-notifications-configure.md
     - name: Apply performance recommendations
-      href: sql-database-advisor-portal.md
+      href: database/database-advisor-find-recommendations-portal.md
     - name: Create alerts
-      href: sql-database-insights-alerts-portal.md
+      href: database/alerts-insights-configure-portal.md
     - name: Manage file space
-      href: sql-database-file-space-management.md
+      href: database/file-space-manage.md
     - name: Use Resource Health for connectivity issues
-      href: sql-database-resource-health.md
+      href: database/resource-health-to-troubleshoot-connectivity.md
     - name: Database sharding
       items:
       - name: Upgrade elastic database client library
-        href: sql-database-elastic-scale-upgrade-client-library.md
+        href: database/elastic-scale-upgrade-client-library.md
       - name: Create sharded app
-        href: sql-database-elastic-scale-get-started.md
+        href: database/elastic-scale-get-started.md
       - name: Query horizontally-sharded data
-        href: sql-database-elastic-query-getting-started.md
+        href: database/elastic-query-getting-started.md
       - name: Multi-shard queries
-        href: sql-database-elastic-scale-multishard-querying.md
+        href: database/elastic-scale-multishard-querying".md
       - name: Move sharded data
-        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+        href: database/elastic-scale-configure-deploy-split-and-merge.md
       - name: Security configuration
-        href: sql-database-elastic-scale-split-merge-security-configuration.md
+        href: database/elastic-scale-split-merge-security-configuration.md
       - name: Add a shard
-        href: sql-database-elastic-scale-add-a-shard.md
+        href: database/elastic-convert-to-use-elastic-tools.md
       - name: Fix shard map problems
-        href: sql-database-elastic-database-recovery-manager.md
+        href: database/elastic-database-recovery-manager.md
       - name: Migrate sharded database
-        href: sql-database-elastic-convert-to-use-elastic-tools.md
+        href: database/elastic-convert-to-use-elastic-tools.md
       - name: Create counters
-        href: sql-database-elastic-database-perf-counters.md
+        href: database/elastic-database-perf-counters.md
       - name: Use entity framework
-        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+        href: database/elastic-scale-use-entity-framework-applications-visual-studio.md
       - name: Use Dapper framework
-        href: sql-database-elastic-scale-working-with-dapper.md
+        href: database/elastic-scale-working-with-dapper.md
     - name: Query distributed data
       items:
       - name: Query vertically partitioned data
-        href: sql-database-elastic-query-getting-started-vertical.md
+        href: database/elastic-query-getting-started-vertical.md
       - name: Report across scaled-out data tier
-        href: sql-database-elastic-query-horizontal-partitioning.md
+        href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
-        href: sql-database-elastic-query-vertical-partitioning.md
+        href: database/elastic-query-vertical-partitioning.md
     - name: Elastic jobs
       items:
       - name: Create and manage (PowerShell)
-        href: elastic-jobs-powershell.md
+        href: database/elastic-jobs-powershell-create.md
       - name: Create and manage (T-SQL)
         href: database/elastic-jobs-tsql-create-manage.md
       - name: Migrate (from old Elastic jobs)
@@ -690,11 +692,11 @@
   - name: Samples
     items:
     - name: Azure CLI
-      href: sql-database-cli-samples.md?tabs=single-database
+      href: database/az-cli-script-samples-content-guides.md?tabs=single-database
     - name: Azure PowerShell
-      href: sql-database-powershell-samples.md?tabs=single-database
+      href: database/powershell-script-content-guide?tabs=single-database
     - name: Azure Resource Manager
-      href: sql-database-resource-manager-samples.md?tabs=single-database
+      href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -703,70 +705,70 @@
   - name: Overview
     items:
     - name: Overview
-      href: sql-database-managed-instance.md
+      href: managed-instance/sql-managed-instance-paas-overview.md
     - name: Instance pools
-      href: sql-database-instance-pools.md
+      href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
       displayName: faq
-      href: sql-database-managed-instance-faq.md
+      href: managed-instance/frequently-asked-questions-faq.md
   - name: Quickstarts
     items:
     - name: Create
       items:
       - name: Using Azure portal
-        href: sql-database-managed-instance-get-started.md
+        href: managed-instance/instance-create-quickstart.md
       - name: Using PowerShell
-        href: scripts/sql-database-create-configure-managed-instance-powershell.md
+        href: managed-instance/scripts/create-configure-managed-instance-powershell.md
       - name: Create instance pools
-        href: sql-database-instance-pools-how-to.md
+        href: managed-instance/instance-pools-configure.md
     - name: Configure
       items:
       - name: Service-aided subnet configuration
-        href: sql-database-managed-instance-enabling-service-aided-subnet-configuration.md
+        href: managed-instance/subnet-service-aided-configuration-enable.md
       - name: Public endpoint
-        href: sql-database-managed-instance-public-endpoint-configure.md
+        href: managed-instance/public-endpoint-configure.md
       - name: Client VM connection
-        href: sql-database-managed-instance-configure-vm.md
+        href: managed-instance/connect-vm-instance-configure
       - name: Point-to-site connection
-        href: sql-database-managed-instance-configure-p2s.md
+        href: managed-instance/point-to-site-p2s-configure.md
       - name: Long-term backup retention
-        href: sql-database-managed-instance-long-term-backup-retention-configure.md
+        href: managed-instance/long-term-backup-retention-configur.md
     - name: Load data
       items:
-      - name: Restore database backup
-        href: sql-database-managed-instance-get-started-restore.md
+      - name: Restore sample database
+        href: managed-instance/restore-sample-database-quickstart.md
 
   - name: Tutorials
     items:
     - name: Migrate using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
     - name: Configure security
-      href: sql-database-managed-instance-aad-security-tutorial.md
+      href: managed-instance/aad-security-configure-tutorial.md
     - name: Add managed instance to a failover group
-      href: sql-database-managed-instance-failover-group-tutorial.md
+      href: managed-instance/failover-group-add-instance-tutorial.md
     - name: Migrate on-premises users and groups
-      href: tutorial-managed-instance-azure-active-directory-migration.md
+      href: managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md
     - name: Transactional replication
       items:
       - name: MI pub to MI sub
-        href: replication-with-sql-database-managed-instance.md
+        href: managed-instance/replication-between-two-instances-configure-tutorial.md
       - name: MI pub, MI dist, SQL sub
-        href: sql-database-managed-instance-configure-replication-tutorial.md
+        href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
 
   - name: Concepts
     items:
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
     - name: Management API reference
-      href: sql-database-managed-instance-create-manage.md
+      href: managed-instance/api-references-create-manage-instance.md
     - name: Resource limits
-      href: sql-database-managed-instance-resource-limits.md
+      href: managed-instance/resource-limits.md
     - name: Connectivity architecture
-      href: sql-database-managed-instance-connectivity-architecture.md
+      href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
-      href: sql-database-managed-instance-transact-sql-information.md
+      href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Security baseline
-      href: security-baseline.md
+      href: database/security-baseline.md
     - name: Features
       items:
       - name: Linked servers
@@ -778,55 +780,55 @@
     - name: Security
       items: 
       - name: Secure public endpoints
-        href: sql-database-managed-instance-public-endpoint-securely.md
+        href: managed-instance/public-endpoint-overview.md
       - name: Managed instance auditing
-        href: sql-database-managed-instance-auditing.md
+        href: managed-instance/auditing-configure.md
 
   - name: How to
     items:
     - name: Overview
-      href: sql-database-howto-managed-instance.md
+      href: managed-instance/how-to-content-reference-guide.md
     - name: Migrate to Managed instance
-      href: sql-database-managed-instance-migrate.md
+      href: managed-instance/migrate-to-instance-from-sql-serve.md
     - name: Customize time zone
-      href: sql-database-managed-instance-timezone.md
+      href: managed-instance/timezones-overview.md
     - name: Configure connection types
-      href: sql-database-managed-instance-connection-type.md
+      href: managed-instance/connection-types-overview.md
     - name: Migrate TDE cert to Managed instance
-      href: sql-database-managed-instance-migrate-tde-certificate.md
+      href: managed-instance/tde-certificate-migrate.md
     - name: Restore to a point in time
-      href: sql-database-managed-instance-point-in-time-restore.md
+      href: managed-instance/point-in-time-restore.md
     - name: Determine size of managed instance subnet
-      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+      href: managed-instance/vnet-subnet-determine-size.md
     - name: Create new VNet and subnet for managed instance
-      href: sql-database-managed-instance-create-vnet-subnet.md
+      href: managed-instance/virtual-network-subnet-create-arm-template.md
     - name: Configure existing VNet and subnet for managed instance
-      href: sql-database-managed-instance-configure-vnet-subnet.md
+      href: managed-instance/vnet-existing-add-subnet.md
     - name: Delete subnet after deleting managed instance
-      href: sql-database-managed-instance-delete-virtual-cluster.md
+      href: managed-instance/virtual-cluster-delete.md
     - name: Configure custom DNS
-      href: sql-database-managed-instance-custom-dns.md
+      href: managed-instance/custom-dns-configure.md
     - name: Sync network configuration
-      href: sql-database-managed-instance-sync-network-configuration.md
+      href: managed-instance/azure-app-sync-network-configuration.md
     - name: Find management endpoint IP address
-      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+      href: managed-instance/management-endpoint-find-ip-address.md
     - name: Verify built-in firewall protection
-      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
+      href: managed-instance/management-endpoint-verify-built-in-firewall.md
     - name: Configure threat detection
-      href: sql-database-managed-instance-threat-detection-configure.md
+      href: managed-instance/threat-detection-configure.md
     - name: Connect applications
-      href: sql-database-managed-instance-connect-app.md
+      href: managed-instance/connect-application-instance.md
     - name: Create alerts
-      href: sql-database-managed-instance-alerts.md
+      href: managed-instance/alerts-create.md
       
   - name: Samples
     items:
     - name: Azure CLI
-      href: sql-database-cli-samples.md?tabs=managed-instance
+      href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
     - name: Azure PowerShell
-      href: sql-database-powershell-samples.md?tabs=managed-instance
+      href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
-      href: sql-database-resource-manager-samples.md?tabs=managed-instance
+      href: database/arm-templates-content-guide.md?tabs=managed-instance
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
