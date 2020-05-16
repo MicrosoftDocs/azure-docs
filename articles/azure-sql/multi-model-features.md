@@ -73,7 +73,7 @@ The Azure SQL family of services let you work with JSON data easily and integrat
 
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql), [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql), and [ISJSON](/sql/t-sql/functions/isjson-transact-sql). The [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server) clause that lets you format data stored in your relational tables as JSON text.
 
-For more information, see [How to work with JSON data](json-features.md).
+For more information, see [How to work with JSON data](database/json-features.md).
 [JSON](/sql/relational-databases/json/json-data-sql-server) is a core SQL Server database engine feature.
 
 ### When to use a JSON capability
