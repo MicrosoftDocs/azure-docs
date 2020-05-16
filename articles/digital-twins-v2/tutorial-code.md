@@ -97,7 +97,7 @@ namespace DigitalTwinsCodeTutorial
 First, add some `using` lines at the top of the code to pull in necessary dependencies.
 
 ```csharp
-using Azure.Iot.DigitalTwins;
+using Azure.DigitalTwins.Core;
 using Azure.Identity;
 ```
 
@@ -190,7 +190,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.Iot.DigitalTwins.Models;
+using Azure.DigitalTwins.Core.Models;
 ```
 
 Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
@@ -328,22 +328,24 @@ Next, you can create **relationships** between the twins you've created, to conn
 
 To be able to create relationships, add a `using` statement for the edge (relationship) base types in the SDK:
 ```csharp
-using Azure.Iot.DigitalTwins.Edges;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Next, add a new static method to the `Program` class, underneath the `Main` method:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
-    var edge = new BasicEdge
+    var relationship = new BasicRelationship
     {
         TargetId = targetId,
+        Name = "contains"
     };
 
     try
     {
-        string edgeId = $"{srcId}-contains->{targetId}";
-        await client.CreateEdgeAsync(srcId, "contains", edgeId, JsonSerializer.Serialize(edge));
+        string relId = $"{srcId}-contains->{targetId}";
+        await client.CreateEdgeAsync(srcId, relId, 
+                                     JsonSerializer.Serialize(relationship));
         Console.WriteLine("Created relationship successfully");
     }
     catch (RequestFailedException rex) {
@@ -373,12 +375,12 @@ Add the following new method to the `Program` class:
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
 {
     try {
-        AsyncPageable<string> results = client.GetEdgesAsync(srcId);
+        AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
         Console.WriteLine($"Twin {srcId} is connected to:");
         await foreach (string rel in results)
         {
-            var edge = JsonSerializer.Deserialize<BasicEdge>(rel);
-            Console.WriteLine($" -{edge.Relationship}->{edge.TargetId}");
+            var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
+            Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
         }
     } catch (RequestFailedException rex) {
         Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
@@ -423,14 +425,14 @@ At this point in the tutorial, you have a complete client app, capable of perfor
 
 ```csharp
 using System;
-using Azure.Iot.DigitalTwins;
+using Azure.DigitalTwins.Core;
 using Azure.Identity;
 using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.Iot.DigitalTwins.Models;
-using Azure.Iot.DigitalTwins.Edges;
+using Azure.DigitalTwins.Core.Models;
+using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
 namespace minimal
@@ -507,31 +509,33 @@ namespace minimal
 
         public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
         {
-            var edge = new BasicEdge
+            var relationship = new BasicRelationship
             {
                 TargetId = targetId,
+                Name = "contains"
             };
-
+        
             try
             {
-                string edgeId = $"{srcId}-contains->{targetId}";
-                await client.CreateEdgeAsync(srcId, "contains", edgeId, JsonSerializer.Serialize(edge));
+                string relId = $"{srcId}-contains->{targetId}";
+                await client.CreateEdgeAsync(srcId, relId, 
+                                             JsonSerializer.Serialize(relationship));
                 Console.WriteLine("Created relationship successfully");
             }
             catch (RequestFailedException rex) {
                 Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
             }
         }
-
+        
         public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
         {
             try {
-                AsyncPageable<string> results = client.GetEdgesAsync(srcId);
+                AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
                 Console.WriteLine($"Twin {srcId} is connected to:");
                 await foreach (string rel in results)
                 {
-                    var edge = JsonSerializer.Deserialize<BasicEdge>(rel);
-                    Console.WriteLine($" -{edge.Relationship}->{edge.TargetId}");
+                    var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
+                    Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
                 }
             } catch (RequestFailedException rex) {
                 Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
