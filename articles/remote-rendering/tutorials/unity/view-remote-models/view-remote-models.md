@@ -13,17 +13,17 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Provision an Azure Remote Rendering instance.
-> * Create and stop a rendering session.
-> * Reuse an existing rendering session.
-> * Connect and disconnect from sessions.
-> * Load models into a rendering session.
+> * Provision an Azure Remote Rendering instance
+> * Create and stop a rendering session
+> * Reuse an existing rendering session
+> * Connect and disconnect from sessions
+> * Load models into a rendering session
 
 ## Prerequisites
 
 For this tutorial you need:
 
-* An Azure account.
+* Your Azure account information (account ID, access key, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md#create-an-account).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
@@ -34,9 +34,9 @@ For this tutorial you need:
 
 ## Provision an Azure Remote Rendering instance
 
-To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account).
+To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account). 
 
-You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial [Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
+Alternatively, you can complete the "Link storage accounts" section which is required for another tutorial: [Commercial Ready: Model Library](../commercial-ready/commercial-ready.md#model-library).
 
 ## Create a new Unity project
 
@@ -44,7 +44,7 @@ You're required to complete the "Create an account" section for this tutorial, o
 > The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
 
 From the Unity Hub, create a new project.
-In this example, we'll assume the project is being created in a folder called `RemoteRendering`.
+In this example, we'll assume the project is being created in a folder called **RemoteRendering**.
 
 :::image type="content" source="./media/unity-new-project.PNG" alt-text="New Unity Project":::
 
@@ -62,33 +62,31 @@ You need to modify the file `Packages/manifest.json` that is located in your Uni
     }
     ],
     "dependencies": {
-    "com.microsoft.azure.remote-rendering": "0.1.22",
-    "com.unity.render-pipelines.universal": "7.3.1",
-    ...existing dependencies...
+        "com.unity.render-pipelines.universal": "7.3.1",
+        "com.microsoft.azure.remote-rendering": "0.1.30",
+        ...existing dependencies...
     }
 }
 ```
 
-The Universal render pipeline package is optional but recommended for performance reasons.
-After you modified and saved the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
+After you modify and save the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
 
 :::image type="content" source="./media/confirm-packages.png" alt-text="confirm package imports":::
 
-Check your Unity console for any errors if your packages aren't loading. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
+If your packages aren't loading, check your Unity console for errors. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
 ![Unity camera properties](./media/unity-package-visibility.png)
 
 ## Ensure you have the latest version of the package
 
 The following steps ensure that your project is using the latest version of the remote-rendering package.
 
-1. Select the package in the Project window and click on the package icon:
-![Selecting the package icon](./media/package-icons.png)
-1. In the Inspector, click "View in Package Manager":
-![package inspector](./media/package-properties.png)
-1. In the package manager page for remote rendering package, see if the update button is available. If it is, then clicking it will update the package to the latest available version:
+1. In the Unity Editor's top menu, open *Window->Package Manager*.
+1. Select the package **Microsoft Azure Remote Rendering**.
+1. On the package manager page for the **Microsoft Azure Remote Rendering** package, see if the **Update** button is available. If it is, click it to update the package to the latest available version:
 ![The ARR package in the package manager](./media/package-manager.png)
-1. Sometimes updating the package may lead to errors in the console. If this occurs, try closing and reopening the project.
-
+1. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
+1. When the package is up to date, the Package Manager will show **Up to date** instead of an Update button.
+![Up to date package](./media/package-up-to-date.png)
 ## Configure the camera
 
 Select the **Main Camera** node.
@@ -99,80 +97,88 @@ Select the **Main Camera** node.
 
 1. Set **Clear flags** to *Solid Color*
 
-1. Set **Background** to *Black*
+1. Set **Background** to *Black* (#000000), with full (255) alpha.
 
-1. Set the **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
+1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
     ![Unity camera properties](./media/camera-properties.png)
 
 ## Adjust the project settings
 
 1. Open *Edit > Project Settings...*
-1. In the list on the left select **Quality**.
+1. Select **Quality** from the left list menu
 1. Change the **Default Quality Level** to *Low*
 
     ![change project quality settings](./media/settings-quality.png)
 
 1. Select **Graphics** from the left list menu
-1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal render pipeline is not used.
+1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal Render Pipeline is not used.
 
     ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)\
-    Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
+    Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 
     * > [!NOTE]
-    If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field, ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
 
-1. Select **Player** from the left list menu.
-1. Select the **Universal Windows Platform settings** tab
-1. Change the **XR Settings** to support Windows Mixed Reality:
+1. Select **Player** from the left list menu
+1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
+1. Change the **XR Settings** to support Windows Mixed Reality as shown below:
+    1. Enable **Virtual Reality Supported**
+    1. Press the '+' button and add **Windows Mixed Reality**
+    1. Set **Depth Format** to *16-Bit Depth*
+    1. Ensure **Depth Buffer Sharing** is enabled
+    1. Set **Stereo Rendering Mode** to *Single Pass Instanced*
 
     ![player settings](./media/xr-player-settings.png)
 
-1. Select the settings as in the screenshot above:
-    1. Enable **Virtual Reality Supported**
-    1. Set **Depth Format** to *16-Bit Depth*
-    1. Enable **Depth Buffer Sharing**
-    1. Set **Stereo Rendering Mode** to *Single Pass Instanced*
-
-1. In the same window, above *XR Settings*, expand **Publishing Settings**
+1. In the same window, above **XR Settings**, expand **Publishing Settings**
 1. Scroll down to **Capabilities** and select:
     * **InternetClient**
     * **InternetClientServer**
     * **SpatialPerception**
-    * Optional for development: **PrivateNetworkClientServer**
+    * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
 
-      This option is needed if you want to connect the Unity remote debugger to your device.
+1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
 
-1. In **Supported Device Families**, enable **Holographic** and **Desktop**
+ > [!NOTE] 
+ > Later in this tutorial, we will use the Mixed Reality Toolkit. See the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview) for more information on recommended settings and capabilities.
 
-1. Later in this tutorial we will use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
+1. Close or dock the **Project Settings** panel
+1. Open *File->Build Settings*
+1. Select **Universal Windows Platform**
+1. Configure your settings to match those found below
+1. Press the **Switch Platform** button.
+
+![build settings](./media/build-settings.png)
+
+6. After Unity changes platforms, close the build panel.
 
 ## Validate project setup
 
 Perform the following steps to validate that the project settings are correct.
 
-1. Choose the ValidateProject entry from the RemoteRendering menu in the Unity editor toolbar.
-1. Use the ValidateProject window to check for and fix project settings where necessary.
+1. Choose the **ValidateProject** entry from the **RemoteRendering** menu in the Unity editor toolbar.
+1. Review the **ValidateProject** window for errors and fix project settings where necessary.
 
     ![Unity editor project validation](./media/remote-render-unity-validation.png)
 
 ## Create a script to coordinate Azure Remote Rendering connection and state
 
-There are four basic stages to showing remotely rendered models, shown in the below graph. Each of these stages is required to be performed in order.
+There are four basic stages to show remotely rendered models, outlined in the flowchart below. Each stage must be performed in order.
 
 ![ARR stack 0](./media/remote-render-stack-0.png)
 
-1. Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder named *Scripts*.
+1. Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder called *Scripts*.
 
-1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) named **RemoteRenderingCoordinator**.
+1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) called **RemoteRenderingCoordinator**.
 Your project should look like this:
 
-![Project hierarchy](./media/project-structure.png)
+    ![Project hierarchy](./media/project-structure.png)
 
-This will be the coordinator script that tracks and manages the remote rendering state. Much of this code is not *directly* related to Azure Remote Rendering and is used for maintaining state, exposing functionality to other components, triggering events and storing application specific data. Start with the code below, then we'll discuss and implement the Azure Remote Rendering specific code.
+    This coordinator script will track and manage the remote rendering state. Of note, some of this code is used for maintaining state, exposing functionality to other components, triggering events, and storing application-specific data that is not *directly* related to Azure Remote Rendering. Use the code below as a starting point, and we'll address and implement the specific Azure Remote Rendering code later in the tutorial.
 
-2. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
+1. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -184,6 +190,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_WSA
 using UnityEngine.XR.WSA;
@@ -201,6 +208,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     {
         NotSet,
         NotInitialized,
+        NotAuthorized,
         NoSession,
         ConnectingToExistingRemoteSession,
         ConnectingToNewRemoteSession,
@@ -211,12 +219,11 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static RemoteRenderingCoordinator instance;
 
-    [Header("Account Credentials")]
-
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
     public string AccountDomain = "westus2.mixedreality.azure.com";
 
+    [Header("Development Account Credentials")]
     public string AccountId = "<enter your account id here>";
     public string AccountKey = "<enter your account key here>";
 
@@ -235,6 +242,33 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     // When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     public bool automaticMode = true;
+
+    public event Action RequestingAuthorization;
+    public UnityEvent OnRequestingAuthorization = new UnityEvent();
+
+    public event Action AuthorizedChanged;
+    public UnityEvent OnAuthorizationChanged = new UnityEvent();
+    private bool authorized;
+    public bool Authorized
+    {
+        get => authorized;
+        set
+        {
+            if(value == true) //This is a one-way value, once we're authorized it lasts until the app is shutdown.
+            {
+                authorized = value;
+                AuthorizedChanged?.Invoke();
+            }
+        }
+    }
+
+    public delegate Task<AzureFrontendAccountInfo> AccountInfoGetter();
+
+    public static AccountInfoGetter ARRCredentialGetter
+    {
+        private get;
+        set;
+    }
 
     private RemoteRenderingState currentCoordinatorState = RemoteRenderingState.NotSet;
     public RemoteRenderingState CurrentCoordinatorState
@@ -267,6 +301,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         }
     }
 
+    private async Task<AzureFrontendAccountInfo> GetDevelopmentCredentials()
+    {
+        Debug.LogWarning("Using development credentials! Not recommended for production.");
+        return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
+    }
+
     /// <summary>
     /// Keep the last used SessionID, when launching, connect to this session if its available
     /// </summary>
@@ -290,6 +330,13 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public void Awake()
     {
+        //Forward events to Unity events
+        RequestingAuthorization += () => OnRequestingAuthorization?.Invoke();
+        AuthorizedChanged += () => OnAuthorizationChanged?.Invoke();
+
+        //Attach to event
+        AuthorizedChanged += RemoteRenderingCoordinator_AuthorizedChanged;
+
         if (instance == null)
             instance = this;
         else
@@ -298,6 +345,16 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         CoordinatorStateChange += AutomaticMode;
 
         CurrentCoordinatorState = RemoteRenderingState.NotInitialized;
+    }
+
+    private void RemoteRenderingCoordinator_AuthorizedChanged()
+    {
+        if (CurrentCoordinatorState != RemoteRenderingState.NotAuthorized)
+            return; //This isn't valid from any other state than NotAuthorized
+
+
+        //We just became authorized to connect to Azure
+        InitializeSessionService();
     }
 
     /// <summary>
@@ -316,6 +373,9 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             case RemoteRenderingState.NotInitialized:
                 InitializeARR();
                 break;
+            case RemoteRenderingState.NotAuthorized:
+                RequestAuthorization();
+                break;
             case RemoteRenderingState.NoSession:
                 JoinRemoteSession();
                 break;
@@ -326,12 +386,35 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes ARR, associating the main camera and creating a new remote session manager
+    /// Initializes ARR, associating the main camera
     /// Note: This must be called on the main Unity thread
     /// </summary>
     public void InitializeARR()
     {
         //Implement me
+    }
+
+    /// <summary>
+    /// Create a new remote session manager
+    /// If the ARRCredentialGetter is set, use it as it, otherwise use the development credentials 
+    /// </summary>
+    public async void InitializeSessionService()
+    {
+        //Implement me
+    }
+
+    /// <summary>
+    /// Trigger the event for checking authorization, respond to this event by prompting the user for authentication
+    /// If authorized, set Authorized = true
+    /// </summary>
+    public void RequestAuthorization()
+    {
+        RequestingAuthorization?.Invoke();
+    }
+
+    public void BypassAuthorization()
+    {
+        Authorized = true;
     }
 
     /// <summary>
@@ -429,36 +512,51 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
 ## Create the Azure Remote Rendering GameObject
 
-The remote rendering coordinator and a script it requires (*ARRServiceUnity*) are both MonoBehaviours and are required to be attached to a GameObject in the scene.
+The remote rendering coordinator and its required script (*ARRServiceUnity*) are both MonoBehaviours that must be attached to a GameObject in the scene.
 
-1. Create a new GameObject in the scene and name it **RemoteRenderingCoordinator**.
+1. Create a new GameObject in the scene (Ctrl+Shift+N or *GameObject->Create Empty*) and name it **RemoteRenderingCoordinator**.
 1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
 ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
-1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject, this is a result of adding the attribute `[RequireComponent(typeof(ARRServiceUnity))]` to the top of the **RemoteRenderingCoordinator** script.
+1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject. This is a result of adding the attribute, `[RequireComponent(typeof(ARRServiceUnity))]`, to the top of the **RemoteRenderingCoordinator** script.
 1. Add your Azure Remote Rendering credentials to the coordinator script:\
 ![Add your credentials](./media/configure-coordinator-script.png)
 
 ## Initialize Azure Remote Rendering
 
-Now that we have the framework for our coordinator, we will implement each of the four stages, starting with **Initialize Remote Rendering**. In all cases except the **Initialize** stage, there is also an associated "undo" process that reverses that stage.
+Now that we have the framework for our coordinator, we will implement each of the four stages starting with **Initialize Remote Rendering**. 
 
 ![ARR stack 1](./media/remote-render-stack-1.png)
 
-**Initialize** will tell Azure Remote Rendering which camera object to use for rendering, which account credentials to use when managing remote sessions and listen for state change events. **Initialize** will also progress our state machine into `NoSession`, meaning we're initialized but not connected to a session. We'll do all this in the `InitializeARR()` method by completing it as follows:
+**Initialize** tells Azure Remote Rendering which camera object to use for rendering and progresses the state machine into **NotAuthorized**. This means it's initialized but not yet authorized to connect to a session. Since starting an ARR session incurs a cost, we need to confirm the user wants to proceed.
 
-> [!CAUTION]
-> Modifying the script and saving it while the play mode is active in Unity may result in Unity freezing and you are forced to shut it down through the task manager. Therefore, always stop the play mode before editing the RemoteRendering script.
+When entering the **NotAuthorized** state, **CheckAuthorization** is called, which invokes the **RequestingAuthorization** event and determines which account credentials to use (**AccountInfo** is defined near the top of the class and uses the credentials you defined via the Unity Inspector in the step above). When managing remote sessions, listen for state change events.
 
-```csharp
+1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
+
+ ```csharp
 /// <summary>
-/// Initializes ARR, associating the main camera and creating a new remote session manager
+/// Initializes ARR, associating the main camera
 /// Note: This must be called on the main Unity thread
 /// </summary>
 public void InitializeARR()
 {
     RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit(Camera.main));
 
-    ARRSessionService.Initialize(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
+    CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
+}
+
+/// <summary>
+/// Create a new remote session manager
+/// If the ARRCredentialGetter is set, use it as it, otherwise use the development credentials 
+/// </summary>
+public async void InitializeSessionService()
+{
+    if (ARRCredentialGetter == null)
+        ARRCredentialGetter = GetDevelopmentCredentials;
+
+    var accountInfo = await ARRCredentialGetter.Invoke();
+
+    ARRSessionService.Initialize(accountInfo);
 
     ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
 
@@ -466,19 +564,36 @@ public void InitializeARR()
 }
 ```
 
+   > [!CAUTION]
+   > Always stop the play mode in Unity before editing the RemoteRendering script. Modifying the script and saving it while the play mode is active may result in Unity freezing and needing to force shut down through the task manager.
+
+In order to progress from **NotAuthorized** to **NoSession**, we'd typically present a modal to the user so they can choose (and we'll do just that in another chapter). For now, we'll automatically bypass the authorization check by calling **ByPassAuthentication** as soon as the **RequestingAuthorization** event is triggered.
+
+1. Select the **RemoteRenderingCoordinator** GameObject and find the **OnRequestingAuthorization** Unity Event exposed in the Inspector of the **RemoteRenderingCoordinator** component.
+
+1. Add a new event by pressing the '+' in the lower right.
+
+1. Target the **RemoteRenderingCoordinator** GameObject and the **RemoteRenderingCoordinator** script, calling the **BypassAuthorization** method.
+
+![Bypass Authentication](./media/bypass-authorization-add-event.png)
+![Bypass Authentication](./media/bypass-authorization-event.png)
+
 ## Create or join a remote session
 
-The second stage is to Create or Join a Remote Rendering Session (see [Remote Rendering Sessions](../../../concepts/sessions.md) for more details).
+The second stage is to Create or Join a Remote Rendering Session (see [Remote Rendering Sessions](../../../concepts/sessions.md) for more information).
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
-The remote session is where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property, or if we've assigned an active session ID to `sessionIDOverride`).
+The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **sessionIDOverride**. **sessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
 
-If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
+If no sessions are available, a new session will be created. Creating a new session is, however, a time-consuming operation. Therefore, you should try to create sessions only when required and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more information on managing sessions).
 
-Our state machine will now progress to either `ConnectingToNewRemoteSession` or `ConnectingToExistingRemoteSession` depending on available sessions. Both opening an existing session or creating a new session will trigger the `ARRSessionService.OnSessionStatusChanged` event, executing our `OnRemoteSessionStatusChanged` method. Ideally, this will result in advancing the state machine to `RemoteSessionReady`.
+> [!TIP]
+> **StopRemoteSession()** will end the active session. To prevent unnecessary charges, you should always stop sessions when they are no longer needed.
 
-To join a new session, modify the code to replace the `JoinRemoteSession()` and `StopRemoteSession()` with the completed examples below:
+The state machine will now progress to either **ConnectingToNewRemoteSession** or **ConnectingToExistingRemoteSession**, depending on available sessions. Both opening an existing session or creating a new session will trigger the **ARRSessionService.OnSessionStatusChanged** event, executing our **OnRemoteSessionStatusChanged** method. Ideally, this will result in advancing the state machine to **RemoteSessionReady**.
+
+1. To join a new session, modify the code to replace the **JoinRemoteSession( )** and **StopRemoteSession( )** methods with the completed examples below:
 
 ```csharp
 /// <summary>
@@ -507,6 +622,8 @@ public async void JoinRemoteSession()
     {
         //The session should be ready or starting, if it's not, something went wrong
         await ARRSessionService.StopSession();
+        if(LastUsedSessionID == sessionIDOverride)
+            sessionIDOverride = "";
         CurrentCoordinatorState = RemoteRenderingState.NoSession;
     }
 }
@@ -520,20 +637,21 @@ public void StopRemoteSession()
 }
 ```
 
-If you want to reuse sessions, avoiding the time to create a new session, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server. On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, a somewhat lengthy process.
+If you want to save time by reusing sessions, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server. On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, which can be a somewhat lengthy process.
 
 > [!NOTE]
 > Stopping a session will take immediate effect and cannot be undone. Once stopped, you have to create a new session, with the same startup overhead.
 
 ## Connect the local runtime to the remote session
 
-Next the application needs to connect it's local runtime to the remote session.
+Next, the application needs to connect its local runtime to the remote session.
 
 ![ARR stack 3](./media/remote-render-stack-3.png)
 
-Additionally, the application needs to listen for events about the connection between the runtime and the current session, those state changes are handled in `OnLocalRuntimeStatusChanged`. This code will advance our state to `ConnectingToRuntime` and then, once connected, in `OnLocalRuntimeStatusChanged`, the state will be advanced to `RuntimeConnected`. `RuntimeConnected` is the last state the coordinator concerns itself with. It means the application is done with all the common configuration and ready to begin the session specific work of loading and rendering models.
+The application also needs to listen for events about the connection between the runtime and the current session; those state changes are handled in **OnLocalRuntimeStatusChanged**. This code will advance our state to **ConnectingToRuntime**. Once connected in **OnLocalRuntimeStatusChanged**, the state will advance to **RuntimeConnected**. **RuntimeConnected** is the last state the coordinator concerns itself with, which means the application is done with all the common configuration and is ready to begin the session-specific work of loading and rendering models.
 
- Replace the `ConnectRuntimeToRemoteSession()` and `DisconnectRuntimeFromRemoteSession()` methods with the completed versions below. Also add the Unity method `LateUpdate` and update the current active session. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session.
+ 1. Replace the **ConnectRuntimeToRemoteSession( )** and **DisconnectRuntimeFromRemoteSession( )** methods with the completed versions below.
+ 1. Also, notice the Unity method **LateUpdate** and that it's updating the current active session, if it exists. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session. It's critical to ARR functioning correctly.
 
 ```csharp
 /// <summary>
@@ -579,15 +697,17 @@ private void LateUpdate()
 ```
 
 > [!NOTE]
-> Connecting the local runtime to a remote session depends on `Update` being called on the currently active session. If you find your application is never progressing past the `ConnectingToRuntime` state, ensure you're regularly calling `Update` on the active session.
+> Connecting the local runtime to a remote session depends on **Update** being called on the currently active session. If you find your application is never progressing past the **ConnectingToRuntime** state, ensure you're calling **Update** regularly on the active session.
 
 ## Loading a model
 
-Finally, we have all the foundation required to load a model into the remote session and start receiving frames.
+With the required foundation in place, you are ready to load a model into the remote session and start receiving frames.
 
 ![ARR stack 4](./media/remote-render-stack-4.png)
 
-The `LoadModel` method is designed to accept a model path, progress handler and parent Transform. These arguments will be used to load a model into the remote session, update the user on the loading progress and orient the remotely rendered model based on the parent `Transform`. Replace the `LoadModel` method entirely with the code below:
+The **LoadModel** method is designed to accept a model path, progress handler, and parent transform. These arguments will be used to load a model into the remote session, update the user on the loading progress, and orient the remotely rendered model based on the parent transform.
+
+1. Replace the **LoadModel** method entirely with the code below:
 
 ```csharp
 /// <summary>
@@ -645,20 +765,20 @@ The code above is performing the following steps:
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
 1. Set a name and add a **WorldAnchor** to assist stabilization.
 1. Load model data from Blob Storage into the remote entity.
-1. Return the parent Entity
+1. Return the parent Entity, for later reference.
 
 ## View the test model
 
-We now have all the code required to view a remotely rendered model. 
+We now have all the code required to view a remotely rendered model.
 
-1. Add the following code to the **RemoteRenderingCoordinator** class:
+1. Add the following code to the **RemoteRenderingCoordinator** class, just below the **LoadModel** method is fine:
 
 ```csharp
 private bool loadingTestModel = false;
 [ContextMenu("Load Test Model")]
 public async void LoadTestModel()
 {
-    if(currentCoordinatorState != RemoteRenderingState.RuntimeConnected)
+    if(CurrentCoordinatorState != RemoteRenderingState.RuntimeConnected)
     {
         Debug.LogError("Please wait for the runtime to connect before loading the test model. Try again later.");
         return;
@@ -679,23 +799,25 @@ public async void LoadTestModel()
 }
 ```
 
-This code creates a GameObject to act as the parent to the test model, then calls the `LoadModel` method to load a model "builtin://Engine", which is an asset built into Azure Remote Rendering for the purpose of testing the rendering.
+This code creates a GameObject to act as the parent to the test model. Then it calls the **LoadModel** method to load the model "builtin://Engine", which is an asset built into Azure Remote Rendering for the purpose of testing the rendering.
 
-2. Press the Play button in the Unity Editor to start the process of connecting to Azure Remote Rendering and creating a new session.
-3. Select the **RemoteRenderingCoordinator** GameObject to see its attached scripts in the Inspector. Observe the **Service** component update as it progresses through its initialization and connection steps.
-4. Watch the Console output, waiting for the state to change to **RuntimeConnected**.
-5. Once the runtime is connected, right click on the **RemoteRenderingCoordinator** in the inspector to expose its context menu. Then click the **Load Test Model** option in the context menu added by the `[ContextMenu("Load Test Model")]` part of our code above.
+2. Save your code.
+3. Press the Play button in the Unity Editor to start the process of connecting to Azure Remote Rendering and creating a new session.
+4. You will not see much in the Game view, however, the Console will show the state of the application changing. It will likely progress to `ConnectingToNewRemoteSession`, and stay there, possibly for up to five minutes.
+3. Select the **RemoteRenderingCoordinator** GameObject to see its attached scripts in the inspector. Watch the **Service** component update as it progresses through its initialization and connection steps.
+4. Monitor the Console output - waiting for the state to change to **RuntimeConnected**.
+5. Once the runtime is connected, right-click on the **RemoteRenderingCoordinator** in the inspector to expose the context menu. Then, click the **Load Test Model** option in the context menu, added by the `[ContextMenu("Load Test Model")]` part of our code above.
 
 ![Load from context menu](./media/load-test-model.png)
 
-6. Observe the Console for the output of the `ProgressHandler` we passed into the `LoadModel` method.
-7. See your remotely rendered model!
+6. Watch the Console for the output of the **ProgressHandler** we passed into the **LoadModel** method.
+7. See the remotely rendered model!
 
 ## Next steps
 
 ![Model loaded](./media/test-model-rendered.png)
 
-Congratulations! You've created a basic application capable of viewing remotely rendered models. In the next tutorial, we will integrate MRTK and import our own models.
+Congratulations! You've created a basic application capable of viewing remotely rendered models using Azure Remote Rendering. In the next tutorial, we will integrate MRTK and import our own models.
 
 > [!div class="nextstepaction"]
-> [Next: Loading custom models](../custom-models/custom-models.md)
+> [Next: Interfaces and custom models](../custom-models/custom-models.md)

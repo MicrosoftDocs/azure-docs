@@ -1,6 +1,8 @@
+- name: Overview
+  href: unity/tutorial-landing.md
 - name: Viewing a remotely rendered model
   href: unity/view-remote-models/view-remote-models.md
-- name: Interfaces and loading custom models
+- name: Interfaces and custom models
   href: unity/custom-models/custom-models.md
 - name: Manipulating models
   href: unity/manipulate-models/manipulate-models.md
@@ -8,7 +10,5 @@
   href: unity/materials-lighting-effects/materials-lighting-effects.md
 - name: Securing Azure Remote Rendering and model storage
   href: unity/security/security.md
-- name: Managing your model library
-  href: unity/model-library/model-library.md
 - name: Creating a commercial ready Azure Remote Rendering application
   href: unity/commercial-ready/commercial-ready.md

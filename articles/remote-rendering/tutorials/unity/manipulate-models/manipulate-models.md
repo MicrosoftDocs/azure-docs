@@ -13,19 +13,20 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Add Mixed Reality Toolkit (MRTK) to the project.
-> * Add visual and manipulation bounds around remotely rendered models.
-> * Move, Rotate and Scale.
-> * Raycast with spatial queries.
-> * Simple animations for remotely rendered objects
+> * Add visual and manipulation bounds around remotely rendered models
+> * Move, rotate, and scale
+> * Raycast with spatial queries
+> * Add simple animations for remotely rendered objects
 
 ## Prerequisites
 
-* This tutorial builds on top of [Tutorial: Viewing a remotely rendered model](..\view-remote-models\view-remote-models.md).
+* This tutorial builds on [Tutorial: Interfaces and custom models](../custom-models/custom-models.md).
 
 ## Query remote object bounds and apply to local bounds
 
-To interact with remote objects, we need a local representation to interact with first. The [objects bounds](../../../concepts/object-bounds.md) are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session, using the entity object created when loading a remotely rendered model. The bounds are queried after the model has been loaded into the remote session. The bounds of a model are defined by the box or cuboid that contains the entire model. Exactly like Unity's [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html), which has a center and size defined for the x,y,z axes. In fact, we'll use Unity's **BoxCollider** to represent the bounds of the remote model.
+To interact with remote objects, we need a local representation to interact with first. The [objects bounds](../../../concepts/object-bounds.md) are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session using the entity object created when loading a remotely rendered model. The bounds are queried after the model has been loaded into the remote session.
+
+The bounds of a model are defined by the box that contains the entire model - just like Unity's [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html), which has a center and size defined for the x, y, z axes. In fact, we'll use Unity's **BoxCollider** to represent the bounds of the remote model.
 
 1. Create a new script in the same directory as **RemoteRenderedModel** and name it **RemoteBounds**.
 2. Replace the contents of the script with the following code:
@@ -101,11 +102,13 @@ public class RemoteBounds : BaseRemoteBounds
 }
 ```
 
-This script is intended to be added to the same GameObject as a script that implements the **BaseRemoteRenderedModel** script, in this case, that means the **RemoteRenderedModel**. Similar to previous scripts, this initial code will handle all the state changes, events, and data related to remote bounds. There are two methods left to implement, the `QueryBounds` method that fetches the bounds and `ProcessQueryResult`, which takes the result of the query and applies it to the local **BoxCollider**.
+This script should be added to the same GameObject as the script that implements  **BaseRemoteRenderedModel**. In this case, that means **RemoteRenderedModel**. Similar to previous scripts, this initial code will handle all the state changes, events, and data related to remote bounds.
 
-The `QueryBounds` method is straight forward: send a query to the remote rendering session and listen for the `Completed` event.
+There are two methods left to implement: **QueryBounds** and **ProcessQueryResult**. **QueryBounds** fetches the bounds, and **ProcessQueryResult** takes the result of the query and applies it to the local **BoxCollider**.
 
-3. Replace the `QueryBounds` method with the following completed method:
+The **QueryBounds** method is straightforward: send a query to the remote rendering session and listen for the `Completed` event.
+
+3. Replace the **QueryBounds** method with the following completed method:
 
 ```csharp
 // Create a query using the model entity
@@ -117,9 +120,9 @@ private void QueryBounds()
 }
 ```
 
-`ProcessQueryResult` is similarly straight forward, we'll check the result to see if it was successful and if so, convert and apply the returned bounds in a format that the **BoxCollider** can accept.
+**ProcessQueryResult** is also straightforward. We'll check the result to see if it was successful. If yes, convert and apply the returned bounds in a format that the **BoxCollider** can accept.
 
-4. Replace the `ProcessQueryResult` method with the following completed method:
+4. Replace the **ProcessQueryResult** method with the following completed method:
 
 ```csharp
 // Check the result and apply it to the local Unity bounding box if it was successful
@@ -140,39 +143,49 @@ private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
 }
 ```
 
-Now, adding the **RemoteBounds** script to the same game object as the **RemoteRenderedModel** will result in a **BoxCollider** also being added and when the model reaches its `Loaded` state, the bounds will automatically be queried and applied to the **BoxCollider**.
+Now, when the **RemoteBounds** script is added to the same game object as the **RemoteRenderedModel**, a **BoxCollider** will be added if needed and when the model reaches its `Loaded` state, the bounds will automatically be queried and applied to the **BoxCollider**.
 
-1. Using the **TestModel** GameObject created previously. Add the **RemoteBounds** component.
-1. Confirm the script is added and also added a **BoxCollider** component.\
+1. Using the **TestModel** GameObject created previously, add the **RemoteBounds** component.
+1. Confirm the script is added.
+
  ![Add RemoteBounds component](./media/remote-bounds-script.png)
-1. Run the application again. Shortly after the model loads, you will be able to see the bounds for the remote object. Something like the below values:\
+
+3. Run the application again. Shortly after the model loads, you'll see the bounds for the remote object. You'll see something like the below values:
+
  ![Bounds updated](./media/updated-bounds.png)
 
-Now we have a local **BoxCollider** configured with accurate bounds on the local Unity object. The bounds allow for visualization and interaction using any of the strategies we'd use to interact with a locally rendered object, that is, scripts that alter the Transform, physics, etc.
+Now we have a local **BoxCollider** configured with accurate bounds on the Unity object. The bounds allow for visualization and interaction using the same strategies we'd use for a locally rendered object. For example, scripts that alter the Transform, physics, and more.
 
 ## Move, rotate, and scale  
 
-Moving, rotating, and scaling remotely rendered objects is exactly like doing the same with any other Unity object. The **RemoteRenderingCoordinator**, in its `LateUpdate` method is calling `Update` on the currently active session. Part of what `Update` does is sync local model entity transforms with their remote counterparts. To move/rotate/scale a remotely rendered model, you only need move/rotate/scale the transform of the GameObject representing remote model. Here, we're going to modify the transform of the parent GameObject that has the **RemoteRenderedModel** script attached to it.
+Moving, rotating, and scaling remotely rendered objects works the same as any other Unity object. The **RemoteRenderingCoordinator**, in its `LateUpdate` method, is calling `Update` on the currently active session. Part of what `Update` does is sync local model entity transforms with their remote counterparts. To move, rotate, or scale a remotely rendered model, you only need to move, rotate, or scale the transform of the GameObject representing remote model. Here, we're going to modify the transform of the parent GameObject that has the **RemoteRenderedModel** script attached to it.
 
-This tutorial is using MRTK for object interaction. In the included [**Tutorial Assets**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) there is a view controller prefab and script for remotely rendered models called **RemoteModelViewController**. This view controller comes pre-configured inside of a prefab **ModelViewController**.
+This tutorial is using MRTK for object interaction. Most of the MRTK specific implementation for moving, rotating and scaling an object is outside the scope of this tutorial. There is a model view controller that comes pre-configured inside the **AppMenu**, in the **Model Tools** menu.
 
-1. Locate the **ModelViewController** prefab in *Assets/RemoteRenderingTutorial/Prefabs/ModelViewController*
 1. Ensure the **TestModel** GameObject created previously is in the scene.
-1. Drag the **ModelViewController** prefab into the scene, dropping it on top of the **TestModel** GameObject, making the new prefab a child of the **TestModel** GameObject.\
-![View controller child](./media/view-controller-child.png)
-1. **TODO** - Add instructions for "Import TMP Essentials".
-1. Press Unity's Play button to play the scene and see the view controller.
+1. Ensure the **AppMenu** prefab is in the scene.
+1. Press Unity's Play button to play the scene and open the **Model Tools** menu inside the **AppMenu**.
 ![View controller](./media/model-with-view-controller.png)
 
-This view controller script will show a UI with the model's name and controls specific to the model. The controls available will depend on the scripts attached to the target GameObject. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object that has a **BoxCollider**. Further, the **RemoteModelViewController** also adds [**ManipulationHandler**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_ManipulationHandler.html), which is responsible for hand interactions like dragging and two handed interactions like rotating and scaling. These scripts combined will allow us to move, rotate and scale the remotely rendered model.
+The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. The **RemoteModelViewController** also adds [**ManipulationHandler**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_ManipulationHandler.html), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
+
+1. Move your mouse to the Game panel and click inside it to give it focus.
+1. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.
+1. Steer the simulated hand so the hand ray is pointing to the test model.
+
+![Pointed hand ray](./media/handray-engine.png)
+
+4. Hold left click and drag the model to move it.
+
+You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box the remote content. This is delay will depend on your internet latency and bandwidth.  
 
 ## Ray cast and spatial queries of remote models
 
-A box collider around models is suitable for interacting with the entire model, but not detailed enough to interact with individual parts of a model. To solve this, we can use [remote ray casting](../../../overview/features/spatial-queries.md#ray-casts). Remote ray casting is an API provided by Azure Remote Rendering to cast rays into the remote scene, and return hit results locally. This technique can be used for selecting child entities of a large model and/or getting specific information about hit results like: position, surface normal, and distance.
+A box collider around models is suitable for interacting with the entire model, but not detailed enough to interact with individual parts of a model. To solve this, we can use [remote ray casting](../../../overview/features/spatial-queries.md#ray-casts). Remote ray casting is an API provided by Azure Remote Rendering to cast rays into the remote scene and return hit results locally. This technique can be used for selecting child entities of a large model or getting hit result information like position, surface normal, and distance.
 
 The test model has a number of sub-entities that can be queried and selected. For now, the selection will output the name of the selected Entity to the Unity Console. Check the [Materials, lighting and effects](../materials-lighting-effects/materials-lighting-effects.md#highlighting-and-outlining) chapter for highlighting the selected Entity.
 
-First let's create a static wrapper around the remote ray cast queries. This script will accept a position and direction in Unity space, convert it to the data types accepted by the remote ray cast, and finally return the results. The script will make use of the `RayCastQueryAsync` API.
+First, let's create a static wrapper around the remote ray cast queries. This script will accept a position and direction in Unity space, convert it to the data types accepted by the remote ray cast, and return the results. The script will make use of the `RayCastQueryAsync` API.
 
 1. Create a new script called **RemoteRayCaster** and replace its contents with the following code:
 
@@ -217,7 +230,9 @@ public class RemoteRayCaster
 > [!NOTE]
 > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
 
-2. **RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, next we'll implement an MRTK pointer handler. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events. Create a new script called **RemoteRayCastPointerHandler** and replace the code with the following code:
+**RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, we'll implement an MRTK pointer handler next. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK that we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events.
+
+2. Create a new script called **RemoteRayCastPointerHandler** and replace the code with the following code:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -235,11 +250,6 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
     public UnityRemoteEntityEvent OnRemoteEntityClicked = new UnityRemoteEntityEvent();
 
     public override event Action<Entity> RemoteEntityClicked;
-
-    public override void ClearClickedEvents()
-    {
-        RemoteEntityClicked = null;
-    }
 
     public void Awake()
     {
@@ -287,9 +297,11 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
 
 ![Bounds updated](./media/raycast-local-remote.png)
 
-Sending requests for ray casting on click is an efficient strategy for querying remote objects. However, it's not an ideal user experience, since the cursor is rendered colliding with the box collider and not the model itself. A more complex approach, but better user experience would be to create a new MRTK pointer that casts its rays in the remote session much more frequently. This more complex strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Sending requests for ray casting on click is an efficient strategy for querying remote objects. However, it's not an ideal user experience because the cursor collides with the box collider, not the model itself.
 
-When a successful ray cast is completed in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted from the `OnRemoteEntityClicked` Unity event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Starting simple, the script will print the name of the `Entity` to the debug log.
+You could also create a new MRTK pointer that casts its rays in the remote session more frequently. Although this is a more complex approach, the user experience would be better. This strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+
+When a successful ray cast is completed in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted from the `OnRemoteEntityClicked` Unity event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Let's start by getting the script to print the name of the `Entity` to the debug log.
 
 1. Create a new script named **RemoteEntityHelper** and replace its contents with the below:
 
@@ -319,16 +331,15 @@ public class RemoteEntityHelper : MonoBehaviour
     1. Assign the `EntityToDebugLog` as the callback\
     ![Assign callback](./media/remote-entity-event.png)
 1. Press play in the Unity Editor to start the scene, connect to a remote session and load the test model.
-1. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.
-1. Steer the simulated hand so the hand ray is pointing to the test model.\
-![Pointed hand ray](./media/handray-engine.png)
-1. Long click to perform a simulated air-tap, executing the `OnPointerClicked` event.
+1. Using MRTK's hand simulation press and hold the left Shift key.
+1. Steer the simulated hand so the hand ray is pointing to the test model.
+1. Long click to simulate an air-tap, executing the `OnPointerClicked` event.
 1. Observe the Unity Console for a log message with the name of the child entity selected. For example:\
 ![Child entity example](./media/child-entity-example.png)
 
 ## Synchronizing the remote object graph into the Unity hierarchy
 
-Up to this point, we've only seen a single local GameObject representing the entire model. This works well for rendering the entire model and manipulation for the entire model. However, if we want to apply effects or manipulate specific sub-entities of a remote model, we'll need to create additional local GameObjects to represent those entities. First, we can explore manually in the test model.
+Up to this point, we've only seen a single local GameObject representing the entire model. This works well for rendering the entire model and manipulation for the entire model. However, if we want to apply effects or manipulate specific sub-entities, we'll need to create local GameObjects to represent those entities. First, we can explore manually in the test model.
 
 1. Start the scene and load the test model.
 1. Expand the children of the **TestModel** GameObject in Unity's hierarchy and select the **TestModel_Entity** GameObject.
@@ -337,7 +348,7 @@ Up to this point, we've only seen a single local GameObject representing the ent
 1. Continue to expand children in the hierarchy and clicking *Show Children* until a large list of children is shown.\
 ![All children](./media/test-model-children.png)
 
-A list of dozens of entities will now populate the hierarchy. Selecting one of them will show the `Transform` and `RemoteEntitySyncObject` components in the Inspector. By default, each entity is not automatically synced every frame, so local changes to the `Transform` are not synced to the server. You can check *Sync Every Frame* and then move, scale, or rotate the child object in the Scene view to see it visually updated in the Game view.
+A list of dozens of entities will now populate the hierarchy. Selecting one of them will show the `Transform` and `RemoteEntitySyncObject` components in the Inspector. By default, each entity isn't automatically synced every frame, so local changes to the `Transform` aren't synced to the server. You can check *Sync Every Frame* and then move, scale, or rotate the child object in the Scene view to see it visually updated in the Game view.
 
 The same process, but more selective, can be done programmatically.
 
@@ -356,16 +367,17 @@ public void MakeSyncedGameObject(Entity entity)
 ![Additional callback](./media/additional-callback.png)
 1. Follow the same steps using hand simulation to execute the `OnPointerClicked` event.
 1. Check and expand the Hierarchy to see a new child object, representing the clicked entity.
-![GameObject representation](./media/gameobject-represent-entity.png)
+![GameObject representation](./media/gameobject-represent-entity.png)\
+1. After testing, remove the callback for `MakeSyncedGameObject`, since we'll incorporate this as part of other effects later.
 
 > [!NOTE]
-> Syncing every frame is only required when you need to sync the transform data. There is a small overhead to syncing transforms, so it should be used sparingly.
+> Syncing every frame is only required when you need to sync the transform data. There is some overhead to syncing transforms, so it should be used sparingly.
 
-Creating a local instance and making it automatically sync is the first step in manipulating sub-entities. The same techniques we've used to manipulate the model as a whole can be performed on the sub-entities as well. For example, after creating a synced local instance of an entity, you could query it's bounds and add manipulation handlers to allow it to be moved around by the user's hand rays.
+Creating a local instance and making it automatically sync is the first step in manipulating sub-entities. The same techniques we've used to manipulate the model as a whole can be used on the sub-entities as well. For example, after creating a synced local instance of an entity, you could query its bounds and add manipulation handlers to allow it to be moved around by the user's hand rays.
 
 ## Next steps
 
-You can now manipulate and interact with your remotely rendered models! In the next tutorial we'll cover modifying materials, altering the lighting and applying certain effects to remotely rendered models.
+You can now manipulate and interact with your remotely rendered models! In the next tutorial, we'll cover modifying materials, altering the lighting, and applying effects to remotely rendered models.
 
 > [!div class="nextstepaction"]
 > [Next: Refining materials, lighting, and effects](../materials-lighting-effects/materials-lighting-effects.md)
