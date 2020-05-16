@@ -867,7 +867,7 @@
 - name: Resources
   items:
   - name: Glossary of terms
-    href: sql-database-glossary-terms.md
+    href: glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: SQL Server Blog
@@ -877,7 +877,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Public data sets
-    href: sql-database-public-data-sets.md
+    href: public-data-sets.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-database/
   - name: MSDN forum
@@ -887,11 +887,11 @@
   - name: Troubleshoot
     items:
     - name: Connectivity issues
-      href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+      href: database/troubleshoot-common-errors-issues.md
     - name: Problem resolution
       items:
       - name: Import/Export service hangs
-        href: azure-sql-database-hangs-importing-exporting.md
+        href: database/database-import-export-hang.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
