@@ -13,7 +13,7 @@ ms.date: 11/07/2018
 ---
 # Use In-Memory OLTP to improve your application performance in Azure SQL Database and Azure SQL Managed Instance
 
-[In-Memory OLTP](in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](database/service-tiers-vcore.md) databases without increasing the pricing tier.
+[In-Memory OLTP](in-memory-oltp-overview.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](database/service-tiers-vcore.md) databases without increasing the pricing tier.
 
 > [!NOTE]
 > Learn how [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -157,7 +157,7 @@ Major attributes of the workload are:
 * Number of concurrent connections.
 * Read/write ratio.
 
-To tailor and run the test workload, consider using the handy `ostress.exe` tool, which illustrated in this [in-memory](in-memory.md) article.
+To tailor and run the test workload, consider using the handy `ostress.exe` tool, which illustrated in this [in-memory](in-memory-oltp-overview.md) article.
 
 To minimize network latency, run your test in the same Azure geographic region where the database exists.
 

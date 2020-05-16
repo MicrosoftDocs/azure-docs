@@ -52824,7 +52824,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-metrics-diag-logging.md",
-            "redirect_url": "/azure/azure-sql/database/metrics-diagnostic-telemtry-logging-streaming-export-configure",
+            "redirect_url": "/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure",
             "redirect_document_id": true
         },
         {

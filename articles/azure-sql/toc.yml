@@ -254,53 +254,53 @@
         - name: Use DMVs to monitor performance
           href: database/monitoring-with-dmvs.md
         - name: Hyperscale performance diagnostics
-          href: sql-database-hyperscale-performance-diagnostics.md
+          href: database/hyperscale-performance-diagnostics.md
         - name: Resource management in dense elastic pools
-          href: sql-database-elastic-pool-resource-management.md
+          href: database/elastic-pool-resource-management.md
         - name: Extended events
           items:
           - name: Extended events
-            href: sql-database-xevent-db-diff-from-svr.md
+            href: database/xevent-db-diff-from-svr.md
           - name: Extended events - event file
-            href: sql-database-xevent-code-event-file.md
+            href: database/xevent-code-event-file.md
           - name: Extended events - ring buffer
-            href: sql-database-xevent-code-ring-buffer.md
+            href: database/xevent-code-ring-buffer.md
 
     - name: Scalability
       items:
       - name: Scale Up/Down
-        href: sql-database-scale-resources.md
+        href: database/scale-resources.md
       - name: Read Scale-Out
-        href: sql-database-read-scale-out.md
+        href: database/read-scale-out.md
       - name: Database sharding
         items:
         - name: Database sharding
-          href: sql-database-elastic-scale-introduction.md
+          href: database/elastic-scale-introduction.md
         - name: Glossary
-          href: sql-database-elastic-scale-glossary.md
+          href: elastic-scale-glossary.md
         - name: Elastic client library
-          href: sql-database-elastic-database-client-library.md
+          href: database/elastic-database-client-library.md
         - name: Shard maps
-          href: sql-database-elastic-scale-shard-map-management.md
+          href: database/elastic-scale-shard-map-management.md
         - name: Query routing
-          href: sql-database-elastic-scale-data-dependent-routing.md
+          href: database/elastic-scale-manage-credential.md
         - name: Manage credentials
-          href: sql-database-elastic-scale-manage-credentials.md
+          href: database/elastic-scale-manage-credentials.md
         - name: Move sharded data
-          href: sql-database-elastic-scale-overview-split-and-merge.md
+          href: database/elastic-scale-overview-split-and-merge.md
         - name: Elastic tools FAQ
-          href: sql-database-elastic-scale-faq.md
+          href: database/elastic-scale-faq.md
       - name: Elastic queries
-        href: sql-database-elastic-query-overview.md
+        href: database/elastic-query-overview.md
       - name: Elastic transactions
-        href: sql-database-elastic-transactions-overview.md
+        href: database/elastic-transactions-overview.md
 
     - name: Database features
       items:
       - name: Multi-model capabilities
-        href: sql-database-multi-model-features.md
+        href: database/multi-model-features.md
       - name: In-memory
-        href: sql-database-in-memory.md
+        href: in-memory-oltp-overview.md
         items:
         - name: Configure In-Memory OLTP
           href: sql-database-in-memory-oltp-migration.md
