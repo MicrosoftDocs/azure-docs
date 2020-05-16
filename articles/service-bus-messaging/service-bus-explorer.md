@@ -52,8 +52,6 @@ If you are looking to perform operations against a Queue, pick **'Queues'** from
 
 After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic.
 
-![QueueSelected](./media/service-bus-explorer/queue-selected.png)
-
 Select the **'Service Bus Explorer (preview)'** from the left navigation menu
 
 ![SB Explorer Left nav menu](./media/service-bus-explorer/leftnavmenu-selected.png)
@@ -61,8 +59,6 @@ Select the **'Service Bus Explorer (preview)'** from the left navigation menu
 ### Sending a Message to a Queue or Topic
 
 To send a message to a **Queue** or a **Topic**, click on the ***Send*** tab on the Service Bus Explorer.
-
-![Send Tab](./media/service-bus-explorer/sendtab-selected.png) 
 
 To compose a message here - 
 
@@ -73,7 +69,7 @@ To compose a message here -
 
 Once the message has been composed, hit send.
 
-![Compose Message](./media/service-bus-explorer/send-compose-message.png)
+![Compose Message](./media/service-bus-explorer/send-experience.png)
 
 When the send operation is completed successfully, 
 
