@@ -42,7 +42,7 @@ This article provides a general workflow for moving resources to a different reg
 
 1. Create a target server for each source server.
 1. Configure the firewall with the right exceptions using [PowerShell](scripts/create-and-configure-database-powershell.md).  
-1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](geo-replication-security-configure.md).
+1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](active-geo-replication-security-configure.md).
 1. If your databases are encrypted with TDE and use your own encryption key in Azure key vault, ensure that the correct encryption material is provisioned in the target regions. For more information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md)
 1. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database level auditing will require the cross-region traffic, which will is not desired or possible after the move.
 1. For server-level audits, ensure that:
@@ -91,7 +91,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 1. Create a target server for each source server.
 1. Configure the firewall with the right exceptions using [PowerShell](scripts/create-and-configure-database-powershell.md).
-1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](geo-replication-security-configure.md).
+1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](active-geo-replication-security-configure.md).
 1. If your databases are encrypted with TDE and use your own encryption key in Azure key vault, ensure that the correct encryption material is provisioned in the target region.
 1. Create a target elastic pool for each source elastic pool, making sure the pool is created in the same service tier, with the same name and the same size.
 1. If a database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require cross-region traffic, which is not desired, or possible after the move.

@@ -52589,7 +52589,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-geo-replication-security-config.md",
-            "redirect_url": "/azure/azure-sql/database/geo-replication-security-configure",
+            "redirect_url": "/azure/azure-sql/database/active-geo-replication-security-configure",
             "redirect_document_id": true
         },
         {

@@ -50,7 +50,7 @@ Database-level IP firewall rules enable clients to access certain (secure) datab
 We recommend that you use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually.
 
 > [!NOTE]
-> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](geo-replication-security-configure.md).
+> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](active-geo-replication-security-configure.md).
 
 ## Server-level versus database-level IP firewall rules
 

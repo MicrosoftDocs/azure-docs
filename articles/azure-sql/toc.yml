@@ -1,17 +1,30 @@
 - name: Azure SQL Documentation
   href: index.yml
 
-- name: Overview
+- name: Azure SQL
   items: 
-  - name: Azure SQL 
-    href: what-is-azure-sql-iaas-vs-paas.md
+  - name: Overview
+    items: 
+    - name: Azure SQL 
+      href: what-is-azure-sql-iaas-vs-paas.md
+  - name: Concepts
+    items: 
+    - name: Accelerated database recovery
+      href: accelerated-database-recovery.md
+    - name: Azure Hybrid Benefit
+      href: azure-hybrid-benefit.md
+    - name: Intelligent insights into performance
+      href: intelligent-insights.md
+    - name: Use Intelligent Insights diagnostics log
+      href: intelligent-insights-use-diagnostics-log.md
+    - name: Troubleshoot performance with Intelligent Insights
+      href: intelligent-insights-troubleshoot-performance.md
+    - name: Identify query performance issues
+      href: identify-query-performance-issues.md
+    - name: Monitor In-memory OLTP space
+      href: in-memory-oltp-monitoring.md
 
-- name: Concepts
-  items: 
-  - name: Accelerated database recovery
-    href: accelerated-database-recovery.md
-  - name: Azure Hybrid Benefit
-    href: azure-hybrid-benefit.md
+
 
 - name: Common SQL DB & SQL MI docs 
   items:
@@ -195,59 +208,51 @@
           - name: Recovery using backups
             href: database/recovery-using-backups.md
           - name: Long-term backup retention
-            href: sql-database-long-term-retention.md
+            href: database/long-term-retention-overview.md
 
     - name: Failover groups and geo-replication
       items:
       - name: Active geo-replication
-        href: sql-database-active-geo-replication.md
+        href: database/active-geo-replication-overview.md
       - name: Auto-failover groups
-        href: sql-database-auto-failover-group.md
+        href: database/auto-failover-group-overview.md
       - name: Configure security for replicas
-        href: sql-database-geo-replication-security-config.md
+        href: database/active-geo-replication-security-configure.md
       - name: Outage recovery guidance
-        href: sql-database-disaster-recovery.md
+        href: database/disaster-recovery-guidance.md
       - name: Recovery drills
-        href: sql-database-disaster-recovery-drills.md
+        href: database/disaster-recovery-drills.md
       - name: Configure failover group
-        href: sql-database-configure-failover-group.md
+        href: database/auto-failover-group-configure.md
 
     - name: Monitor and tune
       items:
       - name: Monitor and tune documentation
         href: database/monitoring-tuning-index.yml
       - name: Monitoring and performance overview
-        href: sql-database-monitor-tune-overview.md
+        href: database/monitor-tune-overview.md
       - name: Database advisors and Query Performance Insight
         items:
         - name: Database advisor performance recommendations
-          href: sql-database-advisor.md
+          href: database/database-advisor-implement-performance-recommendations.md
         - name: Query Performance Insights
-          href: sql-database-query-performance.md
+          href: database/query-performance-insight.md
       - name: Automatic tuning
-        href: sql-database-automatic-tuning.md
+        href: database/automatic-tuning-overview.md
       - name: Intelligent Insights and SQL Analytics
         items:
-        - name: Intelligent insights into performance
-          href: sql-database-intelligent-insights.md
+
         - name: Diagnostic telemetry logging
-          href: sql-database-metrics-diag-logging.md
-        - name: Use Intelligent Insights diagnostics log
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
-        - name: Troubleshoot performance with Intelligent Insights
-          href: sql-database-intelligent-insights-troubleshoot-performance.md
+          href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+
         - name: SQL Analytics
           href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Manual monitoring and tuning
         items:
-        - name: Identify query performance issues
-          href: sql-database-identify-query-performance-issues.md
         - name: Application and database tuning guidance
-          href: sql-database-performance-guidance.md
+          href: database/performance-guidance.md
         - name: Use DMVs to monitor performance
-          href: sql-database-monitoring-with-dmvs.md
-        - name: Monitor In-memory OLTP space
-          href: sql-database-in-memory-oltp-monitoring.md
+          href: database/monitoring-with-dmvs.md
         - name: Hyperscale performance diagnostics
           href: sql-database-hyperscale-performance-diagnostics.md
         - name: Resource management in dense elastic pools

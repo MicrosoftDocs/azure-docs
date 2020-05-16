@@ -66,7 +66,7 @@ This diagnostic telemetry can be streamed to one of the following Azure resource
 
 This diagnostic telemetry streamed to one of these destinations can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
 
-![Architecture](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/architecture.png)
+![Architecture](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## Enable and configure the streaming export of diagnostic telemetry
 
@@ -98,7 +98,7 @@ You can set up an elastic pool resource to collect the following diagnostic tele
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Elastic pool** | [Basic metrics](metrics-diagnostic-telemtry-logging-streaming-export-configure.md#basic-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
+| **Elastic pool** | [Basic metrics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#basic-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
 
 To configure streaming of diagnostic telemetry for elastic pools and pooled databases, you need to separately configure each separately:
 
@@ -113,13 +113,13 @@ To enable streaming of diagnostic telemetry for an elastic pool resource, follow
 2. Select **Diagnostics settings**.
 3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 
-   ![Enable diagnostics for elastic pools](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
+   ![Enable diagnostics for elastic pools](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
 
 4. Enter a setting name for your own reference.
 5. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 6. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
 7. Select the check box for elastic pool diagnostic telemetry: **Basic** metrics.
-   ![Configure diagnostics for elastic pools](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
+   ![Configure diagnostics for elastic pools](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
 8. Select **Save**.
 9. In addition, configure streaming of diagnostic telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
@@ -133,7 +133,7 @@ You can set up a single or pooled database resource to collect the following dia
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Single or pooled database** | [Basic metrics](metrics-diagnostic-telemtry-logging-streaming-export-configure.md#basic-metrics) contains DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks. |
+| **Single or pooled database** | [Basic metrics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#basic-metrics) contains DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks. |
 
 To enable streaming of diagnostic telemetry for a single or a pooled database, follow these steps:
 
@@ -142,14 +142,14 @@ To enable streaming of diagnostic telemetry for a single or a pooled database, f
 3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting. You can create up to three parallel connections to stream diagnostic telemetry.
 4. Select **Add diagnostic setting** to configure parallel streaming of diagnostics data to multiple resources.
 
-   ![Enable diagnostics for single and pooled databases](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
+   ![Enable diagnostics for single and pooled databases](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
 
 5. Enter a setting name for your own reference.
 6. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 7. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, and **Deadlocks**.
 8. For an advanced, one-minute-based monitoring experience, select the check box for **Basic** metrics.
 
-   ![Configure diagnostics for single, pooled, or instance databases](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
+   ![Configure diagnostics for single, pooled, or instance databases](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
 9. Select **Save**.
 10. Repeat these steps for each database you want to monitor.
 
@@ -177,14 +177,14 @@ To enable streaming of diagnostic telemetry for a managed instance resource, fol
 2. Select **Diagnostics settings**.
 3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 
-   ![Enable diagnostics for managed instance](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
+   ![Enable diagnostics for managed instance](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
 
 4. Enter a setting name for your own reference.
 5. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 6. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or use an existing workspace.
 7. Select the check box for instance diagnostic telemetry: **ResourceUsageStats**.
 
-   ![Configure diagnostics for managed instance](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
+   ![Configure diagnostics for managed instance](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
 
 8. Select **Save**.
 9. In addition, configure streaming of diagnostic telemetry for each instance database within the managed instance you want to monitor by following the steps described in the next section.
@@ -208,12 +208,12 @@ To enable streaming of diagnostic telemetry for an instance database, follow the
    - You can create up to three (3) parallel connections to stream diagnostic telemetry.
    - Select **+Add diagnostic setting** to configure parallel streaming of diagnostics data to multiple resources.
 
-   ![Enable diagnostics for instance databases](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
+   ![Enable diagnostics for instance databases](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
 
 4. Enter a setting name for your own reference.
 5. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
 6. Select the check boxes for database diagnostic telemetry: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, and **Errors**.
-   ![Configure diagnostics for instance databases](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
+   ![Configure diagnostics for instance databases](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
 7. Select **Save**.
 8. Repeat these steps for each instance database you want to monitor.
 
@@ -319,7 +319,7 @@ You can combine these parameters to enable multiple output options.
 
 Azure SQL Database and Azure SQL Managed Instance metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize performance metrics, and it has built-in intelligence for performance troubleshooting.
 
-![Azure SQL Analytics Overview](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/azure-sql-sol-overview.png)
+![Azure SQL Analytics Overview](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/azure-sql-sol-overview.png)
 
 ### Installation overview
 
@@ -329,25 +329,25 @@ You can monitor a collection of databases and database collections with Azure SQ
 2. Create a Log Analytics workspace in the solution.
 3. Configure databases to stream diagnostic telemetry into the workspace.
 
-You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via [PowerShell cmdlets](metrics-diagnostic-telemtry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure CLI](metrics-diagnostic-telemtry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), or [Resource Manager templates](../../azure-monitor/platform/diagnostic-settings-template.md).
+You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via [PowerShell cmdlets](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure CLI](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), or [Resource Manager templates](../../azure-monitor/platform/diagnostic-settings-template.md).
 
 ### Create an Azure SQL Analytics resource
 
 1. Search for Azure SQL Analytics in Azure Marketplace and select it.
 
-   ![Search for Azure SQL Analytics in portal](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/sql-analytics-in-marketplace.png)
+   ![Search for Azure SQL Analytics in portal](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/sql-analytics-in-marketplace.png)
 
 2. Select **Create** on the solution's overview screen.
 
 3. Fill in the Azure SQL Analytics form with the additional information that is required: workspace name, subscription, resource group, location, and pricing tier.
 
-   ![Configure Azure SQL Analytics in portal](./media/metrics-diagnostic-telemtry-logging-streaming-export-configure/sql-analytics-configuration-blade.png)
+   ![Configure Azure SQL Analytics in portal](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/sql-analytics-configuration-blade.png)
 
 4. Select **OK** to confirm, and then select **Create**.
 
 ### Configure the resource to record metrics and resource logs
 
-You need to separately configure diagnostic telemetry streaming for single and pooled databases, elastic pools, managed instances, and instance databases. The easiest way to configure where a resource records metrics is by using the Azure portal. For detailed steps, see [Configure the streaming export of diagnostic telemetry](metrics-diagnostic-telemtry-logging-streaming-export-configure.md?tabs=azure-portal#configure-the-streaming-export-of-diagnostic-telemetry).
+You need to separately configure diagnostic telemetry streaming for single and pooled databases, elastic pools, managed instances, and instance databases. The easiest way to configure where a resource records metrics is by using the Azure portal. For detailed steps, see [Configure the streaming export of diagnostic telemetry](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#configure-the-streaming-export-of-diagnostic-telemetry).
 
 ### Use Azure SQL Analytics for monitoring and alerting
 

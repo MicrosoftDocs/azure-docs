@@ -32,7 +32,7 @@ A single database can be moved into or out of an [elastic pool](elastic-pool-ove
 
 ## Monitoring and alerting
 
-You use the built-in [performance monitoring](performance-guidance.md) and [alerting tools](alerts-insights-configure-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](metrics-diagnostic-telemtry-logging-streaming-export-configure.md) for easier monitoring.
+You use the built-in [performance monitoring](performance-guidance.md) and [alerting tools](alerts-insights-configure-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) for easier monitoring.
 
 ## Availability capabilities
 
