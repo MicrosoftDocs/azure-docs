@@ -5,7 +5,13 @@
   items: 
   - name: Azure SQL 
     href: what-is-azure-sql-iaas-vs-paas.md
- 
+
+- name: Concepts
+  items: 
+  - name: Accelerated database recovery
+    href: accelerated-database-recovery.md
+  - name: Azure Hybrid Benefit
+    href: azure-hybrid-benefit.md
 
 - name: Common SQL DB & SQL MI docs 
   items:
@@ -32,8 +38,6 @@
           href: database/service-tiers-vcore.md
         - name: Serverless
           href: database/serverless-tier-overview.md
-        - name: Azure Hybrid Benefit
-          href: database/azure-hybrid-benefit.md
         - name: Reserved capacity
           href: database/reserved-capacity-overview.md
       - name: DTU model overview
@@ -141,25 +145,25 @@
       - name: Connect and query from apps
         items:
         - name: .NET with Visual Studio
-          href: sql-database-connect-query-dotnet-visual-studio.md
+          href: database/connect-query-dotnet-visual-studio.md
         - name: .NET Core
-          href: sql-database-connect-query-dotnet-core.md
+          href: database/connect-query-dotnet-core.md
         - name: .NET with Active Directory MFA
-          href: active-directory-interactive-connect-azure-sql-db.md
+          href: database/active-directory-interactive-connect-azure-sql-db
         - name: Go
-          href: sql-database-connect-query-go.md
+          href: database/connect-query-go.md
         - name: Java
-          href: sql-database-connect-query-java.md
+          href: database/connect-query-java.md
         - name: Node.js
-          href: sql-database-connect-query-nodejs.md
+          href: database/connect-query-nodejs.md
         - name: PHP
-          href: sql-database-connect-query-php.md
+          href: database/connect-query-php.md
         - name: Python
-          href: sql-database-connect-query-python.md
+          href: database/connect-query-python
         - name: Ruby
-          href: sql-database-connect-query-ruby.md
+          href: database/connect-query-ruby.md
         - name: R
-          href: sql-database-connect-query-r.md
+          href: database/connect-query-r.md
         - name: SQL Server drivers
           href: /sql/connect/sql-server-drivers
           items:
@@ -181,17 +185,15 @@
     - name: Backup, restore, high availability (BCDR)
       items:
         - name: Business continuity
-          href: sql-database-business-continuity.md
+          href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
         - name: High availability
-          href: sql-database-high-availability.md
+          href: database/high-availability-sla.md
         - name: Backups
           items:
           - name: Automated backups
-            href: sql-database-automated-backups.md
+            href: database/automated-backups-overview.md
           - name: Recovery using backups
-            href: sql-database-recovery-using-backups.md
-          - name: Accelerated database recovery
-            href: sql-database-accelerated-database-recovery.md
+            href: database/recovery-using-backups.md
           - name: Long-term backup retention
             href: sql-database-long-term-retention.md
 
