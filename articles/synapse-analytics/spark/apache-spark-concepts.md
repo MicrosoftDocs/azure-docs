@@ -25,7 +25,7 @@ As there is no dollar or resource cost associated with creating Spark pools, any
 
 A best practice is to create smaller Spark pools that may be used for development and debugging and then larger ones for running production workloads.
 
-You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool.md)
+You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## Spark instances
 

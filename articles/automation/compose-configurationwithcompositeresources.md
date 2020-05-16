@@ -32,9 +32,9 @@ page while on either the **Configurations** or the **Compiled configurations** t
 
 Once the new configuration is saved, it is submitted for compilation. Status of the
 compilation job can be viewed like any imported configuration. For more information, see [Viewing a
-compilation job](automation-dsc-getting-started.md#viewing-a-compilation-job).
+compilation job](automation-dsc-getting-started.md#view-a-compilation-job).
 
-When compilation has completed successfully, the new configuration appears in the **Compiled configurations** tab. Then you can assign the configuration to a managed node, using the steps in [Reassigning a node to a different node configuration](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+When compilation has completed successfully, the new configuration appears in the **Compiled configurations** tab. Then you can assign the configuration to a managed node, using the steps in [Reassigning a node to a different node configuration](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## Next steps
 

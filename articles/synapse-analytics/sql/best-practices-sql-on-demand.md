@@ -39,7 +39,7 @@ Once throttling is detected, SQL on-demand has built-in handling of this scenari
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV files with the same data. SQL on-demand will need less time and storage requests to read it.
+- Convert CSV and JSON to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV or JSON files with the same data. SQL on-demand will need less time and storage requests to read it.
 - If a query targets a single large file, you'll benefit from splitting it into multiple smaller files.
 - Try keeping your CSV file size below 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
@@ -47,23 +47,23 @@ If possible, you can prepare files for better performance:
 
 ## Push wildcards to lower levels in path
 
-You can use wildcards in your path to [query multiple files and folders](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account starting from first * using storage API and eliminates files that do not match specified path. Reducing initial list of files can improve performance if there are many files that match specified path up to first wildcard.
+You can use wildcards in your path to [query multiple files and folders](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account starting from first * using storage API and eliminates files that don't match specified path. Reducing initial list of files can improve performance if there are many files that match specified path up to first wildcard.
 
 ## Use appropriate data types
 
-Data types used in your query affects performance. You can get better performance if you: 
+The data types you use in your query impact performance. You can get better performance if you: 
 
 - Use the smallest data size that will accommodate the largest possible value.
   - If maximum character value length is 30 characters, use character data type of length 30.
   - If all character column values are of fixed size, use char or nchar. Otherwise, use varchar or nvarchar.
   - If maximum integer column value is 500, use smallint as it is smallest data type that can accommodate this value. You can find integer data type ranges [here](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
 - If possible, use varchar and char instead of nvarchar and nchar.
-- Use integer-based data types if possible. Sort, join and group by operations are performed faster on integers than on characters data.
-- If you are using schema inference, [check inferred data type](#check-inferred-data-types).
+- Use integer-based data types if possible. Sort, join, and group by operations are performed faster on integers than on characters data.
+- If you're using schema inference, [check inferred data type](#check-inferred-data-types).
 
 ## Check inferred data types
 
-[Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schema. This comfort comes at expense of inferred data types being larger than they actually are. It happens when there is not enough information in source files to make sure appropriate data type is used. For example, Parquet files do not contain metadata about maximum character column length and SQL on-demand infers it as varchar(8000). 
+[Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schema. This comfort comes at the expense of inferred data types being larger than they actually are. It happens when there isn't enough information in source files to make sure appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length and SQL on-demand infers it as varchar(8000). 
 
 You can check resulting data types of your query using [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
 
@@ -87,7 +87,7 @@ Here is the result set.
 |0|2|pickup_datetime|datetime2(7)|8|
 |0|3|passenger_count|int|4|
 
-Once we know inferred data types for query we can specify appropriate data types:
+Once we know inferred data types for query, we can specify appropriate data types:
 
 ```sql  
 SELECT
@@ -113,7 +113,14 @@ For more information, check [filename](develop-storage-files-overview.md#filenam
 > [!TIP]
 > Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
 
+> [!NOTE]
+> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each table created in Synapse Spark.
+
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
+
+## Use PARSER_VERSION 2.0 for querying CSV files
+
+You can use performance optimized parser when querying CSV files. Check [PARSER_VERSION](develop-openrowset.md) for details.
 
 ## Use CETAS to enhance query performance and joins
 
@@ -123,6 +130,12 @@ You can use CETAS to store frequently used parts of queries, like joined referen
 
 As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
 
+## AAD pass-through performance
+
+SQL on-demand allows you to access files in storage using AAD pass-through or SAS credential. You might experience slower performance with AAD pass-through comparing to SAS. 
+
+If you need better performance, try SAS credentials to access storage until AAD pass-through performance is improved.
+
 ## Next steps
 
-Review the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions. If you're working with SQL pool rather than SQL on-demand, please see the [Best Practices for SQL pool](best-practices-sql-pool.md) article for specific guidance.
+Review the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions. If you're working with SQL pool rather than SQL on-demand, see the [Best Practices for SQL pool](best-practices-sql-pool.md) article for specific guidance.

@@ -53,7 +53,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 You can also configure the 'max concurrent calls' on the Machine Learning web service. It's recommended to set this parameter to the maximum value (200 currently).
 
-For more information on this setting, review the [Scaling article for Machine Learning Web Services](../machine-learning/studio/scaling-webservice.md).
+For more information on this setting, review the [Scaling article for Machine Learning Web Services](../machine-learning/studio/create-endpoint.md).
 
 ## Example – Sentiment Analysis
 The following example includes a Stream Analytics job with the sentiment analysis Machine Learning function, as described in the [Stream Analytics Machine Learning integration tutorial](stream-analytics-machine-learning-integration-tutorial.md).

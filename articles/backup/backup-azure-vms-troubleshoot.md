@@ -93,6 +93,14 @@ Restart VSS writers that are in a bad state. From an elevated command prompt, ru
 * ```net stop serviceName```
 * ```net start serviceName```
 
+Another procedure that can help is to run the following command from an elevated command-prompt (as an administrator).
+
+```CMD
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
+```
+
+Adding this registry key will cause the threads to be not created for blob-snapshots, and prevent the time-out.
+
 ## ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
 Error code: ExtensionConfigParsingFailure<br/>

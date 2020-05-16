@@ -72,4 +72,3 @@ Verify that `mytestdb` is included in the results.
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
-

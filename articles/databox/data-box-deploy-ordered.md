@@ -84,7 +84,7 @@ Perform the following steps in the Azure portal to order a device.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
+7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Customers using the service in Japan, Singapore, Korea, and West Europe have the option to select self-managed shipping while placing the order. After the order is placed successfully, you will receive an email with instructions to pick up the device from the designated Azure Datacenter. Click **Next** once the shipping details have been validated successfully.
 
 8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 

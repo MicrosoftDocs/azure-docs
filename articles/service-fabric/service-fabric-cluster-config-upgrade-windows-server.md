@@ -70,7 +70,7 @@ Four options are supported:
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 * Learn about [application upgrades](service-fabric-application-upgrade.md).
 
 <!--Image references-->

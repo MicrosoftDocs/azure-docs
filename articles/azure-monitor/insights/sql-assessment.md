@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
+ms.date: 05/05/2020
 
 ---
 
@@ -30,8 +30,8 @@ After you've added the solution and an assessment is completed, summary informat
 ## Prerequisites
 
 * The SQL Health Check solution requires a supported version of .NET Framework 4.6.2 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.  
-* The solution supports SQL Server version 2012, 2014, and 2016.
-* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription.
+* The solution supports SQL Server version 2012, 2014, 2016, 2017, and 2019.
+* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal. In order to install the solution, you must be an administrator or contributor in the Azure subscription.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to Azure Monitor in the cloud for processing. Logic is applied to the received data and the cloud service records the data.

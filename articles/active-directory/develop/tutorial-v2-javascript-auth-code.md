@@ -277,7 +277,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 ## Register your application
 
-Follow the instructions to [register a new single page application](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration).
+Follow the instructions to [register a new single page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration).
 
 #### Set a redirect URL for Node.js
 

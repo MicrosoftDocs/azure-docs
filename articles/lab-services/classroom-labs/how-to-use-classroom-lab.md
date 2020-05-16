@@ -23,11 +23,15 @@ This article describes how to register to a classroom lab, view all the labs tha
 ## Register to the lab
 
 1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
+
+    ![Register to the lab](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Sign in to the service using your school account to complete the registration. 
 
     > [!NOTE]
     > A Microsoft account is required for using Azure Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process. 
 1. Once registered, confirm that you see the virtual machine for the lab you have access to. 
+
+    ![Accessible VMs](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
     1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS. 
