@@ -1,6 +1,6 @@
 ---
 title: Use Java to query a database
-description: Shows you how to use Java to create a program that connects to a Microsoft Azure SQL database and query it using T-SQL statements.
+description: Shows you how to use Java to create a program that connects to a database in Azure SQL Database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
