@@ -53658,11 +53658,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sql-database/azure-sql-managed-instance-rebrand.md",
-            "redirect_url": "/azure/azure-sql/managed-instance/azure-sql-managed-instance-rebrand",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/sql-database/create-auditing-storage-account-vnet-firewall.md",
             "redirect_url": "/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall",
             "redirect_document_id": true
