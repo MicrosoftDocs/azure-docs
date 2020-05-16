@@ -31,7 +31,7 @@ This module introduces you to some additional capabilities you may need to consi
 For a broad overview of systems-wide architecture best practices, visit:
 
 * [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-* [Get Started Guide for Azure Developers](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide)
+* [Get Started Guide for Azure Developers](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
 
 ## Analytics
 
@@ -49,7 +49,7 @@ To achieve this, Azure offers a service called resource tagging, which associate
 
 For more information on resource naming and tagging, a good place to start is:
 
-* [Resource Naming and Tagging Decision Guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Resource Naming and Tagging Decision Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 ### Diagnostics
 
@@ -61,7 +61,7 @@ For more information, visit:
 * [How to Collect Event Tracing for Windows (ETW) data](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
 * [Using the Windows Device Portal: Logging](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
 
-### Usage Analysis
+### Usage analysis
 
 Azure Application Insights helps you understand how people use your Azure Remote Rendering application. Every time you update your app, you can assess how well it works for users and enhance your solution accordingly. With this knowledge, you can make data-driven decisions about your next development cycles.
 
@@ -77,7 +77,7 @@ Azure Remote Rendering requires preprocessed 3D models, and Azure currently take
 
 The suggestions shared here aren’t currently part of the standard Azure Remote Rendering, but you can implement them on your own for faster startup times.
 
-### Initiate Early
+### Initiate early
 
 To reduce startup time, the simplest solution is to move the creation and initialization of the VM as early as possible in the user workflow. One strategy is to initialize the session as soon as it’s known that an ARR session will be needed. This will often be when the user starts to upload a 3D model to Azure Blob Storage to use with Azure Remote Rendering. In this case, session creation and VM initialization can be initiated at the same time as the 3D model upload such that both work streams run in parallel.
 
@@ -89,7 +89,7 @@ If you know you have a future need for Azure Remote Rendering, you can schedule 
 
 This option could be offered through a web portal where people can both upload a 3D model and schedule a time to view it in the future. This would also be a good place to ask for other preferences like Standard or Premium rendering. Premium rendering may be suitable if there’s a desire to show a mix of assets where the ideal size is harder to automatically determine or a need to ensure that the Azure region has VMs available at that specified time.
 
-### Session Pooling
+### Session pooling
 
 In the most demanding situations, another option is session pooling, where one or more sessions are created and initialized at all times. This creates a session pool for immediate use by a requesting user. The downside of this approach is that once the VM is initialized, billing for the service starts. It may not be cost-effective to keep a session pool running at all times, but based on analytics, it may be possible to predict peak loads or can be combined with the scheduling strategy above to predict when sessions will be needed and ramp up and down the session pool accordingly.
 
@@ -99,7 +99,7 @@ For more on Azure Remote Rendering sessions, check out:
 
 * [Remote Rendering Sessions](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
 
-## Standard vs. Premium VM Routing Strategies
+## Standard vs. Premium VM routing strategies
 
 Needing to select whether to create a Standard or Premium VM presents a challenge in designing your user experience and end-to-end system. Although using only Premium sessions is an option, Standard sessions use much less Azure compute resources and are less expensive than Premium. This provides a strong motivation to use Standard sessions whenever possible and only use Premium when needed.
 
@@ -123,7 +123,7 @@ Another relatively simple approach is to analyze the complexity of the selected 
 
 Automatic switching between Standard and Premium sessions can make a lot of sense in a system design that also includes session pooling. This strategy allows for further optimization of resource utilization. As the user loads models for viewing, the complexity is determined, and the correct session size is requested from the session pooling service.
 
-## Working with Networks
+## Working with networks
 
 ### Diagnostics
 
@@ -131,7 +131,7 @@ Azure Remote Rendering requires a fast internet connection with low latency. The
 
 To ensure that you can deliver a consistently high quality experience, we recommend that you integrate server-side and client-side analytics tools into your Azure Remote Rendering applications. Doing so arms you with the information you’ll need to diagnose and mitigate any network issues your clients may be experiencing.
 
-### Client Network Configurations
+### Client network configurations
 
 One of the biggest challenges in developing robust collaboration solutions that are deployed into a wide variety of enterprise environments is being prepared for the differing network topology and enterprise firewall configurations your clients may use.
 
@@ -146,11 +146,11 @@ Whenever you’re planning to use Azure Remote Rendering on an unfamiliar networ
 1. Allow plenty of time to diagnose any issues.
 1. Bring a mobile hotspot with a high-bandwidth data plan as backup.
 
-### End-to-end Bandwidth
+### End-to-end bandwidth
 
 It’s important to assess the bandwidth capabilities for each leg of the network that may exist between the Azure Remote Rendering VM and the end client. Keep in mind that the network segment from the Azure data center to the client’s ISP may be more of a limiting factor than from the ISP to the client. The Blob Download Speed Test can be used to help diagnose such issues.
 
-### Bandwidth Competition
+### Bandwidth competition
 
 When designing your mixed reality application, keep in mind that different features of the app may compete with Azure Remote Rendering for bandwidth. The most likely unanticipated example is when many participants in a single room are all expecting to simultaneously use ARR to view a 3D asset. Each leg of the network data flow will need to have capacity to transport the sum total of all ARR data streams combined.
 
@@ -163,7 +163,7 @@ For more information on network analytics, view:
 * [Server-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
 * [Client-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
 
-## Collaboration Considerations
+## Collaboration considerations
 
 Some of the most valuable uses of Azure Remote Rendering involve collaboration between multiple participants viewing the same 3D experience at the same time. In these shared sessions, it’s important to recognize that each participant will need a unique Azure Remote Rendering session, regardless of whether they are located in the same place on the same network or not.
 
@@ -177,7 +177,7 @@ Your system must also manage the possibility that one or more of the participant
 
 This management of multiple simultaneous sessions can be further streamlined when combined with session pooling and other strategies discussed in this document.
 
-### Azure Blob Storage Considerations
+### Azure Blob Storage considerations
 
 All simultaneous ARR sessions can reference the same SAS URI for the converted model to be viewed. This makes it possible to upload and convert the desired 3D assets once and then share it across all sessions. This is especially true when the participants are co-located and using the same data center where there are no performance concerns related to the Azure Blob Storage being located in a different data center than the Azure Remote Rendering server and the user.
 
@@ -190,13 +190,13 @@ For more information:
 * [Shared Experiences in Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
 * [Azure Storage Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
-## Managing Model Access
+## Managing model access
 
 Leveraging Azure Remote Rendering fully requires careful consideration of the end-to-end infrastructure for managing 3D models.
 
 An advantage of using Azure Remote Rendering is that large 3D assets never need to be transmitted directly to the mixed reality device before being viewed.  Furthermore, once a 3D asset has been uploaded and converted for use with Azure Remote Rendering, any number of users can share that single instance of the 3D model.
 
-### Considerations for 3D Model Access
+### Considerations for 3D model access
 
 Here are a few key considerations when deciding on your model access strategy.
 
@@ -210,13 +210,13 @@ If your use case has usage patterns where the same 3D asset may be uploaded mult
 
 Depending on the use case, you’ll likely want to determine and potentially persist the correct Azure Remote Rendering VM size, Standard or Premium, for each 3D asset or group of assets that will be viewed together in the same session.  
 
-### On-device Model Selection List
+### On-device model selection list
 
 In many use cases, such as a training, task guidance, or marketing application, the set of 3D assets to be commonly viewed in Azure Remote Rendering may be fairly static. In these situations, a curated set of 3D assets can be pre-converted and made available via a database that contains the necessary information to populate a selection list of curated assets. This data can then be retrieved from the mixed reality application to populate a selection menu.
 
 This can be taken a step further by also offering a way to upload private 3D assets, unique to each individual or group. That list of private assets could then be combined with the list of common, curated assets in the user experience for picking 3D assets to view.
 
-### On-device OneDrive Access
+### On-device OneDrive access
 
 Given that a OneDrive file picker is built natively into Microsoft’s mixed reality devices, selecting 3D assets on-device from OneDrive is appealing, particularly for use cases where it’s common to load different or modified 3D models. In this scenario, the user would select one or more 3D assets via the OneDrive file picker within your mixed reality application. The 3D assets would then be migrated to a SAS input container, converted to a SAS output container, and attached to the ARR session. Ideally, the mixed reality application would invoke a cloud-based process to perform these steps as opposed to moving all of the bits from OneDrive to the device and back down to Azure Blob Storage.
 
@@ -227,7 +227,7 @@ For more information:
 * [Microsoft Power Automate Template for OneDrive to Azure Storage Replication](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
 * [OneDrive File Storage API Overview](https://docs.microsoft.com/graph/onedrive-concept-overview)
 
-### Direct CAD Access
+### Direct CAD access
 
 One compelling use case for mixed reality is design reviews of CAD work-in-progress. In this scenario, the fastest load time from desktop to mixed reality is key. An ideal solution could involve developing plugins for specific CAD applications. These plugins would directly manage every aspect of the load, convert, and view process:
 

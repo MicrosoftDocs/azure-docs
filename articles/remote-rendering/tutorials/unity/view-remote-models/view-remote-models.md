@@ -36,7 +36,7 @@ For this tutorial you need:
 
 To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account). 
 
-Alternatively, you can complete the "Link storage accounts" section which is required for another tutorial: [Commercial Ready: Model Library](../commercial-ready/commercial-ready.md#model-library).
+Alternatively, you can complete the "Link storage accounts" section which is required for another tutorial: [Commercial Ready: Model Library](../commercial-ready/commercial-ready.md#managing-model-access).
 
 ## Create a new Unity project
 
@@ -586,7 +586,7 @@ The second stage is to Create or Join a Remote Rendering Session (see [Remote Re
 
 The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **sessionIDOverride**. **sessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
 
-If no sessions are available, a new session will be created. Creating a new session is, however, a time-consuming operation. Therefore, you should try to create sessions only when required and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more information on managing sessions).
+If no sessions are available, a new session will be created. Creating a new session is, however, a time-consuming operation. Therefore, you should try to create sessions only when required and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) for more information on managing sessions).
 
 > [!TIP]
 > **StopRemoteSession()** will end the active session. To prevent unnecessary charges, you should always stop sessions when they are no longer needed.

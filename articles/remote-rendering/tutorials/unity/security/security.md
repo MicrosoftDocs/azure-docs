@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 ## Securing your content in Azure Blob Storage
 
-Azure Remote Rendering can securely access the contents of your Azure Blob Storage with the correct configuration. See the [How-to: Link storage accounts](../../../how-tos/create-an-account?#link-storage-accounts) to configure your Azure Remote Rendering instance with your blob storage accounts.
+Azure Remote Rendering can securely access the contents of your Azure Blob Storage with the correct configuration. See the [How-to: Link storage accounts](../../../how-tos/create-an-account.md#link-storage-accounts) to configure your Azure Remote Rendering instance with your blob storage accounts.
 
 When using a linked blob storage, you'll use slightly different methods for loading models. In the **RemoteRenderingCoordinator**, the **LoadModel** method will need to be modified or duplicated. The goal is to replace these two lines:
 
@@ -45,7 +45,7 @@ Securing the blob storage in this way is the first step to securing your remote 
 
 ## Azure Active Directory (AAD) authentication
 
-Because it's an Azure resource, Azure Remote Rendering's access can be controlled and managed using Azure Active Directory (AAD) and role assignments. This will allow you to determine which individuals or groups are using Azure Remote Rendering in a more controlled way. 
+Because it's an Azure resource, Azure Remote Rendering's access can be controlled and managed using Azure Active Directory (AAD) and role assignments. This will allow you to determine which individuals or groups are using Azure Remote Rendering in a more controlled way.
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure login flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
@@ -53,7 +53,7 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 
 With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which will return a new **AzureFrontendAccountInfo** object. In this case, the account info will be configured with the Azure Access Token.
 
-2. Create a new script named **AADAuthentication** and replace its code with the following: 
+2. Create a new script named **AADAuthentication** and replace its code with the following:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -178,7 +178,7 @@ public class AADAuthentication : BaseARRAuthentication
 ```
 
 First, try to get the token silently using **AquireTokenSilent**. If that's not successful, move on to a more user-involved strategy.
- 
+
 In this case, we're using the [device code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) to obtain an access token. This flow allows the user to sign in to their Azure account on a computer or phone and have the resulting token sent to the HoloLens application.
 
 The most important part of this class from an ARR perspective is this line:
@@ -205,7 +205,8 @@ Before building for the device, you'll need to include a file in your project's 
 	</assembly>
 </linker>
 ```
-3. Save the changes.
+
+3. Save the changes
 
 ## Next steps
 

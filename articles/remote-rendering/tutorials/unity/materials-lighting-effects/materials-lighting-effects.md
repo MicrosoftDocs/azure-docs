@@ -674,9 +674,10 @@ public class RemoteLight : BaseRemoteLight
 
 4. Because this script implements the base class `BaseRemoteLight`, you can use the provided **AppMenu** view controller to interact with the remote light. Navigate to **AppMenu -> Scene Tools -> Directional Light**. 
 
-> [!NOTE] The UI in **AppMenu** has been limited to a single directional light for simplicity. However, it's still possible and encouraged to add point lights and attach the **RemoteLight** script to them. Those additional lights can be modified by editing the properties of the Unity light in the editor. You will need to manually sync the local changes to the remote light using the **RemoteLight** context menu in the inspector:
+> [!NOTE]
+> The UI in **AppMenu** has been limited to a single directional light for simplicity. However, it's still possible and encouraged to add point lights and attach the **RemoteLight** script to them. Those additional lights can be modified by editing the properties of the Unity light in the editor. You will need to manually sync the local changes to the remote light using the **RemoteLight** context menu in the inspector:
 >
->![Remote light manual sync](./media/sync-remote-light.png)
+> ![Remote light manual sync](./media/sync-remote-light.png)
 
 5. After connecting your runtime to a remote session, use the remote light view controller to modify the light's properties. Using MRTK's hand simulation, grab and rotate the directional light to see the effect on the scene's lighting.
 

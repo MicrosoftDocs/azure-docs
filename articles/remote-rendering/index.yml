@@ -66,6 +66,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Overview
+            url: tutorials/unity/tutorial-landing.md
           - text: Viewing a remotely rendered model
             url: tutorials/unity/view-remote-models/view-remote-models.md
           - text: Loading custom models
@@ -76,7 +78,5 @@ landingContent:
             url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
           - text: Securing Azure Remote Rendering and model storage
             url: tutorials/unity/security/security.md
-          - text: Managing your model library
-            url: tutorials/unity/model-library/model-library.md
           - text: Creating a commercial ready Azure Remote Rendering application
             url: tutorials/unity/commercial-ready/commercial-ready.md
