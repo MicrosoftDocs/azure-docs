@@ -38,7 +38,7 @@ If you provision standard (manual) RU/s at the entry point of 400 RU/s, you won'
 
 If you provision autoscale throughput at the entry point of max RU/s of 4000 RU/s, the resource will scale between 400 to 4000 RU/s. Since the autoscale throughput rate is 1.5x of the standard (manual) rate, for hours where the system has scaled down to the minimum of 400 RU/s, your bill will be higher than if you provisioned 400 RU/s manually. However, with autoscale, at any time, if your application traffic spikes, you can consume up to 4000 RU/s with no user action required. In general, you should weigh the benefit of being able to consume up to the max RU/s at any time with the 1.5x rate of autoscale. 
 
-You can use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.md) to estimate your throughput requirements. 
+Use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.md) to estimate your throughput requirements. 
 
 ### Existing applications ###
 
@@ -60,7 +60,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 ![Example of workload using autoscale](media/how-to-choose-throughput-offer/autoscale-metrics-azure-monitor.png)
 
 > [!NOTE]
-> When you are using standard (manual) provisioned throughput, the **Provisioned Throughput** metric refers to what you as a user have set. When you are using autoscale throughput, this metric refers to the RU/s the system has currently scaled to.
+> When you use standard (manual) provisioned throughput, the **Provisioned Throughput** metric refers to what you as a user have set. When you use autoscale throughput, this metric refers to the RU/s the system is currently scaled to.
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
