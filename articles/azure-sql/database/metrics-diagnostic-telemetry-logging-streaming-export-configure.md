@@ -149,14 +149,14 @@ To enable streaming of diagnostic telemetry for a single or a pooled database, f
 7. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, and **Deadlocks**.
 8. For an advanced, one-minute-based monitoring experience, select the check box for **Basic** metrics.
 
-   ![Configure diagnostics for single, pooled, or instance databases](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
+   ![Configure diagnostics for Azure SQL Database](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
 9. Select **Save**.
 10. Repeat these steps for each database you want to monitor.
 
 > [!TIP]
 > Repeat these steps for each single and pooled database you want to monitor.
 
-### Instances in Azure SQL Database Managed Instance
+### Instances in Azure SQL Managed Instance
 
 You can set up a managed instance resource to collect the following diagnostic telemetry:
 
@@ -192,7 +192,7 @@ To enable streaming of diagnostic telemetry for a managed instance resource, fol
 > [!IMPORTANT]
 > In addition to configuring diagnostic telemetry for a managed instance, you also need to configure diagnostic telemetry for each instance database.
 
-### Databases in Azure SQL Database Managed Instance
+### Databases in Azure SQL Managed Instance
 
 You can set up an instance database resource to collect the following diagnostic telemetry:
 
@@ -461,7 +461,7 @@ Refer to the following table for details about advanced metrics.
 
 ### Basic logs
 
-Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Details of telemetry available for all logs are documented in the following tables. For more information, see [supported diagnostic telemetry](#diagnostic-telemetry-for-export).
 
 #### Resource usage stats for managed instances
 

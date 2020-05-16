@@ -309,13 +309,13 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 ## Data movement after migration
 
-### How do I export and import data as BACPAC files from SQL Database
+### How do I export and import data as BACPAC files from SQL Database using the Azure portal
 
-- **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
+- **Export**: You can export your database in Azure SQL Database as a BACPAC file from the Azure portal
 
    ![database export](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
+- **Import**: You can also import data as a BACPAC file into your database in Azure SQL Database using the Azure portal.
 
    ![database import](./media/manage-data-after-migrating-to-database/import1.png)
 

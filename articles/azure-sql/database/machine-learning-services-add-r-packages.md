@@ -60,7 +60,7 @@ The output should look similar to the following.
 
 ## Add a package with sqlmlutils
 
-If you need to use a package that isn't already installed in your Azure SQL Database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R or Python client. Currently, only the R version of **sqlmlutils** is supported in Azure SQL Database.
+If you need to use a package that isn't already installed in your Azure SQL Database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with Microsoft Azure SQL and SQL Server databases and execute R or Python code in SQL from an R or Python client. Currently, only the R version of **sqlmlutils** is supported in Azure SQL Database.
 
 In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils** and **RODBCext** (a prerequisite for **sqlmlutils**), and add the **glue** package.
 

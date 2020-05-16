@@ -20,7 +20,7 @@ These terms are used in [Adding a shard using Elastic Database tools](elastic-sc
 
 ![Elastic Scale terms][1]
 
-**Database**: An Azure SQL database. 
+**Database**: A database in Azure SQL Database. 
 
 **Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](elastic-scale-multishard-querying.md)**.
 
@@ -44,7 +44,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Reference tables**: Tables that are not sharded but are replicated across shards. For example, zip codes can be stored in a reference table. 
 
-**Shard**: An Azure SQL database that stores data from a sharded data set. 
+**Shard**: A database in Azure SQL Database that stores data from a sharded data set. 
 
 **Shard elasticity**: The ability to perform both **horizontal scaling** and **vertical scaling**.
 

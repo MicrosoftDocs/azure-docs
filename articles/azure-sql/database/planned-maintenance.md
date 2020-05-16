@@ -1,6 +1,6 @@
 ---
 title: Planning for Azure maintenance events
-description: Learn how to prepare for planned maintenance events to your Azure SQL Database.
+description: Learn how to prepare for planned maintenance events in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -13,13 +13,13 @@ ms.reviewer: carlrab
 ms.date: 01/30/2019
 ---
 
-# Planning for Azure maintenance events in Azure SQL Database
+# Planning for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance
 
-Learn how to prepare for planned maintenance events on your database in Azure SQL Database.
+Learn how to prepare for planned maintenance events on your database in Azure SQL Database and Azure SQL Managed Instance.
 
 ## What is a planned maintenance event
 
-For each database, Azure SQL Database maintains a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
+For each database, Azure SQL Database and Azure SQL Managed Instance maintain a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
 
 ## What to expect during a planned maintenance event
 
@@ -39,5 +39,5 @@ If your database is experiencing login failures, check the [Resource Health](../
 
 ## Next steps
 
-- Learn more about [Resource Health](resource-health-to-troubleshoot-connectivity.md) for Azure SQL Database
+- Learn more about [Resource Health](resource-health-to-troubleshoot-connectivity.md) for Azure SQL Database and Azure SQL Managed Instance
 - For more information about retry logic, see [Retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).

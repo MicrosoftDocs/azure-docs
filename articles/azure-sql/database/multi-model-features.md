@@ -1,6 +1,6 @@
 ---
 title: Multi-model capabilities
-description: Azure SQL Database and Azure SQL Managed Instance enable you to work with multiple data models in the same database.
+description: Microsoft Azure SQL enables you to work with multiple data models in the same database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer:
 ms.date: 12/17/2018
 ---
-# Multi-model capabilities of Azure SQL Database and Azure SQL Managed Instance
+# Multi-model capabilities of Microsoft Azure SQL
 
 Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, and so on.
 
 ## When to use multi-model capabilities
 
-Azure SQL Database and Azure SQL Managed Instance are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, Azure SQL Database and Azure SQL Managed Instance are not limited to relational-data only. Azure SQL Database and Azure SQL Managed Instance enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
-You should consider using multi-model capabilities of Azure SQL Database and Azure SQL Managed Instance in the following cases:
+[Azure SQL family of services](sql-database-paas-vs-sql-server-iaas.md) are designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, the Azure SQL family of services are not limited to relational-data only. The Azure SQL family of services enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
+You should consider using multi-model capabilities of the Azure SQL family of services in the following cases:
 
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
@@ -28,22 +28,22 @@ You should consider using multi-model capabilities of Azure SQL Database and Azu
 
 ## Overview
 
-Azure SQL provides the following multi-model features:
+The Azure SQL family of services provide the following multi-model features:
 
 - [Graph features](#graph-features) enable you to represent your data as set of nodes and edges, and use standard Transact-SQL queries enhanced with graph `MATCH` operator to query the graph data.
 - [JSON features](#json-features) enable you to put JSON documents in tables, transform relational data to JSON documents and vice versa. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents, and use non clustered indexes, columnstore indexes, or memory-optimized tables, to optimize your queries.
 - [Spatial features](#spatial-features) enables you to store geographical and geometrical data, index them using the spatial indexes, and retrieve the data using spatial queries.
-- [XML features](#xml-features) enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL Database and Azure SQL Managed Instance have a specialized built-in XML query engine that process XML data.
+- [XML features](#xml-features) enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. The Azure SQL family of services have a specialized built-in XML query engine that process XML data.
 - [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value pairs can be natively modeled as two-column tables.
 
   > [!Note]
   > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
 
-In the following sections, you can learn about the most important multi-model capabilities of Azure SQL Database and Azure SQL Managed Instance.
+In the following sections, you can learn about the most important multi-model capabilities of the Azure SQL family of services .
 
 ## Graph features
 
-Azure SQL Database and Azure SQL Managed Instance offer graph database capabilities to model many-to-many relationships in database. A graph is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). Here are some features that make a graph database unique:
+The Azure SQL family of services offer graph database capabilities to model many-to-many relationships in database. A graph is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). Here are some features that make a graph database unique:
 
 - Edges or relationships are first class entities in a Graph Database and can have attributes or properties associated with them.
 - A single edge can flexibly connect multiple nodes in a Graph Database.
@@ -62,11 +62,14 @@ There is nothing a graph database can achieve, which cannot be achieved using a 
 
 ## JSON features
 
-Azure SQL Database and Azure SQL Managed Instance let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
 
 JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
 
-Azure SQL Database and Azure SQL Managed Instance let you work with JSON data easily and integrate your database with modern services. Azure SQL Database and Azure SQL Managed Instance provide the following functions for working with JSON data:
+The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+let you work with JSON data easily and integrate your database with modern services. the Azure SQL family of services  let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+ provide the following functions for working with JSON data:
 
 ![JSON Functions](./media/multi-model-features/image_1.png)
 
@@ -88,15 +91,17 @@ Document models can be used instead of the relational models in some specific sc
 
 Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
 
-Azure SQL Database and Azure SQL Managed Instance support two spatial data types - the geometry data type and the geography data type.
+The Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+ support two spatial data types - the geometry data type and the geography data type.
 
 - The geometry type represents data in a Euclidean (flat) coordinate system.
 - The geography type represents data in a round-earth coordinate system.
 
-There area number of Spatial objects that can be used in Azure SQL Database and Azure SQL Managed Instance such as [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring),
+There area number of Spatial objects that can be used in the Azure SQL family of services let you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
+such as [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring),
 [Polygon](/sql/relational-databases/spatial/polygon), and so on.
 
-Azure SQL Database and Azure SQL Managed Instance also provide specialized [Spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that can be used to improve performance of your spatial queries.
+The Azure SQL family of services also provide specialized [Spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that can be used to improve performance of your spatial queries.
 
 [Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is a core SQL Server database engine feature.
 
@@ -123,7 +128,7 @@ Document models can be used instead of the relational models in some specific sc
 
 ## Key-value pairs
 
-Azure SQL Database and Azure SQL Managed Instance don't have specialized types or structures that support key-value pairs since key-value structures can be natively represented as standard relational tables:
+The Azure SQL family of services don't have specialized types or structures that support key-value pairs since key-value structures can be natively represented as standard relational tables:
 
 ```sql
 CREATE TABLE Collection (
@@ -138,7 +143,7 @@ See [how BWin is using In-Memory OLTP to achieve unprecedented performance and s
 
 ## Next steps
 
-Multi-model capabilities in Azure SQL Database and Azure SQL Managed Instance are also the core SQL Server database engine features that are shared among Azure SQL Database, Azure SQL Managed Instance, and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
+Multi-model capabilities in the Azure SQL family of services are also the core SQL Server database engine features that are shared among the Azure SQL family of services. To learn more details about these features, visit the SQL Relational database documentation pages:
 
 - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview)
 - [JSON data](/sql/relational-databases/json/json-data-sql-server)

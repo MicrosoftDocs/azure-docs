@@ -117,5 +117,5 @@ FROM tempdb.sys.dm_db_log_space_usage;
 
 ## Next steps
 
-- For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
+- For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
 - For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning]( https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-tuning-index), and [Monitoring and performance tuning](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview).

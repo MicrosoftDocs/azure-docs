@@ -153,9 +153,9 @@ The following table summarizes operations and typical overall durations:
 
 \* Virtual cluster is built per hardware generation.
 
-\*\* The 4 vCores deployment option was released in June 2019 and requires a new virtual cluster version. If you had instances in the target subnet that were all created before June 12, a new virtual cluster will be deployed automatically to host 4 vCore instances.
+\*\* The 4 vCores option was released in June 2019 and requires a new virtual cluster version. If you had instances in the target subnet that were all created before June 12, a new virtual cluster will be deployed automatically to host 4 vCore instances.
 
-\*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](virtual-cluster-delete.md).
+\*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Managed Instance](virtual-cluster-delete.md).
 
 ### Instance availability during management operations
 
@@ -273,7 +273,7 @@ Authorization refers to what a user can do within a database in Azure SQL Manage
 
 SQL Managed Instance targets user scenarios with mass database migration from on-premises or IaaS database implementations. SQL Managed Instance supports several database migration options:
 
-### Back up and restore  
+### Backup and restore  
 
 The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a SQL Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
