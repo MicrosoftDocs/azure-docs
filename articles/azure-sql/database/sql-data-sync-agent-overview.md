@@ -39,7 +39,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 ## Sync data with SQL Server on-premises
 
-To configure the Data Sync Agent so you can sync data with one or more on-premises SQL Server databases, see [Add an on-premises SQL Server database](data-sync-sql-server-configure.md#add-on-prem).
+To configure the Data Sync Agent so you can sync data with one or more on-premises SQL Server databases, see [Add an on-premises SQL Server database](sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ## <a name="agent-faq"></a> Data Sync Agent FAQ
 
@@ -134,7 +134,7 @@ These scenarios might cause this issue:
 
 You discover that the agent isn't running on a computer that hosts SQL Server. When you attempt to manually start the agent, you see a dialog box that displays the message, "Error 1069: The service did not start due to a logon failure."
 
-![Data Sync error 1069 dialog box](./media/data-sync-agent/sync-error-1069.png)
+![Data Sync error 1069 dialog box](./mediasql-data-sync-agent-overview/sync-error-1069.png)
 
 - **Cause**. A likely cause of this error is that the password on the local server has changed since you created the agent and agent password.
 
@@ -158,7 +158,7 @@ You discover that the agent isn't running on a computer that hosts SQL Server. W
 
 After you create or re-create a key for an agent, you try to submit the key through the SqlAzureDataSyncAgent application. The submission fails to complete.
 
-![Sync Error dialog box - Can't submit agent key](./media/data-sync-agent/sync-error-cant-submit-agent-key.png)
+![Sync Error dialog box - Can't submit agent key](./mediasql-data-sync-agent-overview/sync-error-cant-submit-agent-key.png)
 
 - **Prerequisites**. Before you proceed, check the following prerequisites:
 
@@ -314,7 +314,7 @@ For more info about SQL Data Sync, see the following articles:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
