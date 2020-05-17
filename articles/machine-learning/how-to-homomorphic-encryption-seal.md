@@ -18,6 +18,7 @@ Learn how to deploy an image classification model as an encrypted inferencing we
 
 In guide, you use Azure Machine Learning service to:
 
+> [!div class="checklist"]
 > * Configure your environments
 > * Deploy encrypted inferencing web service
 > * Prepare test data
@@ -337,7 +338,7 @@ Delete the web service created in this sample:
 service.delete()
 ```
 
-If you no longer plan to use the Azure resources you’ve created, delete them. This prevents you from being charged for unutilized resources that are still running. See this guide on how to [clean up resources](how-to-manage-workspace#clean-up-resources) to learn more.
+If you no longer plan to use the Azure resources you’ve created, delete them. This prevents you from being charged for unutilized resources that are still running. See this guide on how to [clean up resources](how-to-manage-workspace.md#clean-up-resources) to learn more.
 
 ## Next steps
 
