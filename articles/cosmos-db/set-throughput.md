@@ -47,9 +47,9 @@ We recommend that you configure throughput on a database when you want to share 
 
 The following examples demonstrate where it's preferred to provision throughput at the database level:
 
-* Sharing a database’s provisioned throughput across a set of containers is useful for a multitenant application. Each user can be represented by a distinct Azure Cosmos container.
+* Sharing a database's provisioned throughput across a set of containers is useful for a multitenant application. Each user can be represented by a distinct Azure Cosmos container.
 
-* Sharing a database’s provisioned throughput across a set of containers is useful when you migrate a NoSQL database, such as MongoDB or Cassandra, hosted on a cluster of VMs or from on-premises physical servers to Azure Cosmos DB. Think of the provisioned throughput configured on your Azure Cosmos database as a logical equivalent, but more cost-effective and elastic, to that of the compute capacity of your MongoDB or Cassandra cluster.  
+* Sharing a database's provisioned throughput across a set of containers is useful when you migrate a NoSQL database, such as MongoDB or Cassandra, hosted on a cluster of VMs or from on-premises physical servers to Azure Cosmos DB. Think of the provisioned throughput configured on your Azure Cosmos database as a logical equivalent, but more cost-effective and elastic, to that of the compute capacity of your MongoDB or Cassandra cluster.  
 
 All containers created inside a database with provisioned throughput must be created with a [partition key](partition-data.md). At any given point in time, the throughput allocated to a container within a database is distributed across all the logical partitions of that container. When you have containers that share provisioned throughput configured on a database, you can't selectively apply the throughput to a specific container or a logical partition. 
 
@@ -74,7 +74,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
    ![Setting the throughput at the container-level](./media/set-throughput/coll-level-throughput.png)
 
-* The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
+* The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container's throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
 > [!NOTE]
@@ -84,7 +84,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) depends on the following factors: 
 
-* The maximum data size that you ever store in the container
+* The current data size that you store in the container
 * The maximum throughput that you ever provision on the container
 * The current number of Azure Cosmos containers that you have in a database with shared throughput. 
 

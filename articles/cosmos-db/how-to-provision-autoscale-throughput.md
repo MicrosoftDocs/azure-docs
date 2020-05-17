@@ -41,7 +41,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
 > [!NOTE]
 > When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## Azure Cosmos DB .NET V3 SDK
+## Azure Cosmos DB .NET V3 SDK for SQL API
 Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
 
 > [!IMPORTANT]
@@ -93,7 +93,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## Azure Cosmos DB Java V4 SDK
+## Azure Cosmos DB Java V4 SDK for SQL API
 You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources. 
 
 > [!IMPORTANT]
@@ -226,8 +226,14 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 --- 
 
+## Cassandra API 
+See this article on [how to use CQL commands](manage-scale-cassandra.md#use-autoscale) to enable autoscale.
+
+## Azure Cosmos DB API for MongoDB 
+See this article on [how to use MongoDB extension commands](mongodb-custom-commands.md) to enable autoscale.
+
 ## Azure Resource Manager (ARM)
-You can use an ARM template to provision autoscale throughput on a database or container. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
+You can use an ARM template to provision autoscale throughput on a database or container for any API. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
 
 ## Next steps
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
