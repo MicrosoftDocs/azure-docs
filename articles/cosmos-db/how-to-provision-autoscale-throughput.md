@@ -10,10 +10,11 @@ ms.date: 05/10/2020
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. You can configure autoscale for new databases and containers using the Azure portal, Azure Resource Manager (ARM) template, Azure Cosmos DB .NET V3 SDK and Java V4 SDK. You can also enable autoscale on existing database and containers using the Azure portal.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. To enable autoscale for new databases and containers, use the Azure portal, Azure Resource Manager (ARM) template, Azure Cosmos DB .NET V3 SDK, or Java V4 SDK. To enable autoscale on existing database and containers, use the Azure portal.
 
 ## Azure portal
 
+### Create new database or container with autoscale
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
@@ -22,17 +23,31 @@ This article explains how to provision autoscale throughput on a database or con
 
    ![Creating a container and configuring autoscale provisioned throughput](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
 
-
 1. Select **OK**.
 
+To provision autoscale on shared throughput database, select the **Provision database throughput** option when creating a new database. 
+
+### Enable autoscale on existing database or container
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
+
+1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
+
+1. Select **Scale and Settings** for your container, or **Scale** for your database.
+
+1. Under **Scale**, select the **Autoscale** option and **Save**.
+
+   ![Enabling autoscale on an existing container](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+
+> [!NOTE]
+> When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## Azure Cosmos DB .NET V3 SDK
-You can use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
+Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
 
 > [!IMPORTANT]
-> You can use the SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. Changing the throughput type is currently supported in only the Azure portal. 
+> You can use the .NET SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the Azure portal. 
 
-### Create database
+### Create database with shared throughput
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -44,7 +59,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.Create
 database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProperties: autoscaleThroughputProperties);
 ```
 
-### Create container
+### Create container with dedicated throughput
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -78,9 +93,143 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
+## Azure Cosmos DB Java V4 SDK
+You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources. 
+
+> [!IMPORTANT]
+> You can use the Java SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the Azure portal. 
+
+### Create database with shared throughput
+
+#### [Async](#tab/api-async)
+
+```java
+// Create instance of CosmosClient
+CosmosAsyncClient client = new CosmosClientBuilder()
+    .setEndpoint(HOST)
+    .setKey(MASTER)
+    .setConnectionPolicy(CONNECTIONPOLICY)
+    .buildAsyncClient();
+
+// Autoscale throughput settings
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+
+//Create the database with autoscale enabled
+CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
+```
+
+#### [Sync](#tab/api-sync)
+
+```java
+// Create instance of CosmosClient
+CosmosClient client = new CosmosClientBuilder()
+    .setEndpoint(HOST)
+    .setKey(MASTER)
+    .setConnectionPolicy(CONNECTIONPOLICY)
+    .buildClient();
+
+// Autoscale throughput settings
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+
+//Create the database with autoscale enabled
+CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).getDatabase();
+```
+
+--- 
+
+### Create container with dedicated throughput
+
+#### [Async](#tab/api-async)
+
+```java
+// Get reference to database that container will be created in
+CosmosAsyncDatabase database = client.createDatabase("DatabaseName").block().getDatabase();
+
+// Container and autoscale throughput settings
+CosmosContainerProperties autoscaleContainerProperties = new CosmosContainerProperties("ContainerName", "/partitionKey");
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+
+// Create the container with autoscale enabled
+CosmosAsyncContainer container = database.createContainer(autoscaleContainerProperties, autoscaleThroughputProperties, new CosmosContainerRequestOptions())
+                                .block()
+                                .getContainer();
+```
+
+#### [Sync](#tab/api-sync)
+
+```java
+// Get reference to database that container will be created in
+CosmosDatabase database = client.createDatabase("DatabaseName").getDatabase();
+
+// Container and autoscale throughput settings
+CosmosContainerProperties autoscaleContainerProperties = new CosmosContainerProperties("ContainerName", "/partitionKey");
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+
+// Create the container with autoscale enabled
+CosmosContainer container = database.createContainer(autoscaleContainerProperties, autoscaleThroughputProperties, new CosmosContainerRequestOptions())
+                                .getContainer();
+```
+
+--- 
+
+### Read the current throughput (RU/s)
+
+#### [Async](#tab/api-async)
+
+```java
+// Get a reference to the resource
+CosmosAsyncContainer container = client.getDatabase("DatabaseName").getContainer("ContainerName");
+
+// Read the throughput on a resource
+ThroughputProperties autoscaleContainerThroughput = container.readThroughput().block().getProperties();
+
+// The autoscale max throughput (RU/s) of the resource
+int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThroughput();
+
+// The throughput (RU/s) the resource is currently scaled to
+int currentThroughput = autoscaleContainerThroughput.Throughput;
+```
+
+#### [Sync](#tab/api-sync)
+
+```java
+// Get a reference to the resource
+CosmosContainer container = client.getDatabase("DatabaseName").getContainer("ContainerName");
+
+// Read the throughput on a resource
+ThroughputProperties autoscaleContainerThroughput = container.readThroughput().getProperties();
+
+// The autoscale max throughput (RU/s) of the resource
+int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThroughput();
+
+// The throughput (RU/s) the resource is currently scaled to
+int currentThroughput = autoscaleContainerThroughput.Throughput;
+```
+
+--- 
+
+### Change the autoscale max throughput (RU/s)
+
+#### [Async](#tab/api-async)
+
+```java
+// Change the autoscale max throughput (RU/s)
+container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
+```
+
+#### [Sync](#tab/api-sync)
+
+```java
+// Change the autoscale max throughput (RU/s)
+container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput));
+```
+
+--- 
+
 ## Azure Resource Manager (ARM)
 You can use an ARM template to provision autoscale throughput on a database or container. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
 
 ## Next steps
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
+* Learn how to [choose between manual and autoscale throughput](how-to-choose-throughput-offer.md).
 * Review the [autoscale FAQ](autoscale-faq.md).
