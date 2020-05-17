@@ -52,14 +52,14 @@ In a Jupyter notebook
 
 2. Install homomorphic encryption library for secure inferencing.
 
-> [!NOTE]
-> The `encrypted-inference` package is currently in preview.
-
-[`encrypted-inference`](https://pypi.org/project/encrypted-inference) is a homomorphic encryption library based on [Microsoft SEAL](https://github.com/Microsoft/SEAL).
-
-```python
-!pip install encrypted-inference==0.9
-```
+    > [!NOTE]
+    > The `encrypted-inference` package is currently in preview.
+    
+    [`encrypted-inference`](https://pypi.org/project/encrypted-inference) is a homomorphic encryption library based on [Microsoft SEAL](https://github.com/Microsoft/SEAL).
+    
+    ```python
+    !pip install encrypted-inference==0.9
+    ```
 
 ## Configure the inferencing environment
 
