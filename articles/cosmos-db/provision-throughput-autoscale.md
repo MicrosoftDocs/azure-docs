@@ -12,9 +12,6 @@ ms.date: 05/11/2020
 
 Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
 
-> [!NOTE]
-> You can [enable autoscale for new databases and containers](how-to-provision-autoscale-throughput.md) only. It is not available for existing databases and containers.
-
 Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
 
 With autoscale, Azure Cosmos DB **automatically and instantly scales the throughput (RU/s)** of your database or container based on usage, without impacting the availability, latency, throughput, or performance of the workload. 
@@ -56,7 +53,7 @@ Each hour, you will be billed for the highest throughput `T` the system scaled t
 The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, which scales between 400 - 4000 RU/s. You can set `Tmax` in increments of 1000 RU/s and change the value at any time.  
 
 ## Enable autoscale on existing resources ##
-You can enable autoscale on an existing database or container, and switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
+Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
@@ -66,9 +63,10 @@ For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 500
 
 When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s). After the first 25 containers, you will need to increment the autoscale maximum RU/s by 1000 RU/s for each additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
 
-## Comparison – Containers configured with manual vs autoscale throughput
+## Comparison – containers configured with manual vs autoscale throughput
 For more detail, see this [documentation](how-to-choose-throughput-offer.md) on how to choose between standard (manual) and autoscale throughput.  
-|  | Containers with standard (manual) throughput  | Containers with autoscale throughput |
+
+|| Containers with standard (manual) throughput  | Containers with autoscale throughput |
 |---------|---------|---------|
 | **Provisioned throughput (RU/s)** | Manually provisioned. | Automatically and instantaneously scaled based on the workload usage patterns. |
 | **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if you consume RU/s within the autoscale throughput range that you've set.    |

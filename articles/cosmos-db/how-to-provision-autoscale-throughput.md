@@ -10,7 +10,7 @@ ms.date: 05/10/2020
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. To enable autoscale for new databases and containers, use the Azure portal, Azure Resource Manager (ARM) template, Azure Cosmos DB .NET V3 SDK, or Java V4 SDK. To enable autoscale on existing database and containers, use the Azure portal.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. 
 
 ## Azure portal
 
@@ -28,6 +28,10 @@ This article explains how to provision autoscale throughput on a database or con
 To provision autoscale on shared throughput database, select the **Provision database throughput** option when creating a new database. 
 
 ### Enable autoscale on existing database or container
+
+> [!IMPORTANT]
+> In the current release, the Azure portal is the only way to migrate between autoscale and standard (manual) provisioned throughput. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
