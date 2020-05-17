@@ -135,7 +135,7 @@ For example:
 %%upload --database databaseName --container containerName --url 
 https://contoso.com/path/to/data.json
 ```
-```markdown
+```
 Documents successfully uploaded to ContainerName
 Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
