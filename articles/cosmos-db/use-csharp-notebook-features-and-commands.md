@@ -21,12 +21,14 @@ In a new code cell, insert and run the following code, replacing ``PackageToBeIn
 ```csharp
 #r "nuget: PackageToBeInstalled, optionalVersion"
 ```
+
 You can install multiple NuGet packages in the same cell. Packages will be available to use from any notebook in the Azure Cosmos account workspace. 
 
-Currently, the C# notebooks workspace does not support recursive resolution of NuGet packages. If a NuGet package has dependencies on other NuGet packages not currently installed, you may have to explicitly reference them along with the parent package.
+Currently, the C# notebooks workspace does not support recursive resolution of NuGet packages. If a NuGet package has dependencies on other NuGet packages that are not currently installed, you have to explicitly reference them along with the parent package.
 
-> [!TIP]''
-> If your notebook requires a custom package, we recommend that you add a cell to your notebook to install the package and make it the first cell. This reduces the chance of conflicts with any packages Azure Cosmos DB loads by default. It also makes it easy to re-install them if you [reset the workspace](#reset-notebooks-workspace), which removes all packages. 
+> [!TIP]
+> If your notebook requires a custom package, we recommend that you add a cell to your notebook to install the package and make it the first cell. This reduces the chance of conflicts with other packages that Azure Cosmos DB loads by default. It is also easy to re-install the packages if you [reset the workspace](#reset-notebooks-workspace), which removes all packages. 
+
 ## Use the built-in Azure Cosmos DB .NET SDK
 Version 3 of the [Azure Cosmos DB .NET SDK for SQL API](https://github.com/Azure/azure-cosmos-dotnet-v3) is installed and included in the notebook environment for the Azure Cosmos account.
 
@@ -47,19 +49,19 @@ CosmosClient cosmosClient = new CosmosClient(Cosmos.Endpoint, Cosmos.Key);
 Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync("DatabaseName");
 Container container = await database.CreateContainerIfNotExistsAsync("ContainerName", "/partitionKey", 400);
 ```
-See [.NET SDK samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage). 
+To learn more, see the [.NET V3 SDK samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage). 
 
 > [!IMPORTANT]
 > The built-in Azure Cosmos DB .NET SDK is only supported for SQL (Core) API accounts. For other APIs, you will need to [install the relevant .NET driver](#install-a-new-nuget-package) that corresponds to the API. 
 
-## Set custom options using ```CosmosClientOptions```
-For more flexibility, you can set custom ``CosmosClientOptions`` to pass in your ``CosmosClient`` instance. You can use this to:
+## Set custom options using ``CosmosClientOptions``
+For more flexibility, you can set the custom ``CosmosClientOptions`` property and pass it in your ``CosmosClient`` instance. You can use this property to:
 
-- Set an application name in the user-agent suffix to include in every request 
-- Set the preferred region to be used to operations against the service
-- Set a custom retry policy on rate-limited requests
+- Set an application name in the user-agent suffix to include it in every request.
+- Set the preferred region to be used when running operations against the service.
+- Set a custom retry policy to handle rate-limited requests.
 
-See the [documentation](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions) for all ``CosmosClientOptions`` settings.
+See the [CosmosClientOptions API reference](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions) article for all the supported settings. The following is an example that shows how to set `cosmosClientOptions` property:
 
 ```csharp
 using Microsoft.Azure.Cosmos;
@@ -76,7 +78,7 @@ var client = new CosmosClient(Cosmos.Endpoint, Cosmos.Key, cosmosClientOptions);
 ```
 
 ## Access the account endpoint and primary key variables
-You can access the built-in endpoint and key of the account your notebook is in.
+You can access the built-in endpoint and key of the Azure Cosmos account where your notebook exists.
 
 ```csharp
 var key = Cosmos.Key;
@@ -104,9 +106,9 @@ for (int i = 0; i < 5; i++) {
 > Console.WriteLine() syntax is not currently supported in C# notebooks. Use Display.AsMarkdown to print console output from your program. 
 
 ## Use built-in nteract data explorer
-You can use the built-in [nteract data explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) to filter and visualize a collection of items. In a cell, put the variable you want to visualize in the last line, which will automatically be displayed in nteract when the cell is run.
+You can use the built-in [nteract data explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) to filter and visualize a collection of items. In a cell, put the variable you want to visualize in the last line, which is automatically displayed in nteract when you run the cell.
 
-For example, in the GetingStarted_Csharp.ipynb example, we can print out the variable with our result, the ``telemetryEvents``. See the [GettingStarted_Csharp.ipynb notebook](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) for the entire sample. 
+For example, in the *GetingStarted_Csharp.ipynb* example, we can print out the variable with our result, the ``telemetryEvents``. See the [GettingStarted_Csharp.ipynb notebook](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) for the entire sample. 
 
 ![Csharp query cell](media/use-notebook-features-and-commands/csharp-query-cell.png)
 
@@ -133,12 +135,13 @@ For example:
 %%upload --database databaseName --container containerName --url 
 https://contoso.com/path/to/data.json
 ```
-```
+```markdown
 Documents successfully uploaded to ContainerName
 Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
+
 With the output statistics, you can calculate the effective RU/s used to upload the items. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
 
 ## Run another notebook in current notebook 
