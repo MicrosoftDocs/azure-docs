@@ -104,7 +104,7 @@ Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s
 
 Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: 10 * MAX(400, **150,000 / 100**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
 
-For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10, MAX(Container count - 25, 0) * 100)`, rounded to the nearest 1000 RU/s.
+For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10,  400 + (MAX(Container count - 25, 0) * 100))`, rounded to the nearest 1000 RU/s.  
 
 The above formulas and examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
 

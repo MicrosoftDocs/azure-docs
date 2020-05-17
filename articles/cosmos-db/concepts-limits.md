@@ -136,7 +136,16 @@ Cosmos DB supports execution of triggers during writes. The service supports a m
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article for the throughput and storage limits with autoscale.
+See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.md#lowering-the-max-rus-) for more detailed explanation of the throughput and storage limits with autoscale.
+
+| Resource | Default limit |
+| --- | --- |
+| Maximum RU/s the system can scale to |  `Tmax`, the autoscale max RU/s set by user|
+| Minimum RU/s the system can scale to | `0.1 * Tmax`|
+| Current RU/s the system is scales to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
+| Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you are billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
+| Minimum autoscale max RU/s for a container  |  `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)` rounded to nearest 1000 RU/s |
+| Minimum autoscale max RU/s for a database  |  `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10,  400 + (MAX(Container count - 25, 0) * 100))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
 
 ## SQL query limits
 

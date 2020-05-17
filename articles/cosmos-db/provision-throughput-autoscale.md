@@ -61,7 +61,7 @@ For any value of `Tmax`, the database or container can store a total of `0.01 * 
 
 For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
-When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s). After the first 25 containers, you will need to increment the autoscale maximum RU/s by 1000 RU/s for each additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
+When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s), as long as you don't exceed 40 GB of storage. See this [documentation](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) for more information.
 
 ## Comparison – containers configured with manual vs autoscale throughput
 For more detail, see this [documentation](how-to-choose-throughput-offer.md) on how to choose between standard (manual) and autoscale throughput.  
