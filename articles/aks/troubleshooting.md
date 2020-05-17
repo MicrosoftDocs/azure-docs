@@ -113,8 +113,9 @@ Follow the *Before you begin* steps in the appropriate doc to correctly create a
 Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
 
 * Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscores. The first and last character must be a letter or a number.
-* The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
+* The AKS Node/*MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name. You may also [customize your node resource group name](cluster-configuration.md#custom-resource-group-name)
 * The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
+* AKS Nodepool names must be all lowercase and be 1-11 characters for linux nodepools and 1-6 characters for windows nodepools. The name must start with a letter and the only allowed characters are letters and numbers.
 
 ## I'm receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 

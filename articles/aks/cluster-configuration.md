@@ -44,6 +44,8 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
+### New clusters
+
 Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS.
 
 ```azure-cli
@@ -51,6 +53,17 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 ```
 
 If you want to create a regular Ubuntu 16.04 cluster, you can do so by omitting the custom `--aks-custom-headers` tag.
+
+### Existing clusters
+
+Configure a new nodepool to use Ubuntu 18.04. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS for that nodepool.
+
+```azure-cli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
+```
+
+If you want to create a regular Ubuntu 16.04 nodepools, you can do so by omitting the custom `--aks-custom-headers` tag.
+
 
 ## Custom resource group name
 
