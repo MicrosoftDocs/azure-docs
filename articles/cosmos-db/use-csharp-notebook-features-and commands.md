@@ -135,12 +135,13 @@ For example:
 %%upload --database databaseName --container containerName --url 
 https://contoso.com/path/to/data.json
 ```
-```
+```markdown
 Documents successfully uploaded to ContainerName
 Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
+
 With the output statistics, you can calculate the effective RU/s used to upload the items. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
 
 ## Run another notebook in current notebook 
