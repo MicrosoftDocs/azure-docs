@@ -21,6 +21,7 @@ In a new code cell, insert and run the following code, replacing ``PackageToBeIn
 ```csharp
 #r "nuget: PackageToBeInstalled, optionalVersion"
 ```
+
 You can install multiple NuGet packages in the same cell. Packages will be available to use from any notebook in the Azure Cosmos account workspace. 
 
 Currently, the C# notebooks workspace does not support recursive resolution of NuGet packages. If a NuGet package has dependencies on other NuGet packages that are not currently installed, you have to explicitly reference them along with the parent package.
@@ -53,7 +54,7 @@ To learn more, see the [.NET V3 SDK samples](https://github.com/Azure/azure-cosm
 > [!IMPORTANT]
 > The built-in Azure Cosmos DB .NET SDK is only supported for SQL (Core) API accounts. For other APIs, you will need to [install the relevant .NET driver](#install-a-new-nuget-package) that corresponds to the API. 
 
-## Set custom options using ```CosmosClientOptions```
+## Set custom options using ``CosmosClientOptions``
 For more flexibility, you can set the custom ``CosmosClientOptions`` property and pass it in your ``CosmosClient`` instance. You can use this property to:
 
 - Set an application name in the user-agent suffix to include it in every request.
