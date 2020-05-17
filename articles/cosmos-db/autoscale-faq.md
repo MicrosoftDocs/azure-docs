@@ -94,10 +94,10 @@ For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 
 ### Can I change the max RU/s on the database or container? 
 Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to change the max RU/s. When you change the max RU/s, depending on the requested value, this can be an asynchronous operation that may take some time to complete (may be up to 4-6 hours, depending on the RU/s selected)
 
-#### Increasing the max RU/s ####
+#### Increasing the max RU/s
 When you send a request to increase the max RU/s `Tmax`, depending on the max RU/s selected, the service provisions more resources to support the higher max RU/s. While this is happening, your existing workload and operations will not be affected. The system will continue to scale your database or container between the previous `0.1*Tmax` to `Tmax` until the new scale range of `0.1*Tmax_new` to `Tmax_new` is ready.
 
-#### Lowering the max RU/s ####
+#### Lowering the max RU/s
 When you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
 
 Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. The lowest, minimum value you can set max RU/s to is: 10 * MAX(400, 20,000 / 100, **50 * 10**) = 5000 RU/s (scales between 500 - 5000 RU/s). 

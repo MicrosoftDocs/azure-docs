@@ -67,5 +67,3 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 * Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
 * Review the [autoscale FAQ](autoscale-faq.md).
-
-
