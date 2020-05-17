@@ -138,7 +138,7 @@
       - name: Provision throughput - autoscale
         href: provision-throughput-autoscale.md
       - name: Choose between autoscale and standard throughput
-        href: how-to-choose-throughput-offer.md    
+        href: how-to-choose-offer.md    
       - name: Autoscale FAQ
         href: autoscale-faq.md
     - name: SQL query

@@ -64,7 +64,7 @@ For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 500
 When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 4000 (scales between 400 - 4000 RU/s), as long as you don't exceed 40 GB of storage. See this [documentation](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) for more information.
 
 ## Comparison – containers configured with manual vs autoscale throughput
-For more detail, see this [documentation](how-to-choose-throughput-offer.md) on how to choose between standard (manual) and autoscale throughput.  
+For more detail, see this [documentation](how-to-choose-offer.md) on how to choose between standard (manual) and autoscale throughput.  
 
 || Containers with standard (manual) throughput  | Containers with autoscale throughput |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ For more detail, see this [documentation](how-to-choose-throughput-offer.md) on 
 ## Next steps
 
 * Review the [autoscale FAQ](autoscale-faq.md).
-* Learn how to [choose between manual and autoscale throughput](how-to-choose-throughput-offer.md).
+* Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
 

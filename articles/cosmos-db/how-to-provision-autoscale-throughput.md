@@ -241,5 +241,5 @@ You can use an ARM template to provision autoscale throughput on a database or c
 
 ## Next steps
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Learn how to [choose between manual and autoscale throughput](how-to-choose-throughput-offer.md).
+* Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Review the [autoscale FAQ](autoscale-faq.md).

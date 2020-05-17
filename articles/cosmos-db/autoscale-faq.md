@@ -26,7 +26,7 @@ For example, if you previously selected the tier that scaled between 400 to 4000
 With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
 
 ### How do I determine what RU/s the system is currently scaled to?
-Use [Azure Monitor metrics](how-to-choose-throughput-offer.md#measure-and-monitor-your-usage) to monitor both the provisioned autoscale max RU/s and the current throughput (RU/s) the system is scaled to. 
+Use [Azure Monitor metrics](how-to-choose-offer.md#measure-and-monitor-your-usage) to monitor both the provisioned autoscale max RU/s and the current throughput (RU/s) the system is scaled to. 
 
 ### What is the pricing for autoscale?
 Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour. If your resource had no requests during the hour or did not scale beyond `0.1 * Tmax`, you will be billed for the minimum of `0.1 * Tmax`. Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
