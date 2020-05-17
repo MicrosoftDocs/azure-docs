@@ -334,7 +334,7 @@ print ( ' Actual Label : ', y_test[sample_index])
 
 Delete the web service created in this sample:
 
-```python tags=["delete web service"]
+```python
 service.delete()
 ```
 
