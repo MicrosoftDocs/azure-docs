@@ -144,7 +144,7 @@ def run(raw_data):
 
 Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
-```python tags=["configure web service", "aci"]
+```python
 from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
@@ -295,7 +295,7 @@ Provide the test dataset to the model to get predictions. We will need to send t
 import json
 from azureml.core import Webservice
 
-service = Webservice(ws, 'sklearn-mnist-svc')
+service = Webservice(ws, 'sklearn-encrypted-mnist-svc')
 
 #pass the connection string for blob storage to give the server access to the uploaded public keys 
 conn_str_template = 'DefaultEndpointsProtocol={};AccountName={};AccountKey={};EndpointSuffix=core.windows.net'
