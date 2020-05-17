@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 05/14/2020
+ms.date: 05/17/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,47 +14,55 @@ ms.topic: conceptual
 
 # How to deploy an encrypted image classification service
 
-Learn how to deploy an image classification model as a encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself.
+Learn how to deploy an image classification model as an encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). The web service is a Docker container image that contains the model and scoring logic.
 
-In this part of the tutorial, you use Azure Machine Learning service to:
+In guide, you use Azure Machine Learning service to:
 
-> * Set up your testing environment
-> * Retrieve the model from your workspace
-> * Test the model locally
-> * Deploy the model to ACI
-> * Test the deployed model
+> * Configure your environments
+> * Deploy encrypted inferencing web service
+> * Prepare test data
+> * Make encrypted predictions
+> * Clean up resources
 
 ACI is a great solution for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
+The encryption method used in this sample is homomorphic encryption (HE). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key.
+
 ## Prerequisites
 
-Complete the model training in the [Train an image classification model with Azure Machine Learning tutorial](tutorial-train-models-with-aml.md).
+This guide assumes that you have an image classification model registered in Azure Machine Learning. If not, register the model using a [pretrained model](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) or create your own by completing the [train an image classification model with Azure Machine Learning tutorial](tutorial-train-models-with-aml.md).
+
+## Configure local environment
+
+In a Jupyter notebook
+
+1. Import the Python packages needed for this sample.
+
+    ```python
+    %matplotlib inline
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    import azureml.core
+
+    # display the core SDK version number
+    print("Azure ML SDK Version: ", azureml.core.VERSION)
+    ```
+
+2. Install homomorphic encryption library for secure inferencing.
+
+> [!NOTE]
+> The `encrypted-inference` package is currently in preview.
+
+[`encrypted-inference`](https://pypi.org/project/encrypted-inference) is a homomorphic encryption library based on [Microsoft SEAL](https://github.com/Microsoft/SEAL).
 
 ```python
-# If you did NOT complete the tutorial, you can instead run this cell 
-# This will register a model and download the data needed for this tutorial
-# These prerequisites are created in the training tutorial
-# Feel free to skip this cell if you completed the training tutorial 
-
-# register a model
-from azureml.core import Workspace
-ws = Workspace.from_config()
-
-from azureml.core.model import Model
-
-model_name = "sklearn_mnist"
-model = Model.register(model_path="sklearn_mnist_model.pkl",
-                        model_name=model_name,
-                        tags={"data": "mnist", "model": "classification"},
-                        description="Mnist handwriting recognition",
-                        workspace=ws)
-
-
+!pip install encrypted-inference==0.9
 ```
 
-### Setup the Environment 
+## Configure the inferencing environment
 
-Add `encrypted-inference` package as a conda dependency 
+Create an environment for inferencing and add `encrypted-inference` package as a conda dependency.
 
 ```python
 from azureml.core.environment import Environment
@@ -70,52 +78,24 @@ env.python.conda_dependencies = cd
 env.register(workspace = ws)
 ```
 
-## Set up the environment
+## Deploy encrypted inferencing web service
 
-Start by setting up a testing environment.
-
-### Import packages
-
-Import the Python packages needed for this tutorial.
-
-```python tags=["check version"]
-%matplotlib inline
-import numpy as np
-import matplotlib.pyplot as plt
- 
-import azureml.core
-
-# display the core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
-```
-
-#### Install Homomorphic Encryption based library for Secure Inferencing
-
-Our library is based on [Microsoft SEAL](https://github.com/Microsoft/SEAL) and pubished to [PyPi.org](https://pypi.org/project/encrypted-inference) as an easy to use package 
-
-```python
-!pip install encrypted-inference==0.9
-```
-
-## Deploy as web service
-
-Deploy the model as a web service hosted in ACI. 
+Deploy the model as a web service hosted in ACI.
 
 To build the correct environment for ACI, provide the following:
+
 * A scoring script to show how to use the model
 * A configuration file to build the ACI
-* The model you trained before
+* A trained model
 
 ### Create scoring script
 
-Create the scoring script, called score.py, used by the web service call to show how to use the model.
+Create the scoring script `score.py` used by the web service for inferencing.
 
 You must include two required functions into the scoring script:
-* The `init()` function, which typically loads the model into a global object. This function is run only once when the Docker container is started. 
 
-* The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported. The function fetches homomorphic encryption based public keys that are uploaded by the service caller. 
-
-
+* The `init()` function, which typically loads the model into a global object. This function is run only once when the Docker container is started.
+* The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported. The function fetches homomorphic encryption based public keys that are uploaded by the service caller.
 
 ```python
 %%writefile score.py
@@ -173,7 +153,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Encrypted Predict MNIST with sklearn + SEAL')
 ```
 
-### Deploy in ACI
+### Deploy to Azure Container Instances
 
 Estimated time to complete: **about 2-5 minutes**
 
@@ -182,11 +162,11 @@ Configure the image and deploy. The following code goes through these steps:
 1. Create environment object containing dependencies needed by the model using the environment file (`myenv.yml`)
 1. Create inference configuration necessary to deploy the model as a web service using:
    * The scoring file (`score.py`)
-   * envrionment object created in previous step
+   * Environment object created in the rpevious step
 1. Deploy the model to the ACI container.
 1. Get the web service HTTP endpoint.
 
-```python tags=["configure image", "create image", "deploy web service", "aci"]
+```python
 %%time
 from azureml.core.webservice import Webservice
 from azureml.core.model import InferenceConfig
@@ -200,10 +180,10 @@ model = Model(ws, 'sklearn_mnist')
 myenv = Environment.get(workspace=ws, name="tutorial-env")
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
-service = Model.deploy(workspace=ws, 
-                       name='sklearn-mnist-svc', 
-                       models=[model], 
-                       inference_config=inference_config, 
+service = Model.deploy(workspace=ws,
+                       name='sklearn-encrypted-mnist-svc',
+                       models=[model],
+                       inference_config=inference_config,
                        deployment_config=aciconfig)
 
 service.wait_for_deployment(show_output=True)
@@ -211,13 +191,13 @@ service.wait_for_deployment(show_output=True)
 
 Get the scoring web service's HTTP endpoint, which accepts REST client calls. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application.
 
-```python tags=["get scoring uri"]
+```python
 print(service.scoring_uri)
 ```
 
-### Download test data
+## Prepare test data
 
-Download the test data to the **./data/** directory
+1. Download the test data. In this case, it's saved into a directory called *data*.
 
 ```python
 import os
@@ -231,9 +211,7 @@ mnist_file_dataset = MNIST.get_file_dataset()
 mnist_file_dataset.download(data_folder, overwrite=True)
 ```
 
-### Load test data
-
-Load the test data from the **./data/** directory created during the training tutorial.
+1. Load the test data from the *data* directory.
 
 ```python
 from utils import load_data
@@ -246,26 +224,21 @@ X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte
 y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
 ```
 
-### Predict test data
+## Make encrypted predictions
 
-Feed the test dataset to the model to get predictions.
+Use the test dataset with the model to get predictions.
 
-The following code goes through these steps:
+To make encrypted predictions:
 
-1. Create our Homomorphic Encryption based client 
-
-1. Upload HE generated public keys 
-
+1. Create our Homomorphic Encryption based client
+1. Upload Homomorphic Encryption generated public keys
 1. Encrypt the data
-
-1. Send the data as JSON to the web service hosted in ACI. 
-
+1. Send the data as JSON to the web service hosted in ACI
 1. Use the SDK's `run` API to invoke the service. You can also make raw calls using any HTTP tool such as curl.
-<!-- #endregion -->
 
-#### Create our Homomorphic Encryption based client 
+### Create Homomorphic Encryption based client
 
-Create a new EILinearRegressionClient and setup the public keys 
+Create a new `EILinearRegressionClient` and create the public keys.
 
 ```python
 from encrypted.inference.eiclient import EILinearRegressionClient
@@ -279,7 +252,7 @@ public_keys_blob, public_keys_data = edp.get_public_keys()
 
 #### Upload HE generated public keys
 
-Upload the public keys to the workspace default blob store. This will allow us to share the keys with the inference server
+Upload the public keys to the workspace default blob store. This will allow you to share the keys with the inference server.
 
 ```python
 import azureml.core
@@ -303,7 +276,7 @@ datastore.upload_files([public_keys_blob])
 os.remove(public_keys_blob)
 ```
 
-#### Encrypt the data 
+### Encrypt the test data
 
 ```python
 #choose any one sample from the test data 
@@ -314,9 +287,9 @@ raw_data = edp.encrypt(X_test[sample_index])
 
 ```
 
-#### Send the test data to the webservice hosted in ACI
+### Send the test data to the encrypted ACI web service
 
-Feed the test dataset to the model to get predictions. We will need to send the connection string to the blob storage where the public keys were uploaded 
+Provide the test dataset to the model to get predictions. We will need to send the connection string to the blob storage where the public keys were uploaded.
 
 ```python
 import json
@@ -338,9 +311,9 @@ eresult = service.run(input_data=data)
 print ('Received encrypted inference results')
 ```
 
-#### Decrypt the data
+### Decrypt the prediction
 
-Use the client to decrypt the results
+Use the client to decrypt the results.
 
 ```python
 import numpy as np
@@ -358,20 +331,20 @@ print ( ' Actual Label : ', y_test[sample_index])
 
 ## Clean up resources
 
-To keep the resource group and workspace for other tutorials and exploration, you can delete only the ACI deployment using this API call:
+Delete the web service created in this sample:
 
 ```python tags=["delete web service"]
 service.delete()
 ```
 
-If you're not going to use what you've created here, delete the resources you just created with this quickstart so you don't incur any charges. In the Azure portal, select and delete your resource group. You can also keep the resource group, but delete a single workspace by displaying the workspace properties and selecting the Delete button.
+If you no longer plan to use the Azure resources you’ve created, delete them. This prevents you from being charged for unutilized resources that are still running. See this guide on how to [clean up resources](how-to-manage-workspace#clean-up-resources) to learn more.
 
 ## Next steps
 
-In this Azure Machine Learning tutorial, you used Python to:
+In this Azure Machine Learning guide, you:
 
-> * Set up your testing environment
-> * Retrieve the model from your workspace
-> * Test the model locally
-> * Deploy the model to ACI
-> * Test the deployed model
+> * Configured your environments
+> * Deployed an encrypted inferencing web service
+> * Prepared test data
+> * Made encrypted predictions
+> * Cleaned up resources
