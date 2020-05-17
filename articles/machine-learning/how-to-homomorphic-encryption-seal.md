@@ -25,7 +25,7 @@ In guide, you use Azure Machine Learning service to:
 > * Make encrypted predictions
 > * Clean up resources
 
-ACI is a great solution for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI is a great solution for testing and understanding the model deployment workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
 The encryption method used in this sample is homomorphic encryption (HE). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key.
 
