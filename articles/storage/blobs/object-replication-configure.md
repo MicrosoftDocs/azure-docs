@@ -1,7 +1,7 @@
 ---
 title: Configure object replication (preview)
 titleSuffix: Azure Storage
-description: 
+description: Learn how to configure object replication to asynchronously copy block blobs from a container in one storage account to another.
 services: storage
 author: tamram
 
@@ -24,14 +24,15 @@ This article describes how to configure object replication for your storage acco
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
+Also, make sure that you have registered for the following feature previews:
+
+- [Object replication (preview)](object-replication-overview.md)
+- [Blob versioning (preview)](versioning-overview.md)
+- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+
 # [Azure portal](#tab/portal)
 
-Before you configure object replication in the Azure portal, create the source and destination containers in their respective storage accounts, if they do not already exist.
-
-Next, make sure you have enabled the following prerequisites:
-
-- [Change feed (preview)](storage-blob-change-feed.md) on the source account
-- [Blob versioning (preview)](versioning-overview.md) on the source and destination accounts
+Before you configure object replication in the Azure portal, create the source and destination containers in their respective storage accounts, if they do not already exist. Also, enabled blob versioning and change feed on the source account, and enable blob versioning on the destination account.
 
 To create a replication policy in the Azure portal, follow these steps:
 
@@ -119,12 +120,6 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
     -StorageAccountName $destAccountName
 
-# Create new containers in the source and destination accounts.
-$srcAccount | New-AzStorageContainer $srcContainerName1
-$destAccount | New-AzStorageContainer $destContainerName1
-$srcAccount | New-AzStorageContainer $srcContainerName2
-$destAccount | New-AzStorageContainer $destContainerName2
-
 # Create containers in the source and destination accounts.
 Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $srcAccountName |
     New-AzStorageContainer $srcContainerName1
@@ -158,124 +153,116 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a replication policy with Azure CLI, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
+To create a replication policy with Azure CLI, first install version ??? of the Azure CLI. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Refer to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) article to install and import the preview module supporting object replication capability.
+Run the following command to install the Azure Storage preview module for Azure CLI:
 
+```azurecli
 az extension add -n storage-ors-preview
+```
 
-To start working with Azure CLI, sign in with your Azure credentials.
+Next, sign in with your Azure credentials:
 
+```azurecli
 az login
+```
 
-Enable both Change feed and Versioning on the source storage account. Make sure you’re already registered for [Change feed](https://azure.microsoft.com/blog/change-feed-support-now-available-in-preview-for-azure-blob-storage/) and Versioning capabilities.
+Enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Make sure that you have already registered for the [change feed](https://azure.microsoft.com/blog/change-feed-support-now-available-in-preview-for-azure-blob-storage/) and Versioning capabilities.
 
-az storage blob service-properties update --enable-versioning --resource-group \<resource group\> --account-name \<source storage account\>
+```azurecli
+az storage blob service-properties update --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --enable-versioning
 
-az storage blob service-properties update --enable-change-feed --resource-group \<resource group\> --account-name \<source storage account\>
+az storage blob service-properties update --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --enable-change-feed
 
-Enable Versioning on the destination storage account.
+az storage blob service-properties update --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --enable-versioning
+```
 
-az storage blob service-properties update --enable-versioning --resource-group \<resource group\> --account-name \<destination storage account\>
+Create the source and destination containers in their respective storage accounts.
 
-Create a new replication policy and an associated rule(s) and specify the desired prefix and replication behavior for the objects, that existed prior to configuring object replication.
+```azurecli
+az storage container create --account-name <source-storage-account> --name source-container3 --auth-mode login
+az storage container create --account-name <source-storage-account> --name source-container4 --auth-mode login
 
-az storage account ors-policy create \\
+az storage container create --account-name <dest-storage-account> --name source-container3 --auth-mode login
+az storage container create --account-name <dest-storage-account> --name source-container4 --auth-mode login
+```
 
-\--account-name \<destination storage account\> \\
+Create a new replication policy and associated rules on the destination account.
 
-\--resource-group \<resource group\> \\
+```azurecli
+az storage account or-policy create --account-name <dest-storage-account> \
+    --resource-group <resource-group> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --source-container source-container3 \
+    --destination-container dest-container3 \
+    --min-creation-time '2020-05-10T00:00:00Z' \
+    --prefix-match a
 
-\--source-account \<source storage account\> \\
+az storage account or-policy rule add --account-name <dest-storage-account> \
+    --destination-container dest-container4 \
+    --policy-id <policy-id> \
+    --resource-group <resource-group> \
+    --source-container source-container4 \
+    --prefix-match b
+```
 
-\--destination-account \<destination storage account\> \\
+Create the policy on the source account using the policy ID.
 
-\--source-container \<source container\> \\
+```azurecli
+az storage account or-policy show --resource-group <resource-group> \
+    --name <dest-storage-account> \
+    --policy-id <policy-id> |
+    --az storage account or-policy create --resource-group <resource-group> \
+    --name <source-storage-account> \
+    --policy "@-"
+```
 
-\--min-creation-time '2020-02-19T16:05:00Z' \\
+---
 
-\--prefix-match prod\_
+## Remove a replication policy
 
-For list of available parameters and their values refer to Azure CLI object replication extension documentation.
+To remove a replication policy and its associated rules, use Azure portal, PowerShell, or CLI.
 
-Enable object replication on the source account by adding the replication policy to it.
+# [Azure portal](#tab/portal)
 
-az storage account ors-policy show -g \<resource group\> -n \<destination storage account\> --policy-id \<policy id from the previous step\> \| az storage account ors-policy create -g \<resource group\> -n \<source storage account\> -p "\@-"
+To remove a replication policy in the Azure portal, follow these steps:
 
-Save the replication policy ID and the rule ID into variables for further orchestration.
+1. Navigate to the source storage account in the Azure portal.
+1. Under **Settings**, select **Object replication**.
+1. Click the **More** button next to the policy name.
+1. Select **Delete Rules**.
 
-\$policyid = (az storage account ors-policy create --account-name \<source/destination storage account\> --resource-group \<resource group\> --properties \@{path}) --query policyId)
+# [PowerShell](#tab/powershell)
 
-\$ruleid = (az storage account ors-policy create --account-name \<source/destination storage account\> --resource-group \<resource group\> --properties \@{path}) --query rules.ruleId)
+To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
-List replication policies in effect on a given storage account.
+```powershell
+Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $destAccountName | Remove-AzStorageObjectReplicationPolicy
+Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName | Remove-AzStorageObjectReplicationPolicy
+```
 
-az storage account ors-policy list \\
+# [Azure CLI](#tab/azure-cli)
 
-\--account-name \<source/destination storage account\> \\
+To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
-\--resource-group \<resource group\>
+```azurecli
+az storage account or-policy delete \
+    --policy-id $policyid \
+    --account-name <source-storage-account> \
+    --resource-group <resource-group>
 
-Retrieve details of a specific replication policy.
-
-az storage account ors-policy show \\
-
-\--policy-id \$policyid \\
-
-\--account-name \<source/destination storage account\> \\
-
-\--resource-group \<resource group\>
-
-Change the source account name by updating the existing replication policy.
-
-az storage account ors-policy update \\
-
-\--policy-id \$policyid \\
-
-\--account-name \<destination storage account\> \\
-
-\--resource-group \<resource group\> \\
-
-\-s \<new source storage account\>
-
-Add rule to an existing replication policy.
-
-az storage account ors-policy rule add \\
-
-\--policy-id \$policyid \\
-
-\--account-name \<destination storage account\> \\
-
-\--resource-group \<resource group\> \\
-
-\--destination-container \<destination container\> \\
-
-\--source-container \<source container\> \\
-
-\--prefix-match test\_ \\
-
-\--min-creation-time '2020-02-19T16:05:00Z'
-
-List all rules in effect for a given replication policy.
-
-az storage account ors-policy rule list \\
-
-\--policy-id \$policyid \\
-
-\--account-name \<source/destination storage account\> \\
-
-\--resource-group \<resource group\>
-
-When no longer needed, remove the replication policy from the source and
-destination accounts.
-
-az storage account ors-policy remove \\
-
-\--policy-id \$policyid \\
-
-\--account-name \<source/destination storage account\> \\
-
-\--resource-group \<resource group\>
+az storage account or-policy delete \
+    --policy-id $policyid \
+    --account-name <dest-storage-account> \
+    --resource-group <resource-group>
+```
 
 ---
 
