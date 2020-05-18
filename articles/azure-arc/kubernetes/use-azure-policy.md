@@ -57,3 +57,7 @@ After the policy assignment is created, for any new `connectedCluster` resource 
 4. In the list you should see the `sourceControlConfiguration` that the policy assignment created.
 5. Use **kubectl** to interrogate the cluster: you should see the namespace and artifacts that were created by the `sourceControlConfiguration`.
 6. Within 5 minutes or so you should see in the cluster the artifacts that are described in the manifests in the configured Git repo.
+
+## Next steps
+
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

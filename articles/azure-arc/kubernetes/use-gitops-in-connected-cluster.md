@@ -329,8 +329,7 @@ az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --c
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 ```
 
-## Next
+## Next steps
 
-- Return to the [README](../README.md)
 - [Use GitOps with Helm for cluster configuration](./use-gitops-with-helm.md)
 - [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

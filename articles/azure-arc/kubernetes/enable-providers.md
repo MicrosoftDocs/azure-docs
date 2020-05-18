@@ -91,6 +91,6 @@ Namespace                          RegistrationPolicy    RegistrationState
 Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
 ```
 
-## Next
+## Next steps
 
-* Return to the [README](../README.md#connect-your-first-cluster)
+* [Connect a cluster](./README.md#connect-your-first-cluster)

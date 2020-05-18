@@ -90,3 +90,7 @@ helm del azmon-containers-release-1
 
 # Contact
 If you have any questions or feedback or feature request regarding Azure Monitor for containers integration, please reach us out through [this](mailto:omscontainers@microsoft.com).
+
+## Next steps
+
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

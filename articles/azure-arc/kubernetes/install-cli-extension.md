@@ -63,7 +63,6 @@ az extension update --name connectedk8s
 az extension update --name k8sconfiguration
 ```
 
-## Next
+## Next steps
 
-* Return to the [README](../README.md)
 * [Connect your first cluster](./connect-a-cluster.md)

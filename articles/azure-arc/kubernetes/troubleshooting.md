@@ -197,3 +197,7 @@ metadata:
 ```
 
 ### Source control configurations remain on my cluster
+
+## Next steps
+
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

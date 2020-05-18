@@ -7,7 +7,7 @@ ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: ""
+description: "Use GitOps with Helm for cluster configuratio"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
@@ -161,7 +161,6 @@ azure-vote-front   LoadBalancer   10.0.14.161   52.186.160.216   80:30372/TCP   
 
 Find the external IP address from the output above and open it in a browser.
 
-## Next
+## Next steps
 
-- Return to the [README](../README.md)
 - [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

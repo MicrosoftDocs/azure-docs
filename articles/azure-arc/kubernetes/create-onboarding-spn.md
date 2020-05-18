@@ -88,3 +88,6 @@ az connectedk8s connect \
     --onboarding-spn-id 22cc2695-54b9-49c1-9a73-2269592103d8 \
     --onboarding-spn-secret 09d3a928-b223-4dfe-80e8-fed13baa3b3
 ```
+## Next steps
+
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

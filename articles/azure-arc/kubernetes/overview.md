@@ -105,3 +105,6 @@ For more information, see [Get started with Log Analytics in Azure Monitor](http
 
 ## Next Steps
 
+## Next steps
+
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

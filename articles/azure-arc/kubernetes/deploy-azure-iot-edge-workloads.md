@@ -65,3 +65,7 @@ You can remove the configuration using:
 ```
 az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```
+
+## Next steps
+
+[Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
