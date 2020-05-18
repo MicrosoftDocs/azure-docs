@@ -417,3 +417,5 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Public Preview partners
+      href: sql-data-warehouse-partner-launch.md
