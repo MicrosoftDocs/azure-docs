@@ -112,7 +112,7 @@ Make sure to save the file before moving on.
 
 Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
-In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that we will also use in the next section to create different types of twins.
+In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that you'll also use in the next section to create different types of twins.
 
 ```cmd/sh
 CreateModels Room Floor
