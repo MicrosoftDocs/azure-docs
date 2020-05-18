@@ -28,11 +28,9 @@ These concerns can be resolved by using a managed identity to connect to your da
 
 ## Using managed identities
 
-[Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication. 
+[Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is a feature that provides Azure services with an automatically managed identity in Azure AD. Azure Cognitive Search can use this managed identity to allow you to create a data source object with a connection string that does not include an account key or a password. Instead, your Azure Cognitive Search service will connect to the data source using the permissions that you give to its system assigned managed identity.
 
-Azure Cognitive Search can use managed identities to allow you to create a data source object with a connection string that does not include an account key or a password. Instead, the connection string includes a ResourceId and your Azure Cognitive Search service will connect to the data source using the permissions that you give to its system assigned managed identity.
-
-When connecting to a data source using a managed identity, you can change your data source account key or password and your indexers will still be able to connect.
+When connecting to a data source using a managed identity, you can change your data source account key or password and your indexers will still be able to connect. You can also create data source objects in your code without having to include an account key or use Key Vault to retrieve an account key.
 
 ## Next steps
 
