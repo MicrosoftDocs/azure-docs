@@ -111,7 +111,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Manage blobs with Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [azure-storage-blob package](/python/api/azure-storage-blob) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Manage blobs with Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 2.x | [azure-storage-blob](/python/api/azure-storage-blob/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Manage blobs with Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ### Queues
 
@@ -120,7 +120,7 @@ The following table lists reference and sample documentation for Azure Queue sto
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage Queues client library for Python](/python/api/overview/azure/storage-queue-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [azure-storage-queue package](/python/api/azure-storage-queue) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue storage v2.1 from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 2.x | [azure-storage-queue](/python/api/azure-storage-queue/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue storage v2.1 from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ### File Shares
 
@@ -128,8 +128,8 @@ The following table lists reference and sample documentation for Azure File Shar
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure File Shares client library v12 for Python](/python/api/overview/azure/storage.files.shares-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Examples](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Microsoft.Azure.Storage.File Namespace](/python/api/microsoft-azure-storage-file) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 12.x | [Azure File Shares client library v12 for Python](/python/api/overview/azure/storage-file-share-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Examples](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2.x | [azure-storage-file](/python/api/azure-storage-file/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
 
 ## JavaScript APIs
 
@@ -142,7 +142,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage Blob client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [Quickstart: Manage blobs with JavaScript v12 SDK in a browser](/azure/storage/blobs/quickstart-blobs-javascript-browser) |
-| 10.x | [@azure/storage-blob package](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Quickstart: Manage blobs with JavaScript v10 SDK in browser](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
+| 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Quickstart: Manage blobs with JavaScript v10 SDK in browser](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
 
 ### Queues
 
@@ -151,7 +151,7 @@ The following table lists reference and sample documentation for Azure Queue sto
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage Queue client library for JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Quickstart: Azure Queue storage client library v12 for JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue package](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Service to create and delete queues from Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Service to create and delete queues from Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
 
 ### File Shares
 
@@ -160,7 +160,7 @@ The following table lists reference and sample documentation for Azure File Shar
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage File Share client library for JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [Examples](/javascript/api/overview/azure/storage-file-share-readme#examples) |
-| 10.x | [@azure/storage-file package](/javascript/api/@azure/storage-file) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
+| 10.x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
 
 ## REST APIs
 
