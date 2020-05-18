@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-# Provision throughput on containers and databases
+# Introduction to provisioned throughput in Azure Cosmos DB
 
 Azure Cosmos DB allows you to set provisioned throughput on your databases and containers. There are two types of provisioned throughput, standard (manual) or autoscale. This articles gives an overview of how provisioned throughput works. 
 
