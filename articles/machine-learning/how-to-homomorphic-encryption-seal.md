@@ -1,22 +1,22 @@
 ---
-title: Deploy an encrypted image classification service
+title: Deploy an encrypted inferencing service
 titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 05/17/2020
+ms.date: 05/18/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-#intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted image data
+#intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data
 ---
 
-# How to deploy an encrypted image classification service
+# How to deploy an encrypted inferencing web service
 
 Learn how to deploy an image classification model as an encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). The web service is a Docker container image that contains the model and scoring logic.
 
-In guide, you use Azure Machine Learning service to:
+In this guide, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Configure your environments
@@ -27,7 +27,7 @@ In guide, you use Azure Machine Learning service to:
 
 ACI is a great solution for testing and understanding the model deployment workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
-The encryption method used in this sample is homomorphic encryption (HE). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key.
+The encryption method used in this sample is homomorphic encryption (HE). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. 
 
 ## Prerequisites
 
