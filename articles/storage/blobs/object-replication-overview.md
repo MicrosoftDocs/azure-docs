@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Object replication (preview)
 
-Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. The source and destination accounts may be in different regions. Some scenarios supported by object replication include:
+Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. Some scenarios supported by object replication include:
 
 - **Minimizing latency.** Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
 - **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
@@ -25,26 +25,22 @@ To learn how to configure object replication, see [Configure object replication 
 
 ## How object replication works
 
-Object replication asynchronously copies all or a specified set of block blobs from a container in one storage account to a container in another account. After you configure object replication on the source account, Azure Storage checks the change feed regularly and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
 
-> [!IMPORTANT]
-> Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account.
-
-### Configure a replication policy
-
-To use object replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
-
-A storage account can serve as the source account for up to two destination accounts. Each destination account may be in a different region. You can configure two separate replication policies to replicate data to each of the destination accounts.
-
-The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier.md) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
-
-### Create rules on the replication policy
+A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may all be in different regions. You can configure two separate replication policies to replicate data to each of the destination accounts.
 
 You can specify up to 10 replication rules for each replication policy. Each rule defines a single source and destination container, and each source and destination container can be used in only one rule.
 
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can also specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
+
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier.md) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
+
+After you configure object replication, Azure Storage checks the change feed for the source account periodically and asynchronously replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+
+> [!IMPORTANT]
+> Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account.
 
 ## About the preview
 
