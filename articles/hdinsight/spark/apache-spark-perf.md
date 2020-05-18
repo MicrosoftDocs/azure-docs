@@ -15,7 +15,7 @@ The performance of your Apache Spark jobs depends on multiple factors. This incl
 
 Common challenges you might face include memory constraints due to improperly-sized executors, long-running operations, and tasks that result in Cartesian operations.
 
-There are also various strategies that can help you to overcome these challenges, such as caching, and allowing for [data skew](#optimize-joins-and-shuffles).
+There are also various strategies that can help you to overcome these challenges, such as caching, and allowing for data skew.
 
 In each of the following articles, you can find common challenges and solutions for a different aspect of spark optimization.
 
