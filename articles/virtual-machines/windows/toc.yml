@@ -335,7 +335,7 @@
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Cloud adoption framework
-    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/
+    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Architecture center
     href: https://docs.microsoft.com/en-us/azure/architecture/
   - name: Infrastructure example
