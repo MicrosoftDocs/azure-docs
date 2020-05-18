@@ -207,7 +207,7 @@ This metadata document:
 > [!NOTE]
 > The v1.0 endpoint returns both the `x5t` and `kid` claims, while the v2.0 endpoint responds with only the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
-Doing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
+Doing signature validation is outside the scope of this document - there are many open-source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
 
 If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID to get a `jwks_uri` pointing to your app's signing key information, which should be used for validation. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 

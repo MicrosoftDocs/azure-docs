@@ -102,7 +102,7 @@ if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -371,7 +371,7 @@ if not result:
 
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -587,9 +587,9 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 This flow isn't yet supported in MSAL Python.
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
-This flow doesn't apply to MacOS.
+This flow doesn't apply to macOS.
 
 ---
 
@@ -910,7 +910,7 @@ if not result:
         config["username"], config["password"], scopes=config["scope"])
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 This flow isn't supported on MSAL for macOS.
 
@@ -1141,9 +1141,9 @@ if not result:
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
 
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
-This flow doesn't apply to MacOS.
+This flow doesn't apply to macOS.
 
 ---
 

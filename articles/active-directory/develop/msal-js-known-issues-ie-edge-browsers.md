@@ -47,7 +47,7 @@ Use workarounds below.
 
 #### Other workarounds
 Make sure to test that your issue is occurring only on the specific version of Microsoft Edge browser and works on the other browsers before adopting these workarounds.  
-1. As a first step to get around these issues, ensure that the application domain,  , and any other sites involved in the redirects of the authentication flow are added as trusted sites in the security settings of the browser, so that they belong to the same security zone.
+1. As a first step to get around these issues, ensure that the application domain and any other sites involved in the redirects of the authentication flow are added as trusted sites in the security settings of the browser, so that they belong to the same security zone.
 To do so, follow these steps:
     - Open **Internet Explorer** and click on the **settings** (gear icon) in the top-right corner
     - Select **Internet Options**

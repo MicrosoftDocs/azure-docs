@@ -36,7 +36,7 @@ It's important to understand that when acquiring a token interactively, the cont
 
 ### Embedded vs System Web UI
 
-MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .Net Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
+MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .NET Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
 
 Generally, it's recommended that you use the platform default, and this is typically the system browser. The system browser is better at remembering the users that have logged in before. If you need to change this behavior, use `WithUseEmbeddedWebView(bool)`
 
@@ -95,8 +95,7 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### Linux and MAC
 
-On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal for example, `xdg-open "https://www.bing.com"`  
-On Mac, the browser is opened by invoking `open <url>`
+On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal, for example, `xdg-open "https://www.bing.com"`. On Mac, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 

@@ -30,7 +30,7 @@ The most basic sign-in flow has the steps shown in the next diagram. Each step i
 
 ## Fetch the OpenID Connect metadata document
 
-OpenID Connect describes a metadata document that contains most of the information required for an app to do sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. For the Microsoft identity platform endpoint, this is the OpenID Connect metadata document you should use:
+OpenID Connect describes a metadata document that contains most of the information required for an app to do sign in. This includes information such as the URLs to use and the location of the service's public signing keys. For the Microsoft identity platform endpoint, this is the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -67,7 +67,7 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
 
 If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information. For example: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-built OpenID Connect library, you can follow the steps in the remainder of this article to do sign-in in a web app by using the Microsoft identity platform endpoint.
+Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-built OpenID Connect library, you can follow the steps in the remainder of this article to do sign in in a web app by using the Microsoft identity platform endpoint.
 
 ## Send the sign-in request
 
