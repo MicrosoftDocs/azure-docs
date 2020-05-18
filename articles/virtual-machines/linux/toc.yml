@@ -342,7 +342,7 @@
     - name: Built-in security controls
       href: virtual-machines-linux-security-controls.md
     - name: Bastion
-      href: bastion-overview.md
+      href: ../../bastion/bastion-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
@@ -511,7 +511,23 @@
     - name: Recommendations
       href: security-recommendations.md
     - name: Just-in-time access
-      href: ../../security-center/security-center-just-in-time.md
+      href: ../../security-center/security-center-just-in-time.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Use Bastion
+      items:
+      - name: Create a Bastion host
+        items: 
+        - name: Portal
+          href: ../../bastion/bastion-create-host-portal.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: PowerShell
+          href: ../../bastion/bastion-create-host-powershell.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        - name: CLI
+          href: ../../bastion/create-host-cli.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Use Bastion to connect
+        items:
+        - name: Bastion SSH connection
+        href: ../../bastion/bastion-connect-vm-ssh.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      - name: Bastion RDP connection
+        href: ../../bastion/bastion-connect-vm-rdp.md?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Encrypt
       items:
         - name: Disk encryption scenarios for Linux
