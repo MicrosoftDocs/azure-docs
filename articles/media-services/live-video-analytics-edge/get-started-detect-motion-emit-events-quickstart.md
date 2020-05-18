@@ -11,8 +11,8 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 ## Prerequisites
 
-An active Azure subscription
-Visual Studio Code on your machine with Azure IoT Tools extension.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 > [!TIP]
 > You might be prompted to install docker. Feel free to ignore it.
@@ -24,9 +24,9 @@ The following Azure resources are required for this tutorial.
 * IoT Hub
 * Storage Account
 * Azure Media Services
-* Linux Azure VM with IoT Edge runtime
+* Linux Azure VM with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 
-You can use the Live Video Analytics resources setup script to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
+You can use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
 
 1. Browse to https://shell.azure.com
 1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
@@ -72,7 +72,7 @@ Start Visual Studio Code and follow the instructions below to connect to your Az
 
 ## Use Live Video Analytics on IoT Edge Direct Methods
 
-Read Direct Methods for Live Video Analytics on IoT Edge to understand all the Direct Methods provided by the module.
+Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by the module.
 
 ### Invoke GraphTopologyList
 
@@ -103,7 +103,7 @@ Read Direct Methods for Live Video Analytics on IoT Edge to understand all the D
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a MediaGraph Topology using the following JSON as the payload.
+Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [Media Graph topology](media-graph-concept.md) using the following JSON as the payload.
 
 ```
 {
@@ -533,7 +533,7 @@ You will see the following messages in the Output window:
 
 Note the following in the above message
 
-* The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article Create and Read IoT Hub message
+* The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
 * "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
 * "eventType" in applicationProperties indicates that this is an Analytics event
 * "eventTime" indicates the time when the event occurred.

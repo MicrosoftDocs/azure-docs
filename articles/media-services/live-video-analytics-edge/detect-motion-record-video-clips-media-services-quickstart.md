@@ -9,13 +9,13 @@ ms.date: 04/27/2020
 
 This article walks you through the steps to use Live Video Analytics on IoT Edge for event-based recording. It uses a Linux Azure VM as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as an Asset in Azure Media Services.
 
-This article builds on top of the Getting Started quickstart.
+This article builds on top of the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Visual Studio Code on your machine with Azure IoT Tools extension
-* Complete Setting up Azure resources, Deploying modules, and Configuring Visual Studio Code
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools.)
+* Complete [Setting up Azure resources](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#set-up-azure-resources), [Deploying modules](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#deploy-modules-on-your-edge-device), and [Configuring Visual Studio Code](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code).
 
 ## Review the sample video
 
@@ -29,7 +29,7 @@ When you complete the steps below, you will have used Live Video Analytics on Io
 
 ## Use Live Video Analytics on IoT Edge Direct Methods
 
-Read Direct Methods for Live Video Analytics on IoT Edge to understand all the Direct Methods provided by the module.
+Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by the module.
 
 ### Invoke GraphTopologyList
 
@@ -60,7 +60,7 @@ Read Direct Methods for Live Video Analytics on IoT Edge to understand all the D
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a MediaGraph Topology using the following JSON as the payload. You will be creating a topology named as "EVRtoAssetsOnMotionDetecion".
+Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [Media Graph topology](media-graph-concept.md) using the following JSON as the payload. You will be creating a topology named as "EVRtoAssetsOnMotionDetecion".
 
 ```
 {
@@ -644,7 +644,7 @@ The MediaGraph that we created and activated above, uses the motion detection pr
 
 Note the following in the above messages
 
-* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article Create and Read IoT Hub message
+* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
 * The first message is a Diagnostics event, MediaSessionEstablished, saying that the RTSP Source node (subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed
 * The "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the RTSP Source node.
 * "eventType" in applicationProperties indicates that this is a Diagnostics event
