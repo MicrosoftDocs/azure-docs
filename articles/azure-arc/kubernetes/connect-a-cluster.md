@@ -13,15 +13,15 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 
 # Connect a Kubernetes cluster
 
-## Pre-requisites
+Connect a Kubernetes cluster to Azure Arc. 
 
-1. Before onboarding a cluster to Azure Arc enabled Kubernetes, make sure that your Kubernetes cluster is up and running, and that you have a kubeconfig, and cluster-admin access.
+## Before you begin
 
-1. The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on 'Microsoft.Kubernetes/connectedClusters' resource type.
+Verify you have the following requirements ready:
 
-    A user or a service principal having 'Contributor' or a more permissive role will be able to connect their Kubernetes clusters as these roles already the include 'Read' and 'Write' permissions on Microsoft.Kubernetes/connectedClusters resource type.
-
-    A more finely scoped built-in role 'Kubernetes Cluster - Azure Arc Onboarding' is also available for [role assignment](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) so that the assignee has only limited permissions to connect their clusters to Azure, but not to update, delete, or modify any other clusters or resources.
+* A Kubernetes cluster that is up and running
+* You'll need access with kubeconfig, and cluster-admin access. 
+* The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
 
 ## Network requirements
 
@@ -32,12 +32,12 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 |     | Endpoint (DNS)                                                                                               | Description                                                                                                                 |
 | --- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| 1.  | https://management.azure.com                                                                                 | Required for the agent to connect to Azure and register the cluster.                                                        |
-| 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com | Data plane endpoint for the agent to push status and fetch configuration information.                                       |
-| 3.  | https://docker.io                                                                                            | Required to pull container images.                                                                                          |
+| 1.  | https://management.azure.com                                                                                 | Required for the agent to connect to Azure and register the cluster                                                        |
+| 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com | Data plane endpoint for the agent to push status and fetch configuration information                                      |
+| 3.  | https://docker.io                                                                                            | Required to pull container images                                                                                         |
 | 4.  | https://github.com, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
-| 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update ARM tokens.                                                                                    |
-| 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agentry.                                                                    |
+| 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update ARM tokens                                                                                    |
+| 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agentry                                                                   |
 
 ## Create a Resource Group
 
@@ -69,7 +69,7 @@ Next, we will connect our Kubernetes cluster to Azure. The workflow for `az conn
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-__Note: If you receive errors regarding missing provider, or provider not found, double check that your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./enable-providers.md).__
+__Note: If you receive errors regarding missing provider, or provider not found, verify your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./enable-providers.md).__
 
 **Output:**
 
