@@ -19,7 +19,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-05-26
 
-### Azure Machine Learning SDK for Python v1.MinorVersionTBD.0
+### Azure Machine Learning SDK for Python v1.6.0
 
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
