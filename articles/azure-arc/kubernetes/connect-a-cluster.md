@@ -149,17 +149,14 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 
 ## Delete a connected cluster
 
-You can delete a `Microsoft.Kubernetes/connectedCluster` using the CLI or Azure portal.
+You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI or Azure portal.
 
-* CLI
-  * az connectedk8s delete
-  * Deletes the `Microsoft.Kubernetes/connectedCluster` resource in Azure
-  * Deletes any associated `sourceControlConfiguration` resources in Azure
-  * Does helm uninstall to remove the agents in the cluster
-* Portal
-  * Deletes the `Microsoft.Kubernetes/connectedCluster` resource in Azure
-  * Deletes any associated `sourceControlConfiguration` resources in Azure
-  * Note: To remove the agents in the cluster you need to run az connectedk8s delete or helm uninstall azurearcfork8s.
+The Azure CLI commmand 'az connectedk8s delete` deletes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
+
+The Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
+
+> [!NOTE]
+> To remove the agents in the cluster you need to run `az connectedk8s delete` or `helm uninstall azurearcfork8s`
 
 ## Next steps
 
