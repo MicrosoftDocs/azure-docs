@@ -22,7 +22,7 @@ Verify you have the following requirements ready:
 * A Kubernetes cluster that is up and running
 * You'll need access with kubeconfig, and cluster-admin access. 
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
-* Latest version of the connectedk8s and k8sconfiguration extensions
+* Latest version of the *connectedk8s* and *k8sconfiguration* extensions
 
 ## Supported regions
 
