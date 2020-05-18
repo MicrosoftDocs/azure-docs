@@ -33,8 +33,6 @@ Additional prerequisites and limitations:
 
 * By default when you protect SharePoint, all content databases (and the SharePoint_Config and SharePoint_AdminContent* databases) will be protected. If you want to add customizations such as search indexes, templates or application service databases, or the user profile service you'll need to configure these for protection separately. Be sure that you enable protection for all folders that include these types of features or customization files.
 
-* SharePoint databases using AlwaysOn can be protected from MABS [**Which version?**] onwards.
-
 * You can't protect SharePoint databases as a SQL Server data source. You can recover individual databases from a farm backup.
 
 * Remember that MABS runs as **Local System**, and to back up SQL Server databases it needs sysadmin privileges on that account for the SQL server. On the SQL Server you want to back up, set NT AUTHORITY\SYSTEM to **sysadmin**.
@@ -65,54 +63,42 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
     * Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn't a local admin, grant the following permissions on the WFE server:
 
-        * Grant the WSS\_Admin\_WPG group full control to the MABS folder \(%Program Files%\\Microsoft Azure Backup\\DPM\).[**What should this be?**]
+        * Grant the WSS\_Admin\_WPG group full control to the MABS folder \(%Program Files%\\Data Protection Manager\\DPM\).
             -A
 
-        * Grant the WSS\_Admin\_WPG group read access to the MABS Registry key \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).[**What should this be?**]
+        * Grant the WSS\_Admin\_WPG group read access to the MABS Registry key \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
 
         After running ConfigureSharePoint.exe, you'll need to rerun it if there's a change in the SharePoint farm administrator credentials.
 
-2. To create a protection group, click **Protection** > **Actions** > **Create Protection Group** to open the **Create New Protection Group** wizard in the MABS console.
+1. To create a protection group, click **Protection** > **Actions** > **Create Protection Group** to open the **Create New Protection Group** wizard in the MABS console.
 
-3. In **Select Protection Group Type**, select **Servers**.
+1. In **Select Protection Group Type**, select **Servers**.
 
-4. In **Select Group Members**, expand the server that holds the WFE role. If there's more than one WFE server, select the one on which you installed ConfigureSharePoint.exe. Learn more in [Deploy protection groups](create-dpm-protection-groups.md). [**What should this link to?**]
+1. In **Select Group Members**, expand the server that holds the WFE role. If there's more than one WFE server, select the one on which you installed ConfigureSharePoint.exe.
 
     When you expand the SharePoint server  MABS queries VSS to see what data MABS can protect.  If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the SharePoint server and any remote SQL Server, and ensure the MABS agent is installed on both the SharePoint server and remote SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
-5. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup \(for short or long\-term\). As an alternative to long\-term backup to the cloud, you can also configure long\-term back up to a standalone tape device or tape library connected to the MABS server.
+1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup \(for short or long\-term\).
 
-6. In **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check just before  a recovery point so that MABS will run an express full backup just before each recovery point is scheduled.
+1. In **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check just before  a recovery point so that MABS will run an express full backup just before each recovery point is scheduled.
 
-7. If you want to store data on tape for long-term storage in **Specify long-term goals**, indicate how long you want to keep tape data (1-99 years). In Frequency of backup specify how often backups to tape should run. The frequency is based on the retention range you've specified:
-
-    * When the retention range is 1-99 years, you can select backups to occur daily, weekly, bi-weekly, monthly, quarterly, half-yearly, or yearly.
-
-    * When the retention range is 1-11 months, you can select backups to occur daily, weekly, bi-weekly, or monthly.
-
-    * When the retention range is 1-4 weeks, you can select backups to occur daily or weekly.
-
-    On a stand-alone tape drive, for a single protection group, MABS uses the same tape for daily backups until there's insufficient space on the tape. You can also colocate data from different protection groups on tape.
-
-    On the **Select Tape and Library Details** page specify the tape/library to use, and whether data should be compressed and encrypted on tape.
-
-8. In the Review disk allocation page, review the storage pool disk space allocated for the protection group.
+1. In the Review disk allocation page, review the storage pool disk space allocated for the protection group.
 
     **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
 
-9. In **Choose replica creation method**, select how you want to handle the initial full data replication.  If you select to replicate over the network, we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data offline using removable media.
+1. In **Choose replica creation method**, select how you want to handle the initial full data replication.  If you select to replicate over the network, we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data offline using removable media.
 
-10. In **Choose consistency check options**, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group in the **Protection** area of the MABS console, and selecting **Perform Consistency Check**.
+1. In **Choose consistency check options**, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group in the **Protection** area of the MABS console, and selecting **Perform Consistency Check**.
 
-11. If you've selected to back up to the cloud with Azure Backup, on the **Specify online protection data** page make sure the workloads you want to back up to Azure are selected.
+1. If you've selected to back up to the cloud with Azure Backup, on the **Specify online protection data** page make sure the workloads you want to back up to Azure are selected.
 
-12. In **Specify online backup schedule**, specify how often incremental backups to Azure should occur. You can schedule backups to run every day/week/month/year and the time/date at which they should run. Backups can occur up to twice a day. Each time a backup runs, a data recovery point is created in Azure from the copy of the backed-up data stored on the MABS disk.
+1. In **Specify online backup schedule**, specify how often incremental backups to Azure should occur. You can schedule backups to run every day/week/month/year and the time/date at which they should run. Backups can occur up to twice a day. Each time a backup runs, a data recovery point is created in Azure from the copy of the backed-up data stored on the MABS disk.
 
-13. In **Specify online retention policy**, you can specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
+1. In **Specify online retention policy**, you can specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
-14. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
 
-15. On the  **Summary** page, review your settings. After you click **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
+1. On the  **Summary** page, review your settings. After you click **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
 
 ## Monitoring
 
@@ -244,40 +230,26 @@ The following procedure uses the example of a server farm with two front-end Web
     stsadm -o unregisterwsswriter
     ```
 
-2. On *Server1*, open the Registry Editor and navigate to the following key:
+1. On *Server1*, open the Registry Editor and navigate to the following key:
 
    **HKLM\System\CCS\Services\VSS\VssAccessControl**
 
-3. Check all values listed in the VssAccessControl subkey. If any entry has a value data of 0 and another VSS writer is running under the associated account credentials, change the value data to 1.
+1. Check all values listed in the VssAccessControl subkey. If any entry has a value data of 0 and another VSS writer is running under the associated account credentials, change the value data to 1.
 
-4. Install a protection agent on *Server2*.
+1. Install a protection agent on *Server2*.
 
    > [!WARNING]
    > You can only switch Web front-end servers if both the servers are on the same domain.
 
-5. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**. For more information about ConfigureSharePoint, see [Configure backup](#configure-backup).
+1. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**. For more information about ConfigureSharePoint, see [Configure backup](#configure-backup).
 
-6. There's a known issue when the server farm is the only member of the protection group and the protection group is configured to use tape-based protection. If your server farm is the only member of the protection group using tape-based protection, to change the front-end Web server that MABS uses to protect the farm, you must temporarily add another member to the protection group by performing the following steps:
+1. Select the protection group that the server farm belongs to, and then click **Modify protection group**.
 
-   * In MABS Administrator Console, click **Protection** on the navigation bar.
-
-   * Select the protection group that the server farm belongs to, and then click **Modify protection group**.
-
-   * In the Modify Group Wizard, add a volume on any server to the protection group. You can remove this volume from the protection after the procedure is completed.
-
-   * If the protection group is configured for short-term disk-based protection and long-term tape-based protection, select the manual replica creation option. This avoids creating a replica for the volume that you're temporarily adding to the protection group.
-
-   * Complete the wizard.
-
-7. Remove *Server1* from the protection group, selecting to retain the replicas on disk and tape.
-
-8. Select the protection group that the server farm belongs to, and then click **Modify protection group**.
-
-9. In the Modify Group Wizard, on the **Select Group Members** page, expand *Server2* and select the server farm, and then complete the wizard.
+1. In the Modify Group Wizard, on the **Select Group Members** page, expand *Server2* and select the server farm, and then complete the wizard.
 
    A consistency check will start.
 
-10. If you performed step 6, you can now remove the volume from the protection group.
+1. If you performed step 6, you can now remove the volume from the protection group.
 
 ## Next steps
 
