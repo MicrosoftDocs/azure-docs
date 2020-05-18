@@ -19,7 +19,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 - [Microsoft.OperationalInsights workspaces/savedSearches](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/savedsearches)
 
-## Add a log query to a Log Analytics workspace
+## Simple log query
 The following sample adds a log query to a Log Analytics workspace.
 
 ### Template file
@@ -82,7 +82,7 @@ The following sample adds a log query to a Log Analytics workspace.
 }
 ```
 
-## Add a log query as a function to a Log Analytics workspace
+## Log query as a function
 The following sample adds a log query as a function to a Log Analytics workspace.
 
 ### Template file
@@ -125,6 +125,87 @@ The following sample adds a log query as a function to a Log Analytics workspace
                 workspace('workspace3').SecurityEvent,
                 | where EventID == 4625",
               "version": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
+
+## Parameterized function
+The following sample adds a log query as a function that uses a parameter to a Log Analytics workspace. A second log query is included that uses the parameterized function.
+
+> [!NOTE]
+> Resource template is currently the only method that can be used to parameterized functions. Any log query can use the function once it's installed in the workspace.
+
+### Template file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
+          "type": "string"
+      },
+      "location": {
+        "type": "string"
+      }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2017-03-15-preview",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "resources": [
+        {
+          "type": "savedSearches",
+          "apiVersion": "2017-04-26-preview",
+          "name": "Parameterized function",
+            "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "properties": {
+              "etag": "*",
+              "displayName": "Unavailable computers function",
+              "category": "Samples",
+              "FunctionAlias": "UnavailableComputers",
+              "FunctionParameters": "argSpan: timespan",
+              "query": " Heartbeat | summarize LastHeartbeat=max(TimeGenerated) by Computer| where LastHeartbeat < ago(argSpan)"
+          }
+        },
+        {
+          "type": "savedSearches",
+          "apiVersion": "2017-04-26-preview",
+          "name": "Query using function",
+            "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "properties": {
+              "etag": "*",
+              "displayName": "Unavailable computers",
+              "category": "Samples",
+              "query": "UnavailableComputers(7days)"
           }
         }
       ]
