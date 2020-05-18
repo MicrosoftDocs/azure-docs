@@ -91,9 +91,9 @@ For D14v2 worker nodes, the recommended value for llap queue is **80**.
 Configuration: ***hive.llap.daemon.yarn.container.mb***  
    
 LLAP daemon is run as a YARN container on each worker node. The total memory size for LLAP daemon container depends on following factors,    
-1. Configurations of YARN container size (yarn.scheduler.minimum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
-2. Number of Tez AMs on a node
-3. Total memory configured for all containers on a node and LLAP queue capacity  
+*  Configurations of YARN container size (yarn.scheduler.minimum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
+*  Number of Tez AMs on a node
+*  Total memory configured for all containers on a node and LLAP queue capacity  
 
 Memory needed by Tez Application Masters(Tez AM) can be calculated as follows.  
 For HDInsight Interactive cluster, by default, there is one Tez AM per worker node that acts as a query coordinator. The number of Tez AMs can be configured based on a number of concurrent queries to be served.
@@ -134,10 +134,10 @@ For D14 v2, the recommended value is **12**.
 Configuration: ***hive.llap.io.memory.size***
 
 LLAP daemon container memory consists of following components;
-1. Head room
-2. Heap memory used by executors (Xmx)
-3. In-memory cache per daemon (its off-heap memory size, not applicable when SSD cache is enabled)
-4. In-memory cache metadata size (applicable only when SSD cache is enabled)
+*  Head room
+*  Heap memory used by executors (Xmx)
+*  In-memory cache per daemon (its off-heap memory size, not applicable when SSD cache is enabled)
+*  In-memory cache metadata size (applicable only when SSD cache is enabled)
 
 **Headroom size**:
 This size indicates a portion of off-heap memory used for Java VM overhead (metaspace, threads stack, gc data structures, etc.). Generally, this overhead is about 6% of the heap size (Xmx). To be on the safer side, this value can be calculated as 6% of total LLAP daemon memory size.  
