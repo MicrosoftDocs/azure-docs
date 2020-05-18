@@ -59,7 +59,7 @@ Linux:
 * `aka.ms`
 * `packages.microsoft.com`
 
-#TODO See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.
+<!--TO DO See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.-->
 
 ## Register the required Resource Providers
 
@@ -89,9 +89,6 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## Machine changes after installing the agent
-
-## Supported Scenarios
 
 ## Log Analytics
 
@@ -102,8 +99,6 @@ Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.micros
 - When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
-
-## Next Steps
 
 ## Next steps
 
