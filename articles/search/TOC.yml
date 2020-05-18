@@ -100,7 +100,7 @@
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
       name: Debug sessions
-      href: congnitive-search-debug-session.md
+      href: cognitive-search-debug-session.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Projections
