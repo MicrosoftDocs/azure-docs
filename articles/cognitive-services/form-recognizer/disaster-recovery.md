@@ -13,11 +13,11 @@ ms.author: pafarley
 
 # Back up and recover your Form Recognizer data
 
-After you've trained custom Form Recognizer models, you may want to move or copy your models from one subscription to another for an added level of data security. The Copy API feature enables this scenario by allowing you to copy custom models within your Form Recognizer account or into other accounts, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
+After you've [trained custom Form Recognizer models](./quickstarts/curl-train-extract.md), you may want to move or copy your models from one subscription to another for an added level of data security. The Copy API feature enables this scenario by allowing you to copy custom models within your Form Recognizer account or into other accounts, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
-## Best practices
+## Business scenarios
 
-If your app or business depends on the use of a Form Recognizer custom model, we recommend that you copy your model to another Form Recognizer account in another region. If a regional outage occurs, you can then access your model in the region where it was copied.
+If your app or business depends on the use of a Form Recognizer custom model, we recommend you copy your model to another Form Recognizer account in another region. If a regional outage occurs, you can then access your model in the region where it was copied.
 
 ##  Prerequisites
 
@@ -29,7 +29,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 
 The process for copying a custom model consists of the following steps:
 
-1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model which will receive the copied data.
+1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied data.
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
@@ -42,7 +42,7 @@ POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-prev
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-You'll get a `201\Created` response with a `modelId` value in the body. This is the ID of the newly created (blank) model. The `accessToken` is needed for the API to copy data to this resource, and the `expirationDateTimeTicks` value is the expiration of the token. Save all three of these values to a secure location.
+You'll get a `201\Created` response with a `modelId` value in the body. This string is the ID of the newly created (blank) model. The `accessToken` is needed for the API to copy data to this resource, and the `expirationDateTimeTicks` value is the expiration of the token. Save all three of these values to a secure location.
 
 ```
 HTTP/1.1 201 Created
@@ -78,7 +78,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ## Track Copy progress
 
-Track your progress by querying the **copyresults** API against the source resource endpoint.
+Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
 ```
 GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
@@ -95,7 +95,7 @@ Content-Type: application/json; charset=utf-8
 
 ### [Optional] Track the target model ID 
 
-You can also use the **Get Model** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
+You can also use the **Get Custom Model** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
 
 ```
 GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ## cURL sample code
 
-The following code snippets use cURL to make the API calls outlined in the steps above. Note that you'll still need to fill in the model IDs and subscription information specific to your own resource.
+The following code snippets use cURL to make the API calls outlined in the steps above. You'll still need to fill in the model IDs and subscription information specific to your own resources.
 
 ### Generate Copy authorization request
 
