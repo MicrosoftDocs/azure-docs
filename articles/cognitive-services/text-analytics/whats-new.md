@@ -24,12 +24,12 @@ Text Analysis API v3 is now generally available with the following updates:
 
    * New model version 2020-04-01
    * New properties in the JSON response:
-      * SentenceText in Sentiment Analysis
+      * `SentenceText` in Sentiment Analysis
       * Warnings for each document
    * Changed the names of the following properties where applicable:
-      * score to confidenceScore
-      * type to category
-      * subtype to subcategory
+      * `score` to `confidenceScore`
+      * `type` to `category`
+      * `subtype` to `subcategory`
    * New languages in Sentiment Analysis v3:
       * English (`en`)
       * Japanese (`ja`)
