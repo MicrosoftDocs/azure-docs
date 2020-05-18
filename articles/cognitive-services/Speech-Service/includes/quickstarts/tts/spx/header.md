@@ -7,4 +7,4 @@ ms.date: 05/18/2020
 ms.author: v-demjoh
 ---
 
-In this quickstart, you use the SPX tool from the command line to convert text to synthesized speech. recognize speech recorded in a sound file, and produce a text transcription. The text-to-speech service provides numerous options for synthesized voices, under [text-to-speech language support](../../../language-support.md#text-to-speech). After a one-time configuration, the SPX tool lets you synethesize speech from text using commands from the command line.
+In this quickstart, you use the SPX tool from the command line to convert text to synthesized speech. recognize speech recorded in a sound file, and produce a text transcription. The text-to-speech service provides numerous options for synthesized voices, under [text-to-speech language support](../../../../language-support.md#text-to-speech). After a one-time configuration, the SPX tool lets you synethesize speech from text using commands from the command line.
