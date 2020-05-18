@@ -25,11 +25,6 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
 | RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
-You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
-
-- 
-- Linux agent package is distributed from Microsoft's [package repository](https://packages.microsoft.com/) using the preferred package format for the distribution (.RPM or .DEB).
-
 ### Windows agent
 
 Update package for the Connected Machine agent for Windows is available from:
