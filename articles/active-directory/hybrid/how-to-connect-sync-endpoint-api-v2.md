@@ -15,32 +15,38 @@ ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect sync V2 endpoint API (public preview) 
-Azure AD Public Preview Announcement – performance improvements and syncing up to 250K members in a group 
- 
-## What's new 
-We have deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint also supports syncing groups with up to 250k members. Using this endpoint also allows you to write back O365 unified groups, with no maximum membership limit, to your on-premises Active Directory, when group writeback is enabled. 
- 
-## Goals of this public preview  
-Validation of the feature (identify any issues/bugs).  
-Measure the performance enhancements gained by switching to the new endpoint.  
-Pre-requisites  
-In order to use the new V2 endpoint, you will need to use Azure AD Connect version 1.5.30.0 or newer and you need to follow the deployment steps provided in the below to enable the V2 endpoint for your Azure AD Connect server.   
-Public preview limitations  
+Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following:
+    
+ -  syncing groups with up to 250k members
+ - performance gains on export and import to Azure AD
+ - write back for O365 unified groups, with no maximum membership limit when group writeback is enabled. 
+
+## Pre-requisites  
+In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or newer and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
+
+### Public preview limitations  
 While this release has undergone extensive testing during multiple rounds of private preview releases you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  
-While we provide support for this public preview release, we may not always be able to fix any issues you may encounter in a timely fashion, depending on the support requirements of your organization. For this reason, we urge you to use your best judgement before deploying this release in your production environment. 
+
+>[!IMPORTANT]
+> While we provide support for this public preview release, we may not always be able to fix any issues you may encounter in a timely fashion, depending on the support requirements of your organization. For this reason, we urge you to use your best judgement before deploying this release in your production environment. 
 
 ## Deployment guidance 
-You will need to deploy Azure AD Connect version 1.5.30.0 or newer to use the V2 endpoint. You can download this version from the download site. 
-We suggest that you follow the swing migration method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method, please refer to the article at this link. 
+You will need to deploy [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or newer to use the V2 endpoint. Use the link provided to download. 
 
+It is recommended that you follow the [swing migration](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method refer to the link provided. 
 
-1. Deploy the V2 endpoint on the current staging server. We will call this the V2 server in the steps below. The current active server will continue to process the production workload using the V1 endpoint, which we will call the V1 server below. 
-2. Validate that the V2 server is still processing imports as expected. At this stage, large groups will not be provisioned to Azure AD or on-prem AD, but you will be able to verify that the upgrade did not result in any other unexpected impact to the existing synchronization process. 
-3. Once validation is complete, switch the V2 server to be the active server and the V1 server to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large O365 unified groups will be provisioned to AD, if group writeback is enabled.
-4. Validate that the V2 server is performing and processing large groups successfully. You may choose to stay at this step and monitor the synchronization process for a period. * 
-5. Once you are confident in using the V2 endpoint, upgrade the V1 server to begin using the V2 endpoint. 
+### Swing migration for deploying V2 endpoint
+The following steps will guide you through deploying the v2 endpoint using the swing method.
+
+1. Deploy the V2 endpoint on the current staging server. We will call this the **V2 server** in the steps below. The current active server will continue to process the production workload using the V1 endpoint, which we will call the **V1 server** below. 
+2. Validate that the **V2 server** is still processing imports as expected. At this stage, large groups will not be provisioned to Azure AD or on-prem AD, but you will be able to verify that the upgrade did not result in any other unexpected impact to the existing synchronization process. 
+3. Once validation is complete, switch the **V2 server** to be the active server and the **V1 server** to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large O365 unified groups will be provisioned to AD, if group writeback is enabled.
+4. Validate that the **V2 server** is performing and processing large groups successfully. You may choose to stay at this step and monitor the synchronization process for a period.
+  >[!NOTE]
+  > If you need to transition back to your previous configuration, you can perform a swing migration from the **V2 server** back to the **V1 server**. Since the V1 endpoint does not support groups with over 50k members, any large group that was provisioned by Azure AD Connect, in either Azure AD or on-prem AD, will be subsequently deleted. 
+5. Once you are confident in using the V2 endpoint, upgrade the **V1 server** to begin using the V2 endpoint. 
  
-* If you need to transition back to your previous configuration, you can perform a swing migration from the V2 server back to the V1 server. Since the V1 endpoint does not support groups with over 50k members, any large group that was provisioned by Azure AD Connect, in either Azure AD or on-prem AD, will be subsequently deleted. 
+
 ## Expectations of performance impact  
 When using the V2 endpoint, performance gains are a function of the number of synced groups, size of those groups, and their group churn (the activity resulting from adding and removing users as members of the group). Using the new endpoint, without increasing the number, size, or churn of the synced groups, should result in shorter times for export and import to Azure AD. 
  
