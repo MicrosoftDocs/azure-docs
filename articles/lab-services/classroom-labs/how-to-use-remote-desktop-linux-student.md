@@ -59,8 +59,8 @@ Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs af
 3. If you are connecting from a Windows computer, typically, the Microsoft Remote Desktop (RDP) client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
 
     Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
-   - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-rdp.md).
-   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remotedesktopprotocol.md).  
+   - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
+   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).  
 
 ### Connect to the student VM using X2Go
 Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on).

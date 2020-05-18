@@ -104,7 +104,7 @@ Follow the below steps based on the type of computer used to connect to the temp
 
 - Chromebook
   1. Click **Connect to template** on your lab's toolbar and then select **Connect via RDP** to save the RDP file.  
-  1. Then, refer to the how-to article [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remotedesktopprotocol.md).
+  1. Then, refer to the how-to article [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
 
 ### X2Go client
 
