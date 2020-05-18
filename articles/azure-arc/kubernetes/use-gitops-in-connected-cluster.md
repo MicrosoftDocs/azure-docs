@@ -150,12 +150,12 @@ For more info see [Flux documentation](https://aka.ms/FluxcdReadme).
 
 ### Using ARM template
 
-To automate the creation of `sourceControlConfiguration` in a connected cluster you can deploy the [example ARM template](../examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).  To test, follow these steps in the Azure portal:
+To automate the creation of `sourceControlConfiguration` in a connected cluster you can deploy the [example ARM template](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).  To test, follow these steps in the Azure portal:
 
 1. In the portal search box (top center), type "deployment".
 2. In the search results Services section, click on "Deploy a custom template".
 3. Click "Build your own template in the editor".
-4. In the edit box, delete the default content and copy/paste the contents of [example ARM template](../examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).
+4. In the edit box, delete the default content and copy/paste the contents of [example ARM template](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).
 5. Click "Save".
 6. You'll be presented with a form for entering parameter values; first select the "Resource Group" where the connected cluster is located.
 7. Enter the Azure location and name of the `connectedCluster` where the `sourceControlConfiguration` will be created.
