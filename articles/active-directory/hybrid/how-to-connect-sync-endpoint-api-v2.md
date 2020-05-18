@@ -142,7 +142,8 @@ The new V2 endpoint code handles some types of export errors slightly different 
 > When upgrading Azure AD Connect, ensure that the steps in Phase 2 are rerun, as the changes are not preserved through the upgrade process. 
 
 During subsequent increases to the group member limit in the **Out to AAD – Group Join** sync rule, a full sync is not necessary, so you can elect to suppress the full sync by running the following command in PowerShell. 
-`Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
+
+ `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
 > If you have O365 unified groups that have more than 50k members, the groups will be read into Azure AD Connect, and if group writeback is enabled, they will be written to your on-premises AD. 
@@ -157,7 +158,7 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
  
  `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
- Switch to the V1 endpoint * 
+4. Switch to the V1 endpoint * 
  
  `Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Extensions\AADConnector.psm1'` 
 
@@ -165,11 +166,11 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
 
  `Set-ADSyncAADConnectorImportApiVersion 1`
  
-4. Open Azure AD Synchronization Rules Editor 
-5. Delete the editable copy of the **Out to AAD – Group Join** sync rule 
-6. Enable the default copy of the **Out to AAD – Group Join** sync rule 
-7. Open an admin PowerShell prompt 
-8. Re-enable the Sync Scheduler 
+5. Open Azure AD Synchronization Rules Editor 
+6. Delete the editable copy of the **Out to AAD – Group Join** sync rule 
+7. Enable the default copy of the **Out to AAD – Group Join** sync rule 
+8. Open an admin PowerShell prompt 
+9. Re-enable the Sync Scheduler 
  
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
@@ -177,16 +178,16 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
 > When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and O365 unified groups provisioned to AD. 
 
 ## Frequently asked questions  
-**Q:Can a customer use this feature in production?**  
+**Q: Can a customer use this feature in production?**  
 </br>Yes, this can be used in production environments, with the caveat as mentioned before.
  
-**Q:Who can the customer contact when things go wrong?**  
+**Q: Who can the customer contact when things go wrong?**  
 </br>If you need support when using this feature you should open a support case. 
  
-**Q:Can I expect frequent updates to the public preview?**  
+**Q: Can I expect frequent updates to the public preview?**  
 </br>There is a limited degree of ongoing changes during a Public Preview. You should assess this risk when deploying Public Preview features in production.  
  
-**Q:Time to next milestone?**  
+**Q: Time to next milestone?**  
 </br>Public Preview capabilities may be withdrawn and possibly redesigned before reaching further milestones.  
  
 ## Next steps
