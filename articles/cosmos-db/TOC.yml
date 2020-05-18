@@ -927,7 +927,7 @@
       - name: Provision throughput on a container
         displayName: request units, RUs, RU, collection level
         href: how-to-provision-container-throughput.md
-      - name: Provision throughput on a database
+      - name: Provision standard (manual) throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level
         href: how-to-provision-database-throughput.md
       - name: Provision autoscale throughput on a database or container
