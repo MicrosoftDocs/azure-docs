@@ -47,7 +47,7 @@ zone_pivot_groups: programming-languages-set-two-with-js-spx
 
 ::: zone pivot="programmer-tool-spx"
 [!INCLUDE [SPX Header](../includes/quickstarts/from-file/spx/header.md)]
-[!INCLUDE [](../includes/spx-setup.md)]
+[!INCLUDE [SPX Setup](../includes/spx-setup.md)]
 [!INCLUDE [spx](../includes/quickstarts/from-file/spx/spx.md)]
 [!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 ::: zone-end
