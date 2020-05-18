@@ -22,6 +22,7 @@ Verify you have the following requirements ready:
 * A Kubernetes cluster that is up and running
 * You'll need access with kubeconfig, and cluster-admin access. 
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
+* Latest version of the connectedk8s and k8sconfiguration extensions
 
 ## Supported regions
 
@@ -43,6 +44,47 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | 4.  | https://github.com, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
 | 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update ARM tokens                                                                                    |
 | 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agentry                                                                   |
+
+## Register the two providers for Azure Arc enabled Kubernetes:
+
+```console
+az provider register --namespace Microsoft.Kubernetes
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
+
+az provider register --namespace Microsoft.KubernetesConfiguration
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
+```
+
+Registration is an asynchronous process. Registration may take approximately 10 minutes. You can monitor the registration process with the following commands:
+
+```console
+az provider show -n Microsoft.Kubernetes -o table
+```
+
+```console
+az provider show -n Microsoft.KubernetesConfiguration -o table
+```
+
+## Install CLI extensions
+
+Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
+
+```console
+az extension add --name connectedk8s
+```
+
+Install the `k8sconfiguration` extension:
+
+```console
+az extension add --name k8sconfiguration
+```
+
+Run the following commands to update the extensions to the latest versions.
+
+```console
+az extension update --name connectedk8s
+az extension update --name k8sconfiguration
+```
 
 ## Create a Resource Group
 
