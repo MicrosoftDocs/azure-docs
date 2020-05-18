@@ -323,12 +323,3 @@ service.delete()
 ```
 
 If you no longer plan to use the Azure resources you’ve created, delete them. This prevents you from being charged for unutilized resources that are still running. See this guide on how to [clean up resources](how-to-manage-workspace.md#clean-up-resources) to learn more.
-
-In this Azure Machine Learning guide, you:
-
-> [!div class="checklist"]
-> * Configured your environments
-> * Deployed an encrypted inferencing web service
-> * Prepared test data
-> * Made encrypted predictions
-> * Cleaned up resources
