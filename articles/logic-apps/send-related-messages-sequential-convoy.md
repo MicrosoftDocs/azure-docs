@@ -165,10 +165,16 @@ If anything goes wrong while processing the initial message, the Service Bus act
 
 ### "Catch" scope
 
+Even if actions in the `Try` scope fail, the logic app must still close the session. Here, the `Catch` scope terminates the logic app and returns an error message, which identifies the session that has the problem.
+
+Here is the top-level flow in the `Catch` scope action when the details are collapsed:
+
+!["Catch" scope action workflow](./media/send-related-messages-sequential-convoy/catch-scope-action.png)
+
 | Name | Description |
 |------|-------------|
 | `Close a session in a queue and fail` | |
-| `Find failure msg from 'Try' block`  | |
+| `Find failure msg from 'Try' block` | |
 | `Select error details` ||
 | `Terminate` ||
 |||
