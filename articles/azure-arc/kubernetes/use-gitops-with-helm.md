@@ -7,7 +7,7 @@ ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Use GitOps with Helm for cluster configuratio"
+description: "Use GitOps with Helm for cluster configuration"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
