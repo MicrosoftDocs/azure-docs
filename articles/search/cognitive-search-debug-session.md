@@ -54,7 +54,7 @@ Selecting a skill in the graph will highlight the skills connected to it, the no
 
 ## Skill details
 
-The skill details pane displays a set of areas for working with a specific skill, when that skill is highlighted in the **Skill Graph**. You can review and edit the details of the skill's settings. The skill's JSON definition is provided. The details of the skill's execution and the errors and warnings are also displayed. The **Skill Settings** tab & **Skill JSON Editor** allow for direct edits to the skill. The [`</>`](##expression-evaluator) opens a window for viewing and editing the expressions of the skills inputs and outputs.
+The skill details pane displays a set of areas for working with a specific skill, when that skill is highlighted in the **Skill Graph**. You can review and edit the details of the skill's settings. The skill's JSON definition is provided. The details of the skill's execution and the errors and warnings are also displayed. The **Skill Settings** tab & **Skill JSON Editor** allow for direct edits to the skill. The [`</>`](#expression-evaluator) opens a window for viewing and editing the expressions of the skills inputs and outputs.
 
 Nested input controls in the skill settings window can be used to build complex shapes for projections, output field mappings for a complex type field, or an input to a skill. When used with the **Expression evaluator**, nested inputs provide an easy test and validate expression builder.
 
