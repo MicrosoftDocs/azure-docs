@@ -252,8 +252,7 @@ Within a few seconds, you will see the following response in the Output window:
 }
 ```
 
-> [!NOTE]
-> The status returned is 201, indicating that a new topology was created. Try the following as next steps
+The status returned is 201, indicating that a new topology was created. Try the following as next steps
 
 * Invoke GraphTopologySet again and note that the status code returned is 200. Status code 200 indicates that an existing topology was successfully updated.
 * Invoke GraphTopologySet again but change the description string. Note the status code in the response is 200 and the description is updated to the new value.

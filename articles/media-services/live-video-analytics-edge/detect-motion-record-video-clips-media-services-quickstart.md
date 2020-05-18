@@ -14,7 +14,7 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools.)
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 * Complete [Setting up Azure resources](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#set-up-azure-resources), [Deploying modules](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#deploy-modules-on-your-edge-device), and [Configuring Visual Studio Code](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code).
 
 ## Review the sample video
@@ -674,7 +674,7 @@ The next message you will see is the following.
 }
 ```
 
-* The third message is an Operational event. Note that it is sent almost immediatey after the motion detection message, which acted as the trigger to start recording
+* The third message is an Operational event. Note that it is sent almost immediately after the motion detection message, which acted as the trigger to start recording
 * The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded. You should note down this value.
 
@@ -720,7 +720,7 @@ If you let the Media Graph continue to run you will see this message.
 }
 ```
 
-* This message is also an Operational event. The event, RecordingStopped, indicates that recordng has stopped.
+* This message is also an Operational event. The event, RecordingStopped, indicates that recording has stopped.
 * Note that roughly 30 seconds has elapsed since the RecordingStarted event, matching the values of the activation times in the Signal Gate Processor
 * The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded.
@@ -790,22 +790,22 @@ Try the following as next steps
 
 ## Playing back the recorded video
 
-Next, you can use the Azure Portal to play back the video you recorded.
+Next, you can use the Azure portal to play back the video you recorded.
 
-1. Log into the Azure Portal, type "Media Services" in the search box
+1. Log into the Azure portal, type "Media Services" in the search box
 1. Locate your Azure Media Services account and open it
 1. Locate and select the Assets entry in the Media Services listing
 
-    ![Assets entry in the Media Services listing](./media/quickstarts/AssetEntity.png)
+    ![Assets entry in the Media Services listing](./media/quickstarts/asset_entity.png)
 1. If this is your first use of Azure Media Services, only the Assets generated from this quickstart will be listed, and you can pick the oldest one.
 1. Else, use the name of the Asset that was provided as the outputLocation in the Operational events above
 1. In the details page that opens, click on the "Create new" link just below the Streaming URL textbox
 
-    ![The Streaming URL](./media/quickstarts/AssetStreamingURL.png)
+    ![The Streaming URL](./media/quickstarts/asset_streaming_url.png)
 1. In the pane that opens for "Add streaming locator", accept the defaults and hit "Add" at the bottom.
 1. In the Asset details page, the video player should now load to the first frame of the video, and you can hit the play button. You should see the car moving in the parking lot    
 
-    ![Play](./media/quickstarts/AssetPlayback.png)
+    ![Play](./media/quickstarts/asset_p_layback.png)
 
 > [!NOTE]
 > Since the simulated live video starts when you activate the graph, the time-of-day values are not relevant, and not exposed via this player shortcut. The tutorial on continuous video recording and playback shows you how you can display the timestamps.
