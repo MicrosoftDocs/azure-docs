@@ -2,12 +2,15 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ---
 
 # Create resource groups and resources at the subscription level
 
 To simplify the management of resources in your Azure subscription, you can define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) across the subscription. With subscription level templates, you declaratively apply policies and assign roles at the subscription. You can also create resource groups and deploy resources.
+
+> [!NOTE]
+> You can deploy to up to 800 resource groups in a subscription level deployment.
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API. The Azure portal doesn't support deployment in the subscription level.
 

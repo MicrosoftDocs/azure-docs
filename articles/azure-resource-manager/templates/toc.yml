@@ -236,7 +236,7 @@
       href: deploy-to-management-group.md
     - name: Tenant
       href: deploy-to-tenant.md
-    - name: Multiple resource groups or subscriptions
+    - name: Across resource groups
       href: cross-resource-group-deployment.md
   - name: Provide parameters
     items:

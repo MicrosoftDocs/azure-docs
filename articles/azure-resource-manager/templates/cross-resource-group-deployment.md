@@ -5,18 +5,18 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Deploy Azure resources to more than one subscription or resource group
+# Deploy Azure resources across subscriptions or resource groups
 
-Resource Manager enables you to use nested templates to target more than one subscription and resource group.
+Resource Manager enables you to target more than one resource group in a single deployment. You use nested templates to specify resource groups that are different than the resource group in the deployment operation. The resource groups can exist in different subscriptions.
 
 > [!NOTE]
-> You can deploy to 800 resource groups in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
+> You can deploy to **800** resource groups in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
 
 ## Specify subscription and resource group
 
-To target a resource group that is different than the one for parent template, use a [nested or linked template](linked-templates.md). Within the `Microsoft.Resources/deployments` resource type, specify values for the `subscriptionId` and `resourceGroup` properties.
+To target a resource group that is different than the one for parent template, use a [nested or linked template](linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="2,5-6":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
 
 If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
 
