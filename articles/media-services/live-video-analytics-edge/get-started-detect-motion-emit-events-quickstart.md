@@ -649,6 +649,10 @@ Try the following as next steps
 * Invoke GraphTopologyList and observe that there are no topologies anymore.
 * Invoke GraphInstanceList with the same payload as GraphTopologyList and observe that are no instances enumerated.
 
+## Clean up resources
+
+If you're not going to continue to use this application, delete resources created in this quickstart.
+
 ## Next steps
 
 Learn how to invoke Live Video Analytics on IoT Edge Direct Methods programmatically.

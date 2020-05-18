@@ -13,7 +13,7 @@ This article builds on top of the Getting Started quickstart.
 
 ## Prerequisites
 
-* An active Azure subscription
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Visual Studio Code on your machine with Azure IoT Tools extension
 * Complete Setting up Azure resources, Deploying modules, and Configuring Visual Studio Code
 
@@ -809,6 +809,10 @@ Next, you can use the Azure Portal to play back the video you recorded.
 
 > [!NOTE]
 > Since the simulated live video starts when you activate the graph, the time-of-day values are not relevant, and not exposed via this player shortcut. The tutorial on continuous video recording and playback shows you how you can display the timestamps.
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete resources created in this quickstart.
 
 ## Next steps
 
