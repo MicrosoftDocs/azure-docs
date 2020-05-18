@@ -8,7 +8,7 @@
   items:
   - name: Cluster operations
     items:
-    - name: Connect cluster
+    - name: Connect a cluster
       href: connect-a-cluster.md
     - name: Use GitOps for connected clusters
       href: use-gitops-in-connected-cluster.md
