@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect sync V2 endpoint public preview  | Microsoft Docs'
-description: This topic documents updates to the Azure AD connect sync endpoints.
+description: This document covers updates to the Azure AD connect sync v2 endpoints API.
 services: active-directory
 author: billmath
 manager: daveba
@@ -8,7 +8,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,40 +25,40 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
 
 ### Public preview limitations  
-While this release has undergone extensive testing during multiple rounds of private preview releases you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  
+While this release has undergone extensive testing, you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  
 
 >[!IMPORTANT]
-> While we provide support for this public preview release, we may not always be able to fix any issues you may encounter in a timely fashion, depending on the support requirements of your organization. For this reason, we urge you to use your best judgement before deploying this release in your production environment. 
+> While support is provided for this public preview release, Microsoft may not always be able to fix all issues you may encounter immediately. For this reason, it is recommended that you use your best judgement before deploying this release in your production environment. 
 
 ## Deployment guidance 
 You will need to deploy [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later to use the V2 endpoint. Use the link provided to download. 
 
-It is recommended that you follow the [swing migration](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method refer to the link provided. 
+It is recommended that you follow the [swing migration](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method, refer to the link provided. 
 
 ### Swing migration for deploying V2 endpoint
 The following steps will guide you through deploying the v2 endpoint using the swing method.
 
-1. Deploy the V2 endpoint on the current staging server. We will call this the **V2 server** in the steps below. The current active server will continue to process the production workload using the V1 endpoint, which we will call the **V1 server** below. 
-2. Validate that the **V2 server** is still processing imports as expected. At this stage, large groups will not be provisioned to Azure AD or on-prem AD, but you will be able to verify that the upgrade did not result in any other unexpected impact to the existing synchronization process. 
-3. Once validation is complete, switch the **V2 server** to be the active server and the **V1 server** to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large O365 unified groups will be provisioned to AD, if group writeback is enabled.
-4. Validate that the **V2 server** is performing and processing large groups successfully. You may choose to stay at this step and monitor the synchronization process for a period.
+1. Deploy the V2 endpoint on the current staging server. This will be known as the **V2 server** in the steps below. The current active server will continue to process the production workload using the V1 endpoint, which will be called the **V1 server** below.
+1. Validate that the **V2 server** is still processing imports as expected. At this stage, large groups will not be provisioned to Azure AD or on-prem AD, but you will be able to verify that the upgrade did not result in any other unexpected impact to the existing synchronization process. 
+2. Once validation is complete, switch the **V2 server** to be the active server and the **V1 server** to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large O365 unified groups will be provisioned to AD, if group writeback is enabled.
+3. Validate that the **V2 server** is performing and processing large groups successfully. You may choose to stay at this step and monitor the synchronization process for a period.
   >[!NOTE]
   > If you need to transition back to your previous configuration, you can perform a swing migration from the **V2 server** back to the **V1 server**. Since the V1 endpoint does not support groups with over 50k members, any large group that was provisioned by Azure AD Connect, in either Azure AD or on-prem AD, will be subsequently deleted. 
-5. Once you are confident in using the V2 endpoint, upgrade the **V1 server** to begin using the V2 endpoint. 
+4. Once you are confident in using the V2 endpoint, upgrade the **V1 server** to begin using the V2 endpoint. 
  
 
 ## Expectations of performance impact  
 When using the V2 endpoint, performance gains are a function of the number of synced groups, size of those groups, and their group churn (the activity resulting from adding and removing users as members of the group). Using the new endpoint, without increasing the number, size, or churn of the synced groups, should result in shorter times for export and import to Azure AD. 
  
-However, these performance gains can be negated by the additional processing required when syncing the addition of large groups. You could end up increasing the overall sync time by adding a significant amount of additional large groups to the sync process.  
+However, these performance gains can be negated by the additional processing required when syncing large groups. You could end up increasing the overall sync time by adding a too many large groups to the sync process.  
 
 To gain a better understanding of how the addition of these new groups will impact your sync performance, it is recommended that you start by syncing only a few large groups with less than 100k members. You can then increase the number and size of groups by bringing more of them in scope, through OU, attribute, or max group size filtering. The performance improvements will be realized on the export and import tasks for the Azure AD connector, not the on-premises AD connector. 
 
-## Deployment step-by-step 
-The following 3 phases is an in-depth example of deploying the new V2 endpoint.  Use these phases as a guideline for your deployment.
+## Deployment step by step 
+The following 3 phases are an in-depth example of deploying the new V2 endpoint.  Use these phases as a guideline for your deployment.
 
 ### Phase one – install and validate Azure AD Connect 
-It is recommended that you first perform the steps to install or upgrade to [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and validate the sync process before you go to the second phase where you will enabled the V2 end point. 
+It is recommended that you first perform the steps to install or upgrade to [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and validate the sync process before you go to the second phase where you will enable the V2 endpoint. 
 On the Azure AD Connect server: 
 
 
@@ -74,7 +74,7 @@ The next step is to enable the V2 endpoint.
 
 To switch to the V2 endpoint, follow these steps: 
 
-1. Open a PowerShell prompt as administrator. 
+1. Open a Powershell prompt as administrator. 
 2. Disable the sync scheduler after verifying that no synchronization operations are running: 
  
  `Set-ADSyncScheduler -SyncCycleEnabled $false`
@@ -105,7 +105,7 @@ These are the steps to increase the membership limit:
 
 1. Open Azure AD Synchronization Rules Editor 
 2. Raise the maximum member limit for groups 
-3. In the editor, chose **Outbound** for Direction 
+3. In the editor, choose **Outbound** for Direction 
 4. Click on the **Out to AAD – Group Join** sync rule 
 5. Click the **Edit** button 
  ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
@@ -116,7 +116,7 @@ These are the steps to increase the membership limit:
 7. In the pop-up window on the **Description** page, set the precedence to an available value between 1 and 99
 ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
-8. On the **Transformations** page, update the **Source** value for the **member** transformation, replacing ‘50000’ with a value between 50001 and 250000. This will increase the maximum membership size of groups that will sync to Azure AD. We suggest starting with a number of 100k, to understand the impact that syncing large groups will have on your sync performance. 
+8. On the **Transformations** page, update the **Source** value for the **member** transformation, replacing ‘50000’ with a value between 50001 and 250000. This replacement will increase the maximum membership size of groups that will sync to Azure AD. We suggest starting with a number of 100k, to understand the impact that syncing large groups will have on your sync performance. 
  
  **Example** 
  
@@ -125,7 +125,7 @@ These are the steps to increase the membership limit:
  ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
 
 9. Click Save 
-10. Open admin PowerShell prompt 
+10. Open admin Powershell prompt 
 11. Re-enable the Sync Scheduler 
  
  `Set-ADSyncScheduler -SyncCycleEnabled $true` 
@@ -141,7 +141,7 @@ The new V2 endpoint code handles some types of export errors slightly different 
 >[!NOTE]
 > When upgrading Azure AD Connect, ensure that the steps in Phase 2 are rerun, as the changes are not preserved through the upgrade process. 
 
-During subsequent increases to the group member limit in the **Out to AAD – Group Join** sync rule, a full sync is not necessary, so you can elect to suppress the full sync by running the following command in PowerShell. 
+During subsequent increases to the group member limit in the **Out to AAD – Group Join** sync rule, a full sync is not necessary, so you can elect to suppress the full sync by running the following command in Powershell. 
 `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
@@ -152,29 +152,29 @@ If, for whatever reason, you need to roll back the changes you made to enable th
 
 1. On the Azure AD Connect server: 
     a. [Optional] Take database backup 
-2. Open an admin PowerShell prompt:
-   
- Disable the sync scheduler after verifying that no synchronization operations are running
+2. Open an admin Powershell prompt:
+3. Disable the sync scheduler after verifying that no synchronization operations are running
  
-`Set-ADSyncScheduler -SyncCycleEnabled $false`
+ `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-Switch to the V1 endpoint * 
+ Switch to the V1 endpoint * 
  
-`Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Extensions\AADConnector.psm1'` 
+ `Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Extensions\AADConnector.psm1'` 
 
-`Set-ADSyncAADConnectorExportApiVersion 1`
+ `Set-ADSyncAADConnectorExportApiVersion 1`
 
-`Set-ADSyncAADConnectorImportApiVersion 1`
+ `Set-ADSyncAADConnectorImportApiVersion 1`
  
-Open Azure AD Synchronization Rules Editor 
-Delete the editable copy of the ‘Out to AAD – Group Join’ sync rule 
-Enable the default copy of the ‘Out to AAD – Group Join’ sync rule 
-Open an admin PowerShell prompt 
-Re-enable the Sync Scheduler 
+4. Open Azure AD Synchronization Rules Editor 
+5. Delete the editable copy of the **Out to AAD – Group Join** sync rule 
+6. Enable the default copy of the **Out to AAD – Group Join** sync rule 
+7. Open an admin Powershell prompt 
+8. Re-enable the Sync Scheduler 
  
-Set-ADSyncScheduler -SyncCycleEnabled $true 
+ `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
-Note: When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and O365 unified groups provisioned to AD. 
+>[!NOTE]
+> When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and O365 unified groups provisioned to AD. 
 
 ## Frequently asked questions  
 **Q:Can a customer use this capability in production?**  
@@ -183,8 +183,8 @@ Note: When switching back from the V2 to V1 endpoints, groups synced with more t
 **Q:Who can the customer contact when things go wrong?**  
 </br>If you need support when using this feature please open a support case 
  
-**Q:How about breaking changes and functional takebacks?**  
-</br>There is a limited degree of ongoing change during a Public Preview. You should assess this risk when deploying Public Preview features in production.  
+**Q:Can I expect frequent updates to the public preview?**  
+</br>There is a limited degree of ongoing changes during a Public Preview. You should assess this risk when deploying Public Preview features in production.  
  
 **Q:Time to next milestone?**  
 </br>Public Preview capabilities may be withdrawn and possibly redesigned before reaching further milestones.  
