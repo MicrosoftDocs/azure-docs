@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/20
+ms.date: 05/22/20
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
@@ -122,10 +122,10 @@ Here is the top-level workflow in the **Correlated in-order delivery using servi
 
 | Name | Description |
 |------|-------------|
-| **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. <p><p>The term *peek-lock* means that the trigger sends a request to retrieve a message from the queue. If a message exists, the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. For technical information about the trigger, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). |
-| **`Init isDone`** | This **Initialize variable** action creates a variable that tracks whether the next Service Bus action finishes reading messages in the queue. By default, the variable's Boolean value is set to `false`. |
-| **`Try`** | This **Scope** action contains the actions that run to process a message. If a problem happens in the `Try` scope, the subsequent `Catch` **Scope** action handles that problem. For more information, see ["Try" scope](#try-scope). |
-| **`Catch`**| This **Scope** action contains the actions that run if a problem happens in the preceding `Try` scope. For more information, see ["Catch" scope](#catch-scope). |
+| **When a message is received in a queue (peek-lock)** | Based on the specified recurrence, this Service Bus trigger checks the specified Service Bus queue for any messages. If a message exists in the queue, the trigger fires, which creates and runs a workflow instance. <p><p>The term *peek-lock* means that the trigger sends a request to retrieve a message from the queue. If a message exists, the trigger retrieves and locks the message so that no other processing happens on that message until the lock period expires. For details, [Initialize the session](#initialize-session). |
+| **`Init isDone`** | This [**Initialize variable** action](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) creates a variable that tracks whether the next Service Bus action finishes reading messages in the queue. By default, the variable's Boolean value is set to `false`. For details, see [Initialize the session](#initialize-session). |
+| **`Try`** | This [**Scope** action](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contains the actions that run to process a message. If a problem happens in the `Try` scope, the subsequent `Catch` **Scope** action handles that problem. For more information, see ["Try" scope](#try-scope). |
+| **`Catch`**| This [**Scope** action](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contains the actions that run if a problem happens in the preceding `Try` scope. For more information, see ["Catch" scope](#catch-scope). |
 |||
 
 <a name="try-scope"></a>
@@ -139,8 +139,8 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | Name | Description |
 |------|-------------|
 | `Send initial message to topic` | This Service Bus action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
-| (parallel branch) | This parallel branch action creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
-| `Close a session in a queue and succeed` | This Service Bus action joins the previously described branches and closes the session after either of the following events happen: <p><p>- The workflow finishes processing available messages in the queue. <br>- The workflow abandons the initial message because something went wrong. <p><p>For details, see [Close a session in a queue and succeed](#close-session-succeed). |
+| (parallel branch) | This [parallel branch action](../logic-apps/logic-apps-control-flow-branches.md) creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
+| `Close a session in a queue and succeed` | This Service Bus action joins the previously described branches and closes the session in the queue after either of the following events happen: <p><p>- The workflow finishes processing available messages in the queue. <br>- The workflow abandons the initial message because something went wrong. <p><p>For details, see [Close a session in a queue and succeed](#close-session-succeed). |
 |||
 
 <a name="complete-initial-message"></a>
@@ -150,9 +150,9 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | Name | Description |
 |------|-------------|
 | `Complete initial message in queue` | This Service Bus action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. For details, see [Handle the initial message](#handle-initial-message). |
-| `While there are more messages for the session in the queue` | This **Until** loop continues to get messages while messages exists or until one hour passes. For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
-| `Set isDone = true` | When no more messages exist, this **Set variable** action sets `isDone` to `true`. |
-| `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or until one hour passes. For more information about the actions in this loop, see [Renew session lock until cancelled](#renew-session-while-messages-exist). |
+| `While there are more messages for the session in the queue` | This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) continues to get messages while messages exists or until one hour passes. For more information about the actions in this loop, see [While there are more messages for the session in the queue](#while-more-messages-for-session). |
+| `Set isDone = true` | When no more messages exist, this [**Set variable** action](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) sets `isDone` to `true`. |
+| `Renew session lock until cancelled` | This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) makes sure that the session lock is held by this logic app while messages exist or until one hour passes. For more information about the actions in this loop, see [Renew session lock until cancelled](#renew-session-while-messages-exist). |
 |||
 
 <a name="abandon-initial-message"></a>
@@ -173,10 +173,10 @@ Here is the top-level flow in the `Catch` scope action when the details are coll
 
 | Name | Description |
 |------|-------------|
-| `Close a session in a queue and fail` | |
-| `Find failure msg from 'Try' block` | |
-| `Select error details` ||
-| `Terminate` ||
+| `Close a session in a queue and fail` | This Service Bus action closes the session in the queue so that the session lock doesn't stay open. For details, see [Close a session in a queue and fail](#close-session-fail). |
+| `Find failure msg from 'Try' block` | This [**Filter Array** action](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) creates an array from the inputs and outputs from all the actions inside the `Try` scope based on the specified criteria. In this case, this action returns the outputs from the actions that resulted in `Failed` status. For details, see [Find failure msg from 'Try' block](#find-failure-message). |
+| `Select error details` | This [**Select** action](../logic-apps/logic-apps-perform-data-operations.md#select-action) creates an array that contains JSON objects based on the specified criteria. These JSON objects are built from the values in the array created by the previous action, `Find failure msg from 'Try' block`. In this case, this action returns an array that contains a JSON object created from the error details returned from the previous action. For details, see [Select error details](#select-error-details). |
+| `Terminate` | This [**Terminate** action](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) stops the run for the workflow, cancels any actions in progress, skips any remaining actions, and returns the specified status, the session ID, and the error result from the `Select error details` action. For details, see [Terminate logic app](#terminate-logic-app). |
 |||
 
 <a name="complete-template"></a>
@@ -307,11 +307,29 @@ This Service Bus action closes the session in the queue after either the workflo
 
 * In the Service Bus action, **Close a session in a queue and succeed**, provide the name for your Service Bus queue.
 
-  ![Service Bus action - "Close a session in a queue and succeed"](./media/send-related-messages-sequential-convoy/close-session-in-queue.png)
+  ![Service Bus action - "Close a session in a queue and succeed"](./media/send-related-messages-sequential-convoy/close-session-in-queue-succeed.png)
 
 The following sections describe the actions in the `Catch` section, which handle errors and exceptions that happen in your workflow.
 
+<a name="close-session-fail"></a>
+
 ### Close a session in a queue and fail
+
+
+
+<a name="find failure-message"></a>
+
+### Find failure msg from 'Try' block
+
+<a name="select-error-details"></a>
+
+### Select error details
+
+<a name="terminate-logic-app"></a>
+
+### Terminate logic app
+
+
 
 ## Next steps
 
