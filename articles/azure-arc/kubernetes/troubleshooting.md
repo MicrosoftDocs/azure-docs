@@ -1,9 +1,11 @@
 ---
 title: "Troubleshoot common Azure Arc enabled Kubernetes issues"
-services: arc-kubernetes
-ms.date: 03/03/2020
-ms.topic: "conceptual"
-description: ""
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: "Troubleshooting common issues with Arc enbaled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 

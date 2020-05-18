@@ -1,8 +1,10 @@
 ---
 title: "Overview"
-services: arc-kubernetes
-ms.date: 02/19/2020
-ms.topic: "conceptual"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
 description: ""
 keywords: "Kubernetes, Arc, Azure, containers"
 ---

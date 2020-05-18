@@ -1,8 +1,10 @@
 ---
 title: "Onboard Azure Arc with Azure Monitor for containers"
-services: arc-kubernetes
-ms.date: 02/19/2020
-ms.topic: "how-to-guide"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
 description: "Onboard Azure Arc with Azure Monitor for containers"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---

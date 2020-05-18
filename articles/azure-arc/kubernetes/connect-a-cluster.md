@@ -1,9 +1,11 @@
 ---
 title: "Connect a Kubernetes cluster"
-services: arc-kubernetes
-ms.date: 02/19/2020
-ms.topic: "how-to-guide"
-description: "Connect a Kubernetes with Azure Arc"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: "Connect a Kubernetes cluster with Azure Arc"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
@@ -153,8 +155,7 @@ You can delete a `Microsoft.Kubernetes/connectedCluster` using the CLI or Azure 
   * Deletes any associated `sourceControlConfiguration` resources in Azure
   * Note: To remove the agents in the cluster you need to run az connectedk8s delete or helm uninstall azurearcfork8s.
 
-## Next
+## Next steps
 
-* Return to the [README](../README.md)
 * [Use GitOps in a connected cluster](./use-gitops-in-connected-cluster.md)
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

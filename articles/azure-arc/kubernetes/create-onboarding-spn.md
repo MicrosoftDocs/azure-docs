@@ -1,8 +1,10 @@
 ---
 title: "Create an onboarding Service Principal"
-services: arc-kubernetes
-ms.date: 02/19/2020
-ms.topic: "how-to-guide"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
 description: "Service Principal TODO.."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
