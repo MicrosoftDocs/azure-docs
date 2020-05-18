@@ -231,104 +231,89 @@ Use the test dataset with the model to get predictions.
 
 To make encrypted predictions:
 
-1. Create our Homomorphic Encryption based client
-1. Upload Homomorphic Encryption generated public keys
-1. Encrypt the data
-1. Send the data as JSON to the web service hosted in ACI
-1. Use the SDK's `run` API to invoke the service. You can also make raw calls using any HTTP tool such as curl.
+1. Create a new `EILinearRegressionClient`, a homomorphic encryption based client, and public keys.
 
-### Create Homomorphic Encryption based client
+    ```python
+    from encrypted.inference.eiclient import EILinearRegressionClient
 
-Create a new `EILinearRegressionClient` and create the public keys.
+    # Create a new Encrypted inference client and a new secret key.
+    edp = EILinearRegressionClient(verbose=True)
 
-```python
-from encrypted.inference.eiclient import EILinearRegressionClient
+    public_keys_blob, public_keys_data = edp.get_public_keys()
+    ```
 
-# Create a new Encrypted inference client and a new secret key.
-edp = EILinearRegressionClient(verbose=True)
+1. Upload homomorphic encryption generated public keys to the workspace default blob store. This will allow you to share the keys with the inference server.
 
-public_keys_blob, public_keys_data = edp.get_public_keys()
+    ```python
+    import azureml.core
+    from azureml.core import Workspace, Datastore
+    import os
 
-```
+    ws = Workspace.from_config()
 
-#### Upload HE generated public keys
+    datastore = ws.get_default_datastore()
+    container_name=datastore.container_name
 
-Upload the public keys to the workspace default blob store. This will allow you to share the keys with the inference server.
+    # Create a local file and write the keys to it
+    public_keys = open(public_keys_blob, "wb")
+    public_keys.write(public_keys_data)
+    public_keys.close()
 
-```python
-import azureml.core
-from azureml.core import Workspace, Datastore
-import os
+    # Upload the file to blob store
+    datastore.upload_files([public_keys_blob])
 
-ws = Workspace.from_config()
+    # Delete the local file
+    os.remove(public_keys_blob)
+    ```
 
-datastore = ws.get_default_datastore()
-container_name=datastore.container_name
+1. Encrypt the test data
 
-# Create a local file and write the keys to it
-public_keys = open(public_keys_blob, "wb")
-public_keys.write(public_keys_data)
-public_keys.close()
+    ```python
+    #choose any one sample from the test data 
+    sample_index = 1
 
-# Upload the file to blob store
-datastore.upload_files([public_keys_blob])
+    #encrypt the data
+    raw_data = edp.encrypt(X_test[sample_index])
 
-# Delete the local file
-os.remove(public_keys_blob)
-```
+    ```
 
-### Encrypt the test data
+1. Use the SDK's `run` API to invoke the service and provide the test dataset to the model to get predictions. We will need to send the connection string to the blob storage where the public keys were uploaded.
 
-```python
-#choose any one sample from the test data 
-sample_index = 1
+    ```python
+    import json
+    from azureml.core import Webservice
 
-#encrypt the data
-raw_data = edp.encrypt(X_test[sample_index])
+    service = Webservice(ws, 'sklearn-encrypted-mnist-svc')
 
-```
+    #pass the connection string for blob storage to give the server access to the uploaded public keys 
+    conn_str_template = 'DefaultEndpointsProtocol={};AccountName={};AccountKey={};EndpointSuffix=core.windows.net'
+    conn_str = conn_str_template.format(datastore.protocol, datastore.account_name, datastore.account_key)
 
-### Send the test data to the encrypted ACI web service
+    #build the json 
+    data = json.dumps({"data": raw_data, "key_id" : public_keys_blob, "conn_str" : conn_str, "container" : container_name })
+    data = bytes(data, encoding='ASCII')
 
-Provide the test dataset to the model to get predictions. We will need to send the connection string to the blob storage where the public keys were uploaded.
+    print ('Making an encrypted inference web service call ')
+    eresult = service.run(input_data=data)
 
-```python
-import json
-from azureml.core import Webservice
+    print ('Received encrypted inference results')
+    ```
 
-service = Webservice(ws, 'sklearn-encrypted-mnist-svc')
+1. Use the client to decrypt the results.
 
-#pass the connection string for blob storage to give the server access to the uploaded public keys 
-conn_str_template = 'DefaultEndpointsProtocol={};AccountName={};AccountKey={};EndpointSuffix=core.windows.net'
-conn_str = conn_str_template.format(datastore.protocol, datastore.account_name, datastore.account_key)
+    ```python
+    import numpy as np
 
-#build the json 
-data = json.dumps({"data": raw_data, "key_id" : public_keys_blob, "conn_str" : conn_str, "container" : container_name })
-data = bytes(data, encoding='ASCII')
+    results = edp.decrypt(eresult)
 
-print ('Making an encrypted inference web service call ')
-eresult = service.run(input_data=data)
+    print ('Decrypted the results ', results)
 
-print ('Received encrypted inference results')
-```
+    #Apply argmax to identify the prediction result
+    prediction = np.argmax(results)
 
-### Decrypt the prediction
-
-Use the client to decrypt the results.
-
-```python
-import numpy as np
-
-results = edp.decrypt(eresult)
-
-print ('Decrypted the results ', results)
-
-#Apply argmax to identify the prediction result
-prediction = np.argmax(results)
-
-print ( ' Prediction : ', prediction)
-print ( ' Actual Label : ', y_test[sample_index])
-```
+    print ( ' Prediction : ', prediction)
+    print ( ' Actual Label : ', y_test[sample_index])
+    ```
 
 ## Clean up resources
 
