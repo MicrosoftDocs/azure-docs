@@ -507,9 +507,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 ### Health feature is in limited private preview
 
-We have received a lot of great feedback from customers about our Health feature. There is a lot of interest around this feature and excitement over its potential. We are planning to make a series of changes to add functionality and address the feedback we have received.
-
-To minimize impact of these changes to new customers, we plan to move the feature to private preview by the end of June 2020. You will receive in-product notifications to move to the private preview. To request additional information and participation in this limited preview, contact askcoin@microsoft.com.
+We have received a lot of great feedback from customers about our Health feature. There is a lot of interest around this feature and excitement over its potential. We are planning to make a series of changes to add functionality and address the feedback we have received. The Health feature is going to transition to a limited private preview, and for additional information review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### What does *Other Processes* represent under the Node view?
 
