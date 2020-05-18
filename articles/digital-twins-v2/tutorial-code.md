@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [C# service SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.identity
 ```
 
-The first dependency is the Azure Digital Twins SDK for .NET. 
+The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
 The second dependency provides tools to help with authentication against Azure.
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
