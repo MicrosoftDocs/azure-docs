@@ -97,16 +97,17 @@
     href: search-indexer-overview.md
   - name: AI enrichment
     href: cognitive-search-concept-intro.md
+    items:
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
-      name: Debug sessions
+    - name: Debug sessions
       href: cognitive-search-debug-session.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Projections
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
-     href: cognitive-search-incremental-indexing-conceptual.md
+      href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
