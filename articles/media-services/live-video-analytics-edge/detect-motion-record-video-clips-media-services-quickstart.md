@@ -805,7 +805,7 @@ Next, you can use the Azure portal to play back the video you recorded.
 1. In the pane that opens for "Add streaming locator", accept the defaults and hit "Add" at the bottom.
 1. In the Asset details page, the video player should now load to the first frame of the video, and you can hit the play button. You should see the car moving in the parking lot    
 
-    ![Play](./media/quickstarts/asset_p_layback.png)
+    ![Play](./media/quickstarts/asset_playback.png)
 
 > [!NOTE]
 > Since the simulated live video starts when you activate the graph, the time-of-day values are not relevant, and not exposed via this player shortcut. The tutorial on continuous video recording and playback shows you how you can display the timestamps.
