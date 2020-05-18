@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/27/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ---
 
@@ -177,7 +177,7 @@ URLs:
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Guest Configuration|
 |*-agentservice-prod-1.azure-automation.net|Guest Configuration|
-|*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
+|*.his.arc.azure.com|Hybrid Identity Service|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
