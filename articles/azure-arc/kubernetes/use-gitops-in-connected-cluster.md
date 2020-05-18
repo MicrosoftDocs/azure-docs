@@ -148,32 +148,6 @@ Note: If enableHelmOperator is true, then operatorInstanceName + operatorNamespa
 
 For more info see [Flux documentation](https://aka.ms/FluxcdReadme).
 
-### Using ARM template
-
-To automate the creation of `sourceControlConfiguration` in a connected cluster you can deploy the [example ARM template](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).  To test, follow these steps in the Azure portal:
-
-1. In the portal search box (top center), type "deployment".
-2. In the search results Services section, click on "Deploy a custom template".
-3. Click "Build your own template in the editor".
-4. In the edit box, delete the default content and copy/paste the contents of [example ARM template](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).
-5. Click "Save".
-6. You'll be presented with a form for entering parameter values; first select the "Resource Group" where the connected cluster is located.
-7. Enter the Azure location and name of the `connectedCluster` where the `sourceControlConfiguration` will be created.
-8. Enter the name for the `sourceControlConfiguration` (this will be the resource name in Azure).
-9. Enter the operator instance name (this is the operator name in the cluster).
-10. Enter the namespace where the operator will be deployed in the cluster.
-11. Enter the scope of influence for the operator: `cluster` gives the operator permission to make changes throughout the cluster; `namespace` gives the operator permission to make changes only in the namespace.
-12. The operator type currently is restricted to `flux`.
-13. Enter any [parameters](https://docs.fluxcd.io/en/stable/tutorials/get-started.html) you want to pass through to the new `flux` instance.
-14. Enter the URL of the Git repo that the operator will monitor for Kubernetes manifests.
-15. Indicate if you want the `flux` Helm operator installed or not.
-16. For the Helm operator indicate the [chart version](https://github.com/fluxcd/helm-operator/blob/master/chart/helm-operator/Chart.yaml) to use for installation (default is 0.3.0).
-17. For the Helm operator indicate any [chart values](https://github.com/fluxcd/helm-operator/blob/master/chart/helm-operator/README.md) you want to pass through to the new instance.
-18. Agree to the "Terms and Conditions", and click "Purchase" (it's free).
-19. The template deployment will be started; when it completes you can navigate to the connected cluster resource and validate the new configuration.
-
-After validating that the ARM templates works for you, you can start using it in your automated infrastructure deployments.
-
 ## Validate the sourceControlConfiguration
 
 Using the Azure CLI validate that the `sourceControlConfiguration` was successfully created.
