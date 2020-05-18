@@ -40,11 +40,11 @@ Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or lat
 
 1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
 1. Under **Manage**, select **Authentication**, and then select **Add a platform**.
-1. Under **Web applications**, select **Single-page application**.
+1. Under **Web applications**, select the **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant**.
 1. Select **Configure** to finish adding the redirect URI.
 
-You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By not selecting either of the settings under **Implicit grant**, your application registration is configured to support the authorization code flow with PKCE and CORS.
+You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By configuring your redirect URI using the **Single-page application** tile in the **Add a platform** pane, your application registration is configured to support the authorization code flow with PKCE and CORS.
 
 ## Redirect URI: MSAL.js 1.0 with implicit flow
 
@@ -52,7 +52,7 @@ Follow these steps to add a redirect URI for a single-page app that uses MSAL.js
 
 1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
 1. Under **Manage**, select **Authentication**, and then select **Add a platform**.
-1. Under **Web applications**, select **Single-page application**.
+1. Under **Web applications**, select **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md).
 1. Enable the **Implicit flow**:
     - If your application signs in users, select **ID tokens**.
@@ -67,7 +67,7 @@ By default, an app registration created by using single-page application platfor
 
 As mentioned previously, single-page applications using MSAL.js 1.3 are restricted to the implicit grant flow. Current [OAuth 2.0 best practices](v2-oauth2-auth-code-flow.md) recommend using the authorization code flow rather than the implicit flow for SPAs. Having limited-lifetime refresh tokens also helps your application adapt to [modern browser cookie privacy limitations](reference-third-party-cookies-spas.md), like Safari ITP.
 
-When all of your production applications represented by an app registration are using MSAL.js 2.0 and the authorization code flow, uncheck the implicit grant settings in its **Authentication** pane in the Azure portal. Applications using MSAL.js 1.x and the implicit flow can continue to function, however, if you leave the implicit flow enabled (checked).
+When all your production single-page applications represented by an app registration are using MSAL.js 2.0 and the authorization code flow, uncheck the implicit grant settings the app registration's **Authentication** pane in the Azure portal. Applications using MSAL.js 1.x and the implicit flow can continue to function, however, if you leave the implicit flow enabled (checked).
 
 ## Next steps
 

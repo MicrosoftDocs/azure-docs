@@ -119,6 +119,12 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
 > - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
 >
+> The `authority` value in your *authConfig.js* should be similar to the following if you're using the main (global) Azure cloud:
+>
+> ```javascript
+> authority: "https://login.microsoftonline.com/common",
+> ```
+>
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 >
@@ -143,10 +149,16 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >   };
 > ```
 >
-
 > [!div renderon="docs"]
 >
 > `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
+>
+> The `graphMeEndpoint` and `graphMailEndpoint` values in the *graphConfig.js* file should be similar to the following if you're using the main (global) Microsoft Graph API service:
+>
+> ```javascript
+> graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
+> graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
+> ```
 >
 > #### Step 4: Run the project
 
@@ -167,7 +179,7 @@ Run the project with a web server by using Node.js:
 
 ### How the sample works
 
-![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Access Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow for a single-page application":::
 
 ### msal.js
 
