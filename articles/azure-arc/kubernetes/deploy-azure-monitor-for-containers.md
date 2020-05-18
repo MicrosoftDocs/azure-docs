@@ -40,7 +40,7 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
 ```console
 curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
  ```
-2. Install [Powershell core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) if you dont have installed on your dev machine to execute Powershell onboarding script
+2. Install [Powershell core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) on your dev machine to execute the Powershell onboarding script.
 
 3. Login to Azure
 ```console

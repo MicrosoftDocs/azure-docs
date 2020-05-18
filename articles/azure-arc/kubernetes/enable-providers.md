@@ -50,10 +50,10 @@ Microsoft.Kubernetes/previewAccess                                              
 Microsoft.KubernetesConfiguration/sourceControlConfiguration                      Registered
 ```
 
-If you receive an error or do not see the following features in a `Registered` state:
+If you receive an error, or do not see the following features in a `Registered` state:
 
 1. Ensure you are using the subscription that you provided to Microsoft: `az account set -s <subscription id>`
-1. Re-check your feature flags
+1. Verif your feature flags.
 
 ## Register Providers
 
