@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -158,7 +158,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `otp` | One-time passcode using an email or a text message. |
 | `fed` | A federated authentication assertion (such as JWT or SAML) was used. |
 | `wia` | Windows Integrated Authentication |
-| `mfa` | Multi-factor authentication was used. When this is present the other authentication methods will also be included. |
+| `mfa` | [Multi-factor authentication](../authentication/concept-mfa-howitworks.md) was used. When this is present the other authentication methods will also be included. |
 | `ngcmfa` | Equivalent to `mfa`, used for provisioning of certain advanced credential types. |
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |

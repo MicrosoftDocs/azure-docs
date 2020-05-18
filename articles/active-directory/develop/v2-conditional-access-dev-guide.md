@@ -1,5 +1,6 @@
 ---
 title: Developer guidance for Azure Active Directory Conditional Access
+titleSuffix: Microsoft identity platform
 description: Developer guidance and scenarios for Azure AD Conditional Access and Microsoft identity platform.
 services: active-directory
 keywords:
@@ -8,7 +9,7 @@ manager: CelesteDG
 
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -20,7 +21,7 @@ ms.workload: identity
 
 The Conditional Access feature in Azure Active Directory (Azure AD) offers one of several ways that you can use to secure your app and protect a service. Conditional Access enables developers and enterprise customers to protect services in a multitude of ways including:
 
-* Multi-factor authentication
+* [Multi-factor authentication](../authentication/concept-mfa-howitworks.md)
 * Allowing only Intune enrolled devices to access specific services
 * Restricting user locations and IP ranges
 

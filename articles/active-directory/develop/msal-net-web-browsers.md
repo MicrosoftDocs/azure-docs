@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -29,7 +29,7 @@ It's important to understand that when acquiring a token interactively, the cont
 
 - The password (if one was typed) is never stored by the application, nor the authentication library.
 - Enables redirections to other identity providers (for instance login-in with a work school account or a personal account with MSAL, or with a social account with Azure AD B2C).
-- Lets the STS control Conditional Access, for example, by having the user do multiple factor authentication (MFA) during the authentication phase (entering a Windows Hello pin, or being called on their phone, or on an authentication app on their phone). In cases where the required multi factor authentication isn't set it up yet, the user can set it up just in time in the same dialog.  The user enters their mobile phone number and is guided to install an authentication application and scan a QR tag to add their account. This server driven interaction is a great experience!
+- Lets the STS control Conditional Access, for example, by having the user do [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) during the authentication phase (entering a Windows Hello pin, or being called on their phone, or on an authentication app on their phone). In cases where the required multi-factor authentication isn't set it up yet, the user can set it up just in time in the same dialog.  The user enters their mobile phone number and is guided to install an authentication application and scan a QR tag to add their account. This server driven interaction is a great experience!
 - Lets the user change their password in this same dialog when the password has expired (providing additional fields for the old password and the new password).
 - Enables branding of the tenant, or the application (images) controlled by the Azure AD tenant admin / application owner.
 - Enables the users to consent to let the application access resources / scopes in their name just after the authentication.
