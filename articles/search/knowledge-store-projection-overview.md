@@ -208,3 +208,8 @@ As a next step, create your first knowledge store using sample data and instruct
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store in REST](knowledge-store-create-rest.md).
+
+For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

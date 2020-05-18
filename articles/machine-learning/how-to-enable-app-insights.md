@@ -7,16 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: copeters
-author: lostmygithubaccount
-ms.date: 11/12/2019
-ms.custom: seoapril2019
+ms.author: larryfr
+author: blackmist
+ms.date: 03/12/2020
 ---
 
 # Monitor and collect data from ML web service endpoints
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
+In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights via 
+* [Azure Machine Learning Python SDK](#python)
+* [Azure Machine Learning studio](#studio) at https://ml.azure.com
+
+In addition to collecting an endpoint's output data and response, you can monitor:
 
 * Request rates, response times, and failure rates
 * Dependency rates, response times, and failure rates
@@ -27,51 +30,21 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md)
+
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial
 
 ## Web service metadata and response data
 
 >[!Important]
-> Azure Application Insights only logs payloads of upto 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
 
 The metadata and response to the service - corresponding to the web service metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
 
-## Use the Azure portal to configure
+<a name="python"></a>
 
-You can enable and disable Azure Application Insights in the Azure portal. 
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace
-
-1. On the **Deployments** tab, select the service where you want to enable Azure Application Insights
-
-   [![List of services on the Deployments tab](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Select **Edit**
-
-   [![Edit button](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. In **Advanced Settings**, select the **Enable AppInsights diagnostics** check box
-
-   [![Selected check box for enabling diagnostics](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes
-
-### Disable
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace
-1. Select **Deployments**, select the service, and then select **Edit**
-
-   [![Use the edit button](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box
-
-   [![Cleared check box for enabling diagnostics](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes
- 
 ## Use Python SDK to configure 
 
 ### Update a deployed service
@@ -115,11 +88,27 @@ To disable Azure Application Insights, use the following code:
 <service_name>.update(enable_app_insights=False)
 ```
 
+<a name="studio"></a>
+
+## Use Azure Machine Learning studio to configure
+
+You can also enable Azure Application Insights from Azure Machine Learning studio when you're ready to deploy your model with these steps.
+
+1. Sign in to your workspace at https://ml.azure.com/
+1. Go to **Models** and select which model you want to deploy
+1. Select  **+Deploy**
+1. Populate the **Deploy model** form
+1. Expand the **Advanced** menu
+
+    ![Deploy form](./media/how-to-enable-app-insights/deploy-form.png)
+1. Select **Enable Application Insights diagnostics and data collection**
+
+    ![Enable App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## Evaluate data
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
 
-1. Go to your Azure Machine Learning workspace in [Azure Machine Learning studio](https://ml.azure.com) and click on Application Insights link
+1. Go to your Azure Machine Learning workspace in the [Azure portal](https://ms.portal.azure.com/) and click on the Application Insights link
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

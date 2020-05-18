@@ -67,7 +67,6 @@ You can see the progress in the **Output** window.
 
 ## Next steps
 
-
 * [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
 * [Test live data locally using Azure Stream Analytics tools for Visual Studio (Preview)](stream-analytics-live-data-local-testing.md)

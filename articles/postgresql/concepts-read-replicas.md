@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/23/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -54,8 +54,6 @@ There are limitations to consider:
 
 
 ## Create a replica
-The master server must have the `azure.replication_support` parameter set to **REPLICA**. When this parameter is changed, a server restart is required for the change to take effect. (The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only).
-
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
 
 Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent a break in replication caused by out of storage errors.
@@ -95,14 +93,14 @@ For additional insight, query the master server directly to get the replication 
 In PostgreSQL version 10:
 
 ```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
+select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 In PostgreSQL version 9.6 and earlier:
 
 ```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
+select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 

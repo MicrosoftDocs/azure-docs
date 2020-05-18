@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
 
 ---

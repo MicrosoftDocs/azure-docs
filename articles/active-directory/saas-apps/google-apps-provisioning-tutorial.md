@@ -22,13 +22,13 @@ ms.collection: M365-identity-device-management
 The objective of this tutorial is to demonstrate the steps to be performed in G Suite and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to G Suite.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > [!NOTE]
 > The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
-- Added support for additional G Suite user and group attributes. 
-- Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
-- Updated default attribute mappings.
+> - Added support for additional G Suite user and group attributes. 
+> - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
+> - Updated default attribute mappings.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![G Suite Group Attributes](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for G Suite, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -196,19 +196,20 @@ This operation starts the initial synchronization of all users and/or groups def
 > [!NOTE]
 > If the users already have an existing personal/consumer account using the email address of the Azure AD user, then it may cause some issue which could be resolved by using the Google Transfer Tool prior to performing the directory sync.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Common issues
 * Authorization failures can occur when the account used to establish a connection is not for an administrator in GSuite. Ensure that the account used to authorize access has admin permissions over **all domains** that users need to be provisioned with. 
+* Azure AD supports disabling users in GSuite so that they cannot access the application, but it does not delete users in GSuite.
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

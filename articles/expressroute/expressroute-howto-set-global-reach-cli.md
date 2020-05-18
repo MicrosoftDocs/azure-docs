@@ -65,7 +65,7 @@ az network express-route peering connection create -g <ResourceGroupName> --circ
 
 The CLI output looks like this:
 
-```azurecli
+```output
 {
   "addressPrefix": "<__.__.__.__/29>",
   "authorizationKey": null,
@@ -101,7 +101,7 @@ If the two circuits aren't in the same Azure subscription, you need authorizatio
 
    The CLI output looks like this:
 
-   ```azurecli
+   ```output
    {
      "authorizationKey": "<authorizationKey>",
      "authorizationUseStatus": "Available",

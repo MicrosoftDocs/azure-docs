@@ -2,14 +2,14 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definition of the ClaimsTransformations element in the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **ClaimsTransformations** element contains a list of claims transformation functions that can be used in user journeys as part of a [custom policy](active-directory-b2c-overview-custom.md). A claims transformation converts a given claim into another one. In the claims transformation, you specify the transform method, for example adding an item to a string collection or changing the case of a string.
+The **ClaimsTransformations** element contains a list of claims transformation functions that can be used in user journeys as part of a [custom policy](custom-policy-overview.md). A claims transformation converts a given claim into another one. In the claims transformation, you specify the transform method, for example adding an item to a string collection or changing the case of a string.
 
 To include the list of claims transformation functions that can be used in the user journeys, a ClaimsTransformations XML element must be declared under the BuildingBlocks section of the policy.
 
@@ -47,7 +47,7 @@ The **ClaimsTransformation** element contains the following elements:
   </InputClaims>
   <InputParameters>
     ...
-  </InputParameters>				
+  </InputParameters>
   <OutputClaims>
     ...
   </OutputClaims>
@@ -58,7 +58,7 @@ The **ClaimsTransformation** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | A list of **InputClaim** elements that specify claim types that are taken as input to the claims transformation. Each of these elements contains a reference to a ClaimType already defined in the ClaimsSchema section in the policy. |
-| InputParameters | 0:1 | A list of **InputParameter** elements that are provided as input to the claims transformation.  
+| InputParameters | 0:1 | A list of **InputParameter** elements that are provided as input to the claims transformation.
 | OutputClaims | 0:1 | A list of **OutputClaim** elements that specify claim types that are produced after the ClaimsTransformation has been invoked. Each of these elements contains reference to a ClaimType already defined in the ClaimsSchema section. |
 
 ### InputClaims
@@ -102,7 +102,7 @@ The **OutputClaims** element contains the following element:
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | An expected output claim type. |
 
-#### OutputClaim 
+#### OutputClaim
 
 The **OutputClaim** element contains the following attributes:
 
@@ -110,7 +110,7 @@ The **OutputClaim** element contains the following attributes:
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy.
 | TransformationClaimType | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
- 
+
 If input claim and the output claim are the same type (string, or boolean), you can use the same input claim as the output claim. In this case, the claims transformation changes the input claim with the output value.
 
 ## Example
@@ -159,6 +159,7 @@ For examples of claims transformations, see the following reference pages:
 - [Date](date-transformations.md)
 - [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
+- [Phone number](phone-number-claims-transformations.md)
 - [General](general-transformations.md)
 - [Social account](social-transformations.md)
 - [String](string-transformations.md)

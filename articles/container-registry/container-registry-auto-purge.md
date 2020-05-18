@@ -42,7 +42,7 @@ At a minimum, specify the following when you run `acr purge`:
 
 For additional parameters, run `acr purge --help`. 
 
-`acr purge` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
+`acr purge` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-logs.md) that are streamed and also saved for later retrieval.
 
 ### Run in an on-demand task
 

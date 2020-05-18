@@ -1,11 +1,7 @@
 ---
 title: Performance and load testing with Azure Application Insights  | Microsoft Docs
 description: Set up performance and load tests with Azure Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/19/2019
 
 ms.reviewer: sdash

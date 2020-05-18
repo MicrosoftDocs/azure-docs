@@ -588,7 +588,7 @@ and choose **Create**.
    | **Device Type** | No | <*IBM-terminal-model*> | The model name or number for the IBM terminal to emulate. If left blank, the connector uses default values. |
    | **Code Page** | No | <*code-page-number*> | The code page number for the host. If left blank, the connector uses `37` as the default value. |
    | **Logical Unit Name** | No | <*logical-unit-name*> | The specific logical unit name to request from the host |
-   | **Enable SSL?** | No | On or off | Turn on or turn off SSL encryption. |
+   | **Enable SSL?** | No | On or off | Turn on or turn off TLS encryption. |
    | **Validate host ssl certificate?** | No | On or off | Turn on or turn off validation for the server's certificate. |
    ||||
 
@@ -629,9 +629,11 @@ and choose **Create**.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described 
-by the connector's OpenAPI (formerly Swagger) description, review the 
-[connector's reference page](/connectors/si3270/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/si3270/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

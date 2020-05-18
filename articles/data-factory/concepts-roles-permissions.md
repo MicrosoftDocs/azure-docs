@@ -15,6 +15,9 @@ manager: anandsub
 
 # Roles and permissions for Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+
 This article describes the roles required to create and manage Azure Data Factory resources, and the permissions granted by those roles.
 
 ## Roles and requirements

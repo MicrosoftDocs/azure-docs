@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -23,23 +23,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - You must have [cURL](https://curl.haxx.se/windows).
 - You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
-
-## Get Thumbnail request
-
-With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), you can generate a thumbnail of an image.
-
-To run the sample, do the following steps:
-
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Replace `<File>` with the path and filename to save the thumbnail.
-1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) to use the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the image (`{\"url\":\"...`) to analyze.
-1. Open a command window on a computer with cURL installed.
-1. Paste the code in the window and run the command.
-
->[!NOTE]
->You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ## Create and run the sample command
 

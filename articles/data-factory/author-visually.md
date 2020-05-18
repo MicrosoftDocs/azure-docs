@@ -14,6 +14,8 @@ ms.date: 12/19/2019
 
 # Visual authoring in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Azure Data Factory user interface experience (UX) lets you visually author and deploy resources for your data factory without having to write any code. You can drag activities to a pipeline canvas, perform test runs, debug iteratively, and deploy and monitor your pipeline runs.
 
 Currently, the Azure Data Factory UX is only supported in Microsoft Edge and Google Chrome.

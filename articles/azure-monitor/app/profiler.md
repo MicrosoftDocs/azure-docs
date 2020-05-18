@@ -1,8 +1,6 @@
 ---
 title: Profile live Azure App Service apps with Application Insights | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
@@ -56,8 +54,8 @@ If you want to enable the profiler for other clouds, you can use the below app s
 
 |App Setting    | US Government Values| China Cloud |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## Disable Profiler
 

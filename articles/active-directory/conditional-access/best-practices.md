@@ -24,7 +24,7 @@ With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-
 
 This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
-## What’s required to make a policy work?
+## What's required to make a policy work?
 
 When you create a new policy, there are no users, groups, apps, or access controls selected.
 
@@ -95,7 +95,7 @@ Because Office 365 apps are interconnected, we recommend assigning commonly used
 
 Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
 
-It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don’t, users won’t be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won’t be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
+It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don't, users won't be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won't be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
 
 ## What you should avoid doing
 

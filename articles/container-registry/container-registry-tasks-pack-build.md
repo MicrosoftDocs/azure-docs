@@ -25,7 +25,7 @@ At a minimum, specify the following when you run `az acr pack build`:
 * One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
 * The name of a Buildpack builder image suitable for your application. Azure Container Registry caches builder images such as `cloudfoundry/cnb:0.0.34-cflinuxfs3` for faster builds.  
 
-`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
+`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-logs.md) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with Cloud Foundry builder
 

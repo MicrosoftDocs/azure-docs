@@ -2,17 +2,14 @@
 title: Understand your detailed usage and charges | Microsoft Docs
 description: Learn how to read and understand your detailed usage and charges
 author: bandersmsft
-manager: micflan
+ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/24/2019
+ms.date: 03/20/2020
 ms.author: banders
-
 ---
+
 # Understand the terms in your Azure usage and charges file
 
 The detailed usage and charges file contains daily rated usage based on negotiated rates,
@@ -73,10 +70,12 @@ MeterName | All | The name of the meter.
 MeterRegion | All | Name of the datacenter location for services priced based on location. See Location.
 MeterSubCategory | All | Name of the meter subclassification category.
 OfferId<sup>1</sup> | All | Name of the offer purchased.
+PayGPrice | All | Retail price for the resource.
 PartNumber<sup>1</sup> | EA, PAYG | Identifier used to get specific meter pricing.
 PlanName | EA, PAYG | Marketplace plan name.
 PreviousInvoiceId | MCA | Reference to an original invoice if this line item is a refund.
 PricingCurrency | MCA | Currency used when rating based on negotiated prices.
+PricingModel | All | Identifier that indicates how the meter is priced. (Values: On Demand, Reservation, Spot)
 Product | All | Name of the product.
 ProductId<sup>1</sup> | MCA | Unique identifier for the product.
 ProductOrderId | All | Unique identifier for the product order.

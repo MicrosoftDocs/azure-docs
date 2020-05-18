@@ -5,7 +5,7 @@ description: How to enable self-service password reset using forgot password at 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -24,7 +24,9 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 ## General limitations
 
 - Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
-- This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
+- Some 3rd party credential providers are known to cause problems with this feature.
+- Disabling UAC via modification of [EnableLUA registry key](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) is known to cause issues.
+- This feature does not work for networks with 802.1x network authentication deployed and the option "Perform immediately before user logon". For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
 - Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
 - If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
@@ -38,7 +40,7 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True
+    - Windows SKU isn't Home or Professional edition
 
 ## Windows 10 password reset
 
@@ -92,7 +94,7 @@ The Azure AD audit log will include information about the IP address and ClientT
 
 ![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn’t show up for device sign-in, and will automatically be removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
+When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn't show up for device sign-in, and will automatically be removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
 
 ## Windows 7, 8, and 8.1 password reset
 
@@ -123,8 +125,8 @@ When users reset their password from the login screen of a Windows 10 device, a 
 
 #### Silent installation
 
-- For silent install, use the command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
-- For silent uninstall, use the command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
+- For silent install, use the command "msiexec /i SsprWindowsLogon.PROD.msi /qn"
+- For silent uninstall, use the command "msiexec /x SsprWindowsLogon.PROD.msi /qn"
 
 #### Troubleshooting Windows 7, 8, and 8.1 password reset
 
@@ -136,8 +138,8 @@ If additional logging is required, a registry key on the machine can be changed 
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- To enable verbose logging, create a `REG_DWORD: “EnableLogging”`, and set it to 1.
-- To disable verbose logging, change the `REG_DWORD: “EnableLogging”` to 0.
+- To enable verbose logging, create a `REG_DWORD: "EnableLogging"`, and set it to 1.
+- To disable verbose logging, change the `REG_DWORD: "EnableLogging"` to 0.
 
 ## What do users see
 

@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 09/26/2019
+ms.date: 03/05/2020
 ---
 
 1. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to install the Azure Machine Learning SDK for Python
@@ -19,12 +19,12 @@ ms.date: 09/26/2019
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-    ```CLI
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
 1. Start the notebook server from your cloned directory.
 
-    ```shell
+    ```bash
     jupyter notebook
     ```

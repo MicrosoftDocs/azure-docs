@@ -189,5 +189,5 @@ As previously described, set the `LoadBalancerDistribution` element to sourceIP 
 ## Next steps
 
 * [Azure Internal Load Balancer overview](load-balancer-internal-overview.md)
-* [Get started with configuring an internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+* [Get started with configuring an internet-facing load balancer](quickstart-create-standard-load-balancer-powershell.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

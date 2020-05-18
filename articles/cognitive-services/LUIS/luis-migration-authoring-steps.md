@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: diberry
 ---
 
@@ -27,7 +27,10 @@ If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/
 
 ## Access the migration process
 
-On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal.
+On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Azure** icon on the top tool bar of the LUIS portal.
+
+> [!div class="mx-imgBorder"]
+> ![Migration icon](./media/migrate-authoring-key/migration-button.png)
 
 ## App owner begins the migration process
 

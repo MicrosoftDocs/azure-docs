@@ -1,5 +1,5 @@
 ---
-title: Train a neural network with TensorFlow
+title: Train and deploy a TensorFlow model
 titleSuffix: Azure Machine Learning
 description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
@@ -255,7 +255,7 @@ distributed_training = TensorflowConfiguration()
 distributed_training.worker_count = 2
 
 # Tensorflow constructor
-estimator= TensorFlow(source_directory=project_folder,
+tf_est= TensorFlow(source_directory=project_folder,
                       compute_target=compute_target,
                       script_params=script_params,
                       entry_script='script.py',
@@ -302,13 +302,13 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## Deployment
+## Deploy a TensorFlow model
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
-### (Preview) No-code model deployment
+## (Preview) No-code model deployment
 
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview)for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

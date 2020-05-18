@@ -5,7 +5,7 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
 ---
@@ -136,19 +136,8 @@ In the Table service, Entity Group Transactions (EGTs) are the only built-in mec
 EGTs also introduce a potential trade-off for you to evaluate in your design. That is, using more partitions increases the scalability of your application, because Azure has more opportunities for load balancing requests across nodes. But using more partitions might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node. For more information about scalability targets for Azure standard storage accounts, see [Scalability targets for standard storage accounts](../common/scalability-targets-standard-account.md). For more information about scalability targets for the Table service, see [Scalability and performance targets for Table storage](scalability-targets.md).
 
 ## Capacity considerations
-The following table describes some of the key values to be aware of when you are designing a Table service solution:  
 
-| Total capacity of an Azure storage account | 500 TB |
-| --- | --- |
-| Number of tables in an Azure storage account |Limited only by the capacity of the storage account |
-| Number of partitions in a table |Limited only by the capacity of the storage account |
-| Number of entities in a partition |Limited only by the capacity of the storage account |
-| Size of an individual entity |Up to 1 MB with a maximum of 255 properties (including the **PartitionKey**, **RowKey**, and **Timestamp**) |
-| Size of the **PartitionKey** |A string up to 1 KB in size |
-| Size of the **RowKey** |A string up to 1 KB in size |
-| Size of an Entity Group Transaction |A transaction can include at most 100 entities and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
-
-For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## Cost considerations
 Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any Table service solution. However, in many scenarios, storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach. For more information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  

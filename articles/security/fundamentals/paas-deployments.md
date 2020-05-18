@@ -32,7 +32,7 @@ This article provides information that helps you:
 ## Cloud security advantages
 It’s important to understand the [division of responsibility](shared-responsibility.md) between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft.
 
-There are [security advantages to being in the cloud](shared-responsibility.md#cloud security advantages). In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
+There are [security advantages to being in the cloud](shared-responsibility.md#cloud-security-advantages). In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
 
 Organizations are able to improve their threat detection and response times by using a provider’s cloud-based security capabilities and cloud intelligence.  By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
 
@@ -70,7 +70,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.   
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/key-vault-overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/general/overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don’t put credentials and other secrets in source code or GitHub.   
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -97,7 +97,7 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | Threat | Security property | Potential Azure platform mitigations |
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
-| Tampering | Integrity | Validate SSL certificates. |
+| Tampering | Integrity | Validate TLS/SSL certificates. |
 | Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring). |
 | Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](/rest/api/appservice/certificates). |
 | Denial of service | Availability | Monitor performance metrics for potential denial-of-service conditions. Implement connection filters. |

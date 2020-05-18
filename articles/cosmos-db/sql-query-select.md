@@ -1,30 +1,29 @@
 ---
 title: SELECT clause in Azure Cosmos DB
 description: Learn about SQL SELECT clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
-author: ginarobinson
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: girobins
+ms.date: 05/08/2020
+ms.author: tisande
 ---
 
 # SELECT clause in Azure Cosmos DB
 
-Every query consists of a SELECT clause and optional [FROM](sql-query-from.md) and [WHERE](sql-query-where.md) clauses, per ANSI SQL standards. Typically, the source in the FROM clause is enumerated, and the WHERE clause applies a filter on the source to retrieve a subset of JSON items. The SELECT clause then projects the requested JSON values in the select list.
+Every query consists of a `SELECT` clause and optional [FROM](sql-query-from.md) and [WHERE](sql-query-where.md) clauses, per ANSI SQL standards. Typically, the source in the `FROM` clause is enumerated, and the `WHERE` clause applies a filter on the source to retrieve a subset of JSON items. The `SELECT` clause then projects the requested JSON values in the select list.
 
 ## Syntax
 
 ```sql
 SELECT <select_specification>  
 
-<select_specification> ::=   
-      '*'   
-      | [DISTINCT] <object_property_list>   
+<select_specification> ::=
+      '*'
+      | [DISTINCT] <object_property_list>
       | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
-<object_property_list> ::=   
+<object_property_list> ::=
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
-  
 ```  
   
 ## Arguments
@@ -44,7 +43,7 @@ SELECT <select_specification>
 - `VALUE`  
 
   Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
- 
+
 - `DISTINCT`
   
   Specifies that duplicates of projected properties should be removed.  
@@ -89,78 +88,6 @@ The results are:
         "state": "WA",
         "county": "King",
         "city": "Seattle"
-      }
-    }]
-```
-
-### Quoted property accessor
-You can access properties using the quoted property operator []. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful to escape a property that contains spaces, special characters, or has the same name as a SQL keyword or reserved word.
-
-```sql
-    SELECT f["lastName"]
-    FROM Families f
-    WHERE f["id"] = "AndersenFamily"
-```
-
-### Nested properties
-
-The following example projects two nested properties, `f.address.state` and `f.address.city`.
-
-```sql
-    SELECT f.address.state, f.address.city
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-The results are:
-
-```json
-    [{
-      "state": "WA",
-      "city": "Seattle"
-    }]
-```
-### JSON expressions
-
-Projection also supports JSON expressions, as shown in the following example:
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-The results are:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle",
-        "name": "AndersenFamily"
-      }
-    }]
-```
-
-In the preceding example, the SELECT clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city },
-           { "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-The results are:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
       }
     }]
 ```

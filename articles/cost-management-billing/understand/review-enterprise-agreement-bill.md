@@ -1,15 +1,12 @@
 ---
 title: Review your Azure Enterprise Agreement bill
 description: Learn how to read and understand your usage and bill for Azure Enterprise Agreements.
-author: banders
-manager: dougeby
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/17/2020
+ms.date: 03/06/2020
 ms.author: banders
 
 ---
@@ -53,7 +50,7 @@ You receive an Azure invoice when any of the following events occur during your 
     - Visual Studio Professional (Annual)
 - **Marketplace charges**: Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Enterprise Portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
-Your invoice shows all of your Azure usage, followed by any Marketplace charges. If you have a credit balance, it's applied to Azure usage.
+Your invoice will display Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it's applied to Azure usage and your invoice will display Azure usage and marketplace usage without any cost last.
 
 Compare your combined total amount shown in the Enterprise portal in **Reports** > **Usage Summary** with your Azure invoice. The amounts in the **Usage Summary** don't include tax.
 
@@ -116,7 +113,7 @@ The following table lists the terms and descriptions shown on the invoice and on
 
 This section only applies if you are in Australia, Japan, or Singapore.
 
-Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The marketplace invoice is only for Azure Marketplace purchases and usage. The amounts on the **Usage Summary** don't include tax.
+Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The marketplace invoice is only for Azure Marketplace purchases and usage. The amounts on the **Usage Summary** already include a tax which is determined by the publisher.
 
 Sign in to the [Enterprise portal](https://ea.azure.com) and then select **Reports**. On the top-right corner of the tab, switch the view from **M** to **C** and match the period on the invoice.  
 

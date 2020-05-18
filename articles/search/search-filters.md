@@ -46,7 +46,7 @@ If you want a narrowing effect in your search results, filters are not your only
 
 + `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
 
-For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+For more information about either parameter, see [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters).
 
 
 ## How filters are executed

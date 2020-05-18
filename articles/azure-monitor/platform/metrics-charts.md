@@ -3,7 +3,7 @@ title: Advanced features of Azure Metrics Explorer
 description: Learn about advanced features of Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
@@ -43,6 +43,25 @@ Click the **Add chart** and create another chart with a different metric.
 ### Order or delete multiple charts
 
 To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
+
+## Changing aggregation
+
+When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use a different aggregation to gain additional insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them. 
+
+Metrics are the series of measurements (or "metric values") captured over the time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. You select the size of the time grain [using the Metrics Explorer time picker panel](metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection of the time grain, the time granularity is automatically selected based on the currently selected time range. Once the time grain is determined, the metric values that were captured during each time grain interval are aggregated and placed onto the chart - one datapoint per time grain.
+
+For example, suppose the chart is showing the **Server Response Time** metric using the **Average** aggregation over the **last 24 hours** time span:
+
+- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated datapoints (e.g. the line chart connects 48 dots in the chart plot area). That is, 24 hours x 2 datapoints per hour. Each datapoint represents the *average* of all captured response times for server requests that occurred during each of the relevant 30 min time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated datapoints.  That is, 24 hours x 4 datapoints per hour.
+
+There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
+
+- **Sum** – the sum of all values captured over the aggregation interval
+- **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+- **Average** – the average of the metric values captured over the aggregation interval
+- **Min** – the smallest value captured over the aggregation interval
+- **Max** – the largest value captured over the aggregation interval
 
 ## Apply filters to charts
 
@@ -106,6 +125,16 @@ To control the y-axis range, use the “…” chart menu, and select **Edit cha
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
+
+## Change colors of chart lines
+
+After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
+
+To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
+
+After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
+
+![metric image](./media/metrics-charts/018.png)
 
 ## Pin charts to dashboards
 

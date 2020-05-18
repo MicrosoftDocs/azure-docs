@@ -13,7 +13,7 @@ services: event-grid
 
 # Configure client authentication of incoming calls
 
-This guide gives examples of the possible client authentication configurations for the Event Grid module. The Event Grid module supports two types of client authentication:-
+This guide gives examples of the possible client authentication configurations for the Event Grid module. The Event Grid module supports two types of client authentication:
 
 * Shared access signature (SAS) key-based
 * Certificate-based
@@ -25,10 +25,10 @@ See [Security and authentication](security-authentication.md) guide for all the 
 ```json
  {
   "Env": [
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=false"
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=false"
   ]
 }
  ```
@@ -38,28 +38,28 @@ See [Security and authentication](security-authentication.md) guide for all the 
 ```json
  {
   "Env": [
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true"
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true"
   ]
 }
 ```
 
 >[!NOTE]
->Set the property **inbound:clientAuth:clientCert:allowUnknownCA** to **true** only in test environments as you might typically use self-signed certificates. For production workloads, we recommend that you set this property to **false** and certificates from a certificate authority (CA).
+>Set the property **inbound__clientAuth__clientCert__allowUnknownCA** to **true** only in test environments as you might typically use self-signed certificates. For production workloads, we recommend that you set this property to **false** and certificates from a certificate authority (CA).
 
 ## Enable certificate-based and sas-key based client authentication
 
 ```json
  {
   "Env": [
-    "inbound:clientAuth:sasKeys:enabled=true",
-    "inbound:clientAuth:sasKeys:key1=<some-secret1-here>",
-    "inbound:clientAuth:sasKeys:key2=<some-secret2-here>",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true"
+    "inbound__clientAuth__sasKeys__enabled=true",
+    "inbound__clientAuth__sasKeys__key1=<some-secret1-here>",
+    "inbound__clientAuth__sasKeys__key2=<some-secret2-here>",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true"
   ]
 }
  ```

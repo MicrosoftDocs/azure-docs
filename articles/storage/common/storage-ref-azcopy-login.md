@@ -96,6 +96,8 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 
 |Option|Description|
 |--|--|
+|--aad-endpoint|The Azure Active Directory endpoint to use. The default (`https://login.microsoftonline.com`) is correct for the public Azure cloud. Set this parameter when authenticating in a national cloud. See [Azure AD authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+This flag is not needed for Managed Service Identity.|
 |--application-id string|Application ID of user-assigned identity. Required for service principal auth.|
 |--certificate-path string|Path to certificate for SPN authentication. Required for certificate-based service principal auth.|
 |-h, --help|Show help content for the login command.|

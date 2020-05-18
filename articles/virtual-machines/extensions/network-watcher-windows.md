@@ -3,8 +3,8 @@ title: Azure Network Watcher Agent virtual machine extension for Windows
 description: Deploy the Network Watcher Agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: gurudennis
-manager: amku
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
-ms.author: dennisg
+ms.author: mimckitt
 
 ---
 # Network Watcher Agent virtual machine extension for Windows

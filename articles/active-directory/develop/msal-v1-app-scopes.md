@@ -2,7 +2,7 @@
 title: Scopes for v1.0 apps (MSAL) | Azure
 description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,19 +10,19 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn scopes for a v1.0 application so I can decide if this platform meets my application development needs and requirements.
 ---
 
-# Scopes for a Web API accepting v1.0 tokens
+# Scopes for a web API accepting v1.0 tokens
 
 OAuth2 permissions are permission scopes that a Azure Active Directory (Azure AD) for developers (v1.0) web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. See the section about `oauth2Permissions` in the [Azure Active Directory application manifest reference](reference-app-manifest.md#manifest-reference).
 
 ## Scopes to request access to specific OAuth2 permissions of a v1.0 application
 
-To acquire tokens for specific scopes of a v1.0 application (for example the Azure AD graph, which is https://graph.windows.net), create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
+To acquire tokens for specific scopes of a v1.0 application (for example the Microsoft Graph API, which is https://graph.microsoft.com), create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
 
 For example, to access on behalf of the user a v1.0 web API where the app ID URI is `ResourceId`:
 
@@ -34,15 +34,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-To read and write with MSAL.NET Azure AD using the Azure AD Graph API (https:\//graph.windows.net/), you need to create a list of scopes as shown in the following examples:
+To read and write with MSAL.NET Azure AD using the Microsoft Graph API (https:\//graph.microsoft.com/), you need to create a list of scopes as shown in the following examples:
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 

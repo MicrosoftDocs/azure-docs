@@ -1,14 +1,10 @@
 ---
-title: Understand Azure Reserved VM Instances discount | Microsoft Docs
+title: Understand Azure Reserved VM Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
 author: yashesvi
-manager: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
 # How the Azure reservation discount is applied to virtual machines

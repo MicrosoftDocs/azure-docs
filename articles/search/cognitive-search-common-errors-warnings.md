@@ -44,7 +44,7 @@ Indexer was unable to read the document from the data source. This can happen du
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| inconsistent field types across different documents | Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray. | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
+| Inconsistent field types across different documents | "Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray."  "Error converting data type nvarchar to float."  "Conversion failed when converting the nvarchar value '12 months' to data type int."  "Arithmetic overflow error converting expression to data type int." | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
 | errors from the data source's underlying service | (from Cosmos DB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
 | transient issues | A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
@@ -72,6 +72,11 @@ Indexer read the document from the data source, but there was an issue convertin
 | Could not apply field mapping to a field | Could not apply mapping function `'functionName'` to field `'fieldName'`. Array cannot be null. Parameter name: bytes | Double check the [field mappings](search-indexer-field-mappings.md) defined on the indexer, and compare with the data of the specified field of the failed document. It may be necessary to modify the field mappings or the document data. |
 | Could not read field value | Could not read the value of column `'fieldName'` at index `'fieldIndex'`. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
 
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## Error: Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'
+The output mapping might have failed because the output data is in the wrong format for the mapping function you are using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either rerun indexer without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+
 <a name="could-not-execute-skill"/>
 
 ## Error: Could not execute skill
@@ -87,6 +92,8 @@ Indexer was not able to run a skill in the skillset.
 
 ## Error: Could not execute skill because the Web API request failed
 Skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
+
+While debugging this issue, be sure to pay attention to any [skill input warnings](#warning-skill-input-was-invalid) for this skill. Your Web API endpoint may be failing because the indexer is passing it unexpected input.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 
@@ -148,9 +155,9 @@ The document was read and processed, but the indexer could not add it to the sea
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## Error: Could not index document because the indexer data to index was invalid
+## Error: Could not index document because some of the document's data was not valid
 
-The document was read and processed, but due to a mismatch in the configuration of the index fields and the nature of the data extracted by the indexer, it could not be added to the search index. This can happen due to:
+The document was read and processed by the indexer, but due to a mismatch in the configuration of the index fields and the data extracted and processed by the indexer, it could not be added to the search index. This can happen due to:
 
 | Reason | Details/Example
 | --- | ---
@@ -162,12 +169,11 @@ The document was read and processed, but due to a mismatch in the configuration 
 
 In all these cases, refer to [Supported Data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## Error: Integrated change tracking policy cannot be used because table has a composite primary key
 
 This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## Error: Could not process document within indexer max run time
 
@@ -245,7 +251,7 @@ If you know that your data set contains multiple languages and thus you need the
 ```
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
-* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), and [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator Supported Languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (for the [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -299,14 +305,19 @@ The [Table Storage service](https://azure.microsoft.com/services/storage/tables)
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## Warning: Truncated extracted text to X characters
-Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## Warning: Could not map output field 'X' to search index
-Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+
+| Reason | Details/Example | Resolution |
+| --- | --- | --- |
+| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output is not an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
+| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Please double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

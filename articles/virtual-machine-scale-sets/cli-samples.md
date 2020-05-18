@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Samples
 description: A table that includes links to sample bash scripts built using the Azure CLI, like creating and managing a scale set.
-author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Azure CLI samples for virtual machine scale sets

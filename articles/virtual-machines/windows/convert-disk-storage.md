@@ -58,9 +58,8 @@ foreach ($disk in $vmDisks)
 {
 	if ($disk.ManagedBy -eq $vm.Id)
 	{
-		$diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
-		Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-		-DiskName $disk.Name
+		$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+		$disk | Update-AzDisk
 	}
 }
 
@@ -97,9 +96,8 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
@@ -142,9 +140,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```

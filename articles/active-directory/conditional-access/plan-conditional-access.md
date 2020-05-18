@@ -29,6 +29,9 @@ There are two types of Conditional Access policies: baseline and standard. A [ba
 
 In a standard Conditional Access policy, you can customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
 
+>[!NOTE]
+> We recommend using Azure AD device based Conditional Access policy to get the best enforcement after initial device authentication. This includes closing sessions if the device falls out of compliance and device code flow.
+
 ## Draft policies
 
 Azure Active Directory Conditional Access enables you to bring the protection of your cloud apps to a new level. In this new level, how you can access a cloud app is based on a dynamic policy evaluation instead of a static access configuration. With a Conditional Access policy, you define a response (**do this**) to an access condition (**when this happens**).
@@ -50,7 +53,7 @@ Use the following example template to create Conditional Access policies for you
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, device platforms)|Grant access with (AND):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, device platforms)|Grant access with (OR):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 
-At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If necessary, you can also include **how** an access attempt is performed. In Conditional Access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory Conditional Access?](conditions.md) 
+At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If necessary, you can also include **how** an access attempt is performed. In Conditional Access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory Conditional Access?](concept-conditional-access-conditions.md) 
 
 With **then do this**, you define the response of your policy to an access condition. In your response, you either block or grant access with additional requirements, for example, multi-factor authentication (MFA). For a complete overview, see [What are access controls in Azure Active Directory Conditional Access?](controls.md)  
 
@@ -113,7 +116,7 @@ Common use cases to require MFA are access:
 
 With Conditional Access policies, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
 
-- [The sign-in risk condition](conditions.md#sign-in-risk) in Conditional Access policy
+- [The sign-in risk condition](concept-conditional-access-conditions.md#sign-in-risk) in Conditional Access policy
 - [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
 
 Addressing the sign-in risk as condition is the preferred method because it gives you more customization options.
@@ -157,13 +160,13 @@ The test plan is important to have a comparison between the expected results and
 
 |Policy |Scenario |Expected Result | Result |
 |---|---|---|---|
-|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while on a trusted location / work|User isn't prompted to MFA| |
-|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while not on a trusted location / work|User is prompted to MFA and can sign in successfully| |
-|[Require MFA (for admin)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global Admin signs into *App*|Admin is prompted to MFA| |
-|[Risky sign-ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA| |
-|[Device management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted| |
-|[Device management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked| |
-|[Password change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy| |
+|[Require MFA when not at work](/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while on a trusted location / work|User isn't prompted to MFA| |
+|[Require MFA when not at work](/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while not on a trusted location / work|User is prompted to MFA and can sign in successfully| |
+|[Require MFA (for admin)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global Admin signs into *App*|Admin is prompted to MFA| |
+|[Risky sign-ins](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA| |
+|[Device management](/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted| |
+|[Device management](/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked| |
+|[Password change for risky users](/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy| |
 
 ### Configure the policy
 

@@ -23,7 +23,7 @@ Incremental enrichment adds caching and statefulness to an enrichment pipeline, 
 
 Incremental enrichment adds a cache to the enrichment pipeline. The indexer caches the results from document cracking plus the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the search index or the knowledge store.
 
-Physically, the cache is stored in a blob container in your Azure Storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier to the container it is using.
+Physically, the cache is stored in a blob container in your Azure Storage account. The cache also uses table storage for an internal record of processing updates. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier to the container it is using.
 
 ## Cache configuration
 
@@ -94,7 +94,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 The purpose of the cache is to avoid unnecessary processing, but suppose you make a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
 
-In this case, you can use the [Reset Skills](preview-api-resetskills.md) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
+In this case, you can use the [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
 
 ## Change detection
 
@@ -133,39 +133,27 @@ Incremental processing evaluates your skillset definition and determines which s
 * Changes to the knowledge store projections, results in reprojecting documents
 * Output field mappings changed on an indexer results in reprojecting documents to the index
 
-## API reference content for incremental enrichment
+## API reference
 
-REST `api-version=2019-05-06-Preview` provides the APIs for incremental enrichment, with additions to indexers, skillsets, and data sources. [Official reference documentation](https://docs.microsoft.com/rest/api/searchservice/) is for generally available APIs and does not cover preview features. The following section provides the reference content for impacted APIs.
+REST API version `2019-05-06-Preview` provides incremental enrichment through additional properties on indexers, skillsets, and data sources. In addition to the reference documentation, see  [Configure caching for incremental enrichment](search-howto-incremental-index.md) for details on how to call the APIs.
 
-Usage information and examples can be found in [Configure caching for incremental enrichment](search-howto-incremental-index.md).
++ [Create Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### Indexers
++ [Update Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) and [Update Indexer](https://docs.microsoft.com/rest/api/searchservice/update-indexer) will now expose new properties relating to the cache:
++ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (New URI parameter on the request)
 
-+ `StorageAccountConnectionString`: The connection string to the storage account that will be used to cache the intermediate results.
++ [Reset Skills (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: Set to `true` by default, when set to `false`, documents will continue to be written to the cache, but no existing documents will be reprocessed based on the cache data.
++ Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request **ignoreResetRequirement**, which should be set to `true` when your update action should not invalidate the cache. 
 
-+ `ID` (read-only): The `ID` is the identifier of the container within the `annotationCache` storage account that will be used as the cache for this indexer. This cache will be unique to this indexer and if the indexer is deleted and recreated with the same name, the `ID` will be regenerated. The `ID` cannot be set, it is always generated by the service.
-
-### Skillsets
-
-+ [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) supports a new parameter on the request: `disableCacheReprocessingChangeDetection`, which should be set to `true` when you want no updates to existing documents based on the current action.
-
-+ [Reset Skills](preview-api-resetskills.md) is a new operation used to invalidate a skillset.
-
-### Datasources
-
-+ Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request `ignoreResetRequirement`, which should be set to `true` when your update action should not invalidate the cache.
-
-Use the `ignoreResetRequirement` sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
+  Use **ignoreResetRequirement** sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
 
 ## Next steps
 
-Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. As skillsets evolve, incremental enrichment ensures the least possible work is done while still driving your documents to eventual consistency.
+Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. AIncremental enrichment enables reuse of existing processed content as you iterate over skillset design.
 
-Get started by adding a cache to an existing indexer or add the cache when defining a new indexer.
+As a next step, enable caching on an existing indexer or add a cache when defining a new indexer.
 
 > [!div class="nextstepaction"]
 > [Configure caching for incremental enrichment](search-howto-incremental-index.md)

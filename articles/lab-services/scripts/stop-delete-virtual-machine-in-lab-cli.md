@@ -1,6 +1,6 @@
 ---
 title: Azure CLI - Stop and delete a virtual machine in a lab
-description: This Azure CLI script stops and delets a virtual machine in a lab. 
+description: This article provides an Azure CLI script that stops and deletes a virtual machine in a lab in Azure DevTest Labs. 
 services: lab-services
 author: spelluru
 manager: 
@@ -12,7 +12,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
 ---

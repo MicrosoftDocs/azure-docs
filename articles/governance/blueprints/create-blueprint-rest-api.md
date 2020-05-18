@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 11/21/2019
+ms.date: 02/26/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
@@ -13,8 +13,10 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- Register the `Microsoft.Blueprint` resource provider. For directions, see
+  [Resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +28,7 @@ uses these concepts to provide directions for working with Azure Blueprints and 
 knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) and others
 may handle authorization automatically and are recommended for beginners.
 
-For the Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
+For the Azure Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
 
 ### REST API and PowerShell
 
@@ -468,7 +470,7 @@ values:
      assigning the blueprint has permissions to.
 
      > [!IMPORTANT]
-     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
      > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
 ## Clean up resources

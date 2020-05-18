@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -148,7 +148,7 @@ Use the following steps to add approvers after selecting how many stages you req
 
     The justification is visible to other approvers and the requestor.
 
-### 2-stage approval (Preview)
+### 2-stage approval
 
 If you selected a 2-stage approval, you'll need to add a second approver.
 
@@ -193,7 +193,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 ## Enable requests
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. If you want the access package to be made immediately available for users in the request policy to request, move the Enable toggle to **Yes**.
 
     You can always enable it in the future after you have finished creating the access package.
 

@@ -2,7 +2,7 @@
 title: General questions about the Azure Site Recovery service
 description: This article discusses popular general questions about Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/24/2020
 ms.author: raynew
 
 ---
@@ -142,7 +142,7 @@ Azure Site Recovery replicates data to an Azure storage account or managed disks
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet with ExpressRoute (Microsoft peering or an existing public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet or via ExpressRoute (Microsoft peering or an existing public peering).
 
 ### Can I use Riverbed SteelHeads for replication?
 

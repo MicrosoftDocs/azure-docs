@@ -1,7 +1,7 @@
 ---
 title: "Create an Immersive Reader Resource"
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. 
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -43,6 +43,11 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
     {
+        $unused = ''
+        if (-not [System.Uri]::TryCreate($AADAppIdentifierUri, [System.UriKind]::Absolute, [ref] $unused)) {
+            throw "Error: AADAppIdentifierUri must be a valid URI"
+        }
+
         Write-Host "Setting the active subscription to '$SubscriptionName'"
         $subscriptionExists = Get-AzSubscription -SubscriptionName $SubscriptionName
         if (-not $subscriptionExists) {
@@ -105,6 +110,10 @@ The script is designed to be flexible. It will first look for existing Immersive
             Write-Host "New service principal created successfully"
         }
 
+        # Sleep for 5 seconds to allow the new service principal to propagate
+        Write-Host "Sleeping for 5 seconds"
+        Start-Sleep -Seconds 5
+
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
         $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
         if (-not $accessResult) {
@@ -132,16 +141,16 @@ The script is designed to be flexible. It will first look for existing Immersive
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
-      -SubscriptionName <SUBSCRIPTION_NAME> `
-      -ResourceName <RESOURCE_NAME> `
-      -ResourceSubdomain <RESOURCE_SUBDOMAIN> `
-      -ResourceSKU <RESOURCE_SKU> `
-      -ResourceLocation <RESOURCE_LOCATION> `
-      -ResourceGroupName <RESOURCE_GROUP_NAME> `
-      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
-      -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
-      -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
-      -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
+      -SubscriptionName '<SUBSCRIPTION_NAME>' `
+      -ResourceName '<RESOURCE_NAME>' `
+      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
+      -ResourceSKU '<RESOURCE_SKU>' `
+      -ResourceLocation '<RESOURCE_LOCATION>' `
+      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
+      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
+      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
+      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
+      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
     ```
 
     | Parameter | Comments |

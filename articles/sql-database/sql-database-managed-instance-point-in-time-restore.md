@@ -1,5 +1,5 @@
 ---
-title: Managed instance - Point-in-time restore
+title: Managed instance - Point-in-time restore (PITR)
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
@@ -18,22 +18,18 @@ Use point-in-time restore (PITR) to create a database as a copy of another datab
 
 Point-in-time restore is useful in recovery scenarios, such as incidents caused by errors, incorrectly loaded data, or deletion of crucial data. You can also use it simply for testing or auditing. Backup files are kept for 7 to 35 days, depending on your database settings.
 
-Point-in-time restore can:
+Point-in-time restore can restore a database:
 
-- Restore a database from an existing database.
-- Restore a database from a deleted database.
-
-For a managed instance, point-in-time restore can also:
-
-- Restore a database to the same managed instance.
-- Restore a database to another managed instance.
-
-> [!NOTE]
-> Point-in-time restore of a whole managed instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a managed instance.
+- from an existing database.
+- from a deleted database.
+- to the same managed instance, or to another managed instance. 
 
 ## Limitations
 
-When you're restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+Point in time restore to a managed instance has the following limitations:
+
+- When you're restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+- Point-in-time restore of a whole managed instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a managed instance.
 
 > [!WARNING]
 > Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
@@ -42,13 +38,13 @@ The following table shows point-in-time restore scenarios for managed instances:
 
 |           |Restore existing DB to same managed instance| Restore existing DB to another managed instance|Restore dropped DB to same managed instance|Restore dropped DB to another managed instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Yes|No |No|No|
+|**Azure portal**| Yes|No |Yes|No|
 |**Azure CLI**|Yes |Yes |No|No|
 |**PowerShell**| Yes|Yes |Yes|Yes|
 
 ## Restore an existing database
 
-Restore an existing database to the same instance by using the Azure portal, Powershell, or the Azure CLI. To restore a database to another instance, use Powershell or the Azure CLI so you can specify the properties for the target managed instance and resource group. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
+Restore an existing database to the same instance by using the Azure portal, PowerShell, or the Azure CLI. To restore a database to another instance, use PowerShell or the Azure CLI so you can specify the properties for the target managed instance and resource group. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
 
 # [Portal](#tab/azure-portal)
 
@@ -86,7 +82,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-To restore the database to another managed instance, also specify the names of the target resource group and managed instance:  
+To restore the database to another managed instance, also specify the names of the target resource group and target managed instance:  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -130,9 +126,18 @@ For a detailed explanation of the available parameters, see the [CLI documentati
 
 ## Restore a deleted database
 
-Restoring a deleted database can be done by using PowerShell or Azure Portal.Please use this document to do this by [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). The database can be restored to the same instance or another instance.
+Restoring a deleted database can be done by using PowerShell or Azure portal. To restore a deleted database to the same instance, use either the Azure portal or PowerShell. To restore a deleted database to another instance, use PowerShell. 
 
-To restore a deleted database by using PowerShell, specify your values for the parameters in the following command. Then, run the command:
+### Portal 
+
+
+To recover a managed database using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Choose a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+
+  ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+
+### PowerShell
+
+To restore a database to the same instance, update the parameter values and then run the following PowerShell command: 
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -142,30 +147,33 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $resourceGroupName = "<Resource group name>"
 $managedInstanceName = "<Managed instance name>"
 $deletedDatabaseName = "<Source database name>"
+$targetDatabaseName = "<target database name>"
 
-$deleted_db = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
-            -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName 
+$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
+-InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-$pointInTime = "2018-06-27T08:51:39.3882806Z"
-$properties = New-Object System.Object
-$properties | Add-Member -type NoteProperty -name CreateMode -Value "PointInTimeRestore"
-$properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $pointInTime
-$properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
-To restore the deleted database to another instance, change the names of the resource group and managed instance. Also, make sure that the location parameter matches the location of the resource group and the managed instance.
+To restore the database to another managed instance, also specify the names of the target resource group and target managed instance:
 
 ```powershell-interactive
-$resourceGroupName = "<Second resource group name>"
-$managedInstanceName = "<Second managed instance name>"
+$targetResourceGroupName = "<Resource group of target managed instance>"
+$targetInstanceName = "<Target managed instance name>"
 
-$location = "West Europe"
-
-$restoredDBName = "WorldWideImportersPITR"
-$resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
-
-New-AzResource -Location $location -Properties $properties `
-        -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName `
+   -TargetResourceGroupName $targetResourceGroupName `
+   -TargetInstanceName $targetInstanceName 
 ```
 
 ## Overwrite an existing database

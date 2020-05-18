@@ -51,13 +51,15 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
+8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+
 Refer to the [Access requirements](#access-requirements) section to make sure the script is run successfully.
 
 ### Identifying volumes
 
 #### For Windows
 
-When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:`\`)”, that volume can be attached on the local computer as “Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
+When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
 
    ![File recovery menu](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -117,7 +119,7 @@ To list all logical volumes, names, and their paths in a volume group:
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 To mount the logical volumes to the path of your choice:
@@ -194,11 +196,11 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 - `download.microsoft.com`
 - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
-- outbound port 3260
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public geos)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
+- Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
@@ -249,9 +251,9 @@ If you have problems while recovering files from the virtual machines, check the
 | ------------------------ | -------------- | ------------------ |
 | Exe output: *Exception caught while connecting to target* | The script isn't able to access the recovery point    | Check whether the machine fulfills the [previous access requirements](#access-requirements). |  
 | Exe output: *The target has already been logged in via an iSCSI session.* | The script was already executed on the same machine and the drives have been attached | The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file. |
-| Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.* |    The disks have been dismounted from the portal or the 12-hour limit was exceeded | This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe.|
+| Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.* |    The disks have been dismounted from the portal or the 12-hour limit was exceeded | This particular exe is now invalid and can't be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe.|
 | On the machine where the exe is run: The new volumes aren't dismounted after the dismount button is clicked | The iSCSI initiator on the machine isn't responding/refreshing its connection to the target and maintaining the cache. |  After clicking **Dismount**, wait a few minutes. If the new volumes aren't dismounted, browse through all volumes. Browsing all volumes forces the initiator to refresh the connection, and the volume is dismounted with an error message that the disk isn't available.|
-| Exe output: The script is run successfully but “New volumes attached” is not displayed on the script output |    This is a transient error    | The volumes will have been already attached. Open Explorer to browse. If you're using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
+| Exe output: The script is run successfully but "New volumes attached" is not displayed on the script output |    This is a transient error    | The volumes will have been already attached. Open Explorer to browse. If you're using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
 | Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the protected VM | Check whether the recovery point is crash-consistent or file-consistent. If file-consistent, run the script on another machine whose OS recognizes the protected VM's filesystem. |
 | Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes weren't configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in an offline state, try bringing them online by right-clicking on the disk and click **Online**.|
 
@@ -287,7 +289,7 @@ To browse files and folders, the script uses the iSCSI initiator in the machine 
 
 We use a mutual CHAP authentication mechanism so that each component authenticates the other. This means it's extremely difficult for a fake initiator to connect to the iSCSI target and for a fake target to be connected to the machine where the script is run.
 
-The data flow between the recovery service and the machine is protected by building a secure SSL tunnel over TCP ([TLS 1.2 should be supported](#system-requirements) in the machine where script is run).
+The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#system-requirements) in the machine where script is run).
 
 Any file Access Control List (ACL) present in the parent/backed up VM are preserved in the mounted file system as well.
 

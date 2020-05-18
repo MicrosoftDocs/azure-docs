@@ -94,6 +94,3 @@ A Security Center user can choose to opt out by deleting their [security contact
 
 ## Auditing and reporting
 Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
-
-## Next steps
-For more information about managing user data, see [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md).

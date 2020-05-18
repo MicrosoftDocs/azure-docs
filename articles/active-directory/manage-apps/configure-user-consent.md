@@ -139,9 +139,53 @@ You can use the Azure AD PowerShell Preview module ([AzureADPreview](https://doc
     }
     ```
 
+## Configure risk-based step-up consent
+
+Risk-based step-up consent helps reduce user exposure to malicious apps making [illicit consent requests](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
+
+When a risky consent request is detected, the consent prompt will display a message indicating that admin approval is needed. If the [admin consent request workflow](configure-admin-consent-workflow.md) is enabled, the user can send the request to an admin for further review directly from the consent prompt. If it is not enabled, the following message will be displayed:
+
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; needs permission to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
+
+In this case, an audit event will also be logged with a Category of "ApplicationManagement", Activity Type of "Consent to application" and Status Reason of "Risky application detected".
+
+> [!IMPORTANT]
+> Admins should [evaluate all consent requests](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) carefully before approving, especially when Microsoft has detected risk.
+
+### Disable or re-enable risk-based step-up consent using PowerShell
+
+You can use the Azure AD PowerShell Preview module ([AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)), to disable the step-up to admin consent required in cases where Microsoft detects risk or to re-enable it if it was previously disabled.
+
+This can be done using the same steps as shown above for [configuring group owner consent using PowerShell](#configure-group-owner-consent-using-powershell), but substituting a different settings value. There are three differences in steps: 
+
+1. Understand the setting values for risk based step-up consent:
+
+    | Setting       | Type         | Description  |
+    | ------------- | ------------ | ------------ |
+    | _BlockUserConsentForRiskyApps_   | Boolean |  Flag indicating if user consent will be blocked when a risky request is detected. |
+
+2. Substitute the following value in step 3:
+
+    ```powershell
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
+    ```
+3. Substitute one of the following in step 5:
+
+    ```powershell
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
+    ```
+
+    ```powershell
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
+    ```
+
 ## Next steps
 
 [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+
+[Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 

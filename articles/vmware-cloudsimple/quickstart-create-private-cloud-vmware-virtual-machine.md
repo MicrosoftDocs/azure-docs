@@ -1,6 +1,6 @@
 --- 
-title: Quickstart - Create a VMware VM on Private Cloud 
-description: Describes how to create and a VMware VM on CloudSimple Private Cloud 
+title: Quickstart - Create an Azure VMware VM on a Private Cloud - Azure VMware Solution by CloudSimple
+description: Describes how to create an Azure VMware VM on a CloudSimple Private Cloud 
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -38,7 +38,7 @@ To access vCenter, start from the CloudSimple portal. On the Home page, under **
 ## Upload an ISO or vSphere template
 
   > [!WARNING]
-  > For ISO upload, use the vSphere HTML5 client.  Using Flash client may result in an error.
+  > For ISO upload, use the vSphere HTML5 client.  Using a Flash client may result in an error.
 
 1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM and have it available on your local system.
 2. In vCenter, click the **Disk** icon and select **vsanDatastore**. Click **Files** and then click **New Folder**.

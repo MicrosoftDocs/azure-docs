@@ -2,15 +2,12 @@
 title: Acquire a token to call a web API (single-page apps) - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
@@ -39,7 +36,7 @@ You can set the API scopes that you want the access token to include when it's b
 
 ## Acquire a token with a pop-up window
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The following code combines the previously described pattern with the methods for a pop-up experience:
 
@@ -66,27 +63,47 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
 You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 For success and failure of the silent token acquisition, MSAL Angular provides callbacks that you can subscribe to. It's also important to remember to unsubscribe.
@@ -100,7 +117,7 @@ For success and failure of the silent token acquisition, MSAL Angular provides c
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -108,9 +125,11 @@ ngOnDestroy() {
 
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
 
+---
+
 ## Acquire a token with a redirect
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The following pattern is as described earlier but shown with a redirect method to acquire tokens interactively. You'll need to register the redirect callback as mentioned earlier.
 
@@ -139,21 +158,21 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## Request optional claims
+
 You can use optional claims for the following purposes:
 
 - Include additional claims in tokens for your application.
 - Change the behavior of certain claims that Azure AD returns in tokens.
-- Add and access custom claims for your application. 
+- Add and access custom claims for your application.
 
 To request optional claims in `IdToken`, you can send a stringified claims object to the `claimsRequest` field of the `AuthenticationParameters.ts` class.
 
-### JavaScript
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],
@@ -165,12 +184,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 To learn more, see [Optional claims](active-directory-optional-claims.md).
 
-
-### Angular
+# [Angular](#tab/angular)
 
 This code is the same as described earlier.
+
+---
 
 ## Next steps
 

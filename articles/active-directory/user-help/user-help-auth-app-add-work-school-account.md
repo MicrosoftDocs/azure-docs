@@ -2,7 +2,7 @@
 title: Add a work or school account to the Microsoft Authenticator app - Azure AD
 description: Add your work or school account to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
 ---
 

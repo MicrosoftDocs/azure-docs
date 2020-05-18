@@ -3,7 +3,7 @@ title: Connect Microsoft Defender ATP data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Microsoft Defender Advanced Threat Protection data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,23 +14,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect alerts from Microsoft Defender Advanced Threat Protection 
 
 
 > [!IMPORTANT]
-> Ingestion of Microsoft Defender Advanced Threat Protection logs is currently in public preview.
+> Ingestion of Microsoft Defender Advanced Threat Protection alerts is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 
-You can stream alerts from [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into Azure Sentinel with a single click. This connection enables you to stream the alerts from Microsoft Defender Advanced Threat Protection into Azure Sentinel. 
+The [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) connector lets you stream alerts from Microsoft Defender Advanced Threat Protection into Azure Sentinel. This will enable you to more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
 
 ## Prerequisites
 
-- Valid license for Microsoft Defender Advanced Threat Protection that is enabled as described in [Validate licensing provisioning and complete set up for Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- You must have a valid license for Microsoft Defender Advanced Threat Protection, as described in [Set up Microsoft Defender ATP deployment](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - You must be an administrator or a security administrator on the Azure Sentinel tenant.
 
 

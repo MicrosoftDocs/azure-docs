@@ -89,7 +89,7 @@ Discover how other organizations use Azure AD Conditional Access to define and i
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
 
 ## Next steps
 
@@ -99,6 +99,6 @@ To learn how to implement Conditional Access in your environment, see [Plan your
 
 [Learn about Identity Protection](../identity-protection/overview-v2.md)
 
-[Learn about Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Learn about Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Learn about Microsoft Intune](/intune/index)

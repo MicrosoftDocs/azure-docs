@@ -3,8 +3,8 @@ title: Back up and recover an Oracle Database 12c database on an Azure Linux vir
 description: Learn how to back up and recover an Oracle Database 12c database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
-manager: gwallace
+author: BorisB2015
+manager: 
 editor: 
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
+ms.author: borisb
 ---
 
 # Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine
@@ -37,7 +37,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 
 *   To create a Secure Shell (SSH) session with the VM, use the following command. Replace the IP address and the host name combination with the `publicIpAddress` value for your VM.
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
@@ -91,6 +91,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
+
 3.  (Optional) Create a table to test the commit:
 
     ```bash
@@ -112,6 +113,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     SQL> commit;
     Commit complete.
     ```
+
 4.  Verify or change the backup file location and size:
 
     ```bash
@@ -122,6 +124,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
+
 5. Use Oracle Recovery Manager (RMAN) to back up the database:
 
     ```bash
@@ -137,7 +140,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
 
     Download VMSnapshotScriptPluginConfig.json from https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. The file contents look similar to the following:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "",
@@ -168,7 +171,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
 
     Edit the VMSnapshotScriptPluginConfig.json file to include the `PreScriptLocation` and `PostScriptlocation` parameters. For example:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "/etc/azure/pre_script.sh",
@@ -365,6 +368,7 @@ To restore the deleted files, complete the following steps:
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
+
 6. Change the file, so that it's owned by the root.
 
     In the following example, change the file so that it's owned by the root. Then, change permissions.
@@ -376,9 +380,10 @@ To restore the deleted files, complete the following steps:
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
+
     The following example shows what you should see after you run the preceding script. When you're prompted to continue, enter **Y**.
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     The script requires 'open-iscsi' and 'lshw' to run.
@@ -426,6 +431,7 @@ To restore the deleted files, complete the following steps:
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
+
 9. In the following script, use RMAN to recover the database:
 
     ```bash
@@ -437,7 +443,7 @@ To restore the deleted files, complete the following steps:
     RMAN> alter database open resetlogs;
     RMAN> SELECT * FROM scott.scott_table;
     ```
-    
+
 10. Unmount the disk.
 
     In the Azure portal, on the **File Recovery (Preview)** blade, click **Unmount Disks**.
@@ -520,14 +526,14 @@ search for and select **myVMip**. Then, click **Associate**.
 
 *   To connect to the VM, use the following script:
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
 ### Step 5: Test whether the database is accessible
 *   To test accessibility, use the following script:
 
-    ```bash 
+    ```bash
     $ sudo su - oracle
     $ sqlplus / as sysdba
     SQL> startup

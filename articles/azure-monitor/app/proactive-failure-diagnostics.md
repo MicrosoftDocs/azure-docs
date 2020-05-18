@@ -1,11 +1,7 @@
 ---
 title: Smart Detection - failure anomalies, in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/18/2018
 
 ms.reviewer: yalavi
@@ -353,7 +349,7 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 ## Next steps
 These diagnostic tools help you inspect the data from your app:
 
-* [Metric explorer](../../azure-monitor/app/metrics-explorer.md)
+* [Metric explorer](../../azure-monitor/platform/metrics-charts.md)
 * [Search explorer](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - powerful query language](../../azure-monitor/log-query/get-started-portal.md)
 

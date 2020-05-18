@@ -45,7 +45,7 @@ When you combine the models, One-vs-All Multiclass creates multiple binary class
 
 4. On the other input of [Train Model](train-model.md), connect a labeled training dataset that has multiple class values.
 
-5. Run the pipeline.
+5. Submit the pipeline.
 
 ## Results
 

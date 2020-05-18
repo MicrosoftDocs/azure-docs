@@ -52,7 +52,7 @@ ToTo learn more about monitoring, go to [Monitoring in the Azure portal](https:/
 
 Azure Backup makes management of a backed-up SAP HANA database easy with an abundance of management operations that it supports. These operations are discussed in more detail in the following sections.
 
-### Run an ad-hoc backup
+### Run an on-demand backup
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
@@ -60,6 +60,16 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 2. In **Backup Items**, select the VM running the SAP HANA database, and then click **Backup now**.
 3. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+
+### HANA native client integration
+
+Now on-demand full backups triggered from any of the HANA native clients will show up as a full backup on the **Backup Items** page.
+
+![Last backups run](./media/sap-hana-db-manage/last-backups.png)
+
+These ad-hoc full backups will also show up in the list of restore points for restore.
+
+![List of restore points](./media/sap-hana-db-manage/list-restore-points.png)
 
 ### Run SAP HANA native client backup on a database with Azure backup enabled
 
@@ -107,6 +117,37 @@ You can change the underlying policy for an SAP HANA backup item.
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
 >
 > Incremental backup policies cannot be used for SAP HANA databases. Incremental backup is not currently supported for these databases.
+
+### Modify Policy
+
+Modify policy to change backup types, frequencies and retention range.
+
+>[!NOTE]
+>Any change in the retention period will be applied retroactively to all the older recovery points, in addition to the new ones.
+
+1. In the vault dashboard, go to **Manage > Backup Policies** and choose the policy you want to edit.
+
+   ![Choose the policy to edit](./media/sap-hana-db-manage/manage-backup-policies.png)
+
+1. Select **Modify**.
+
+   ![Select Modify](./media/sap-hana-db-manage/modify-policy.png)
+
+1. Choose the frequency for the backup types.
+
+   ![Choose backup frequency](./media/sap-hana-db-manage/choose-frequency.png)
+
+Policy modification will impact all the associated backup items and trigger corresponding **configure protection** jobs.
+
+### Inconsistent policy
+
+Occasionally a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
+
+![Inconsistent policy](./media/sap-hana-db-manage/inconsistent-policy.png)
+
+You can fix the policy version for all the impacted items in one click:
+
+![Fix policy version](./media/sap-hana-db-manage/fix-policy-version.png)
 
 ### Stop protection for an SAP HANA database
 
@@ -162,7 +203,7 @@ Learn how to continue backup for an SAP HANA database [after upgrading from SAP 
 
 Learn how to continue backup of an SAP HANA database whose [SID has not changed after upgrade](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
 
-### Unregister an SAP HANA database
+### Unregister an SAP HANA instance
 
 Unregister an SAP HANA instance after you disable protection but before you delete the vault:
 
@@ -179,6 +220,12 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 * Right-click the protected instance and select **Unregister**.
 
    ![Select unregister](./media/sap-hana-db-manage/unregister.png)
+
+### Re-register extension on the SAP HANA server VM
+
+Sometimes the workload extension on the VM may get impacted for one reason or another. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. Re-register operation reinstalls the workload backup extension on the VM for operations to continue.
+
+Use this option with caution: when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may cause all the in-progress jobs to fail. Check for one or more of the [symptoms](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 
 ## Next steps
 

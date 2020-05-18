@@ -2,20 +2,20 @@
 title: Tutorial - Create user flows - Azure Active Directory B2C
 description: Learn how to create user flows in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Create user flows in Azure Active Directory B2C
 
-In your applications you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
+In your applications you may have [user flows](user-flow-overview.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
 In this article, you learn how to:
 

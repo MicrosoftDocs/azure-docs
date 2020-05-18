@@ -93,7 +93,9 @@ For example, to grant yourself the role, you can run the following commands in a
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
+```
 
+```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 

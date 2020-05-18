@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 02/20/2020
 ---
 
 # Known issues/migration limitations with online migrations from Oracle to Azure DB for PostgreSQL-Single server

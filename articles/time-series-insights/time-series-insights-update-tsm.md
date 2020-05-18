@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 04/29/2020
 ms.custom: seodec18
 ---
 
@@ -17,7 +17,8 @@ ms.custom: seodec18
 This article describes Time Series Model, the capabilities, and how to start building and updating your own models in the Azure Time Series Insights Preview environment.
 
 > [!TIP]
->  * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
+>
+> * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
 > * Read about the [Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md) to learn how to navigate your Time Series Model UI.
 > * Learn [How to work with Time Series Model](time-series-insights-update-how-to-tsm.md) using the Time Series Insights web explorer.
 
@@ -46,9 +47,9 @@ These limitations revealed the importance of smart data aggregation and visualiz
 
 [![Time Series Model smart oven charting example](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Time Series Model plays a vital role in queries and navigation because it contextualizes data by allowing comparisons to be drawn across time ranges and between sensor and device kinds. (**A**) 
+* Time Series Model plays a vital role in queries and navigation because it contextualizes data by allowing comparisons to be drawn across time ranges and between sensor and device kinds. (**A**)
 * Data is further contextualized because data persisted in Time Series Model preserves time series query computations as variables and reuses them at query time.
-* Time Series Model organizes and aggregates data for improved visualization and management capabilities. (**B**) 
+* Time Series Model organizes and aggregates data for improved visualization and management capabilities. (**B**)
 
 ### Key capabilities
 
@@ -205,11 +206,11 @@ Given the instance fields used in the previous definition and several time serie
 
 | Time Series ID | Instance fields |
 | --- | --- |
-| ID1 | “building” = “1000”, “floor” = “10”, “room” = “55”  |
-| ID2 | “building” = “1000”, “room” = “55” |
-| ID3 | “floor” = “10” |
-| ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | None of “building”, “floor”, or “room” is set. |
+| ID1 | "building" = "1000", "floor" = "10", "room" = "55"  |
+| ID2 | "building" = "1000", "room" = "55" |
+| ID3 | "floor" = "10" |
+| ID4 | "building" = "1000", "floor" = "10"  |
+| ID5 | None of "building", "floor", or "room" is set. |
 
 Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
@@ -285,7 +286,7 @@ Time Series Insights types might have many variables that specify formula and co
 
 Each variable can be one of three *kinds*: *numeric*, *categorical*, and *aggregate*.
 
-* **Numeric** kinds work with continuous values. 
+* **Numeric** kinds work with continuous values.
 * **Categorical** kinds work with a defined set of discrete values.
 * **Aggregate** values combine multiple variables of a single kind (either all numeric or all categorical).
 
@@ -339,7 +340,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -349,7 +350,7 @@ Variables conform to the following JSON example:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {

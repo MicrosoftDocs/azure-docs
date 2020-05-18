@@ -50,7 +50,8 @@ Two sample prediction problems are addressed in this walkthrough:
 2. **Regression**: Predicts the probability of an ad click from user features.
 
 ## <a name="setup"></a>Set Up an HDInsight Hadoop cluster for data science
-**Note:** This step is typically an **Admin** task.
+> [!NOTE]
+> This step is typically an **Admin** task.
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
@@ -101,10 +102,8 @@ To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line***
 > [!NOTE]
 > To execute any Hive query, one can always use the following commands:
 >
->
-
-        cd %hive_home%\bin
-        hive
+>        cd %hive_home%\bin
+>        hive
 
 After the Hive REPL appears with a "hive >"sign, simply cut and paste the query to execute it.
 
@@ -429,7 +428,7 @@ For the **Import Data** module, the values of the parameters that are provided i
 
 1. Choose "Hive query" for **Data Source**
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
-3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https://abc.azurehdinsight.net
+3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https:\//abc.azurehdinsight.net
 4. **Hadoop user account name**: The user name chosen at the time of commissioning the cluster. (NOT the Remote Access user name!)
 5. **Hadoop user account password**: The password for the user name chosen at the time of commissioning the cluster. (NOT the Remote Access password!)
 6. **Location of output data**: Choose "Azure"

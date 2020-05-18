@@ -100,7 +100,7 @@ If you use [premium SSDs](../articles/virtual-machines/windows/disks-types.md), 
 For unmanaged disks, you can use the locally redundant storage type for IaaS disks, but ensure that Azure Backup is enabled with the geo-redundant storage option for the recovery services vault.
 
 > [!NOTE]
-> If you use the [geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md) or [read-access geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
+> If you use the [geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md) or [read-access geo-redundant storage](../articles/storage/common/storage-redundancy.md) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
  The following table is a summary of the solutions available for DR.
 
@@ -110,7 +110,7 @@ For unmanaged disks, you can use the locally redundant storage type for IaaS dis
 | Managed disks | Local ([locally redundant storage](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Unmanaged locally redundant storage disks | Local ([locally redundant storage](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Unmanaged geo-redundant storage disks | Cross region ([geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
-| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
 
 High availability is best met by using managed disks in an availability set along with Azure Backup. If you use unmanaged disks, you can still use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#alternative-solution-consistent-snapshots), as described in a later section, is an alternative solution for backup and DR.
 

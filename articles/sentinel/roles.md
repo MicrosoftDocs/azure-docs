@@ -4,7 +4,7 @@ description: This article explains how Azure Sentinel uses role-based access con
 services: sentinel
 cloud: na
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 
@@ -42,7 +42,7 @@ In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Anal
 > Log Analytics roles also grant read access across all Azure resources but will only assign write permissions to Log Analytics resources.
 
 
-For example, a user who is assigned with **Azure Sentinel reader** and **Azure contributor** (not **Azure Sentinel contributor**) roles, will be able to edit data in Azure Sentinel, although they only have **Sentinel reader** permissions. Therefore, if you want to grant permissions to a only in Azure Sentinel, you should carefully remove this user’s prior permissions making sure you do not break any needed permission role for another resource.
+For example, a user who is assigned with **Azure Sentinel reader** and **Azure contributor** (not **Azure Sentinel contributor**) roles, will be able to edit data in Azure Sentinel, although they only have **Sentinel reader** permissions. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions making sure you do not break any needed permission role for another resource.
 
 > [!NOTE]
 >- Azure Sentinel uses playbooks for automated threat response. Playbooks leverage Azure Logic Apps and are a separate Azure resource. You might want to assign specific members of your security operations team with the option to use Logic Apps for security orchestration, automation, and response (SOAR) operations. You can use the [Logic App contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) role or the [Logic App operator](../role-based-access-control/built-in-roles.md#logic-app-operator) role to assign explicit permission for using playbooks.

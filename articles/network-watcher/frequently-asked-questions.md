@@ -51,17 +51,32 @@ Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-wat
 ### Which regions is Network Watcher supported/available in?
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
-### What are resource limits on Network Watcher?
-See the [Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
+### Which permissions are needed to use Network Watcher?
+See the list of [RBAC permissions required to use Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
 
-### Why is only one instance of Network Watcher allowed per region?
-Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+### How do I enable Network Watcher?
+The Network Watcher service is [enabled automatically](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) for every subscription.
+
+### What is the Network Watcher deployment model?
+The Network Watcher parent resource is deployed with a unique instance in every region. Naming format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus is the Network Watcher resource for the "Central US" region.
+
+### What is the NetworkWatcherRG?
+Network Watcher resources are located in the hidden **NetworkWatcherRG** resource group which is created automatically. For example, the NSG Flow Logs resource is a child resource of Network Watcher and is enabled in the NetworkWatcherRG.
 
 ### Why do I need to install the Network Watcher extension? 
 The Network Watcher extension is required for any feature that needs to generate or intercept traffic from a VM. 
 
 ### Which features require the Network Watcher extension?
-Only Packet Capture, Connection Troubleshoot and Connection Monitor need the Network Watcher extension to be present.
+The Packet Capture, Connection Troubleshoot and Connection Monitor features need the Network Watcher extension to be present.
+
+### What are resource limits on Network Watcher?
+See the [Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
+
+### Why is only one instance of Network Watcher allowed per region? 
+Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+
+### How can I manage the Network Watcher Resource? 
+The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers do no need to manage it. Operations like move are not supported on the resource. However, [the resource can be deleted](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
 ## NSG Flow Logs
 
@@ -82,7 +97,7 @@ You can check the storage logs after a few minutes, you should see an updated Ti
 
 ### How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?
 
-NSG Flow Logs are compantible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
+NSG Flow Logs are compatible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
 
 
 ### What is the difference between flow logs versions 1 & 2?

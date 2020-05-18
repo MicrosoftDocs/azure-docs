@@ -9,11 +9,11 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 01/25/2019
+ms.date: 03/24/2020
 ---
 # Accelerated Database Recovery
 
-**Accelerated Database Recovery (ADR)** is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for single databases and pooled databases in Azure SQL Database, and databases in Azure SQL Data Warehouse (currently in public preview). The primary benefits of ADR are:
+**Accelerated Database Recovery (ADR)** is a SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for Azure SQL Database single, elastic pool and managed instance, and databases in Azure SQL Data Warehouse (currently in preview). The primary benefits of ADR are:
 
 - **Fast and consistent database recovery**
 
@@ -25,7 +25,7 @@ ms.date: 01/25/2019
 
 - **Aggressive log truncation**
 
-  With ADR, the transaction log is aggressively truncated, even in the presence of active long running transactions, which prevents it from growing out of control.
+  With ADR, the transaction log is aggressively truncated, even in the presence of active long-running transactions, which prevents it from growing out of control.
 
 ## The current database recovery process
 
@@ -45,11 +45,11 @@ Database recovery in SQL Server follows the [ARIES](https://people.eecs.berkeley
 
   For each transaction that was active as of the time of the crash, traverses the log backwards, undoing the operations that this transaction performed.
 
-Based on this design, the time it takes the SQL database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the SQL Server recovery process can take a long time in the presence of long running transactions (such as large bulk insert operations or index build operations against a large table).
+Based on this design, the time it takes the SQL database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the SQL Server recovery process can take a long time in the presence of long-running transactions (such as large bulk insert operations or index build operations against a large table).
 
 Also, cancelling/rolling back a large transaction based on this design can also take a long time as it is using the same Undo recovery phase as described above.
 
-In addition, the SQL database engine cannot truncate the transaction log when there are long running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL database engine, some customers face the problem that the size of the transaction log grows very large and consumes huge amounts of drive space.
+In addition, the SQL database engine cannot truncate the transaction log when there are long-running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL database engine, some customers used to face the problem that the size of the transaction log grows very large and consumes huge amounts of drive space.
 
 ## The Accelerated Database Recovery process
 
@@ -66,7 +66,7 @@ The ADR recovery process has the same three phases as the current recovery proce
 
 - **Analysis phase**
 
-  The process remains the same as today with the addition of reconstructing sLog and copying log records for non-versioned operations.
+  The process remains the same as before with the addition of reconstructing sLog and copying log records for non-versioned operations.
   
 - **Redo** phase
 
@@ -113,11 +113,11 @@ The four key components of ADR are:
 
   The cleaner is the asynchronous process that wakes up periodically and cleans page versions that are not needed.
 
-## Who should consider Accelerated Database Recovery
+## Accelerated Database Recovery Patterns
 
-The following types of customers should consider enabling ADR:
+The following types of workloads benefit most from ADR:
 
-- Customers that have workloads with long running transactions.
-- Customers that have seen cases where active transactions are causing the transaction log to grow significantly.  
-- Customers that have experienced long periods of database unavailability due to SQL Server long running recovery (such as unexpected SQL Server restart or manual transaction rollback).
+- Workloads with long-running transactions.
+- Workloads that have seen cases where active transactions are causing the transaction log to grow significantly.  
+- Workloads that have experienced long periods of database unavailability due to SQL Server long running recovery (such as unexpected SQL Server restart or manual transaction rollback).
 

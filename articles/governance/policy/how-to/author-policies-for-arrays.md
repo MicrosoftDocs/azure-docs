@@ -163,8 +163,9 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 Aliases that have **\[\*\]** attached to their name indicate the **type** is an _array_. Instead of
 evaluating the value of the entire array, **\[\*\]** makes it possible to evaluate each element of
-the array. There are three standard scenarios this per item evaluation is useful in: None, Any, and
-All. For complex scenarios, use [count](../concepts/definition-structure.md#count).
+the array individually, with logical AND between them. There are three standard scenarios this per
+item evaluation is useful in: _None_, _Any_, or _All_ elements match. For complex scenarios, use
+[count](../concepts/definition-structure.md#count).
 
 The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
 This fact is important to understand in context of the way **\[\*\]** evaluates each individual
@@ -209,16 +210,16 @@ For each condition example below, replace `<field>` with `"field": "Microsoft.St
 The following outcomes are the result of the combination of the condition and the example policy
 rule and array of existing values above:
 
-|Condition |Outcome |Explanation |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_ and the effect isn't triggered. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_ and the effect is triggered. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Policy effect |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policy effect |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_. The logical operator evaluates as false (**not** _true_), so the effect isn't triggered. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nothing |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
+|Condition |Outcome | Scenario |Explanation |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |None match |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Policy effect |None match |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_ and the effect is triggered. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policy effect |One or more match |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |One or more match |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_. The logical operator evaluates as false (**not** _true_), so the effect isn't triggered. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Policy effect |Not all match |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Policy effect |Not all match |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nothing |All match |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nothing |All match |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 
 ## The append effect and arrays
 

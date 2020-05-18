@@ -22,7 +22,7 @@ From your non-interactive .NET application, you need:
 
 ## Prerequisites
 
-An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 ## Assign a role to the Azure AD application
 

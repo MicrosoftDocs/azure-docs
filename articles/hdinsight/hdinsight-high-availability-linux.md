@@ -22,13 +22,13 @@ Hadoop achieves high availability and reliability by replicating services and da
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight.
 
 > [!NOTE]  
-> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type) document.
 
 ### Head nodes
 
 To ensure high availability of Hadoop services, HDInsight provides two head nodes. Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as Apache HDFS or Apache Hadoop YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
-To obtain the hostnames for different node types in your cluster, please use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+To obtain the hostnames for different node types in your cluster, please use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Do not associate the numeric value with whether a node is primary or secondary. The numeric value is only present to provide a unique name for each node.
@@ -265,7 +265,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
-    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Azure CLI**: When using the [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 

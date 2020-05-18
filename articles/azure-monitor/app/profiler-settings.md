@@ -1,8 +1,6 @@
 ---
 title: Use the Azure Application Insights Profiler settings pane | Microsoft Docs
 description: See Profiler status and start profiling sessions
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
@@ -14,7 +12,7 @@ ms.reviewer: mbullwin
 # Configure Application Insights Profiler
 
 ## Updated Profiler Agent
-The trigger features only work with version 2.6 or newer of the profiler agent. If you are running an Azure App Service, your agent will be updated automatically. You can see what version of the agent you are running if you go to the Kudu URL for your website and append \DiagnosticServices to the end of it, like this:  https://yourwebsite.scm.azurewebsites.net/diagnosticservices. The Application Insights Profiler Webjob should version 2.6 or newer. You can force an upgrade by restarting your web app. 
+The trigger features only work with version 2.6 or newer of the profiler agent. If you are running an Azure App Service, your agent will be updated automatically. You can see what version of the agent you are running if you go to the Kudu URL for your website and append \DiagnosticServices to the end of it, like this:  `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. The Application Insights Profiler Webjob should version 2.6 or newer. You can force an upgrade by restarting your web app. 
 
 If you are running the profiler on a VM or Cloud Service, you need to have Windows Azure Diagnostics (WAD) extension version 16.0.4 or newer installed. You can check the version of WAD by logging onto your VM and looking this directory: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. The directory name is the version of WAD that is installed. The Azure VM agent will update WAD automatically when new versions are available.
 

@@ -1,15 +1,9 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in a .NET Framework app | Microsoft Docs
-description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps
+title: '.NET Framework Tutorial: dynamic configuration in Azure App Configuration'
+description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps using Azure App Configuration. 
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
@@ -40,13 +34,15 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a .NET Framework console app
 

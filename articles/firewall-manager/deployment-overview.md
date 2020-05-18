@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
@@ -15,23 +15,32 @@ ms.author: victorh
 
 There's more than one way to deploy Azure Firewall Manager Preview, but the following general process is recommended.
 
-## Prerequisites
-
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
->From a PowerShell command prompt, run the following commands:
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->It takes up to 30 minutes for the feature registration to complete. Run the following command to check your >registration status:
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## General deployment process
+
+### Hub virtual networks
+
+1.	Create a firewall policy
+
+    - Create a new policy
+<br>*or*<br>
+    - Derive a base policy and customize a local policy
+<br>*or*<br>
+    - Import rules from an existing Azure Firewall. Make sure to remove NAT rules from policies that should be applied across multiple firewalls
+1. Create your hub and spoke architecture
+   - Create a Hub Virtual Network using Azure Firewall Manager and peer spoke virtual networks to it using virtual network peering
+<br>*or*<br>
+    - Create a virtual network and add virtual network connections and peer spoke virtual networks to it using virtual network peering
+
+3. Select security providers and associate firewall policy. Currently, only Azure Firewall is a supported provider.
+
+   - This is done while you create a Hub Virtual Network
+<br>*or*<br>
+    - Convert an existing virtual network to a Hub Virtual Network. It is also possible to convert multiple virtual networks.
+
+4. Configure User Define Routes to route traffic to your Hub Virtual Network firewall.
+
+
+### Secured virtual hubs
 
 1. Create your hub and spoke architecture
 

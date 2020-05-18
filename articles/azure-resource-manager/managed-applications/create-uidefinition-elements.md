@@ -4,7 +4,7 @@ description: Describes the elements to use when constructing UI definitions for 
 author: tfitzmac
 
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/06/2020
 ms.author: tomfitz
 
 ---
@@ -56,6 +56,7 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.ManagedIdentity.IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)

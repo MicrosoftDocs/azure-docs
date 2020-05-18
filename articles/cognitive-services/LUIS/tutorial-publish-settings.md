@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Publish settings - LUIS"
-titleSuffix: Azure Cognitive Services
 description: In this tutorial, change the publish settings to gain improve predictions.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
-ms.author: diberry
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand hwo publishing settings impact the LUIS app.
 
 ---
@@ -41,9 +33,11 @@ Sentiment analysis is a publish setting that applies to every utterance. Once se
 
 Because it is a publish setting, you do not see it labeled on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL.
 
-## Import example .json to begin app
+## Download JSON file for app
 
-1.  Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+
+## Import JSON file for app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -64,11 +58,11 @@ Because it is a publish setting, you do not see it labeled on the intents or ent
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter the following utterance:
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    The last querystring parameter is `query`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderPizza` intent with the sentiment analysis extracted.
+    This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderPizza` intent with the sentiment analysis extracted.
 
     ```json
     {
@@ -119,9 +113,7 @@ Because it is a publish setting, you do not see it labeled on the intents or ent
 
     The sentiment analysis is positive with a score of 86%.
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 

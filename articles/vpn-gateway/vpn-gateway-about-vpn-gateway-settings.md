@@ -24,7 +24,7 @@ The values in this article apply VPN gateways (virtual network gateways that use
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="gwtype"></a>Gateway types
 

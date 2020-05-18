@@ -1,7 +1,6 @@
 ---
 title: Functions in Azure Monitor log queries | Microsoft Docs
 description: This article describes how to use functions to call a query from another log query in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

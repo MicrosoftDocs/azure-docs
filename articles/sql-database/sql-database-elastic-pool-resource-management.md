@@ -10,25 +10,30 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 11/18/2019
+ms.date: 03/13/2019
 ---
 
 # Resource management in dense elastic pools
 
-Azure SQL Database [elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) is a cost-effective solution for managing many databases with varying resource usage. All databases in an elastic pool share the same allocation of resources, such as CPU, memory, worker threads, storage space, tempdb, on the assumption that only a subset of databases in the pool will use compute resources at any given time. This assumption allows elastic pools to be cost-effective. Instead of paying for all resources each individual database could potentially need, customers pay for a much smaller set of resources, shared among all databases in the pool.
+Azure SQL Database [elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) is a cost-effective solution for managing many databases with varying resource usage. All databases in an elastic pool share the same allocation of resources, such as CPU, memory, worker threads, storage space, tempdb, on the assumption that **only a subset of databases in the pool will use compute resources at any given time**. This assumption allows elastic pools to be cost-effective. Instead of paying for all resources each individual database could potentially need, customers pay for a much smaller set of resources, shared among all databases in the pool.
 
 ## Resource governance
 
-Resource sharing requires the system to carefully control resource usage to minimize the "noisy neighbor" effect, where a database with high resource consumption affects other databases in the same elastic pool. At the same time, the system must provide sufficient resources for features such as high availability and disaster recovery (HADR), backup and restore, monitoring, Query Store, and Automatic tuning to function reliably.
+Resource sharing requires the system to carefully control resource usage to minimize the "noisy neighbor" effect, where a database with high resource consumption affects other databases in the same elastic pool. At the same time, the system must provide sufficient resources for features such as high availability and disaster recovery (HADR), backup and restore, monitoring, Query Store, Automatic tuning, etc. to function reliably.
 
 Azure SQL Database achieves these goals by using multiple resource governance mechanisms, including Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) for process level resource governance, Windows [File Server Resource Manager (FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) for storage quota management, and a modified and extended version of SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) to implement resource governance within each SQL Server instance running in Azure SQL Database.
 
-The overarching design goal of elastic pools is to be cost-effective. For this reason, the system intentionally allows customers to create _dense_ pools, that is pools with the number of databases approaching or at the maximum allowed, but with a moderate allocation of compute resources. For the same reason, the system doesn't reserve all potentially needed resources for its internal processes, but allows resource sharing between internal processes and user workloads.
+The primary design goal of elastic pools is to be cost-effective. For this reason, the system intentionally allows customers to create _dense_ pools, that is pools with the number of databases approaching or at the maximum allowed, but with a moderate allocation of compute resources. For the same reason, the system doesn't reserve all potentially needed resources for its internal processes, but allows resource sharing between internal processes and user workloads.
 
-This approach allows customers to use dense elastic pools to achieve adequate performance and major cost savings. However, if the workload against databases in a dense pool is sufficiently intense, resource contention becomes significant. Resource contention reduces user workload performance, and can negatively impact internal processes.
+This approach allows customers to use dense elastic pools to achieve adequate performance and major cost savings. However, if the workload against many databases in a dense pool is sufficiently intense, resource contention becomes significant. Resource contention reduces user workload performance, and can negatively impact internal processes.
+
+> [!IMPORTANT]
+> In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](sql-database-dtu-resource-limits-elastic-pools.md) and [vCore](sql-database-vcore-resource-limits-elastic-pools.md) elastic pools.
+> 
+> The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
-- Tune query workload to reduce resource consumption.
+- Tune query workload to reduce resource consumption, or spread resource consumption across multiple databases over time.
 - Reduce pool density by moving some databases to another pool, or by making them standalone databases.
 - Scale up the pool to get more resources.
 
@@ -36,7 +41,7 @@ For suggestions on how to implement the last two actions, see [Operational recom
 
 ## Monitoring resource consumption
 
-To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the SQL Server database engine. 
+To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the Azure SQL Database service. 
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
@@ -51,7 +56,7 @@ Azure SQL Database provides several metrics that are relevant for this type of m
 |`tempdb_log_used_percent`|Transaction log space utilization in the `tempdb` database. Even though temporary objects created in one database are not visible in other databases in the same elastic pool, `tempdb` is a shared resource for all databases in the same pool. A long running or idle transaction in `tempdb` started from one database in the pool can consume a large portion of transaction log, and cause failures for queries in other databases in the same pool. Available in the [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) view. This metric is also emitted to Azure Monitor, and can be viewed in Azure portal. See [Examples](#examples) for a sample query to return the current value of this metric.|Below 50%. Occasional spikes up to 80% are acceptable.|
 |||
 
-In addition to these metrics, Azure SQL Database provides a view that returns actual resource governance limits, as well as views that return resource utilization statistics at the resource pool level, and at the workload group level.
+In addition to these metrics, Azure SQL Database provides a view that returns actual resource governance limits, as well as additional views that return resource utilization statistics at the resource pool level, and at the workload group level.
 
 |View name|Description|  
 |-----------------|--------------------------------|  

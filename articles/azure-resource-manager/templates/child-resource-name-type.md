@@ -8,7 +8,7 @@ ms.date: 08/26/2019
 
 Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). The extension resource is a child of the virtual machine.
 
-In a Resource Manger template, you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
+In a Resource Manager template, you can specify the child resource either within the parent resource or outside of the parent resource. The following example shows the child resource included within the resources property of the parent resource.
 
 ```json
 "resources": [
@@ -21,7 +21,7 @@ In a Resource Manger template, you can specify the child resource either within 
 ]
 ```
 
-The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](create-multiple-instances.md) to create more than one child resource.
+The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
 
 ```json
 "resources": [

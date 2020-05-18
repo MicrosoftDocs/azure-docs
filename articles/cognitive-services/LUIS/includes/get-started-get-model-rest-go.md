@@ -5,34 +5,28 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
 ## Prerequisites
 
-* Starter key.
+* Azure Language Understanding - Authoring resource 32 character key and authoring endpoint URL. Create with the [Azure portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
-* [Go](https://golang.org/) programming language  
+* [Go](https://golang.org/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## Get LUIS key
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## Change model programmatically
 
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
-
 1. Create a new file named `predict.go`. Add the following code:
-    
+
     ```go
     // dependencies
     package main
@@ -43,21 +37,21 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     	"log"
     	"strings"
     )
-    
+
     // main function
     func main() {
-    
+
     	// NOTE: change to your app ID
     	var appID = "YOUR-APP-ID"
-    
-    	// NOTE: change to your starter key
+
+    	// NOTE: change to your authoring key
     	var authoringKey = "YOUR-KEY"
-    
-    	// NOTE: change to your starter key's endpoint, for example, westus.api.cognitive.microsoft.com
-    	var endpoint = "YOUR-ENDPOINT"	
-    
+
+    	// NOTE: change to your authoring key's endpoint, for example, your-resource-name.api.cognitive.microsoft.com
+    	var endpoint = "YOUR-ENDPOINT"
+
     	var version = "0.1"
-    
+
     	var exampleUtterances = `
     	[
     		{
@@ -78,50 +72,50 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     		}
     	  ]
     	`
-    
+
     	fmt.Println("add example utterances requested")
     	addUtterance(authoringKey, appID, version, exampleUtterances, endpoint)
-    
+
     	fmt.Println("training selected")
     	requestTraining(authoringKey, appID, version, endpoint)
-    
+
     	fmt.Println("training status selected")
     	getTrainingStatus(authoringKey, appID, version, endpoint)
     }
-    
+
     // get utterances from file and add to model
     func addUtterance(authoringKey string, appID string,  version string, labeledExampleUtterances string, endpoint string){
-    
+
     	var authoringUrl = fmt.Sprintf("https://%s/luis/authoring/v3.0-preview/apps/%s/versions/%s/examples", endpoint, appID, version)
-    
+
     	httpRequest("POST", authoringUrl, authoringKey, labeledExampleUtterances)
     }
     func requestTraining(authoringKey string, appID string,  version string, endpoint string){
-    
+
     	trainApp("POST", authoringKey, appID, version, endpoint)
     }
     func trainApp(httpVerb string, authoringKey string, appID string,  version string, endpoint string){
-    
+
     	var authoringUrl = fmt.Sprintf("https://%s/luis/authoring/v3.0-preview/apps/%s/versions/%s/train", endpoint, appID, version)
-    
+
     	httpRequest(httpVerb,authoringUrl, authoringKey, "")
     }
     func getTrainingStatus(authoringKey string, appID string, version string, endpoint string){
-    
+
     	trainApp("GET", authoringKey, appID, version, endpoint)
     }
     // generic HTTP request
     // includes setting header with authoring key
     func httpRequest(httpVerb string, url string, authoringKey string, body string){
-    
+
     	client := &http.Client{}
-    
+
     	request, err := http.NewRequest(httpVerb, url, strings.NewReader(body))
     	request.Header.Add("Ocp-Apim-Subscription-Key", authoringKey)
-    
+
     	fmt.Println("body")
     	fmt.Println(body)
-    
+
     	response, err := client.Do(request)
     	if err != nil {
     		log.Fatal(err)
@@ -134,34 +128,34 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     		fmt.Println("   ", response.StatusCode)
     		fmt.Println(string(contents))
     	}
-    }    
+    }
     ```
 
-1. Replace the following values:
+1. Replace the values starting with `YOUR-` with your own values.
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` with your app's ID
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character authoring key.|
+    |`YOUR-ENDPOINT`| Your authoring URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`. You set your resource name when you created the resource.|
+    |`YOUR-APP-ID`| Your LUIS app ID. |
+
+    Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 
     ```console
     go build model.go
-    ```  
+    ```
 
-1. Run the Go application from the command line by entering the following text in the command prompt: 
+1. Run the Go application from the command line by entering the following text in the command prompt:
 
     ```console
     go run model.go
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

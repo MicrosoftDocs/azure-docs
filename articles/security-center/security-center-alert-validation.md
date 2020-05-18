@@ -32,7 +32,7 @@ For more information, see [Security alerts in Security Center](security-center-a
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
-1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
+1. Copy an executable (for example **calc.exe**) to the computer's desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
 1. Open the command prompt and execute this file with an argument (just a fake argument name), such as: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
@@ -70,9 +70,7 @@ For more information about the integration of Azure Kubernetes Service and Azure
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
+* [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) - Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) - Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) - Learn how to troubleshoot common issues in Security Center.
-* [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) - Find blog posts about Azure security and compliance.

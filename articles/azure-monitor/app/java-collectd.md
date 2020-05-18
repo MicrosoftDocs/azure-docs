@@ -1,11 +1,7 @@
 ---
 title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
 
 ---
@@ -128,6 +124,6 @@ Workaround: Exclude data collected by the problem Write plugins.
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 
 

@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for MySQL (Preview) portal setup method
+title: Private Link - Azure portal - Azure Database for MySQL
 description: Learn how to configure private link for Azure Database for MySQL from Azure portal
 author: kummanish
 ms.author: manishku
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ---
 
-# Create and manage Private Link for Azure Database for MySQL (Preview) using Portal
+# Create and manage Private Link for Azure Database for MySQL using Portal
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure portal to create a VM in an Azure Virtual Network and an Azure Database for MySQL server with an Azure private endpoint.
 
@@ -121,13 +121,13 @@ In this section, you will create an Azure Database for MySQL server in Azure.
 
 In this section, you will create a MySQL server and add a private endpoint to it. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link**.
 
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
     ![Private Link overview](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
+1. In **Create a private endpoint - Basics**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -151,7 +151,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
     |Target sub-resource |Select *mysqlServer*|
     |||
 7. Select **Next: Configuration**.
-8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
+8. In **Create a private endpoint - Configuration**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -167,6 +167,9 @@ In this section, you will create a MySQL server and add a private endpoint to it
 2. When you see the **Validation passed** message, select **Create**. 
 
     ![Private Link created](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
+
+    > [!NOTE] 
+    > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
 
 ## Connect to a VM using Remote Desktop (RDP)
 
@@ -207,6 +210,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Non-authoritative answer:
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
 

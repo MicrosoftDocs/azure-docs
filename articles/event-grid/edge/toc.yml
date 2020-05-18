@@ -24,6 +24,8 @@
   items:
   - name: Event Grid concepts
     href: concepts.md
+  - name: Event handlers and destinations
+    href: event-handlers.md
   - name: Security and authentication
     href: security-authentication.md
   - name: Event schemas
@@ -41,7 +43,9 @@
     - name: Linux
       href: persist-state-linux.md  
     - name: Windows
-      href: persist-state-windows.md  
+      href: persist-state-windows.md
+  - name: Monitor topics and subscriptions
+    href: monitor-topics-subscriptions.md
   - name: Configure API protocols
     href: configure-api-protocol.md  
   - name: Configure client authentication
@@ -60,3 +64,5 @@
     href: configure-event-grid.md
   - name: Module Twin configuration schema
     href: twin-json.md
+  - name: Release Notes
+    href: release-notes.md

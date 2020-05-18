@@ -1,14 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ (Linux) - Speech service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
+ms.date: 04/03/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -16,23 +11,21 @@ ms.author: wolfma
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 > * Make sure that you have access to a microphone for audio capture
 
-## Add sample code
+## Source code
 
-1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
+Create a C++ source file named *helloworld.cpp*, and paste the following code into it.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+## Code explanation
 
-> [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## Build the app
 
@@ -94,4 +87,5 @@ Before you get started:
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

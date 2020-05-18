@@ -103,7 +103,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -118,7 +118,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;

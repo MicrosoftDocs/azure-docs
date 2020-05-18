@@ -3,8 +3,8 @@ title: "Tutorial: Migrate SQL Server online to SQL single database"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server on-premises to a single database or pooled database in Azure SQL Database by using the Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -277,7 +277,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
 

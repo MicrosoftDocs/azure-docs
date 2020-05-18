@@ -11,9 +11,16 @@ This article provides troubleshooting information for backing up SAP HANA databa
 
 ## Prerequisites and Permissions
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections before configuring backups.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
 
 ## Common user errors
+
+### UserErrorHANAInternalRoleNotPresent
+
+| **Error Message**      | <span style="font-weight:normal">Azure backup does not have required role  privileges to carry out backup</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Possible causes**    | The role may have been overwritten.                          |
+| **Recommended action** | To resolve the issue, run the script from the **Discover DB** pane, or download it [here](https://aka.ms/scriptforpermsonhana). Alternatively, add the 'SAP_INTERNAL_HANA_SUPPORT' role to the Workload Backup User (AZUREWLBACKUPHANAUSER). |
 
 ### UserErrorInOpeningHanaOdbcConnection
 
@@ -112,7 +119,26 @@ Upgrades to OS or SAP HANA that don't cause a SID change can be handled as outli
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana). Usually, we have seen upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles.
 - [Resume protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
 
+## Re-registration failures
+
+Check for one or more of the following symptoms before you trigger the re-register operation:
+
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
+- If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
+
+  - Lack of permission to perform backup-related operations on the VM
+  - The VM is shutdown, so backups cannot take place
+  - Network issues
+
+These symptoms may arise for one or more of the following reasons:
+
+- An extension was deleted or uninstalled from the portal.
+- The VM was restored back in time through in-place disk restore.
+- The VM was shut down for an extended period, so the extension configuration on it expired.
+- The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM.
+
 ## Next steps
 
-- Review the [frequently asked questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm)
- about backing up SAP HANA databases on Azure VMs]
+- Review the [frequently asked questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) about backing up SAP HANA databases on Azure VMs.

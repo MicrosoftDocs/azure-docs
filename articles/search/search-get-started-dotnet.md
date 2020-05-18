@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Search
 description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search .NET SDK.
 
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 ---
 # Quickstart: Create an Azure Cognitive Search index in C# using the .NET SDK
@@ -211,7 +211,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     namespace AzureSearchQuickstart
     {
-        class Program
+        class Program {
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)

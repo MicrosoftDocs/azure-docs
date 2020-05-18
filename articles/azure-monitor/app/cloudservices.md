@@ -1,11 +1,7 @@
 ---
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
 
 ---
@@ -31,7 +27,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/platform/metrics-charts.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +161,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Open the Application Insights resources that you created.
 
-   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -184,7 +180,7 @@ You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Create a lab using Azure DevTest Labs | Microsoft Docs
-description: In this quickstart, you create a lab by using Azure DevTest Labs. 
+description: In this tutorial, you create a lab in Azure DevTest Labs by using the Azure portal. A lab admin sets up a lab, creates VMs in the lab, and configures policies.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

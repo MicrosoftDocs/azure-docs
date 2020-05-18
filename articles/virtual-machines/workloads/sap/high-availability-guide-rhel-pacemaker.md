@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on Red Hat Enterprise Linux in Azure | Microsoft Docs
+title: Setting up Pacemaker on RHEL in Azure | Microsoft Docs
 description: Setting up Pacemaker on Red Hat Enterprise Linux in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 

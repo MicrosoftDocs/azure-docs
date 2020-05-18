@@ -1,62 +1,64 @@
 ---
-title: 'Tutorial: Use Azure Firewall Manager Preview to secure your cloud network using the Azure portal'
-description: In this tutorial, you learn how to secure your cloud network with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager preview'
+description: In this tutorial, you learn how to secure your virtual WAN with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 05/01/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal
+# Tutorial: Secure your virtual WAN using Azure Firewall Manager preview 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Using Azure Firewall Manager Preview, you can create secured hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager Preview, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
-## Prerequisites
+Firewall Manager also supports a hub virtual network architecture. For a comparison of the secured virtual hub and hub virtual network architecture types, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+In this tutorial, you learn how to:
 
-From a PowerShell command prompt, run the following commands:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Create the spoke virtual network
+> * Create a secured virtual hub
+> * Connect the hub and spoke VNets
+> * Create a firewall policy and secure your hub
+> * Route traffic to your hub
+> * Test the firewall
 
 ## Create a hub and spoke architecture
 
-First, create a spoke VNet where you can place your servers.
+First, create a spoke virtual network where you can place your servers.
 
-### Create a spoke VNet and subnets
+### Create a spoke virtual network and subnets
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
-4. For **Name**, type **Spoke-01**.
-5. For **Address space**, type **10.0.0.0/16**.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Create new**, and type **FW-Manager** for the name and select **OK**.
-8. For **Location**, select **(US) East US**.
-9. Under **Subnet**, for **Name** type **Workload-SN**.
-10. For **Address range**, type **10.0.1.0/24**.
-11. Accept the other default settings, and then select **Create**.
+2. For **Subscription**, select your subscription.
+1. For **Resource group**, select **Create new**, and type **FW-Manager** for the name and select **OK**.
+2. For **Name**, type **Spoke-01**.
+3. For **Region**, select **(US) East US**.
+4. Select **Next: IP Addresses**.
+1. For **Address space**, accept the default **10.0.0.0/16**.
+3. Under **Subnet name**, select **default**.
+4. Change the subnet name to **Workload-SN**.
+5. For **Subnet address range**, type **10.0.1.0/24**.
+6. Select **Save**..
 
 Next, create a subnet for a jump server.
 
-1. On the Azure portal home page, select **Resource groups** > **FW-Manager**.
-2. Select the **Spoke-01** virtual network.
-3. Select **Subnets** > **+Subnet**.
-4. For **Name**, type **Jump-SN**.
-5. For **Address range**, type **10.0.2.0/24**.
-6. Select **OK**.
+1. Select **Add subnet**.
+4. For **Subnet name**, type **Jump-SN**.
+5. For **Subnet address range**, type **10.0.2.0/24**.
+6. Select **Add**.
+
+Now create the virtual network.
+
+1. Select **Review + create**.
+2. Select **Create**.
 
 ### Create the secured virtual hub
 
@@ -64,36 +66,38 @@ Create your secured virtual hub using Firewall Manager.
 
 1. From the Azure portal home page, select **All services**.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
-3. On the **Firewall Manager** page, select **Create a Secured Virtual Hub**.
-4. On the **Create new Secured virtual hub** page, select your subscription and the **FW-Manager** resource group.
-5. For the **Secured virtual hub name**, type **Hub-01**.
-6. For **Location**, select **East US**.
-7. For **Hub address space**, type **10.1.0.0/16**.
-8. For the new vWAN name, type **vwan-01**.
-9. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
-10. Select **Next:Azure Firewall**.
-11. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
-12. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-13. Select **Create**. It will take about 30 minutes to deploy.
+3. On the **Firewall Manager** page, select **View secured virtual hubs**.
+4. On the **Firewall Manager | Secured virtual hubs** page, select **Create new secured virtual hub**.
+5. For **Resource group**, select **FW-Manager**.
+7. For **Region**, select **East US**.
+1. For the **Secured virtual hub name**, type **Hub-01**.
+2. For **Hub address space**, type **10.1.0.0/16**.
+3. For the new vWAN name, type **Vwan-01**.
+4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
+5. Select **Next:Azure Firewall**.
+6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
+7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
+8. Select **Create**. It will take about 30 minutes to deploy.
 
 ### Connect the hub and spoke VNets
 
 Now you can peer the hub and spoke VNets.
 
-1. Select the **FW-Manager** resource group, then select the **vwan-01** virtual WAN.
+1. Select the **FW-Manager** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke**.
 5. For **Hubs**, select **Hub-01**.
-6. For **Virtual network**, select **Spoke-01**.
-7. Select **OK**.
+6. For **Resource group**, select **FW-Manager**.
+7. For **Virtual network**, select **Spoke-01**.
+8. Select **OK**.
 
 ## Create a firewall policy and secure your hub
 
 A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. You'll create your firewall policy and then secure your hub.
 
-1. From Firewall Manager, select **Create an Azure Firewall Policy**.
-2. Select your subscription, and then select the **FW-Manager** resource group.
+1. From Firewall Manager, select **View Azure Firewall policies**.
+2. Select **Create Azure Firewall Policy**.
 3. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 4. Select **Next:Rules**.
 5. On the **Rules** tab, select **Add a rule collection**.
@@ -107,10 +111,11 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 13. Ensure **Destination type is **FQDN**.
 14. For **Destination**, type **\*.microsoft.com**.
 15. Select **Add**.
-16. Select **Next: Secured virtual hubs**.
-17. On the **Secured virtual hubs** tab, select **Hub-01**.
-19. Select **Review + create**.
-20. Select **Create**.
+16. Select **Next: Hubs**.
+17. On the **Hubs** tab, select **Associate virtual hubs**.
+18. Select **Hub-01** and then select **Add**.
+1. Select **Review + create**.
+2. Select **Create**.
 
 This can take about five minutes or more to complete.
 
@@ -124,10 +129,9 @@ Now you must ensure that network traffic gets routed to through your firewall.
 4. Under **Internet traffic**, **Traffic from Virtual Networks**, select **Send via Azure Firewall**.
 5. Under **Azure private traffic**, **Traffic to Virtual Networks**, select **Send via Azure Firewall**.
 6. Select **Edit IP address prefix(es)**.
-7. Select **Add an IP address prefix**.
 8. Type **10.0.1.0/24** as the address of the Workload subnet and select **Save**.
 9. Under **Settings**, select **Connections**.
-10. Select the **hub-spoke** connection, and then select **Secure internet traffic** and then select **OK**.
+10. Verify that the **hub-spoke** connection shows **Internet Traffic** as **Secured**.
 
 
 ## Test your firewall
@@ -145,12 +149,11 @@ To test your firewall rules, you'll need to deploy a couple servers. You'll depl
    |Resource group     |**FW-Manager**|
    |Virtual machine name     |**Jump-Srv**|
    |Region     |**(US) East US)**|
-   |Administrator user name     |**azureuser**|
-   |Password     |**Azure123456!**|
+   |Administrator user name     |type a user name|
+   |Password     |type a password|
 
 4. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
 5. For **Select inbound ports**, select **RDP (3389)**.
-
 6. Accept the other defaults and select **Next: Disks**.
 7. Accept the disk defaults and select **Next: Networking**.
 8. Make sure that **Spoke-01** is selected for the virtual network and the subnet is **Jump-SN**.

@@ -45,6 +45,10 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
+## Remarks
+
+This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes).
+
 ## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)

@@ -1,11 +1,7 @@
 ---
 title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/23/2018
 
 ---
@@ -242,12 +238,16 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 You can modify these parameters as needed:
 - **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
 - **OnlyProviders**. Set this parameter to only collect logs from the SDK. You can customize this list based on your specific investigations. 
-- **NoGui**. Set this parameter to collect logs without the Gui.
+- **NoGui**. Set this parameter to collect logs without the GUI.
 
 
 For more information,
 - [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## How to remove Application Insights
+
+Learn how to remove Application Insights in Visual Studio by following the steps provide in the removal [article](../../azure-monitor/app/remove-application-insights.md).
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

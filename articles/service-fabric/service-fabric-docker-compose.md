@@ -64,37 +64,37 @@ Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 
 Alternatively, you can use the following Service Fabric CLI command:
 
-```azurecli
+```shell
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
 After you've created the deployment, you can check its status by using the following command:
 
-```azurecli
+```shell
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
 To delete the Compose deployment, use the following command:
 
-```azurecli
+```shell
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
 To start a Compose deployment upgrade, use the following command:
 
-```azurecli
+```shell
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 To rollback the Compose deployment upgrade, use the following command:
 
-```azurecli
+```shell
 sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
-```azurecli
+```shell
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 

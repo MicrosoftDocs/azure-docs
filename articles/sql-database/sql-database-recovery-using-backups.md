@@ -120,7 +120,7 @@ For a sample PowerShell script showing how to restore a deleted Azure SQL databa
 
 #### Managed instance database
 
-For a sample PowerShell script showing how to restore a deleted instance database, see [Restore deleted database on managed instance using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+For a sample PowerShell script showing how to restore a deleted instance database, see [Restore deleted database on managed instance using PowerShell](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database)
 
 > [!TIP]
 > To programmatically restore a deleted database, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md).

@@ -103,6 +103,8 @@ If you created the VM by using the Resource Manager deployment model, you're don
 
 ### Use the ProvisionGuestAgent property for classic VMs
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 If you created the VM by using the classic model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 
 To set the **ProvisionGuestAgent** property, run the following commands in Azure PowerShell:

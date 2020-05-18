@@ -1,6 +1,6 @@
 ---
 title: Diagnose artifact failures in an Azure DevTest Labs virtual machine
-description: Learn how to troubleshoot artifact failures in Azure DevTest Labs.
+description: DevTest Labs provide information that you can use to diagnose an artifact failure. This article shows you how to troubleshoot artifact failures. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

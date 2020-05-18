@@ -64,16 +64,20 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 
 In this section, you create a virtual network, virtual machines in different zones for the region, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if a zone fails, the health probe for VM in the same zone fails, and traffic continues to be served by VMs in the other zones.
 
-### Create a virtual network
-Create a virtual network for deploying your backend servers.
+## Virtual network and parameters
 
-1. On the top left-hand side of the screen click **Create a resource** > **Networking** > **Virtual network** and enter these values for the virtual network:
-    - *myVnet* - for the name of the virtual network.
-    - *myResourceGroupLBAZ* - for the name of the existing resource group
-    - *myBackendSubnet* - for the subnet name.
-2. Click **Create** to create the virtual network.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLBAZ (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Create a network security group
 
