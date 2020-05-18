@@ -50,7 +50,7 @@ az k8sconfiguration create \
     --name cluster-config \
     --cluster-name AzureArcTest1 --resource-group AzureArcTest \
     --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url git@github.com/Azure/arc-k8s-demo \
+    --repository-url https://github.com/Azure/arc-k8s-demo \
     --scope cluster --cluster-type connectedClusters
 ```
 
