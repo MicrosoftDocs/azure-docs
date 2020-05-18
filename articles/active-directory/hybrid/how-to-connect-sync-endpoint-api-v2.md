@@ -19,7 +19,10 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
     
  -  syncing groups with up to 250k members
  - performance gains on export and import to Azure AD
- - write back for O365 unified groups, with no maximum membership limit when group writeback is enabled. 
+ 
+> [!NOTE]
+> Currently, the new endpoint does not have a configured  group size limit for O365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies.  It is recommended to increase your group sizes incrementally.  In the future, this will be capped to a maximum writeback group size of 250k members by default.
+
 
 ## Pre-requisites  
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
