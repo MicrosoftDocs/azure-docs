@@ -47,7 +47,7 @@ Every time you create a new authoring or query prediction resource for LUIS, you
 
 ## Train the app
 
-If you changed the app since your trained it last, [train](get-started-portal-build-app.md) the app.
+If you changed the app since you trained it last, [train](get-started-portal-build-app.md) the app.
 
 ## Publish the app to the prediction endpoint
 

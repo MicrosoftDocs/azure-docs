@@ -172,11 +172,11 @@ The machine learned entity is created and the subentities have features. To comp
 1. Select each entity row in the palette, then use the palette cursor to select the entity in each example utterance. When you are finished, the entity list should look like the following image.
 
     > [!div class="mx-imgBorder"]
-    > ![Partial screenshote of configuring required feature](media/tutorial-machine-learned-entity/labeled-example-utterances-for-machine-learned-entity.png)
+    > ![Partial screenshot of configuring required feature](media/tutorial-machine-learned-entity/labeled-example-utterances-for-machine-learned-entity.png)
 
 ## Train the app
 
-1. To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
+To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
 
 ## Add a new example utterance
 
@@ -196,7 +196,7 @@ The machine learned entity is created and the subentities have features. To comp
 1. To change the prediction into a labeled entity, select the check mark on the same row.
 
     > [!div class="mx-imgBorder"]
-    > ![Partial screenshote of new example utterance predicted with entity](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Partial screenshot of new example utterance predicted with entity](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subentities. If the entity is predicted correctly, make sure to confirm the predictions.
 
