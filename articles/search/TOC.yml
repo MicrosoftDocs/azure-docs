@@ -153,6 +153,16 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
+    - name: Connect with managed identities (preview)
+      items:
+        - name: Managed identities overview
+          href: search-howto-managed-identities-data-sources.md
+        - name: Azure Storage
+          href: search-howto-managed-identities-storage.md
+        - name: Azure Cosmos DB
+          href: search-howto-managed-identities-cosmos-db.md
+        - name: SQL Database
+          href: search-howto-managed-identities-sql.md
     - name: Data sources
       items:
       - name: Azure Blobs
