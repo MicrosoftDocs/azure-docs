@@ -7,7 +7,7 @@ ms.date: 12/09/2019
 ---
 # Azure Functions runtime versions overview
 
-Azure Functions currently supports three versions of the runtime host: 1.x, 2.x, and 3.x. All three versions are currently supported for production scenarios.  
+Azure Functions currently supports three versions of the runtime host: 1.x, 2.x, and 3.x. All three versions are supported for production scenarios.  
 
 > [!IMPORTANT]
 > Version 1.x is in maintenance mode and only supports development in the Azure portal or locally on Windows computers. Enhancements are provided only in later versions. 
