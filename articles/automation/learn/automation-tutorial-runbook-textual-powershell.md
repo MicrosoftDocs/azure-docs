@@ -1,6 +1,6 @@
 ---
 title: Create a PowerShell runbook in Azure Automation
-description: Learn to create, test, and publish a simple PowerShell runbook
+description: This article teaches you to create, test, and publish a simple PowerShell runbook.
 keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
 ms.subservice: process-automation

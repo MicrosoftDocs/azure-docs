@@ -1,6 +1,6 @@
 ---
 title: Manage certificates in Azure Automation
-description: How to work with certificates for access by runbooks and DSC configurations
+description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities

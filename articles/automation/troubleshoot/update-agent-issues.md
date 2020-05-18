@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Windows update agent issues in Azure Automation
-description: How to troubleshoot and resolve issues with the Windows update agent during Update Management
+description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte

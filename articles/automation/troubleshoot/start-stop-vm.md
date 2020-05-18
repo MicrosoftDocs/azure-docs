@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Automation Start/Stop VMs during off-hours deployment issues
-description: How to troubleshoot and resolve issues arising during deployment of the Start/Stop VMs during off-hours feature
+description: This article tells how to troubleshoot and resolve issues arising during deployment of the Start/Stop VMs during off-hours feature.
 services: automation
 ms.service: automation
 ms.subservice: process-automation

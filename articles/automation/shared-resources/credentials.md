@@ -1,6 +1,6 @@
 ---
 title: Manage credentials in Azure Automation
-description: How to create credential assets and use them in a runbook or DSC configuration
+description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities

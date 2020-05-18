@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
-description: How to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers
+description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice:

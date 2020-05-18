@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Automation State Configuration issues
-description: How to troubleshoot and resolve Azure Automation State Configuration issues
+description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.service: automation
 ms.subservice:

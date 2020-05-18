@@ -1,6 +1,6 @@
 ---
 title: Create a Python runbook in Azure Automation
-description: Learn to create, test, and publish a simple Python runbook
+description: This article teaches you to create, test, and publish a simple Python runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020

@@ -1,7 +1,6 @@
 ---
 title: Create a PowerShell Workflow runbook in Azure Automation
-description: Learn to create, test, and publish a simple PowerShell Workflow runbook
-keywords: powershell workflow, powershell workflow examples, workflow powershell
+description: This article teaches you to create, test, and publish a simple PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020

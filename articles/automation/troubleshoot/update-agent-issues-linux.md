@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Linux update agent issues in Azure Automation
-description: How to troubleshoot and resolve issues with the Linux Windows update agent in Update Management
+description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte

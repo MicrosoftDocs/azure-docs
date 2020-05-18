@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Automation runbook issues
-description: How to troubleshoot and resolve issues with Azure Automation runbooks
+description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte

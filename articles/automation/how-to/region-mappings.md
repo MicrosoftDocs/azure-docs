@@ -1,6 +1,6 @@
 ---
 title: Support regions for linked Log Analytics workspace
-description: How to support region mappings between an Automation account and a Log Analytics workspace
+description: This article tells how to support region mappings between an Automation account and a Log Analytics workspace.
 services: automation
 ms.service: automation
 ms.subservice: process-automation

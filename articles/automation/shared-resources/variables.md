@@ -1,6 +1,6 @@
 ---
 title: Manage variables in Azure Automation
-description: How to work with variables in both textual and graphical runbooks and DSC configurations
+description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
