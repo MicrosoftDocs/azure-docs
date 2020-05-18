@@ -347,8 +347,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
     try
     {
         string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateRelationshipAsyn(srcId, relId, 
-                                            JsonSerializer.Serialize(relationship));
+        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
         Console.WriteLine("Created relationship successfully");
     }
     catch (RequestFailedException rex) {
@@ -521,9 +520,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-contains->{targetId}";
-                await client.CreateRelationshipAsync(
-                                srcId, relId, 
-                                JsonSerializer.Serialize(relationship));
+                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
                 Console.WriteLine("Created relationship successfully");
             }
             catch (RequestFailedException rex) {

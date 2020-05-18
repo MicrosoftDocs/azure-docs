@@ -112,7 +112,7 @@ Make sure to save the file before moving on.
 
 Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
-In the project console window, run the following command:
+In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that we will also use in the next section to create different types of twins.
 
 ```cmd/sh
 CreateModels Room Floor
@@ -156,13 +156,13 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-Run this code in the running project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
 ```cmd/sh
-CreateDigitalTwin dtmi:example:Floor;1 floor0
-CreateDigitalTwin dtmi:example:Floor;1 floor1
 CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
 CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
+CreateDigitalTwin dtmi:example:Floor;1 floor0
+CreateDigitalTwin dtmi:example:Floor;1 floor1
 ```
 
 > [!TIP]
