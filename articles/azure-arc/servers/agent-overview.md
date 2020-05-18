@@ -111,10 +111,10 @@ After installing the Connected Machine agent for Linux, the following additional
 
 * The following environmental variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
-|Name |Default value |Description |
-|-----|--------------|------------|
-|IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
-|IMDS_ENDPOINT |http://localhost:40342 ||
+    |Name |Default value |Description |
+    |-----|--------------|------------|
+    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+    |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * During uninstall of the agent, the following artifacts are not removed.
 
@@ -157,7 +157,7 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support. | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
 | Windows Server 2012 R2 and higher | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
-### Networking Configuration
+### Networking configuration
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration requirements.
 
