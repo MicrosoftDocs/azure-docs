@@ -59,7 +59,7 @@ Linux:
 * `aka.ms`
 * `packages.microsoft.com`
 
-See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.
+#TODO See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.
 
 ## Register the required Resource Providers
 
