@@ -3,7 +3,6 @@
 - name: Overview
   href: overview.md
   items:
-  - name: Solution architecture
 - name: How-to guides
   - name: Cluster operations
     items:
