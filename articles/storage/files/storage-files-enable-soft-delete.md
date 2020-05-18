@@ -12,9 +12,9 @@ services: storage
 
 # Enable soft delete
 
-Azure Storage now offers soft delete for file shares so that you can more easily recover your data when it is mistakenly deleted by an application or other storage account user. To learn more about soft delete, refer to [How to prevent accidental deletion of Azure file shares](storage-files-recover-file-shares.md).
+Azure Storage offers soft delete for file shares so that you can more easily recover your data when it is mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-recover-file-shares.md).
 
-The following steps show how to enable soft delete for Azure file shares on an existing storage account:
+The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
 # [Portal](#tab/azure-portal)
 
@@ -53,7 +53,7 @@ To restore a soft deleted file share:
 1. Navigate to your storage account and select **File shares**.
 1. On the file share blade, enable **Show deleted shares** to display any shares that have been soft deleted.
 
-    This will display any shares which are currently in a **Deleted** status.
+    This will display any shares currently in a **Deleted** state.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="If the status column, the column next to the name column, is set to deleted, then your file share is in a soft deleted state. And will be permanently deleted after your specified retention period.":::
 
@@ -96,6 +96,3 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountNa
 ## Monitoring soft deleted data
 
 To see the size of a soft-deleted file share, you must undelete the share, then view its properties.
-
-> [!NOTE]
-> For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.

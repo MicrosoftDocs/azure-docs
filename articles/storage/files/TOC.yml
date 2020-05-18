@@ -31,7 +31,7 @@
     href: storage-files-networking-overview.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
-  - name: Preventing accidental data deletion
+  - name: Prevent accidental data deletion
     href: storage-files-recover-file-shares.md
   - name: About storage accounts
     href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json

@@ -16,13 +16,12 @@ Azure Storage now offers soft delete for file shares so that you can more easily
 
 ## How soft delete works
 
-When enabled, soft delete enables you to save and recover your file shares when they are deleted.
+When enabled, soft delete enables you to save and recover your file shares when they are deleted. When data is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it is permanently expired.
 
-When data is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it is permanently expired.
+You can enable soft delete on your existing file shares. Soft delete is backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections this feature affords. 
 
-Soft delete is backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections this feature affords. 
 
-You can enable soft delete on your existing file shares.
+For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
 
 ## Configuration settings
 
@@ -38,7 +37,7 @@ To permanently delete a file share that is in a soft delete state prior to its e
 
 ## Pricing and billing
 
-Both standard and premium file shares are billed on the used capacity when soft deleted, rather than provisioned capacity. Additionally, premium file shares are billed at the snapshot rate while in the soft delete state. Standard file shares are billed at the regular rate while in the soft delete state. You will not be charged for data that is permanently deleted after the configured retention period. 
+Both standard and premium file shares are billed on the used capacity when soft deleted, rather than provisioned capacity. Additionally, premium file shares are billed at the snapshot rate while in the soft delete state. Standard file shares are billed at the regular rate while in the soft delete state. You will not be charged for data that is permanently deleted after the configured retention period.
 
 For more details on prices for Azure File Storage in general, check out the [Azure File Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/files/).
 
