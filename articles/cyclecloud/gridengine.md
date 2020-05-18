@@ -210,3 +210,6 @@ The following are the Grid Engine specific configuration options you can toggle 
 
 * `qsh` command for interactive session does not work. Use `qrsh` as an alternative.
 * The `exclusive=1` complex is not respected by autoscale. Fewer nodes than expected may start as a result.
+
+> [!NOTE]
+> Even though Windows is an officially supported GridEngine platform, CycleCloud does not support running GridEngine on Windows at this time.

@@ -94,3 +94,6 @@ The following are the PBS Professional specific configuration options you can to
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported. |
 
 [!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+
+> [!NOTE]
+> Even though Windows is an officially supported PBS Professional platform, CycleCloud does not support running PBS Professional on Windows at this time.
