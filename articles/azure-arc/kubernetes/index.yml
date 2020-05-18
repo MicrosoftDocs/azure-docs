@@ -35,6 +35,8 @@ landingContent:
             url: ./use-gitops-in-connected-cluster.md
           - text: Use GitOps with Helm
             url: ./use-gitops-with-helm.md
+          - text: Use Azure monitor for containers
+            url: ./deploy-azure-monitor-for-containers.md
           - text: Use Azure Policy
             url: ./use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
