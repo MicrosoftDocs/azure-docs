@@ -4,27 +4,21 @@
   href: overview.md
   items:
   - name: Solution architecture
-- name: Quickstarts
+- name: How-to guides
   expanded: true
   items:
    - name: Connect cluster
      href: connect-a-cluster.md
-  items:
    - name: Create cluster with AKS-Engine
      href: connect-a-cluster.md
-- name: Tutorials
-  expanded: true
-  items:
-  - name: Use GitOps for connected clusters
-    href: use-gitops-in-connected-cluster.md
-  - name: Deploy IoT workloads
-    href: deploy-azure-iot-edge-workloads.md  deploy-azure-iot-edge-workloads
-- name: How-to 
-  items:
-  - name: Enable resource providers
-    href: enable-providers.md
-  - name: Install CLI extensions
-    href: install-cli-extensions.md
+   - name: Use GitOps for connected clusters
+     href: use-gitops-in-connected-cluster.md
+   - name: Deploy IoT workloads
+     href: deploy-azure-iot-edge-workloads.md
+   - name: Enable resource providers
+     href: enable-providers.md
+   - name: Install CLI extensions
+     href: install-cli-extensions.md
   - name: Security
     items:
     - name: Use Azure Policy
@@ -35,5 +29,5 @@
       href: deploy-azure-monitor-for-containers.md
 - name: Resources
   items:
-  - name: Frequently asked questions
-    href: arc-for-Kubernetes-faq.md
+  - name: Troubleshooting
+    href: Troubleshooting.md
