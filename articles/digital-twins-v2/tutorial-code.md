@@ -520,8 +520,9 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-contains->{targetId}";
-                await client.CreateEdgeAsync(srcId, relId, 
-                                             JsonSerializer.Serialize(relationship));
+                await client.CreateRelationshipAsync(
+                                srcId, relId, 
+                                JsonSerializer.Serialize(relationship));
                 Console.WriteLine("Created relationship successfully");
             }
             catch (RequestFailedException rex) {
