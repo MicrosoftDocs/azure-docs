@@ -507,17 +507,17 @@
       - name: Create a Bastion host
         items: 
         - name: Portal
-          href: ../../bastion/bastion-create-host-portal.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/bastion-create-host-portal.md?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: PowerShell
-          href: ../../bastion/bastion-create-host-powershell.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/bastion-create-host-powershell.md?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: CLI
-          href: ../../bastion/create-host-cli.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/create-host-cli.md?context=azure/virtual-machines/windows/context/windows-vm-context
       - name: Use Bastion to connect
         items:
         - name: Bastion SSH connection
-        href: ../../bastion/bastion-connect-vm-ssh.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../bastion/bastion-connect-vm-ssh.md?context=azure/virtual-machines/windows/context/windows-vm-context
       - name: Bastion RDP connection
-        href: ../../bastion/bastion-connect-vm-rdp.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../bastion/bastion-connect-vm-rdp.md?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: Encrypt
       items:
         - name: Disk encryption scenarios for Windows
