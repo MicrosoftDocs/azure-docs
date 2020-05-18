@@ -67,18 +67,18 @@ curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/
 ```console
 bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster>  <kube-context>
 
-For Example ..
+For Example:
 bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
 
  ```
 
 ## Configure agent data collection
-By default agent doesnt collect stdout and stderr logs of containers in kube-system namespace.
+By default, the agent doesn't collect stdout and stderr logs of containers in kube-system namespace.
 Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config to configure agent with desired data collection settings.
 
 ## Configure scraping of Prometheus metrics
 Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend.
-Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
+Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions on how to configure Prometheus scraping.
 
 ## User interface
 Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster
@@ -90,9 +90,7 @@ If you would like to disable monitoring due to some reason, you can just simply 
 helm del azmon-containers-release-1
 ```
 
-## Contact
-If you have any questions or feedback or feature request regarding Azure Monitor for containers integration, please reach us out through [this](mailto:omscontainers@microsoft.com).
-
 ## Next steps
 
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+
