@@ -35,7 +35,7 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
-    e. **Storage account**: An optional Azure Storage account that you associate with your Batch account. A general-purpose v2 storage account is recommended for the best performance. For all storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account). In the portal, select an existing storage account, or create a new one.
+    e. **Storage account**: An optional Azure Storage account that you associate with your Batch account. A general-purpose v2 storage account is recommended for the best performance. For all storage account options in Batch, see the [Batch feature overview](accounts.md#azure-storage-accounts). In the portal, select an existing storage account, or create a new one.
 
       ![Create a storage account][storage_account]
 

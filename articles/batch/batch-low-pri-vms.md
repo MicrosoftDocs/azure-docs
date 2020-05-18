@@ -242,6 +242,6 @@ To view metrics in the Azure portal:
 
 ## Next steps
 
-* Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Start to plan the move from low-priority VMs to Spot VMs. If you use low-priority VMs with **Cloud Service configuration** pools, then plan to move to **Virtual Machine configuration** pools.
