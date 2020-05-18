@@ -95,4 +95,4 @@ Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
 
 ## Next steps
 
-* [Connect a cluster](./README.md#connect-your-first-cluster)
+* [Connect a cluster](connect-a-cluster.md)
