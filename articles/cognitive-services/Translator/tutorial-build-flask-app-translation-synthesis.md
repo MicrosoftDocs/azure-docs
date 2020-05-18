@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text - Translator Text API"
+title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text - Translator"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll build a Flask-based web app to translate text, analyze sentiment, and synthesize translated text into speech.
 services: cognitive-services
@@ -22,7 +22,7 @@ Here's what this tutorial covers:
 > * Get Azure subscription keys
 > * Set up your development environment and install dependencies
 > * Create a Flask app
-> * Use the Translator Text API to translate text
+> * Use the Translator to translate text
 > * Use Text Analytics to analyze positive/negative sentiment of input text and translations
 > * Use Speech Services to convert translated text into synthesized speech
 > * Run your Flask app locally
@@ -47,14 +47,14 @@ Let's review the software and subscription keys that you'll need for this tutori
 * [Git tools](https://git-scm.com/downloads)
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
-* A **Translator Text** subscription key (Note that you aren't required to select a region.)
+* A **Translator** subscription key (Note that you aren't required to select a region.)
 * A **Text Analytics** subscription key in the **West US** region.
 * A **Speech Services** subscription key in the **West US** region.
 
 ## Create an account and subscribe to resources
 
 As previously mentioned, you're going to need three subscription keys for this tutorial. This means that you need to create a resource within your Azure account for:
-* Translator Text
+* Translator
 * Text Analytics
 * Speech Services
 
@@ -241,14 +241,14 @@ While these samples illustrate how to render html pages for a user, routes can a
 
 Now that you have an idea of how a simple Flask app works, let's:
 
-* Write some Python to call the Translator Text API and return a response
+* Write some Python to call the Translator and return a response
 * Create a Flask route to call your Python code
 * Update the HTML with an area for text input and translation, a language selector, and translate button
 * Write Javascript that allows users to interact with your Flask app from the HTML
 
-### Call the Translator Text API
+### Call the Translator
 
-The first thing you need to do is write a function to call the Translator Text API. This function will take two arguments: `text_input` and `language_output`. This function is called whenever a user presses the translate button in your app. The text area in the HTML is sent as the `text_input`, and the language selection value in the HTML is sent as `language_output`.
+The first thing you need to do is write a function to call the Translator. This function will take two arguments: `text_input` and `language_output`. This function is called whenever a user presses the translate button in your app. The text area in the HTML is sent as the `text_input`, and the language selection value in the HTML is sent as `language_output`.
 
 1. Let's start by creating a file called `translate.py` in the root of your working directory.
 2. Next, add this code to `translate.py`. This function takes two arguments: `text_input` and `language_output`.
@@ -284,7 +284,7 @@ The first thing you need to do is write a function to call the Translator Text A
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Add your Translator Text subscription key and save.
+3. Add your Translator subscription key and save.
 
 ### Add a route to `app.py`
 
@@ -957,6 +957,6 @@ The source code for this project is available on [GitHub](https://github.com/Mic
 
 ## Next steps
 
-* [Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
