@@ -13,11 +13,11 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 
 # Enable resource providers (Preview)
 
-Enable ersource proivders for your Azure subscription.
+Enable resource providers for your Azure subscription.
 
 ## Enable required feature flags
 
-In order to use Azure Arc enabled Kubernetes your Azure subscriptions need two feature flags enabled.
+In order to use Azure Arc enabled Kubernetes, your Azure subscriptions need two feature flags enabled.
 
 ```console
 az feature register --namespace Microsoft.Kubernetes --name previewAccess
@@ -50,7 +50,7 @@ Microsoft.Kubernetes/previewAccess                                              
 Microsoft.KubernetesConfiguration/sourceControlConfiguration                      Registered
 ```
 
-If you receive an error or do not see the following features in a `Registered` state, please check the following:
+If you receive an error or do not see the following features in a `Registered` state:
 
 1. Ensure you are using the subscription that you provided to Microsoft: `az account set -s <subscription id>`
 1. Re-check your feature flags
