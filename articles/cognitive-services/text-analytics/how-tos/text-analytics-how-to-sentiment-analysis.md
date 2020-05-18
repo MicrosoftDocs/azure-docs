@@ -14,9 +14,6 @@ ms.author: aahi
 
 # How to: Detect sentiment using the Text Analytics API
 
-> [!NOTE]
-> * The Text Analytics API offers multiple versions of Sentiment Analysis. This article only covers versions 3.0 and 3.1-preview.1. See the [migration guide](../migration-guide.md) for v2.1 information.
-
 The Text Analytics API's Sentiment Analysis feature evaluates text and returns sentiment scores and labels for each sentence. This is useful for detecting positive and negative sentiment in social media, customer reviews, discussion forums and more. The AI models used by the API are provided by the service, you just have to send content for analysis.
 
 After sending a sentiment analysis request, the API returns sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level.
