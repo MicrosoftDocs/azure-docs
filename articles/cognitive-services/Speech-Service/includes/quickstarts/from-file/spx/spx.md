@@ -6,21 +6,23 @@ ms.date: 05/13/2020
 ms.author: v-demjoh
 ---
 
-## Find a suitable file
+## Find a file that contains speech
 
-This quickstart uses ours. Yours needs to meet these criteria...
+The SPX tool can recognize speech in many file formats and natural languages. For this quickstart, you can use
+a WAV file (16kHz or 8kHz, 16-bit, and mono PCM) that contains English speech. 
+Download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a>
 
 ## Run the SPX tool
 
 Now you're ready to run the SPX tool to recognize speech found in the sound file.
 
-1. **Start your app** - From the command line, change to the directory that contains spx.exe, and type:
+From the command line, change to the directory that contains spx.exe, and type:
     ```bash
     spx recognize --not-microfphone
     ```
 
     > [!NOTE]
-    > The SPX tool defaults to English. You can also choose [a language from the Speech-to-text table](../../../../language-support.md).
+    > The SPX tool defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
     > For example, add `--source de-DE` to recognize German speech.
 
-2. **Start recognition** - Speak into the microphone. You will see transcription of your words into text in real-time. The SPX tool will stop after a period of silence, or when you press ctrl-C.
+The SPX tool will show a text transcription of the speech on the screen. Then the SPX tool will close.
