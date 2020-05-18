@@ -7,16 +7,16 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 05/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # Configure object replication (preview)
 
-Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. The source and destination accounts may be in different regions. For more information about object replication, see [Object replication (preview)](object-replication-overview.md).
+Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication (preview)](object-replication-overview.md).
 
-To use object replication, create a replication policy on the source account that specifies the destination account. Then add one or more replication rules to the policy. Replication rules specify the source and destination containers and determine which block blobs in those containers will be copied.
+When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated.
 
 This article describes how to configure object replication for your storage account by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
 
@@ -24,16 +24,16 @@ This article describes how to configure object replication for your storage acco
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
-Also create the source and destination containers in their respective storage accounts, if they do not already exist.
+# [Azure portal](#tab/portal)
 
-Finally, enable the following prerequisites:
+Before you configure object replication in the Azure portal, create the source and destination containers in their respective storage accounts, if they do not already exist.
+
+Next, make sure you have enabled the following prerequisites:
 
 - [Change feed (preview)](storage-blob-change-feed.md) on the source account
 - [Blob versioning (preview)](versioning-overview.md) on the source and destination accounts
 
-# [Azure portal](#tab/portal)
-
-To create a replication policy and add replication rules in the Azure portal, follow these steps:
+To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
 1. Under **Settings**, select **Object replication**.
@@ -61,9 +61,7 @@ To create a replication policy and add replication rules in the Azure portal, fo
 
 # [PowerShell](#tab/powershell)
 
-### Install the preview module
-
-To create a replication policy and add replication rules using PowerShell, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
+To create a replication policy with PowerShell, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
 1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 
@@ -73,7 +71,7 @@ To create a replication policy and add replication rules using PowerShell, first
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
 
-1. Close and reopen the PowerShell window after installing PowerShellGet.
+    Close and reopen the PowerShell window after installing PowerShellGet.
 
 1. Install the latest version of Azure PowerShell:
 
@@ -89,15 +87,13 @@ To create a replication policy and add replication rules using PowerShell, first
 
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
-### Configure replication policy and rules
-
-Before running the example, use the Azure portal or an Azure Resource Manager template to enable blob versioning on the source and destination accounts.
+The following example shows how to create a replication policy on the source and destination accounts. Remember to replace values in angle brackets with your own values:
 
 ```powershell
 # Sign in to your Azure account.
 Connect-AzAccount
 
-# Set resource group and account variables.
+# Set variables.
 $rgName = "<resource-group>"
 $srcAccountName = "<source-storage-account>"
 $destAccountName = "<destination-storage-account>"
@@ -106,14 +102,22 @@ $destContainerName1 = "dest-container1"
 $srcContainerName2 = "source-container2"
 $destContainerName2 = "dest-container2"
 
-# Enable change feed on the source account.
-Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+# Enable blob versioning and change feed on the source account.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
     -StorageAccountName $srcAccountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
-# View the service settings.
-Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
-    -StorageAccountName $accountName
+# Enable blob versioning on the destination account.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -IsVersioningEnabled $true
+
+# List the service properties for both accounts.
+Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName
+Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
 
 # Create new containers in the source and destination accounts.
 $srcAccount | New-AzStorageContainer $srcContainerName1
@@ -121,47 +125,40 @@ $destAccount | New-AzStorageContainer $destContainerName1
 $srcAccount | New-AzStorageContainer $srcContainerName2
 $destAccount | New-AzStorageContainer $destContainerName2
 
+# Create containers in the source and destination accounts.
+Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $srcAccountName |
+    New-AzStorageContainer $srcContainerName1
+Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $destAccountName |
+    New-AzStorageContainer $destContainerName1
+Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $srcAccountName |
+    New-AzStorageContainer $srcContainerName2
+Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $destAccountName |
+    New-AzStorageContainer $destContainerName2
+
+# Define replication rules for each container.
+$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainerName1 `
+    -DestinationContainer $destContainerName1 `
+    -PrefixMatch b
+$rule2 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainerName2 `
+    -DestinationContainer $destContainerName2  `
+    -MinCreationTime 2020-05-10T00:00:00Z
+
+# Create the replication policy on the destination account.
+$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -PolicyId default `
+    -SourceAccount $srcAccountName `
+    -Rule $rule1,$rule2
+
+# Create the same policy on the source account.
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -InputObject $destPolicy
 ```
 
+# [Azure CLI](#tab/azure-cli)
 
-
-Create a new replication rule and specify the desired prefix and replication behavior for the objects, that existed prior to configuring object replication.
-
-\$rule = New-AzStorageObjectReplicationPolicyRule -SourceContainer \<source container\> -DestinationContainer \<destination container\> -PrefixMatch \<desired prefix match\> -MinCreationTime (Get-Date).AddDays(-3)
-
-For list of available parameters and their values, run Get-Help New-AzStorageObjectReplicationPolicyRule -Full and/or Get-Help New-AzStorageObjectReplicationPolicyRule -Examples.
-
-Create a replication policy on the destination account and pass on the rule you created earlier.
-
-Set-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<destination storage account\> -PolicyId default -SourceAccount \<source storage account\> -Rule \$rule
-
-Retrieve the replication policy you created and enable object replication on the source account by adding the replication policy to it.
-
-\$dstpolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<destination storage account\>
-
-Set-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<source storage account\> -InputObject \$dstpolicy
-
-Get details on the replication policy in effect on the destination account and its associated properties.
-
-\$dstpolicy
-
-\$dstpolicy.Rules
-
-Get details on the replication policy in effect on the source account and its associated properties.
-
-\$srcpolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<source storage account\>
-
-\$srcpolicy
-
-\$srcpolicy.Rules
-
-When no longer needed, remove the replication policy from the source and destination accounts.
-
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<destination storage account\> \| Remove-AzStorageObjectReplicationPolicy
-
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName \<resource group\> -StorageAccountName \<source storage account\> \| Remove-AzStorageObjectReplicationPolicy
-
-# [Azure CLI](#tab/cli)
+To create a replication policy with Azure CLI, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
 Refer to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) article to install and import the preview module supporting object replication capability.
 
