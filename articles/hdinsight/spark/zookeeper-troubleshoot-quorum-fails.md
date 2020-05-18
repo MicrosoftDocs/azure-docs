@@ -16,7 +16,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 ## Symptoms
 
  * Both the resource managers go to standby mode
- * Names nodes are both in standby mode
+ * Namenodes are both in standby mode
  * Spark / hive / yarn jobs or hive queries fail because of zookeeper connection failures
  * LLAP daemons fail to start on secure spark or secure interactive hive clusters
  
@@ -38,18 +38,18 @@ Message
   * HA services like Yarn / NameNode / Livy can go down due to many reasons. 
     * Please confirm from the logs that it is related to zookeeper connections
     * Please make sure that the issue happens repeatedly (do not do these mitigations for one off cases)
-  * Job failures can fail temporarily due to zookeeper connection issues
+  * Jobs can fail temporarily due to zookeeper connection issues
   
 ## Further reading
 
-[ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
+[ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
 ## Common causes
 
 * High CPU usage on the zookeeper servers
-  * In the Ambari UI, if you see near 100% sustained CPU usage on the zookeeper servers, then the sessions open during that time can expire and timeout
-* Zookeeper is busy consolidating snapshots that it doesn't respond to clients / requests on time
-* Zookeeper servers have a sustained CPU load of 5 or above (as seen in Ambari UI)
+  * In the Ambari UI, if you see near 100% sustained CPU usage on the zookeeper servers, then the zookeeper sessions open during that time can expire and timeout
+* Zookeeper clients are reporting frequent timeouts
+  * The transaction logs and the snapshots are being written to the same disk. This can cause I/O bottlenecks
 
 ## Check for zookeeper status
   * Find the zookeeper servers from the /etc/hosts file or from Ambari UI
@@ -69,13 +69,13 @@ Message
   * This controlled by the configuration key autopurge.snapRetainCount
     * /etc/zookeeper/conf/zoo.cfg for hadoop zookeeper
     * /etc/hdinsight-zookeeper/conf/zoo.cfg for HDI zookeeper
-  * Set this to a value >=3 and restart the zookeeper servers
+  * Set this to a value =3 and restart the zookeeper servers
     * Hadoop zookeeper can be restarted through Ambari
     * HDI zookeeper has to be stopped manually and restarted manually
       * sudo lsof -i :2182 will give you the process id to kill
       * sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py
   * Manually purging snapshots
-    * DO NOT delete the snapshot files directly as this could result in data loss
+    * **DO NOT delete the snapshot files directly as this could result in data loss**
       * zookeeper
         * sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/zookeeper/ /hadoop/zookeeper/ 3
       * hdinsight-zookeeper
