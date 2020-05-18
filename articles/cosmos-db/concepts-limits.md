@@ -144,8 +144,8 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
 | Current RU/s the system is scales to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
 | Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you are billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
-| Minimum autoscale max RU/s for a container  |  `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)` rounded to nearest 1000 RU/s |
-| Minimum autoscale max RU/s for a database  |  `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10,  400 + (MAX(Container count - 25, 0) * 100))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
+| Minimum autoscale max RU/s for a container  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` rounded to nearest 1000 RU/s |
+| Minimum autoscale max RU/s for a database  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).
 
 ## SQL query limits
 

@@ -61,7 +61,7 @@ Conceptually, changing the throughput type is a two-stage process. First, you se
 
 **Migration from standard (manual) provisioned throughput to autoscale**
 
-For a container, use the following formula to estimate the initial autoscale max RU/s: ``10 * MAX(400, current manual provisioned RU/s / 10, maximum RU/s ever provisioned / 100, storage in GB * 10)``, rounded to the nearest 1000 RU/s. The actual initial autoscale max RU/s may vary depending on your account configuration.
+For a container, use the following formula to estimate the initial autoscale max RU/s: ``MAX(4000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB * 100)``, rounded to the nearest 1000 RU/s. The actual initial autoscale max RU/s may vary depending on your account configuration.
 
 Example #1: Suppose you have a container with 10,000 RU/s manual provisioned throughput, and 25 GB of storage. When you enable autoscale, the initial autoscale max RU/s will be: 10,000 RU/s, which will scale between 1000 - 10,000 RU/s. 
 
@@ -98,13 +98,13 @@ Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to chan
 When you send a request to increase the max RU/s `Tmax`, depending on the max RU/s selected, the service provisions more resources to support the higher max RU/s. While this is happening, your existing workload and operations will not be affected. The system will continue to scale your database or container between the previous `0.1*Tmax` to `Tmax` until the new scale range of `0.1*Tmax_new` to `Tmax_new` is ready.
 
 #### Lowering the max RU/s
-When you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
+When you lower the max RU/s, the minimum value you can set it to is: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, rounded to the nearest 1000 RU/s. 
 
-Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. The lowest, minimum value you can set max RU/s to is: 10 * MAX(400, 20,000 / 100, **50 * 10**) = 5000 RU/s (scales between 500 - 5000 RU/s). 
+Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. The lowest, minimum value you can set max RU/s to is: MAX(4000, 20,000 / 10, **50 * 100**) = 5000 RU/s (scales between 500 - 5000 RU/s).
 
-Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: 10 * MAX(400, **150,000 / 100**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
+Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: MAX(4000, **150,000 / 10**, 100 * 100) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
 
-For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `10 * MAX(400, highest max RU/s ever provisioned / 100, current storage in GB * 10,  400 + (MAX(Container count - 25, 0) * 100))`, rounded to the nearest 1000 RU/s.  
+For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, rounded to the nearest 1000 RU/s.  
 
 The above formulas and examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
 
@@ -141,3 +141,4 @@ For example, if you select the 20,000 RU/s max throughput option and have 200 GB
 * Learn how to [enable autoscale on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Learn more about [logical and physical partitions](partition-data.md).
+                        
