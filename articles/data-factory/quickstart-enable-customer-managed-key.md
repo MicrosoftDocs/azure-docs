@@ -107,7 +107,7 @@ To change key used for Data Factory encryption, you have to manually update the 
 
 ## Disable Customer-Managed Keys
 
-By design, once the customer-managed key feature is enabled, you can;t remove the extra security step. We will always expect a customer provided key to encrypt factory and data.
+By design, once the customer-managed key feature is enabled, you can't remove the extra security step. We will always expect a customer provided key to encrypt factory and data.
 
 ## Next steps
 
