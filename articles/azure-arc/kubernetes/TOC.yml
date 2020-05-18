@@ -5,26 +5,26 @@
   items:
   - name: Solution architecture
 - name: How-to guides
-  expanded: true
-  items:
-   - name: Connect cluster
-     href: connect-a-cluster.md
-   - name: Create cluster with AKS-Engine
-     href: connect-a-cluster.md
-   - name: Use GitOps for connected clusters
-     href: use-gitops-in-connected-cluster.md
-   - name: Deploy IoT workloads
-     href: deploy-azure-iot-edge-workloads.md
-   - name: Enable resource providers
-     href: enable-providers.md
-   - name: Install CLI extensions
-     href: install-cli-extensions.md
+  - name: Cluster operations
+    items:
+    - name: Connect cluster
+      href: connect-a-cluster.md
+    - name: Create cluster with AKS-Engine
+      href: connect-a-cluster.md
+    - name: Use GitOps for connected clusters
+      href: use-gitops-in-connected-cluster.md
+    - name: Deploy IoT workloads
+      href: deploy-azure-iot-edge-workloads.md
+    - name: Enable resource providers
+      href: enable-providers.md
+    - name: Install CLI extensions
+      href: install-cli-extensions.md
   - name: Security
     items:
     - name: Use Azure Policy
       href: use-azure-policy.md
-  - name: Monitoring
-    items:
+   -  name: Monitoring
+      items:
     - name: Azure Monitor for containers
       href: deploy-azure-monitor-for-containers.md
 - name: Resources

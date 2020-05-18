@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is Azure Arc enabled Kubernetes?
             url: ./overview.md 
-      - linkListType: How-To-Guides
+      - linkListType: how-to-guide
         links:
           - text: Enable resoure providers
             url: ./enable-providers.md
