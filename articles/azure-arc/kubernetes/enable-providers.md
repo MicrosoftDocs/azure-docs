@@ -50,7 +50,7 @@ Microsoft.Kubernetes/previewAccess                                              
 Microsoft.KubernetesConfiguration/sourceControlConfiguration                      Registered
 ```
 
-If you receive an error, or do not see the following features in a `Registered` state, please check the following:
+If you receive an error or do not see the following features in a `Registered` state, please check the following:
 
 1. Ensure you are using the subscription that you provided to Microsoft: `az account set -s <subscription id>`
 1. Re-check your feature flags
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
-Registration is an asynchronous process. While registration should complete quickly (within 10 minutes). You may monitor registration process If you do not see registration state progress, reach out to <haikueng@microsoft.com>.
+Registration is an asynchronous process. While registration should complete quickly (within 10 minutes), you can monitor the registration process.
 
 ```console
 az provider show -n Microsoft.Kubernetes -o table
@@ -96,3 +96,4 @@ Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
 ## Next steps
 
 * [Connect a cluster](connect-a-cluster.md)
+
