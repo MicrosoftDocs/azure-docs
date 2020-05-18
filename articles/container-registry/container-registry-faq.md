@@ -430,8 +430,8 @@ Please contact your network administrator or check your network configuration an
 
 ### Why does my pull or push request fail with disallowed operation?
 
-Here are some scenarios where operations maybe disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
+Here are some scenarios where operations may be disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
