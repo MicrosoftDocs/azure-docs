@@ -145,7 +145,7 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
 
 The `Response` element includes the result of the authorization request. Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `Response` element. It also sets the following attributes:
 
-* `Destination`: When sign on completes successfully, this is set to the `RedirectUri` of the service provider (cloud service).
+* `Destination`: When sign-on completes successfully, this is set to the `RedirectUri` of the service provider (cloud service).
 * `InResponseTo`: This is set to the `ID` attribute of the `AuthnRequest` element that initiated the response.
 
 ### Issuer
