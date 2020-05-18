@@ -24,8 +24,8 @@
     items:
     - name: Use Azure Policy
       href: use-azure-policy.md
-   -  name: Monitoring
-      items:
+  - name: Monitoring
+    items:
     - name: Azure Monitor for containers
       href: deploy-azure-monitor-for-containers.md
 - name: Resources
