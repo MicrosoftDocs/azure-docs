@@ -145,40 +145,9 @@ A more detailed description of your offer. This can be up to 256 characters long
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description](./includes/long-description.md)]
 
-Include one or more of the following in your description:
-
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-  - Description of the offer.
-  - The type of user that benefits from the offer
-  - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer **description** more engaging, use the rich text editor, to format your description. with numbering, bullets, bold, italics, and indents to make your description more readable.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false" :::
-
-- Use this drop-down to apply a paragraph style to text.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
-
-- Use these icons to apply numbering or bullets to text.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
-
-- Use these icons to add or remove indentation to or from text.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+[!INCLUDE [Long description html](./includes/long-description-html.md)]
 
 #### Privacy policy link
 
