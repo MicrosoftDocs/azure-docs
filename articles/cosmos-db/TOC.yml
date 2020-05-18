@@ -137,7 +137,7 @@
         href: set-throughput.md
       - name: Provision autoscale throughput
         href: provision-throughput-autoscale.md
-      - name: Choose between autoscale and standard throughput
+      - name: Choose between autoscale and standard (manual) throughput
         href: how-to-choose-offer.md    
       - name: Autoscale FAQ
         href: autoscale-faq.md
