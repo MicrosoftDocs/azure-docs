@@ -12,6 +12,12 @@
     items:
     - name: Release notes
       href: release-notes.md  
+- name: Quickstarts
+  items:
+  - name: Get started – Detect motion and emit events
+    href: get-started-detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video clips to Azure Media Services
+    href: detect-motion-record-video-clips-media-services-quickstart.md    
 - name: Tutorials
   items:
   - name: Continuous video recording  
