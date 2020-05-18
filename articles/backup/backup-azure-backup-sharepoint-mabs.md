@@ -114,7 +114,7 @@ After the protection group's been created, the initial replication occurs and MA
 
 2. Click **SMTP Server**, type the server name, port, and email address from which notifications will be sent. The address must be valid.
 
-3. In **Authenticated SMTP server, type a user name and password. The user name and password must be the domain account name of the person whose "From" address is described in the previous step. Otherwise, the notification delivery fails.
+3. In **Authenticated SMTP server**, type a user name and password. The user name and password must be the domain account name of the person whose "From" address is described in the previous step. Otherwise, the notification delivery fails.
 
 4. To test the SMTP server settings, click **Send Test E-mail**, type the e-mail address where you want MABS to send the test message, and then click **OK**. Click **Options** > **Notifications** and select the types of alerts about which recipients want to be notified. In **Recipients** type the e-mail address for each recipient to whom you want MABS to send copies of the notifications.
 
