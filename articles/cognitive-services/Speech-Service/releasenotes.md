@@ -41,7 +41,7 @@ ms.custom: seodec18
 - **C#**: Fixed audio input lifetime management for ConversationTranscriber object.
 - Fixed an issue where IntentRecognizer result reason was not set properly when recognizing intents from simple phrases.
 - Fixed an issue where SpeechRecognitionEventArgs result offset was not set correctly.
-- Fixed a race condition where SDK was trying to send a network message before opening the websocket connection. Was reproable for TranslationRecognizer while adding participants.
+- Fixed a race condition where SDK was trying to send a network message before opening the websocket connection. Was reproducible for TranslationRecognizer while adding participants.
 - Fixed memory leaks in the keyword recognizer engine.
 
 **Samples**
@@ -142,7 +142,7 @@ Stay healthy!
 - See the `OpenSSL` update under Breaking changes above. We fixed both an intermittent crash and a performance issue (lock contention under high load) in Linux and Java. 
 - Java: Made improvements to object closure in high concurrency scenarios.
 - Restructured our NuGet package. We removed the three copies of `Microsoft.CognitiveServices.Speech.core.dll` and `Microsoft.CognitiveServices.Speech.extension.kws.dll` under lib folders, making the NuGet package smaller and faster to download, and we added headers needed to compile some C++ native apps.
-- Fixed quickstart samples [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). These were exiting without displaying "microphone not found" exception on Linux, MacOS, Windows.
+- Fixed quickstart samples [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). These were exiting without displaying "microphone not found" exception on Linux, macOS, Windows.
 - Fixed SDK crash with long speech recognition results on certain code paths like [this sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
 - Fixed SDK deployment error in Azure Web App environment to address [this customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
 - Fixed a TTS error while using multi `<voice>` tag or `<audio>` tag to address [this customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
