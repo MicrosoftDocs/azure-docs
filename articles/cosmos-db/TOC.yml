@@ -924,7 +924,7 @@
         href: how-to-convert-session-token.md
     - name: Provisioned throughput
       items:
-      - name: Provision throughput on a container
+      - name: Provision standard (manual) throughput on a container
         displayName: request units, RUs, RU, collection level
         href: how-to-provision-container-throughput.md
       - name: Provision standard (manual) throughput on a database
