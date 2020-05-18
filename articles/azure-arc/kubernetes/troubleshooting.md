@@ -7,7 +7,7 @@ ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Troubleshooting common issues with Arc enbaled Kubernetes clusters."
+description: "Troubleshooting common issues with Arc enabled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
