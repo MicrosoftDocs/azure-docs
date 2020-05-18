@@ -57,7 +57,7 @@ zone_pivot_groups: programming-languages-set-two-with-js-go-spx
 
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programmer-tool-spx"
 
 [!INCLUDE [SPX Header](../includes/quickstarts/from-microphone/spx/header.md)]
 

@@ -45,7 +45,7 @@ zone_pivot_groups: programming-languages-set-two-with-js-spx
 [!INCLUDE [python](../includes/quickstarts/from-file/javascript/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programmer-tool-spx"
 [!INCLUDE [SPX Header](../includes/quickstarts/from-file/spx/header.md)]
 [!INCLUDE [](../includes/spx-setup.md)]
 [!INCLUDE [spx](../includes/quickstarts/from-file/spx/spx.md)]

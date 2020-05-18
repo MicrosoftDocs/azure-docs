@@ -364,7 +364,7 @@ groups:
     title: Python
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-spx
+  - id: programmer-tool-spx
     title: SPX
   - id: programming-language-more
     title: More languages...
@@ -402,7 +402,7 @@ groups:
     title: Python
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-spx
+  - id: programmer-tool-spx
     title: SPX
   - id: programming-language-go
     title: Go
