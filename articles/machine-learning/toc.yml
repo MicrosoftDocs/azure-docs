@@ -376,6 +376,9 @@
             href: how-to-monitor-data-drift.md
           - name: Monitor with Application Insights
             href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inference service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md            
 
   - name: Build & use ML pipelines
     displayName: pipelines
