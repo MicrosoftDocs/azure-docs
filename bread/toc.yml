@@ -99,6 +99,9 @@
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
+  - name: Static Web Apps
+    tocHref: /azure/static-web-apps/
+    topicHref: /azure/static-web-apps/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
@@ -383,7 +386,7 @@
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
-    - name: Translator Text
+    - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
 #    - name: Translator Speech
@@ -798,9 +801,9 @@
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/
-  - name: SQL Database Edge
-    tocHref: /azure/sql-database-edge/
-    topicHref: /azure/sql-database-edge/
+  - name: Azure SQL Edge
+    tocHref: /azure/azure-sql-edge/
+    topicHref: /azure/azure-sql-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
