@@ -4,7 +4,7 @@ services: arc-kubernetes
 ms.date: 02/19/2020
 ms.topic: "how-to-guide"
 description: "Enable resource providers"
-keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # Enable resource providers

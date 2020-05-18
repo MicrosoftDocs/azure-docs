@@ -4,7 +4,7 @@ services: arc-kubernetes
 ms.date: 02/20/2020
 ms.topic: "Tutorial"
 description: ""
-keywords: "GitOps, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers"
+keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, containers"
 ---
 
 # Use GitOps for cluster configuration
@@ -111,15 +111,11 @@ These scenarios are supported by Flux but not by sourceControlConfiguration yet;
 
 To customize the creation of configuration, here are a few additional parameters:
 
-`--cluster-scoped` : *Optional* switch to set the scope of the operator to be cluster. Default scope is 'namespace'.
-
-`--cluster-type`  : *Optional* parameter to specify On-prem or AKS cluster. Allowed values: 'connectedClusters' (default), 'managedClusters'.
-
 `--enable-helm-operator` : *Optional* switch to enable support for Helm chart deployments. By default this is disabled.
 
 `--helm-operator-chart-values` : *Optional* chart values for Helm operator (if enabled).  For example, '--set helm.versions=v3'.
 
-`--helm-operator-chart-version` : *Optional* chart version for Helm operator (if enabled). Default: '0.3.0'.
+`--helm-operator-chart-version` : *Optional* chart version for Helm operator (if enabled). Default: '0.6.0'.
 
 `--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'
 
@@ -173,8 +169,6 @@ To automate the creation of `sourceControlConfiguration` in a connected cluster 
 19. The template deployment will be started; when it completes you can navigate to the connected cluster resource and validate the new configuration.
 
 After validating that the ARM templates works for you, you can start using it in your automated infrastructure deployments.
-
-Note that you can also install a `sourceControlConfiguration` in an AKS cluster; use the [example ARM template for deploying configuration to AKS cluster](../examples/Create-Src-Control-Configuration-on-AKS-Cluster-ARM-template.json) and follow the steps above.
 
 ## Validate the sourceControlConfiguration
 
@@ -334,5 +328,5 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 ## Next
 
 - Return to the [README](../README.md)
-- [Use GitOps in an AKS cluster](./use-gitops-in-aks-cluster.md)
+- [Use GitOps with Helm for cluster configuration](./use-gitops-with-helm.md)
 - [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

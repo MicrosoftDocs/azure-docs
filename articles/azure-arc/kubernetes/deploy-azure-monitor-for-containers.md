@@ -1,20 +1,20 @@
 ---
-title: "Onboard Arc with Azure Monitor for containers"
+title: "Onboard Azure Arc with Azure Monitor for containers"
 services: arc-kubernetes
 ms.date: 02/19/2020
 ms.topic: "how-to-guide"
-description: "Onboard Arc with Azure Monitor for containers"
-keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+description: "Onboard Azure Arc with Azure Monitor for containers"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # Onboard Azure Monitor for containers with Arc
-This document describes how to onboard [Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview) to Azure Arc K8s cluster(s).
+This document describes how to onboard [Azure Monitor enabled containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview) to Azure Arc enabled Kubernetes cluster(s).
 
 # Pre-requisites
 - Kubernetes versions: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
   - Linux distros for the cluster (master & worker) nodes – Ubuntu (18.04 LTS and 16.04 LTS)
-- Minimum Contributor RBAC role permission on the Azure Subscription of the Azure Arc K8s Cluster
-- Fully Qualified Azure Resource Id of the Azure Arc K8s cluster
+- Minimum Contributor RBAC role permission on the Azure subscription of the Azure Arc enabled Kubernetes cluster
+- Fully Qualified Azure Resource Id of the Azure Arc enabled Kubernetes cluster
 - Kubeconfig context of the Kubernetes cluster
 - Monitoring agent requires cAdvisor on the Kubelet is running on either secure port: 10250 or unsecure port: 10255 on the all nodes to pull the perf metrics   
    > Note:  Recommended to configure the Kubelet cAdvisor port to secure port:10250 if its not configured already.

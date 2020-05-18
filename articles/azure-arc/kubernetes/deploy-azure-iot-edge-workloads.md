@@ -2,7 +2,7 @@
 
 ## Overview
 
-Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Arc provides mechanisms for cluster operators to the configure the foundational components of a cluster as well as apply and enforce cluster policies. And IoT Edge allows application operators to remotely deploy and manage the workloads at scale with convenient cloud ingestion and bi-directional communication primitives. The diagram below illustrates this:
+Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Azure Arc provides mechanisms for cluster operators to the configure the foundational components of a cluster as well as apply and enforce cluster policies. And IoT Edge allows application operators to remotely deploy and manage the workloads at scale with convenient cloud ingestion and bi-directional communication primitives. The diagram below illustrates this:
 
 ![](./media/edge-arc.png)
 

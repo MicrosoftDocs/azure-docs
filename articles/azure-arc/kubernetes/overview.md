@@ -4,7 +4,7 @@ services: arc-kubernetes
 ms.date: 02/19/2020
 ms.topic: "conceptual"
 description: ""
-keywords: "Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
 # What is Azure Arc enabled Kubernetes

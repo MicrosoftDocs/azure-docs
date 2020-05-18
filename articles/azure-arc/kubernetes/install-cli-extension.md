@@ -4,7 +4,7 @@ services: arc-kubernetes
 ms.date: 02/19/2020
 ms.topic: "how-to-guide"
 description: "Install CLI extensions for Arc"
-keywords: "Kubernetes, Arc, Azure, K8s, AKS, Azure Kubernetes Service, containers"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # CLI extensions

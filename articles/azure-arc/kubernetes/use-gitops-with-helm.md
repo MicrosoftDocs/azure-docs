@@ -160,5 +160,4 @@ Find the external IP address from the output above and open it in a browser.
 ## Next
 
 - Return to the [README](../README.md)
-- [Use GitOps in an AKS cluster](./use-gitops-in-aks-cluster.md)
 - [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

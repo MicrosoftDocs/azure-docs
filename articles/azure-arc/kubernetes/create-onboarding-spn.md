@@ -4,7 +4,7 @@ services: arc-kubernetes
 ms.date: 02/19/2020
 ms.topic: "how-to-guide"
 description: "Service Principal TODO.."
-keywords: "Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
 # Create an onboarding Service Principal

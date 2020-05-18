@@ -1,10 +1,10 @@
 ---
 title: "Connect a Kubernetes cluster"
 services: arc-kubernetes
-ms.date: 02/19/2020
+ms.date: 05/19/2020
 ms.topic: "how-to-guide"
-description: "Learn GitOps with AKS"
-keywords: "Kubernetes, Arc, Azure, AKS, K8s, Azure Kubernetes Service, containers"
+description: "Connect a Kubernetes with Azure Arc"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # Connect a Kubernetes cluster
@@ -157,5 +157,4 @@ You can delete a `Microsoft.Kubernetes/connectedCluster` using the CLI or Azure 
 
 * Return to the [README](../README.md)
 * [Use GitOps in a connected cluster](./use-gitops-in-connected-cluster.md)
-* [Use GitOps in an AKS cluster](./use-gitops-in-aks-cluster.md)
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
