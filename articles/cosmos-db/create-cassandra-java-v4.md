@@ -176,7 +176,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. If you changed line 6 to use a specific TLS/SSL certificate, update line 7 to use the password for that certificate. 
 
-7. Save the *config.properties* file.
+7. Note that you will need to add the default region (e.g. `West US`) for the contact point, e.g.
+
+    `region=West US`
+
+    This is because the v.4x driver only allows one local DC to be paired with the contact point. If you want to add a region other than the default (which is the region that was given when the Cosmos DB account was first created), you will need to use regional suffix when adding contact point, e.g. `host-westus.cassandra.cosmos.azure.com`.
+
+8. Save the *config.properties* file.
 
 ## Run the Java app
 
