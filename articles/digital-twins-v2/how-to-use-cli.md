@@ -218,178 +218,177 @@ Uses:
 
 ### Manage models
 
-#### Command Group: `az dt model`
+Command Group: `az dt model` 
 
-> Manage DT instance model operations. This command group requires the client principal to have admin.
+These commands are used to manage Azure Digital Twins instance model operations. This command group requires the client principal to have admin privileges.
+
 #### az dt model create
 
-Examples
+Uses:
 
-- Add models to an ADT instance.
+* Add models to an Azure Digital Twins instance
 
   `az dt model create -n {instance_name} --models {file_path_or_inline_json}`
 
-- Add models to an ADT instance from a directory (recursive)
+* Add models to an ADT instance from a directory (recursive)
 
   `az dt model create -n {instance_name} --from-directory /path/to/model/directory/`
 
 #### az dt model list
 
-Examples
+Uses:
 
-- List model metadata
+* List model metadata
 
   `az dt model list -n {instance_name}`
 
-- List model definitions
+* List model definitions
 
   `az dt model list -n {instance_name} --definition`
 
-- List dependencies of particular pre-existing model(s). Space seperate dtmi values.
+* List dependencies of particular pre-existing model(s). Use a space to separate multiple DTMI model IDs.
 
-  `az dt model list -n {instance_name} --dependencies-for {model_id0} {model_id1}`
+  `az dt model list -n {instance_name} --dependencies-for {model_ID0} {model_ID1}`
 
 #### az dt model show
 
-Examples
+Uses:
 
-- Show model metadata
+* Show model metadata
 
-  `az dt model show -n {instance_name} --dtmi {model_id}`
+  `az dt model show -n {instance_name} --dtmi {model_ID}`
 
-- Show model definition
+* Show model definition
 
-  `az dt model show -n {instance_name} --dtmi {model_id} --definition`
+  `az dt model show -n {instance_name} --dtmi {model_ID} --definition`
 
 #### az dt model update
 
-Examples
+Uses:
 
-- Update the decommisioned status of a model (to true)
+Update the decommisioned status of a model (to true)
 
-  `az dt model update -n {instance_name} --dtmi {model_id} --decommission`
+  `az dt model update -n {instance_name} --dtmi {model_ID} --decommission`
 
-### ADT Twin
+### Manage twins
 
-#### Command Group: `az dt twin`
+Command Group: `az dt twin`
 
-> Manage and configure the Digital Twins of an ADT instance. This command group requires the client principal to have admin.
+These commands are used to manage and configure the digital twins of an Azure Digital Twins instance. This command group requires the client principal to have admin privileges.
+
 #### az dt twin query
 
-Examples
+Uses:
 
-- Select * from digitaltwins
+* Get all digital twins
 
   `az dt twin query -n {instance_name} -q "select * from digitaltwins"`
 
 #### az dt twin create
 
-Examples
+Uses:
 
-- Create a Twin from an existing (prior-created) model.
+* Create a twin from an existing (previously-created) model
 
-  `az dt twin create -n {instance_name} --dtmi
-          urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_id}`
+  `az dt twin create -n {instance_name} --dtmi urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_ID}`
 
-- Create a Twin from an existing (prior-created) model. Instantiate with property values.
+* Create a twin from an existing (previously-created) model. Instantiate with property values.
 
-  `az dt twin create -n {instance_name} --dtmi
-          urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_id} --properties
-          '{"manufacturer": "Microsoft"}'`
+  `az dt twin create -n {instance_name} --dtmi urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_ID} --properties '"manufacturer": "Microsoft"}'`
 
 #### az dt twin show
 
-Examples
+Uses:
 
-- Show an existing Twin on an ADT instance.
+* Show an existing twin in an Azure Digital Twins instance
 
-  `az dt twin show -n {instance_name} --twin-id {twin_id}`
+  `az dt twin show -n {instance_name} --twin-id {twin_ID}`
 
 #### az dt twin update
 
-Examples
+Uses:
 
-- Update a Twin via JSON-patch specification.
+* Update a twin with a JSON-patch
 
-  `az dt twin update -n {instance_name} --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'`
+  `az dt twin update -n {instance_name} --twin-id {twin_ID} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'`
 
-- Update a Twin via JSON-patch specification defined in file.
+* Update a twin with a JSON-patch defined in file
 
-  `az dt twin update -n {instance_name} --twin-id {twin_id} --json-patch ./my/patch/document.json`
+  `az dt twin update -n {instance_name} --twin-id {twin_ID} --json-patch ./my/patch/document.json`
 
 #### az dt twin delete
 
-Examples
+Uses:
 
-- Delete a Twin by Id
+* Delete a twin by ID
 
-  `az dt twin delete -n {instance_name} --twin-id {twin_id}`
+  `az dt twin delete -n {instance_name} --twin-id {twin_ID}`
 
-### ADT Twin Edge
+### Manage relationships
 
-#### Command Group: `az dt twin edge`
+Command Group: `az dt twin edge`
 
-> Manage and configure the Digital Twin Edges of an ADT instance. This command group requires the client principal to have admin.
+These commands are used to manage and configure the relationships (or edges) of an Azure Digital Twins instance. This command group requires the client principal to have admin privileges.
+
 #### az dt twin edge create
 
-Examples
+Uses:
 
-- Create an Edge between source and target Twins.
+* Create a relationship between source and target twins
 
-  `az dt twin edge create -n {instance_name} --edge-id {edge_id} --relationship contains --source {source_twin_id} --target {target_twin_id}`
+  `az dt twin edge create -n {instance_name} --edge-id {relationship_ID} --relationship contains --source {source_twin_ID} --target {target_twin_ID}`
 
-- Create an Edge between source and target Twins. Provide Edge instance properties.
+* Create a relationship between source and target twins. Provide relationship instance properties.
 
-  `az dt twin edge create -n {instance_name} --edge-id {edge_id} --relationship contains --source {source_twin_id} --target {target_twin_id} --properties '{"ownershipUser": "me", "ownershipDepartment": "Computer Science"}'`
+  `az dt twin edge create -n {instance_name} --edge-id {relationship_ID} --relationship contains --source {source_twin_ID} --target {target_twin_ID} --properties '{"ownershipUser": "me", "ownershipDepartment": "Computer Science"}'`
 
 #### az dt twin edge show
 
-Examples
+Uses:
 
-- Show an Edge between source and target Twins.
+* Show a relationship between source and target twins
 
-  `az dt twin edge show -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship {relationship_name}`
+  `az dt twin edge show -n {instance_name} --twin-id {twin_ID} --edge-id {relationship_ID} --relationship {relationship_name}`
 
 #### az dt twin edge list
 
-Examples
+Uses:
 
-- List outgoing edges of a Twin.
+* List outgoing relationships of a twin
 
-  `az dt twin edge list -n {instance_name} --twin-id {twin_id}`
+  `az dt twin edge list -n {instance_name} --twin-id {twin_ID}`
 
-- List outgoing edges of a Twin and filter on relationship 'contains'
+* List outgoing relationships of a twin and filter on relationship *contains*
 
-  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --relationship contains`
+  `az dt twin edge list -n {instance_name} --twin-id {twin_ID} --relationship contains`
 
-- List incoming edges of a Twin.
+* List incoming relationships to a twin.
 
-  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --incoming-edges`
+  `az dt twin edge list -n {instance_name} --twin-id {twin_ID} --incoming-edges`
 
-- List incoming edges of a Twin and filter on relationship 'contains'.
+* List incoming relationships to a twin and filter on relationship *contains*
 
-  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --relationship contains --incoming-edges`
+  `az dt twin edge list -n {instance_name} --twin-id {twin_ID} --relationship contains --incoming-edges`
 
 #### az dt twin edge update
 
-Examples
+Uses:
 
-- Update a Twin Edge via JSON patch specification
+* Update a twin relationship with a JSON patch
 
-  `az dt twin edge update -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship contains --json-patch '[{}, {}]'`
+  `az dt twin edge update -n {instance_name} --twin-id {twin_ID} --edge-id {relationship_ID} --relationship contains --json-patch '[{}, {}]'`
 
-- Update a Twin Edge via JSON patch specification defined in a file.
+* Update a twin relationship with a JSON patch defined in a file.
 
-  `az dt twin edge update -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship contains --json-patch ./my/patch/document.json`
+  `az dt twin edge update -n {instance_name} --twin-id {twin_ID} --edge-id {relationship_ID} --relationship contains --json-patch ./my/patch/document.json`
 
 #### az dt twin edge delete
 
-Examples
+Uses:
 
-- Delete an Edge between source and target Twins.
+* Delete a relationship between source and target twins
 
-  `az dt twin edge delete -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship {relationship_name}`
-
+  `az dt twin edge delete -n {instance_name} --twin-id {twin_ID} --edge-id {relationship_ID} --relationship {relationship_name}`
 
 ### Configure RBAC
 
