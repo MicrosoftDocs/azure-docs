@@ -18,3 +18,4 @@ spx synthesize --text "The speech synthesizer greets you!" --audio output greeti
 ```
 
 The SPX tool will produce natural language in English into the `greetings.wav` audio file.
+In Windows, you can play the audio file by entering `start greetings.wav`.

@@ -18,7 +18,8 @@ SPX is available on Windows and Linux. Start by downloading the [zip archive](ht
 * Windows: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 * Linux: [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
-After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then run `spx` to start the application.
+After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then type `spx` to start the application (on Linux,
+type `./spx` to start it.)
 
 ## Create subscription config
 
