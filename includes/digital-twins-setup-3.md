@@ -18,7 +18,7 @@ Navigate to the downloaded folder on your machine and unzip it. Inside the unzip
 
 From here, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, and name the new file *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 
-Within the new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and instanceUrl to your Azure Digital Twins instance *hostName* URL.
+Within the new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
 
 ```json
 {
