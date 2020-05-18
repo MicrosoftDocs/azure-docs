@@ -34,7 +34,7 @@ At the step to select a policy definition, enter `Cosmos DB` in the Search field
 
 For specific scenarios that are not addressed by built-in policies, you can create [a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md). Later you create a Policy _assignment_ from your custom policy _definition_.
 
-### Property Types and Property Aliases in Policy Rules
+### Property types and property aliases in policy rules
 
 Use the [custom policy definition steps](../governance/policy/tutorials/create-custom-policy-definition) to identify the resource properties and property aliases, which are required to create policy rules.
 
