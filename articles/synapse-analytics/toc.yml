@@ -316,7 +316,7 @@
           href: sql/develop-storage-files-overview.md
         - name: Storage Access Control
           href: sql/develop-storage-files-storage-access-control.md
-        - name: Spark tables
+        - name: Apache Spark for Azure Synapse external tables
           href: sql/develop-storage-files-spark-tables.md
     - name: Workload management
       items:
