@@ -80,7 +80,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 [Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### [Version 3.1-preview](#tab/version-3-1)
+#### [Version 3.1-preview.1](#tab/version-3-1)
 
 [Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -97,7 +97,7 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
-#### [Version 3.1-preview](#tab/version-3-1)
+#### [Version 3.1-preview.1](#tab/version-3-1)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
 
@@ -178,7 +178,7 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 }
 ```
 
-#### [Version 3.1-preview](#tab/version-3-1)
+#### [Version 3.1-preview.1](#tab/version-3-1)
 
 ### Sentiment Analysis v3.1 example response
 

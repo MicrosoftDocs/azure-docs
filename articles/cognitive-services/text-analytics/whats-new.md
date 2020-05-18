@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 05/18/2020
 ms.author: aahi
 ---
 
@@ -56,14 +56,14 @@ Text Analysis API v3 is now generally available with the following updates:
    
 **NOTE:** Text Analytics API v3 is not available in the following regions: `Central India`, `UAE North` and `South Africa North`
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+> [Learn more about Text Analytics API v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
 
 ### Text Analytics API v3.1 Public Preview
    * New feature - Opinion Mining
    * New domain filter for Personally Identifiable Information (PII) to support Protected Health Information (PHI)
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-preview](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+> [Learn more about Text Analytics API v3.1-preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
 
 ## February 2020
 
