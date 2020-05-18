@@ -20,9 +20,9 @@ Now you're ready to run the SPX tool to recognize speech found in the sound file
 
 From the command line, change to the directory that contains spx.exe, and type:
 
-    ```bash
-    spx recognize --file whatstheweatherlike.wav
-    ```
+```bash
+spx recognize --file whatstheweatherlike.wav
+```
 
 > [!NOTE]
 > The SPX tool defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
