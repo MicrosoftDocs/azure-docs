@@ -43,7 +43,7 @@ The example repository is structured around the persona of a cluster operator wh
 
 ### Using Azure CLI
 
-Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to the example git repository. We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
+Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to a [example git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
 ```console
 az k8sconfiguration create \
