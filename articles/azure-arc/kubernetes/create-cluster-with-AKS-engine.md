@@ -1,6 +1,15 @@
+title: "Create a cluster with AKS engine"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: "Create a cluster with AKS engine"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
+
 # Create a test cluster using the AKS-Engine
 
-To help with testing here are instructions for creating clusters in Azure using AKS-Engine.
+Create a Kubernetes cluser in Azure with AKS-Engine.
 
 ## Install AKS-Engine on your client machine
 
@@ -87,7 +96,6 @@ This file has been modified to include the "orchestratorRelease" (Kubernetes 1.1
   }
 }
 ```
-## Next
+## Next steps
 
-* Return to the [README](../README.md)
-* [Connect a cluster to Azure](./connect-a-cluster.md)
+[Connect a cluster to Azure](./connect-a-cluster.md)

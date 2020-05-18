@@ -1,3 +1,13 @@
+---
+title: "Deploy Azure IoT Edge workloads"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: "Deploy Azure IoT Edge workloads"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
+---
 
 
 # Deploy Azure IoT Edge workloads

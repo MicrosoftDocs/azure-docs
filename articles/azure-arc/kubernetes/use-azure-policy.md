@@ -1,3 +1,14 @@
+---
+title: "Use Azure Policy to apply cluster configurations at scale"
+ms.service: arc-kubernetes
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: "Use Azure Policy to apply cluster configurations at scale"
+keywords: "Kubernetes, Arc, Azure, K8s, containers"
+---
+
 # Use Azure Policy to apply cluster configurations at scale
 
 ## Overview
