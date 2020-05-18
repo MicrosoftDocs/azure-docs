@@ -442,8 +442,8 @@ ORDER BY
 After running this query, your output should look like this;
 ![Aggregation query with joins](./media/get-started-synapse-analytics/sql-joins-agg-output.png)
 
-As you can see, multiple Parquet files can be joined almost as if they were actual SQL views. If you find the **OPENROWSET** syntax a little harder to user to use than regular SQL views, you can solve this by creating a virtual SQL database with SQL views.
-## Create a virtual SQL database.
+As you can see, multiple Parquet files can be joined almost as if they were actual SQL views. If you find the **OPENROWSET** syntax a little harder to user to use than regular SQL views, you can solve this by creating a SQL database that contains SQL views.
+## Create a database with SQL on-demand.
 
 On the **Develop** hub click the **+** to add a new SQL **script**.
 ![Create new SQL script](./media/get-started-synapse-analytics/sql-new-script.png)
@@ -537,7 +537,7 @@ On the **Develop** hub, expand your linked workspace under **Power BI** and clic
 
 ![View Power BI datasets](./media/get-started-synapse-analytics/pbi-view-datasets.png)
 
-Any existing datasets from you linked Power BI workspace will be displayed here. You can create new reports in Synapse Studio using these Power BI datasets. Let’s create a new Power BI dataset for the virtual database which we created in the last section. Click **+ New Power BI dataset**. 
+Any existing datasets from you linked Power BI workspace will be displayed here. You can create new reports in Synapse Studio using these Power BI datasets. Let’s create a new Power BI dataset for the database which we created in the last section. Click **+ New Power BI dataset**. 
 
 ![New Power BI datasets](./media/get-started-synapse-analytics/pbi-new-dataset.png)
 
