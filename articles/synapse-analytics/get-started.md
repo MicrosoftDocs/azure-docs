@@ -296,7 +296,7 @@ This will create a temporary view called 'trip_df'.
 SELECT
     *
 FROM
-    Trip
+    trip_df
 ```
 
 Now you will have the same output as above except the SQL language was used.
@@ -344,14 +344,14 @@ To get a chart like this;
 If you prefer not to use SQL then the same can be achieved with the following PySpark code
 
 ```python
-%%PySpark
+%%pyspark
 from pyspark.sql import functions as F
 
-prepped_df = trip_df.select('TripDistanceMiles', 'PassengerCount')\
+prepped_df = data_path.select('TripDistanceMiles', 'PassengerCount')\
                      .filter((F.col("TripDistanceMiles") > 0) & (F.col("PassengerCount") > 0))\
-                     .groupBy(trip_df.PassengerCount)\
+                     .groupBy(data_path.PassengerCount)\
                      .agg(F.sum(F.col("TripDistanceMiles")).alias("SumTripDistance"),F.avg(F.col("TripDistanceMiles")).alias("AvgTripDistance"))\
-                     .orderBy(trip_df.PassengerCount)
+                     .orderBy(data_path.PassengerCount)
 display(prepped_df)
 
 ```
