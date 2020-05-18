@@ -43,18 +43,6 @@ landingContent:
         links:
           - text: Build and deploy a static web app
             url: https://aka.ms/staticwebappsqs
-  - title: Key concepts
-    linkLists: 
-      - linkListType: concept
-        links:
-          - text: Routes
-            url: routes.md
-          - text: Public APIs  
-            url: apis.md
-          - text: Staging 
-            url: review-publish-pull-requests.md
-          - text: Restrict access
-            url: authentication-authorization.md  
   - title: Publish scenarios
     linkLists: 
       - linkListType: tutorial
@@ -73,3 +61,15 @@ landingContent:
         links:
           - text: Publish a static web app with Gatsby 
             url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+  - title: Key concepts
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Routes
+            url: routes.md
+          - text: Public APIs  
+            url: apis.md
+          - text: Staging 
+            url: review-publish-pull-requests.md
+          - text: Restrict access
+            url: authentication-authorization.md 
