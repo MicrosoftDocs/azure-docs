@@ -42,15 +42,13 @@ The output from this command looks something like this.
 
 :::image type="content" source="../articles/digital-twins-v2/media/include-setup/new-app-registration.png" alt-text="New AAD app registration":::
 
-Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
+After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
 
-Next, run this command to take note of your *Directory (tenant) ID*. The ID is the value within quotation marks in the output (the quotation marks aren't part of the value).
+From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
 
-```azurecli
-az account show --query tenantId
-```
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
 
-You will need both of these values later to authenticate a client app against the Azure Digital Twins APIs.
+Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later to authenticate a client app against the Azure Digital Twins APIs.
 
 > [!NOTE]
 > Depending on your scenario, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:

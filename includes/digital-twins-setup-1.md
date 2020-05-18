@@ -60,7 +60,7 @@ You also need to make sure your client app can authenticate against Azure Digita
 
 #### Assign yourself a role
 
-Create a role assignment for yourself using your email associated with the AAD tenant on your Azure subscription. The following command assigns your user to an owner role:
+Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. First, make sure you are classified as an owner in your Azure subscription. Then, you can use the following command to assigns your user to an owner role in Azure Digital Twins:
 
 ```azurecli
 az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role owner
