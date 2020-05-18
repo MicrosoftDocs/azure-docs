@@ -140,7 +140,7 @@ pod/config-agent-c74f6695f-89hp8          1/1     Running   0          5h43m
 pod/controller-manager-7cf48dc76b-m9g74   2/2     Running   0          5h43m
 ```
 
-## About the Azure Arc agents for Kubernetes
+## Azure Arc agents for Kubernetes
 
 Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
@@ -151,7 +151,7 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 
 You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI or Azure portal.
 
-The Azure CLI commmand 'az connectedk8s delete` deletes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
+The Azure CLI commmand 'az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
 The Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
 
