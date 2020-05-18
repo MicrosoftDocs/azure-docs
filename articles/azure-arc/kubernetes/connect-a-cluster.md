@@ -43,7 +43,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | 3.  | https://docker.io                                                                                            | Required to pull container images                                                                                         |
 | 4.  | https://github.com, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
 | 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update ARM tokens                                                                                    |
-| 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agentry                                                                   |
+| 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agents                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
 
@@ -193,7 +193,7 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 
 You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI or Azure portal.
 
-The Azure CLI commmand 'az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
+The Azure CLI command 'az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
 The Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
 
