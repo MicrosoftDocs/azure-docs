@@ -26,15 +26,16 @@ Before you connect an Azure Cosmos DB account to your workspace, there are a few
 
 To run large-scale analytics into Azure Cosmos DB without impacting your operational performance, we recommend enabling Synapse Link for Azure Cosmos DB. This function brings HTAP capability to a container and built-in support in Azure Synapse. Follow this quickstart to enable Synapse Link for Cosmos DB containers.
 
-## Navigate to Synapse Studio 
+## Navigate to Synapse Studio
 
 From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data, which will take you to the **Data Object Explorer**.
 
-## Connect an Azure Cosmos DB database to a Synapse workspace 
+## Connect an Azure Cosmos DB database to a Synapse workspace
 
-Connecting an Azure Cosmos DB database is done as linked service. A Cosmos DB linked service enables users to browse and explore data, read, and write from Synapse Spark or SQL into Azure Cosmos DB. 
+Connecting an Azure Cosmos DB database is done as linked service. A Cosmos DB linked service enables users to browse and explore data, read, and write from Apache Spark for Azure Synapse Analytics or SQL into Azure Cosmos DB.
 
 From the Data Object Explorer, you can directly connect an Azure Cosmos DB database by doing the following steps:
+
 1. Select ***+*** icon near Data
 2. Select **Connect to external data**
 3. Select the API that you want to connect to: SQL or MongoDB
@@ -61,4 +62,4 @@ When you right-click into a container, you'll have a list of gestures that will 
 ## Next steps
 
 * [Learn what is supported between Synapse and Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
-* [Learn how to query an analytical store with Synapse Spark](synapse-link/how-to-query-analytical-store-spark.md)
+* [Learn how to query an analytical store with Apache Spark for Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)
