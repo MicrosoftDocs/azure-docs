@@ -436,7 +436,7 @@
     },
     {
       "path_to_root": "cosmosdb-python-sdk",
-      "url": "https://github.com/Azure/azure-sdk-for-python/sdk/cosmos/",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
     {
