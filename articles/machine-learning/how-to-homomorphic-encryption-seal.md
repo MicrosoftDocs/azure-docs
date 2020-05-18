@@ -200,30 +200,30 @@ print(service.scoring_uri)
 
 1. Download the test data. In this case, it's saved into a directory called *data*.
 
-```python
-import os
-from azureml.core import Dataset
-from azureml.opendatasets import MNIST
-
-data_folder = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_folder, exist_ok=True)
-
-mnist_file_dataset = MNIST.get_file_dataset()
-mnist_file_dataset.download(data_folder, overwrite=True)
-```
+    ```python
+    import os
+    from azureml.core import Dataset
+    from azureml.opendatasets import MNIST
+    
+    data_folder = os.path.join(os.getcwd(), 'data')
+    os.makedirs(data_folder, exist_ok=True)
+    
+    mnist_file_dataset = MNIST.get_file_dataset()
+    mnist_file_dataset.download(data_folder, overwrite=True)
+    ```
 
 1. Load the test data from the *data* directory.
 
-```python
-from utils import load_data
-import os
-import glob
-
-data_folder = os.path.join(os.getcwd(), 'data')
-# note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
-y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
-```
+    ```python
+    from utils import load_data
+    import os
+    import glob
+    
+    data_folder = os.path.join(os.getcwd(), 'data')
+    # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
+    X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+    y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+    ```
 
 ## Make encrypted predictions
 
