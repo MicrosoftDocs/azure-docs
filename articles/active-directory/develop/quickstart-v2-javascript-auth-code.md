@@ -50,7 +50,6 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > #### Step 1: Register your application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
->
 > 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
 > 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Select **New registration**.
