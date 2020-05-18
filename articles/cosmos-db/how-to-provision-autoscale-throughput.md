@@ -236,8 +236,8 @@ See this article on [how to use CQL commands](manage-scale-cassandra.md#use-auto
 ## Azure Cosmos DB API for MongoDB 
 See this article on [how to use MongoDB extension commands](mongodb-custom-commands.md) to enable autoscale.
 
-## Azure Resource Manager (ARM)
-You can use an ARM template to provision autoscale throughput on a database or container for any API. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
+## Azure Resource Manager
+You can use an Resource Manager template to provision autoscale throughput on a database or container for any API. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
 
 ## Next steps
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).

@@ -100,7 +100,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
 | Maximum length of partition key value | 2048 bytes |
-| Maximum length of id value | 1023 bytes |
+| Maximum length of ID value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
 | Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |
@@ -108,7 +108,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of string property value | No practical limit |
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 
-There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and id values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
+There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
 ## Per-request limits
 
@@ -142,7 +142,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | --- | --- |
 | Maximum RU/s the system can scale to |  `Tmax`, the autoscale max RU/s set by user|
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
-| Current RU/s the system is scales to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
+| Current RU/s the system is scaled to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
 | Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you are billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
 | Minimum autoscale max RU/s for a container  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` rounded to nearest 1000 RU/s |
 | Minimum autoscale max RU/s for a database  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 9000 RU/s (scales between 900 - 9000 RU/s).

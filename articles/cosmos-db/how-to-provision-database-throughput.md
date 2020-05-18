@@ -34,7 +34,7 @@ This article explains how to provision standard (manual) throughput on a databas
 To create a database with shared throughput see,
 
 * [Create a database using Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Create a database using Powershell](manage-with-powershell.md#create-db-ru)
+* [Create a database using PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## Provision throughput using .NET SDK
 

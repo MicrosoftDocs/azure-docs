@@ -33,7 +33,7 @@ This article explains how to provision standard (manual) throughput on a contain
 To create a container with dedicated throughput see,
 
 * [Create a container using Azure CLI](manage-with-cli.md#create-a-container)
-* [Create a container using Powershell](manage-with-powershell.md#create-container)
+* [Create a container using PowerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
 > If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
