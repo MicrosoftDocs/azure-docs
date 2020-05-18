@@ -1,7 +1,7 @@
 ---
 title: "Enable source control for AKS"
 services: arc-kubernetes
-ms.date: 02/18/2020
+ms.date: 05/19/2020
 ms.topic: "how-to-guide"
 description: "Learn GitOps with AKS"
 keywords: "Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
