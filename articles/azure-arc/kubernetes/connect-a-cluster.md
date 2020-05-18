@@ -155,8 +155,7 @@ The Azure CLI commmand 'az connectedk8s delete` removes the `Microsoft.Kubernete
 
 The Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
 
-> [!NOTE]
-> To remove the agents in the cluster you need to run `az connectedk8s delete` or `helm uninstall azurearcfork8s`
+To remove the agents in the cluster you need to run `az connectedk8s delete` or `helm uninstall azurearcfork8s`.
 
 ## Next steps
 
