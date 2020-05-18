@@ -9,7 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
 ms.date: 05/18/2020
 ---
-# Optimize data storage
+# Data storage optimization
+
+This article discusses strategies to optimize data storage for efficient Apache Spark job execution.
+
+## Use optimal data format
+
+Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Apache Spark packages](https://spark-packages.org).
+
+The best format for performance is parquet with *snappy compression*, which is the default in Spark 2.x. Parquet stores data in columnar format, and is highly optimized in Spark.
+
+## Choose data abstraction
 
 Earlier Spark versions use RDDs to abstract data, Spark 1.3, and 1.6 introduced DataFrames and DataSets, respectively. Consider the following relative merits:
 
@@ -34,12 +44,6 @@ Earlier Spark versions use RDDs to abstract data, Spark 1.3, and 1.6 introduced 
     * No whole-stage code generation.
     * High GC overhead.
     * Must use Spark 1.x legacy APIs.
-
-## Use optimal data format
-
-Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Apache Spark packages](https://spark-packages.org).
-
-The best format for performance is parquet with *snappy compression*, which is the default in Spark 2.x. Parquet stores data in columnar format, and is highly optimized in Spark.
 
 ## Select default storage
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
 ms.date: 05/18/2020
 ---
-# Optimize memory usage
+# Memory usage optimization
 
 Spark operates by placing data in memory. So managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 
@@ -20,7 +20,7 @@ Spark operates by placing data in memory. So managing memory resources is a key 
 
 For your reference, the Spark memory structure and some key executor memory parameters are shown in the next image.
 
-### Spark memory considerations
+## Spark memory considerations
 
 If you're using Apache Hadoop YARN, then YARN controls the memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 

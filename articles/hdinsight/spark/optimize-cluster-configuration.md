@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
 ms.date: 05/18/2020
 ---
-# Optimize cluster configuration
+# Cluster configuration optimization
 
 Depending on your Spark cluster workload, you may determine  a non-default Spark configuration would result in more optimized Spark job execution.  Do benchmark testing with sample workloads to validate any non-default cluster configurations.
 
