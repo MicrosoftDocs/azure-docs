@@ -1335,7 +1335,6 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New preview features:**
 
 * [User writeback](how-to-connect-preview.md#user-writeback)
-* [Group writeback](how-to-connect-preview.md#group-writeback)
 * [Device writeback](how-to-connect-device-writeback.md)
 * [Directory extensions](how-to-connect-preview.md)
 
