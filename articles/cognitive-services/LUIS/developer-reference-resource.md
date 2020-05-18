@@ -2,7 +2,7 @@
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 ms.topic: reference
-ms.date: 05/05/2020
+ms.date: 05/19/2020
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
@@ -92,7 +92,16 @@ Language Understanding provides the ability to manage your app and its models in
 
 Importing and exporting these formats is available from the APIs and from the LUIS portal. The portal provides import and export as part of the Apps list and Versions list.
 
-## Other tools and SDKs
+## Workshops
+
+* GitHub: (Workshop) [Conversational-AI : NLU using LUIS](https://github.com/GlobalAICommunity/Workshop-Conversational-AI)
+
+## Continuous integration tools
+
+* GitHub: (Preview) [Developing a LUIS app using DevOps practices](https://github.com/Azure-Samples/LUIS-DevOps-Template)
+* GitHub: [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) - Tools supporting continuous integration and deployment for NLU services.
+
+## Bot Framework tools
 
 The bot framework is available as [an SDK](https://github.com/Microsoft/botframework) in a variety of languages and as a service using [Azure Bot Service](https://dev.botframework.com/).
 
@@ -104,7 +113,6 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
-* [microsoft/NLU.DevOps](https://github.com/microsoft/NLU.DevOps) - Tools supporting continuous integration and deployment for NLU services.
 
 ## Next steps
 
