@@ -30,9 +30,9 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
     -  *.blob.core.windows.net 443
     -  dc.services.visualstudio.com 443
 
-# Onboarding
+## Onboarding
 
-## Using HELM chart
+### Using HELM chart
 
 ### Option 1: Using Powershell  script
 
@@ -80,17 +80,17 @@ Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insig
 Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend.
 Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
 
-# UX
+## User interface
 Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster
 
-# Disable Monitoring
+## Disable Monitoring
 If you would like to disable monitoring due to some reason, you can just simply delete the azure monitor for containers HELM chart to stop collecting and ingesting  monitoring  data to Azure Monitor for containers backend
 
 ```console
 helm del azmon-containers-release-1
 ```
 
-# Contact
+## Contact
 If you have any questions or feedback or feature request regarding Azure Monitor for containers integration, please reach us out through [this](mailto:omscontainers@microsoft.com).
 
 ## Next steps
