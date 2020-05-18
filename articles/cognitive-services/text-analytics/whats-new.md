@@ -54,7 +54,8 @@ Text Analysis API v3 is now generally available with the following updates:
       * Event - Sports
    * A new endpoint for Entity Linking 
    
-**NOTE:** Text Analytics API v3 is not available in the following regions: `Central India`, `UAE North` and `South Africa North`
+Text Analytics API v3 is not available in the following regions: Central India, UAE North and South Africa North.
+
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
 
