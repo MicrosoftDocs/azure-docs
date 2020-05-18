@@ -14,9 +14,8 @@ ms.author: aahi
 # Text Analytics API v3 language support 
 
 > [!IMPORTANT]
-> * This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. 
->   * If you don't see your desired language listed, it may be supported in [version 2.1](migration-guide.md#version-21-language-support).
->   * version 3.x of the Text Analytics API is currently unavailable in the following regions: Central India, UAE North, South Africa North, China North 2, China East 2.
+> * This article only describes v3.0 and v3.1-preview.1 of the Text Analytics API. For version 2.1 language support, see the [migration guide](migration-guide.md#version-21-language-support).
+> * version 3.x of the Text Analytics API is currently unavailable in the following regions: Central India, UAE North, South Africa North, China North 2, China East 2.
 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
@@ -44,7 +43,7 @@ ms.author: aahi
 #### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> Currently, v3 entities are only returned on English text. If you send an NER request in a different language, the Text Analytics API will return [version 2.1](migration-guide.md#ner-v21-entity-categories) results instead.   
+> Currently, [v3 entity categories](named-entity-types.md) are only returned on English text. The API returns [version 2.1](migration-guide.md?tabs=named-entity-recognition#ner-v21-entity-categories) results for requests in other languages, provided they are supported in version 2.1.
 
 | Language              | Language code | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:---------------------------------------:|:------------------:|
