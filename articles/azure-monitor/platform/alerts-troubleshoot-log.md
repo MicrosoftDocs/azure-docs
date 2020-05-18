@@ -39,7 +39,7 @@ Check that the time period in the configuration matches your query. For the exam
 
 ### Suppress Alerts option is set
 
-As described in step 8 of the article on [creating a log alert rule in the Azure portal](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you might think that an alert didn't fire. In fact, it did fire but was suppressed.  
+As described in step 8 of the article on [creating a log alert rule in the Azure portal](../platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you might think that an alert didn't fire. In fact, it did fire but was suppressed.  
 
 ![Suppress alerts](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
