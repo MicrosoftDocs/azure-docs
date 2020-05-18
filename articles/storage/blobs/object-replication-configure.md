@@ -100,9 +100,11 @@ Connect-AzAccount
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $srcAccountName = "<source-storage-account>"
-$srcContainerName = "<source-container>"
 $destAccountName = "<destination-storage-account>"
-$destContainerName = "<destination-container>"
+$srcContainerName1 = "source-container1"
+$destContainerName1 = "dest-container1"
+$srcContainerName2 = "source-container2"
+$destContainerName2 = "dest-container2"
 
 # Enable change feed on the source account.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
@@ -112,6 +114,13 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 # View the service settings.
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
+
+# Create new containers in the source and destination accounts.
+$srcAccount | New-AzStorageContainer $srcContainerName1
+$destAccount | New-AzStorageContainer $destContainerName1
+$srcAccount | New-AzStorageContainer $srcContainerName2
+$destAccount | New-AzStorageContainer $destContainerName2
+
 ```
 
 
@@ -275,4 +284,4 @@ az storage account ors-policy remove \\
 
 ## Next steps
 
-- [Object replication (preview)](object-replication-overview.md)
+- [Object replication overview (preview)](object-replication-overview.md)

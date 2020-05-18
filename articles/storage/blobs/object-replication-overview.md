@@ -25,7 +25,10 @@ To learn how to configure object replication, see [Configure object replication 
 
 ## How object replication works
 
-Object replication asynchronously copies a specified set of block blobs from a container in one storage account to a container in another account. Object replication happens asynchronously and is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). After you configure object replication on the source account, Azure Storage checks the change feed every minute(???) and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+Object replication asynchronously copies all or a specified set of block blobs from a container in one storage account to a container in another account. After you configure object replication on the source account, Azure Storage checks the change feed regularly and replicates any write or delete operations to the destination account. Replication latency depends on the size of the block blob being replicated.
+
+> [!IMPORTANT]
+> Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account.
 
 ### Configure a replication policy
 
@@ -33,7 +36,7 @@ To use object replication, create a replication policy on the source account tha
 
 A storage account can serve as the source account for up to two destination accounts. Each destination account may be in a different region. You can configure two separate replication policies to replicate data to each of the destination accounts.
 
-The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 409 (Conflict).
+The source and destination containers must both exist before you can create the replication policy. After you create the policy, the destination container is read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier.md) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
 
 ### Create rules on the replication policy
 
@@ -47,9 +50,9 @@ You can also specify one or more filters as part of a replication rule to filter
 
 Object replication is supported for general-purpose v2 storage accounts only. Object replication is available in the following regions in preview:
 
-- US East 2
-- US Central
-- Europe West
+- France Central
+- Canada East
+- Canada Central
 
 Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
 
@@ -87,8 +90,7 @@ Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespac
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
 # Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
+Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
