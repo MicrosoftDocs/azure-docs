@@ -12,10 +12,12 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # Onboard Azure Monitor for containers with Arc (Preview)
-This document describes how to onboard [Azure Monitor enabled containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview) to Azure Arc enabled Kubernetes cluster(s).
 
-# Pre-requisites
-- Kubernetes versions: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
+Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to Azure Arc enabled Kubernetes cluster(s).
+
+## Before you begin
+
+- Kubernetes versions: https://docs.microsoft.com/azure/aks/supported-kubernetes-versions
   - Linux distros for the cluster (master & worker) nodes – Ubuntu (18.04 LTS and 16.04 LTS)
 - Minimum Contributor RBAC role permission on the Azure subscription of the Azure Arc enabled Kubernetes cluster
 - Fully Qualified Azure Resource Id of the Azure Arc enabled Kubernetes cluster
@@ -38,7 +40,7 @@ This document describes how to onboard [Azure Monitor enabled containers](https:
 ```console
 curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
  ```
-2. Install [Powershell core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) if you dont have installed on your dev machine to execute Powershell onboarding script
+2. Install [Powershell core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) if you dont have installed on your dev machine to execute Powershell onboarding script
 
 3. Login to Azure
 ```console
@@ -72,11 +74,11 @@ bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908
 
 ## Configure agent data collection
 By default agent doesnt collect stdout and stderr logs of containers in kube-system namespace.
-Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config to configure agent with desired data collection settings.
+Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config to configure agent with desired data collection settings.
 
 ## Configure scraping of Prometheus metrics
 Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend.
-Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
+Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
 
 # UX
 Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster
