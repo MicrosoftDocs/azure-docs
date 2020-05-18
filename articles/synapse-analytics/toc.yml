@@ -866,14 +866,16 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Feature requests
+    href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/synapse-analytics/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Feature requests
-    href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
+  - name: Questions & Answers
+    href:  /answers/questions/topics/single/25423.html?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow
