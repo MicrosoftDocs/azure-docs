@@ -100,7 +100,7 @@ Follow the below steps based on the type of computer used to connect to the temp
 
 - Mac
   1. Click **Connect to template** on your lab's toolbar and then select **Connect via RDP** to save the RDP file.  
-  1. Then, refer to the how-to article [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-rdp.md).
+  1. Then, refer to the how-to article [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
 
 - Chromebook
   1. Click **Connect to template** on your lab's toolbar and then select **Connect via RDP** to save the RDP file.  
