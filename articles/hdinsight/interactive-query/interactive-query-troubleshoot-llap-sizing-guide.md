@@ -99,8 +99,9 @@ Memory needed by Tez Application Masters(Tez AM) can be calculated as follows.
 For HDInsight Interactive cluster, by default, there is one Tez AM per worker node that acts as a query coordinator. The number of Tez AMs can be configured based on a number of concurrent queries to be served.
 It's recommended to have 4 GB of memory per Tez AM.
 
-Tez AM memory per node = [ number of Tez AMs  x Tez AM container size ]
-   = (1 x 4 GB) = 4 GB
+Tez AM memory per node = [ ceil(number of Tez AMs / Number of LLAP daemon nodes) ]  x [ Tez AM container size ]  
+For D14 v2, the default configuration has four Tez AMs and four LLAP daemon nodes.  
+Tez AM memory per node = (ceil(4/4) x 4 GB) = 4 GB
 
 Total Memory available for LLAP queue per worker node can be calculated as follows:
 This value depends on the total amount of memory available for all YARN containers on a node(*yarn.nodemanager.resource.memory-mb*) and the percentage of capacity configured for llap queue(*yarn.scheduler.capacity.root.llap.capacity*).  
@@ -178,4 +179,4 @@ For D14 v2, with 4 GB memory per executor, it's recommended to set this value to
 *https://community.cloudera.com/t5/Community-Articles/Demystify-Apache-Tez-Memory-Tuning-Step-by-Step/ta-p/245279*  
 *https://community.cloudera.com/t5/Community-Articles/Map-Join-Memory-Sizing-For-LLAP/ta-p/247462*  
 *https://community.cloudera.com/t5/Community-Articles/LLAP-a-one-page-architecture-overview/ta-p/247439*  
-*https://community.cloudera.com/t5/Community-Articles/Hive-LLAP-deep-dive/ta-p/248893*
+*https://community.cloudera.c om/t5/Community-Articles/Hive-LLAP-deep-dive/ta-p/248893*
