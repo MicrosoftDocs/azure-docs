@@ -33,7 +33,7 @@ The included application is a generic Windows UWP app. It allows you to select a
 
 ## Get the example code
 
-The example application is available at the [Cognitive Services ONNX Custom Vision Sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repo on GithHub. Clone it to your local machine and open *SampleOnnxEvaluationApp.sln* in Visual Studio.
+The example application is available at the [Cognitive Services ONNX Custom Vision Sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repo on GitHub. Clone it to your local machine and open *SampleOnnxEvaluationApp.sln* in Visual Studio.
 
 ## Test the application
 
