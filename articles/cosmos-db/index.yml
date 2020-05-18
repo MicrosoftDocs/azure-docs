@@ -268,8 +268,10 @@ landingContent:
             url: create-cassandra-dotnet.md
           - text: .NET Core
             url: create-cassandra-dotnet-core.md            
-          - text: Java
+          - text: Java v3
             url: create-cassandra-java.md
+          - text: Java v4
+            url: create-cassandra-java-v4.md            
           - text: Node.js
             url: create-cassandra-nodejs.md
           - text: Python
