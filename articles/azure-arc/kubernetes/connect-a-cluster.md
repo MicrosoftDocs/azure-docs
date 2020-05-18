@@ -115,8 +115,6 @@ Next, we will connect our Kubernetes cluster to Azure. The workflow for `az conn
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-__Note: If you receive errors regarding missing provider, or provider not found, verify your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./enable-providers.md).__
-
 **Output:**
 
 ```console
