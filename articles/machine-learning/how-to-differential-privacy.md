@@ -1,7 +1,7 @@
 ---
-title: How to preserve data privacy using Open Differential Privacy package
+title: How to preserve data privacy using the WhiteNoise packages
 titleSuffix: Azure Machine Learning
-description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using Open Differential Privacy Python packages.
+description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise packages.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.date: 05/17/2020
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to apply differential privacy best practices to Azure Machine Learning models by using the Open Differential Privacy Python packages.
+Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise Python packages.
 
 Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about how [differential privacy works](./concept-differential-privacy.md).
 
@@ -26,7 +26,7 @@ Differential privacy is the gold-standard definition of privacy. Systems that ad
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 - [Python 3](https://www.python.org/downloads/)
 
-## Install Open Differential Privacy packages
+## Install WhiteNoise packages
 
 ### Standalone installation
 
@@ -49,7 +49,7 @@ If the imports succeed, the libraries are installed and ready to use.
 
 ### Docker image
 
-You can also use Open Differential Privacy libraries with Docker.
+You can also use WhiteNoise packages with Docker.
 
 Pull the `opendp/whitenoise` image to use the libraries inside a Docker container that includes Spark, Jupyter, and sample code.
 
