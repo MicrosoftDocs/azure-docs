@@ -7,7 +7,7 @@ ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Service Principal TODO.."
+description: "Create an onboarding Service Principal "
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
@@ -15,19 +15,19 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 ## Overview
 
-When a cluster is onboarded to Azure, the agents running in your cluster must authenticate to Azure Resource Manager as part of registration. To help with this process, the `connectedk8s` CLI extension has automated Service Principal creation. However, there may be a a few scenarios where the CLI automation does not work:
+When a cluster is onboarded to Azure, the agents running in your cluster must authenticate to Azure Resource Manager as part of registration. The `connectedk8s` CLI extension has automated Service Principal creation. However, there may be a few scenarios where the CLI automation does not work:
 
-1. Your organization generally restricts creation of Service Principals
+1. Your organization generally restricts the creation of Service Principals
 1. The user onboarding the cluster does not have sufficient permissions to create Service Principals
 
 Instead, let's create the Service Principal out of band, and then pass the principal to the CLI extension.
 
 ## Create a new Service Principal
 
-Create a new Service Pricipal with an informative name. Note that this name must be unique for your Azure Active Directory tenant:
+Create a new Service Principal with an informative name. Note that this name must be unique for your Azure Active Directory tenant:
 
 ```console
-az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
+az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
 ```
 
 **Output:**
@@ -44,7 +44,7 @@ az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## Assign permissions
 
-After creating the new Service Principal, assign the "Azure Arc for Kubernetes Onboarding" role to the newly created principal. This is a built-in Azure role with limited permissions which only allows the principal to register clusters to Azure. The principal cannot update, delete or modify any other clusters or resources within the subscription.
+After creating the new Service Principal, assign the "Azure Arc for Kubernetes Onboarding" role to the newly created principal. This is a built-in Azure role with limited permissions, which only allows the principal to register clusters to Azure. The principal cannot update, delete, or modify any other clusters or resources within the subscription.
 
 Given the limited abilities, customers can easily re-use this principal to onboard multiple clusters.
 
