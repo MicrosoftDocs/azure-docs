@@ -15,15 +15,15 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contai
 
 ## Overview
 
-This architecture uses a GitOps workflow to configure the cluster and deploy applications. Configuration is described declaratively in .yaml files and stored in Git. An agent watches the Git repo for changes and applies them.  The same agent also periodically assures that the cluster state matches the state declared in the Git repo, and returns the cluster to the desired state if any unmanaged changes have occurred.
+This architecture uses a GitOps workflow to configure the cluster and deploy applications. The configuration is described declaratively in .yaml files and stored in Git. An agent watches the Git repo for changes and applies them.  The same agent also periodically assures that the cluster state matches the state declared in the Git repo and returns the cluster to the desired state if any unmanaged changes have occurred.
 
 The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager (ARM) as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in a CosmosDb database to ensure data confidentiality.
 
 The Azure Arc enabled Kubernetes `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` resources and orchestrates adding, updating, or removing the Git repo links automatically.
 
-The same patterns can be used to manage a larger collection of clusters, which may be deployed across heterogenous environments. For example, you may have one repository that defines baseline configuration for your organization and apply that to tens of Kubernetes clusters at once.
+The same patterns can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you may have one repository that defines the baseline configuration for your organization and apply that to tens of Kubernetes clusters at once.
 
-The Git repository can contain any valid Kubernetes resources including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  It may also contain Helm charts for deploying applications. A common set of scenarios include defining a baseline configuration for your organization, which might include common RBAC roles and bindings, monitoring or logging agents, or cluster-wide services.
+The Git repository can contain any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  It may also contain Helm charts for deploying applications. A common set of scenarios includes defining a baseline configuration for your organization, which might include common RBAC roles and bindings, monitoring or logging agents, or cluster-wide services.
 
 This getting started guide will walk you through applying a set of configurations with cluster-admin scope.
 
@@ -38,7 +38,7 @@ The example repository is structured around the persona of a cluster operator wh
 - **ConfigMap:** `team-a/endpoints`
 
 ### Notes
-- The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up new or updated configuration.
+- The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up a new or updated configuration.
 - If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository)
 
 ### Using Azure CLI
@@ -115,7 +115,7 @@ These scenarios are supported by Flux but not by sourceControlConfiguration yet;
 
 To customize the creation of configuration, here are a few additional parameters:
 
-`--enable-helm-operator` : *Optional* switch to enable support for Helm chart deployments. By default this is disabled.
+`--enable-helm-operator` : *Optional* switch to enable support for Helm chart deployments. By default, this is disabled.
 
 `--helm-operator-chart-values` : *Optional* chart values for Helm operator (if enabled).  For example, '--set helm.versions=v3'.
 
@@ -241,10 +241,10 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **Get the public key from the Azure portal**
 
-1. In the Azure portal navigate to the connected cluster resource.
-2. In the resource page select "Configurations" and see the list of configurations for this cluster.
+1. In the Azure portal, navigate to the connected cluster resource.
+2. In the resource page, select "Configurations" and see the list of configurations for this cluster.
 3. Select the configuration that uses the private Git repository.
-4. In the context window that opens, at the bottom of the window copy the **Repository public key**.
+4. In the context window that opens, at the bottom of the window, copy the **Repository public key**.
 
 **Add the public key as a deploy key to the git repo**
 
@@ -260,7 +260,7 @@ See the GitHub docs for more info on how to manage deploy keys.
 **If you are using an Azure DevOps repository, add the key to your SSH keys**
 
 1. Under **User Settings** in the top right (next to the profile image), click **SSH public keys**
-1. Clickk **+ New Key**
+1. Select  **+ New Key**
 1. Supply a name
 1. Paste the public key without any surrounding quotes
 1. Click **Add**
