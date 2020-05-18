@@ -32,7 +32,7 @@ The default visual authoring experience is directly working with the Data Factor
 
 ### Properties pane
 
-For top-level resources such as pipelines, datasets, and data flows, high-level properties are editable in the properties pane on the right-hand side of the canvas. The properties pane contain properties such as name, description, annotations and other high-level properties. Sub-resources such as pipeline activities and data flow transformations are edited using the panel at the bottom of the canvas. 
+For top-level resources such as pipelines, datasets, and data flows, high-level properties are editable in the properties pane on the right-hand side of the canvas. The properties pane contains properties such as name, description, annotations, and other high-level properties. Subresources such as pipeline activities and data flow transformations are edited using the panel at the bottom of the canvas. 
 
 ![Authoring Canvas](media/author-visually/properties-pane.png)
 
