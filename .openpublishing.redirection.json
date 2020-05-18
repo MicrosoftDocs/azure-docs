@@ -52152,6 +52152,11 @@
       "source_path": "articles/sql-database-edge/tutorial-sync-data-factory.md",
       "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+      "redirect_url": "/articles/virtual-network/public-ip-addresses",
+      "redirect_document_id": false
     }
  ]
 }
