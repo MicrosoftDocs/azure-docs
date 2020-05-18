@@ -36,7 +36,7 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
 1. Install the Azure Digital Twins-enabled IoT extension with this command: `az extension add --name azure-iot`
     [!INCLUDE [iot-hub-cli-version-info.md](../../includes/iot-hub-cli-version-info.md)]
 
-2. Verify your installation of **azure-iot** is version **0.0.1.dev6** with this command:
+2. Verify your installation of **azure-iot** is version **0.0.1.dev8** with this command:
 
     `az extension list`
 
@@ -47,14 +47,14 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
       {
         "extensionType": "whl",
         "name": "azure-iot",
-        "version": "0.0.1.dev6"
+        "version": "0.0.1.dev8"
       }
     ]
     ```
 
 3. Authenticate within the shell
    * Use the command `az login` to authenticate
-   * Ensure you have set the proper subscription for this session by running `az account set -s <subscription ID>`
+   * Ensure you have set the proper subscription for this session by running `az account set -s <subscription-ID>`
 
 >[!TIP]
 > You can see a list of all of your subscriptions with `az account list`.
@@ -79,11 +79,11 @@ Uses:
 
 * Create an Azure Digital Twins instance in the default location
 
-  `az dt create -n mydtinstance -g MyResourceGroup`
+  `az dt create -n <Azure-Digital-Twins-instance-name> -g <resource-group>`
 
 * Create an Azure Digital Twins instance in a specific location with tags
 
-  `az dt create -n mydtinstance -g MyResourceGroup --location westcentralus --tags "a=b;c=d"`
+  `az dt create -n <Azure-Digital-Twins-instance-name> -g <resource-group> --location westcentralus --tags "a=b;c=d"`
 
 #### az dt show
 
@@ -91,11 +91,11 @@ Uses:
 
 * Show details of an Azure Digital Twins instance
 
-  `az dt show -n mydtinstance`
+  `az dt show -n <Azure-Digital-Twins-instance-name>`
 
 * Show an Azure Digital Twins instance and project certain properties
 
-  `az dt show -n mydtinstance --query "{Endpoint:hostName, Location:location}"`
+  `az dt show -n <Azure-Digital-Twins-instance-name> --query "{Endpoint:hostName, Location:location}"`
 
 #### az dt list
 
@@ -107,7 +107,7 @@ Uses:
 
 * List all Azure Digital Twins instances in target resource group, and output in table format
 
-  `az dt list -g MyResourceGroup --output table`
+  `az dt list -g <resource-group> --output table`
 
 * List all Azure Digital Twins instances in subscription that meet a certain condition
 
@@ -123,7 +123,7 @@ Uses:
 
 * Delete an Azure Digital Twins instance
 
-  `az dt delete -n mydtinstance`
+  `az dt delete -n <Azure-Digital-Twins-instance-name>`
 
 ### Configure endpoints
 
@@ -137,15 +137,15 @@ Uses:
 
 * Add event grid topic endpoint (requires pre-created Event Grid resource)
 
-  `az dt endpoint create eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
+  `az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint> --eventgrid-resource-group <Event-Grid-resource-group> --eventgrid-topic <Event-Grid-topic> -n <Azure-Digital-Twins-instance-name>`
 
 * Add Service Bus topic endpoint (requires pre-created Service Bus resource)
 
-  `az dt endpoint create servicebus --endpoint-name mysb_endpoint --servicebus-resource-group mysb_resourcegroup --servicebus-namespace mysb_namespace --servicebus-topic mysb_topic --servicebus-policy mysb_topicpolicy -n mydtinstance`
+  `az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint> --servicebus-resource-group <Service-Bus-resource-group> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic> --servicebus-policy <Service-Bus-topic-policy> -n <Azure-Digital-Twins-instance-name>`
 
 * Add Event Hub endpoint (requires pre-created Event Hub resource)
 
-  `az dt endpoint create eventhub --endpoint-name myeh_endpoint --eventhub-resource-group myeh_resourcegroup --eventhub-namespace myeh_namespace --eventhub myeventhub --eventhub-policy myeh_policy -n mydtinstance`
+  `az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt endpoint show
 
@@ -153,7 +153,7 @@ Uses:
 
 * Show a configured endpoint on an Azure Digital Twins instance
 
-  `az dt endpoint show --endpoint-name myeh_endpoint -n mydtinstance`
+  `az dt endpoint show --endpoint-name <Event-Hub-endpoint> -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt endpoint list
 
@@ -161,7 +161,7 @@ Uses:
 
 * List all configured endpoints on an Azure Digital Twins instance
 
-  `az dt endpoint list -n mydtinstance`
+  `az dt endpoint list -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt endpoint delete
 
@@ -169,7 +169,7 @@ Uses:
 
 * Delete a target endpoint on an Azure Digital Twins instance
 
-  `az dt endpoint delete --endpoint-name myeh_endpoint -n mydtinstance`
+  `az dt endpoint delete --endpoint-name <Event-Hub-endpoint> -n <Azure-Digital-Twins-instance-name>`
 
 ### Manage routes
 
@@ -198,7 +198,7 @@ Uses:
 
 * Show an existing event route
 
-  `az dt route show --route-name myeh_route -n mydtinstance`
+  `az dt route show --route-name <route-name> -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt route list
 
@@ -206,7 +206,7 @@ Uses:
 
 * List all event routes on an Azure Digital Twins instance
 
-  `az dt route list -n mydtinstance`
+  `az dt route list -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt route delete
 
@@ -214,7 +214,181 @@ Uses:
 
 * Delete a target event route from an Azure Digital Twins instance
 
-  `az dt route delete --route-name myeh_route -n mydtinstance`
+  `az dt route delete --route-name <route-name> -n <Azure-Digital-Twins-instance-name>`
+
+### Manage models
+
+Command Group: `az dt model` 
+
+These commands are used to manage Azure Digital Twins instance model operations. This command group requires the client principal to have admin privileges.
+
+#### az dt model create
+
+Uses:
+
+* Add models to an Azure Digital Twins instance
+
+  `az dt model create -n <Azure-Digital-Twins-instance-name> --models <file-path-or-inline-json>`
+
+* Add models to an ADT instance from a directory (recursive)
+
+  `az dt model create -n <Azure-Digital-Twins-instance-name> --from-directory <path-to-model-directory>`
+
+#### az dt model list
+
+Uses:
+
+* List model metadata
+
+  `az dt model list -n <Azure-Digital-Twins-instance-name>`
+
+* List model definitions
+
+  `az dt model list -n <Azure-Digital-Twins-instance-name> --definition`
+
+* List dependencies of particular pre-existing model(s). Use a space to separate multiple DTMI model IDs.
+
+  `az dt model list -n <Azure-Digital-Twins-instance-name> --dependencies-for <model-ID-0> <model-ID-1>`
+
+#### az dt model show
+
+Uses:
+
+* Show model metadata
+
+  `az dt model show -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID>`
+
+* Show model definition
+
+  `az dt model show -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID> --definition`
+
+#### az dt model update
+
+Uses:
+
+Update the decommissioned status of a model (to true)
+
+  `az dt model update -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID> --decommission`
+
+### Manage twins
+
+Command Group: `az dt twin`
+
+These commands are used to manage and configure the digital twins of an Azure Digital Twins instance. This command group requires the client principal to have admin privileges.
+
+#### az dt twin query
+
+Uses:
+
+* Get all digital twins
+
+  `az dt twin query -n <Azure-Digital-Twins-instance-name> -q "select * from digitaltwins"`
+
+#### az dt twin create
+
+Uses:
+
+* Create a twin from an existing (previously-created) model
+
+  `az dt twin create -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID> --twin-id <twin-ID>`
+
+* Create a twin from an existing (previously-created) model. Instantiate with property values.
+
+  `az dt twin create -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID> --twin-id <twin-ID> --properties '"manufacturer": "Microsoft"}'`
+
+#### az dt twin show
+
+Uses:
+
+* Show an existing twin in an Azure Digital Twins instance
+
+  `az dt twin show -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID>`
+
+#### az dt twin update
+
+Uses:
+
+* Update a twin with a JSON-patch (example patch)
+
+  `az dt twin update -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'`
+
+* Update a twin with a JSON-patch defined in file
+
+  `az dt twin update -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --json-patch <path-to-patch-file>`
+
+#### az dt twin delete
+
+Uses:
+
+* Delete a twin by ID
+
+  `az dt twin delete -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID>`
+
+### Manage relationships
+
+Command Group: `az dt twin edge`
+
+These commands are used to manage and configure the relationships (or edges) of an Azure Digital Twins instance. This command group requires the client principal to have admin privileges.
+
+#### az dt twin edge create
+
+Uses:
+
+* Create a relationship between source and target twins
+
+  `az dt twin edge create -n <Azure-Digital-Twins-instance-name> --edge-id <relationship-ID> --relationship contains --source <source-twin-ID> --target <target-twin-ID>`
+
+* Create a relationship between source and target twins. Provide relationship instance properties.
+
+  `az dt twin edge create -n <Azure-Digital-Twins-instance-name> --edge-id <relationship-ID> --relationship contains --source <source-twin-ID> --target <target-twin-ID> --properties '{"ownershipUser": "me", "ownershipDepartment": "Computer Science"}'`
+
+#### az dt twin edge show
+
+Uses:
+
+* Show a relationship between source and target twins
+
+  `az dt twin edge show -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --edge-id <relationship-ID> --relationship <relationship-name>`
+
+#### az dt twin edge list
+
+Uses:
+
+* List outgoing relationships of a twin
+
+  `az dt twin edge list -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID>`
+
+* List outgoing relationships of a twin and filter on relationship *contains*
+
+  `az dt twin edge list -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --relationship contains`
+
+* List incoming relationships to a twin.
+
+  `az dt twin edge list -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --incoming-edges`
+
+* List incoming relationships to a twin and filter on relationship *contains*
+
+  `az dt twin edge list -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --relationship contains --incoming-edges`
+
+#### az dt twin edge update
+
+Uses:
+
+* Update a twin relationship with a JSON patch
+
+  `az dt twin edge update -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --edge-id <relationship-ID> --relationship contains --json-patch '[{}, {}]'`
+
+* Update a twin relationship with a JSON patch defined in a file.
+
+  `az dt twin edge update -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --edge-id <relationship-ID> --relationship contains --json-patch <path-to-patch-file>`
+
+#### az dt twin edge delete
+
+Uses:
+
+* Delete a relationship between source and target twins
+
+  `az dt twin edge delete -n <Azure-Digital-Twins-instance-name> --twin-id <twin-ID> --edge-id <relationship-ID> --relationship <relationship-name>`
 
 ### Configure RBAC
 
@@ -226,13 +400,13 @@ These commands are used to manage [RBAC](../role-based-access-control/overview.m
 
 Uses:
 
-* Assign a user Owner role for an Azure Digital Twins instance
+* Assign a user the Owner role for an Azure Digital Twins instance
 
-  `az dt rbac assign-role --assignee 'coolperson@microsoft.com' --role owner -n mydtinstance`
+  `az dt rbac assign-role --assignee '<owner-user-email>' --role owner -n <Azure-Digital-Twins-instance-name>`
 
-* Assign a user Reader role for an Azure Digital Twins instance
+* Assign a user the Reader role for an Azure Digital Twins instance
 
-  `az dt rbac assign-role --assignee 'kindacoolperson@microsoft.com' --role reader -n mydtinstance`
+  `az dt rbac assign-role --assignee '<reader-user-email>' --role reader -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt rbac list-assignments
 
@@ -240,7 +414,7 @@ Uses:
 
 * List existing role assignments of an Azure Digital Twins instance
 
-  `az dt rbac list-assignments -n mydtinstance`
+  `az dt rbac list-assignments -n <Azure-Digital-Twins-instance-name>`
 
 #### az dt rbac remove-role
 
@@ -248,7 +422,7 @@ Uses:
 
 * Remove an existing role assignment from an Azure Digital Twins instance
 
-  `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
+  `az dt rbac remove-role --assignee '<remove-user-email>' -n <Azure-Digital-Twins-instance-name>`
 
 ## Next steps
 
