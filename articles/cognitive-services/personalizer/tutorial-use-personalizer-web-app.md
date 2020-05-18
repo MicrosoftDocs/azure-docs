@@ -205,8 +205,8 @@ The **HttpRequestFeatures** class library generalizes this string into a **userA
 Install the following software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1)
-* [Node.js](https://nodejs.org/en/about/)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/)
+* [Node.js](https://nodejs.org/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/)
 
 ### Set up the sample
 1. Clone the Azure Personalizer Samples repo.
@@ -545,5 +545,5 @@ In this sample application, you can select a value to see how the reward impacts
 
 ## Next steps
 
-* [Features](concepts-features): learn concepts about features using with actions and context
-* [Rewards](concept-rewards): learn about calculating rewards
+* [Features](concepts-features.md): learn concepts about features using with actions and context
+* [Rewards](concept-rewards.md): learn about calculating rewards
