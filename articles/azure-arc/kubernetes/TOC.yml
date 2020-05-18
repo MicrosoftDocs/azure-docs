@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Arc for kubernetes
+  - name: About Azure Arc enabled Kubernetes
     href: overview.md
 - name: How-to guides
   items:
@@ -14,10 +14,6 @@
       href: use-gitops-in-connected-cluster.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
-    - name: Enable resource providers
-      href: enable-providers.md
-    - name: Install CLI extensions
-      href: install-cli-extensions.md
     - name: Use Azure Policy
       href: use-azure-policy.md
     - name: Azure Monitor for containers
