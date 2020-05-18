@@ -114,9 +114,9 @@ For more information, check [filename](develop-storage-files-overview.md#filenam
 > Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
 
 > [!NOTE]
-> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each table created in Synapse Spark.
+> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each external table created in Apache Spark for Azure Synapse.
 
-If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
+If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
 
 ## Use PARSER_VERSION 2.0 for querying CSV files
 
