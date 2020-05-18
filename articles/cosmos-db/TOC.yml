@@ -132,7 +132,7 @@
       - name: Request units
         displayName: RUs, RU
         href: request-units.md
-      - name: Provision standard (manual) throughput
+      - name: Provisioned throughput introduction
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
       - name: Provision autoscale throughput
