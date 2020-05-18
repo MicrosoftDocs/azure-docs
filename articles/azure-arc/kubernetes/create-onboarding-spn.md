@@ -79,7 +79,7 @@ az role assignment create \
 
 ## Use Service Principal with CLI
 
-Reference the newly created Serivce Principal by passing `--onboarding-spn-id` and `--onboarding-spn-secret` arguments:
+Reference the newly created Service Principal by passing `--onboarding-spn-id` and `--onboarding-spn-secret` arguments:
 
 ```console
 az connectedk8s connect \
