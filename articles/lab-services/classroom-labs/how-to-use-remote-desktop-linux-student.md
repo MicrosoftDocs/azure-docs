@@ -41,7 +41,7 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
 
 4. Click the **Copy** button next to the text box to copy the SSH connection information to the clipboard. 
 
-5. Save the SSH connection information, such as in Textpad, so that you can use this connection information in the next step.
+5. Save the SSH connection information, such as in Text pad, so that you can use this connection information in the next step.
 
 6. From an SSH terminal (like [Putty](https://www.putty.org/)), connect to your VM.
 
@@ -60,10 +60,10 @@ Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs af
 
     Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-rdp.md).
-   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-rdp.md).  
+   - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remotedesktopprotocol.md).  
 
 ### Connect to the student VM using X2Go
-Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, etc).
+Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as MATE, XFCE, and so on).
 
 Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
 
@@ -83,9 +83,9 @@ Students need to find out from their instructor which Linux graphical desktop en
     Using this example, the following values are entered:
 
    - **Session name** - Specify a name, such as the name of your VM.
-   - **Host** - The id of your VM; for example **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
+   - **Host** - The ID of your VM; for example, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
    - **Login** - The username for your VM; for example, **student**.
-   - **SSH port** - The unique port assigned to your VM; for example **12345**.
+   - **SSH port** - The unique port assigned to your VM; for example, **12345**.
    - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You need to get this information from your instructor.
 
     Finally, click **OK** to create the session.
@@ -99,7 +99,7 @@ Students need to find out from their instructor which Linux graphical desktop en
     > [!NOTE] 
     > If you are prompted with a similar message to this, select **yes** to continue to entering your password: **The authenticity of host '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345' can't be established.  ECDSA key fingerprint is SHA256:00000000000000000000000000000000000000000000.Are you sure you want to continue connecting (yes/no)?**
 
-1. When prompted, enter your password and click **OK**.  You should now be connected remotely connected to your VM's GUI desktop environment.
+2. When prompted, enter your password and click **OK**.  You will now be remotely connected to your VM's GUI desktop environment.
 
 ## Next steps
 To learn how to enable the remote desktop connection feature for Linux VMs in a classroom lab, see [Enable remote desktop for Linux virtual machines](how-to-enable-remote-desktop-linux.md). 

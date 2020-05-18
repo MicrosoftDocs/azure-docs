@@ -21,25 +21,25 @@ ms.author: spelluru
 This article shows you how to do the following tasks:
 
 - Enable graphical remote desktop sessions for a Linux VM
-- How to connect to a Linux VM using RDP or X2Go remote desktop clients
+- How to connect to a Linux VM using RDP (Remote Desktop Protocol) or X2Go remote desktop clients
 
 ## Set up graphical remote desktop solution
-When a lab is created using a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the instructor can connect to the template VM from the command line using SSH.  Likewise, when the template VM is published, students can also connect to their VMs using SSH.
+When a lab is created from a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the instructor can connect to the template VM from the command line using SSH.  Likewise, when the template VM is published, students can also connect to their VMs using SSH.
 
-To connect to a Linux VM using a **GUI** (graphical user interface), we recommend using either **RDP** (Remote Desktop Protocol) or **X2Go**.  Both of these options require the instructor to do some additional setup on the template VM:
+To connect to a Linux VM using a **GUI** (graphical user interface), we recommend using either **RDP** or **X2Go**.  Both of these options require the instructor to do some additional setup on the template VM:
 
 ### RDP Setup
 To use RDP, the instructor must:
   - Enable remote desktop connection; this is specifically needed to open the VM's port for RDP.
   - Install the RDP remote desktop server.
-  - Install a Linux graphical desktop environment (such as MATE, XFCE, etc).
+  - Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
 
 ### X2Go Setup
 To use X2Go, the instructor must:
 - Install the X2Go remote desktop server.
-- Install a Linux graphical desktop environment (such as MATE, XFCE, etc).
+- Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
 
-X2Go uses the same port that is already enabled for SSH; as a result, there is no extra configuration required to open a port on the VM for X2Go.
+X2Go uses the same port that is already enabled for SSH.  As a result, no extra configuration required to open a port on the VM for X2Go.
 
 > [!NOTE]
 > In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
@@ -104,7 +104,7 @@ Follow the below steps based on the type of computer used to connect to the temp
 
 - Chromebook
   1. Click **Connect to template** on your lab's toolbar and then select **Connect via RDP** to save the RDP file.  
-  1. Then, refer to the how-to article [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-rdp.md).
+  1. Then, refer to the how-to article [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remotedesktopprotocol.md).
 
 ### X2Go client
 

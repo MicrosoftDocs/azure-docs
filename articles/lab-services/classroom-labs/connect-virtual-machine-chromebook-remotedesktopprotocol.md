@@ -1,6 +1,6 @@
 ---
 title: How to connect to an Azure Lab Services VM from Chromebook | Microsoft Docs
-description: This article
+description: Learn how to connect from a Chromebook to a virtual machine in Azure Lab Services.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -17,7 +17,7 @@ ms.author: nicolela
 
 ---
 
-# Connect to a VM using RDP on a Chromebook
+# Connect to a VM using Remote Desktop Protocol on a Chromebook
 This section shows how a student can connect to a classroom lab VM from a Chromebook by using RDP.
 
 ## Install Microsoft Remote Desktop on a Chromebook
