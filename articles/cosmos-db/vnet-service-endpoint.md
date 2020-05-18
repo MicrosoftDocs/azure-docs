@@ -22,7 +22,7 @@ Here are some frequently asked questions about configuring access from virtual n
 
 ### Are Notebooks and Mongo Shell currently compatible with Virtual Network enabled accounts?
 
-At the moment the Mongo shell and the Notebooks services are not supported with VNET access. This is currently in active development.
+At the moment the [Mongo shell integration in the Cosmos DB Data Explorer](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and the [Jupyter Notebooks service](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) are not supported with VNET access. This is currently in active development.
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
