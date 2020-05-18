@@ -153,9 +153,20 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-pytorch",
+      "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-quickstart-templates",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "dev"
+    },
+    {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
     },
     {
       "path_to_root": "functions-docs-csharp",
@@ -188,6 +199,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cognitive-services-data-files",
+      "url": "https://github.com/Azure-Samples/cognitive-services-sample-data-files",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-luis",
       "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master"
@@ -215,6 +231,11 @@
     {
       "path_to_root": "iot-samples-node",
       "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-iot-sdk-node",
+      "url": "https://github.com/Azure/azure-iot-sdk-node",
       "branch": "master"
     },
     {
@@ -265,6 +286,11 @@
     {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "MachineLearningNotebooks",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "master"
     },
     {
@@ -340,6 +366,26 @@
     {
       "path_to_root": "azure-sdk-for-go-samples",
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-script-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-js/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-python-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
     {
@@ -457,6 +503,11 @@
     {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-storage-snippets",
+      "url": "https://github.com/azure-samples/AzureStorageSnippets",
       "branch": "master"
     }
   ],
