@@ -2,12 +2,12 @@
   "redirections": [
     {
       "source_path": "articles/cosmos-db/sql-api-async-java-samples.md",
-      "redirect_url": "articles/cosmos-db/sql-api-java-sdk-samples.md",
+      "redirect_url": "azure/cosmos-db/sql-api-java-sdk-samples.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-java-samples.md",
-      "redirect_url": "articles/cosmos-db/sql-api-java-sdk-samples.md",
+      "redirect_url": "azure/cosmos-db/sql-api-java-sdk-samples.md",
       "redirect_document_id": false
     },    
     {
