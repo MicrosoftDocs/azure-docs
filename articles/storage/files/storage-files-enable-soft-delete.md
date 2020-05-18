@@ -10,7 +10,7 @@ ms.subservice: files
 services: storage
 ---
 
-# Enable soft delete
+# Enable soft delete on Azure file shares
 
 Azure Storage offers soft delete for file shares so that you can more easily recover your data when it is mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-recover-file-shares.md).
 
