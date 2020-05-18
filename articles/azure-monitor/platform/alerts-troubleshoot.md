@@ -7,29 +7,30 @@ ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
 ---
-# Troubleshooting problems in Azure Monitor alerts 
+# Troubleshooting problems in Azure Monitor alerts
 
-This article discusses common problems in Azure Monitor alerting notifications
+This article discusses common problems in Azure Monitor alerting and notifications.
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](alerts-overview.md).
 
-The sections below cover common problems with alert notifications.  
-To troubleshooting problems with the alerts themselves, see 
+If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
+
 - [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
 - [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)
 
-## Action or notification on my alert did not work as expected
+If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
+## Action or notification on my alert did not work as expected
 
 If you can see a fired alert in the Azure portal, but have an issue with some of its actions or notifications, see the following sections.
 
 ## Did not receive expected email
 
-If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps: 
+If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps:
 
-1. **Was the email suppressed by an [action rule](alerts-action-rules.md)**? 
+1. **Was the email suppressed by an [action rule](alerts-action-rules.md)**?
 
-    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md): 
+    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md):
 
     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -45,19 +46,19 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
       - alerts-noreply@mail.windowsazure.com
 
     It is common that internal mailing lists or distribution lists block emails from external email addresses. You need to whitelist the above email addresses.  
-    To test, add a regular work email address (not a mailing list) to the action group and see if alerts arrive to that email. 
+    To test, add a regular work email address (not a mailing list) to the action group and see if alerts arrive to that email.
 
-1. **Was the email processed by inbox rules or a spam filter?** 
+1. **Was the email processed by inbox rules or a spam filter?**
 
     Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject.
 
     Also, check:
-    
-      - the spam settings of your email client (like Outlook, Gmail)
-      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Office 365, G-suite)
-      - the settings of your email security appliance, if any (like Barracuda, Cisco). 
 
-1. **Have you accidentally unsubscribed from the action group?** 
+   - the spam settings of your email client (like Outlook, Gmail)
+      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Office 365, G-suite)
+      - the settings of your email security appliance, if any (like Barracuda, Cisco).
+
+1. **Have you accidentally unsubscribed from the action group?**
 
     The alert emails provide a link to unsubscribe from the action group. To check if you have accidentally unsubscribed from this action group, either:
 
@@ -71,7 +72,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     To subscribe again – either use the link in the unsubscribe confirmation email you have received, or remove the email address from the action group, and then add it back again. 
  
-1. **Have you been rated limited due to many emails going to a single email address?** 
+1. **Have you been rated limited due to many emails going to a single email address?**
 
     Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you have received a message indicating that your email address has been temporarily rate limited: 
  
@@ -83,7 +84,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
-1. **Was the action suppressed by an [action rule](alerts-action-rules.md)?** 
+1. **Was the action suppressed by an [action rule](alerts-action-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md): 
 
@@ -93,14 +94,14 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
  
 1. **SMS / voice:  Is your phone number correct?**
 
-   Check the SMS action for typos in the country code or phone number. 
+   Check the SMS action for typos in the country code or phone number.
  
-1. **SMS / voice: have you been rate limited?** 
+1. **SMS / voice: have you been rate limited?**
 
-    SMS and voice calls are rate limited to no more than one notification every five minutes per phone number. If you pass this threshold, the notifications will be dropped. 
+    SMS and voice calls are rate limited to no more than one notification every five minutes per phone number. If you pass this threshold, the notifications will be dropped.
 
-      - Voice call – check your call history and see if you had a different call from Azure in the preceding five minutes. 
-      - SMS - check your SMS history for a message indicating that your phone number has been rate limited. 
+      - Voice call – check your call history and see if you had a different call from Azure in the preceding five minutes.
+      - SMS - check your SMS history for a message indicating that your phone number has been rate limited.
 
     If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
  
@@ -110,19 +111,19 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
 1. **Have you accidentally blocked the notifications on your phone?**
 
-   Most mobile phones allow you to block calls or SMS from specific phone numbers or short codes, or to block push notifications from specific apps (such as the Azure mobile app). To check if you accidentally blocked the notifications on your phone, search the documentation specific for your phone operating system and model, or test with a different phone and phone number. 
+   Most mobile phones allow you to block calls or SMS from specific phone numbers or short codes, or to block push notifications from specific apps (such as the Azure mobile app). To check if you accidentally blocked the notifications on your phone, search the documentation specific for your phone operating system and model, or test with a different phone and phone number.
 
 ## Expected another type of action to trigger, but it did not 
 
-If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps: 
+If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps:
 
-1. **Was the action suppressed by an action rule?** 
+1. **Was the action suppressed by an action rule?**
 
-    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md): 
+    Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](action-groups.md):
 
     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
  
-    If that was unintentional, you can modify, disable, or delete the action rule. 
+    If that was unintentional, you can modify, disable, or delete the action rule.
 
 1. **Did a webhook not trigger?**
 
@@ -132,7 +133,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Does your webhook endpoint work correctly?**
 
-       Verify the webhook endpoint you have configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload). 
+       Verify the webhook endpoint you have configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload).
 
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](action-groups-logic-app.md) to configure a logic app action instead.
