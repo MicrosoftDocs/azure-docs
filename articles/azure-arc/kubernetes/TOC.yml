@@ -22,7 +22,7 @@
       href: install-cli-extensions.md
     - name: Use Azure Policy
       href: use-azure-policy.md
-    - name: Troubleshooting
-      href: Troubleshooting.md
     - name: Azure Monitor for containers
       href: deploy-azure-monitor-for-containers.md
+    - name: Troubleshooting
+      href: Troubleshooting.md
