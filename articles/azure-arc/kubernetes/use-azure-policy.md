@@ -26,7 +26,7 @@ If you are using multiple Git repos as the sources of truth for each cluster (fo
 3. Set the **Definition location** to your subscription or management group.  This will determine the broadest scope where the policy definition can be used.
 4. Give the policy a **Name** and **Description**.
 5. Under category, choose **Create new**, and write *Kubernetes Cluster - Azure Arc*
-6. In the **Policy rule** edit box, copy/paste the contents of this [example policy definition](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/examples/Assure-GitOps-endpoint-for-Kubernetes-cluster.json).
+6. In the **Policy rule** edit box, copy/paste the contents of this [example policy definition](https://raw.githubusercontent.com/Azure/arc-k8s-demo/master/policy/Ensure-GitOps-configuration-for-Kubernetes-cluster.json).
 7. **Save**.
 
 Note that this step of creating a custom policy definition will not be needed once the work is completed to make this a built-in policy.
