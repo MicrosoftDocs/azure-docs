@@ -22,49 +22,39 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 Text Analysis API v3 is now generally available with the following updates:
 
-   * New model version 2020-04-01
-   * New properties in the JSON response:
-      * `SentenceText` in Sentiment Analysis
-      * Warnings for each document
-   * Changed the names of the following properties where applicable:
-      * `score` to `confidenceScore`
-      * `type` to `category`
-      * `subtype` to `subcategory`
-   * New languages in Sentiment Analysis v3:
-      * English (`en`)
-      * Japanese (`ja`)
-      * Korean (`ko`)
-      * Chinese Simplified (`zh-Hans`)
-      * Chinese Traditional (`zh-Hant`)
-      * French (`fr`)
-      * Italian (`it`)
-      * Spanish (`es`)
-      * Portuguese (`pt`)
-      * and German (`de`) 
-   * New category in Named Entity Recognition v3:
-      * Address
-   * New subcategories in Named Entity Recognition v3:
-      * Location - Geographical
-      * Location - Structural
-      * Organization - Stock Exchange
-      * Organization - Medical
-      * Organization - Sports
-      * Event - Cultural
-      * Event - Natural
-      * Event - Sports
-   * A new endpoint for Entity Linking 
-   
-Text Analytics API v3 is not available in the following regions: Central India, UAE North and South Africa North.
+* Model version `2020-04-01`
+* Updated [language support](language-support.md) for [sentiment analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* Separate endpoint for entity linking 
+* New "Address" entity category in [Named Entity Recognition (NER) v3](how-tos/text-analytics-how-to-entity-linking.md).
+* New subcategories in NER v3:
+   * Location - Geographical
+   * Location - Structural
+   * Organization - Stock Exchange
+   * Organization - Medical
+   * Organization - Sports
+   * Event - Cultural
+   * Event - Natural
+   * Event - Sports
+
+The following properties in the JSON response have been added:
+   * `SentenceText` in Sentiment Analysis
+   * Warnings for each document
+
+The names of the following properties in the JSON response have been changed, where applicable:
+
+* `score` has been renamed to `confidenceScore`
+    * `confidenceScores` are reported to two decimal points. 
+* `type` has been renamed to `category`
+* `subtype` has been renamed to `subcategory`
+
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+> [Learn more about Text Analytics API v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
 ### Text Analytics API v3.1 Public Preview
    * New feature - Opinion Mining
-   * New domain filter for Personally Identifiable Information (PII) to support Protected Health Information (PHI)
-
-> [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3#named-entity-recognition-versions-and-features)
+   * New domain filter for personal (`PII`) and protected health (`PHI`) information.
 
 ## February 2020
 
