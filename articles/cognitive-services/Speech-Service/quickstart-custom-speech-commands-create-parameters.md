@@ -56,7 +56,7 @@ In this article, you'll extend that application with parameters so it can turn m
 
 
     > [!div class="mx-imgBorder"]
-        > ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
+    > ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
 1. Select **Save** to save the settings.
 

@@ -23,7 +23,7 @@ The application will process utterances like "turn on the tv" and reply with a s
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
   > [!NOTE]
-  > At this time, Custom Commands only supports Speech subscriptions in the  westus, westus2 and neur regions.
+  > At this time, Custom Commands only supports Speech subscriptions in the  westus, westus2, and neur regions.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -32,7 +32,7 @@ The application will process utterances like "turn on the tv" and reply with a s
 
    The default view is your list of Speech subscriptions.
     > [!NOTE]
-    > If you don't see the select subscription page, you can get there by selecting **Speech resources** from the settings menu at the top of the screen.
+    > If you don't see the select subscription page, you can get there by selecting **Speech resources** in the settings menu at the top of the screen.
 
 1. Select your Speech subscription, and then select **Go to Studio**.
 1. Select **Custom Commands**.
@@ -95,10 +95,10 @@ The middle pane lists the properties of the command:
 
 | Configuration            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Example sentences | Examples of utterances the user can say to trigger the command.                                                                 |
-| Parameters       | Information required to complete the command.                                                                                |
-| Completion rules | Actions that will be taken to fulfill the command. For example, responding to the user or communicating with another web service. |
-| Interaction rules   | Additional rules to handle more specific or complex situations.                                                              |
+| **Example sentences** | Examples of utterances the user can say to trigger the command.                                                                 |
+| **Parameters**       | Information required to complete the command.                                                                                |
+| **Completion rules** | Actions that will be taken to fulfill the command. For example, responding to the user or communicating with another web service. |
+| **Interaction rules**   | Additional rules to handle more specific or complex situations.                                                              |
 
 
 > [!div class="mx-imgBorder"]
@@ -127,11 +127,11 @@ Now add a completion rule that has the following configuration. This rule tells 
 
 | Setting    | Suggested value                          | Description                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
-| **Name**  | **ConfirmationResponse**                  | A name describing the purpose of the rule          |
-| **Conditions** | None                                     | Conditions that determine when the rule can run    |
-| **Actions**    | **Send speech response -> Ok, turning on the tv** | The action to take when the rule condition is true |
+| **Name**  | **ConfirmationResponse**                  | A name describing the purpose of the rule.          |
+| **Conditions** | None                                     | Conditions that determine when the rule can run.    |
+| **Actions**    | **Send speech response -> Ok, turning on the tv** | The action to take when the rule condition is true. |
 
-1. Create a new completion rule by selecting the **Add** at the top of the middle pane.
+1. Create a new completion rule by selecting **Add** at the top of the middle pane.
 1. In the **Name** box, enter a name.
 1. Add an action.
    1. Create an action by selecting **Add an action** in the **Actions** section.
@@ -152,7 +152,7 @@ Now add a completion rule that has the following configuration. This rule tells 
 
 ## Try it out
 
-Test the behavior by using the test chat panel
+Test the behavior by using the test chat panel.
 1. Select **Train** at the top of the right pane.
 1. After training is done, select **Test**. A new **Test your application** window appears.
     - Enter **turn on the tv**
@@ -165,4 +165,4 @@ Test the behavior by using the test chat panel
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Custom Commands (Preview) application with parameters](./quickstart-custom-speech-commands-create-parameters.md)
+> [Quickstart: Create a Custom Commands Preview application with parameters](./quickstart-custom-speech-commands-create-parameters.md)
