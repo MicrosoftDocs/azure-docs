@@ -17,6 +17,7 @@ This article describes how to monitor your Azure Stack Edge. To monitor your dev
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * View device events and the corresponding alerts
 > * View hardware status of device components
 > * View capacity and transaction metrics for your device
@@ -31,7 +32,7 @@ In this article, you learn how to:
 Take the following steps in the local web UI to view the hardware status of your device components.
 
 1. Connect to the local web UI of your device.
-2. Go to **Maintenance > Hardware status**. You can view the health of the various device components. 
+2. Go to **Maintenance > Hardware status**. You can view the health of the various device components.
 
     ![View hardware status](media/azure-stack-edge-monitor/view-hardware-status.png)
 
@@ -43,6 +44,6 @@ Take the following steps in the local web UI to view the hardware status of your
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
 
-## Next steps 
+## Next steps
 
 Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).

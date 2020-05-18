@@ -39,8 +39,8 @@ Take the following steps in the Azure portal to create a chart for selected devi
     |**Cloud upload throughput (share)**  | Sum of all bytes written to the cloud from a share / # of shares is average, max, and min per share      |
     |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
     |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
-    |**Edge compute - memory usage**      | This metric is not applicable for Data Box Gateway and hence not populated.          |
-    |**Edge compute - percentage CPU**    | This metric is not applicable for Data Box Gateway and hence not populated.         |
+    |**Edge compute - memory usage**      |           |
+    |**Edge compute - percentage CPU**    |         |
 
 4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max, or Min.
 
