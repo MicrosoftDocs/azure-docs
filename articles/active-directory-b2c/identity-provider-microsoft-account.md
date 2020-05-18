@@ -28,7 +28,7 @@ To use a Microsoft account as an [identity provider](openid-connect.md) in Azure
 1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 
    For more information on the different account type selections, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
-1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in the text box. Replace `your-tenant-name` with your Azure AD B2C tenant name.
+1. Under **Redirect URI (optional)**, select **Web** and enter `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` in the text box. Replace `<tenant-name>` with your Azure AD B2C tenant name.
 1. Select **Register**
 1. Record the **Application (client) ID** shown on the application Overview page. You need this when you configure the identity provider in the next section.
 1. Select **Certificates & secrets**
