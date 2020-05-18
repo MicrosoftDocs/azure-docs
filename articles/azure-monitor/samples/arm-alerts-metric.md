@@ -5,13 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 4/20/2020
+ms.date: 05/18/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
 This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
 See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
@@ -1315,31 +1316,6 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 }
 ```
 
-
-You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory.
-
-Using Azure PowerShell
-```powershell
-Connect-AzAccount
-
-Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
-New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupOfTargetResource `
-  -TemplateFile customstaticmetricalert.json -TemplateParameterFile customstaticmetricalert.parameters.json
-```
-
-
-
-Using Azure CLI
-```azurecli
-az login
-
-az group deployment create \
-    --name AlertDeployment \
-    --resource-group ResourceGroupOfTargetResource \
-    --template-file customstaticmetricalert.json \
-    --parameters @customstaticmetricalert.parameters.json
-```
 
 >[!NOTE]
 >

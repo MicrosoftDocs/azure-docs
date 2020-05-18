@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 04/22/2020
+ms.date: 05/18/2020
 
 ---
 

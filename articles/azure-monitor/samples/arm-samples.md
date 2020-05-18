@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 4/20/2020
+ms.date: 05/18/2020
 ms.subservice: alerts
 ---
 # Azure Monitor resource manager samples
