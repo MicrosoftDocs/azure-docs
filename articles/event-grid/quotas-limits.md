@@ -13,14 +13,10 @@ ms.author: shvija
 
 ---
 # Azure Event Grid quotas and limits
+This article lists quotas and limits in Azure Event Grid. 
 
-This section lists basic quotas and limits in Azure Event Hubs.
-
+## Quotas and limits
 [!INCLUDE [event-grid-limits](../../includes/event-grid-limits.md)]
 
 ## Next steps
-
-You can learn more about Event Grid by visiting the following links:
-
-- [What's Azure Event Grid?](overview.md)
-- [Event Grid concepts and terminology](concepts.md)
+See [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md) for quotas and limits of all Azure services. 

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 05/22/2019
- ms.author: tomfitz
+ ms.date: 05/18/2020
+ ms.author: spelluru
  ms.custom: include file
 ---
 
@@ -25,3 +25,5 @@ The following limits apply to Azure Event Grid system topics and custom topics, 
 | Publish rate for an event domain (ingress) | 5,000 events per second |
 | Publish requests for an event domain | 250 per second |
 | Event Domains per Azure Subscription | 100 |
+| Private endpoint connections per topic or domain | 64 | 
+| IP Firewall rules per topic or domain | 16 | 
