@@ -22,7 +22,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
 - Synapse roles – these roles are unique to Synapse and aren't based on Azure roles. There are three of these roles:
   - Synapse workspace admin
   - Synapse SQL admin
-  - Synapse Spark admin
+  - Apache Spark for Azure Synapse Analytics admin
 - Access control for data in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Access control for Synapse SQL and Spark databases
 

@@ -17,6 +17,84 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-05-11
+
+### Azure Machine Learning SDK for Python v1.5.0
+
++ **New features**
+  + **Preview features**
+    + **azureml-contrib-reinforcementlearning**
+        + Azure Machine Learning is releasing preview support for reinforcement learning using the [Ray](https://ray.io) framework. The `ReinforcementLearningEstimator` enables training of reinforcement learning agents across GPU and CPU compute targets in Azure Machine Learning.
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Fixes an accidentally left behind warning log in my previous PR. The log was used for debugging and accidentally was left behind.
+    + Bug fix: inform clients about partial failure during profiling
+  + **azureml-automl-core**
+    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series. In order to benefit from this new feature, you are recommended to set "max_cores_per_iteration = -1" (i.e., using all the available cpu cores) in AutoMLConfig.
+    + Fix KeyError on printing guardrails in console interface
+    + Fixed error message for experimentation_timeout_hours
+    + Deprecated Tensorflow models for AutoML.
+  + **azureml-automl-runtime**
+    + Fixed error message for experimentation_timeout_hours
+    + Fixed unclassified exception when trying to deserialize from cache store
+    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series.
+    + Fixed the forecasting with enabled rolling window on the data sets where test/prediction set does not contain one of grains from the training set.
+    + Improved handling of missing data
+    + Fixed issue with prediction intervals during forecasting on data sets, containing time series, which are not aligned in time.
+    + Added better validation of data shape for the forecasting tasks.
+    + Improved the frequency detection.
+    + Created better error message if the cross validation folds for forecasting tasks can not be generated.
+    + Fix console interface to print missing value guardrail correctly.
+    + Enforcing datatype checks on cv_split_indices input in AutoMLConfig.
+  + **azureml-cli-common**
+    + Bug fix: inform clients about partial failure during profiling
+  + **azureml-contrib-mir**
+    + Adds a class azureml.contrib.mir.RevisionStatus which relays information about the currently deployed MIR revision and the most recent version specified by the user. This class is included in the MirWebservice object under 'deployment_status' attribute.
+    + Enables update on Webservices of type MirWebservice and its child class SingleModelMirWebservice.
+  + **azureml-contrib-reinforcementlearning**
+    + Added support for Ray 0.8.3
+    + AmlWindowsCompute only supports Azure Files as mounted storage
+    + Renamed health_check_timeout to health_check_timeout_seconds
+    + Fixed some class/method descriptions.
+  + **azureml-core**
+    + Enabled WASB -> Blob conversions in USGovernment and China clouds.
+    + Fixes bug to allow Reader roles to use az ml run CLI commands to get run information
+    + Removed unnecessary logging during Azure ML Remote Runs with input Datasets.
+    + RCranPackage now supports "version" parameter for the CRAN package version.
+    + Bug fix: inform clients about partial failure during profiling
+    + Added European-style float handling for azureml-core.
+    + Enabled workspace private link features in azure ml sdk.
+    + When creating a TabularDataset using `from_delimited_files`, you can specify whether empty values should be loaded as None or as empty string by setting the boolean argument `empty_as_string`.
+    + Added European-style float handling for datasets.
+    + Improved error messages on dataset mount failures.
+  + **azureml-datadrift**
+    + Data Drift results query from the SDK had a bug that didn't differentiate the minimum, maximum, and mean feature metrics, resulting in duplicate values. We have fixed this bug by prefixing target or baseline to the metric names. Before: duplicate min, max, mean. After: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
+  + **azureml-dataprep**
+    + Improve handling of write restricted python environments when ensuring .NET Dependencies required for data delivery.
+    + Fixed Dataflow creation on file with leading empty records.
+    + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`.
+  + **azureml-interpret**
+    + Reduced explanation path length limits to reduce likelihood of going over Windows limit
+    + Bugfix for sparse explanations created with the mimic explainer using a linear surrogate model.
+  + **azureml-opendatasets**
+    + Fix issue of MNIST's columns are parsed as string which should be int.
+  + **azureml-pipeline-core**
+    + Allowing the option to regenerate_outputs when using a module that is embedded in a ModuleStep.
+  + **azureml-train-automl-client**
+    + Deprecated Tensorflow models for AutoML.
+    + Fix users whitelisting unsupported algorithms in local mode
+    + Doc fixes to AutoMLConfig.
+    + Enforcing datatype checks on cv_split_indices input in AutoMLConfig.
+    + Fixed issue with AutoML run failing in show_output
+  + **azureml-train-automl-runtime**
+    + Fixing a bug in Ensemble iterations which was preventing model download timeout from kicking in successfully.
+  + **azureml-train-core**
+    + Fix typo in azureml.train.dnn.Nccl class.
+    + Supporting PyTorch version 1.5 in the PyTorch Estimator
+    + Fix the issue that framework image can't be fetched in fairfax region when using training framework estimators
+
+  
 ## 2020-05-04
 **New Notebook Experience**
 
@@ -61,7 +139,7 @@ Access the following web-based authoring tools from the studio:
   + **azureml-core**
     + Improved stability when reading from Azure Blob Storage using a TabularDataset.
     + Improved documentation for the `grant_workspace_msi` parameter for `Datastore.register_azure_blob_store`.
-    + Fixed bug with `datastore.upload` where if the `src_dir` argument ended with a `/` or `\`, we will fail to upload.
+    + Fixed bug with `datastore.upload` to support the `src_dir` argument ending with a `/` or `\`.
     + Added actionable error message when trying to upload to an Azure Blob Storage datastore that does not have an access key or SAS token.
   + **azureml-interpret**
     + Added upper bound to file size for the visualization data on uploaded explanations.
