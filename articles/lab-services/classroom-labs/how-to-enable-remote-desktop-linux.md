@@ -21,10 +21,10 @@ ms.author: spelluru
 This article shows you how to do the following tasks:
 
 - Enable remote desktop for Linux VM
-- How teacher can connect to the template VM via Remote Desktop Connection (RDP).
+- How an educator can connect to the template VM via Remote Desktop Connection (RDP).
 
 ## Enable remote desktop for Linux VM
-During lab creation, teachers can enable **remote desktop connection** for **Linux** images. The **Enable Remote Desktop Connection** option is shown when a Linux image is selected for the template. When this option is enabled, teachers can connect to template VM and student VMs via RDP (Remote Desktop). 
+During lab creation, educators can enable **remote desktop connection** for **Linux** images. The **Enable Remote Desktop Connection** option is shown when a Linux image is selected for the template. When this option is enabled, educators can connect to template VM and student VMs via RDP (Remote Desktop). 
 
 ![Enable remote desktop connection for a Linux image](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -46,7 +46,7 @@ Currently, the remote desktop connection is supported for the following operatin
 - Ubuntu Server 16.04 LTS
 
 ## Connect to the template VM 
-Teachers must connect to the template VM using SSH first, and install RDP and GUI packages on it. Then, the teachers can use RDP to connect to the template VM: 
+Educators must connect to the template VM using SSH first, and install RDP and GUI packages on it. Then, the educators can use RDP to connect to the template VM: 
 
 1. If you see **Customize template** on the toolbar, select it. Then, select **Continue** on the **Customize template** dialog box. This action starts the template VM.  
 
