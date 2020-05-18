@@ -24,11 +24,11 @@ Connecting a Kubernetes cluster to Azure requires a cluster administrator to dep
 
 ## Supported Scenarios 
 
-Azure Arc enabled Kubernetes (Preview) supports the following scenarios: 
+Azure Arc enabled Kubernetes supports the following scenarios: 
 
 * Connecting Kubernetes running outside of Azure for inventory, grouping, and tagging 
 
-* Deploy applications and apply configuration by using GitOps-based configuration management 
+* Deploy applications and apply configuration using GitOps-based configuration management 
 
 * Use Azure Monitor for containers to view and monitor your clusters 
 
