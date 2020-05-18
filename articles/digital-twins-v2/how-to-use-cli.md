@@ -266,7 +266,7 @@ Uses:
 
 Uses:
 
-Update the decommisioned status of a model (to true)
+Update the decommissioned status of a model (to true)
 
   `az dt model update -n <Azure-Digital-Twins-instance-name> --dtmi <model-ID> --decommission`
 
