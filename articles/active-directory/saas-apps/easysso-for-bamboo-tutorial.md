@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/default-attributes.png)
 
 1. In addition to above, EasySSO for Bamboo application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
+
 	| Name | Source Attribute |
 	| ---------------|  --------- |
 	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EasySSO for Bamboo SSO
 
-1. Sign into your Atlassian Jira instance with Administrator privileges and navigate to the **Manage Apps** section.
+1. Sign into your EasySSO for Bamboo instance with Administrator privileges and navigate to the **Manage Apps** section.
 
     ![EasySSO for Bamboo Configuration](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
 
@@ -172,7 +172,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for Bamboo configuration is complete.
 
-1. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Jira login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, color and translation for production mode, too.
+1. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the EasySSO for Bamboo login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, color and translation for production mode, too.
 
     ![EasySSO for Bamboo Configuration](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
 
@@ -181,9 +181,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create EasySSO for Bamboo test user
 
-In this section, a user called B.Simon is created in Jira. EasySSO for Bamboo supports just-in-time user provisioning, which is **disabled** by default. To enable user provisioning, you have to explicitly check **Create user on successful login** option on in the General section of EasySSO plugin configuration. If a user doesn't already exist in Jira, a new one is created after authentication.
+In this section, a user called B.Simon is created in EasySSO for Bamboo. EasySSO for Bamboo supports just-in-time user provisioning, which is **disabled** by default. To enable user provisioning, you have to explicitly check **Create user on successful login** option on in the General section of EasySSO plugin configuration. If a user doesn't already exist in EasySSO for Bamboo, a new one is created after authentication.
 
-However, if you do not wish to enable automatic user provisioning on the user first login, users must exist in backend User Directories the Jira instance make use of, such as LDAP or Atlassian Crowd.
+However, if you do not wish to enable automatic user provisioning on the user first login, users must exist in backend User Directories the EasySSO for Bamboo instance make use of, such as LDAP or Atlassian Crowd.
 
 ![User provisioning](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
 
