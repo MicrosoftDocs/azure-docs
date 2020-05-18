@@ -9,8 +9,8 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading 
 
-* [Live video analytics on IoT Edge Overview](overview.md)
-* [Live video analytics on IoT Edge Terminology](terminology.md)
+* [Live Video Analytics on IoT Edge Overview](overview.md)
+* [Live Video Analytics on IoT Edge Terminology](terminology.md)
 * [Media Graph Concept](media-graph-concept.md)
 
 ## Overview  

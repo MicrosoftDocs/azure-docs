@@ -30,7 +30,7 @@
       href: continuous-video-recording-concept.md
     - name: Event-based video recording 
       href: event-based-video-recording-concept.md
-    - name: Live video analytics without video recording
+    - name: Live Video Analytics without video recording
       href: analyze-live-video-concept.md
 - name: Reference
   items:

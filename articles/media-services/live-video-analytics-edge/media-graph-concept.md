@@ -9,8 +9,8 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading
 
-* [Live video analytics on IoT Edge Overview](overview.md)
-* [Live video analytics on IoT Edge Terminology](terminology.md)
+* [Live Video Analytics on IoT Edge Overview](overview.md)
+* [Live Video Analytics on IoT Edge Terminology](terminology.md)
 
 ## Overview
 
@@ -24,11 +24,11 @@ A Media Graph has the following nodes:
 * A processor node, which represents processing of the media within the Media Graph.
 * A sink node, which represents delivery of the processing results outside the Media Graph.
 
-Live video analytics on IoT Edge supports different types of sources, processors, and sinks.
+Live Video Analytics on IoT Edge supports different types of sources, processors, and sinks.
 
 ## Media graph topologies and instances 
 
-Live video analytics on IoT Edge enables you to manage media graphs via two concepts – "Graph Topology" and "Graph Instance". A Graph Topology enables you to define a blueprint of a graph, with parameters as placeholders for values. The topology defines what nodes are used in the media graph, and how they are connected within the media graph. Values for the parameters can be specified when creating graph instances referencing the topology. This enables you to create multiple instances referencing the same topology but with different values for the parameters specified in the topology. 
+Live Video Analytics on IoT Edge enables you to manage media graphs via two concepts – "Graph Topology" and "Graph Instance". A Graph Topology enables you to define a blueprint of a graph, with parameters as placeholders for values. The topology defines what nodes are used in the media graph, and how they are connected within the media graph. Values for the parameters can be specified when creating graph instances referencing the topology. This enables you to create multiple instances referencing the same topology but with different values for the parameters specified in the topology. 
 
 ## Media graph states  
 
@@ -48,7 +48,7 @@ The diagram below illustrates the Media Graph state machine.
 
 ## Sources, processors, and sinks  
 
-With the latest release, Live video analytics on IoT Edge, supports the following types of nodes within a Media Graph:
+With the latest release, Live Video Analytics on IoT Edge, supports the following types of nodes within a Media Graph:
 
 ### Sources 
 
@@ -96,11 +96,11 @@ An IoT Hub Message Sink enables you to publish events to IoT Edge hub. The Edge 
 
 ## Scenarios
 
-Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of live video analytics related scenarios. A few example scenarios are as follows
+Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of Live Video Analytics related scenarios. A few example scenarios are as follows
 
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
-* [Live video analytics without video recording](analyze-live-video-concept.md)
+* [Live Video Analytics without video recording](analyze-live-video-concept.md)
 
 ## Next steps
 
