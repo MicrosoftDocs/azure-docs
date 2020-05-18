@@ -77,7 +77,7 @@ This information only applies to Azure Stack device. The process to report hardw
 
 ## Manage a support request
 
-After creating a support ticket, you can manage the life cycle of the ticket from within the portal.
+After creating a support ticket, you can manage the lifecycle of the ticket from within the portal.
 
 ### To manage your support requests
 
