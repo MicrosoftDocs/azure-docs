@@ -22,7 +22,7 @@ When you have critical applications and business processes that rely on Azure re
 The **Overview** page in the Azure portal for each storage resource includes a brief view of the resource usage, such as requests and hourly billing. This information is useful, but only a small amount of the monitoring data is available. Some of this data is collected automatically and is available for analysis as soon as you create the storage resource. You can enable additional types of data collection with some configuration.
 
 ## What is Azure Monitor?
-Azure Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
+Azure Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
 
 To learn more about Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md). The article describes the following subjects:
 
@@ -38,7 +38,7 @@ The following sections build on this article by describing the specific data gat
 
 Azure Storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). For more information on the logs and metrics created by Azure Storage, see [Azure Storage monitoring data reference](monitor-storage-reference.md).
 
-Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 You can continue using classic metrics and logs if you want to. In fact, classic metrics and logs are available in parallel with metrics and logs in Azure Monitor. The support remains in place until Azure Storage ends the service on legacy metrics and logs.
 
@@ -46,18 +46,18 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the blob service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-#### Logging authenticated requests
+#### Log authenticated requests
 
  The following types of authenticated requests are logged:
 
 - Successful requests
 - Failed requests, including timeout, throttling, network, authorization, and other errors
-- Requests that use a shared access signature or OAuth, including failed and successful requests
+- Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
-Requests made by the storage service itself, like log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
+Requests made by the storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
 
-#### Logging anonymous requests
+#### Log anonymous requests
 
  The following types of anonymous requests are logged:
 
@@ -72,7 +72,7 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. For the process to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-When you create a diagnostic setting, choose the type of storage for which you want to enable logs, such as a blob, queue, table, or file. If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the storage type. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
+When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the storage type. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You also have to specify the categories of operations for which you want to collect logs. The categories for Azure Storage are listed in this table.
 
