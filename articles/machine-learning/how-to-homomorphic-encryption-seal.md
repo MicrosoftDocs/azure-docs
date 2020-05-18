@@ -27,7 +27,7 @@ In this guide, you use Azure Machine Learning service to:
 
 ACI is a great solution for testing and understanding the model deployment workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
-The encryption method used in this sample is homomorphic encryption (HE). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. 
+The encryption method used in this sample is [homomorphic encryption](https://github.com/Microsoft/SEAL#homomorphic-encryption). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. 
 
 ## Prerequisites
 
@@ -54,9 +54,9 @@ In a Jupyter notebook
 
     > [!NOTE]
     > The `encrypted-inference` package is currently in preview.
-    
-    [`encrypted-inference`](https://pypi.org/project/encrypted-inference) is a homomorphic encryption library based on [Microsoft SEAL](https://github.com/Microsoft/SEAL).
-    
+
+    [`encrypted-inference`](https://pypi.org/project/encrypted-inference) is a library that contains bindings for encrypted inferencing based on [Microsoft SEAL](https://github.com/Microsoft/SEAL).
+
     ```python
     !pip install encrypted-inference==0.9
     ```
@@ -127,8 +127,7 @@ def run(raw_data):
     container = json_properties['container']
     data = json_properties['data']
 
-    # download the Galois keys from blob storage
-    #TODO optimize by caching the keys locally  
+    # download the public keys from blob storage
     blob_service_client = BlobServiceClient.from_connection_string(conn_str=conn_str)
     blob_client = blob_service_client.get_blob_client(container=container, blob=key_id)
     public_keys = blob_client.download_blob().readall()
