@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-Provide a longer description of your offer, up to 3,000 characters. Customers will see this in the marketplace listing overview.
+Provide a longer description of your offer of up to 3,000 characters. Customers will see this in the marketplace listing overview.
 
 Include one or more of the following in your description:
 
