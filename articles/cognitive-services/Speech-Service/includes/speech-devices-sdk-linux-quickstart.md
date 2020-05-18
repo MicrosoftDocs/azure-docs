@@ -44,15 +44,15 @@ Make sure these dependencies are installed before starting Eclipse.
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-On RHEL/CentOS:
-
+* On RHEL/CentOS:
+  
   ```sh
   sudo yum update
   sudo yum install alsa-lib openssl
   ```
 
-> [!NOTE]
-> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+  > [!NOTE]
+  > - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
 > - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
