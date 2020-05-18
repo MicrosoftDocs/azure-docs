@@ -12,7 +12,7 @@ The Azure CycleCloud Command Line Interface (CLI) provides console access to the
 
 ## Prerequisites
 
-The CycleCloud CLI requires an existing installation of Python 2.7. While most Linux and Mac systems already have a valid Python 2.7 installation, you will need to [install Python for Windows](https://docs.python-guide.org/en/latest/starting/install/win/).
+The CycleCloud CLI requires an existing installation of Python 3.6 or later. While most Linux and Mac systems already have a valid Python 3 installation, you will need to [install Python for Windows](https://docs.python-guide.org/starting/install3/win/#install3-windows).
 
 ## CycleCloud CLI Installer File
 
