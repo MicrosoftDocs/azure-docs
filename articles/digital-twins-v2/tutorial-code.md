@@ -25,7 +25,7 @@ This tutorial uses the command line for setup and project work. Therefore, you c
 
 What you need to begin:
 * Any code editor
-* .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* **.NET Core 3.1 on your development machine.** You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 ## Set up an Azure Digital Twins instance
 
@@ -180,6 +180,8 @@ In the directory where you created your project, create a new *.json* file calle
   "@context": "dtmi:dtdl:context;2"
 }
 ```
+>[!TIP]
+>If you are using Visual Studio for this tutorial, you may want to click on the newly created json file and set the "Copy to Output Directory" property in the property inspector to "Copy if Newer" or "Copy Always". Otherwise, the code snippet below won't find the json file with the default path if you run the program with **F5** in Visual Studio.
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -326,7 +328,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the edge (relationship) base types in the SDK:
+To be able to create relationships, add a `using` statement for the relationship base type in the SDK:
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -344,8 +346,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
     try
     {
         string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateEdgeAsync(srcId, relId, 
-                                     JsonSerializer.Serialize(relationship));
+        await client.CreateRelationshipAsyn(srcId, relId, 
+                                            JsonSerializer.Serialize(relationship));
         Console.WriteLine("Created relationship successfully");
     }
     catch (RequestFailedException rex) {
