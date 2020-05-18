@@ -24,4 +24,4 @@
 |InvalidMessage|Error|Message is invalid because of incompatibility with the endpoint. We recommend check configurations of the endpoint.|
 
 
-The operations UndefinedRouteEvaluation, RouteEvaluationError and OrphanedMessage are throttled and logged no more than once a minute per IoT Hub.
+The operations *UndefinedRouteEvaluation*, *RouteEvaluationError* and *OrphanedMessage* are throttled and logged no more than once a minute per IoT Hub.
