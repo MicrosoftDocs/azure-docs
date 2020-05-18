@@ -137,8 +137,8 @@ Options supported in  --operator-params
 | 5.  | --git-poll-interval  | Period at which to poll Git repo for new commits. Default is '5m' (5 minutes). |
 | 6.  | --sync-garbage-collection  | If enabled, Flux will delete resources that it created, but are no longer present in Git. |
 | 7.  | --git-label  | Label to keep track of sync progress, used to tag the Git branch.  Default is 'flux-sync'. |
-| 8.  | --git-user  | Username to use as git committer. |
-| 9.  | --git-email  | Email to use as git committer. |
+| 8.  | --git-user  | Username for git commit. |
+| 9.  | --git-email  | Email to use for git commit. |
 
 Note: If '--git-user' or '--git-email' are not set (which means that you don't want Flux to write to the repo), then --git-readonly will automatically be set (if you have not already set it).
 
