@@ -12,7 +12,7 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Configure object replication (preview)
+# Configure object replication for block blobs (preview)
 
 Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. For more information about object replication, see [Object replication (preview)](object-replication-overview.md).
 
@@ -158,7 +158,7 @@ To create a replication policy with Azure CLI, first install version ??? of the 
 Run the following command to install the Azure Storage preview module for Azure CLI:
 
 ```azurecli
-az extension add -n storage-ors-preview
+az extension add -n storage-or-preview
 ```
 
 Next, sign in with your Azure credentials:
@@ -167,7 +167,7 @@ Next, sign in with your Azure credentials:
 az login
 ```
 
-Enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Make sure that you have already registered for the [change feed](https://azure.microsoft.com/blog/change-feed-support-now-available-in-preview-for-azure-blob-storage/) and Versioning capabilities.
+Enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az storage blob service-properties update --resource-group <resource-group> \
@@ -244,8 +244,12 @@ To remove a replication policy in the Azure portal, follow these steps:
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
 ```powershell
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $destAccountName | Remove-AzStorageObjectReplicationPolicy
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName | Remove-AzStorageObjectReplicationPolicy
+Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName |
+    Remove-AzStorageObjectReplicationPolicy
+Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName |
+    Remove-AzStorageObjectReplicationPolicy
 ```
 
 # [Azure CLI](#tab/azure-cli)

@@ -401,7 +401,7 @@
         href: storage-blob-change-feed-how-to.md
       - name: Enable point-in-time restore
         href: point-in-time-restore-manage.md
-    - name: Configure object replication for block blobs
+    - name: Configure object replication
       href: object-replication-configure.md      
     - name: Manage disaster recovery
       items:

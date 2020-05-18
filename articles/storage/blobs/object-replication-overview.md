@@ -12,7 +12,7 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Object replication (preview)
+# Object replication for block blobs (preview)
 
 Object replication (preview) asynchronously copies block blobs between a source storage account and a destination account. Some scenarios supported by object replication include:
 
@@ -36,7 +36,7 @@ After you configure object replication, Azure Storage checks the change feed for
 
 When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
-A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may all be in different regions. You can configure two separate replication policies to replicate data to each of the destination accounts.
+A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
 
 ### Replication rules
 
