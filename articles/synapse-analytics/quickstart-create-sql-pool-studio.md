@@ -76,9 +76,9 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created SQL pool.
  ![SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
-Once the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
+1. Once the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
-## Clean up SQL pools using Synapse Studio
+## Clean up SQL pools using Synapse Studio    
 
 Follow the steps below to delete the SQL pool from the workspace using Synapse Studio.
 > [!WARNING]
