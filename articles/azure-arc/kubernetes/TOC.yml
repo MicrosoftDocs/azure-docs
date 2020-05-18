@@ -10,8 +10,6 @@
     items:
     - name: Connect cluster
       href: connect-a-cluster.md
-    - name: Create cluster with AKS-Engine
-      href: connect-a-cluster.md
     - name: Use GitOps for connected clusters
       href: use-gitops-in-connected-cluster.md
     - name: Deploy IoT workloads
