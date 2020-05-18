@@ -53,4 +53,4 @@ For other topics covering authentication and authorization basics:
 
 * To learn more about the protocols that Microsoft identity platform implements, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
 * See [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md) for more information on how Microsoft identity platform supports Single Sign-On.
-* See [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md) for the different ways you can implement single sign-on in your app.
+* See [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md) for more information on the different ways you can implement single sign-on in your app.
