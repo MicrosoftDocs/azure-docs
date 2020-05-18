@@ -25,7 +25,7 @@ This tutorial uses the command line for setup and project work. Therefore, you c
 
 What you need to begin:
 * Any code editor
-* **.NET Core 3.1 on your development machine.** You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* **.NET Core 3.1** on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 ## Set up an Azure Digital Twins instance
 
@@ -180,8 +180,9 @@ In the directory where you created your project, create a new *.json* file calle
   "@context": "dtmi:dtdl:context;2"
 }
 ```
->[!TIP]
->If you are using Visual Studio for this tutorial, you may want to click on the newly created json file and set the "Copy to Output Directory" property in the property inspector to "Copy if Newer" or "Copy Always". Otherwise, the code snippet below won't find the json file with the default path if you run the program with **F5** in Visual Studio.
+
+> [!TIP]
+> If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
