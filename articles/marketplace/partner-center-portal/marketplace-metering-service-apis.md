@@ -32,7 +32,7 @@ The usage event API allows you to emit usage events for a specific purchased ent
 | `authorization`   | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Note: When making the HTTP request, prefix `Bearer` to the token obtained from the referenced link. |
 
 >[!Note]
->For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object.  An example script for fetching it can be found in [Using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  For SaaS offers, the `resourceId` is the SaaS subscription ID.  For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
+>For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object.  An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  For SaaS offers, the `resourceId` is the SaaS subscription ID.  For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
 
 *Request:*
 
