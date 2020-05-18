@@ -1,6 +1,8 @@
 ---
 title: "Connect a Kubernetes cluster"
-ms.service: arc-kubernetes
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-kubernetes
 ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
