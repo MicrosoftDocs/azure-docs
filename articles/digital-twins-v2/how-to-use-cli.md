@@ -36,7 +36,7 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
 1. Install the Azure Digital Twins-enabled IoT extension with this command: `az extension add --name azure-iot`
     [!INCLUDE [iot-hub-cli-version-info.md](../../includes/iot-hub-cli-version-info.md)]
 
-2. Verify your installation of **azure-iot** is version **0.0.1.dev6** with this command:
+2. Verify your installation of **azure-iot** is version **0.0.1.dev8** with this command:
 
     `az extension list`
 
@@ -47,7 +47,7 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
       {
         "extensionType": "whl",
         "name": "azure-iot",
-        "version": "0.0.1.dev6"
+        "version": "0.0.1.dev8"
       }
     ]
     ```
@@ -215,6 +215,181 @@ Uses:
 * Delete a target event route from an Azure Digital Twins instance
 
   `az dt route delete --route-name myeh_route -n mydtinstance`
+
+### Manage models
+
+#### Command Group: `az dt model`
+
+> Manage DT instance model operations. This command group requires the client principal to have admin.
+#### az dt model create
+
+Examples
+
+- Add models to an ADT instance.
+
+  `az dt model create -n {instance_name} --models {file_path_or_inline_json}`
+
+- Add models to an ADT instance from a directory (recursive)
+
+  `az dt model create -n {instance_name} --from-directory /path/to/model/directory/`
+
+#### az dt model list
+
+Examples
+
+- List model metadata
+
+  `az dt model list -n {instance_name}`
+
+- List model definitions
+
+  `az dt model list -n {instance_name} --definition`
+
+- List dependencies of particular pre-existing model(s). Space seperate dtmi values.
+
+  `az dt model list -n {instance_name} --dependencies-for {model_id0} {model_id1}`
+
+#### az dt model show
+
+Examples
+
+- Show model metadata
+
+  `az dt model show -n {instance_name} --dtmi {model_id}`
+
+- Show model definition
+
+  `az dt model show -n {instance_name} --dtmi {model_id} --definition`
+
+#### az dt model update
+
+Examples
+
+- Update the decommisioned status of a model (to true)
+
+  `az dt model update -n {instance_name} --dtmi {model_id} --decommission`
+
+### ADT Twin
+
+#### Command Group: `az dt twin`
+
+> Manage and configure the Digital Twins of an ADT instance. This command group requires the client principal to have admin.
+#### az dt twin query
+
+Examples
+
+- Select * from digitaltwins
+
+  `az dt twin query -n {instance_name} -q "select * from digitaltwins"`
+
+#### az dt twin create
+
+Examples
+
+- Create a Twin from an existing (prior-created) model.
+
+  `az dt twin create -n {instance_name} --dtmi
+          urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_id}`
+
+- Create a Twin from an existing (prior-created) model. Instantiate with property values.
+
+  `az dt twin create -n {instance_name} --dtmi
+          urn:azureiot:DeviceManagement:DeviceInformation:1 --twin-id {twin_id} --properties
+          '{"manufacturer": "Microsoft"}'`
+
+#### az dt twin show
+
+Examples
+
+- Show an existing Twin on an ADT instance.
+
+  `az dt twin show -n {instance_name} --twin-id {twin_id}`
+
+#### az dt twin update
+
+Examples
+
+- Update a Twin via JSON-patch specification.
+
+  `az dt twin update -n {instance_name} --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'`
+
+- Update a Twin via JSON-patch specification defined in file.
+
+  `az dt twin update -n {instance_name} --twin-id {twin_id} --json-patch ./my/patch/document.json`
+
+#### az dt twin delete
+
+Examples
+
+- Delete a Twin by Id
+
+  `az dt twin delete -n {instance_name} --twin-id {twin_id}`
+
+### ADT Twin Edge
+
+#### Command Group: `az dt twin edge`
+
+> Manage and configure the Digital Twin Edges of an ADT instance. This command group requires the client principal to have admin.
+#### az dt twin edge create
+
+Examples
+
+- Create an Edge between source and target Twins.
+
+  `az dt twin edge create -n {instance_name} --edge-id {edge_id} --relationship contains --source {source_twin_id} --target {target_twin_id}`
+
+- Create an Edge between source and target Twins. Provide Edge instance properties.
+
+  `az dt twin edge create -n {instance_name} --edge-id {edge_id} --relationship contains --source {source_twin_id} --target {target_twin_id} --properties '{"ownershipUser": "me", "ownershipDepartment": "Computer Science"}'`
+
+#### az dt twin edge show
+
+Examples
+
+- Show an Edge between source and target Twins.
+
+  `az dt twin edge show -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship {relationship_name}`
+
+#### az dt twin edge list
+
+Examples
+
+- List outgoing edges of a Twin.
+
+  `az dt twin edge list -n {instance_name} --twin-id {twin_id}`
+
+- List outgoing edges of a Twin and filter on relationship 'contains'
+
+  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --relationship contains`
+
+- List incoming edges of a Twin.
+
+  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --incoming-edges`
+
+- List incoming edges of a Twin and filter on relationship 'contains'.
+
+  `az dt twin edge list -n {instance_name} --twin-id {twin_id} --relationship contains --incoming-edges`
+
+#### az dt twin edge update
+
+Examples
+
+- Update a Twin Edge via JSON patch specification
+
+  `az dt twin edge update -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship contains --json-patch '[{}, {}]'`
+
+- Update a Twin Edge via JSON patch specification defined in a file.
+
+  `az dt twin edge update -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship contains --json-patch ./my/patch/document.json`
+
+#### az dt twin edge delete
+
+Examples
+
+- Delete an Edge between source and target Twins.
+
+  `az dt twin edge delete -n {instance_name} --twin-id {twin_id} --edge-id {edge_id} --relationship {relationship_name}`
+
 
 ### Configure RBAC
 
