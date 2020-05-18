@@ -1,5 +1,5 @@
 ---
-title: "Connect a Kubernetes cluster"
+title: "Connect a Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Connect a Kubernetes cluster with Azure Arc"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Connect a Kubernetes cluster
+# Connect a Kubernetes cluster (Preview)
 
 Connect a Kubernetes cluster to Azure Arc. 
 
@@ -22,6 +22,11 @@ Verify you have the following requirements ready:
 * A Kubernetes cluster that is up and running
 * You'll need access with kubeconfig, and cluster-admin access. 
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
+
+## Supported regions
+
+* East US
+* West Europe
 
 ## Network requirements
 
@@ -41,10 +46,9 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ## Create a Resource Group
 
-First, create a resource group to hold the connected cluster resource. The referenced region stores metadata for your cluster. Currently supported regions:
+Use a resource group to store metadata for your cluster.
 
-* East US
-* West Europe
+First, create a resource group to hold the connected cluster resource.
 
 ```console
 az group create --name AzureArcTest -l EastUS -o table

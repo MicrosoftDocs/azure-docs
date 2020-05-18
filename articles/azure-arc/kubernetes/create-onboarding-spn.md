@@ -1,5 +1,5 @@
 ---
-title: "Create an onboarding Service Principal"
+title: "Create an onboarding Service Principal (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Service Principal TODO.."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Create an onboarding Service Principal
+# Create an onboarding Service Principal (Preview)
 
 ## Overview
 

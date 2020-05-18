@@ -11,7 +11,7 @@ description: ""
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# What is Azure Arc enabled Kubernetes
+# What is Azure Arc enabled Kubernetes (Preview)
 
 ## Clients
 

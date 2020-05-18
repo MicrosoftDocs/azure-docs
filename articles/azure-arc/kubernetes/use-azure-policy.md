@@ -1,5 +1,5 @@
 ---
-title: "Use Azure Policy to apply cluster configurations at scale"
+title: "Use Azure Policy to apply cluster configurations at scale (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Use Azure Policy to apply cluster configurations at scale"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Use Azure Policy to apply cluster configurations at scale
+# Use Azure Policy to apply cluster configurations at scale (Preview)
 
 ## Overview
 

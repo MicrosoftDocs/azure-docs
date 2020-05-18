@@ -1,5 +1,5 @@
 ---
-title: "Use GitOps for cluster configuration"
+title: "Use GitOps for cluster configuration (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: ""
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, containers"
 ---
 
-# Use GitOps for cluster configuration
+# Use GitOps for cluster configuration (Preview)
 
 ## Overview
 

@@ -1,5 +1,5 @@
 ---
-title: "Use GitOps with Helm for cluster configuration"
+title: "Use GitOps with Helm for cluster configuration (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Use GitOps with Helm for cluster configuratio"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
-## Use GitOps with Helm for cluster configuration
+## Use GitOps with Helm for cluster configuration (Preview)
 
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as APT and Yum, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 

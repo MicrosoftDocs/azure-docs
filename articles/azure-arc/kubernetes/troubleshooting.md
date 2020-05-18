@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot common Azure Arc enabled Kubernetes issues"
+title: "Troubleshoot common Azure Arc enabled Kubernetes issues (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Troubleshooting common issues with Arc enbaled Kubernetes clusters
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Azure Arc enabled Kubernetes troubleshooting
+# Azure Arc enabled Kubernetes troubleshooting (Preview)
 
 ## General troubleshooting
 

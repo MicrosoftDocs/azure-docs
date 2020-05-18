@@ -1,5 +1,5 @@
 ---
-title: "Enable resource providers"
+title: "Enable resource providers (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,9 @@ description: "Enable resource providers"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Enable resource providers
+# Enable resource providers (Preview)
+
+Enable ersource proivders for your Azure subscription.
 
 ## Enable required feature flags
 
