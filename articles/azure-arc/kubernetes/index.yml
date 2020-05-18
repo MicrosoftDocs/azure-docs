@@ -9,7 +9,7 @@ metadata:
   manager: carmonm
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 01/30/2020
+  ms.date: 05/19/2020
   ms.author: mlearned
 
 landingContent:
@@ -26,10 +26,10 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled Kubernetes?
-            url: ./arc-for-Kubernetes/overview.md 
-      - linkListType: quickstart
+            url: ./overview.md 
+      - linkListType: How-To-Guides
         links:
-          - text: TODO
-            url: ./servers/quickstart-onboard-portal.md
-          - text: TODO
-            url: ./servers/quickstart-onboard-portal.md
+          - text: Enable resoure providers
+            url: ./enable-providers.md
+          - text: Connect a cluster
+            url: ./connect-a-cluster.md
