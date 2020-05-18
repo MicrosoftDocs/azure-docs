@@ -167,11 +167,11 @@
   - name: Extensions
     items:
     - name: About Azure Extensions
-      href: ../extensions/overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Linux VM Agent
-      href: ../extensions/agent-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/agent-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Features
-      href: ../extensions/features-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/features-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Availability and performance
     items:
     - name: Availability
@@ -342,13 +342,17 @@
     - name: Built-in security controls
       href: virtual-machines-linux-security-controls.md
     - name: Bastion
-      href: ../../bastion/bastion-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Backup and recovery
     href: backup-recovery.md
+  - name: Cloud adoption framework
+    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: https://docs.microsoft.com/en-us/azure/architecture/
   - name: Infrastructure guidelines
     href: infrastructure-example.md
 - name: How-to guides
@@ -511,23 +515,23 @@
     - name: Recommendations
       href: security-recommendations.md
     - name: Just-in-time access
-      href: ../../security-center/security-center-just-in-time.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Use Bastion
       items:
       - name: Create a Bastion host
         items: 
         - name: Portal
-          href: ../../bastion/bastion-create-host-portal.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: PowerShell
-          href: ../../bastion/bastion-create-host-powershell.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: CLI
-          href: ../../bastion/create-host-cli.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Use Bastion to connect
         items:
         - name: Bastion SSH connection
-        href: ../../bastion/bastion-connect-vm-ssh.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Bastion RDP connection
-        href: ../../bastion/bastion-connect-vm-rdp.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encrypt
       items:
         - name: Disk encryption scenarios for Linux
@@ -673,97 +677,97 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?context=azure/virtual-machines/linux/context/linux-vm-context
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     items:
     - name: Agents
       items:
       - name: Agents overview
-        href: ../../azure-monitor/platform/agents-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: FAQ
-        href: ../../azure-monitor/faq.md?context=azure/virtual-machines/linux/context/linux-vm-context#agents
+        href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
       - name: Azure Diagnostics extension
         items:
         - name: Overview
-          href: ../../azure-monitor/platform/diagnostics-extension-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Linux diagnostics extension
           displayname: diagnostics extension
           items: 
           - name: Overview
-            href: ../../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context?toc=/azure/azure-monitor/toc.json
+            href: ../../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json
           - name: Collect metrics with Telegraf
-            href: ../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=azure/virtual-machines/linux/context/linux-vm-context   
+            href: ../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json   
       - name: Log Analytics agent
         items:
         - name: Overview
-          href: ../../azure-monitor/platform/log-analytics-agent.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Linux agents
-          href: ../../azure-monitor/platform/agent-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/agent-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Log Analytics gateway
-          href: ../../azure-monitor/platform/gateway.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/gateway.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Agent management
-          href: ../../azure-monitor/platform/agent-manage.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/agent-manage.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Agent Health
-          href: ../../azure-monitor/insights/solution-agenthealth.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/solution-agenthealth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Data sources
           items:
           - name: Overview
-            href: ../../azure-monitor/platform/agent-data-sources.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Custom JSON data
-            href: ../../azure-monitor/platform/data-sources-json.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: CollectD performance data
-            href: ../../azure-monitor/platform/data-sources-collectd.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Syslog
-            href: ../../azure-monitor/platform/data-sources-syslog.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Performance counters
-            href: ../../azure-monitor/platform/data-sources-performance-counters.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Linux application performance
-            href: ../../azure-monitor/platform/data-sources-linux-applications.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-linux-applications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Custom logs
-            href: ../../azure-monitor/platform/data-sources-custom-logs.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Custom fields
-            href: ../../azure-monitor/platform/custom-fields.md?context=azure/virtual-machines/linux/context/linux-vm-context
+            href: ../../azure-monitor/platform/custom-fields.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
           displayname: troubleshoot, troubleshooting
-          href: ../../azure-monitor/platform/vmext-troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
-          href: ../../azure-monitor/platform/agent-linux-troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/platform/agent-linux-troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Monitor for VMs
       items:
       - name: Overview
-        href: ../../azure-monitor/insights/vminsights-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: General Availability FAQ
-        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?context=azure/virtual-machines/linux/context/linux-vm-context  
+        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json  
       - name: FAQ
-        href: ../../azure-monitor/faq.md?context=azure/virtual-machines/linux/context/linux-vm-context#azure-monitor-for-vms
+        href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
-          href: ../../azure-monitor/insights/vminsights-enable-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Enable for single Azure VM
-          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Enable using Azure Policy
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Enable using Azure PowerShell
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Enable for Hybrid environment
-          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?context=azure/virtual-machines/linux/context/linux-vm-context
+          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Map dependencies
-        href: ../../azure-monitor/insights/vminsights-maps.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Monitor performance
-        href: ../../azure-monitor/insights/vminsights-performance.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Analyze data with log queries
-        href: ../../azure-monitor/insights/vminsights-log-search.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-log-search.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Visualize data with workbooks
-        href: ../../azure-monitor/insights/vminsights-workbooks.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-workbooks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Create alert rules
-        href: ../../azure-monitor/insights/vminsights-alerts.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-alerts.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Upgrade Dependency agent
-        href: ../../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Disable monitoring
-        href: ../../azure-monitor/insights/vminsights-optout.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../../azure-monitor/insights/vminsights-optout.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Availability and scale
     items:
     - name: Autoscale
@@ -972,67 +976,67 @@
   - name: Configure managed identities
     items:
     - name: Portal
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: CLI
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: PowerShell
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Resource Manager Template
       displayName: ARM
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: REST
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure SDKs
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Use VM extensions
     items:
     - name: Restrict extension installation
-      href: ../extensions/extensions-rmpolicy-howto-cli.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/extensions-rmpolicy-howto-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Update Linux agent
-      href: ../extensions/update-linux-agent.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Export extensions
-      href: ../extensions/export-templates.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/export-templates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Troubleshoot
-      href: ../extensions/troubleshoot.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Issues with Python 3-enabled Linux systems
-      href: ../extensions/issues-using-vm-extensions-python-3.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/issues-using-vm-extensions-python-3.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Disk Encryption
-      href: ../extensions/azure-disk-enc-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/azure-disk-enc-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Key Vault
-      href: ../extensions/key-vault-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/key-vault-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Custom Script
-      href: ../extensions/custom-script-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/custom-script-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM snapshot
-      href: ../extensions/vmsnapshot-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/vmsnapshot-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Network Watcher Agent
-      href: ../extensions/network-watcher-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/network-watcher-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: NVIDIA GPU Drivers
-      href: ../extensions/hpccompute-gpu-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/hpccompute-gpu-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Monitor
       items:
       - name: Diagnostics extension
-        href: ../extensions/diagnostics-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../extensions/diagnostics-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Log Analytics
-        href: ../extensions/oms-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../extensions/oms-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Azure Monitor Linux Dependency agent
-        href: ../extensions/agent-dependency-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+        href: ../extensions/agent-dependency-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: PowerShell DSC
-      href: ../extensions/dsc-overview.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/dsc-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
        - name: DSC and Linux
-         href: ../extensions/dsc-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+         href: ../extensions/dsc-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
        - name: Handle credentials
-         href: ../extensions/dsc-credentials.md?context=azure/virtual-machines/linux/context/linux-vm-context
+         href: ../extensions/dsc-credentials.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
        - name: Use templates
-         href: ../extensions/dsc-template.md?context=azure/virtual-machines/linux/context/linux-vm-context
+         href: ../extensions/dsc-template.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Virtual machine access
-      href: ../extensions/vmaccess.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Chef
-      href: ../extensions/chef.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/chef.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Stackify Retrace
-      href: ../extensions/stackify-retrace-linux.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/stackify-retrace-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Symantec
-      href: ../extensions/symantec.md?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: ../extensions/symantec.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
