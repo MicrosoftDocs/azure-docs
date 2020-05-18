@@ -4,7 +4,7 @@ description: Enable soft delete on Azure file shares to enable data recovery and
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -20,8 +20,11 @@ When enabled, soft delete enables you to save and recover your file shares when 
 
 You can enable soft delete on your existing file shares. Soft delete is backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections this feature affords. 
 
-
 For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
+
+### Availability
+
+Soft-delete for Azure file shares is available on all storage tiers, all storage account types, and in every region that Azure Files is available in.
 
 ## Configuration settings
 

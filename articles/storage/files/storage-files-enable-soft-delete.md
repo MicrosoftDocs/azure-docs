@@ -4,7 +4,7 @@ description: Enable soft delete on Azure file shares to enable data recovery and
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
