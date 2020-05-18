@@ -75,7 +75,7 @@ All snapshots taken by Azure Backup can be accessed by viewing snapshots in the 
 
 Refer to the [support matrix](azure-file-share-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
 
-### What is the impact on existing recovery points and snapshots when I modify the Backup policy for an Azure file share to from “Daily Policy" to "GFS Policy”?
+### What is the impact on existing recovery points and snapshots when I modify the Backup policy for an Azure file share to switch from “Daily Policy" to "GFS Policy”?
 
 When you modify a Daily backup policy to GFS policy (adding weekly/monthly/yearly retention), the behavior is as follows:
 
