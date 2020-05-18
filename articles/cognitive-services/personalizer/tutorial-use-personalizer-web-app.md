@@ -2,7 +2,7 @@
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 ms.topic: troubleshooting
-ms.date: 03/09/2020
+ms.date: 05/19/2020
 ms.author: diberry
 ---
 # Add Personalizer to a .NET web app
@@ -18,11 +18,13 @@ Customize a C# .NET web app with a Personalizer loop to provide the correct cont
 > * Call Rank API
 > * Display top action, designated as _rewardActionId_
 
+
+
 ## Select the best content for a web app
 
-A web app should use Personalizer when there is an _action_ (some type of content) on the web page that needs to be personalized to a single top item (rewardActionId) to display. Examples of action lists include news articles, button placement locations, and word choices for product names.
+A web app should use Personalizer when there is a list of _actions_ (some type of content) on the web page that needs to be personalized to a single top item (rewardActionId) to display. Examples of action lists include news articles, button placement locations, and word choices for product names.
 
-You send the list to the Personalizer loop, Personalizer selects the single best content, then your web app displays that content.
+You send the list of actions, along with context feature, to the Personalizer loop. Personalizer selects the single best action, then your web app displays that action.
 
 In this tutorial, the actions are types of food:
 
@@ -30,6 +32,9 @@ In this tutorial, the actions are types of food:
 * ice cream
 * juice
 * salad
+* popcorn
+* coffee
+* soup
 
 To help Personalizer learn about your actions, send both __actions with features_ and _context features_ with each Rank API request.
 
@@ -37,70 +42,73 @@ A **feature** of the model is information about the action or context that can b
 
 ### Actions with features
 
-Each action (content item) has features to help distinguish the food item:
-
-* taste - such as salty or sweet
-* spiceLevel - none, low, medium
-* nutritionLevel - a number within a range such as 1-10
+Each action (content item) has features to help distinguish the food item.
 
 The features aren't configured as part of the loop configuration in the Azure portal. Instead they are sent as a JSON object with each Rank API call. This allows flexibility for the actions and their features to grow, change, and shrink over time, which allows Personalizer to follow trends.
 
-```json
-"actions": [
-    {
-      "id": "pasta",
-      "features": [
-        {
-          "taste": "salty",
-          "spiceLevel": "medium"
-        },
-        {
-          "nutritionLevel": 5,
-          "cuisine": "italian"
-        }
-      ]
-    },
-    {
-      "id": "ice cream",
-      "features": [
-        {
-          "taste": "sweet",
-          "spiceLevel": "none"
-        },
-        {
-          "nutritionalLevel": 2
-        }
-      ]
-    },
-    {
-      "id": "juice",
-      "features": [
-        {
-          "taste": "sweet",
-          "spiceLevel": "none"
-        },
-        {
-          "nutritionLevel": 5
-        },
-        {
-          "drink": true
-        }
-      ]
-    },
-    {
-      "id": "salad",
-      "features": [
-        {
-          "taste": "salty",
-          "spiceLevel": "low"
-        },
-        {
-          "nutritionLevel": 8
-        }
-      ]
-    }
-  ]
+```csharp
+ /// <summary>
+  /// Creates personalizer actions feature list.
+  /// </summary>
+  /// <returns>List of actions for personalizer.</returns>
+  private IList<RankableAction> GetActions()
+  {
+      IList<RankableAction> actions = new List<RankableAction>
+      {
+          new RankableAction
+          {
+              Id = "pasta",
+              Features =
+              new List<object>() { new { taste = "savory", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
+          },
+
+          new RankableAction
+          {
+              Id = "ice cream",
+              Features =
+              new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionalLevel = 2 } }
+          },
+
+          new RankableAction
+          {
+              Id = "juice",
+              Features =
+              new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionLevel = 5 }, new { drink = true } }
+          },
+
+          new RankableAction
+          {
+              Id = "salad",
+              Features =
+              new List<object>() { new { taste = "sour", spiceLevel = "low" }, new { nutritionLevel = 8 } }
+          },
+
+          new RankableAction
+          {
+              Id = "popcorn",
+              Features =
+              new List<object>() { new { taste = "salty", spiceLevel = "none" }, new { nutritionLevel = 3 } }
+          },
+
+          new RankableAction
+          {
+              Id = "coffee",
+              Features =
+              new List<object>() { new { taste = "bitter", spiceLevel = "none" }, new { nutritionLevel = 3 }, new { drink = true } }
+          },
+
+          new RankableAction
+          {
+              Id = "soup",
+              Features =
+              new List<object>() { new { taste = "sour", spiceLevel = "high" }, new { nutritionLevel =  7} }
+          }
+      };
+
+      return actions;
+  }
 ```
+
 
 ## Context features
 
@@ -110,39 +118,39 @@ Context features help Personalizer understand the context of the actions. The co
 * user's preference for taste - salty or sweet
 * browser's context - user agent, geographical location, referrer
 
-```json
-"contextFeatures": [
-    {
-      "time": "morning"
-    },
-    {
-      "taste": "sweet"
-    },
-    {
-      "httpRequestFeatures": {
-        "_synthetic": false,
-        "OUserAgent": {
-          "_ua": "",
-          "_DeviceBrand": "",
-          "_DeviceFamily": "Other",
-          "_DeviceIsSpider": false,
-          "_DeviceModel": "",
-          "_OSFamily": "Windows",
-          "_OSMajor": "10",
-          "DeviceType": "Desktop"
-        }
-      }
-    }
-  ]
+```csharp
+/// <summary>
+/// Get users time of the day context.
+/// </summary>
+/// <returns>Time of day feature selected by the user.</returns>
+private string GetUsersTimeOfDay()
+{
+    Random rnd = new Random();
+    string[] timeOfDayFeatures = new string[] { "morning", "noon", "afternoon", "evening", "night", "midnight" };
+    int timeIndex = rnd.Next(timeOfDayFeatures.Length);
+    return timeOfDayFeatures[timeIndex];
+}
+
+/// <summary>
+/// Gets user food preference.
+/// </summary>
+/// <returns>Food taste feature selected by the user.</returns>
+private string GetUsersTastePreference()
+{
+    Random rnd = new Random();
+    string[] tasteFeatures = new string[] { "salty", "bitter", "sour", "savory", "sweet" };
+    int tasteIndex = rnd.Next(tasteFeatures.Length);
+    return tasteFeatures[tasteIndex];
+}
 ```
 
 ## How does the web app use Personalizer?
 
-The web app uses Personalizer to select the best action from the list of pasta, ice cream, juice, and salad. It does this by sending the following information with each Rank API call:
+The web app uses Personalizer to select the best action from the list of food choices. It does this by sending the following information with each Rank API call:
 * **actions** with their features such as `taste` and `spiceLevel`
 * **context** features such as `time` of day, user's `taste` preference, and the browser's user agent information, and context features
 * **actions to exclude** such as juice
-* **eventid, which is different for each call to Rank API.
+* **eventid**, which is different for each call to Rank API.
 
 ## Personalizer model features in a web app
 
@@ -155,13 +163,13 @@ The model, including features, is updated on a schedule based on your **Model up
 
 ### Plan for features and their values
 
-Features should be selected with the same planning and design that you would apply to any schema or model in your technical architecture. The feature values can be set with business logic or third-party systems. Feature values should not be so highly specific that they don't apply across a group or class.
+Features should be selected with the same planning and design that you would apply to any schema or model in your technical architecture. The feature values can be set with business logic or third-party systems. Feature values should not be so highly specific that they don't apply across a group or class of features.
 
 ### Generalize feature values
 
 #### Generalize into categories
 
-This app uses `time` as a feature but groups time into categories of `morning`, `afternoon`, `evening`, and `night`. That is an example of using the information of time but not in a highly specific way, such as `10:05:01 UTC+2`.
+This app uses `time` as a feature but groups time into categories such as `morning`, `afternoon`, `evening`, and `night`. That is an example of using the information of time but not in a highly specific way, such as `10:05:01 UTC+2`.
 
 #### Generalize into parts
 
@@ -171,7 +179,7 @@ This app uses the HTTP Request features from the browser. This starts with a ver
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko) Chrome/80.0.3900.140 Safari/537.36
 ```
 
-The **HttpRequestFeatures** class library generalizes this string into a **userAgentInfo** object with individual values. Any values are too specific are set to an empty string. When the context features for the request are sent, it has the following JSON format:
+The **HttpRequestFeatures** class library generalizes this string into a **userAgentInfo** object with individual values. Any values that are too specific are set to an empty string. When the context features for the request are sent, it has the following JSON format:
 
 ```JSON
 {
@@ -191,80 +199,81 @@ The **HttpRequestFeatures** class library generalizes this string into a **userA
 }
 ```
 
-## Download the working sample
 
-In this tutorial, the complete sample web app is provided for you.
+## Using sample web app
 
-1. Download the [GitHub samples repository](git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git) for Personalizer.
+Install the following software:
+
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1)
+* [Node.js](https://nodejs.org/en/about/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/)
+
+### Set up the sample
+1. Clone the Azure Personalizer Samples repo.
 
     ```bash
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-1. Use Visual Studio 2019 to open the solution, `HttpRequestFeatures.sln`. This sample is found within the `/samples/HttpRequestFeatures` folder.
+1. Navigate to _samples/HttpRequestFeatures_ the open the solution, `HttpRequestFeaturesExample.sln`.
 
-    The solution includes two projects:
-    * **HttpRequestFeaturesExample**, a .NET web app, which manages both the web page and the Rank API call.
-        * **HomeController.cs** manages the interaction with Personalizer and passes the data to the Index.cshtml page to display.
-        * **Index.cshtml** displays the values passed from HomeController.cs
-    * **HttpRequestFeatures**, a class library, which create the context features for the user agent.
+### Set up Azure Personalizer Service
 
-    > [!div class="mx-imgBorder"]
-    > ![Use Visual Studio 2019 to open the solution, `HttpRequestFeatures.sln`. This sample is found within the `/samples/HttpRequestFeatures` folder.](./media/tutorial-web-app/solution-explorer-files.png)
+1. [Create a Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
 
-## Create a Personalizer resource in the Azure portal
+1. In the Azure portal, find the `Endpoint` and either `Key1` or `Key2` (either will work) in the Keys and Endpoints tab. These are your `PersonalizerServiceEndpoint` and your `PersonalizerApiKey`.
+1. Fill in the `PersonalizerServiceEndpoint` in **appsettings.json**.
+1. Configure the `PersonalizerApiKey` as an [app secrets](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets) in one of the following ways:
 
-Use either the [Azure portal](how-to-create-resource.md#create-a-resource-in-the-azure-portal) or the [Azure CLI](how-to-create-resource.md#create-a-resource-with-the-azure-cli) to create a Personalizer resource.
+    * If you are using the .NET Core CLI, you can use the `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` command.
+    * If you are using Visual Studio, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer keys. By doing this, Visual Studio will open a `secrets.json` file where you can add the keys as follows:
 
-The resource has two values you need in order to use the loop:
-
-* **Endpoint** - an example is: `https://your-resource-name.cognitiveservices.azure.com/`
-* **Key** - a 32 character string
-
-## Configure project with your Personalizer endpoint
-
-Using best security practices, the endpoint is stored in the `appsetings.json` file, as the property **ServiceEndpoint**. Change `your-resource-end-goes-here` to your own endpoint URL.
-
-```JSON
-{
-  "PersonalizerConfiguration": {
-    "ServiceEndpoint": "replace-with-your-resource-endpoint"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
-
-## Configure project with your Personalizer key
-
-Using best security practices, use the Visual Studio solution feature to manage user secrets.
-
-1. In Visual Studio, on the **Solution Explorer**, right-click the **HTTPRequestFeaturesExample** project, then select **Manage User Secrets**.
-
-1. In the secrets.json file, enter the value for the **PersonalizerApiKey**.
-
-    ```json
+    ```JSON
     {
-      "PersonalizerApiKey": "replace-with-your-resource-key"
+      "PersonalizerApiKey": "<your personalizer key here>",
     }
     ```
 
 ## Run the sample
 
-1. Build and run the **HTTPRequestFeaturesExample** project. A browser window opens to `https://localhost:44332/` displaying the single page application.
+Build and run HttpRequestFeaturesExample. Press **F5** if using Visual Studio, or `dotnet build` then `dotnet run` if using .NET Core CLI. Through a web browser, you can send a Rank request and a Reward request and see their responses, as well as the http request features extracted from your environment.
+
+> [!div class="mx-imgBorder"]
+> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+
+1. Select the **Generate new Rank Request** button to create a new JSON object for the Rank API call. This creates the actions (with features) and context features) and displays the values so you can see what the JSON looks like.
+
+    For your own application, generation of actions and features may happen on the client, on the server, a mix of the two, or with calls to other services.
+1. Select **Send Rank Request** to send the JSON object to the server. The server calls the Personalizer Rank API. The server receives the response and returns the top action to the client to display.
+1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to `https://localhost:44332/` displaying the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
 
-## Create the Personalizer client
+    For your own application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
 
-This is a typical .NET web app, much of the code is provided for you and general. Any code not specific to Personalizer is removed from these code snippets so you can focus on the Personalizer-specific code.
+## Understand the sample web app
 
-In the **Startup.cs**, the Personalizer endpoint and key are used to create the Personalizer client.
+The sample web app has a **C# .NET** server, which manages the collection of features and sending and receiving HTTP calls to your Personalizer endpoint.
+
+The sample web app uses a **knockout front-end client application** to capture features and process user interface actions such as clicking on buttons, sending data to the .NET server.
+
+The following sections explain the parts of the server and client that a developer needs to understand to use Personalizer.
+
+## Rank API: Client application sends user agent context to server
+
+The client application collects the user's browser _user agent_.
+
+> [!div class="mx-imgBorder"]
+> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/user-agent.png)
+
+## Rank API: Server application manages calls to Personalizer
+
+This is a typical .NET web app with a client application, much of the code is provided for you. Any code not specific to Personalizer is removed from the following code snippets so you can focus on the Personalizer-specific code.
+
+### Create Personalizer client using key and endpoint
+
+In the **Startup.cs**, the Personalizer endpoint and key are used to create the Personalizer client. The client application doesn't need to communicate with Personalizer in this app.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -290,9 +299,6 @@ namespace HttpRequestFeaturesExample
             {
                 throw new ArgumentException("Missing Azure Personalizer endpoint and/or api key.");
             }
-
-            // ... code unrelated to Personalizer removed for brevity
-
             services.AddSingleton(client =>
             {
                 return new PersonalizerClient(new ApiKeyServiceClientCredentials(personalizerApiKey))
@@ -301,295 +307,40 @@ namespace HttpRequestFeaturesExample
                 };
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            // general startup code unrelated to Personalizer removed for brevity
-        }
+        // ... code removed for brevity
     }
 }
 ```
 
-In the **HomeController.cs**, the constructor sets the Personalizer client object to a local variable.
+### Server uses Personalizer to select best action
+
+In the **PersonalizerController.cs**, the **GenerateRank** server API summarizes the preparation to call the Rank API:
+
+* Create new `eventId` for the Rank call
+* Get the list of action
+* Get the list of features from the user and create context features
+* Optionally, set any excluded actions
+* Call Rank API, return results to client
 
 ```csharp
-using Microsoft.Azure.CognitiveServices.Personalizer;
-using Microsoft.Azure.CognitiveServices.Personalizer.Featurizers;
-using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-// ... other using statements removed for brevity
-
-namespace HttpRequestFeaturesExample.Controllers
+/// <summary>
+/// Creates a RankRequest with user time of day, HTTP request features,
+/// and taste as the context and several different foods as the actions
+/// </summary>
+/// <returns>RankRequest with user info</returns>
+[HttpGet("GenerateRank")]
+public RankRequest GenerateRank()
 {
-    public class HomeController : Controller
-    {
-        PersonalizerClient client;
-
-        public HomeController(PersonalizerClient personalizerClient)
-        {
-            this.client = personalizerClient;
-        }
-    }
-    // other methods appear below constructor
-}
-```
-
-## Application uses Personalizer to select best food item
-
-In the **HomeController.cs**, the **Index** method summarizes the flow, first determining the features, then calling Personalizer, then setting the result from Personalizer into ViewData, including the best action, in the _rewardActionId_.
-
-```csharp
-public IActionResult Index()
-{
-    HttpRequestFeatures httpRequestFeatures = GetHttpRequestFeaturesFromRequest(Request);
-
-    ViewData["UserAgent"] = JsonConvert.SerializeObject(httpRequestFeatures, Formatting.Indented);
-
-    Tuple<string, string, string> personalizationobj = callPersonalizationService(httpRequestFeatures);
-    ViewData["Personalizer Rank Request"] = personalizationobj.Item1;
-    ViewData["Personalizer Rank Response"] = personalizationobj.Item2;
-    ViewData["Personalizer rewardActionId"] = personalizationobj.Item3;
-
-    return View();
-}
-```
-
-The **Index.cshtml** page displays the ViewData values:
-
-```cshtml
-<p> </p>
-<h2>Loading this app:</h2>
-<ul>
-    <li>Displays user agent information extracted from the http request.</li>
-    <li>Sends a personalization rank request to the service.</li>
-    <li>Displays rank request and the response received for the request.</li>
-</ul>
-<p> Click 'Send Request' in the nav bar to send a new rank request.</p>
-<p> Returned rewardActionId: <b>@ViewData["Personalizer rewardActionId"]</p>
-<asp:table >
-    <asp:TableRow >
-        <asp:TableCell>
-            <h3>Request</h3>
-            <p>User Agent</p>
-            <pre>@ViewData["UserAgent"]</pre>
-
-            <p>Content of a personalization rank request:</p>
-            <pre>@ViewData["Personalizer Rank Request"]</pre>
-        </asp:TableCell>
-        <asp:TableCell>
-            <h3>Response:</h3>
-            <p>rewardActionId: <b>@ViewData["Personalizer rewardActionId"]</b></p>
-            <pre>@ViewData["Personalizer Rank Response"]</pre>
-        </asp:TableCell>
-    </asp:TableRow>
-</asp:table>
-```
-
-## Collect context feature values
-
-In order to change the feature values, without requiring a lot of setup or interaction, the features are randomly determined.
-
-In the HomeController.cs **callPersonalizationService** method, time of day and taste are collected, along with HTTP features and set to the `currentContext`.
-
-```csharp
-// Get context information from the user.
-string timeOfDayFeature = GetUsersTimeOfDay();
-string tasteFeature = GetUsersTastePreference();
-
-// Create current context from user specified data.
-IList<object> currentContext = new List<object>() {
-        new { time = timeOfDayFeature },
-        new { taste = tasteFeature },
-        new { httpRequestFeatures }
-};
-```
-
-When passed to the Rank API, the JSON for the context features looks like:
-
-```json
-"contextFeatures": [
-  {
-    "time": "night"
-  },
-  {
-    "taste": "sweet"
-  },
-  {
-    "httpRequestFeatures": {
-      "_synthetic": false,
-      "OUserAgent": {
-        "_ua": "",
-        "_DeviceBrand": "",
-        "_DeviceFamily": "Other",
-        "_DeviceIsSpider": false,
-        "_DeviceModel": "",
-        "_OSFamily": "Windows",
-        "_OSMajor": "10",
-        "DeviceType": "Desktop"
-      }
-    }
-  }
-]
-```
-## Collect action feature values
-
-In this tutorial, the actions and their features are set with hard-coded strings. In a real-world application, these values can come from a business layer or third-party source.
-
-In the HomeController.cs **GetActions** method, the four actions (food) and their features are set:
-
-```csharp
-private IList<RankableAction> GetActions()
-{
-    IList<RankableAction> actions = new List<RankableAction>
-    {
-        new RankableAction
-        {
-            Id = "pasta",
-            Features =
-            new List<object>() { new { taste = "salty", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
-        },
-
-        new RankableAction
-        {
-            Id = "ice cream",
-            Features =
-            new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionalLevel = 2 } }
-        },
-
-        new RankableAction
-        {
-            Id = "juice",
-            Features =
-            new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionLevel = 5 }, new { drink = true } }
-        },
-
-        new RankableAction
-        {
-            Id = "salad",
-            Features =
-            new List<object>() { new { taste = "salty", spiceLevel = "low" }, new { nutritionLevel = 8 } }
-        }
-    };
-
-    return actions;
-}
-```
-
-When passed to the Rank API, the JSON for the action list looks like:
-
-```json
-"actions": [
-  {
-    "id": "pasta",
-    "features": [
-      {
-        "taste": "salty",
-        "spiceLevel": "medium"
-      },
-      {
-        "nutritionLevel": 5,
-        "cuisine": "italian"
-      }
-    ]
-  },
-  {
-    "id": "ice cream",
-    "features": [
-      {
-        "taste": "sweet",
-        "spiceLevel": "none"
-      },
-      {
-        "nutritionalLevel": 2
-      }
-    ]
-  },
-  {
-    "id": "juice",
-    "features": [
-      {
-        "taste": "sweet",
-        "spiceLevel": "none"
-      },
-      {
-        "nutritionLevel": 5
-      },
-      {
-        "drink": true
-      }
-    ]
-  },
-  {
-    "id": "salad",
-    "features": [
-      {
-        "taste": "salty",
-        "spiceLevel": "low"
-      },
-      {
-        "nutritionLevel": 8
-      }
-    ]
-  }
-]
-```
-
-## Use excluded actions to ignore actions
-
-There may be circumstances when you want to ignore certain actions. This application has a hard-coded exception for `juice` as a single item in a list.
-
-You may want to add actions to the excluded actions list if:
-
-* Edward/Tyler - thoughts here?
-
-Build the list of exceptions then add it to the excludeActions variable.
-
-```csharp
-// Exclude an action for personalization ranking. This action will be held at its current position.
-IList<string> excludeActions = new List<string> { "juice" };
-```
-
-When passed to the Rank API, the JSON for the excluded action list looks like:
-
-```json
-"excludedActions": [
-    "juice"
-]
-```
-
-## Create an event ID
-
-The event ID can be tied to an existing business layer event ID or generated just for the Rank ID. The event ID is important so that you can call the Reward API, with the reward value and the event ID. This tells your Personalizer loop how well the Rank API did and choosing the best action for that event ID.
-
-In this tutorial, the event ID is a generated GUID:
-
-```csharp
-// Generate an ID to associate with the request.
-string eventId = Guid.NewGuid().ToString();
-```
-
-When passed to the Rank API, the JSON for the event ID looks like:
-
-```json
-"eventId": "09e77e0c-62d8-416d-8950-eb4af5b92d20"
-```
-
-## Call Rank API with actions, excluded actions, and context features.
-
-Call the Rank API with your collection of actions (and their features), your context features, excluded actions, and the event ID. The response includes the top action as _rewardActionId_, and the rest of the actions along with their scores.
-
-```csharp
-private Tuple<string, string, string> callPersonalizationService(HttpRequestFeatures httpRequestFeatures)
-{
-    // Generate an ID to associate with the request.
     string eventId = Guid.NewGuid().ToString();
 
-    // Get the actions list to choose from personalization with their features.
+    // Get the actions list to choose from personalizer with their features.
     IList<RankableAction> actions = GetActions();
 
     // Get context information from the user.
+    HttpRequestFeatures httpRequestFeatures = GetHttpRequestFeaturesFromRequest(Request);
     string timeOfDayFeature = GetUsersTimeOfDay();
     string tasteFeature = GetUsersTastePreference();
 
@@ -600,49 +351,199 @@ private Tuple<string, string, string> callPersonalizationService(HttpRequestFeat
             new { httpRequestFeatures }
     };
 
-    // Exclude an action for personalization ranking. This action will be held at its current position.
+    // Exclude an action for personalizer ranking. This action will be held at its current position.
     IList<string> excludeActions = new List<string> { "juice" };
 
     // Rank the actions
-    var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-    RankResponse response = client.Rank(request);
-
-    string rankjson = JsonConvert.SerializeObject(request, Formatting.Indented);
-    string rewardjson = JsonConvert.SerializeObject(response, Formatting.Indented);
-    string rewardActionId = response.RewardActionId;
-
-    return Tuple.Create(rankjson, rewardjson, rewardActionId);
+    return new RankRequest(actions, currentContext, excludeActions, eventId);
 }
 ```
 
-When returned from the Rank API, the JSON for the response looks like:
+The JSON sent to Personalizer looks like:
 
 ```json
 {
-  "ranking": [
-    {
-      "id": "pasta",
-      "probability": 0.333333343
-    },
-    {
-      "id": "ice cream",
-      "probability": 0.333333343
-    },
-    {
-      "id": "juice",
-      "probability": 0.0
-    },
-    {
-      "id": "salad",
-      "probability": 0.333333343
-    }
-  ],
-  "eventId": "09e77e0c-62d8-416d-8950-eb4af5b92d20",
-  "rewardActionId": "pasta"
+    "contextFeatures": [
+        {
+            "time": "morning"
+        },
+        {
+            "taste": "savory"
+        },
+        {
+            "httpRequestFeatures": {
+                "_synthetic": false,
+                "MRefer": {
+                    "referer": "http://localhost:51840/"
+                },
+                "OUserAgent": {
+                    "_ua": "",
+                    "_DeviceBrand": "",
+                    "_DeviceFamily": "Other",
+                    "_DeviceIsSpider": false,
+                    "_DeviceModel": "",
+                    "_OSFamily": "Windows",
+                    "_OSMajor": "10",
+                    "DeviceType": "Desktop"
+                }
+            }
+        }
+    ],
+    "actions": [
+        {
+            "id": "pasta",
+            "features": [
+                {
+                    "taste": "savory",
+                    "spiceLevel": "medium"
+                },
+                {
+                    "nutritionLevel": 5,
+                    "cuisine": "italian"
+                }
+            ]
+        },
+        {
+            "id": "ice cream",
+            "features": [
+                {
+                    "taste": "sweet",
+                    "spiceLevel": "none"
+                },
+                {
+                    "nutritionalLevel": 2
+                }
+            ]
+        },
+        {
+            "id": "juice",
+            "features": [
+                {
+                    "taste": "sweet",
+                    "spiceLevel": "none"
+                },
+                {
+                    "nutritionLevel": 5
+                },
+                {
+                    "drink": true
+                }
+            ]
+        },
+        {
+            "id": "salad",
+            "features": [
+                {
+                    "taste": "sour",
+                    "spiceLevel": "low"
+                },
+                {
+                    "nutritionLevel": 8
+                }
+            ]
+        },
+        {
+            "id": "popcorn",
+            "features": [
+                {
+                    "taste": "salty",
+                    "spiceLevel": "none"
+                },
+                {
+                    "nutritionLevel": 3
+                }
+            ]
+        },
+        {
+            "id": "coffee",
+            "features": [
+                {
+                    "taste": "bitter",
+                    "spiceLevel": "none"
+                },
+                {
+                    "nutritionLevel": 3
+                },
+                {
+                    "drink": true
+                }
+            ]
+        },
+        {
+            "id": "soup",
+            "features": [
+                {
+                    "taste": "sour",
+                    "spiceLevel": "high"
+                },
+                {
+                    "nutritionLevel": 7
+                }
+            ]
+        }
+    ],
+    "excludedActions": [
+        "juice"
+    ],
+    "eventId": "82ac52da-4077-4c7d-b14e-190530578e75",
+    "deferActivation": null
 }
 ```
 
-## Display the rewardActionId action
+### Return Personalizer ranked rewardActionId to client
 
-In this tutorial, the rewardActionId value is displayed in text. In your own application, that may be exact text, a button, or a section of the web page highlighted. The list is returned for any post-analysis of scores, not an ordering of the content. Only the rewardActionId content should be displayed.
+The Rank API returns the selected best action **rewardActionId**.
 
+```json
+{
+    "ranking": [
+        {
+            "id": "popcorn",
+            "probability": 0.833333254
+        },
+        {
+            "id": "salad",
+            "probability": 0.03333333
+        },
+        {
+            "id": "juice",
+            "probability": 0
+        },
+        {
+            "id": "soup",
+            "probability": 0.03333333
+        },
+        {
+            "id": "coffee",
+            "probability": 0.03333333
+        },
+        {
+            "id": "pasta",
+            "probability": 0.03333333
+        },
+        {
+            "id": "ice cream",
+            "probability": 0.03333333
+        }
+    ],
+    "eventId": "82ac52da-4077-4c7d-b14e-190530578e75",
+    "rewardActionId": "popcorn"
+}
+```
+
+### Client displays the rewardActionId action
+
+In this tutorial, the `rewardActionId` value is displayed. In your own application, that may be exact text, a button, or a section of the web page highlighted. The list is returned for any post-analysis of scores, not an ordering of the content. Only the `rewardActionId` content should be displayed.
+
+## Reward API: collect information to determine reward
+
+The [reward score](concept-rewards.md) should be carefully planned, just as the features are planned. The reward score is a value from 0 to 1. The value _can_ be calculated partially in the client application, based on user behaviors, and partially on the server, based on business logic and goals.
+
+If the server doesn't call the Reward API within the **Reward wait time** configured in the Azure portal for your Personalizer resource, then the **Default reward** (also configured in the Azure portal) is used for that event.
+
+In this sample application, you can select a value to see how the reward impacts the selections.
+
+## Next steps
+
+* [Features](concepts-features): learn concepts about features using with actions and context
+* [Rewards](concept-rewards): learn about calculating rewards
