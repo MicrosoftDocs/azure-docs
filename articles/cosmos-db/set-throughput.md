@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 05/19/2020
 ---
 
 # Provision throughput on containers and databases
