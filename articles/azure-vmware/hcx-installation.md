@@ -7,12 +7,27 @@ ms.date: 05/15/2020
 
 # Install HCX for Azure VMWare Solution
 
-In this article, set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. The HCX solution supports up to three external enterprise sites, where each external site must have its own HCX Enterprise activation (HEA) key in order to migrate to the AVS Private Cloud target. Hot/cold vMotion migrations for VMs to and from on-premises environments and your AVS private cloud are enabled by the solution.
+In this article, we go through procedures to set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. The HCX solution supports up to three external enterprise sites, where each external site must have its own HCX Enterprise activation (HEA) key in order to migrate to the AVS Private Cloud target. Hot/cold vMotion migrations for VMs to and from on-premises environments and your AVS private cloud are enabled by the solution.
 
-**Before you begin:**
+Thoroughly review [Before you begin](#before-you-begn), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
+
+Then, we walk through all necessary procedures to:
+
+> [!div class="checklist"]
+> * Deploy the on-premises HCX OVA
+> * Activate and configure HCX
+> * Configure the network uplink and service mesh
+> * Complete setup by checking the appliance status
+
+After completing setup, recommended next steps are provided.
+
+## Before you begin
 	
-* Review the basic AVS Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
-* Related VMware materials on HCX, such as Megie’s VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-1.html) on HCX. 
+* Review the basic AVS Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md)
+* Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) including the HCX user guide
+* Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
+* Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-1.html) on HCX. 
 * Order an AVS HCX Enterprise activation through AVS support channels.
 
 Sizing workloads against compute and storage resources is an essential planning step when preparing to use the AVS Private Cloud HCX solution. This sizing step should be addressed as part of initial private cloud environment planning. 
@@ -29,15 +44,15 @@ Infrastructure components must be running the required minimum version.
 
 ## Prerequisites
 
-1.  Global reach should be configured between on-premises and AVS SDDC ER
+1. Global reach should be configured between on-premises and AVS SDDC ER
     circuits.
 
-2.  All required ports should be open between on-premises and AVS SDDC.
+1. All required ports should be open between on-premises and AVS SDDC (see VMWare HCX documentation).
 
-3.  One IP address for HCX Manager at on-premises and a minimum of 2 IP addresses
+1. One IP address for HCX Manager at on-premises and a minimum of two IP addresses
     for Interconnect (IX) and Network Extension (NE) appliance.
 
-4.  On-premises HCX IX and NE appliances should be able to reach vCenter
+1. On-premises HCX IX and NE appliances should be able to reach vCenter
     and ESXi infrastructure.
 
 ## Deploy the VMware HCX OVA on-premises
@@ -53,7 +68,7 @@ Infrastructure components must be running the required minimum version.
 1. Select an OVF template to deploy to on-premises vCenter.  
     ![Select OVF template](./media/hcx-installation/select-template.png)
 
-1. Select a name and location, then select a resource/cluster where HCX needs to be deployed then, review details and required resources.  
+1. Select a name and location, then select a resource/cluster where HCX needs to be deployed. Then, review details and required resources.  
     ![Review template details](./media/hcx-installation/configure-template.png)
 
 1. Review license terms, and if you agree, select required storage and network. Then select **Next**.
@@ -101,7 +116,7 @@ After installation, perform the following steps.
     ![Create network profile](./media/hcx-installation/create-network-profile.png)
 
 1. Enter HCX IX and NE IP address ranges (a minimum of 2 IP addresses is
-    required for IX and NE appliancees)
+    required for IX and NE appliances)
   ![Enter IP address ranges](./media/hcx-installation/enter-address-ranges.png)
      > [!NOTE]
      > The network extension appliance (HCX-NE) has a one-to-one
@@ -189,7 +204,7 @@ Uplink.
     used for on-premises to AVS SDDC communication.  
     ![Create network profile for uplink](./media/hcx-installation/network-profile-uplink.png)
 
-1. Enter a name for the network profile and atleast 4-5 free IP addresses
+1. Enter a name for the network profile and at least 4-5 free IP addresses
     based on the L2 network extension required.  
     ![Configure network profile for uplink](./media/hcx-installation/configure-uplink-profile.png)
 
@@ -207,13 +222,13 @@ Now configure Service Mesh between on-premises and AVS SDDC.
       
     ![Configure service mesh](./media/hcx-installation/configure-service-mesh.png)
 
-3.  Select **Create Service Mesh** and select **Continue**  
+1. Select **Create Service Mesh** and select **Continue**  
       
     Select paired sites between which to enable hybrid
     mobility.  
     ![Select paired sites](./media/hcx-installation/select-paired-sites.png)
 
-4.  Select **Compute profile** and select **Continue**  
+1. Select **Compute profile** and select **Continue**  
       
     Select one compute profile each in the source and remote sites to
     enable hybridity services. The selections will define the
@@ -222,30 +237,30 @@ Now configure Service Mesh between on-premises and AVS SDDC.
       
     ![Enable hybridity services](./media/hcx-installation/enable-hybridity.png)
 
-5.  Select services to be enabled for HCX and select **Continue**  
+1. Select services to be enabled for HCX and select **Continue**  
       
     ![Select HCX services](./media/hcx-installation/hcx-services.png)
 
-6.  In **Advanced Configuration - Override Uplink Network profiles** select **Continue**  
+1. In **Advanced Configuration - Override Uplink Network profiles** select **Continue**  
       
     Uplink network profiles are used to connect to the network via
     which the remote site’s interconnect appliances can be reached.  
       
-    ![Overwride uplink profiles](./media/hcx-installation/override-uplink-profiles.png)
+    ![Override uplink profiles](./media/hcx-installation/override-uplink-profiles.png)
 
-7.  In **Advanced Configuration – Network Extension Appliance Scale Out**, select **Configure the Network Extension Appliance Scale Out**  
+1. In **Advanced Configuration – Network Extension Appliance Scale Out**, select **Configure the Network Extension Appliance Scale Out**  
       
     ![Network extension scale out](./media/hcx-installation/network-extension-scale-out.png)
 
-8.  Enter the appliance count corresponding to the DVS switch count  
+1. Enter the appliance count corresponding to the DVS switch count  
       
     ![Configure appliance count](./media/hcx-installation/appliance-scale.png)
 
-9.  In **Advanced Configuration - Traffic Engineering**, select **Continue**  
+1. In **Advanced Configuration - Traffic Engineering**, select **Continue**  
       
     ![Configure traffic engineering](./media/hcx-installation/traffic-engineering.png)
 
-10. Review the topology preview and select **Continue**. Then, enter a user-friendly name for this Service Mesh and select
+1. Review the topology preview and select **Continue**. Then, enter a user-friendly name for this Service Mesh and select
     **Finish** to complete.  
       
     ![Complete Service Mesh](./media/hcx-installation/complete-service-mesh.png)
@@ -259,9 +274,7 @@ To check the status of the appliance, select **Interconnect** > **Appliances**.
       
 ![Appliance status](./media/hcx-installation/appliance-status.png)
 
-
-
 ## Next steps
 
-When **Tunnel Status** is **UP** and green, you are ready for
-    migration and protecting VMs using HCX Disaster Recovery.
+When the appliance interconnect **Tunnel Status** is **UP** and green, you are ready to
+    migrate and protect AVS VMs using HCX. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMWare technical documentation.
