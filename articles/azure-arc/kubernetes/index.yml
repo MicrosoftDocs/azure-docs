@@ -19,7 +19,7 @@ landingContent:
      - linkListType: overview
        links:
           - text: Learn more about Azure Arc
-            url: https://aka.ms/Azure-Arc-Info
+            url: https://azure.microsoft.com/services/azure-arc/
   
   - title: Connect Kubernetes clusters to Azure using Azure Arc
     linkLists: 
