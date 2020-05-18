@@ -358,7 +358,7 @@ Users with this role can set or reset non-password credentials for all users, in
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
-Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. They can create groups that can be assigned to Azure AD roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
+Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. They can create and manage groups that can be assigned to Azure AD roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
 > [!IMPORTANT]
 > This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
