@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/19/2020
 ms.author: aahi
 ---
 
@@ -19,16 +19,14 @@ This quickstart uses the Ruby programming language to call Bing Visual Search an
 
 ## Prerequisites
 
-To run this quickstart:
-
-* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
-* Get a subscription key:
+* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/).
+* Get a subscription key.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Project and required modules
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which is used to encode the file name string: 
 
 ```
 require 'net/https'
@@ -40,7 +38,12 @@ require 'base64'
 
 ## Define variables
 
-The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
+The following code declares the main function and assigns the required variables: 
+
+1. Confirm that the endpoint is correct and replace the `accessKey` value with a valid subscription key from your Azure account. 
+2. For `batchNumber`, assign a GUID, which is required for the leading and trailing boundaries of the POST data. 
+3. For `fileName`, assign the image file to use for the POST. 
+4. Use an `if` block to test for a valid subscription key.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -59,38 +62,38 @@ end
 
 ## Form data for POST request
 
-The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
+1. The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
 
-```
-def BuildFormDataStart(batNum, fileName)
-    startBoundary = "--batch_" + batNum
-    return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"	
-end
+   ```
+   def BuildFormDataStart(batNum, fileName)
+       startBoundary = "--batch_" + batNum
+       return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"	
+   end
 
-def BuildFormDataEnd(batNum)
-    return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
-end
-```
+   def BuildFormDataEnd(batNum)
+       return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
+   end
+   ```
 
-Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
+2. Construct the endpoint URI and an array to contain the POST body. Use the previous function to load the start boundary into the array. Read the image file into the array, and then read the end boundary into the array:
 
-```
-uri = URI(uri + path)
-print uri
-print "\r\n\r\n"
+   ```
+   uri = URI(uri + path)
+   print uri
+   print "\r\n\r\n"
 
-post_body = []
+   post_body = []
 
-post_body << BuildFormDataStart(batchNumber, fileName)
+   post_body << BuildFormDataStart(batchNumber, fileName)
 
-post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
+   post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
-post_body << BuildFormDataEnd(batchNumber)
-```
+   post_body << BuildFormDataEnd(batchNumber)
+   ```
 
 ## Create the HTTP request
 
-Set the `Ocp-Apim-Subscription-Key` header.  Create the request. Then, assign the header and content type. Join the POST body created previously to the request:
+Set the `Ocp-Apim-Subscription-Key` header. Create the request, and then assign the header and content type. Join the POST body you created previously to the request:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -130,7 +133,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ```
 
-## Results
+## JSON response
 
 The following JSON is a segment of the output:
 

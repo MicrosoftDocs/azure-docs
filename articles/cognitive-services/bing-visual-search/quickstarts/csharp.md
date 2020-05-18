@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/19/2020
 ms.author: scottwhi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and C#
 
-This quickstart demonstrates how to upload an image to the Bing Visual Search API and to view the insights that it returns.
+This quickstart demonstrates how to upload an image to the Bing Visual Search API and view the insights that it returns.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and path to the image you want to upload. `uriBase` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
+2. Add variables for your subscription key, endpoint, and path to the image you want to upload. You can use the value of `uriBase` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";
@@ -65,7 +65,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
 
 ## Build the form data
 
-To upload a local image, you first build the form data to send to the API. The form data must include the `Content-Disposition` header, its `name` parameter must be set to "image", and the `filename` parameter can be set to any string. The contents of the form contain the binary data of the image. The maximum image size you can upload is 1 MB.
+1. To upload a local image, first build the form data to send to the API. The form data includes the `Content-Disposition` header, the `name` parameter set to "image", and the `filename` parameter set to any string. The contents of the form contain the binary data of the image. The maximum image size you can upload is 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -76,7 +76,7 @@ To upload a local image, you first build the form data to send to the API. The f
     --boundary_1234-abcd--
     ```
 
-1. Add boundary strings to format the POST form data. Boundary strings determine the start, end, and newline characters for the data:
+2. Add boundary strings to format the POST form data. Boundary strings determine the start, end, and newline characters for the data:
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -86,14 +86,14 @@ To upload a local image, you first build the form data to send to the API. The f
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Use the following variables to add parameters to the form data:
+3. Use the following variables to add parameters to the form data:
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Create a function named `BuildFormDataStart()` to create the start of the form data using the boundary strings and image path:
+4. Create a function named `BuildFormDataStart()` to create the start of the form data using the boundary strings and image path:
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -107,7 +107,7 @@ To upload a local image, you first build the form data to send to the API. The f
         }
     ```
 
-4. Create a function named `BuildFormDataEnd()` to create the end of the form data using the boundary strings:
+5. Create a function named `BuildFormDataEnd()` to create the end of the form data using the boundary strings:
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -122,7 +122,7 @@ To upload a local image, you first build the form data to send to the API. The f
 
 2. Use a `WebRequest` to store your URI, contentType value, and headers.  
 
-3. Use `request.GetRequestStream()` to write your form and image data, then get the response. Your function should be similar to the one below:
+3. Use `request.GetRequestStream()` to write your form and image data, and then get the response. Your function should be similar to the following code:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -154,14 +154,14 @@ To upload a local image, you first build the form data to send to the API. The f
 
 ## Create the Main method
 
-1. In the `Main` method of your application, get the filename and binary data of your image:
+1. In the `Main()` method of your application, get the filename and binary data of your image:
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Set up the POST body by formatting the boundary for it. Then call `startFormData()` and `endFormData` to create the form data:
+2. Set up the POST body by formatting the boundary for it. Then, call `startFormData()` and `endFormData` to create the form data:
 
     ```csharp
     // Set up POST body.
@@ -176,7 +176,7 @@ To upload a local image, you first build the form data to send to the API. The f
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Get the API response by calling `BingImageSearch()` and print the response:
+4. Get the API response by calling `BingImageSearch()`, and then print the response:
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -187,9 +187,9 @@ To upload a local image, you first build the form data to send to the API. The f
 
 ## Using HttpClient
 
-If you use `HttpClient`, you can use the `MultipartFormDataContent` class to build the form data. Just use the following sections of code to replace the corresponding methods in the previous example.
+If you use `HttpClient`, you can use the `MultipartFormDataContent` class to build the form data. Use the following sections of code to replace the corresponding methods in the previous example.
 
-Replace the `Main` method with this code:
+Replace the `Main()` method with this code:
 
 ```csharp
         static void Main()
@@ -229,7 +229,7 @@ Replace the `Main` method with this code:
         }
 ```
 
-Replace the `BingImageSearch` method with this code:
+Replace the `BingImageSearch()` method with this code:
 
 ```csharp
         /// <summary>

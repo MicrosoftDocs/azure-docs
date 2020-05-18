@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/19/2020
 ms.author: scottwhi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Python
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Python application uploads an image to the API and displays the information it returns. Though this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Visual Search API. This Python application uploads an image to the API and displays the information it returns. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. `BASE_URI` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. You can use the value of `BASE_URI` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
 
@@ -40,7 +40,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     imagePath = 'your-image-path'
     ```
     
-    When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+3. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -51,13 +51,13 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     --boundary_1234-abcd--
     ```
 
-3. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below:
+4. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`:
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
+5. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
