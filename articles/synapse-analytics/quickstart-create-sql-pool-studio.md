@@ -25,23 +25,23 @@ If you don't have an Azure subscription, [create a free account before you begin
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Synapse workspace](quickstart-create-workspace.md)
 
-### Sign in to the Azure portal
+## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/)
 
-### Navigate to the Synapse workspace
+## Navigate to the Synapse workspace
 
 1. Navigate to the Synapse workspace where the SQL pool will be created by typing the service name (or resource name directly) into the search bar.
 ![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
 1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
 ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
-### Launch Synapse Studio
+## Launch Synapse Studio
 
 1. From the workspace overview, select **Launch Synapse Studio** to open the location where the SQL pool will be created. Type the service name or resource name directly into the search bar.
 ![Azure portal Synapse workspace overview with Launch Synapse Studio highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
-### Create a SQL pool in Synapse Studio
+## Create a SQL pool in Synapse Studio
 
 1. On the Synapse Studio home page, navigate to the **Management Hub** in the left navigation by selecting the **Manage** icon.
 ![Synapse Studio home page with Management Hub section highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
@@ -78,7 +78,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 Once the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
-### Clean up SQL pools using Synapse Studio
+## Clean up SQL pools using Synapse Studio
 
 Follow the steps below to delete the SQL pool from the workspace using Synapse Studio.
 > [!WARNING]

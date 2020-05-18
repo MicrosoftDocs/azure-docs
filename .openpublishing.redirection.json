@@ -17737,7 +17737,7 @@
     },
     {
       "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
-      "redirect_url": "/synapse-analytics/quickstart-create-sql-pool-portal",
+      "redirect_url": "azure/synapse-analytics/quickstart-create-sql-pool-portal",
       "redirect_document_id": false
     },
     {

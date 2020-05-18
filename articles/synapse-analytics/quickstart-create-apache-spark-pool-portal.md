@@ -91,7 +91,7 @@ If you want to delete the Apache Spark pool, do the following:
  ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
 5. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources.
 
-Once the SQL pool is created, it is available in the workspace for loading data, processing streams, reading from the lake, and so.
+Once the SQL pool is created, it is available in the workspace for loading data, processing streams, and reading from the lake. 
 
 ## Next steps
 
