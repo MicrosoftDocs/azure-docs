@@ -35,7 +35,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## May 2020
 
-Azure Media Services is now generally available in the following regions: "Germany North", "Germany West Central", "Switzerland North", and "Switzerland West". Custormers can deploy Media Services to these regions using the Azure portal.
+Azure Media Services is now generally available in the following regions: "Germany North", "Germany West Central", "Switzerland North", and "Switzerland West". Customers can deploy Media Services to these regions using the Azure portal.
 
 ## April 2020
 
