@@ -23,8 +23,8 @@ This article describes the types of credentials you can use and how credential l
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. Three authorization types are supported:
 
-- [User Identity](?tabs=user-identity)
 - [Shared access signature](?tabs=shared-access-signature)
+- [User Identity](?tabs=user-identity)
 - [Managed Identity](?tabs=managed-identity)
 
 > [!NOTE]
@@ -44,7 +44,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 
 You need to create database-scoped or server-scoped credential to enable access using SAS token.
 
-### User Identity
+### [User Identity](#tab/user-identity)
 
 **User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
@@ -88,13 +88,13 @@ DROP CREDENTIAL [UserIdentity];
 
 If you want to re-enable it again, refer to the [force Azure AD pass-through](#force-azure-ad-pass-through) section.
 
-### Managed Identity
+### [Managed Identity](#tab/managed-identity)
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage.
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
 
-### Anonymous access
+### [Anonymous access](#tab/public-access)
 
 You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
@@ -168,7 +168,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 
 Server-scoped credentials enable access to Azure storage using the following authentication types:
 
-### Shared access signature
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected 
 with SAS key on the Azure storage that matches URL in credential name.
@@ -182,7 +182,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### User Identity
+### [User Identity](#tab/user-identity)
 
 The following script creates a server-level credential that enables user to impersonate using Azure AD identity.
 
@@ -191,7 +191,7 @@ CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity';
 ```
 
-### Managed Identity
+### [Managed Identity](#tab/managed-identity)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace managed identity.
 
@@ -200,7 +200,7 @@ CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystora
 WITH IDENTITY='Managed Identity'
 ```
 
-### Public access
+### [Public access](#tab/public-access)
 
 The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
 
@@ -220,7 +220,7 @@ Database-scoped credentials are used when any principal calls `OPENROWSET` funct
 
 Database-scoped credentials enable access to Azure storage using the following authentication types:
 
-### Shared access signature
+### [Shared access signature](#tab/shared-access-signature)
 
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
@@ -230,7 +230,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-### Azure AD Identity
+### [Azure AD Identity](#tab/user-identity)
 
 The following script creates a database-scoped credential that is used by [external table](develop-tables-external-tables.md) and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
@@ -240,7 +240,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-### Managed Identity
+### [Managed Identity](#tab/managed-identity)
 
 The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
