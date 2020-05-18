@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two-with-js-go-spx
+zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 
 # Quickstart: Synthesize speech into an audio file
