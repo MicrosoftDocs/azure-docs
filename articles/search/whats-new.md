@@ -22,7 +22,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ## Feature announcements
 
-### May 2020 //build
+### May 2020 (Microsoft Build)
 
 + Debug sessions feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions). Debug sessions provides a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets or downloaded for import to your source-controlled project.
 

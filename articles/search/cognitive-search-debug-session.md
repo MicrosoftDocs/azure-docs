@@ -39,28 +39,28 @@ To start a debug session you must have an existing AI enrichment pipeline includ
 
 The debug session begins by executing the skillset on the selected document. The debug session will record additional metadata associated with each operation in the skillset. The metadata created by the pipeline's skill executions, informs the following set of features that are then used to help identify and fix issues with the skillset.
 
-## AI enrichments
+## AI Enrichments
 
 As skills execute a tree of enrichments, representing the document, grows. Using a tree to visualize the outputs of skills or enrichments provides a comprehensive look at all the enrichments performed. You can look across the entire document and inspect each node of the enrichment tree. This perspective makes it easier to shape objects. This format also provides visual cues to the type, path, and contents of each node in the tree.
 
-## Skill graph
+## Skill Graph
 
-The skill graph view provides a hierarchical, visual representation of the skillset. The graph is a top to bottom representation of the order in which the skills are executed. Skills that are dependent upon the output of other skills will be shown lower in the graph. Skills at the same level in the hierarchy can execute in parallel. 
+The **Skill Graph** view provides a hierarchical, visual representation of the skillset. The graph is a top to bottom representation of the order in which the skills are executed. Skills that are dependent upon the output of other skills will be shown lower in the graph. Skills at the same level in the hierarchy can execute in parallel. 
 
-Selecting a skill in the graph will highlight the skills connected to it, the node(s) that create its inputs and the node(s) that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The skills graph is where you will select which skill to debug or enhance.
+Selecting a skill in the graph will highlight the skills connected to it, the nodes that create its inputs and the nodes that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill its details will be displayed in the skill details pane to the right of the graph.
 
 > [!div class="mx-imgBorder"]
-> ![Skill graph](media/cognitive-search-debug/skills-graph.png)
+> ![Skill Graph](media/cognitive-search-debug/skills-graph.png)
 
 ## Skill details
 
-The skill details pane displays a set of areas for working with a specific skill. You can review and edit the details of the skill's settings. The skill's JSON definition is provided. The details of the skill's execution and the errors and warnings are also displayed. The Skill Settings & Skill JSON Editor allow for direct edits to the skill. The Expression Evaluator </> opens a window for viewing and editing the expressions of the skills inputs and outputs.
+The skill details pane displays a set of areas for working with a specific skill, when that skill is highlighted in the **Skill Graph**. You can review and edit the details of the skill's settings. The skill's JSON definition is provided. The details of the skill's execution and the errors and warnings are also displayed. The **Skill Settings** tab & **Skill JSON Editor** allow for direct edits to the skill. The [`</>`](##expression-evaluator) opens a window for viewing and editing the expressions of the skills inputs and outputs.
 
-Nested input controls in the skill settings window can be used to build complex shapes for projections, output field mappings for a complex type field, or an input to a skill. When used with the expression evaluator, nested inputs provide an easy test and validate expression builder.
+Nested input controls in the skill settings window can be used to build complex shapes for projections, output field mappings for a complex type field, or an input to a skill. When used with the **Expression evaluator**, nested inputs provide an easy test and validate expression builder.
 
 ## Skill execution history
 
-A skill can execute multiple times in a skillset for a single document. For example, the OCR skill will execute once for each image extracted from each document. The skill execution history provides a deeper look into each invocation of the skill. 
+A skill can execute multiple times in a skillset for a single document. For example, the OCR skill will execute once for each image extracted from each document. In the skill details pane  the **Executions** tab displays the skill's execution history providing a deeper look into each invocation of the skill. 
 
 The execution history enables tracking a specific enrichment back to the skill that generated it. Clicking on a skill input navigates to the skill that generated that input. This allows identification of the root cause of a problem that may manifest in a downstream skill. 
 
@@ -68,22 +68,24 @@ When a potential issue is identified, the execution history displays links to th
 
 When building a custom skill or debugging an error with a custom skill, there is the option to generate a request for a skill invocation in the execution history.
 
-## Enriched data structure
+## Enriched Data Structure
 
-The enriched data structure pane shows the document's enrichments through the skillset, detailing the context for each enrichment and the originating skill. The expression evaluator `</>` can also be used to view the contents for each enrichment.
+The **Enriched Data Structure** pane shows the document's enrichments through the skillset, detailing the context for each enrichment and the originating skill. The **Expression evaluator** can also be used to view the contents for each enrichment.
 
 > [!div class="mx-imgBorder"]
-> ![Enriched data structure](media/cognitive-search-debug/enriched-data-structure-display.png)
+> ![Enriched Data Structure](media/cognitive-search-debug/enriched-data-structure-display.png)
 
 ## Expression evaluator
 
-Debug sessions have a few features that are available across the different components. The expression evaluator `</>` gives a quick peek into the value of any path. It allows for editing the path and testing the results before updating any of the inputs or context for a skill or projection.
+**Expression evaluator** gives a quick peek into the value of any path. It allows for editing the path and testing the results before updating any of the inputs or context for a skill or projection.
 
 ## Errors/Warnings
 
 This window displays all of the errors and warnings the skillset produces as it is executed against the document in the debug session.
 
 ## Next steps
+
+Now that you understand the elements of Debug sessions try the tutorial for a hands-on experience.
 
 > [!div class="nextstepaction"]
 > [Explore Debug sessions feature tutorial](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
