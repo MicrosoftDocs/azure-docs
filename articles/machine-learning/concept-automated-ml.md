@@ -198,7 +198,7 @@ For example, building a model __for each instance or individual__ in the followi
 
 For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
 
-## Auto ML in Azure Machine Learning
+## AutoML in Azure Machine Learning
 
 Azure Machine Learning offers two experiences for working with automated ML
 
