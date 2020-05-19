@@ -84,7 +84,9 @@ You need to have permissions to list folder content and write to LOCATION folder
 
 These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource.
 
-This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](develop-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
+This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](develop-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. 
+
+To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
 
 > [!NOTE]
 > The samples that follow  use a public Azure Open Data storage account. It is read-only. To execute these queries, you need to provide the data source for which you have write permissions.
@@ -109,7 +111,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document.
+The following sample uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document.
 
 ```sql
 -- use CETAS with select from external table
@@ -150,9 +152,10 @@ CETAS can be used to store result sets with following SQL data types:
 - tinyint
 - bit
 
-LOBs cannot be used with CETAS.
+> [!NOTE]
+> LOBs cannot be used with CETAS.
 
-Following data types cannot be used in SELECT part of CETAS:
+The following data types cannot be used in SELECT part of CETAS:
 
 - nchar
 - nvarchar
