@@ -139,7 +139,7 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-## Next steps
+## See also
 
 Learn more about Cosmos DB indexers:
 * [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)

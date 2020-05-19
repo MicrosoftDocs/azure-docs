@@ -173,7 +173,7 @@ For more information about defining indexer schedules see [How to schedule index
 
 If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-## Next steps
+## See also
 
 Learn more about the Azure SQL indexer:
 * [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

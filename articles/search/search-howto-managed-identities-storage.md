@@ -138,7 +138,7 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-## Next steps
+## See also
 
 Learn more about Azure Storage indexers:
 * [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
