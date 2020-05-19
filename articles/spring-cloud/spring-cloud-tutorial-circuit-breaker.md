@@ -48,7 +48,7 @@ az spring-cloud app deploy -n recommendation-service --jar-path recommendation-s
 az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 ## Verify your apps
-After all the apps are running and discoverable, access `user-service` with the path https://yuchensp-user-service.azuremicroservices.io/personalized/1 from your browser. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
+After all the apps are running and discoverable, access `user-service` with the path https://<username>-user-service.azuremicroservices.io/personalized/1 from your browser. If the user-service can access `recommendation-service`, you should get the following output. Refresh the web page a few times if it doesn't work.
 ```json
 [{"name":"Product1","description":"Description1","detailsLink":"link1"},{"name":"Product2","description":"Description2","detailsLink":"link3"},{"name":"Product3","description":"Description3","detailsLink":"link3"}]
 ```
@@ -74,6 +74,6 @@ Hystrix metrics streams are also accessible from `test-endpoint`. As a backend s
 
 As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is not working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the <base>in the front-end files.
 
-## See also
+## Next steps
 * [Provision a service instance on the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
 * [Prepare a Java Spring application for deployment in Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
