@@ -276,6 +276,8 @@
     items:
     - name: Configure Azure AD integration
       href: howto-configure-sign-in-azure-ad-authentication.md
+    - name: Connect with Managed Identity
+      href: howto-connect-with-managed-identity.md
   - name: Deny Public Network Access
     items:
     - name: Azure portal

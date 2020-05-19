@@ -26,7 +26,7 @@ An instructor needs to enable the remote desktop connection feature before stude
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. An instructor can connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you can connect to the Linux machine using RDP later. 
 
 ## Connect to the student VM
-Students can RDP in to their Linux VMs after the lab owner (teacher/professor) **publishes** the template VM with RDP and GUI packages installed on the machine. Here are the steps: 
+Students can RDP in to their Linux VMs after the lab owner (educator) **publishes** the template VM with RDP and GUI packages installed on the machine. Here are the steps: 
 
 1. When a student signs in to the Labs portal directly (`https://labs.azure.com`) or by using a registration link (`https://labs.azure.com/register/<registrationCode>`), a tile for each lab the student has access to is displayed. 
 2. On the tile, toggle the button to start the VM if it's in stopped state. 
