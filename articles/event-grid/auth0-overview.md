@@ -26,13 +26,13 @@ The full list of available Auth0 event types and their descriptions is available
 ## Use cases
 
 ### Engage with Your Users
-Delivering a strong user experience is critical to reducing churn and keeping users. Deliver more customized application experiences using Auth0 events with Azure Functions and Logic Apps. 
+Delivering a strong user experience is critical to reducing churn and keeping your users. Deliver more customized application experiences using Auth0 events with Azure Functions and Logic Apps. 
 
 ### Understand User Behavior
 Understand when users access your product, where they're signed in, and what devices they use. Develop an understanding of the product areas that matter most by keeping track of these signals. These signals help you determine what browsers and devices to support, languages to localize your app in, and when your peak traffic times are. 
 
 ### Manage User Data
-Keeping and auditing user actions is crucial for maintaining security and complying with industry regulations. The ability to edit, remove, or export user data is becoming increasingly important to follow privacy laws, such as the European Union’s General Data Protection Regulation (GDPR).
+Keeping and auditing your user actions is crucial for maintaining security and following industry regulations. The ability to edit, remove, or export user data is becoming increasingly important to follow privacy laws, such as the European Union’s General Data Protection Regulation (GDPR).
 
 ### Secure Your Application
 Combining security monitoring and incident response procedures is important when protecting a distributed system. For this reason, it's important to keep all the data in one place and monitor the entire stack. 
