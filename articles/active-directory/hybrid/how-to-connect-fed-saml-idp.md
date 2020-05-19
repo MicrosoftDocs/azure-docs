@@ -87,7 +87,7 @@ This table shows requirements for specific attributes in the SAML 2.0 message.
 A request and response message pair is shown for the sign-on message exchange.
 The following is a sample request message that is sent from Azure AD to a sample SAML 2.0 identity provider. The sample SAML 2.0 identity provider is Active Directory Federation Services (AD FS) configured to use SAML-P protocol. Interoperability testing has also been completed with other SAML 2.0 identity providers.
 
-```XML
+```xml
 	<samlp:AuthnRequest 
 		xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
 		xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
@@ -102,7 +102,7 @@ The following is a sample request message that is sent from Azure AD to a sample
 
 The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Azure AD / Office 365.
 
-```XML
+```xml
     <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
     <samlp:Status>
@@ -191,12 +191,15 @@ The following procedure walks you through converting an existing standard domain
 ## Configuring a domain in your Azure AD Directory for federation
 
 
-1. Connect to your Azure AD Directory as a tenant administrator: 
-	```PowerShell
+1. Connect to your Azure AD Directory as a tenant administrator:
+
+	```powershell
 	Connect-MsolService
 	```
+	
 2. Configure your desired Office 365 domain to use federation with SAML 2.0:
-	```PowerShell
+
+	```powershell
 	$dom = "contoso.com" 
 	$BrandName - "Sample SAML 2.0 IDP" 
 	$LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
@@ -220,7 +223,7 @@ The following procedure walks you through converting an existing standard domain
 
 3.  You can obtain the signing certificate base64 encoded string from your IDP metadata file. An example of this location has been provided but may differ slightly based on your implementation.
 
-	```XML
+	```xml
 	<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 		<KeyDescriptor use="signing">
 		  <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
@@ -250,7 +253,8 @@ This procedure shows how to add a single user to Azure AD.
 
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
-2.	Create a new user principal:
+2. Create a new user principal:
+
     ```powershell
     New-MsolUser `
       -UserPrincipalName elwoodf1@contoso.com `
