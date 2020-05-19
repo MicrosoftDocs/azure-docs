@@ -1,7 +1,7 @@
 ---
-title: Connect to an Azure Storage account using a managed identity (preview)
+title: Set up a connection to a storage account using a managed identity (preview)
 titleSuffix: Azure Cognitive Search
-description: Learn how to connect to an Azure Storage account using managed identities (preview)
+description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity (preview)
 
 manager: luisca
 author: markheff
@@ -12,26 +12,24 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Connect to an Azure Storage account using a managed identity (preview)
+# Set up a connection to an Azure Storage account using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for using managed identities to connect to data sources is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
+> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 > You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-This document describes how to create an Azure Cognitive Search indexer that pulls content from an Azure storage account and connects to the storage account using a managed identity.
+This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
 
-## Set up a connection using a managed identity
+Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer. More information can be found at the following links:
+* [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
+* [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
+* [Azure Table indexer](search-howto-indexing-azure-tables.md)
 
-You can set up the managed identity connection using:
+## Set up the connection
 
-* Azure Cognitive Search REST API
-* Azure Cognitive Search .NET SDK
-* Azure portal
-    * Additional information is required to use the managed identities in Azure portal that is not included on this page. This information will be provided to you when you sign up for the preview using [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+### 1 - Turn on system-assigned managed identity
 
-### 1 - Turn on system assigned managed identity
-
-When a system assigned managed identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned on the instance.
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in role-based access control (RBAC) assignments that allow access to data during indexing.
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
@@ -50,36 +48,34 @@ In this step you will give your Azure Cognitive Search service permission to rea
     ![Add role assignment](./media/search-managed-identities/add-role-assignment-storage.png "Add role assignment")
 
 4. Select the appropriate role(s) based on the storage account type that you would like to index:
-    1. Azure Blob requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
+    1. Azure Blob storage requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
     1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
-    1. Azure Table requires that you add your search service only to the **Reader and Data Access** role.
-    1. Azure File requires that you add your search service only to the **Reader and Data Access** role.
+    1. Azure Table storage requires that you add your search service only to the **Reader and Data Access** role.
 5.	Leave **Assign access to** as **Azure AD user, group or service principal**
 6.	Search for your search service, select it, then select **Save**
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Add reader and data access role assignment")
 
-Note that when connecting to Azure blobs and Azure Data Lake Storage Gen2, you must also add the **Storage Blob Data Reader** role assignment.
+Note that when connecting to Azure blob storage and Azure Data Lake Storage Gen2, you must also add the **Storage Blob Data Reader** role assignment.
 
-![Add storage blob data reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add storage blob data reader role assignment")
+![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
 
 ### 3 - Create the data source
 
-For indexing from a storage account, the data source must have the following required properties:
+When indexing from a storage account, the data source must have the following required properties:
 
 * **name** is the unique name of the data source within your search service.
 * **type**
-    * Azure Blob: `azureblob`
-    * Azure Table: `azuretable`
+    * Azure Blob storage: `azureblob`
+    * Azure Table storage: `azuretable`
     * Azure Data Lake Storage Gen2: **type** will be provided once you sign up for the preview using [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
-    * Azure File: **type** will be provided once you sign up for the preview using [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
 * **credentials**
-    * When using a managed identity to authenticate, the **credentials** format is different than when not using a manged identity. Here you will provide a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
+    * When using a managed identity to authenticate, the **credentials** format is different than when not using a managed identity. Here you will provide a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
     * Managed identity format: 
         * *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Storage/storageAccounts/**your storage account name**/;*
 * **container** specifies a container or table name in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
 
-Example for a blob data source:
+Example of how to create a blob data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
@@ -93,6 +89,8 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
+
+The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idatasourcesoperations.createorupdatewithhttpmessagesasync) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 4 - Create the index
 
@@ -138,3 +136,10 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+## Next steps
+
+Learn more about Azure Storage indexers:
+* [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
+* [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
+* [Azure Table indexer](search-howto-indexing-azure-tables.md)

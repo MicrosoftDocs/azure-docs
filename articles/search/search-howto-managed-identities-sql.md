@@ -1,7 +1,7 @@
 ---
-title: Connect to an Azure SQL database using a managed identity (preview)
+title: Set up an indexer connection to an Azure SQL database using a managed identity (preview)
 titleSuffix: Azure Cognitive Search
-description: Learn how to connect to a Azure SQL database using a managed identity (preview)
+description: Learn how to set up an indexer connection to an Azure SQL database  using a managed identity (preview)
 
 manager: luisca
 author: markheff
@@ -12,26 +12,22 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Connect to an Azure SQL database using a managed identity (preview)
+# Set up an indexer connection to an Azure SQL database using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for using managed identities to connect to data sources is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
+> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 > You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-This document describes how to create an Azure Cognitive Search indexer that pulls content from an Azure SQL database and connects to the SQL database using a managed identity.
+This page describes how to set up an indexer connection to an Azure SQL database using a managed identity instead of providing credentials in the data source object connection string.
+
+Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer. More information can be found at the following link:
+* [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 ## Set up a connection using a managed identity
 
-You can set up the managed identity connection using:
-
-* Azure Cognitive Search REST API
-* Azure Cognitive Search .NET SDK
-* Azure portal
-    * Additional information is required to use the managed identities in Azure portal that is not included on this page. This information will be provided to you when you sign up for the preview using [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
-
 ### 1 - Turn on system assigned managed identity
 
-When a system assigned managed identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned on the instance.
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in role-based access control (RBAC) assignments that allow access to data during indexing.
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
@@ -80,9 +76,9 @@ Follow the below steps to assign the search service permission to read the datab
 
 ### 4 - Add a role assignment
 
-In this step you will give your Azure Cognitive Search service permission to read data from your SQL server.
+In this step you will give your Azure Cognitive Search service permission to read data from your SQL Server.
 
-1. In the Azure Portal, navigate to the Azure SQL server that contains the database that contains the data that you would like to index.
+1. In the Azure portal navigate to your Azure SQL Server page.
 2. Select **Access control (IAM)**
 3. Select **Add** then **Add role assignment**
 
@@ -103,8 +99,10 @@ When indexing from a SQL database, the data source must have the following requi
 * **credentials**
     * When using a managed identity to authenticate, the **credentials** format is different than when not using a manged identity. Here you will provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the Azure SQL database, the resource group of the SQL database, and the name of the SQL database. 
     * Managed identity connection string format:
-        * *Initial Catalog|Database=[**database name**];ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Sql/servers/**your SQL server name**/;Connection Timeout=**connection timeout**;*
+        * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Sql/servers/**your SQL Server name**/;Connection Timeout=**connection timeout length**;*
 * **container** specifies the name of the table or view that you would like to index.
+
+Example of how to create an Azure SQL data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
@@ -118,6 +116,8 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
+
+The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idatasourcesoperations.createorupdatewithhttpmessagesasync) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 6 - Create the index
 
@@ -170,8 +170,9 @@ For more information about defining indexer schedules see [How to schedule index
 
 ## Troubleshooting
 
-If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, update the firewall to allow Azure services and resources to access the server.
+If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-![Set firewall](./media/search-managed-identities/sql-server-set-server-firewall.png "Set firewall")
+## Next steps
 
-Set *Allow Azure services and resources to access this server* to **Yes**.
+Learn more about the Azure SQL indexer:
+* [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

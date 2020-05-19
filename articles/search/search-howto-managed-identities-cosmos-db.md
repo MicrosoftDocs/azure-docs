@@ -1,7 +1,7 @@
 ---
-title: Connect to a Cosmos DB account using a managed identity (preview)
+title: Set up an indexer connection to a Cosmos DB account using a managed identity (preview)
 titleSuffix: Azure Cognitive Search
-description: Learn how to connect to a Cosmos DB account using managed identities (preview)
+description: Learn how to set up an indexer connection to a Cosmos DB account using a managed identity (preview)
 
 manager: luisca
 author: markheff
@@ -12,26 +12,22 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Connect to a Cosmos DB account using a managed identity (preview)
+# Set up an indexer connection to a Cosmos DB account using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for using managed identities to connect to data sources is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
+> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 > You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-This document describes how to create an Azure Cognitive Search indexer that pulls content from a Cosmos DB database and connects to the database using a managed identity.
+This page describes how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the data source object connection string.
+
+Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer. More information can be found at the following link:
+* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 
 ## Set up a connection using a managed identity
 
-You can set up the managed identity connection using:
-
-* Azure Cognitive Search REST API
-* Azure Cognitive Search .NET SDK
-* Azure portal
-    * Additional information is required to use the managed identities in Azure portal that is not included on this page. This information will be provided to you when you sign up for the preview using [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
-
 ### 1 - Turn on system assigned managed identity
 
-When a system assigned managed identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned on the instance.
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in role-based access control (RBAC) assignments that allow access to data during indexing.
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
@@ -61,7 +57,7 @@ A **data source** specifies the data to index, credentials, and policies for ide
 
 When using managed identities to authenticate to the data source, the **credentials** will not include an account key.
 
-To create a data source, formulate a POST request:
+Example of how to create a Cosmos DB data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
@@ -92,6 +88,8 @@ The body of the request contains the data source definition, which should includ
 | **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Cognitive Search can index.<br/>For the MongoDB API, Gremlin API, and Cassandra API, queries are not supported. |
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
+
+The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idatasourcesoperations.createorupdatewithhttpmessagesasync) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 4 - Create the index
 
@@ -139,3 +137,8 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+## Next steps
+
+Learn more about Cosmos DB indexers:
+* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
