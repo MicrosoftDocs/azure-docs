@@ -72,5 +72,5 @@ You can set the task as part of your automated ML experiment run creation in the
 + Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
 + Learn more about [auto-training a time-series forecast model](how-to-auto-train-forecast.md) in Azure Machine Learning
 + Try the [Automated Machine Learning Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) tutorial.
-+ Try the [Automated Machine Learning Regression](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) sample notebook.
++ Try the [Automated Machine Learning Regression](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb) sample notebook.
 
