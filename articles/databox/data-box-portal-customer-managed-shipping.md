@@ -58,13 +58,18 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
    Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
 
-7. Your order automatically moves to the **Picked up** state once the device preparation is complete. You will receive an email instructing you to contact Microsoft to schedule a pickup appointment at the datacenter.
+7. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
 
     ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
 8. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
    The **Prepare to ship** step needs to complete without any critical errors, otherwise you will need to run this step again after making the necessary fixes. After the prepare to ship completes successfully, you can view the authorization code for the drop off on the device local user interface.
+
+   > [!NOTE]
+   >
+   > Do not share the authorization code over email. This is only to be verified at the datacenter during drop off.
+
 <!-- Ansubram wants the NOTE commented out for now -->
    <!-- > [!NOTE]
    >
@@ -78,13 +83,15 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
     ![Received Complete](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. Once the device is inspected and connected at the datacenter, your data will be uploaded to Azure automatically. Your order status should be at **Data copy in progress**.
+11. Once the device has been received, your order will continue the data copy of your device and after it finishes, the order is complete.
+
+<!-- 11. Once the device is inspected and connected at the datacenter, your data will be uploaded to Azure automatically. Your order status should be at **Data copy in progress**.
 
     ![Data Copy](media\data-box-portal-customer-managed-shipping\data-box-copy-data-01.png)
 
 12. After the the upload to Azure is complete, the order status will be at **Completed**.
 
-    ![Data Copy Complete](media\data-box-portal-customer-managed-shipping\data-box-copy-data-complete-01.png)
+    ![Data Copy Complete](media\data-box-portal-customer-managed-shipping\data-box-copy-data-complete-01.png) -->
 
 ## Next steps
 
