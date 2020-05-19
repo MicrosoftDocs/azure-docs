@@ -32,7 +32,7 @@ landingContent:
           - text: Elastic pools 
             url: database/elastic-pool-overview.md 
           - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md
+            url: database/doc-changes-updates-release-notes.md?tabs=single-database
       - linkListType: quickstart
         links:
           - text: Create Azure SQL Database
@@ -49,8 +49,6 @@ landingContent:
             url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
           - text: Monitoring and tuning
             url: database/monitor-tune-overview.md
-          - text: Scalability
-            url: database/scale-resources.md
 
   # Card 
   - title: Azure SQL Managed Instance
@@ -59,10 +57,10 @@ landingContent:
         links:
           - text: What is SQL Managed Instance?
             url: managed-instance/sql-managed-instance-paas-overview.md
-          - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md&tabs=managed-instance
           - text: Instance pools 
             url: managed-instance/instance-pools-overview.md 
+          - text: What's new? 
+            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance 
@@ -98,7 +96,7 @@ landingContent:
           - text: Create windows SQL on Azure VM 
             url: virtual-machines/windows/sql-vm-create-portal-quickstart.md
           - text: Create linux SQL on Azure VM 
-            url: virtual-machines/linux/create-sql-vm-portal.md 
+            url: virtual-machines/linux/sql-vm-create-portal-quickstart.md 
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -107,6 +105,8 @@ landingContent:
             url: virtual-machines/windows/security-considerations-best-practices.md
           - text: High availability & disaster recovery
             url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          - text: Performance guidelines
+            url: virtual-machines/windows/performance-guidelines-best-practices.md
 
 
   # Card
@@ -127,25 +127,32 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Design first database (SSMS)
-            url: design-first-database-tutorial.md
+            url: database/design-first-database-tutorial.md
           - text: Design first database (C#)
-            url: design-first-database-csharp-tutorial.md
+            url: database/design-first-database-csharp-tutorial.md
 
 
   # Card
-  - title: Query a database
+  - title: Connect and query 
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
+          - text: overview
+            url: database/connect-query-content-reference-guide.md 
           - text: SQL Server Management Studio (SSMS)
             url: database/connect-query-ssms.md
           - text: Azure Data Studio
-            url: /azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
+            url: azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
           - text: Azure portal
             url: database/connect-query-portal.md 
           - text: Visual Studio (.NET)
             url: database/connect-query-dotnet-visual-studio.md
-
+          - text: Visual Studio Code
+            url: database/connect-query-vscode.md 
+          - text: .NET Core
+            url: database/connect-query-dotnet-core.md
+          - text: Python
+            url: database/connect-query-python.md
   # Card 
   - title: Reference 
     linkLists:
