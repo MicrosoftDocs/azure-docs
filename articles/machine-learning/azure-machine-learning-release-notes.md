@@ -22,7 +22,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.6.0
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
+  + **azureml-automl-runtime**
+    + AutoML Forecasting now supports customers forecast beyond the pre-specified max-horizon without re-training the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function will still make point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, please see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in folder (link: https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
   
   + **Preview features**
     + [Contrib features below] 
