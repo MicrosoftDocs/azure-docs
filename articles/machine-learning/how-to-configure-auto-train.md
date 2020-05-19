@@ -118,6 +118,7 @@ You can specify separate train and validation sets directly in the `AutoMLConfig
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
+Learn more about how autoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 ### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
 Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. Monte Carlo is not supported for time series forecasting.
@@ -130,7 +131,7 @@ Use custom validation dataset if random split is not acceptable, usually time se
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 * Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-* A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+* A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. 
 
   See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for examples of notebooks with local and remote compute targets.
 
@@ -526,6 +527,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn how to train multiple models with autoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).

@@ -5,11 +5,12 @@ description: Learn how to use Python in Azure Machine Learning designer to trans
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
+ms.custom: designer
 ---
 
 # Execute Python code in Azure Machine Learning designer
