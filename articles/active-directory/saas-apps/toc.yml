@@ -259,6 +259,8 @@
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
+      - name: CCH Tagetik
+        href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
       - name: Ceridian Dayforce HCM

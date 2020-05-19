@@ -52,7 +52,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 
 4. In the **Headers** tab, specify a value for the `Content-Type` key. The Drawing package is a zipped folder, so use the `application/octet-stream` value. In the **Body** tab, select **binary**. Click on **Select File** and choose a Drawing package.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
 
