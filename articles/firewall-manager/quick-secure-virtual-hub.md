@@ -13,7 +13,7 @@ ms.author: victorh
 
 In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager.
 
-The deployed firewall has a application rule that allow connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
+The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -23,9 +23,9 @@ For more information about Azure Firewall Manager Preview, see [What is Azure Fi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create an secured virtual hub
+## Create a secured virtual hub
 
-This template creates an secured virtual hub using Azure Firewall Manager Preview, along with the necessary resources to support the scenario.
+This template creates a secured virtual hub using Azure Firewall Manager Preview, along with the necessary resources to support the scenario.
 
 ### Review the template
 
@@ -71,12 +71,12 @@ Now, test the firewall rules to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Workload-Srv** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Jump-Srv** virtual machine, and sign in. From there, open a remote desktop connection to the **Workload-Srv** private IP address.
 
-3. Open Internet Explorer and browse to https://www.microsoft.com.
+3. Open Internet Explorer and browse to `www.microsoft.com`.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Microsoft home page.
 
-5. Browse to https://www.google.com.
+5. Browse to `www.google.com`.
 
    You should be blocked by the firewall.
 
