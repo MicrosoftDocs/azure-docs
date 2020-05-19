@@ -73,7 +73,7 @@
         href: ./scripts/cli-sample-enable-autoscale.md
       - name: Create a single-zone scale set
         href: ./scripts/cli-sample-single-availability-zone-scale-set.md
-      - name: create a zone-redundant scale set
+      - name: Create a zone-redundant scale set
         href: ./scripts/cli-sample-zone-redundant-scale-set.md
   - name: PowerShell
     items:
