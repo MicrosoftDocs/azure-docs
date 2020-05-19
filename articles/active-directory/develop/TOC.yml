@@ -505,7 +505,7 @@
       href: howto-configure-publisher-domain.md
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app  
+    - name: Configure publisher verification for your app
       items:
       - name: Mark your app as publisher verified (preview)
         href: mark-app-as-publisher-verified.md
@@ -576,7 +576,7 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
-- name: References
+- name: Reference
   items:
   - name: Application manifest
     href: reference-app-manifest.md
