@@ -22,7 +22,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 - [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-azure-sql-database-managed-instance)
+- [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
 - [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
 
 ## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Database managed instance
