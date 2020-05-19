@@ -41,5 +41,5 @@ Consolidating security monitoring and incident response procedures is important 
 - [Partner topics overview](partner-topics-overview.md)
 - [How to use the Auth0 Partner Topic](auth0-how-to.md)
 - [Auth0 Documentation](https://auth0.com/docs/logs/streams/azure-eventgrid)
-- [Become an Event Grid partner](partner-onboarding-how-to.md)
+- [Become an Event Grid partner](partner-onboarding-overview.md)
 

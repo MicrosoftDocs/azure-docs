@@ -30,4 +30,4 @@ The infrastructure created to support this launch makes it easy and quick for ne
 
 - [Auth0 Partner Topic](auth0-overview.md)
 - [How to use the Auth0 Partner Topic](auth0-how-to.md)
-- [Become an Event Grid partner](partner-onboarding-how-to.md)
+- [Become an Event Grid partner](partner-onboarding-overview.md)
