@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: sample
+ms.topic: sampleinfo
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
@@ -303,7 +303,7 @@ For more information about Azure PowerShell, see [Azure PowerShell documentation
 
 Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).
 
-For more informtion about SQL Data Sync, see:
+For more information about SQL Data Sync, see:
 
 - Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-data-sync-data-sql-server-sql-database.md)
 - Set up Data Sync
