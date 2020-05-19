@@ -91,7 +91,7 @@ You can delete your Facebook federation setup. If you do so, any users who have 
 ### To delete Facebook federation by using PowerShell: 
 1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Run `Connect-AzureAD`.  
-4. In the login in prompt, sign in with the managed Global Administrator account.  
+4. In the sign-in prompt, sign in with the managed Global Administrator account.  
 5. Enter the following command:
 
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
