@@ -494,9 +494,9 @@
         href: change-feed-functions.md
       - name: Change feed pull model
         href: change-feed-pull-model.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
-      - name: Synapse Link for Azure Cosmos DB
+      - name: Azure Synapse Link for Cosmos DB
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
@@ -1027,7 +1027,7 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
       - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
