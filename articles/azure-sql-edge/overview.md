@@ -28,7 +28,7 @@ Azure SQL Edge is available on the Azure Marketplace and can be deployed as a mo
 
 ## Editions of SQL Edge
 
-SQL Edge is available with three different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
+SQL Edge is available with two different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
 
    |**Plan**  |**Description**  |
    |---------|---------|

@@ -43,8 +43,6 @@
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
       displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-    - name: 3. Get sentiment from user utterances
-      href: tutorial-publish-settings.md
   - name: Improve app
     items:
     - name: Fix unsure predictions
