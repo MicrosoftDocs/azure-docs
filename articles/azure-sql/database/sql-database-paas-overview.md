@@ -20,7 +20,7 @@ Azure SQL Database is a fully managed Platform as a Service (PaaS) Database Engi
 
 With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](../multi-model-features.md), such as graphs, JSON, spatial, and XML.
 
-It's based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](../in-memory-oltp-overview.md) and [intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
+Azure SQL Database is based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](../in-memory-oltp-overview.md) and [intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
 
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
@@ -34,11 +34,10 @@ Azure SQL Database provides the following deployment options for an Azure SQL da
 ![Diagram of deployment options](./media/sql-database-paas-overview/deployment-options.png)
 
 - [Single database](single-database-overview.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
-- [Managed instance](../managed-instance/sql-managed-instance-paas-overview.md) is a fully managed instance of the [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). It contains a set of databases that can be used together. Use this option for easy migration of on-premises SQL Server databases to the Azure cloud, and for applications that need to use the database features that SQL Server Database Engine provides.
 - [Elastic pool](elastic-pool-overview.md) is a collection of [single databases](single-database-overview.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
 > [!IMPORTANT]
-> To understand the feature differences between SQL Database and SQL Server, as well as the differences among different Azure SQL Database deployment options, see [SQL Database features](features-comparison.md).
+> To understand the feature differences between SQL Database and SQL Server, as well as the differences among different Azure SQL Database options, see [SQL Database features](features-comparison.md).
 
 SQL Database delivers predictable performance with multiple resource types, service tiers, and compute sizes. It provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options. These capabilities allow you to focus on rapid app development and accelerating your time-to-market, rather than on managing virtual machines and infrastructure. The SQL Database service is currently in 38 datacenters around the world, so you can run your database in a datacenter near you.
 
@@ -47,7 +46,6 @@ SQL Database delivers predictable performance with multiple resource types, serv
 You can define the amount of resources assigned. 
 - With single databases, each database is isolated from others and is portable. Each has its own guaranteed amount of compute, memory, and storage resources. The amount of the resources assigned to the database is dedicated to that database, and isn't shared with other databases in Azure. You can dynamically [scale single database resources](single-database-scale.md) up and down. The single database option provides different compute, memory, and storage resources for different needs. For example, you can get 1 to 80 vCores, or 32 GB to 4 TB. The [hyperscale service tier](service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can assign resources that are shared by all databases in the pool. You can create a new database, or move the existing single databases into a resource pool to maximize the use of resources and save money. This option also gives you the ability to dynamically [scale elastic pool resources](elastic-pool-scale.md) up and down.
-- With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources. You can dynamically [scale managed instance resources](../managed-instance/resource-limits.md) up and down.
 
 You can build your first app on a small, single database at a low cost per month in the general-purpose service tier. You can then change its service tier manually or programmatically at any time to the business-critical service tier, to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You pay for only the resources that you need when you need them.
 
@@ -79,8 +77,6 @@ You can [add and remove databases to the pool](elastic-pool-overview.md), scalin
 
 Scripts can help with monitoring and scaling elastic pools. For an example, see [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/monitor-and-scale-pool-powershell.md).
 
-> [!IMPORTANT]
-> A managed instance doesn't support elastic pools. Rather, a managed instance is a collection of instance databases that share managed instance resources.
 
 ### Blend single databases with pooled databases
 
@@ -212,38 +208,11 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 ## SQL Database frequently asked questions
 
-### What is the current version of SQL Database?
-
-The current version of SQL Database is V12. Version V11 has been retired.
-
 ### Can I control when patching downtime occurs?
 
 No. The impact of patching is generally not noticeable if you [employ retry logic](develop-overview.md#resiliency) in your app. For more information, see [Planning for Azure maintenance events in Azure SQL Database](planned-maintenance.md).
 
-### Azure Hybrid Benefit questions
 
-#### Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
-
-You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, you can only use the SQL Server license in the cloud in SQL Database. You no longer have dual use rights on-premises and in the cloud.
-
-#### How does Azure Hybrid Benefit for SQL Server differ from license mobility?
-
-We offer license mobility benefits to SQL Server customers with Software Assurance. This allows reassignment of their licenses to a partner's shared servers. You can use this benefit on Azure IaaS and AWS EC2.
-
-Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
-
-- It provides economic benefits for moving highly virtualized workloads to Azure. SQL Server Enterprise Edition customers can get four cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility doesn't allow any special cost benefits for moving virtualized workloads to the cloud.
-- It provides for a PaaS destination on Azure (SQL Database managed instance) that's highly compatible with SQL Server on-premises.
-
-#### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
-
-SQL Database customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
-
-|License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
-|---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
-|||
 
 ## Engage with the SQL Server engineering team
 
