@@ -22,18 +22,26 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: Single Database
+  - title: Azure SQL Database
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create SQL Database
+            url: single-database-create-quickstart.md
       - linkListType: concept
         links:
           - text: What is SQL Database?
-            url: sql-database-technical-overview.md
-          - text: Which SQL Database option should I choose?
-            url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
+            url: sql-database-paas-overview.md
           - text: Purchasing options
-            url: sql-database-purchase-models.md
+            url: purchasing-models.md
           - text: Service tiers
-            url: sql-database-service-tiers-general-purpose-business-critical.md
+            url: service-tiers-general-purpose-business-critical.md
+          - text: Serverless compute
+            url: serverless-tier-overview.md
+          - text: Hyperscale service tier
+            url: service-tier-hyperscale.md
+
+
 
 
   # Card 
@@ -41,25 +49,31 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Elastic pools
-            url: sql-database-elastic-pool.md
-          - text: Manage elastic pools
-            url: sql-database-elastic-pool-manage.md
-          - text: Scaling elastic pools
-            url: sql-database-elastic-pool-scale.md
-
+          - text: What is an elastic pool? 
+            url: elastic-pool-overview.md
+          - text: Manage
+            url: elastic-pool-manage.md
+          - text: Scale
+            url: elastic-pool-scale.md
+          - text: Resource management 
+            url: elastic-pool-resource-management.md
 
   # Card 
-  - title: Logical SQL server
+  - title: Logical SQL server in Azure
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure firewall
+            url: firewall-create-server-level-portal-quickstart.md 
       - linkListType: concept
         links:
-          - text: Logical SQL servers
+          - text: Overview
             url: sql-database-servers.md
           - text: Connectivity settings
             url: sql-database-connectivity-settings.md
-          - text: Firewall rules
-            url: firewall-create-server-level-portal-quickstart
+          - text: Resource limits
+            url: resource-limits-logical-server
+            
 
 
   # Card 
@@ -75,6 +89,13 @@ landingContent:
             url: sql-database-manage-logins.md
           - text: Azure Active Directory
             url: sql-database-aad-authentication.md
+          - text: Auditing
+            url: auditing-overview.md 
+          - text: Transparent Data Encryption (TDE)
+            url: transparent-data-encryption-tde-overview.md
+          - text: Dynamic Data Masking
+            url: dynamic-data-masking-overview.md 
+
 
 
   # Card 
@@ -83,28 +104,70 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Dynamically scale up or down
-            url: sql-database-scale-resources.md
+            url: scale-resources.md
           - text: Read Scale-Out
-            url: sql-database-read-scale-out.md
+            url: read-scale-out.md
           - text: Cross database jobs
-            url: sql-database-elastic-jobs-overview.md
-
-
-
+            url: elastic-jobs-overview.md
+          - text: Elastic scale
+            url: elastic-scale-introduction.md 
+          - text: Elastic query 
+            url: elastic-query-overview
+          
+  # Card 
+  - title: Business continuity  
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Business continuity 
+            url: business-continuity-high-availability-disaster-recover-hadr-overview.md
+          - text: High availability
+            url: high-availability-sla.md
+          - text: Automated backups
+            url: automated-backups-overview.md
+          - text: Recover with backup 
+            url: recovery-using-backup.md 
+          - text: Long-term backup retention  
+            url: long-term-retention-overview.md
 
   # Card 
-  - title: Prices and service tiers
+  - title: Reference 
     linkLists:
-      - linkListType: overview
+      - linkListType: learn
         links:
-          - text: Purchasing models
-            url: sql-database-purchase-models.md
-          - text: Service tiers
-            url: sql-database-service-tiers-general-purpose-business-critical.md
-          - text: Serverless
-            url: sql-database-serverless.md
-          - text: Hyperscale
-            url: sql-database-service-tier-hyperscale.md
+        - text: Educational SQL resources
+          url: /sql/sql-server/educational-sql-resources
+      - linkListType: deploy
+        links:
+        - text: Azure CLI samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: PowerShell samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: ARM template samples 
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+      - linkListType: download
+        links:
+        - text: SQL Server Management Studio (SSMS)
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: Azure Data Studio 
+          url: /sql/azure-data-studio/download-azure-data-studio
+        - text: SQL Server Data Tools 
+          url: /sql/ssdt/download-sql-server-data-tools-ssdt
+        - text: Visual Studio 2019
+          url: https://visualstudio.microsoft.com/downloads/
+      - linkListType: reference
+        links:
+          - text: Migration guide
+            url: https://datamigration.microsoft.com/
+          - text: Transact-SQL (T-SQL)
+            url: /sql/t-sql/language-reference
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/sql
+          - text: PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.sql
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/sql/
+
 
 
 

@@ -102,6 +102,8 @@
 
       - name: Data protection
         items:
+        - name: Dynamic data masking
+          href: database/dynamic-data-masking-overview.md
         - name: Transparent Data Encryption (TDE)
           items:
           - name: TDE with Azure SQL
@@ -114,8 +116,6 @@
             href: database/transparent-data-encryption-byok-key-rotation.md
           - name: Remove TDE protector
             href: database/transparent-data-encryption-byok-remove-tde-protector.md
-        - name: Dynamic data masking
-          href: database/dynamic-data-masking-overview.md
         - name: Always encrypted
           items:
           - name: Use the certificate store
