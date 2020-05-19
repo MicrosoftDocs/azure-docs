@@ -62,7 +62,7 @@ Deploy Resource Manager template to Azure:
    - Admin Username: Type username for the administrator user account 
    - Admin Password: Type an administrator password or key
 
-3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
+3. Select **Review + create** and then select **Create**. The deployment can take 10 minutes or longer to complete.
 
 ## Validate the deployment
 
