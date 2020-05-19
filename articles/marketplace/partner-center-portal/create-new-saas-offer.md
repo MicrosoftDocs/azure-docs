@@ -224,7 +224,9 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 
 #### Description
 
-This field is required. [!INCLUDE [Long description-2](./includes/long-description-2.md)]
+This field is required.
+
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
