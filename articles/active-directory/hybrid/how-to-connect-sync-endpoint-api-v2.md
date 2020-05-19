@@ -107,10 +107,9 @@ The maximum limit is 250K members per group.
 The following steps can be used to increase the membership limit:  
 
 1. Open Azure AD Synchronization Rules Editor 
-2. Raise the maximum member limit for groups 
-3. In the editor, choose **Outbound** for Direction 
-4. Click on the **Out to AAD – Group Join** sync rule 
-5. Click the **Edit** button 
+2. In the editor, choose **Outbound** for Direction 
+3. Click on the **Out to AAD – Group Join** sync rule 
+4. Click the **Edit** button 
  ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Click the **Yes** button to disable the default rule and create an editable copy.
