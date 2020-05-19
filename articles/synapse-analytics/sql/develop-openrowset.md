@@ -40,10 +40,12 @@ This is a quick and easy way to read the content of the files without pre-config
                     TYPE = 'PARQUET') AS file
     ```
 
+
     This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
     
     > [!IMPORTANT]
     > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+
 
 ## Security
 

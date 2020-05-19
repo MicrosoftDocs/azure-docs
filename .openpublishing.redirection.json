@@ -2813,6 +2813,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/create-mongodb-golang.md",
+      "redirect_url": "/azure/cosmos-db/create-mongodb-go",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
       "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
       "redirect_document_id": false
@@ -17768,7 +17773,7 @@
     },
     {
       "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
-      "redirect_url": "/synapse-analytics/quickstart-create-sql-pool-portal",
+      "redirect_url": "azure/synapse-analytics/quickstart-create-sql-pool-portal",
       "redirect_document_id": false
     },
     {

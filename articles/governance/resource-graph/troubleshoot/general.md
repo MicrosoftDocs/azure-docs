@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with the various SDKs while querying Azure resources with Azure Resource Graph.
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Resource Graph
@@ -85,7 +85,7 @@ _403_ (Forbidden) response.
 #### Cause
 
 If the customer doesn't have read permission to all the provided subscriptions, the request is
-denied due to lack of appropriate security rights.
+denied because of lack of appropriate security rights.
 
 #### Resolution
 
