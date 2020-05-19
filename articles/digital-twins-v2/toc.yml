@@ -16,7 +16,7 @@
     href: tutorial-end-to-end.md
 - name: Concepts
   items:
-  - name: Object models
+  - name: Custom models
     href: concepts-models.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md

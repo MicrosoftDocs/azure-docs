@@ -40,7 +40,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Object models
+          - text: Custom models
             url: concepts-models.md
       - linkListType: concept
         links:
