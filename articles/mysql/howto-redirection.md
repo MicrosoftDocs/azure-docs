@@ -15,8 +15,6 @@ This topic explains how to connect an application your Azure Database for MySQL 
 ## Before you begin
 Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Redirection is currently only supported when **SSL is enabled** on your Azure Database for MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
-
 ## PHP
 
 Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. 
@@ -49,7 +47,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- Azure Database for MySQL server
 
 1. Install [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) with [PECL](https://pecl.php.net/package/mysqlnd_azure). It is recommended to use version 1.1.0+.
 
@@ -87,7 +85,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 #### Prerequisites 
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
-- Azure Database for MySQL server with SSL enabled
+- Azure Database for MySQL server
 
 1. Determine if you are running a x64 or x86 version of PHP by running the following command:
 
