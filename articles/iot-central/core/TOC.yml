@@ -63,6 +63,8 @@
           href: howto-set-up-template.md
         - name: Prepare and connect an MXChip IoT DevKit
           href: howto-connect-devkit.md
+        - name: Prepare and connect an Azure Sphere DevKit
+          href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
@@ -79,6 +81,8 @@
           href: howto-manage-devices.md
         - name: Configure rules
           href: howto-configure-rules.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard

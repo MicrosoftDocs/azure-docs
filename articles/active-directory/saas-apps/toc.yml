@@ -337,6 +337,8 @@
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
+      - name: ColorTokens ZTNA
+        href: colortokens-ztna-tutorial.md
       - name: Comeet Recruiting Software
         href: comeetrecruitingsoftware-tutorial.md
       - name: Comm100 Live Chat
@@ -702,6 +704,8 @@
         href: hubspot-tutorial.md
       - name: Huddle
         href: huddle-tutorial.md
+      - name: Humanage
+        href: humanage-tutorial.md      
       - name: Humanity
         href: shiftplanning-tutorial.md
       - name: Hype
@@ -714,6 +718,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: ice Contact Center
+        href: ice-contact-center-tutorial.md
       - name: Icertis Contract Management Platform
         href: icertisicm-tutorial.md
       - name: ICIMS
@@ -1364,6 +1370,8 @@
         href: settlingmusic-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
+      - name: ShareVault
+        href: sharevault-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
@@ -1837,6 +1845,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
+      - name: MediusFlow
+        href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector

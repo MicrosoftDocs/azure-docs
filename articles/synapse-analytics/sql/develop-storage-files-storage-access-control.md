@@ -23,8 +23,8 @@ This article describes the types of credentials you can use and how credential l
 
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. Three authorization types are supported:
 
-- [User Identity](?tabs=user-identity)
 - [Shared access signature](?tabs=shared-access-signature)
+- [User Identity](?tabs=user-identity)
 - [Managed Identity](?tabs=managed-identity)
 
 > [!NOTE]
