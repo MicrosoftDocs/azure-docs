@@ -111,7 +111,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 ## Build and deploy the example
 
-### Use Pre-built JAR files
+### Use pre-built JAR files
 
 Download the jars from the [Kafka Get Started Azure sample](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). If your cluster is **Enterprise Security Package (ESP)** enabled, use kafka-producer-consumer-esp.jar. Use the command below to copy the jars to your cluster.
 
