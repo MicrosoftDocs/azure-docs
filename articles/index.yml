@@ -86,7 +86,7 @@ productDirectory:
       url: open-datasets/index.yml
     # Card
     - title: Azure RTOS
-      summary: Azure RTOS is a real-time operating system and embedded development suite for resource-constrained devices. 
+      summary: Azure RTOS is a real-time operating system and embedded development suite for resource-constrained devices
       imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
       azureCategories:
         - iot
