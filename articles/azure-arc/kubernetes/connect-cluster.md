@@ -199,5 +199,5 @@ To remove the agents in the cluster you need to run `az connectedk8s delete` or 
 
 ## Next steps
 
-* [Use GitOps in a connected cluster](./use-gitops-in-connected-cluster.md)
+* [Use GitOps in a connected cluster](./use-gitops-connected-cluster.md)
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

@@ -34,7 +34,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Az
     $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
     ```
 
-    >You can also set this up remotely using the [cluster config example](./use-gitops-in-connected-cluster.md).
+    >You can also set this up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
 
 ## Connect a cluster
 

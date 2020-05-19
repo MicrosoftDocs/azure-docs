@@ -105,7 +105,7 @@ az k8sconfiguration create --name azure-voting-app --resource-group  $RESOURCE_G
 
 ### Configuration Parameters
 
-To customize the creation of configuration, [learn about additional parameters you may use](./use-gitops-in-connected-cluster.md#additional-parameters).
+To customize the creation of configuration, [learn about additional parameters you may use](./use-gitops-connected-cluster.md#additional-parameters).
 
 
 ## Validate the Configuration
