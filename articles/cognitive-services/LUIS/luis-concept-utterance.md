@@ -2,7 +2,7 @@
 title: Good example utterances - LUIS
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/19/2020
 ---
 # Understand what good utterances are for your LUIS app
 
@@ -78,7 +78,7 @@ Set the version settings via the LUIS portal, on the **Manage** section, on the 
 
 ### Word forms
 
-Normalizing **word forms** ignores the differences in words that expand beyond the root. For example, the words `run`, `running`, and `runs` change based on verb tense.
+Normalizing **word forms** ignores the differences in words that expand beyond the root.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

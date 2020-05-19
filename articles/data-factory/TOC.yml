@@ -416,6 +416,8 @@
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Data consistency verification
+      href: copy-activity-data-consistency.md
     - name: Format and compression support (legacy)
       href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
@@ -555,6 +557,8 @@
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
+    - name: Monitor visually
+      href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor with SDKs

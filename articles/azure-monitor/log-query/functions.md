@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2018
+ms.date: 05/18/2018
 
 ---
 
@@ -23,9 +23,6 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 | Save as        | Function |
 | Function Alias | Short name to use the function in other queries. May not contain spaces and must be unique. |
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
-
-> [!NOTE]
-> A function in Azure Monitor cannot contain another function.
 
 
 
