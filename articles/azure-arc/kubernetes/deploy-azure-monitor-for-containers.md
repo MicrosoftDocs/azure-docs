@@ -38,44 +38,46 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
 
 1. Download the Onboarding script
 
-```console
-curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
- ```
+	```console
+	curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
+	 ```
 
 2. Install [PowerShell core](https://docs.microsoft.com/PowerShell/scripting/install/installing-PowerShell?view=PowerShell-6) on your dev machine to execute the PowerShell onboarding script.
 
 3. Login to Azure
 
-```console
-az login --use-device-code
-```
+	```console
+	az login --use-device-code
+	```
 
 4. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
 
-```console
-.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
+	```console
+	.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
 
-For Example ..
-.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
- ```
+	For Example ..
+	.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
+	 ```
 
 ### Option 2: Using Bash Script
 
 > **Tip:** The script uses bash 4 features, so make sure your bash is up to date. You can check your current version with `bash --version`.
 
 1. Download the Onboarding script
-```console
-curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh
- ```
+
+	```console
+	curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh
+	 ```
 
 2. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
-```console
-bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster>  <kube-context>
 
-For Example:
-bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
+	```console
+	bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster>  <kube-context>
 
- ```
+	For Example:
+	bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
+
+	 ```
 
 ## Configure agent data collection
 
@@ -95,9 +97,9 @@ Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Clus
 
 If you would like to disable monitoring due to some reason, you can just simply delete the Azure Monitor for containers HELM chart to stop collecting and ingesting  monitoring  data to Azure Monitor for containers backend
 
-```console
-helm del azmon-containers-release-1
-```
+	```console
+	helm del azmon-containers-release-1
+	```
 
 ## Next steps
 
