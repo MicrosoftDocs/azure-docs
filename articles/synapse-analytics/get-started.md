@@ -41,9 +41,7 @@ Key settings in the **Basics** tab enter
 * Click **Review + create**. Click **Create**. Your workspace will be ready in a few minutes
 
 ## Launch Synapse Studio
-Once your Synapse workspace is created, you can use Synapse Studio.
-
-You have two ways to open Synapse Studio
+Once your Synapse workspace is created, you have two ways to open Synapse Studio:
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the **Overview** section click **Launch Synapse Studio**
 * Directly go to https://web.azuresynapse.net and login to your workspace.
 
@@ -235,7 +233,7 @@ To create a PowerBI dataset requires you to use PowerBI desktop.
 * Hover over the SQLDB1 database and select **Download .pbids file**
 * Open the downlaod pbids file. This will launch Power BI desktop and automatically connect it to SQLDB1
 * Check the **Trip** table and click **Load**
-* A **Connection settings** message will appear, sleect DirectQuery and click **OK**
+* A **Connection settings** message will appear, select **DirectQuery** and click **OK**
 * NOTE: If you are more familiar with PowerBI you can click on the **Model** button on the left and model the relationships between tables. This tutorial will skip this to make the tutorial smaller.
 * Click on the **Report** button on the left
 * In **Visualizations**, click **Line chart**. This will cause a new table to appear in the report
@@ -243,9 +241,24 @@ To create a PowerBI dataset requires you to use PowerBI desktop.
 * Drag the **SumTripDistance** column to **Visualizations > Values**
 * Drag the **AvgTripDistance** column to **Visualizations > Values**
 * In the Home tab, click **Publish** and save it with this name `taxi.pbix` publish it to your PowerBI workspace
+* Refresh **Power BI reports** and yous should see a the report you previously created called **taxi**
+* At the top click **Publish**
+    * Select the PowerBI workspace to publish to
+    * If you are asked for a filename pick nyctaxi1
 * Once publishiing is finished switch back to Synapse Studio and click **Close and refresh**.
 * Under **Power BI datasets**, Now you should see a new dataset called **taxi**.
-* Refresh **Power BI reports** and yous should see a the report you previously created called **taxi**
+
+## Configure authentitication for your dataset
+* Open https://powerbi.microsoft.com and **Sign in**
+* At the left, under Workspaces select the the workspace that you published to
+* Inside that workspace you should see a dataset called `nyxtaxi1`
+* Hover over the `nyctaxi1` dataset and click ther thee icon with the three dots and select **Settings**
+* In **Data source credentials** set the Authentication method to **OAuth2** and click **Sign in**
+
+** Edit a report report in Synapse Studio
+
+* In Synapse, navigate to **Develop > PowerBI > Your workspace name > Power BI reports**
+* Refresh the **Power BI reports** node
 * Right click on the report and select **Open**. 
 * Now you can edit the report directly within Synapse Studio
 
