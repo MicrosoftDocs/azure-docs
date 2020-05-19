@@ -78,43 +78,6 @@ landingContent:
           - text: Autoscale a scale set with Azure PowerShell
             url: tutorial-autoscale-powershell.md
  
-# Card
-  - title: Samples
-    linkLists:
-      - linkListType: sample
-links:
-        - text:  Create a virtual machine scale set
-          url: cli-sample-create-simple-scale-set.md
-        - text: Create a scale set from a custom VM image
-          url: cli-sample-create-scale-set-from-custom-image.md
-        - text: Install applications to a scale set
-          url: cli-sample-install-apps.md
-        - text: Create and attach disks to a scale set
-          url: cli-sample-attach-disks.md
-        - text: Enable host-based autoscale
-          url: cli-sample-enable-autoscale.md
-        - text: Create a single-zone scale set
-          url: cli-sample-single-availability-zone-scale-set.md
-        - text: create a zone-redundant scale set
-          url: cli-sample-zone-redundant-scale-set.md
-        - text: Create a simple virtual machine scale set
-          url: powershell-sample-create-simple-scale-set.md
-        - text: Create a complete virtual machine scale set
-          url: powershell-sample-create-complete-scale-set.md
-        - text: Create a scale set from a custom VM image
-          url: powershell-sample-create-scale-set-from-custom-image.md
-        - text: Install applications to a scale set
-          url: powershell-sample-install-apps.md
-        - text: Create and attach disks to a scale set
-          url: powershell-sample-attach-disks.md
-        - text: Enable host-based autoscale
-          url: powershell-sample-enable-autoscale.md
-        - text: Create a single-zone scale set
-          url: powershell-single-av-zone-scale-set.md
-        - text: Create a zone-redundant scale set
-          url: powershell-sample-zone-redundant-scale-set.md
-        - text: Azure Policy built-ins
-          url: policy-samples.md
   
 # Card
   - title: Self-paced training
