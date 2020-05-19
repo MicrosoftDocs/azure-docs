@@ -63,6 +63,10 @@ Serial Console is available for virtual machine scale sets, accessible on each i
 
      ![Linux virtual machine scale set Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
+
+### TLS 1.2 in Serial Console
+Serial Console uses TLS 1.2 end-to-end to secure all communication within the service. Serial Console has a dependency on a user-managed boot diagnostics storage account, and TLS 1.2 must be configured separately for the storage account. Instructions to do so are located [here](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+
 ## Advanced uses for Serial Console
 Aside from console access to your VM, you can also use the Azure Serial Console for the following:
 * Sending a [system request command to your VM](./serial-console-nmi-sysrq.md)

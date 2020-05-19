@@ -28,7 +28,9 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: quickstart-v2-javascript-auth-code.md
+    - name: JavaScript - Implicit flow 
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
@@ -73,7 +75,9 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: tutorial-v2-javascript-auth-code.md  
+    - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
@@ -479,6 +483,10 @@
       href: active-directory-optional-claims.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
+    - name: Handle SameSite cookie changes in Chrome browser
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Handle ITP in Safari 
+      href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
     items:

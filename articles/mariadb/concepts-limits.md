@@ -146,6 +146,12 @@ Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-varia
 
 The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
+### innodb_file_per_table
+
+MariaDB stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://mariadb.com/kb/en/innodb-system-tablespaces/) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
+
+Azure Database for MariaDB supports at largest, **1 TB**, in a single data file. If your database size is larger than 1 TB, you should create the table in [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) tablespace. If you have a single table size larger than 1 TB, you should use the partition table.
+
 ## Storage engine support
 
 ### Supported

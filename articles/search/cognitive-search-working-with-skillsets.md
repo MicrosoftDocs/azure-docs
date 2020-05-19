@@ -73,7 +73,7 @@ The diagram above describes the selector you work with based on where you are in
 
 ## Generate enriched data 
 
-Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) the skillset. We are going to look at:
+Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](https://github.com/Azure-Samples/azure-search-postman-samples/) the skillset. We are going to look at:
 
 * how the enrichment tree evolves with the execution of each skill 
 * how the context and inputs work to determine how many times a skill executes 
