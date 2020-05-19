@@ -33,7 +33,7 @@ landingContent:
             url: database/elastic-pool-overview.md 
           - text: What's new? 
             url: database/doc-changes-updates-release-notes.md&tabs=single-database            
-      - linkListType: Quickstarts
+      - linkListType: quickstart
         links:
           - text: Create Azure SQL Database
             url: database/single-database-create-quickstart.md
@@ -78,7 +78,7 @@ landingContent:
             url: database/doc-changes-updates-release-notes.md&tabs=managed-instance
           - text: Instance pools 
             url: managed-instance/instance-pools-overview.md 
-      - linkListType: Quickstarts
+      - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance 
             url: managed-instance/instance-create-quickstart.md
@@ -126,7 +126,7 @@ landingContent:
             url: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
           - text: What's new? 
             url: virtual-machines/windows/doc-changes-updates-release-notes.md
-      - linkListType: Quickstarts
+      - linkListType: quickstart
         links:
           - text: Create windows SQL on Azure VM 
             url: windows/sql-vm-create-portal-quickstart.md
