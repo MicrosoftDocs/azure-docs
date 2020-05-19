@@ -434,7 +434,7 @@
 
 - name: SQL Database (SQL DB)
   items:
-  - name: Azure SQL Database documentation
+  - name: Documentation index
     href: database/index.yml
   - name: Overview
     items:
