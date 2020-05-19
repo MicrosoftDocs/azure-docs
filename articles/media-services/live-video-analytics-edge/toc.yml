@@ -12,13 +12,25 @@
     items:
     - name: Release notes
       href: release-notes.md  
+- name: Quickstarts
+  items:
+  - name: Get started – Detect motion and emit events
+    href: get-started-detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video to Media Services
+    href: detect-motion-record-video-clips-media-services-quickstart.md  
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-clips-edge-devices-quickstart.md
+  - name: Run Live Video Analytics with your own model
+    href: use-your-model-quickstart.md
 - name: Tutorials
   items:
   - name: Continuous video recording  
     href: continuous-video-recording-tutorial.md
 - name: Concepts
   items:
-  - name: Media Graph
+  - name: Media graph
     href: media-graph-concept.md
   - name: Video recording 
     href: video-recording-concept.md
