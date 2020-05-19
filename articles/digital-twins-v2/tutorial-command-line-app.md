@@ -47,7 +47,7 @@ Now that the instance and sample app are configured, you will use the sample pro
 
 ### Get started with the command-line app
 
-Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio 2019. Run the project with this button in the toolbar:
+From the downloaded and unzipped solution folder, open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio 2019. Run the project with this button in the toolbar:
 
 :::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
  
