@@ -261,6 +261,9 @@
       - name: Version & track datasets
         displayName: data, data set
         href: how-to-version-track-datasets.md
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: how-to-differential-privacy.md
   - name: Train models
     items:
     - name: Use estimators for ML
