@@ -780,6 +780,8 @@
         href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
       - name: Apache Tez application hangs
         href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+      - name: Apache Hive LLAP sizing guidelines
+        href: ./interactive-query/hive-llap-sizing-guide.md
       - name: Apache Hive LLAP query performance
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
