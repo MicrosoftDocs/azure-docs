@@ -19,7 +19,7 @@ This article shows you how to configure and use Helm with Azure Arc enabled Kube
 
 ## Before you begin
 
-This article assumes that you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [connect a cluster quickstart](./connect-a-cluster.md).
+This article assumes that you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [connect a cluster quickstart](./connect-cluster.md).
 
 Let's first set environment variables to use throughout this tutorial. You'll need the resource group name and cluster name for your connected cluster.
 

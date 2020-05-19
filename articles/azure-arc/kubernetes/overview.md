@@ -45,4 +45,4 @@ Azure Arc enabled Kubernetes is currently supported in the following regions:
 
 ## Next steps
 
-* [Connect a cluster ](./connect-a-cluster.md)
+* [Connect a cluster ](./connect-cluster.md)
