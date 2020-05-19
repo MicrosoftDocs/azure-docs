@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Image Builder Service Permissions using PowerShell
+title: Configure Azure Image Builder Service permissions using PowerShell
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
 author: cynthn
 ms.author: patricka
