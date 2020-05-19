@@ -77,7 +77,7 @@ The following example script:
 * Creates an Azure Active Directory (Azure AD) service principal for use with the AKS cluster.
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
 * Creates an AKS cluster in the defined virtual network and enables network policy.
-    * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+    * The _Azure Network_ policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 
@@ -142,7 +142,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## Deny all inbound traffic to a pod
 
-Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to whitelist only the  desired traffic. You can also clearly see that traffic is dropped when the network policy is applied.
+Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to create an allow list for only the desired traffic. You can also clearly see that traffic is dropped when the network policy is applied.
 
 For the sample application environment and traffic rules, let's first create a namespace called *development* to run the example pods:
 
