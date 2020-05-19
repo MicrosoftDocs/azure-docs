@@ -19,7 +19,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## May 2020
 Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
 
-* Support for English, Dutch, French, German, Italian, and Portuguese
+* Support for English, Dutch, French, German, Italian, Portuguese, and Spanish
 * Improved accuracy
 * Confidence score for each extracted word
 * New output format
