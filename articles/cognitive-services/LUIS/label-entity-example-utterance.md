@@ -1,12 +1,12 @@
 ---
 title: Label entity example utterance
-description: Learn how to label a machine-learned entity with subcomponents in an example utterance in an intent detail page of the LUIS portal.
+description: Learn how to label a machine-learning entity with subcomponents in an example utterance in an intent detail page of the LUIS portal.
 ms.topic: conceptual
 ms.date: 05/17/2020
-#Customer intent: As a new user, I want to label a machine-learned entity in an example utterance.
+#Customer intent: As a new user, I want to label a machine-learning entity in an example utterance.
 ---
 
-# Label machine-learned entity in an example utterance
+# Label machine-learning entity in an example utterance
 
 Labeling an entity in an example utterance gives LUIS an example of what the entity is and where the entity can appear in the utterance.
 
@@ -33,7 +33,7 @@ Consider the example utterance, `hi, please I want a cheese pizza in 20 minutes`
 1. Select the left-most text, then select the right-most text of the entity, then from the in-place menu, pick the entity you want to label with.
 
     > [!div class="mx-imgBorder"]
-    > ![Label complete machine-learned entity](media/label-utterances/label-steps-in-place-menu.png)
+    > ![Label complete machine-learning entity](media/label-utterances/label-steps-in-place-menu.png)
 
 
 ## Label entity from Entity Palette
@@ -47,7 +47,7 @@ The entity palette offers an alternative to the previous labeling experience. It
 3. In the example utterance, _paint_ the entity with the cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Entity palette for machine-learning entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## Adding entity as a feature from the Entity Palette
 
@@ -70,7 +70,7 @@ Entity roles are labeled using the **Entity palette**.
 After labeling, review the example utterance and ensure the selected span of text has been underlined with the chosen entity. The solid line indicates the text has been labeled.
 
 > [!div class="mx-imgBorder"]
-> ![Labeled complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
+> ![Labeled complete machine-learning entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
 
 ## Confirm predicted entity
 
@@ -109,7 +109,7 @@ Non-machine learned entities include prebuilt entities, regular expression entit
 Entity prediction errors indicate the predicted entity doesn't match the labeled entity. This is visualized with a caution indicator next to the utterance.
 
 > [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
+> ![Entity palette for machine-learning entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## Next steps
 

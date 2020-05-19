@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cosmos-db/sql-api-async-java-samples.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-java-samples.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/openshift/howto-azure-monitor-v4.md",
       "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
       "redirect_document_id": false
@@ -40279,6 +40289,16 @@
     {
       "source_path": "articles/azure-policy/scripts/use-managed-disk-vm.md",
       "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/concepts/rego-for-aks.md",
+      "redirect_url": "/azure/governance/policy/concepts/policy-for-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/concepts/aks-engine.md",
+      "redirect_url": "/azure/governance/policy/concepts/policy-for-kubernetes",
       "redirect_document_id": false
     },
     {

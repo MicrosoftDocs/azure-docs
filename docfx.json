@@ -134,7 +134,7 @@
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
-        "articles/batch/*.md": "JnHs",
+        "articles/batch/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
@@ -470,7 +470,7 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/batch/*.md": "jenhayes",
+        "articles/batch/**/*.md": "jenhayes",
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "joshuapa",
@@ -480,7 +480,7 @@
         "articles/media-services/**/*.md": "juliako"	      
       },
       "ms.service": {
-        "articles/batch/*.md": "batch",
+        "articles/batch/**/*.md": "batch",
         "articles/connectors/*.md": "logic-apps",
         "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
@@ -665,8 +665,8 @@
         "articles/virtual-machines/windows/*.yml": "Azure Windows Virtual Machines",
         "articles/virtual-machine-scale-sets/*.md": "Azure Virtual Machine Scale Sets",
         "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
-        "articles/batch/*.md": "Azure Batch",
-        "articles/batch/*.yml": "Azure Batch",
+        "articles/batch/**/*.md": "Azure Batch",
+        "articles/batch/**/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
         "articles/service-fabric/*.md": "Azure Service Fabric",

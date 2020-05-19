@@ -71,10 +71,8 @@
       href: sql-api-dotnet-samples.md
     - name: .NET V3 SDK samples
       href: sql-api-dotnet-v3sdk-samples.md
-    - name: Java samples
-      href: sql-api-java-samples.md
-    - name: Async Java samples
-      href: sql-api-async-java-samples.md
+    - name: Java SDK v4 samples
+      href: sql-api-java-sdk-samples.md
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
@@ -494,12 +492,14 @@
         href: change-feed-functions.md
       - name: Change feed pull model
         href: change-feed-pull-model.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
-      - name: Synapse Link for Azure Cosmos DB
+      - name: Azure Synapse Link for Cosmos DB
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
+      - name: Synapse Link supported features
+        href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
       - name: Synapse Link use cases
@@ -1025,10 +1025,14 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
-      - name: Configure Synapse Link
+      - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
+      - name: Connect to Azure Synapse Link
+        href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Query with Azure Synapse Spark
+        href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -1039,6 +1043,8 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
+      - name: Import notebooks from GitHub
+        href: import-github-notebooks.md
       - name: Use built-in Python notebook commands
         href: use-python-notebook-features-and-commands.md
       - name: Use built-in C# notebook commands

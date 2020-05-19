@@ -225,7 +225,7 @@
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
-      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+      href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic

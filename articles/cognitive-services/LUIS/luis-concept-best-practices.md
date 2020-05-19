@@ -95,9 +95,9 @@ Model decomposition has a typical process of:
 
 Once you have created the intent and added example utterances, the following example describes entity decomposition.
 
-Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learned entity. Then decompose the phrase into its parts. This includes identifying subentities, and features.
+Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learning entity. Then decompose the phrase into its parts. This includes identifying subentities, and features.
 
-For example if you want to extract an address, the top machine-learned entity could be called `Address`. While creating the address, identify some of its subentities such as street address, city, state, and postal code.
+For example if you want to extract an address, the top machine-learning entity could be called `Address`. While creating the address, identify some of its subentities such as street address, city, state, and postal code.
 
 Continue decomposing those elements by:
 * Adding a required feature of the postal code as a regular expression entity.
@@ -152,7 +152,7 @@ After the app is published, only add utterances from active learning in the deve
 
 ## Don't use few or simple entities
 
-Entities are built for data extraction and prediction. It is important that each intent have machine-learned entities that describe the data in the intent. This helps LUIS predict the intent, even if your client application doesn't need to use the extracted entity.
+Entities are built for data extraction and prediction. It is important that each intent have machine-learning entities that describe the data in the intent. This helps LUIS predict the intent, even if your client application doesn't need to use the extracted entity.
 
 ## Don't use LUIS as a training platform
 
