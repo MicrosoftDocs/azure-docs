@@ -150,7 +150,7 @@ To view the data endpoints, use the [az acr show-endpoints][az-acr-show-endpoint
 az acr show-endpoints --name myregistry
 ```
 
-Output For demonstration purposes shows two regional endpoints
+Output for demonstration purposes shows two regional endpoints
 
 ```
 {
@@ -180,7 +180,7 @@ If you need to access Microsoft Container Registry (MCR) from behind a firewall,
 
 * Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
 
-* Learn more about setting up [private]
+* Learn more about setting up [Private Link](container-registry-private-link.md) for a container registry
 
 * Learn more about [dedicated data endpoints](https://azure.microsoft.com/blog/azure-container-registry-mitigating-data-exfiltration-with-dedicated-data-endpoints/) for Azure Container Registry
 
