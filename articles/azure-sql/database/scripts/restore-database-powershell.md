@@ -46,7 +46,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Gets a geo-redundant backup of a standalone or pooled database. |
 | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) | Restores a database. |
 | [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) | Removes a database. |
-| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Gets a deleted SQL database that you can restore. |
+| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Gets a deleted database that you can restore. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
