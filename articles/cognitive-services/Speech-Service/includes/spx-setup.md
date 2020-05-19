@@ -13,7 +13,7 @@ The only prerequisite is an Azure Speech subscription. See the [guide](../get-st
 
 ## Download and install
 
-#### [Windows Install](#tab/windows)
+#### [Windows Install](#tab/windowsinstall)
 
 SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
 
@@ -25,7 +25,7 @@ Go to the root directory `spx-zips` that you extracted from the download, and ex
 
 In a command prompt, change directory to this location, and then type `spx` to see help for the SPX tool.
 
-#### [Linux Install](#tab/linux)
+#### [Linux Install](#tab/linuxinstall)
 
 Start by downloading the [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it. SPX requires the .NET Core:
 
