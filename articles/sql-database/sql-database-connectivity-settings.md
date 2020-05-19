@@ -13,7 +13,7 @@ ms.date: 03/09/2020
 
 # Azure SQL Connectivity Settings
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This article applies to the logical SQL server in Azure used for both Azure SQL Database and SQL Data Warehouse databases that are created on the logical server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**
@@ -36,7 +36,9 @@ When **Deny public network access** setting is set to **Yes**, only connections 
 
 ```output
 Error 47073
-An instance-specific error occurred while establishing a connection to SQL Server. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
+An instance-specific error occurred while establishing a connection to SQL Server. 
+The public network interface on this server is not accessible. 
+To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
 ## Change Public Network Access via PowerShell
