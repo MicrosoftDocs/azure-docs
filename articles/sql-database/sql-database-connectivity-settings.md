@@ -78,8 +78,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ## Minimal TLS Version 
 
-The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version allows customer to control the version of the [Transport Layer Security] for their SQL server in Azure.
-
+The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version setting allows customers to control the version of TLS used by their Azure SQL Database.
 
 For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
 
