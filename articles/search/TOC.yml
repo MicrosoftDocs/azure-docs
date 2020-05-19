@@ -463,7 +463,7 @@
     - name: Financial files demo
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
-      href: https://aka.ms/jfkfiles
+      href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)
