@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
-ms.date: 07/23/2019
+ms.date: 05/20/2020
 ms.author: sngun
 
 ---
@@ -20,15 +20,13 @@ ms.author: sngun
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
-> 
-> 
 
 Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
 
-* Links to the tasks in each of the Python example project files. 
+* Links to the tasks in each of the Python example project files.
 * Links to the related API reference content.
 
-**Prerequisites**
+## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,14 +34,13 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-You also need the [Python SDK](sql-api-sdk-python.md). 
-   
+You also need the [Python SDK](sql-api-sdk-python.md).
+
    > [!NOTE]
    > Each sample is self-contained; it sets itself up and cleans up after itself. The samples issue multiple calls to [CosmosClient.CreateContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient?view=azure-python#createcontainer-database-link--collection--options-none-). Each time this is done, your subscription is billed for one hour of usage. For more information about Azure Cosmos DB billing, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
-   > 
-   > 
 
 ## Database examples
+
 The [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) file of the [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) project shows how to do the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article. 
 
 | Task | API reference |

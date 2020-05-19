@@ -33,8 +33,6 @@ ms.author: sngun
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
-## Release history
-
 [!INCLUDE[Release notes](~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 
 ## Release & retirement dates
