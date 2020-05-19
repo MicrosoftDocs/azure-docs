@@ -537,8 +537,8 @@ to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to self-managed K
 on Azure.
 
 > [!NOTE]
-> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports built-in
-> policy definitions.
+> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports Linux node
+> pools and built-in policy definitions.
 
 ### EnforceOPAConstraint evaluation
 
@@ -605,8 +605,8 @@ to pass Gatekeeper v2 admission control rules defined with
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports built-in policy
-> definitions
+> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports Linux node pools
+> and built-in policy definitions.
 
 ### EnforceRegoPolicy evaluation
 

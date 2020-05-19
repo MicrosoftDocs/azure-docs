@@ -32,8 +32,8 @@ After you've added the solution and a check is completed, summary information fo
 ## Prerequisites
 
 * The Active Directory Health Check solution requires a supported version of .NET Framework 4.6.2 or above installed on each computer that has the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) installed.  The agent is used by System Center 2016 - Operations Manager, Operations Manager 2012 R2, and Azure Monitor.
-* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
-* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal. There is no additional configuration required.
+* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, Windows Server 2016, and Windows Server 2019.
+* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure Marketplace in the Azure portal. There is no additional configuration required.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to Azure Monitor in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
