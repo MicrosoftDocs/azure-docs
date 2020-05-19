@@ -214,7 +214,7 @@ Next, in the **Try** block, the workflow performs actions on the first message t
 
 ### Handle the initial message
 
-The first action, which is **Send initial message to topic**, sends the message to a topic that's specified by the **Session Id** property. That way, all the messages that are associated with a specific session go to the same topic.
+The first action, which is **Send initial message to topic**, sends the message to a topic that's specified by the **Session Id** property. That way, all the messages that are associated with a specific session go to the same topic. All **Session Id** properties for subsequent actions in this template use the same session ID value.
 
 ![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
 
