@@ -27,7 +27,7 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 Azure Monitor Private Link Scope is a grouping resource to connect one or more private endpoints (and therefore the virtual networks they are contained in) to one or more Azure Monitor resources. These resources include Log Analytics workspaces and Application Insights components. 
 
-![Diagram of resource topology](../media/private-link-security.png)
+![Diagram of resource topology](./media/private-link-security/1-private-link-topology.png)
 
 > [!NOTE]
 > A single Azure Monitor resource can belong to multiple AMPLSs, but you cannot connect a single VNet to more than one AMPLS. 
@@ -51,47 +51,66 @@ Remember – you can connect the same workspaces or application to multiple AMPL
 
 ### Group together Monitoring resources by network accessibility
 Since each VNet can connect to only one AMPLS resource, you must group together monitoring resources that should be accessible to the same networks. The simplest way to manage this is to create one AMPLS per VNet, and select the resources to connect to that network. However, to reduce resources and improve manageability, you may want to reuse an AMPLS across network. For example, if your internal virtual networks VNet1 and VNet2 should connect to workspaces Workspace1 and Workspace2 and Application Insights component Application Insights 3, associate all three resources to the same AMPLS. If VNet3 should only access Workspace1, create another AMPLS resource, associate Workspace1 to it and connect VNet3 as shown in the following diagrams:
-   
-![Diagram of AMPLS A topology](AMPLSTopologyA.png)
-![Diagram of AMPLS B topology](AMPLSTopologyB.png)
+
+![Diagram of AMPLS A topology](./media/private-link-security/1a-ampls-topology-a.png)
+
+![Diagram of AMPLS B topology](./media/private-link-security/1b-ampls-topology-b.png)
 
 ## Example connection of Azure Monitor to Private Link
 
-Let's start by creating an Azure Monitor Private Link Scope resource. 
-1.    Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
-2.    Click create. 
-3.    Pick a Subscription and Resource Group. 
-4.    Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
-5.    Click **Review + Create**. 
-6.    Let the validation pass, and then click **Create**.
+Let's start by creating an Azure Monitor Private Link Scope resource.
+
+1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
+2. Click create. 
+3. Pick a Subscription and Resource Group. 
+4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
+5. Click **Review + Create**. 
+6. Let the validation pass, and then click **Create**.
 
 ## Connecting Azure Monitor resources
 
 You can connect your AMPLS first to private endpoints and then to Azure Monitor resources or vice versa, but the connection process will go faster if you start with your Azure Monitor resources. Here's how we connect Azure Monitor Log Analytics workspaces and Application Insights components to an AMPLS
-1.    In your Azure Monitor Private Link scope, click on **Azure Monitor Resources** in the left-hand menu. Click the **Add** button. 
-2.    Add the workspace or component. Clicking the Add button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and click **Apply** to add them to your scope.
-    ![Screenshot of select a scope UX](AMPLSScreenshotSelect.png)    
+
+1. In your Azure Monitor Private Link scope, click on **Azure Monitor Resources** in the left-hand menu. Click the **Add** button.
+2. Add the workspace or component. Clicking the Add button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and click **Apply** to add them to your scope.
+
+    ![Screenshot of select a scope UX](./media/private-link-security/2-ampls-select.png)
 
 Connecting to a Private Endpoint
 Now that we have resources connected to our AMPLS, let's create a private endpoint to connect our network. You can do this in the Private Link center [link to go here], or inside your Azure Monitor Private Link Scope, as done in this example. 
 
-1.    In your scope resource, click on **Private Endpoint connections** in the left hand resource menu Click on **Private Endpoint** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and clicking **Approve**.
-    ![Screenshot of Private Endpoint Connections UX](AMPLSScreenshotPEConnect.png)
-2.    Pick the subscription, resource group, and name of the endpoint, and the region it will live in. This needs to be the same region as the virtual network you will connect it to. 
-3.    Click **Next : Resource**. 
-4.    In the Resource screen, 
-   a.    Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
-   b.    For **resource type**, choose **Microsoft.insights/privateLinkScopes**. 
-   c.    From the **resource** drop down, choose your Private Link scope you created earlier. 
-   d.    Click **Next: Configuration >**.
-    ![Screenshot of select Create Private Endpoint](AMPLSScreenshotCreatePE.png)    
-5.    On the configuration pane, 
+1. In your scope resource, click on **Private Endpoint connections** in the left hand resource menu Click on **Private Endpoint** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and clicking **Approve**.
+
+    ![Screenshot of Private Endpoint Connections UX](./media/private-link-security/3-ampls-select-pe-connect.png)
+
+2. Pick the subscription, resource group, and name of the endpoint, and the region it will live in. This needs to be the same region as the virtual network you will connect it to. 
+
+3. Click **Next : Resource**. 
+
+4. In the Resource screen,
+
+   a. Pick the **Subscription** that contains your Azure Monitor Private Scope resource. 
+
+   b. For **resource type**, choose **Microsoft.insights/privateLinkScopes**. 
+
+   c. From the **resource** drop down, choose your Private Link scope you created earlier. 
+
+   d. Click **Next: Configuration >**.
+      ![Screenshot of select Create Private Endpoint](./media/private-link-security/4-ampls-select-pe-create.png)
+
+5. On the configuration pane,
+
    a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
+ 
    b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. 
+ 
    c.    Click **Review + create**.
+ 
    d.    Let validation pass. 
+ 
    e.    Click **Create**. 
-    ![Screenshot of select Create Private Endpoint2](AMPLSScreenshotCreatePE2.png)
+
+    ![Screenshot of select Create Private Endpoint2](./media/private-link-security/5-ampls-select-pe-create-2.png)
 
 You have now created a new private endpoint that is connected to this Azure Monitor Private Link scope.
 
@@ -99,11 +118,13 @@ You have now created a new private endpoint that is connected to this Azure Moni
 
 In the Azure portal in your Azure Monitor Log Analytics workspace resource is a menu item Network Isolation on the left-hand side. You can control two different states from this menu. 
 
-![LA Network Isolation](AMPLSScreenshotLANetworkIsolation.png)
+![LA Network Isolation](./media/private-link-security/6-ampls-lan-network-isolation.png)
 
 First, you can connect this Log Analytics resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this workspace. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connecting-azure-monitor-resources).  
+
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
 If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to dashboards, query API, insights in the Azure Portal, and more.
+
 Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions and Security](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security).
 
 > [!NOTE] 
@@ -113,17 +134,22 @@ Restricting access in this manner only applies to data in the workspace. Configu
 
 In the Azure portal in your Azure Monitor Application Insights Component resource is a menu item Network Isolation on the left-hand side. You can control two different states from this menu. 
 
+**---------- TODO ------------- get screen shot----**
+
 ![AI Network Isolation](AMPLSScreenshotAINetworkIsolation.png)
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connecting-azure-monitor-resources).  
+
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
 If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes cannot upload data to this components. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to dashboards, query API, insights in the Azure Portal, and more.
+
 Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions and Security](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security).
 
 ## Using customer-owned storage accounts for log ingestion
 
 Storage accounts are used in the ingestion process of several data types of logs. By default, service-managed storage accounts are used. However, you can now use your own storage accounts and gain control over the access rights, keys, content, encryption, and retention of your logs during ingestion.
-Which data types are ingested over a storage account?
+
+## Which data types are ingested over a storage account?
 
 - Custom logs
 - IIS logs
@@ -132,6 +158,9 @@ Which data types are ingested over a storage account?
 - Windows ETW logs
 - Service fabric
 - ASC Watson dump files
+
+**---------- TODO Internal link. ------------- ----**
+
 [To learn more see Ingestion from customer storage – Bring your own storage (BYOS)](https://microsoft-my.sharepoint.com/:w:/p/noakuper/EaLomLpNFA9GrWFbTGN_Jm0Bgw779xCC-Ww03hN9T0V4fQ?e=HVj1hH)
 
 ## Restrictions and Limitations with Azure Monitor Private Link
@@ -145,7 +174,7 @@ Use Agent version >= 18.20.18038.0
 Use Agent version >= 1.12.25. 
 If they cannot, do below on the VM
 
-```
+```cmd
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
