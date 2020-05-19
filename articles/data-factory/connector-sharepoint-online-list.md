@@ -82,7 +82,7 @@ The following properties are supported for an SharePoint Online List linked serv
 | servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
-| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. | No           |
+| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites), earlier in this article. If not specified, the default Azure Integration Runtime is used. | No           |
 
 **Example:**
 
@@ -215,7 +215,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - **Method**: POST
     - **Headers**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID, client secret, tenant ID and and tenant name.
+    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID, client secret, tenant ID and tenant name.
 
     > [!CAUTION]
     > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.
