@@ -87,9 +87,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: SQL Server on Windows VM 
+          - text: What is SQL Server on Windows VM? 
             url: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-          - text: SQL Server on Linux VM 
+          - text: What is SQL Server on Linux VM? 
             url: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
           - text: What's new? 
             url: virtual-machines/windows/doc-changes-updates-release-notes.md
