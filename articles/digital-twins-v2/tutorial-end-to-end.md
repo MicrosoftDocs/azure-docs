@@ -51,8 +51,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* Pre-generated AutoRest SDK
-* SDK usage examples (found in *CommandLoop.cs*)
+* C# SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events
@@ -65,7 +64,7 @@ First, you'll use the *AdtSampleApp* solution from the sample project to build t
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="An excerpt from the full building scenario graphic highlighting section A, the Azure Digital Twins instance":::
 
-From the downloaded solution folder, open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+In your Visual Studio window where the _**AdtE2ESample**_ project is open, run the project with this button in the toolbar:
 
 :::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
 
@@ -238,7 +237,7 @@ az iot hub device-identity show-connection-string --device-id thermostat67 --hub
 
 You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
-In a new Visual Studio window, open _Device Simulator > **DeviceSimulator.sln**_.
+In a new Visual Studio window, open (from the downloaded solution folder) _Device Simulator > **DeviceSimulator.sln**_.
 
 >[!NOTE]
 > You should now have two Visual Studio windows, one with _**DeviceSimulator.sln**_ and one from earlier with _**AdtE2ESample.sln**_.
@@ -421,7 +420,7 @@ Finally, delete the project sample folder you downloaded from your local machine
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Object models](concepts-models.md)
+* [Concepts: Custom models](concepts-models.md)
 
 Or, go more in-depth on the processes in this tutorial by starting the how-to articles:
 * [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
