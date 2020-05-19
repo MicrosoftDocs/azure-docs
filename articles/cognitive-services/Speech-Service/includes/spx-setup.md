@@ -33,8 +33,8 @@ Start by downloading the [zip archive](https://aka.ms/speech/spx-zips.zip), then
 2. Download the SPX Tool [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
 3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need.
 4. In a terminal, change directory to the location with the spx binary file, and type these commands:
-   1. sudo chmod +r+x spx
-   2. PATH=.:$PATH
+   1. `sudo chmod +r+x spx`
+   2. `PATH=.:$PATH`
 5. Now type `spx` to see help for the SPX tool.
 
 ***
