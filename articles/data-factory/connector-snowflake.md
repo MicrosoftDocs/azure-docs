@@ -29,7 +29,7 @@ This Snowflake connector is supported for the following activities:
 For Copy activity, this Snowflake connector supports these functions:
 
 - Copy data from Snowflake which utilizes Snowflake’s [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
-- Copy data into Snowflake which takes advantage of Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance.
+- Copy data into Snowflake which takes advantage of Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure.
 
 ## Get started
 
@@ -257,7 +257,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Snowflake as sink
 
-Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command underneath to achieve the best performance.
+Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command underneath to achieve the best performance. It supports writing data to Snowflake on Azure.
 
 * If source data store and format are natively supported by Snowflake COPY command, you can use copy activity to directly copy from source to Snowflake. For details, see [Direct copy to Snowflake](#direct-copy-to-snowflake).
 * Otherwise, use built-in [Staged copy to Snowflake](#staged-copy-to-snowflake).
