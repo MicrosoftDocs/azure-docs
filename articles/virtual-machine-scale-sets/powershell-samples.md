@@ -1,13 +1,14 @@
 ---
 title: Azure PowerShell Samples
 description: A table that includes links to sample bash scripts built using Azure PowerShell, like creating and managing a scale set.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: powershell
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Azure PowerShell samples for virtual machine scale sets.
@@ -25,7 +26,7 @@ The following table includes links to bash scripts built using Azure PowerShell.
 | [Create and attach disks to a scale set](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine scale set with attached data disks. |
 |**Manage scale and redundancy**||
 | [Enable host-based autoscale](scripts/powershell-sample-enable-autoscale.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that is configured to automatically scale based on CPU usage. |
-| [Create a single-zone scale set](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
+| [Create a single-zone scale set](scripts/powershell-single-av-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
 | [Create a zone-redundant scale set](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale across multiple Availability Zones. |
 | | |
 

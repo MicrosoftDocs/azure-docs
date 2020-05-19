@@ -129,6 +129,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Use Uptime SLA
+      href: uptime-sla.md
     - name: Process node OS updates
       href: node-updates-kured.md
     - name: Configure an AKS cluster
@@ -223,7 +225,7 @@
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
-      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+      href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic
@@ -231,7 +233,7 @@
     - name: Enable Azure Active Directory integration
       items:
         - name: Integrate Azure AD (preview)
-          href: azure-ad-v2.md
+          href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
         - name: Use the Azure portal
