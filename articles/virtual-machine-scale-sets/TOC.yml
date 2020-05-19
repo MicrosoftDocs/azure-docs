@@ -90,7 +90,7 @@
       - name: Enable host-based autoscale
         href: ./scripts/powershell-sample-enable-autoscale.md
       - name: Create a single-zone scale set
-        href: ./scripts/powershell-sample-single-availability-zone-scale-set.md
+        href: ./scripts/powershell-single-av-zone-scale-set.md
       - name: Create a zone-redundant scale set
         href: ./scripts/powershell-sample-zone-redundant-scale-set.md
   - name: Azure Policy built-ins
