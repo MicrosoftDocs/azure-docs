@@ -124,7 +124,7 @@ Now that Vamp is up and running, deploy a service from a blueprint.
 
 In its simplest form, a [Vamp blueprint](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) describes the endpoints (gateways), clusters, and services to deploy. Vamp uses clusters to group different variants of the same service into logical groups for canary releasing or A/B testing.  
 
-This scenario uses a sample monolithic application called [**sava**](https://github.com/magneticio/sava), which is at version 1.0. The monolith is packaged in a Docker container, which is in Docker Hub under magneticio/sava:1.0.0. The app normally runs on port 8080, but you want to expose it under port 9050 in this case. Deploy the app through Vamp using a simple blueprint.
+This scenario uses a sample monolithic application called [**sava**](https://github.com/magneticio/sava-product), which is at version 1.0. The monolith is packaged in a Docker container, which is in Docker Hub under magneticio/sava:1.0.0. The app normally runs on port 8080, but you want to expose it under port 9050 in this case. Deploy the app through Vamp using a simple blueprint.
 
 1. Go to **Deployments**.
 

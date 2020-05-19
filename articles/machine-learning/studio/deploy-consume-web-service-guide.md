@@ -77,7 +77,6 @@ Here's an example:
 See the following articles and sample code for additional details:
 
 * [Azure Machine Learning Studio (classic) Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) reference on MSDN
-* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
 
 ## Consume the web services
 

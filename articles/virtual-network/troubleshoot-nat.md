@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
 ---
 
@@ -96,6 +96,7 @@ The following table can be used a starting point for which tools to use to start
 
 Connectivity issues with [Virtual Network NAT](nat-overview.md) can be caused by several different issues:
 
+* permanent failures due to configuration mistakes.
 * transient or persistent [SNAT exhaustion](#snat-exhaustion) of the NAT gateway,
 * transient failures in the Azure infrastructure, 
 * transient failures in the path between Azure and the public Internet destination, 
@@ -107,6 +108,13 @@ Use tools like the following to validation connectivity. [ICMP ping isn't suppor
 |---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
+
+#### Configuration
+
+Check the following:
+1. Does the NAT gateway resource have at least one public IP resource or one public IP prefix resource? You must at least have one IP address associated with the NAT gateway for it to be able to provide outbound connectivity.
+2. Is the virtual network's subnet configured to use the NAT gateway?
+3. Are you using UDR (user-defined route) and are you overriding the destination?  NAT gateway resources become the default route (0/0) on configured subnets.
 
 #### SNAT exhaustion
 

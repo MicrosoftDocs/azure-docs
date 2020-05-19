@@ -2,20 +2,14 @@
 title: Customizing Azure AD attribute mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-
-ms.collection: M365-identity-device-management
 ---
 # Customizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 

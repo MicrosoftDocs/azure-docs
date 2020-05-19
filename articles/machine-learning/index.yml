@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/22/2020
+  ms.date: 04/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -45,6 +45,8 @@ landingContent:
           url: concept-designer.md   
         - text: What is automated machine learning?
           url: concept-automated-ml.md   
+        - text: How to choose an algorithm
+          url: how-to-select-algorithms.md   
       - linkListType: tutorial
         links:
           - text: 'AutoML: build a classification model'
@@ -74,6 +76,8 @@ landingContent:
         links:
           - text: Set up your environment
             url: how-to-configure-environment.md
+          - text: Deep learning vs ML
+            url: concept-deep-learning-vs-machine-learning.md
           - text: Train with Scikit-learn
             url: how-to-train-scikit-learn.md
           - text: Train with TensorFlow

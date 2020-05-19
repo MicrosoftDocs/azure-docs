@@ -117,7 +117,7 @@ No. This is not supported currently as a lease is present to prevent accidental 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**

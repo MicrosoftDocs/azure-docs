@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
+ms.custom: has-adal-ref
 ---
 
 # Tutorial: Create a Python runbook
@@ -221,7 +222,7 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 You can also use the following conventions to retrieve various streams from your Python runbooks, including WARNING, ERROR, and DEBUG streams.
 
 ```python
-print("Hello World output") 
+print("Hello World output")
 print("ERROR: - Hello world error")
 print("WARNING: - Hello world warning")
 print("DEBUG: - Hello world debug")

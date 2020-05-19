@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+#Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 
 ---
 # Tutorial: Build a Java app with the Async Java SDK to manage data stored in a SQL API account

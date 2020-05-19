@@ -17,7 +17,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
 > [!NOTE]
 > Storage Analytics metrics are available for the Blob, Queue, Table, and File services.
-> Storage Analytics metrics are now Classic metrics. Microsoft recommends using [Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md) instead of Storage Analytics metrics.
+> Storage Analytics metrics are now Classic metrics. Microsoft recommends using [Storage Metrics in Azure Monitor](monitor-storage.md) instead of Storage Analytics metrics.
 
 ## Transaction metrics  
  A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema) topic.  

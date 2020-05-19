@@ -14,7 +14,7 @@ manager: lizross
 
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
@@ -24,7 +24,7 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 

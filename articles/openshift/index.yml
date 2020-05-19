@@ -58,4 +58,4 @@ landingContent:
           - text: REST API
             url: /rest/api/openshift
           - text: Red Hat OpenShift docs
-            url: https://docs.openshift.com/aro/welcome/index.html
+            url: https://docs.openshift.com/aro/4/welcome/index.html

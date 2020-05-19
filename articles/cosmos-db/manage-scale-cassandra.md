@@ -53,9 +53,9 @@ You can scale the system dynamically with code by executing the [CQL ALTER comma
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using autoscale. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
 
-## <a id="use-autoscale"></a>Use autoscale
+## <a id="use-autoscale"></a>Use autoscale provisioned throughput
 
-In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autoscale.md) article.
+In addition to standard (manual) or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale provisioned throughput. Autoscale will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale](provision-throughput-autoscale.md) article.
 
 The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 

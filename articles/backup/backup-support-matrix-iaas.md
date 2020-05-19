@@ -153,7 +153,7 @@ Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs]
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or fewer data disks.<BR> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+Azure VM data disks | Back up a VM with 16 or fewer data disks.<BR> To sign up for the limited preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.

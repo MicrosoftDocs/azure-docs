@@ -82,7 +82,7 @@ You can include logic within a runbook to determine if it is called by a webhook
 
 Another strategy is to have the runbook perform some validation of an external condition when it receives a webhook request. For example, consider a runbook that is called by GitHub any time there's a new commit to a GitHub repository. The runbook might connect to GitHub to validate that a new commit has occurred before continuing.
 
-## Creating a webhook
+## Create a webhook
 
 Use the following procedure to create a new webhook linked to a runbook in the Azure portal.
 
@@ -100,7 +100,7 @@ Use the following procedure to create a new webhook linked to a runbook in the A
 1. Click **Parameters** to provide values for the runbook parameters. If the runbook has mandatory parameters, you can't create the webhook unless you provide values.
 1. Click **Create** to create the webhook.
 
-## Using a webhook
+## Use a webhook
 
 To use a webhook after it has been created, your client must issue an HTTP `POST` request with the URL for the webhook. The syntax is:
 
@@ -125,7 +125,7 @@ Assuming the request is successful, the webhook response contains the job ID in 
 
 The client can't determine when the runbook job completes or its completion status from the webhook. It can find out this information using the job ID with another mechanism, such as [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
 
-## <a name="renew-webhook"></a>Renewing a webhook
+## Renew a webhook
 
 When a webhook is created, it has a validity time period of ten years, after which it automatically expires. Once a webhook has expired, you can't reactivate it. You can only remove and then recreate it. 
 
@@ -194,7 +194,7 @@ else {
 }
 ```
 
-## Testing the sample
+## Test the sample
 
 The following example uses Windows PowerShell to start a runbook with a webhook. Any language that can make an HTTP request can use a webhook. Windows PowerShell is used here as an example.
 

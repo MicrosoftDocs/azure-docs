@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -58,6 +58,7 @@ part of a **table** in Resource Graph.
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
+- microsoft.attestation/attestationproviders
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
@@ -71,6 +72,7 @@ part of a **table** in Resource Graph.
 - microsoft.azuredata/sqlinstances
 - microsoft.azuredata/sqlserverregistrations
 - microsoft.azurestack/registrations
+- microsoft.azurestackhci/clusters
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
@@ -142,6 +144,7 @@ part of a **table** in Resource Graph.
 - microsoft.databricks/workspaces
 - microsoft.datacatalog/catalogs
 - microsoft.datacatalog/datacatalogs
+- microsoft.datadog/monitors
 - microsoft.datafactory/datafactories
 - microsoft.datafactory/factories
 - microsoft.datalakeanalytics/accounts

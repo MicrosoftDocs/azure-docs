@@ -63,6 +63,9 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: App Service plans

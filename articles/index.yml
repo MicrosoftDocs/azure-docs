@@ -510,12 +510,12 @@ productDirectory:
         - web
       url: spring-cloud/index.yml
     # Card
-    - title: Azure VMware Solution by CloudSimple
+    - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
-      imageSrc: ./media/index/cs_dedicatedcloudnode.svg
+      imageSrc: ./media/index/azure-vmware.svg
       azureCategories:
         - compute
-      url: vmware-cloudsimple/index.md
+      url: azure-vmware/index.yml
     # Card
     - title: Batch
       summary: Cloud-scale job scheduling and compute management

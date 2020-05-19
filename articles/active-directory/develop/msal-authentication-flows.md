@@ -229,4 +229,4 @@ Apart from the [Integrated Windows Authentication constraints](#integrated-windo
 
 ### Azure AD B2C specifics
 
-For more information on using MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+For more information on using ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).

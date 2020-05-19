@@ -1,16 +1,17 @@
 ---
-title: Apache Spark best practices on Azure HDInsight
-description: Learn best practices for using Apache Spark in Azure HDInsight.
+title: Apache Spark guidelines on Azure HDInsight
+description: Learn guidelines for using Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 04/28/2020
 ---
-# Apache Spark best practices
 
-This article provides various best practices for using Apache Spark on Azure HDInsight.
+# Apache Spark guidelines
+
+This article provides various guidelines for using Apache Spark on Azure HDInsight.
 
 ## How do I run or submit Spark jobs?
 
@@ -22,6 +23,10 @@ This article provides various best practices for using Apache Spark on Azure HDI
 | IntelliJ | [Tutorial: Create a Scala Maven application for Apache Spark in HDInsight using IntelliJ](./apache-spark-create-standalone-application.md) |
 | Zeppelin notebooks | [Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Remote job submission with Livy | [Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster](./apache-spark-livy-rest-interface.md) |
+|[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie is a workflow and coordination system that manages Hadoop jobs.|
+|[Apache Livy](./apache-spark-livy-rest-interface.md)|You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark.|
+|[Azure Data Factory for Apache Spark](../../data-factory/transform-data-using-spark.md)|The Spark activity in a Data Factory pipeline executes a Spark program on your own or [on-demand HDInsight cluster.|
+|[Azure Data Factory for Apache Hive](../../data-factory/transform-data-using-hadoop-hive.md)|The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand HDInsight cluster.|
 
 ## How do I monitor and debug Spark jobs?
 

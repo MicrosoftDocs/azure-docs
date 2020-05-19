@@ -157,7 +157,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 
 ### Download and install Message Analyzer and the Azure Storage Assets
 
-1. Download [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) from the Microsoft Download Center, and run the installer.
+1. Download [Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Launch Message Analyzer.
 3. From the **Tools** menu, select **Asset Manager**. In the **Asset Manager** dialog, select **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
 4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include:

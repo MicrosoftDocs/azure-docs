@@ -161,19 +161,31 @@ The following table summarizes operations and typical overall durations:
 
 \*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### Instance availability during management
+### Instance availability during management operations
 
-Managed instances are not available to client applications during deployment and deletion operations.
+Managed instance is not available to client applications during deployment and deletion operations.
 
-Managed instances are available during update operations but there is a short downtime caused by the failover that happens at the end of updates that typically lasts up to 10 seconds. The exception to this is update of the reserved storage space in General Purpose service tier which does not incur failover nor affect instance availability.
-
-> [!IMPORTANT]
-> Duration of a failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it's not recommended to scale compute or storage of Azure SQL Database managed instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
+Managed instance is available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > Update of the reserved storage space in General Purpose service tier does not incur failover nor affect instance availability.
 
-[Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
+> [!IMPORTANT]
+> It's not recommended to scale compute or storage of Azure SQL Database managed instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
+
+
+### Management operations cross-impact
+
+Managed instance management operations can affect other management operations of the instances placed inside the same virtual cluster. This includes following:
+
+- **Long running restore operations** in a virtual cluster will put on hold other instance creation or scaling operation in the same subnet.<br/>**Example:** if there is long running restore operation and there is create or scale request in the same subnet, this request will take longer to complete as it will wait for restore operation to complete before it continues.
+	
+- **Subsequent instance creation or scaling** operation is put on hold by previously initiated instance creation or instance scale that initiated virtual cluster resize.<br/>**Example:** if there are multiple create and/or scale requests in the same subnet under the same virtual cluster, and one of them initiates virtual cluster resize, all requests that were submitted 5+ minutes after the one that required virtual cluster resize will last longer than expected as these requests will have to wait for the resize to complete before resuming.
+
+- **Create/scale operations submitted in 5 minute window** will be batched and executed in parallel.<br/>**Example:** Only one virtual cluster resize will be performed for all operations submitted in 5 minute window (measuring from the moment of executing the first operation request). In case that another request is submitted more than 5 minutes after submitting the first one, it will wait for virtual cluster resize to complete before execution starts.
+
+> [!IMPORTANT]
+> Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operation.
 
 ### Canceling management operations
 

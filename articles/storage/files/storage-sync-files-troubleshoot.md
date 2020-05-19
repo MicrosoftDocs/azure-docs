@@ -803,12 +803,9 @@ This error occurs because of an internal problem with the sync database. This er
 | **Error string** | ECS_E_INVALID_AAD_TENANT |
 | **Remediation required** | Yes |
 
-This error occurs because Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
+Make sure you have the latest Azure File Sync agent. As of agent V10, Azure File Sync supports moving the subscription to a different Azure Active Directory tenant.
  
-To resolve this issue, perform one of the following options:
-
-- **Option 1 (recommended)**: Move the subscription back to the original Azure Active Directory tenant
-- **Option 2**: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+Once you have the latest agent version, you must give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
 
@@ -1244,7 +1241,25 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
     - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
-If the issue is not resolved, run the AFSDiag tool:
+If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
+
+For Agent Version v11 and Later:
+
+1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
+
+    > [!NOTE]
+    >AFSDiag will create the output directory and a temp folder within it prior to collecting logs and will delete the temp folder after execution. Specify an output location which does not contain data.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduce the issue. When you're finished, enter **D**.
+3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
+
+For Agent Version v10 and Earlier:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
     > [!NOTE]
     >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.

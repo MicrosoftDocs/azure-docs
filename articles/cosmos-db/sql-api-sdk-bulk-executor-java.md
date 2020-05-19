@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: Bulk executor Java API, SDK & resources'
 description: Learn all about the bulk executor Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor Java SDK.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
+ms.author: adrianmi
 
 ---
 
@@ -35,4 +35,27 @@ ms.author: ramkris
 | **API documentation**| [Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Get started**|[Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+
+## Release notes
+
+### <a name="2.10.0"/>2.10.0
+
+* Fix for DocumentAnalyzer.java to correctly extract nested partition key values from json.
+
+### <a name="2.9.4"/>2.9.4
+
+* Add functionality in BulkDelete operations to retry on specific failures and also return a list of failures to the user that could be retried.
+
+### <a name="2.9.3"/>2.9.3
+
+* Update for Cosmos SDK version 2.4.7.
+
+### <a name="2.9.2"/>2.9.2
+
+* Fix for 'mergeAll' to continue on 'id' and partition key value so that any patched document properties which are placed after 'id' and partition key value get added to the updated item list.
+
+### <a name="2.9.1"/>2.9.1
+
+* Update start degree of concurrency to 1 and added debug logs for minibatch.
+
 

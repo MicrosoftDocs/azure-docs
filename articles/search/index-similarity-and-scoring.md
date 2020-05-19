@@ -54,16 +54,9 @@ Azure Cognitive Search supports two different similarity ranking algorithms: A *
 
 For now, you can specify which similarity ranking algorithm you would like to use. For more information, see [Ranking algorithm](index-ranking-similarity.md).
 
-## Watch this video
+The following video segment fast-forwards to an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
-In this 16-minute video, software engineer Raouf Merouche explains the process of indexing, querying, and how to create scoring profiles. It gives you a good idea of what is going on under the hood as your documents are being indexed and retrieved.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2 - 3 minutes cover indexing: text processing and lexical analysis.
-+ 3 - 4 minutes cover indexing: inverted indexes.
-+ 4 - 6 minutes cover querying: retrieval and ranking.
-+ 7 - 16 minutes covers scoring profiles.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## See also
 

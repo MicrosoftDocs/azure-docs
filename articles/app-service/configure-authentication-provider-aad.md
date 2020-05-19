@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory authentication as an 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ---
 
 # Configure your App Service or Azure Functions app to use Azure AD login
@@ -28,7 +28,7 @@ Follow these best practices when setting up your app and authentication:
 ## <a name="express"> </a>Configure with express settings
 
 > [!NOTE]
-> The **Express** option is not available for government clouds. 
+> The **Express** option is not available for government clouds.
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 2. From the left navigation, select **Authentication / Authorization** > **On**.
@@ -40,9 +40,9 @@ Follow these best practices when setting up your app and authentication:
    2. Choose an existing app registration and click **OK**.
 
 3. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
-   
+
     ![Express settings in Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. (Optional) By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code. To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
 
     > [!CAUTION]
@@ -70,7 +70,7 @@ Perform the following steps:
 1. Sign in to the [Azure portal], search for and select **App Services**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
-1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Select **Create**.
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Authentication**. Under **Implicit grant**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service.
@@ -82,14 +82,14 @@ Perform the following steps:
 
 1. Select **Add a scope**.
    1. In **Scope name**, enter *user_impersonation*.
-   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access my app*. 
+   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access my app*.
    1. Select **Add scope**.
 1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
 ### <a name="secrets"> </a>Enable Azure Active Directory in your App Service app
 
-1. In the [Azure portal], search for and select **App Services**, and then select your app. 
+1. In the [Azure portal], search for and select **App Services**, and then select your app.
 1. In the left pane, under **Settings**, select **Authentication / Authorization** > **On**.
 1. (Optional) By default, App Service authentication allows unauthenticated access to your app. To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
 1. Under **Authentication Providers**, select **Azure Active Directory**.

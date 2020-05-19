@@ -7,6 +7,7 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
+ms.custom: has-adal-ref
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -33,8 +34,11 @@ Access to the Kafka REST proxy is managed with Azure Active Directory security g
 
 For REST proxy endpoint requests, client applications should get an OAuth token. The token is used to verify security group membership. Find a [Client application sample](#client-application-sample) below that shows how to get an OAuth token. The client application passes the OAuth token in the HTTP request to the REST proxy.
 
-> [!NOTE]  
+> [!NOTE]
 > See [Manage app and resource access using Azure Active Directory groups](../../active-directory/fundamentals/active-directory-manage-groups.md), to learn more about AAD security groups. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md).
+
+## Kafka REST proxy with Network Security Groups
+If you bring your own VNet and control network traffic with network security groups, allow **inbound** traffic on port **9400** in addition to port 443. This will ensure that Kafka REST proxy server is reachable.
 
 ## Prerequisites
 
