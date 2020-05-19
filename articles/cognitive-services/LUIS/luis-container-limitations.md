@@ -30,7 +30,7 @@ You can use a LUIS application if it **doesn't include** any of the following de
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| Dutch (`nl-NL`)<br>Japanese (`ja-JP`)<br>German is only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
+|Unsupported container cultures| The Dutch (`nl-NL`), Japanese (`ja-JP`) and German (`de-DE`) languages are only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) prebuilt entity for all cultures|
 |Unsupported entities for English (`en-US`) culture|[GeographyV2](luis-reference-prebuilt-geographyV2.md) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
