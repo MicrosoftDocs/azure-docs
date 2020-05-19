@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ---
 
 # Connect to Azure Database for MySQL with redirection
@@ -38,8 +38,8 @@ If you are using an older version of the mysqlnd_azure extension (version 1.0.0-
 |**mysqlnd_azure.enableRedirect value**| **Behavior**|
 |----------------------------------------|-------------|
 |`off` or `0`|Redirection will not be used. |
-|`on` or `1`|- If SSL is not enabled on the Azure Database for MySQL server, no connection will be made. The following error will be returned: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."*<br>- If SSL is enabled on the MySQL server, but redirection is not supported on the server, the first connection is aborted and the following error is returned: *"Connection aborted because redirection is not enabled on the MySQL server or the network package doesn't meet redirection protocol."*<br>- If the MySQL server supports redirection, but the redirected connection failed for any reason, also abort the first proxy connection. Return the error of the redirected connection.|
-|`preferred` or `2`<br> (default value)|- mysqlnd_azure will use redirection if possible.<br>- If the connection does not use SSL, the server does not support redirection, or the redirected connection fails to connect for any non-fatal reason while the proxy connection is still a valid one, it will fall back to the first proxy connection.|
+|`on` or `1`|- If the connection does not use SSL on the driver side, no connection will be made. The following error will be returned: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."*<br>- If SSL is used on the driver side, but redirection is not supported on the server, the first connection is aborted and the following error is returned: *"Connection aborted because redirection is not enabled on the MySQL server or the network package doesn't meet redirection protocol."*<br>- If the MySQL server supports redirection, but the redirected connection failed for any reason, also abort the first proxy connection. Return the error of the redirected connection.|
+|`preferred` or `2`<br> (default value)|- mysqlnd_azure will use redirection if possible.<br>- If the connection does not use SSL on the driver side, the server does not support redirection, or the redirected connection fails to connect for any non-fatal reason while the proxy connection is still a valid one, it will fall back to the first proxy connection.|
 
 The subsequent sections of the document will outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
