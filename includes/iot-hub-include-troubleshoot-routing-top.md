@@ -11,5 +11,5 @@ ms.custom: include file
 ---
 The following are the most common issues observed with message routing. To start troubleshooting, click on the issue for detailed steps.
 
-- [Messages from my devices are not being routed as expected](troubleshoot-message-routing.md#messages-from-my-devices-are-not-being-routed-as-expected)
-- [I suddenly stopped getting data at the built-in Event Hubs endpoint](troubleshoot-message-routing.md#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
+- [Messages from my devices are not being routed as expected](../articles/troubleshoot-message-routing.md#messages-from-my-devices-are-not-being-routed-as-expected)
+- [I suddenly stopped getting data at the built-in Event Hubs endpoint](../articles/troubleshoot-message-routing.md#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
