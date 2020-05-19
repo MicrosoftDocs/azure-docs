@@ -25,13 +25,15 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> role-based access control (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> role-based access control (RBAC) permissions as described in
+> [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 ## Evaluation triggers
 
 The results of a completed evaluation cycle are available in the `Microsoft.PolicyInsights` Resource
 Provider through `PolicyStates` and `PolicyEvents` operations. For more information about the
-operations of the Azure Policy Insights REST API, see [Azure Policy Insights](/rest/api/policy-insights/).
+operations of the Azure Policy Insights REST API, see
+[Azure Policy Insights](/rest/api/policy-insights/).
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
@@ -40,7 +42,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant or non-compliant. A large
   policy or initiative evaluated against a large scope of resources can take time. As such, there's
-  no pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
+  no pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
 - A policy or initiative already assigned to a scope is updated. The evaluation cycle and timing for
@@ -53,7 +55,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
 
 - Standard compliance evaluation cycle. Once every 24 hours, assignments are automatically
   reevaluated. A large policy or initiative of many resources can take time, so there's no
-  pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
+  pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
 - The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
@@ -112,7 +114,8 @@ When the compliance scan completes, the **State** property changes to _Completed
 As an asynchronous process, the REST endpoint to start the scan doesn't wait until the scan is
 complete to respond. Instead, it provides a URI to query the status of the requested evaluation.
 
-In each REST API URI, there are variables that are used that you need to replace with your own values:
+In each REST API URI, there are variables that are used that you need to replace with your own
+values:
 
 - `{YourRG}` - Replace with the name of your resource group
 - `{subscriptionId}` - Replace with your subscription ID
