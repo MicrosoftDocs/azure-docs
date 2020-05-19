@@ -33,9 +33,9 @@ In this tutorial, you set up a lab with virtual machines for your class. To set 
 
 Here is the typical workflow when using Azure Lab Services:
 
-1. A lab account creator adds other users to the **Lab Creator** role. For example, the lab account creator/admin adds professors to the **Lab Creator** role so that they can create labs for their classes. 
-2. Then, the professors create labs with VMs for their classes and send registration links to students in the class. 
-3. Students use the registration link that they receive from professors to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. 
+1. A lab account creator adds other users to the **Lab Creator** role. For example, the lab account creator/admin adds educators to the **Lab Creator** role so that they can create labs for their classes. 
+2. Then, the educators create labs with VMs for their classes and send registration links to students in the class. 
+3. Students use the registration link that they receive from educators to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. 
 
 ## Create a classroom lab
 In this step, you create a lab for your class in Azure. 
