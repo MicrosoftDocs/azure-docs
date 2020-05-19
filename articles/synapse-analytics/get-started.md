@@ -76,23 +76,17 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 
 * In Synapse Studio, navigate to the **Develop hub"
 * Click **+** and select **Notebook**
-* At the top of the notebook, set the **Attach to** value to `Spark11
-* Click **Add code** to create several notebook cells
-* In the first cell paste this text:
+* At the top of the notebook, set the **Attach to** value to `Spark1`
+* At the top of the notebook, set the **Language** to `Spark (Scala)`
+* Click **Add code** to a notebook code cell and paste the text below:
     ```
-    %%spark
     spark.sql("CREATE DATABASE nyctaxi")
     val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
-    df.saveAsTable("nyxtaxi.trip")
+    df.write.saveAsTable("nyctaxi.trip")
     ```
- * Click the Run button on the cell
- * NOTE: This will be the first time you run any spark code, it will take about 2 minutes to allocate spark resources 
-   for your notebook. Every subsequent run of a cell will be much faster.
- * 
+ * Navigate to the Data hub, right-click on Databases and select **Refresh**
+ * Now you should see a Spark DB called nyxtaxi and inside that DB a table called trip
  
-    ```
-
-* 
 
 
 
