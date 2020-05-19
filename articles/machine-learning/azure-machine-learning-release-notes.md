@@ -81,7 +81,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
   + **azureml-interpret**
     + Documentation updates to azureml-interpret package.
-    + fixed interpretability packages and notebooks to be compatible with latest sklearn update
+    + Fixed interpretability packages and notebooks to be compatible with latest sklearn update
   + **azureml-opendatasets**
     + return None when there is no data returned.
     + Improve the performance of to_pandas_dataframe.
