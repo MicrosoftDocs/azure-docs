@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: [mvc, mqtt]
-ms.date: 06/21/2019
+ms.date: 05/19/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -119,7 +119,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## Read the telemetry from your hub
 
@@ -149,7 +149,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     The following screenshot shows the output as the back-end application receives telemetry sent by the simulated device to the hub:
 
-    ![Run the back-end application](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Run the back-end application](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## Clean up resources
 
