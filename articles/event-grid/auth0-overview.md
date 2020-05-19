@@ -14,9 +14,9 @@ ms.author: babanisa
 ![Auth0 Logo](./media/auth0-overview/auth0-logo.png)
 Auth0, the identity platform for application builders, provides developers and enterprises with the building blocks they need to secure their applications.
 
-The Auth0 Partner Topic allows you customers to leverage events emitted by Auth0’s system to accomplish a number of tasks, from engaging with users in meaningful and custom ways after the authentication to automating security and infrastructure tasks.
+The Auth0 Partner Topic allows you to use events that are emitted by Auth0’s system to accomplish a number of tasks. Engage with users in meaningful ways after the authentication or automate security and infrastructure tasks.
 
-The integration allows you to stream your Auth0 log events with high reliability into Azure for consumption with any of your favorite Azure resources. This allows you to react to events, gain insights, monitor for security issues, and interact with other powerful data pipelines.
+The integration allows you to stream your Auth0 log events with high reliability into Azure. There, you can consume the events with your favorite Azure resources. This integration allows you to react to events, gain insights, monitor for security issues, and interact with other powerful data pipelines.
 
 For organizations using Auth0 and Azure, this integration will allow you to seamlessly integrate data across your entire stack. 
  
@@ -26,16 +26,16 @@ The full list of available Auth0 event types and their descriptions is available
 ## Use cases
 
 ### Engage with Your Users
-Delivering a strong user experience is critical to reducing churn and retaining users. Using Auth0 log events and Azure Functions and Azure Logic Apps, you can deliver more customized application experiences. 
+Delivering a strong user experience is critical to reducing churn and keeping users. Deliver more customized application experiences using Auth0 events with Azure Functions and Logic Apps. 
 
 ### Understand User Behavior
-Understanding when users access your product, where they are signed in from, and what devices they use are important pieces of information that can drive your product development. By keeping track of these signals, via the log events emitted by Auth0, you can develop an understanding of the product areas that you should be paying attention to. These signals can help you determine what browsers and devices to support, what languages to consider localizing your app in, and when your peak application traffic times are. 
+Understand when users access your product, where they're signed in, and what devices they use. Develop an understanding of the product areas that matter most by keeping track of these signals. These signals help you determine what browsers and devices to support, languages to localize your app in, and when your peak traffic times are. 
 
 ### Manage User Data
-Retaining and auditing user actions is crucial for maintaining security and complying with industry regulations. Besides, the ability to edit, remove, or export user data upon request is becoming increasingly important to comply with various data privacy laws, such as the European Union’s General Data Protection Regulation (GDPR).
+Keeping and auditing user actions is crucial for maintaining security and complying with industry regulations. The ability to edit, remove, or export user data is becoming increasingly important to follow privacy laws, such as the European Union’s General Data Protection Regulation (GDPR).
 
 ### Secure Your Application
-Consolidating security monitoring and incident response procedures is important when protecting a distributed system. For this reason it is important to keep all the data in one place and monitor the entire stack. 
+Combining security monitoring and incident response procedures is important when protecting a distributed system. For this reason, it's important to keep all the data in one place and monitor the entire stack. 
 
 ## Next steps
 

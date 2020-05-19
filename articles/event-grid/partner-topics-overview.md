@@ -22,10 +22,10 @@ The first partner available through Event Grid Partner Topics is Auth0. The [Aut
 Partner topics are charged at the same operation rate as system topics.
 
 ## Limits
-Partner Topics are in Public Preview. During public preview, Partner topics are subject to the [same limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) as system topics and custom topics.
+Partner Topics are in Public Preview. During public preview, Partner topics are subject to the [same limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) as system topics and custom topics.
 
 ## How do I become an Event Grid partner?
-The infrastructure created to support this launch makes it easy and quick for new partners to integrate their eventing capabilities with Event Grid. Read the [partner onboarding documentation](partner-onboarding-how-to.md) for more.
+The infrastructure created to support this launch makes it easy and quick for new partners to integrate their eventing capabilities with Event Grid. Read the [partner onboarding documentation](partner-onboarding-overview.md) for more.
 
 ## Next steps
 
