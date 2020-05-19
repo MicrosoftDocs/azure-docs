@@ -148,16 +148,15 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
 
     ```
     %%pyspark
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    import pandas as pd
+    import matplotlib.pyplot
+    import seaborn
 
     sns.set(style = "whitegrid")
-
     df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
     df = df.toPandas()
-    sns.barplot(x="PassengerCount", y="SumTripDistance", data = df)
-    plt.show()
+    seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
+    seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
+    matplotlib.pyplot.show()
     ```
 ## Load data from a Spark table into a SQL Pool table
 
