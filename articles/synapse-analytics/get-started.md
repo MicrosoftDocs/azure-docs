@@ -83,7 +83,7 @@ NOTE:
 * SQL on-demand also has its own kind of SQL on-demand databases that exist independently from any SQL on-demand pool
 * Currently a workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
-## Load the NYC Taxi Sample data into your tge SQLDB1 database
+## Load the NYC Taxi Sample data into the SQLDB1 database
 
 * In Synapse Studio, in the top-most blue menu, click on the **?** icon.
 * Select **Getting started > Getting started hub**
@@ -111,7 +111,7 @@ NOTE:
 * This query shows how the total trip distances and average trip distance relate to the number of passengers
 * In the SQL script result window change the **View** to **Chart** to see a visualization of the results as a line chart
 
-## Load the NYC data into a Spark Database
+## Create a Spark Ddatabase adnd load the NYC taxi data into it
 We have data available in a SQL pool DB. Now we load it into a Spark database.
 
 * In Synapse Studio, navigate to the **Develop hub"
@@ -120,22 +120,18 @@ We have data available in a SQL pool DB. Now we load it into a Spark database.
 * Click **Add code** to add a notebook code cell and paste the text below:
     ```
     %% spark
-    spark.sql("CREATE DATABASE nyctaxi")
+    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
-    df.write.saveAsTable("nyctaxi.trip")
+    df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
  * Navigate to the Data hub, right-click on Databases and select **Refresh**
- * Now you should see a Spark DB called nyxtaxi and inside that DB a table called trip
- 
+ * Now you should see these databases:
+     * SQLDB (SQL pool)
+     * nyctaxi (Spark)
+      
  ## Analyze the NYC Taxi data using Spark and notebooks
  * Return to your notebook
- * Create a new code cell and run this text
-   ```
-   %%pyspark
-   df = spark.sql("SELECT * FROM nyctaxi.trip") 
-   df.show(10)
-   ```
- * To show this in a nicer format run this code
+ * Create a new code cell, enter the text below, adn run the cell
    ```
    %%pyspark
    df = spark.sql("SELECT * FROM nyctaxi.trip") 
@@ -158,7 +154,7 @@ We have data available in a SQL pool DB. Now we load it into a Spark database.
     ```
  * In the cell results, click on **Chart** to see the data visualized
  
-## Visualize data with Spark and notebooks
+## Customize data visualization data with Spark and notebooks
 
 With spark notebooks you can control exactly how render charts. The following
 code shows a simple example using the popular libraries matplotlib and seaborn.
