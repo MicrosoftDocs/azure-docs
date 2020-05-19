@@ -1,5 +1,6 @@
 ---
-title: Microsoft identity platform access tokens reference | Azure
+title: Microsoft identity platform access tokens | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
 author: hpsin
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -17,9 +18,9 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Microsoft identity platform access tokens
 
-Access tokens enable clients to securely call APIs protected by Azure. Microsoft identity platform access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Azure. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either the v1.0 endpoint or the v2.0 endpoint using a variety of protocols.
+Access tokens enable clients to securely call protected APIs. Microsoft identity platform access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Microsoft identity platform. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs (JSON Web Tokens) using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either the v1.0 endpoint or the v2.0 endpoint using a variety of protocols.
 
-When your client requests an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
+When your client requests an access token, Microsoft identity platform also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization, such as the user, client, issuer, permissions, and more.
 
@@ -51,7 +52,7 @@ View this v2.0 token in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLC
 
 ## Claims in access tokens
 
-JWTs are split into three pieces:
+JWTs (JSON Web Tokens) are split into three pieces:
 
 * **Header** - Provides information about how to [validate the token](#validating-tokens) including information about the type of token and how it was signed.
 * **Payload** - Contains all of the important data about the user or app that is attempting to call your service.
@@ -109,7 +110,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 **Groups overage claim**
 
-To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
+To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object IDs that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
 
 ```JSON
 {

@@ -1,5 +1,5 @@
 ---
-title: Commercial marketplace transact capabilities
+title: Microsoft commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
 author: dsindona
 ms.service: marketplace
@@ -140,34 +140,6 @@ For certain SaaS Products that you publish on our Commercial Marketplace, Micros
 **Enterprise Agreement** – If the customer's preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
 
 **Credit cards and monthly invoice** – Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
-
-For example, if the customer purchases using a credit card:
-
-|Description    |    Date  |
-|----------|----------|
-|Order Period   | Aug 15, 2018 - Aug 30, 2018 |
-|Term Ending (month)   | Aug 30, 2018 |
-|Billing Date | Sept 1, 2018 |
-|Customer Payment Date | Sept 1, 2018 |
-|Escrow Period (credit cards only, 30 days) | Sept 1, 2018 - Sept 30, 2018 |
-|Collection Period Start | Sept 1, 2018 |
-|Collection Period End (maximum, 30 days) | Sept 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Oct 1, 2018 |
-|Payout Date | Oct 15, 2018 |
-
-If the customer purchases using an Enterprise Agreement:
-
-| Description |    Date  |
-|----------|----------|
-|Order Period | Aug 15, 2018 - Aug 30, 2018 |
-|Term Ending (quarter) | Sept 30, 2018 |
-|Billing Date | Oct 15, 2018 |
-|Escrow Period (credit cards only, 30 days) | n/a |
-|Collection Period Start | Oct 15, 2018 |
-|Collection Period End (maximum, 90 days) | Jan 15, 2019 |
-|Customer Payment Date | Dec 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Jan 15, 2019 |
-|Payout Date | Feb 15, 2019 |
 
 **Free credits and monetary commitment** – Some customers elect to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
 

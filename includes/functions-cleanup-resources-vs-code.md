@@ -10,9 +10,9 @@ ms.author: glenga
 
 1. Choose your function app, and press Enter. The function app page opens in the Azure portal.
 
-1. In the **Overview** tab, select the named link under **Resource group**.
+1. In the **Overview** tab, select the named link next to **Resource group**.
 
-    ![Select the resource group to delete from the function app page.](./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png)
+   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page.":::
 
 1. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
  

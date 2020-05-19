@@ -221,9 +221,8 @@ You can turn off automatic provisioning from resources at any time by turning of
 
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 
-If you switch off auto provision after it was previously on:
--	Agents will not be provisioned on new VMs.
--	Security Center stops collecting data from the default workspace.
+If you switch off auto provision after it was previously on agents will not be provisioned on new VMs.
+
  
 > [!NOTE]
 >  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents.md#remove-oms).

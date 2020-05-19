@@ -10,17 +10,11 @@
  ms.custom: include file
 ---
 
-1. Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. At your homepage choose **Create a resource** from the **Azure services** panel.
+1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
-   ![Create a resource](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
+1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. Search for and select **Azure Cosmos DB**.
-
-   ![The Azure portal resources drop-down](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
-
-1. Select **Create**.
-
-   ![Create Azure Cosmos DB resource](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+1. On the **Azure Cosmos DB** page, select **Create**.
 
 1. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account. 
 
@@ -28,7 +22,7 @@
     |---|---|---|
     |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
     |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
+    |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
     |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>[Learn more about the SQL API](../articles/cosmos-db/documentdb-introduction.md).|
     |Apply Free Tier Discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 400 RU/s and 5 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|

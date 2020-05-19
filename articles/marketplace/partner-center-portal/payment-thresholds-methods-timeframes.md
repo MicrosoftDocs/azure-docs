@@ -1,6 +1,6 @@
 ---
-title: Payment thresholds, methods, and time frames - Azure Marketplace
-description: The estimated time to transfer payments, applicable payment thresholds, and Microsoft marketplaces from which you can receive payments can vary depending on your country/region and payout account type.
+title: Payout details by region - Microsoft commercial marketplace
+description: Learn how the estimated time to transfer payments, and the Microsoft storefronts from which you can receive payments, vary depending on your country/region and payout account type.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace 
@@ -11,7 +11,7 @@ ms.date: 04/24/2020
 
 # Payment thresholds, methods, and time frames
 
-The estimated time to transfer payments, as well as the Microsoft marketplaces from which you can receive payments, can vary depending on your country, region, customer transaction method, and payout account type. This article describes the payment methods supported in each country and region.
+The estimated time to transfer payments, and the storefronts you can receive payments from, can vary depending on your country/region and payout account type. This article outlines the payment methods supported in each country and region.
 
 For any given country and region, we pay using ACH/SEPA or wire transfer. Some countries and regions also support PayPal as a payment method.
 

@@ -15,7 +15,7 @@
       href: quick-setup-auto-provision-cli.md
     - name: Azure RM template
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a single simulated device 
+  - name: Provision a single device 
     items:
     - name: Symmetric Key attestation
       items:

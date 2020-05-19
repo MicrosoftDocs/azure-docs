@@ -1,5 +1,5 @@
 ---
-title: Payout summaries - Azure Marketplace
+title: Payout reports - Microsoft commercial marketplace
 description: The Payout reports show you details about the money you’ve earned with your offer, including amount of payment and when you’ll be paid.
 author: mingshen
 ms.author: mingshen
@@ -8,7 +8,6 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ---
-
 
 # Payout summaries
 

@@ -18,11 +18,11 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
+* Standard_DS15_v2 <sup>*</sup>
+* Standard_D15_v2 <sup>*</sup>
 * Standard_F72s_v2
 
-You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+<sup>*</sup>Isolation guarantee will retire by May 15, 2020
 
 ## Retiring D15_v2/DS15_v2 isolation on May 15, 2020
 **Update on February 10, 2020: The "isolation" retirement timeline has been extended to May 15, 2020"**
