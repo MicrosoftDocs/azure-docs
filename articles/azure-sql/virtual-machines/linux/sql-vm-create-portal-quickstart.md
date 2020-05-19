@@ -1,5 +1,5 @@
 ---
-title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
+title: "Quckstart: Create a Linux SQL Server VM in Azure"
 description: This tutorial shows how to create a Linux SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-linux
 author: MashaMSFT 
@@ -17,12 +17,11 @@ ms.reviewer: jroth
 # Provision a Linux SQL Server virtual machine in the Azure portal
 
 > [!div class="op_single_selector"]
-> * [Linux](provision-virtual-machine.md)
-> * [Windows](../windows/create-sql-vm-portal.md)
+> * [Linux](sql-vm-create-portal-quickstart.md)
+> * [Windows](../windows/sql-vm-create-portal-quickstart.md)
 
-In this quickstart tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed.
+In this quickstart tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed. You learn the following: 
 
-In this tutorial, you learn how to:
 
 * [Create a Linux SQL VM from the gallery](#create)
 * [Connect to the new VM with ssh](#connect)
@@ -43,13 +42,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Select **See all** next to the **Featured** heading.
 
-   ![See all VM images](./media/provision-virtual-machine/azure-compute-blade.png)
+   ![See all VM images](./media/sql-vm-create-portal-quickstart/azure-compute-blade.png)
 
 1. In the search box, type **SQL Server 2019**, and select **Enter** to start the search.
 
 1. Limit the search results by selecting **Operating system** > **Redhat**.
 
-    ![Search filter for SQL Server 2019 VM images](./media/provision-virtual-machine/searchfilter.png)
+    ![Search filter for SQL Server 2019 VM images](./media/sql-vm-create-portal-quickstart/searchfilter.png)
 
 1. Select a SQL Server 2019 Linux image from the search results. This tutorial uses **SQL Server 2019 on RHEL74**.
 
@@ -63,7 +62,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the **Basics** tab, select your **Subscription** and **Resource Group**. 
 
-    ![Basics window](./media/provision-virtual-machine/basics.png)
+    ![Basics window](./media/sql-vm-create-portal-quickstart/basics.png)
 
 1. In **Virtual machine name**, enter a name for your new Linux VM.
 1. Then, type or select the following values:
@@ -71,7 +70,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
    * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-     ![Choose a VM size](./media/provision-virtual-machine/vmsizes.png)
+     ![Choose a VM size](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
    > [!TIP]
    > For development and functional testing, use a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
@@ -85,7 +84,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **SSH public key**: Enter your RSA public key.
    * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, you will need to manually allow traffic to the default port (1433) used by Microsoft SQL Server for connections over the Internet after the virtual machine is created.
 
-     ![Inbound ports](./media/provision-virtual-machine/port-settings.png)
+     ![Inbound ports](./media/sql-vm-create-portal-quickstart/port-settings.png)
 
 1. Make any changes you want to the settings in the following additional tabs or keep the default settings.
     * **Disks**
@@ -107,7 +106,7 @@ ssh azureadmin@40.55.55.555
 
 You can find the IP address of your VM in the Azure portal.
 
-![IP address in Azure portal](./media/provision-virtual-machine/vmproperties.png)
+![IP address in Azure portal](./media/sql-vm-create-portal-quickstart/vmproperties.png)
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
@@ -168,11 +167,11 @@ If you need to remotely connect to SQL Server on the Azure VM, you must configur
 1. In the left navigation pane, under **Settings**, select **Networking**.
 1. In the Networking window, select **Add inbound port** under **Inbound Port Rules**.
 
-   ![Inbound port rules](./media/provision-virtual-machine/networking.png)
+   ![Inbound port rules](./media/sql-vm-create-portal-quickstart/networking.png)
 
 1. In the **Service** list, select **MS SQL**.
 
-    ![MS SQL security group rule](./media/provision-virtual-machine/sqlnsgrule.png)
+    ![MS SQL security group rule](./media/sql-vm-create-portal-quickstart/sqlnsgrule.png)
 
 1. Click **OK** to save the rule for your VM.
 
