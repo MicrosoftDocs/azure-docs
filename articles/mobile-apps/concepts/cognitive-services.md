@@ -3,7 +3,7 @@ title: Use artificial intelligence to solve business problems with Azure Cogniti
 description: Learn about the service to build intelligent mobile applications powered by artificial intelligence.
 author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

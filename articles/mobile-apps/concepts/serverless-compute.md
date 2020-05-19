@@ -2,7 +2,7 @@
 title: Build a serverless mobile application back end with Azure Functions and other services
 description: Learn about the compute services used to build a solid, serverless mobile application back end.
 author: codemillmatt
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 03/24/2020

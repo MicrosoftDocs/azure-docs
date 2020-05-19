@@ -3,7 +3,7 @@ title: Store, manage, and persist application data in the cloud with Visual Stud
 description: Learn about services such as Visual Studio App Center that let you store, manage, and persist mobile application data in the cloud.
 author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

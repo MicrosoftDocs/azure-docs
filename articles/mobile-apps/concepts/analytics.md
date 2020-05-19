@@ -3,7 +3,7 @@ title: Understand mobile application usage and user behavior with Visual Studio 
 description: Learn about the services like App Center that help you make smart business decisions by understanding how users use your mobile application.
 author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

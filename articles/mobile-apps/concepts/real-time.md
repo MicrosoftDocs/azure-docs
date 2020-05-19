@@ -3,7 +3,7 @@ title: Easily build real-time mobile applications with Azure SignalR Service
 description: Learn about the service that lets you build real-time applications by using Azure SignalR Service.
 author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
