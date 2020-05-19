@@ -1,13 +1,13 @@
 ---
-title: Search for resource schemas
+title: View resource properties
 description: Describes how to search for resource schemas.
 ms.topic: conceptual
 ms.date: 05/05/2020
 ---
 
-# Search for resource schemas
+# View resource properties
 
-When creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. You can use the following resource to find the information. The procedures in this article demonstrate how to find the property name of Azure storage account SKU type, and the allowed values of the SKU type.
+When creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. You can use the following resources to find the information. As an example, the procedures in this article demonstrate how to find the property name of Azure storage account SKU type, and the allowed values of the SKU type.
 
 - Template reference
 - REST API
@@ -16,25 +16,44 @@ When creating Resource Manager templates, you need to understand what resource t
 - Export
 - portal
 
+## Find the resource provider namespaces
+
+https://docs.microsoft.com/en-gb/azure/azure-resource-manager/management/azure-services-resource-providers
+
 ## Use template reference
 
 The Azure Resource Manager template reference is located at [https://docs.microsoft.com/azure/templates/](https://docs.microsoft.com/azure/templates/).
 
-To find  ...
+To find the allowed values for SKU name.
 
-1. From the left navigation, select **Storage**, and then select **All resources**. This page lists the reosurce types and the versions. The **storageAccounts** resource type has these version when the article is written.
+1. From the left navigation, select **Storage**, and then select **All resources**. This page lists the resource types and the versions. The **storageAccounts** resource type has these version when the article is written.
 
-    ![resource versions](./media/view-resource-properties/resource-manager-template-reference-resource-versions.png)
+    ![template reference resource versions](./media/view-resource-properties/resource-manager-template-reference-resource-versions.png)
 
 2. Select the latest version **2019-06-01**.  It is recommended to use the latest template schema.
 
-    In the **Template format** section, it shows the sku property name:
+    In the **Template format** section, it shows the sku property name and how to set it:
 
-    ![resource versions](./media/view-resource-properties/resource-manager-template-reference-storage-account-sku.png)
+    ![template reference storage account format](./media/view-resource-properties/resource-manager-template-reference-storage-account-sku.png)
+
+    Scroll down to see **Sku object**. The article shows the allowed values for SKU name:
+
+    ![template reference storage account sku values](./media/view-resource-properties/resource-manager-template-reference-storage-account-sku-values.png)
+
 
 ## REST API
 
+## Resource Explorer
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter **resource explorer**, and then select **Resource Explorer**.
+
+    ![Azure portal Resource Explorer](./media/view-resource-properties/azure-portal-resource-explorer.png)
+
+1. There are two nodes:
+
+    - Providers: view teh list of available resource providers
+    - Subscriptions: view
 
 ## Next steps
 
