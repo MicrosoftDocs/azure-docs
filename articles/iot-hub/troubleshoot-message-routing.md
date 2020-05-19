@@ -17,11 +17,11 @@ This article provides troubleshooting guidance for common issues and resolution 
 
 [IoT Hub metrics](iot-hub-metrics.md) lists all metrics that are enabled by default for your IoT Hub. We recommend you monitor metrics related to message routing and endpoints to give you an overview of the messages sent. Also turn on [diagnostic logs](iot-hub-monitor-resource-health.md) in Azure Monitor diagnostic settings, to track operations for **routes**. These diagnostic logs can be sent to Azure Monitor logs, Event Hubs, or Azure Storage for custom processing. Learn how to [set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).
 
-We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c#fallback-route) if you want to maintain messages that don't match the query on any of the routes. These can be retained in the [built-in endpoint](iot-hub-devguide-messages-read-builtin) for the amount of retention days configured. 
+We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) if you want to maintain messages that don't match the query on any of the routes. These can be retained in the [built-in endpoint](iot-hub-devguide-messages-read-builtin.md) for the amount of retention days configured. 
 
 ## Top issues
 
-[!INCLUDE [iot-hub-include-troubleshoot-routing-top.md](../../../includes/iot-hub-include-troubleshoot-routing-top.md)]
+[!INCLUDE [iot-hub-include-troubleshoot-routing-top.md](../../includes/iot-hub-include-troubleshoot-routing-top.md)]
 
 ### Messages from my devices are not being routed as expected
 
@@ -37,7 +37,7 @@ Observe the **routes** [diagnostic logs](iot-hub-monitor-resource-health.md#rout
 
 #### The health of the endpoint
 
-Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-iot-hub-routing).
+Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-IoT-Hub-routing-endpoints).
 
 ### I suddenly stopped getting data at the built-in Event Hubs endpoint
 
