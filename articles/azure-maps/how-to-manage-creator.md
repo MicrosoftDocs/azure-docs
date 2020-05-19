@@ -34,7 +34,7 @@ This article takes you through the steps to create and delete a Creator resource
 
 5. Review your settings and click **Create**.
 
-    ![Confirm Creator account settings page](./media/how-to-manage-creator/creator-create.PNG)
+    ![Confirm Creator account settings page](./media/how-to-manage-creator/creator-create-dialog.png)
 
 6. When the deployment completes, you'll see a page with a success or a failure message.
 
