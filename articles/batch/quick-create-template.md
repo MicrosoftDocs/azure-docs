@@ -37,19 +37,19 @@ Two Azure resources are defined in the template:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Batch account and a storage account.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 1. Select or enter the following values.
 
-![Resource Manager template, Batch account creation, deploy portal](media/quick-create-template/batch-template.png)
+   ![Resource Manager template, Batch account creation, deploy portal](media/quick-create-template/batch-template.png)
 
-- **Subscription**: select an Azure subscription.
-- **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-- **Location**: select a location. For example, **Central US**.
-- **Batch Account Name**: Leave the default value.
-- **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
-- **Location**: Leave the default so that the resources will be in the same location as your resource group.
-- I agree to the terms and conditions state above: **Select**.
+   - **Subscription**: select an Azure subscription.
+   - **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
+   - **Location**: select a location. For example, **Central US**.
+   - **Batch Account Name**: Leave the default value.
+   - **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
+   - **Location**: Leave the default so that the resources will be in the same location as your resource group.
+   - I agree to the terms and conditions state above: **Select**.
 
 1. Select **Purchase**.
 
