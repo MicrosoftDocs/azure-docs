@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/19/2020
 ms.author: aahi
 ---
 
@@ -43,7 +43,7 @@ The following properties in the JSON response have been added:
 The names of the following properties in the JSON response have been changed, where applicable:
 
 * `score` has been renamed to `confidenceScore`
-    * `confidenceScores` are reported to two decimal points. 
+    * `confidenceScore` has two decimal points of precision. 
 * `type` has been renamed to `category`
 * `subtype` has been renamed to `subcategory`
 
@@ -53,8 +53,8 @@ The names of the following properties in the JSON response have been changed, wh
 > [Learn more about Text Analytics API v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
 ### Text Analytics API v3.1 Public Preview
-   * New feature - Opinion Mining
-   * New domain filter for personal (`PII`) and protected health (`PHI`) information.
+   * New sentiment analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
+   * New [NER domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for personal (`PII`) and protected health (`PHI`) information.
 
 ## February 2020
 
