@@ -2,7 +2,7 @@
 title: Features - LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/14/2020
 ---
 # Machine-learning (ML) features
 
@@ -82,9 +82,21 @@ For example, if n shipping address entity contained a street address subentity, 
     * Country (subentity)
     * Postal code (subentity)
 
+## Nested subentities with features
+
+A machine learned subentity indicates a concept is present to the parent entity, whether that parent is another subentity or the top entity. The value of the subentity acts as a feature to its parent. 
+
+A subentity can have both a phrase list as a feature as well as a model (another entity) as a feature.
+
+When the subentity has a phrase list, this will boost the vocabulary of the concept but won't add any information to the JSON response of the prediction.
+
+When the subentity has a feature of another entity, the JSON response includes the extracted data of that other entity.
+
 ## Required features
 
 A required feature has to be found in order for the model to be returned from the prediction endpoint. Use a required feature when you know your incoming data must match the feature.
+
+If the utterance text doesn't match the required feature, it will not be extracted.
 
 **A required feature uses a non-machine learned entity**:
 * Regular expression entity
