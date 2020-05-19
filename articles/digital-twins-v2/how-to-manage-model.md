@@ -282,7 +282,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 //...
 ```
 
-`DecommissionModel()` can take one or more URNs, so developers can process one or multiple models in one statement. 
+`DecommissionModel()` can take one or more IDs, so developers can process one or multiple models in one statement. 
 
 A model's decommissioning status is also included in the `ModelData` records returned by the model retrieval APIs.
 
