@@ -34,7 +34,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabic (UAE)                      | Yes       | No                                                |
 | `ar-BH` | Arabic (Bahrain), modern standard | Yes       | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Yes       | Language model                                    |
+| `ar-IL` | Arabic (Israel)                   | Yes       | No                                                |
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
+| `ar-PS` | Arabic (Palestine)                | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
 | `ar-SY` | Arabic (Syria)                    | Yes       | Language model                                    |
