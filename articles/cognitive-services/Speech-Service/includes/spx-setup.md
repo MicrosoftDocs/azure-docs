@@ -34,7 +34,7 @@ Follow these steps to install the SPX tool on Linux:
    1. `sudo chmod +r+x spx`
    2. `PATH=.:$PATH`
 
-In the terminal, change directory to this location, and then type `spx` to see help for the SPX tool.
+Type `spx` to see help for the SPX tool.
 
 ***
 
