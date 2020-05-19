@@ -19,22 +19,23 @@ Follow these steps to install the SPX tool on Windows:
 
 1. Install either [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) or [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Download the SPX Tool [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471` for .NET Framework 4.7, for example).
+3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU).
 
 In the command prompt, change directory to this location, and then type `spx` to see help for the SPX tool.
 
 #### [Linux Install](#tab/linuxinstall)
 
-Follow these steps to install the SPX tool on Linux: 
+Follow these steps to install the SPX tool on Linux on an x64 CPU:
 
 1. Install [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 2. Download the SPX Tool [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need.
+3. Go to the root directory `spx-zips` that you extracted from the download, and extract `spx-netcore-30-linux-x64`.
 4. In a terminal, change directory to the location with the spx binary file, and type these commands:
    1. `sudo chmod +r+x spx`
    2. `PATH=.:$PATH`
 
 Type `spx` to see help for the SPX tool.
+
 
 ***
 
