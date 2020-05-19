@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -63,10 +63,54 @@ Evaluations of assigned policies and initiatives happen as the result of various
 
 ### On-demand evaluation scan
 
-An evaluation scan for a subscription or a resource group can be started with a call to the REST
-API. This scan is an asynchronous process. As such, the REST endpoint to start the scan doesn't wait
-until the scan is complete to respond. Instead, it provides a URI to query the status of the
-requested evaluation.
+An evaluation scan for a subscription or a resource group can be started with Azure PowerShell or a
+call to the REST API. This scan is an asynchronous process.
+
+#### On-demand evaluation scan - Azure PowerShell
+
+The compliance scan is started with the
+[Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan)
+cmdlet.
+
+By default, `Start-AzPolicyComplianceScan` starts an evaluation for all resources in the current
+subscription. To start an evaluation on a specific resource group, use the **ResourceGroupName**
+parameter. The following example starts a compliance scan in the current subscription for the _MyRG_
+resource group:
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+You can have PowerShell wait for the asynchronous call to complete before providing the results
+output or have it run in the background as a
+[job](/powershell/module/microsoft.powershell.core/about/about_jobs). To use a PowerShell job to run
+the compliance scan in the background, use the **AsJob** parameter and set the value to an object,
+such as `$job` in this example:
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+You can check on the status of the job by checking on the `$job` object. The job is of the type
+`Microsoft.Azure.Commands.Common.AzureLongRunningJob`. Use `Get-Member` on the `$job` object to see
+available properties and methods.
+
+While the compliance scan is running, checking the `$job` object outputs results such as these:
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+When the compliance scan completes, the **State** property changes to _Completed_.
+
+#### On-demand evaluation scan - REST
+
+As an asynchronous process, the REST endpoint to start the scan doesn't wait until the scan is
+complete to respond. Instead, it provides a URI to query the status of the requested evaluation.
 
 In each REST API URI, there are variables that are used that you need to replace with your own values:
 
@@ -79,20 +123,20 @@ scope with a REST API **POST** command using the following URI structures:
 - Subscription
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Resource group
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 The call returns a **202 Accepted** status. Included in the response header is a **Location**
 property with the following format:
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
 `{ResourceContainerGUID}` is statically generated for the scope requested. If a scope is already
@@ -203,8 +247,8 @@ additional context and information about those events.
 
 ### Understand non-compliance
 
-When a resources is determined to be **non-compliant**, there are many possible reasons. To
-determine the reason a resource is **non-compliant** or to find the change responsible, see
+When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
+the reason a resource is **non-compliant** or to find the change responsible, see
 [Determine non-compliance](./determine-non-compliance.md).
 
 ## Command line
