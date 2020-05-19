@@ -12,7 +12,7 @@ The SPX tool can recognize speech in many file formats and natural languages. Fo
 a WAV file (16kHz or 8kHz, 16-bit, and mono PCM) that contains English speech.
 
 1. Download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a>.
-2. Copy the `whatstheweatherlike.wav` file to the same folder as the spx.exe binary file.
+2. Copy the `whatstheweatherlike.wav` file to the same directory as the spx tool binary file.
 
 ## Run the SPX tool
 

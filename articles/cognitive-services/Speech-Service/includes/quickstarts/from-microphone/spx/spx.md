@@ -15,7 +15,7 @@ while others require configuration of a Bluetooth device.
 
 Now you're ready to run the SPX tool to recognize speech from your microphone.
 
-1. **Start your app** - From the command line, change to the directory that contains spx.exe, and type:
+1. **Start your app** - From the command line, change to the directory that contains the SPX tool binary file, and type:
     ```bash
     spx recognize --microphone
     ```

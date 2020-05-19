@@ -12,7 +12,7 @@ ms.author: v-demjoh
 
 Now you're ready to run the SPX tool to synthesize speech from text.
 
-From the command line, change to the directory that contains spx.exe, and type:
+From the command line, change to the directory that contains the SPX tool binary file, and type:
 
 ```bash
 spx synthesize --text "The speech synthesizer greets you!"
