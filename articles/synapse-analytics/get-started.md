@@ -160,44 +160,27 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
   
   
 
-## Orchestrate using a pipeline
+## Use pipeline to orchestrate activities
 
-After ingesting, exploring, analyzing, and serving your data, you can schedule these activities to automatically run using pipeline orchestration.
+You can orchestrate a wide variety of tasks in Azure Synapse. In this section, you'll see how easy it is.
 
-   1. Go to **Develop** and find the Spark notebook you used to analyze your data. 
-   2. Open your **Spark notebook**.
-   3. Click the **Add to pipeline** button at the upper right of the view.   
-   4. Select **Existing pipeline**. All of your workspace's pipelines will be listed.
-   5. Select the pipeline you created during the **data ingestion step**.   
-   6. Click **Add** to open an authoring view of that pipeline, with the Spark notebook activity added.
-   7. Click and drag the **green box** next to the **Copy activity**, and connect it to the **new Spark notebook activity**.
-   8. Publish your modified pipeline by clicking **Publish all** in the upper left of the view.   
-   9. To manually trigger the pipeline, click **Add trigger**, then **Trigger now**.
-   
-         Your pipeline is now running the data ingestion step, followed by the Spark notebook analysis step.
-         
-   10. Click **Add trigger**, **New/Edit**.   
-   11. Click **Choose trigger...**, then **New**.
-   12. For **Recurrence**, enter **Every 1 hour**. For **End on**, enter a date-time soon in the future to make sure this tutorial pipeline doesn't continue running.
-   
-   13. Click **OK**, then **OK** to go back to the pipeline authoring view.
-   
-   14. Publish your new trigger by clicking **Publish all** in the upper left of the view.
-   
-          Your pipeline will now run every week until your chosen end date.
+* In Synapse Studio, navigate to the Orchestrate bug
+* Click **+** then select **Pipeline**. A new pipeline will be created,
+* Navigate to the Develop hub and find any  of the notebooks you previously created
+* Drag that notebook into the pipeline
+* In the pipeline click **Add trigger > New/edit**
+* In** Choose trigger** click **New**, and then in Recurrence set the trigger to run every 1 hour.
+* Click **OK**
+* Click **Publish All** and the pipeline will run every hour
+* If you want to make the pipeline run now without waiting for the next hour click **Add trigger > New/edit**
 
-## Monitor
+## Monitor activites
 
-After setting up a pipeline that lets you ingest and analyze your data automatically, you can monitor the progress and history of your pipeline runs.
+* In Synapse Studio, Navigate to the monitor hub.
+* In this location you can see a history of all the activites taking place in the workspace and which ones are active now.
+* Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
 
-   1. Click **Monitor** and open **Pipeline runs**.
-   
-   2. You should see your tutorial pipeline's runs listed. If you see other more recent pipeline runs instead, you can **filter** the list by pipeline name to just see runs of your pipeline.
-   
-   3. Open **the most recent run of your pipeline** to see the details of when each activity ran within your pipeline. The **pipeline run details view** will open.
-   
-       - **New SQL script - Select TOP 100**: it lets you use SQL on-demand to explore the file without defining schema or table (it is in Parquet)
-       - **New notebook**: it will open a notebook in PySpark to load that file into a dataframe
+
 
 
 ### Visualize with Power BI
