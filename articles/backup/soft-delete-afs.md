@@ -9,7 +9,7 @@ ms.date: 02/02/2020
 
 To provide protection against cyberattacks or accidental deletion, soft delete is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for 14 additional days, allowing the recovery of file shares with no data loss.  
 
-Soft delete is supported only for standard and premium storage accounts in [these regions](afs-support-matrix.md). It is a platform feature of Azure Files that is currently only available for file shares in a storage account with at least one protected file share by Azure Backup but will be available publicly shortly.
+Soft delete is supported only for standard and premium storage accounts in [these regions](azure-file-share-support-matrix.md). It is a platform feature of Azure Files that is currently only available for file shares in a storage account with at least one protected file share by Azure Backup but will be available publicly shortly.
 
 The following flow chart shows the different steps and states of a backup item when Soft Delete is enabled for file shares in a storage account:
 
