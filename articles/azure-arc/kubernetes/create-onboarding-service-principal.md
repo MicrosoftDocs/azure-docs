@@ -15,12 +15,12 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 ## Overview
 
-When a cluster is onboarded to Azure, the agents running in your cluster must authenticate to Azure Resource Manager as part of registration. The `connectedk8s` CLI extension has automated Service Principal creation. However, there may be a few scenarios where the CLI automation does not work:
+When a cluster is onboarded to Azure, the agents running in your cluster must authenticate to Azure Resource Manager as part of registration. The `connectedk8s` Azure CLI extension has automated Service Principal creation. However, there may be a few scenarios where the CLI automation does not work:
 
 * Your organization generally restricts the creation of Service Principals
 * The user onboarding the cluster does not have sufficient permissions to create Service Principals
 
-Instead, let's create the Service Principal out of band, and then pass the principal to the CLI extension.
+Instead, let's create the Service Principal out of band, and then pass the principal to the Azure CLI extension.
 
 ## Create a new Service Principal
 
@@ -77,7 +77,7 @@ az role assignment create \
 }
 ```
 
-## Use Service Principal with CLI
+## Use Service Principal with the Azure CLI
 
 Reference the newly created Service Principal:
 
