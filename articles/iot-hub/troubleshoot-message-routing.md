@@ -24,7 +24,7 @@ We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c.md
 The following are the most common issues observed with message routing. To start troubleshooting, click on the issue for detailed steps.
 
 * [Messages from my devices are not being routed as expected](#messages-from-my-devices-are-not-being-routed-as-expected)
-* [I suddenly stopped getting data at the built-in Event Hubs endpoint](#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
+* [I suddenly stopped getting messages at the built-in Event Hubs endpoint](#i-suddenly-stopped-getting-messages-at-the-built-in-endpoint)
 
 ### Messages from my devices are not being routed as expected
 
@@ -39,7 +39,7 @@ Observe the **routes** [diagnostic logs](iot-hub-monitor-resource-health.md#rout
 #### The health of the endpoint
 Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-iot-hub-routing-endpoints).
 
-### I suddenly stopped getting data at the built-in Event Hubs endpoint
+### I suddenly stopped getting messages at the built-in endpoint
 
 To troubleshoot this issue, analyze the following.
 
