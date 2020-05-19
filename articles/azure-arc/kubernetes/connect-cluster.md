@@ -171,13 +171,23 @@ kubectl -n azure-arc get deploy,po
 **Output:**
 
 ```console
-NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.extensions/config-agent         1/1     1            1           5h43m
-deployment.extensions/controller-manager   1/1     1            1           5h43m
+NAME										READY	UP-TO-DATE AVAILABLE AGE
+deployment.apps/cluster-metadata-operator	1/1		1			1		 16h
+deployment.apps/clusteridentityoperator		1/1		1			1	     16h
+deployment.apps/config-agent				1/1		1			1		 16h
+deployment.apps/controller-manager			1/1		1			1		 16h
+deployment.apps/flux-logs-agent				1/1		1			1		 16h
+deployment.apps/metrics-agent			    1/1     1           1        16h
+deployment.apps/resource-sync-agent			1/1		1			1		 16h
 
-NAME                                      READY   STATUS    RESTARTS   AGE
-pod/config-agent-c74f6695f-89hp8          1/1     Running   0          5h43m
-pod/controller-manager-7cf48dc76b-m9g74   2/2     Running   0          5h43m
+NAME											READY	STATUS	 RESTART AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2		Running  0		 16h
+pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
+pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
+pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
+pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
+pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
+pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
 ## Azure Arc agents for Kubernetes

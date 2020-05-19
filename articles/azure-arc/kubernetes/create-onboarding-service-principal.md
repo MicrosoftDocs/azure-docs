@@ -79,15 +79,13 @@ az role assignment create \
 
 ## Use Service Principal with CLI
 
-Reference the newly created Service Principal by passing `--onboarding-spn-id` and `--onboarding-spn-secret` arguments:
+Reference the newly created Service Principal:
 
 ```console
-az connectedk8s connect \
-    --name AzureArcTest1 \
-    --resource-group AzureArcTest \
-    --onboarding-spn-id 22cc2695-54b9-49c1-9a73-2269592103d8 \
-    --onboarding-spn-secret 09d3a928-b223-4dfe-80e8-fed13baa3b3
+az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
+az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
+
 ## Next steps
 
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
