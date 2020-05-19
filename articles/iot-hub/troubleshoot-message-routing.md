@@ -24,7 +24,7 @@ We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c.md
 The following are the most common issues observed with message routing. To start troubleshooting, click on the issue for detailed steps.
 
 * [Messages from my devices are not being routed as expected](#messages-from-my-devices-are-not-being-routed-as-expected)
-* [I suddenly stopped getting data at the built-in Event Hubs endpoint(#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
+* [I suddenly stopped getting data at the built-in Event Hubs endpoint](#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
 
 ### Messages from my devices are not being routed as expected
 
@@ -33,7 +33,7 @@ To troubleshoot this issue, analyze the following.
 #### The routing metrics for this endpoint
 All the [IoT Hub metrics](iot-hub-devguide-endpoints.md) related to routing are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](iot-hub-metrics.md#dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
 
-#### The diagnostic logs for any other operational issues 
+#### The diagnostic logs for any operational issues 
 Observe the **routes** [diagnostic logs](iot-hub-monitor-resource-health.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error codes](#common-error-codes) of 403004 indicates the endpoint ran out of space.
 
 #### The health of the endpoint
@@ -43,10 +43,10 @@ Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothu
 
 To troubleshoot this issue, analyze the following.
 
-#### New route was created
+#### Was a new route created?
 Once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. To ensure messages continues to flow to the built-in-endpoint if a new route is added, configure a route to the *events* endpoint. 
 
-#### Fallback route was disabled
+#### Was the Fallback route disabled?
 The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
 
 You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.

@@ -141,8 +141,8 @@ This category does not include specific errors about the messages themselves (li
 
 Here are more details on routing diagnostic logs:
 
-[List of routing diagnostic log error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
-[List of routing diagnostic logs operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
+* [List of routing diagnostic log error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [List of routing diagnostic logs operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### Device telemetry
 
