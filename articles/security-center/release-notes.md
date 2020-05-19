@@ -107,7 +107,7 @@ The three recommendations that moved are:
 - **External accounts with read permissions should be removed from your subscription** (originally in the "Manage access and permissions" control)
 - **A maximum of 3 owners should be designated for your subscription** (originally in the "Manage access and permissions" control)
 
-The two new recommendations added the control are:
+The two new recommendations added to the control are:
 
 - **[Preview] Guest configuration agent should be installed** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
 
