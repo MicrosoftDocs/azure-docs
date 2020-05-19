@@ -17,7 +17,7 @@ IoT solutions that combine video analytics with signals from other IoT sensors a
 
 With Live Video Analytics on IoT Edge, you can continue to use your [CCTV cameras](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) with your existing [video management systems (VMS)](https://en.wikipedia.org/wiki/Video_management_system) and build video analytics apps independently. Live Video Analytics on IoT Edge can be used in conjunction with computer vision SDKs and toolkits such as [Nvidia DeepStream](https://developer.nvidia.com/deepstream-sdk), [Intel OpenVINO](https://software.intel.com/en-us/openvino-toolkit), and others to build cutting edge hardware accelerated Live Video Analytics enabled IoT solutions. The diagram below illustrates this.
 
-![Develop IoT solutions with Live Video Analytics on IoT Edge](./media/overview/lva-product-diagram.png)
+![Develop IoT solutions with Live Video Analytics on IoT Edge](./media/overview/product-diagram.svg)
 
 ## Supported environments
 
