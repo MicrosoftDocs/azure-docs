@@ -236,19 +236,11 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * The Navigator dialog will open. When it does check the **PassengerCountStats** table and click **Load**
 * A **Connection settings** dialog will appear. Select **DirectQuery** and click **OK**
 * Click on the **Report** button on the left
-* In **Visualizations**, click **Line chart**. This will cause a new table to appear in the report
-* Resize the line chart to make it bigger
+* Add **Line chart** to your report
 * Drag the **PasssengerCount** column to **Visualizations > Axis**
 * Drag the **SumTripDistance** and **AvgTripDistance** columns to **Visualizations > Values**
-* In the **Home** tab, click **Publish** and savewith this filename `PassengerAnalysis.pbix` and publish it to your PowerBI workspace
-* Refresh **Power BI reports** and yous should see a the report you previously created called **taxi**
-* At the top click **Publish**
-    * Select the PowerBI workspace to publish to
-    * If you are asked for a filename pick nyctaxi1
-* Once publishiing is finished switch back to Synapse Studio and click **Close and refresh**.
-* Under **Power BI datasets**, Now you should see a new dataset called **PassengerAnalysis**.
-* Under **Power BI datasets**, Now you should see a new dataset called **PassengerAnalysis**.
-* CLick on the report called **PassengerAnalysis** it won't show anything because you still need to configure authentication for the dataset
+* In the **Home** tab, click **Publish** and save with this filename `PassengerAnalysis.pbix` and select your PowerBI workspace
+* Wait for publishing to finish
 
 ### Configure authentitication for your dataset
 * Open https://powerbi.microsoft.com and **Sign in**
@@ -258,7 +250,12 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * In **Data source credentials** set the Authentication method to **OAuth2** and click **Sign in**
 
 ### Edit a report report in Synapse Studio
-* In Synapse, navigate to **Develop > PowerBI > Your workspace name > Power BI reports**
+* Go back to  Synapse Studio and click **Close and refresh** now you shold see
+    * Under **Power BI datasets**, a new dataset called **PassengerAnalysis**.
+    * Under **Power BI datasets**, a new report called **PassengerAnalysis**.
+* CLick on the **PassengerAnalysis** report. 
+    * It won't show anything because you still need to configure authentication for the dataset
+* In SynapseStudio, navigate to **Develop > PowerBI > Your workspace name > Power BI reports**
 * Close any windows showing the PowerBI report
 * Refresh the **Power BI reports** node
 * Click on the report and now you can edit the report directly within Synapse Studio
