@@ -110,8 +110,8 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
-- 05/19/2020: Add important message not to use root volume group when using LVM for HANA related volumes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-- 05/19/2020: Add new supported OS for HANA Large Instance Type II in [Compatible Operating Systems for HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
+- 05/19/2020: Add important message not to use root volume group when using LVM for HANA related volumes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- 05/19/2020: Add new supported OS for HANA Large Instance Type II in [Compatible Operating Systems for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
 - 05/12/2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) to update links and add information for 3rd party firewall configuration
 - 05/11/2020: Change in [High availability of SAP HANA on Azure VMs on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) to set resource stickiness to 0 for the netcat resource, as that leads to more streamlined failover 
 - 05/05/2020: Changes in [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) to express that Gen2 deployments are available for Mv1 VM family
