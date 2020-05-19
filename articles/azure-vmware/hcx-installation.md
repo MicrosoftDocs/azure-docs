@@ -2,12 +2,13 @@
 title: Install Hybrid Cloud Extension (HCX)
 description: Set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 05/19/2020
 ---
 
 # Install HCX for Azure VMWare Solution
 
-In this article, we go through procedures to set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. The HCX solution supports up to three external enterprise sites, where each external site must have its own HCX Enterprise activation (HEA) key in order to migrate to the AVS Private Cloud target. Hot/cold vMotion migrations for VMs to and from on-premises environments and your AVS private cloud are enabled by the solution.
+In this article, we go through procedures to set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX Advanced (default installation) supports up to three external sites, where each external site requires an HCX Enterprise manager or connector to be installed and activated.
+HCX enables migration of your VMware workloads to the cloud and or other connected sites through various built-in HCX supported migration types. If more than three sites are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
 
@@ -27,7 +28,7 @@ After completing setup, recommended next steps are provided.
 * Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) including the HCX user guide
 * Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
-* Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-1.html) on HCX. 
+* Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Order an AVS HCX Enterprise activation through AVS support channels.
 
 Sizing workloads against compute and storage resources is an essential planning step when preparing to use the AVS Private Cloud HCX solution. This sizing step should be addressed as part of initial private cloud environment planning. 
@@ -47,13 +48,15 @@ Infrastructure components must be running the required minimum version.
 1. Global reach should be configured between on-premises and AVS SDDC ER
     circuits.
 
-1. All required ports should be open between on-premises and AVS SDDC (see VMWare HCX documentation).
+1. All required ports should be open between on-premises and AVS SDDC (see [VMWare HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
 1. One IP address for HCX Manager at on-premises and a minimum of two IP addresses
     for Interconnect (IX) and Network Extension (NE) appliance.
 
 1. On-premises HCX IX and NE appliances should be able to reach vCenter
     and ESXi infrastructure.
+
+1. To deploy the WAN Interconnect appliance, in addition to the /22 CIDR network address block used for SDDC deployment in the Azure portal, HCX requires a /29 CIDR block. You should factor this into your network planning.
 
 ## Deploy the VMware HCX OVA on-premises
 
