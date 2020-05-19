@@ -1,5 +1,5 @@
 ---
-title: Getting started tutorial 
+title: Getting started with Azure Synapse Analytics 
 description: Steps by steps to quickly understand basic concepts in Azure Synapse
 services: synapse-analytics
 author: julieMSFT
@@ -11,36 +11,32 @@ ms.topic: quickstart
 ms.date: 04/15/2020 
 ---
 
-# Getting Started Tutorial with Azure Synapse Analytics
+# Getting Started with Azure Synapse Analytics
+This tutorial guides leads developers through all the basic steps to needed to use Azure Synapse Analytics.
 
-We recommend this tutorial for anyone starting with Azure Synapse Analytics. It guides, beginners to experts, through all the necessary steps to understand basic but core principles.
+## Create a Synapse workspace
+First, you need a Synapse workspace. Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md) to create a workspace.
 
-![Action cards](./media/get-started-synapse-analytics/action-cards.png)
+## Launch Synapse Studio
+You can find Synapse Studio in one of two ways:
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the Overview section click
+### Provisioning a SQL pool
 
-## Overview
-
-This tutorial uses a stripped down version of the New-York City cabs (Green and Yellow cabs, For Hire Vehicles) and holiday data. 
-
-## Create and configure a workspace
-
-The first step to use Synapse Analytics is to provision a workspace. Here is an overview of the steps to follow in the Azure portal:
+Here are the steps to provision a SQL pool using the Azure portal:
 
 1. Navigate to the Azure portal.
-2. Search for **Synapse workspaces** and click on the matching entry in the results.
-3. Click on **+ Add**.
-4. Enter your subscription and resource group details.
-5. Enter a valid workspace name and region for the workspace.
-6. Select an Azure Data Lake Storage Gen2 account to be used as the workspace primary storage.
-7. Select the filesystem that the workspace will use as its filesystem -- we recommend creating a container dedicated to be used as a file system for the workspace.
-8. [Optional] Change the default SQL admin username and password (the password can be changed later).
-9. [Optional] Change the default connections allowed settings.
-10. Click on **Review + create** and then on **Create**.
+2. Navigate to the workspace searching its name, or by navigating to the **Synapse workspaces** service, and selecting the workspace from the list.
+3. Click on **+ New SQL pool**.
+4. Enter a valid name for the SQL pool.
+5. Select a performance level for the SQL pool.
+6. Click on **Next: Additional settings**.
+7. Select a data source to use for the SQL pool database -- none for an empty database or restore point of a backup from an existing database.
+8. [Optional] Change the default collation of the database.
+9. Click on **Review + create**.
+10. If everything looks good, click on **Create**
 
-The workspace provisioning process will kick off; notifications will indicate the progress and result from the Synapse workspace deployment.
+Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
 
-### Create a Synapse workspace using other methods
-
-Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md)
 
 ## Getting started Hub
 
@@ -65,23 +61,6 @@ You can run some SQL Scripts using the New-York City cabs sample data loaded int
 ## Create analytics pools
 
 Once the Synapse workspace is deployed, SQL pools and Apache Spark pools can be provisioned to use SQL or open-source analytics on your data. Here are the steps to provision them from the Azure portal:
-
-### Provisioning a SQL pool
-
-Here are the steps to provision a SQL pool using the Azure portal:
-
-1. Navigate to the Azure portal.
-2. Navigate to the workspace searching its name, or by navigating to the **Synapse workspaces** service, and selecting the workspace from the list.
-3. Click on **+ New SQL pool**.
-4. Enter a valid name for the SQL pool.
-5. Select a performance level for the SQL pool.
-6. Click on **Next: Additional settings**.
-7. Select a data source to use for the SQL pool database -- none for an empty database or restore point of a backup from an existing database.
-8. [Optional] Change the default collation of the database.
-9. Click on **Review + create**.
-10. If everything looks good, click on **Create**
-
-Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
 
 ### Provisioning an Apache Spark pool
 
