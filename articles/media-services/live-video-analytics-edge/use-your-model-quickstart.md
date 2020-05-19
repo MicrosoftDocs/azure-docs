@@ -132,9 +132,9 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
     1. The Live Video Analytics module, named as “lvaEdge”
     1. A module named “rtspsim” which simulates an RTSP Server, acting as the source of a live video feed
-    1. A module named “yolov3” which as the name suggests is the Yolo v3 object detection model that applies computer vision to the images and return multiple classes of object types
+    1. A module named “yolov3” which as the name suggests is the YOLOv3 object detection model that applies computer vision to the images and return multiple classes of object types
  
-        ![yolov3](./media/quickstarts/yolov3.png)
+        ![YOLOv3 object detection model](./media/quickstarts/yolov3.png)
 
 ### Prepare for monitoring events
 
