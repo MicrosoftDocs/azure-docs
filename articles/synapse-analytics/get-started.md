@@ -72,7 +72,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * This query shows how the total trip distances and average trip distance relate to the number of passengers
 * In the SQL scripts, result window select **Chart** to see a visualization of the results as a line chart
 
-## Load the NYC data into a Spar Database
+## Load the NYC data into a Spark Database
 
 * In Synapse Studio, navigate to the **Develop hub"
 * Click **+** and select **Notebook**
@@ -141,6 +141,24 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
     sns.barplot(x="PassengerCount", y="AvgTripDistance", data = df)
     plt.show()
     ```
+ 
+## Using SQL-on demand with Spark Databases
+
+* Tables in Spark databases are automatically visible and queryable by SQL on-demand
+* In Synapse Studio navigate to the Develop hub and create a new SQL script
+* Set **Connect to** to **SQL on-demand** 
+* Paste the following text into the script
+    ```
+    SELECT TOP 10 *
+    FROM nyctaxi.dbo.trip
+    ```
+* Click **Run**
+* NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run
+  your queries. Every subsequent query will not require this time.
+  
+ 
+
+
 
 
 
@@ -183,183 +201,6 @@ After setting up a pipeline that lets you ingest and analyze your data automatic
        - **New SQL script - Select TOP 100**: it lets you use SQL on-demand to explore the file without defining schema or table (it is in Parquet)
        - **New notebook**: it will open a notebook in PySpark to load that file into a dataframe
 
-
-![Spark results in a chart](./media/get-started-synapse-analytics/spark-chart-results.png)
-
-This chart is interesting but lets say you really wanted to look at the average trip distance by passenger count, for that you need to change the field used on the y-axis and should probably change the chart type. To do this select the ***View options*** pane (small rectangle in red in the screenshot). The editor panel should then appear and changes can be made, in this case change the selected field in the ***Y axis column*** to be "AvgTripDistance", change the ***Chart type*** to bar chart and then press ***Apply***.
-
-To get a chart like this;
-
-```python
-%%pyspark
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-
-sns.set(style = "whitegrid")
-
-prepped_pdf = prepped_df.toPandas()
-sns.barplot(x="PassengerCount", y="AvgTripDistance", data = prepped_pdf)
-plt.show()
-```
-
-This results in a chart like the following;
-![Spark results in a chart](./media/get-started-synapse-analytics/spark-seaborn.png)
-
-Finally if you want to understand more details about what happened when you were running the Spark SQL and PySpark code select the monitoring view or the Spark UI view highlighted in red.
-
-### Analyze with SQL script
-These same Parquet files can be analyzed using T-SQL with the Synapse SQL Serverless preview. Use the same SQL script that you created in the **Discover and Explore Data** section of this article. You can now extend that query to some more interesting like below.
-
-```sql
-SELECT
-    DateId
-    ,PickupGeographyID
-    ,sum(PassengerCount) as TotalPassengerCount
-    ,sum(TotalAmount) as TotalFareAmount
-    ,count(*) as NumberOfTrips
-FROM
-    OPENROWSET(
-        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
-        FORMAT='PARQUET'
-    ) AS [t]
-WHERE
-    TripDistanceMiles > 0 AND PassengerCount > 0
-GROUP BY
-    DateId
-    ,PickupGeographyID
-ORDER BY
-    DateId
-```
-
-If you are a user of T-SQL, this syntax will be identical to what you are used to using. This query selects three aggregations from the **Trip** Parquet file and groups them by DateId and PickupGeographyId. After running the query, you should see and output like this;
-![Simple aggregation query](./media/get-started-synapse-analytics/sql-simple-agg-output.png)
-
-You can make the results easier to read, by replacing DateId and PickupGeographyId with the actual date and pickup city. This values can be obtained by joining to the **Date** and **Geography** files. 
-
-```sql
-SELECT
-    d.[Date]
-    ,g.City
-    ,sum(PassengerCount) as TotalPassengerCount
-    ,sum(TotalAmount) as TotalFareAmount
-    ,count(*) as NumberOfTrips
-FROM
-    OPENROWSET(
-        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
-        FORMAT='PARQUET'
-    ) AS [t]
-        JOIN OPENROWSET(
-            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
-            FORMAT='PARQUET'
-        ) AS [d]
-            ON t.DateId = d.dateId
-        JOIN OPENROWSET(
-            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
-            FORMAT='PARQUET'
-        ) AS [g]
-            ON t.PickupGeographyID = g.GeographyId
-WHERE
-    TripDistanceMiles > 0 AND PassengerCount > 0
-GROUP BY
-    d.[Date]
-    ,g.City
-ORDER BY
-    d.[Date]
-    ,g.City
-
-```
-After running this query, your output should look like this;
-![Aggregation query with joins](./media/get-started-synapse-analytics/sql-joins-agg-output.png)
-
-As you can see, multiple Parquet files can be joined almost as if they were actual SQL views. If you find the **OPENROWSET** syntax a little harder to user to use than regular SQL views, you can solve this by creating a SQL database that contains SQL views.
-## Create a database with SQL on-demand.
-
-On the **Develop** hub click the **+** to add a new SQL **script**.
-![Create new SQL script](./media/get-started-synapse-analytics/sql-new-script.png)
-
-To create the database run the following script;
-
-```sql
-CREATE DATABASE NYCTaxiVirtual;
-```
-
-Now, if you flip to the data hub, you will see the newly created database.
-![See created database](./media/get-started-synapse-analytics/sql-data-see-db.png)
-
-## Create SQL views
-
-Create a new SQL script which uses the NYCTaxiVirtual database by right clicking on the database name and selecting **New SQL script**. 
-
-![Create new SQL script from database](./media/get-started-synapse-analytics/sql-new-script-from-db.png)
-
-Run SQL statements like the following for each view that you wish to create.
-
-```sql
-CREATE VIEW Trips AS
-SELECT
-    *
-FROM
-    OPENROWSET(
-        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
-        FORMAT='PARQUET'
-    ) AS [r];
-```
-
-```sql
-CREATE VIEW dimDate AS
-SELECT
-     *
-FROM
-    OPENROWSET(
-        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
-        FORMAT='PARQUET'
-    ) AS [r];
-```
-
-```sql
-CREATE VIEW dimGeography AS
-SELECT
-     *
-FROM
-    OPENROWSET(
-        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
-        FORMAT='PARQUET'
-    ) AS [r];
-```
-
-After the views are created, you can expand the NYCTaxiVirtual database in the data hub to see the views and their schema.
-![View database schema](./media/get-started-synapse-analytics/sql-expand-db.png)
-
-## Query the SQL views
-
-Your original queries can now be updated to use the views instead of **OPENROWSET** to each file.
-
-```sql
-SELECT
-    d.[Date]
-    ,g.City
-    ,sum(PassengerCount) as TotalPassengerCount
-    ,sum(TotalAmount) as TotalFareAmount
-    ,count(*) as NumberOfTrips
-FROM
-    Trips [t]
-        JOIN dimDate [d]
-            ON t.DateId = d.dateId
-        JOIN dimGeography [g]
-            ON t.PickupGeographyID = g.GeographyId
-WHERE
-    TripDistanceMiles > 0 AND PassengerCount > 0
-GROUP BY
-    d.[Date]
-    ,g.City
-ORDER BY
-    d.[Date]
-    ,g.City
-```
-
-Ensure that when you run the query, that you are running it using the NYCTaxiVirtual database.
-![Run updated query in correct database](./media/get-started-synapse-analytics/sql-run-query-in-db.png)
 
 ### Visualize with Power BI
  Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before going forward, follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
