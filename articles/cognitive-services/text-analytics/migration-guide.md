@@ -40,8 +40,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ## Feature changes
 
-> [!IMPORTANT]
-> NER v3 is currently limited to the English language. A list of languages supported in v2.1 is provided later in the article.
+> Currently, v3 entity categories are only returned on English text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
 
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
@@ -134,8 +133,6 @@ If your application uses the REST API, update its request endpoint to the v3 end
 ---
 
 ## Version 2.1 language support
-
-Language support has changed between v2 and v3. If you don't see your language supported in [version 3](language-support.md), consider using v2.1 for your application.   
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
