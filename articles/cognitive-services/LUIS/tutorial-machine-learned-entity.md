@@ -1,22 +1,22 @@
 ---
-title: "Tutorial: extract structured data with machine-learned entity - LUIS"
-description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subentities with features.
+title: "Tutorial: extract structured data with machine-learning entity - LUIS"
+description: Extract structured data from an utterance using the machine-learning entity. To increase the extraction accuracy, add subentities with features.
 ms.topic: tutorial
 ms.date: 05/08/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
-# Tutorial: Extract structured data from user utterance with machine-learned entities in Language Understanding (LUIS)
+# Tutorial: Extract structured data from user utterance with machine-learning entities in Language Understanding (LUIS)
 
-In this tutorial, extract structured data from an utterance using the machine-learned entity.
+In this tutorial, extract structured data from an utterance using the machine-learning entity.
 
-The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subentity entities with [features](luis-concept-feature.md).
+The machine-learning entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subentity entities with [features](luis-concept-feature.md).
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Import example app
-> * Add machine-learned entity
+> * Add machine-learning entity
 > * Add subentity and feature
 > * Train, Test, Publish app
 > * Get entity prediction from endpoint
@@ -24,9 +24,9 @@ The machine-learned entity supports the [model decomposition concept](luis-conce
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 
-## Why use a machine-learned entity?
+## Why use a machine-learning entity?
 
-This tutorial adds a machine-learned entity to extract data from a user's utterance.
+This tutorial adds a machine-learning entity to extract data from a user's utterance.
 
 The entity defines the data to extract from within the utterance. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data.
 
@@ -38,11 +38,11 @@ In order to define the data, you need to:
 
 Entity decomposability is important for both intent prediction and for data extraction with the entity.
 
-Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into subentities.
+Start with a machine-learning entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into subentities.
 
-While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subentities as your app matures.
+While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learning entity, then decompose with subentities as your app matures.
 
-In this tutorial, you create a machine-learned entity to represent an order for a pizza app. The entity will extract order-related text, pulling out size, and quantity.
+In this tutorial, you create a machine-learning entity to represent an order for a pizza app. The entity will extract order-related text, pulling out size, and quantity.
 
 An utterance of `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` for quantity and `large` for size.
 
@@ -56,7 +56,7 @@ Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Sa
 
 ## Create machine learned entity
 
-To extract details about a pizza order, create a top level, machine-learned `Order` entity.
+To extract details about a pizza order, create a top level, machine-learning `Order` entity.
 
 1. On the **Intents** page, select the **OrderPizza** intent.
 
@@ -180,7 +180,7 @@ To train the app, select **Train**. Training applies the changes, such as the ne
 
 ## Add a new example utterance
 
-1. After training, add a new example utterance to the `OrderPizza` intent to see how well LUIS understands the machine-learned entity.
+1. After training, add a new example utterance to the `OrderPizza` intent to see how well LUIS understands the machine-learning entity.
 
     |Order example utterance|
     |--|
@@ -198,7 +198,7 @@ To train the app, select **Train**. Training applies the changes, such as the ne
     > [!div class="mx-imgBorder"]
     > ![Partial screenshot of new example utterance predicted with entity](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
-    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subentities. If the entity is predicted correctly, make sure to confirm the predictions.
+    At this point, the machine-learning entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subentities. If the entity is predicted correctly, make sure to confirm the predictions.
 
 
 ## Train the app to apply the entity changes to the app
@@ -300,7 +300,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 ## Next steps
 
-In this tutorial, the app uses a machine-learned entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learned entity allows you to decompose the details of the entity.
+In this tutorial, the app uses a machine-learning entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learning entity allows you to decompose the details of the entity.
 
 > [!div class="nextstepaction"]
 > [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
