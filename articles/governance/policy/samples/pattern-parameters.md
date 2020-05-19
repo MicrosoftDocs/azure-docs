@@ -14,8 +14,12 @@ parameter and how it's used.
 ## Sample 1: String parameters
 
 This policy definition uses two parameters, **tagName** and **tagValue** to set what the policy
-assignment is looking for on resources. This format allows the policy to be used for any number of
-tag name and tag value combinations, but only maintain a single policy definition.
+assignment is looking for on resources. This format allows the policy definition to be used for any
+number of tag name and tag value combinations, but only maintain a single policy definition.
+
+> [!NOTE]
+> For a tag sample that uses **mode** _All_ and works with a resource group, see
+> [Pattern: Tags - Sample #1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 

@@ -50,6 +50,8 @@
       href: ./samples/pattern-parameters.md
     - name: Effect details
       href: ./samples/pattern-effect-details.md
+    - name: Tags
+      href: ./samples/pattern-tags.md
     - name: Value operator
       href: ./samples/pattern-value-operator.md
     - name: Count operator
