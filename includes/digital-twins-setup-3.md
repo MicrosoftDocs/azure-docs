@@ -11,12 +11,9 @@ ms.author: baanders
 
 Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't already downloaded the sample project, get it now by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
 
-Navigate to the downloaded folder on your machine and unzip it. Inside the unzipped folder, the samples for this project are located in _**digital-twins-samples-master\buildingScenario**_. Navigate here.
+Navigate to the downloaded folder on your machine and unzip it.
 
->[!IMPORTANT]
-> For the rest of this article, paths to specific sample files will be given relative to this starting point.
-
-From here, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, and name the new file *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
+Once inside the unzipped file, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, and name the new file *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 
 Within the new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
 
