@@ -224,9 +224,10 @@ To create a PowerBI dataset requires you to use PowerBI desktop.
 * A **Connection settings** message will appear, sleect DirectQuery and click **OK**
 * NOTE: If you are more familiar with PowerBI you can click on the **Model** button on the left and model the relationships between tables. This tutorial will skip this to make the tutorial smaller.
 * Click on the **Report** button on the left
-* In **Visualizations**, click **Clustered Column chart**. This will cause a new table to appear in the report
-* Drag the **PasssengerCount** column to **Visualizations > Legend**
-* Drag the **TotalAmount** column to **Visualizations > Values**
+* In **Visualizations**, click **Line chart**. This will cause a new table to appear in the report
+* Drag the **PasssengerCount** column to **Visualizations > Axis**
+* Drag the **SumTripDistance** column to **Visualizations > Values**
+* Drag the **AvgTripDistance** column to **Visualizations > Values**
 * In the Home tab, click **Publish** and save it with this name `taxi.pbix` publish it to your PowerBI workspace
 * Once publishiing is finished switch back to Synapse Studio and click **Close and refresh**.
 * Under **Power BI datasets**, Now you should see a new dataset called **taxi**.
