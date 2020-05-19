@@ -191,7 +191,8 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet \
-  --apiserver-visibility Private
+  --apiserver-visibility Private \
+  --ingress-visibility Private
   # --domain foo.example.com # [OPTIONAL] custom domain
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
