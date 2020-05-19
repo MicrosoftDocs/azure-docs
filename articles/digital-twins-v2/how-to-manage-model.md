@@ -173,7 +173,7 @@ The functionalities of the parser are:
 
 ### Use the validator tool
 
-There is a tool available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library, and is available here: [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+There is a tool available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
 
 ### Use the parser library in code
 
