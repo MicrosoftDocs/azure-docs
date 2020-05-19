@@ -23,8 +23,8 @@ The tutorial shows you how to:
 
 It is recommended that you read through the following documentation pages
 
-* [Live video analytics on IoT Edge overview](overview.md)
-* [Live video analytics on IoT Edge terminology](terminology.md)
+* [Live Video Analytics on IoT Edge overview](overview.md)
+* [Live Video Analytics on IoT Edge terminology](terminology.md)
 * [Continuous video recording scenarios](continuous-video-recording-concept.md)
 
 ## Prerequisites
@@ -103,7 +103,7 @@ App folder contains the following files
         * Cvr_app.csproj is the project file for VS Code
         * Program.cs has the sample program code. The program does the following
     1. Loads the app settings and graph setting
-    1. Invoke the LVA on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph
+    1. Invoke the Live Video Analytics on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph
     1. Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
     1. Deactivate the graph instance, delete the graph instance, and delete the graph topology
     

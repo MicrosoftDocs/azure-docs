@@ -96,7 +96,7 @@ An IoT Hub message sink enables you to publish events to IoT Edge hub. The Edge 
 
 ## Scenarios
 
-Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of live video analytics related scenarios. A few example scenarios are as follows
+Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of Live Video Analytics related scenarios. A few example scenarios are as follows
 
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
