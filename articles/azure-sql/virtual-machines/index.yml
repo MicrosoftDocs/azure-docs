@@ -39,7 +39,7 @@ landingContent:
           - text: What is SQL Server on Windows VM? 
             url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
           - text: What is SQL Server on Linux VM?
-            url: linux/sql-server-on-linux-vm-iaas-what-is-overview.md
+            url: linux/sql-server-on-linux-vm-what-is-iaas-overview.md
           - text: Migrate from SQL Server
             url: windows/migrate-to-vm-from-sql-server.md
           - text: Security considerations
