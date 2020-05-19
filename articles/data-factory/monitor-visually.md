@@ -9,10 +9,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 05/15/2020
 ---
 
 # Visually monitor Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
 
@@ -124,6 +126,21 @@ You can view the rerun history for all the pipeline runs in the list view.
 You can also view rerun history for a particular pipeline run.
 
 ![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
+
+## Monitor consumption
+
+You can see the resources consumed by a pipeline run by clicking the consumption icon next to the run. 
+
+![Monitor consumption](media/monitor-visually/monitor-consumption-1.png)
+
+Clicking the icon opens a consumption report of resources used by that pipeline run. 
+
+![Monitor consumption](media/monitor-visually/monitor-consumption-2.png)
+
+You can plug these values into the [Azure pricing calcula.hat pipeline run. For more information on Azure Data Factory pricing, see [Understanding pricing](pricing-concepts.md).
+
+> [!NOTE]
+> These values returned by the pricing calculator is an estimate. It doesn't reflect the exact amount you will be billed by Azure Data Factory 
 
 ## Gantt views
 

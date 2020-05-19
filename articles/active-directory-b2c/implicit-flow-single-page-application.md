@@ -3,14 +3,14 @@ title: Single-page sign-in using implicit flow
 titleSuffix: Azure AD B2C
 description: Learn how to add single-page sign-in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -239,12 +239,12 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-### Code sample: hello.js with Azure AD B2C
+### Code sample: Azure AD B2C with Microsoft Authentication Library for JavaScript
 
-[Single-page application built on hello.js with Azure AD B2C][github-hello-js-example] (GitHub)
+[Single-page application built with msal.js for Azure AD B2C][github-msal-js-example] (GitHub)
 
-This sample on GitHub is intended to help get you started with Azure AD B2C in a simple web application built on [hello.js][github-hello-js] and using pop-up-style authentication.
+This sample on GitHub is intended to help get you started to Azure AD B2C in a simple web application built with [msal.js][github-msal-js] and using pop-up-style authentication.
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
-[github-hello-js]: https://github.com/MrSwitch/hello.js
+[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js

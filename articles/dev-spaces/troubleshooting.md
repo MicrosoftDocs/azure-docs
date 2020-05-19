@@ -34,11 +34,11 @@ You can also try deleting the controller:
 azds remove -g <resource group name> -n <cluster name>
 ```
 
-Use the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also can't install the Azure Dev Spaces CLI in the Azure Cloud Shell so you can't delete a controller from the Azure Cloud Shell.
+Use the Azure Dev Spaces CLI to delete a controller. It's not possible to delete a controller from Visual Studio. You also can't install the Azure Dev Spaces CLI in the Azure Cloud Shell so you can't delete a controller from the Azure Cloud Shell.
 
 If you don't have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -70,12 +70,15 @@ Azure Dev Spaces couldn't create a controller on your AKS cluster because it cou
 
 To fix this issue, [update your taint configuration](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) on your AKS cluster to ensure at least one Linux node allows for scheduling pods without specifying tolerations. Also, ensure that at least one Linux node that allows scheduling pods without specifying tolerations is in the *Ready* state. If your node is taking a long time to reach the *Ready* state, you can try restarting your node.
 
-### Error "Azure Dev Spaces CLI not installed properly" when running `az aks use-dev-spaces`
+### Error "Azure Dev Spaces CLI not installed properly" when running az aks use-dev-spaces
 
 An update to the Azure Dev Spaces CLI changed its installation path. If you're using a version of the Azure CLI earlier than 2.0.63, you may see this error. To display your version of the Azure CLI, use `az --version`.
 
-```bash
-$ az --version
+```azurecli
+az --version
+```
+
+```output
 azure-cli                         2.0.60 *
 ...
 ```
@@ -86,7 +89,7 @@ To fix this issue, update your installation of the [Azure CLI](/cli/azure/instal
 
 ### Error "Unable to reach kube-apiserver"
 
-You might see this error when Azure Dev Spaces is unable to connect to your AKS cluster's API server. 
+You might see this error when Azure Dev Spaces is unable to connect to your AKS cluster's API server.
 
 If access to your AKS cluster API server is locked down or if you have [API server authorized IP address ranges](../aks/api-server-authorized-ip-ranges.md) enabled for your AKS cluster, you must also [create](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) or [update](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) your cluster to [allow additional ranges based on your region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
 
@@ -120,7 +123,7 @@ This timeout occurs when you attempt to use Dev Spaces to run a service that is 
 If you run `azds up` with the `--verbose` switch, or enable verbose logging in Visual Studio, you see additional detail:
 
 ```cmd
-$ azds up --verbose
+azds up --verbose
 
 Installed chart in 2s
 Waiting for container image build...
@@ -217,7 +220,7 @@ In Visual Studio:
 
 You receive a *Service cannot be started* error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -263,6 +266,113 @@ For example, to stop and disable the *Windows BranchCache* service:
 * Optionally, you can disable it by setting *Startup type* to *Disabled*.
 * Click *OK*.
 
+### Error "no AzureAssignedIdentity found for pod:azds/azds-webhook-deployment-\<id\> in assigned state"
+
+When running a service with Azure Dev Spaces on an AKS cluster with a [managed identity](../aks/use-managed-identity.md) and [pod managed identities](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) installed, the process may hang after the *chart install* step. If you inspect the *azds-injector-webhook* in the *azds* name space, you may see this error.
+
+The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an AAD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
+
+To fix this issue, apply an [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
+
+Create a file named *webhookException.yaml* and copy the following YAML definition:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: azds
+spec:
+  PodLabels:
+    azds.io/uses-cluster-identity: "true"
+```
+
+The above file creates a *AzurePodIdentityException* object for the *azds-injector-webhook*. To deploy this object, use `kubectl`:
+
+```cmd
+kubectl apply -f webhookException.yaml
+```
+
+To update pods instrumented by Azure Dev Spaces to access the managed identity, update the *namespace* in the below YAML definition and use `kubectl` to apply it for each dev space.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: myNamespace
+spec:
+  PodLabels:
+    azds.io/instrumented: "true"
+```
+
+Alternatively, you can create *AzureIdentity* and *AzureIdentityBinding* objects and update the pod labels for workloads running in spaces instrumented by Azure Dev Spaces to access the managed identity created by the AKS cluster.
+
+To list the details of the managed identity, run the following command for your AKS cluster:
+
+```azurecli
+az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
+```
+
+The above command outputs the *clientId* and *resourceId* for the managed identity. For example:
+
+```json
+{
+  "clientId": "<clientId>",
+  "resourceId": "/subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>"
+}
+```
+
+To create an *AzureIdentity* object, create a file named *clusteridentity.yaml* and use the following YAML definition updated with the details of your managed identity from the previous command:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: my-cluster-mi
+spec:
+  type: 0
+  ResourceID: /subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>
+  ClientID: <clientId>
+```
+
+To create an *AzureIdentityBinding* object, create a file named *clusteridentitybinding.yaml* and use the following YAML definition:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: my-cluster-mi-binding
+spec:
+  AzureIdentity: my-cluster-mi
+  Selector: my-label-value
+```
+
+To deploy the *AzureIdentity* and *AzureIdentityBinding* objects, use `kubectl`:
+
+```cmd
+kubectl apply -f clusteridentity.yaml
+kubectl apply -f clusteridentitybinding.yaml
+```
+
+After you deploy the *AzureIdentity* and *AzureIdentityBinding* objects, any workload with the *aadpodidbinding: my-label-value* label can access the cluster's managed identity. Add this label and redeploy all workloads running in any dev space. For example:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample
+        aadpodidbinding: my-label-value
+    spec:
+      [...]
+```
+
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
 ### Error "Required tools and configurations are missing"
@@ -286,7 +396,7 @@ Try downloading and installing the latest version of the Azure Dev Spaces CLI:
 
 You may see this error when running the Visual Studio Code debugger. You might not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .NET Core (CoreCLR).
 
-To fix this issue, install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+To fix this issue, install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ### Error "Configured debug type 'coreclr' is not supported"
 
@@ -323,7 +433,7 @@ To fix this issue:
 1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for `azds.exe`. If it's there, add that location to the PATH environment variable.
 2. If `azds.exe` isn't installed, run the following command:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -331,13 +441,13 @@ To fix this issue:
 
 You need *Owner* or *Contributor* access in your Azure subscription to manage Azure Dev Spaces. If you're trying to manage Dev Spaces and you don't have *Owner* or *Contributor* access to the associated Azure subscription, you may see an authorization error. For example:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 To fix this issue, using an account with *Owner* or *Contributor* access to the Azure subscription, manually register the `Microsoft.DevSpaces` namespace:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -351,10 +461,13 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 This issue can impact pods in *all namespaces* in the cluster including namespaces where Azure Dev Spaces is not enabled.
 
-To fix this issue, [update the Dev Spaces CLI to the latest version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) and then deleting the *azds InitializerConfiguration* from the Azure Dev Spaces controller:
+To fix this issue, [update the Dev Spaces CLI to the latest version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) and then delete the *azds InitializerConfiguration* from the Azure Dev Spaces controller:
+
+```azurecli
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+```
 
 ```bash
-az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
 
@@ -416,9 +529,8 @@ You may see this error when trying to access your service. For example, when you
 To fix this issue:
 
 1. If the container is in the process of being built/deployed, you can wait 2-3 seconds and try accessing the service again. 
-1. Check your port configuration. The specified port numbers should be **identical** in all of the following assets:
-    * **Dockerfile:** Specified by the `EXPOSE` instruction.
-    * **[Helm chart](https://docs.helm.sh):** Specified by the `externalPort` and `internalPort` values for a service (often located in a `values.yml` file),
+1. Check your port configuration in following assets:
+    * **[Helm chart](https://docs.helm.sh):** Specified by the `service.port` and `deployment.containerPort` in values.yaml scaffolded by `azds prep` command.
     * Any ports being opened up in application code, for example in Node.js: `var server = app.listen(80, function () {...}`
 
 ### The type or namespace name "MyLibrary" couldn't be found
@@ -436,7 +548,7 @@ You can find an example at [here](https://github.com/sgreenmsft/buildcontextsamp
 
 ### Horizontal pod autoscaling not working in a dev space
 
-When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster) and all the containers in a pod need to have resource limits and requests set for Horizontal Pod Autoscaling.
+When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works-cluster-setup.md#prepare-your-aks-cluster) and all the containers in a pod need to have resource limits and requests set for Horizontal Pod Autoscaling.
 
 To fix this issue, apply a resource request and limit to the injected Dev Spaces containers. Resource requests and limits can be applied for the injected container (devspaces-proxy) by adding the `azds.io/proxy-resources` annotation to your pod spec. The value should be set to a JSON object representing the resources section of the container spec for the proxy.
 
@@ -451,9 +563,12 @@ You may have an existing AKS cluster and namespace with running pods where you w
 
 To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-dev-spaces` and use `kubectl` to restart all pods in that namespace.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
@@ -487,5 +602,8 @@ To fix this issue, ensure your *kubeconfig* has the updated certificates using `
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
+```
+
+```console
 azds controller refresh-credentials -g <resource group name> -n <cluster name>
 ```

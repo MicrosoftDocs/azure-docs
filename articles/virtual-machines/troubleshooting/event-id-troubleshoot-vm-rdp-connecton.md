@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure VM RDP connection issues by Event ID | Microsoft Docs
-description: 
+description: Use event IDs to troubleshoot various issues that prevent a Remote Desktop protocol (RDP) connection to an Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -61,7 +61,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **User:**          N/A <br />
 **Computer:**      *computer* <br />
 **Description:**
-The RD Session Host Server has failed to replace the expired self signed certificate used for RD Session Host Server authentication on SSL connections. The relevant status code was Access is denied.
+The RD Session Host Server has failed to replace the expired self signed certificate used for RD Session Host Server authentication on TLS connections. The relevant status code was Access is denied.
 
 **Log Name:**      System <br />
 **Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -73,7 +73,7 @@ The RD Session Host Server has failed to replace the expired self signed certifi
 **User:**          N/A <br />
 **Computer:**      *computer* <br />
 **Description:**
-RD Session host server has failed to create a new self-signed certificate to be used for RD Session host server authentication on SSL connections, the relevant status code was object already exists.
+RD Session host server has failed to create a new self-signed certificate to be used for RD Session host server authentication on TLS connections, the relevant status code was object already exists.
 
 **Log Name:**      System <br />
 **Source:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ RD Session host server has failed to create a new self-signed certificate to be 
 **User:**          N/A <br />
 **Computer:**      *computer* <br />
 **Description:**
-The RD Session Host Server has failed to create a new self signed certificate to be used for RD Session Host Server authentication on SSL connections. The relevant status code was Keyset does not exist
+The RD Session Host Server has failed to create a new self signed certificate to be used for RD Session Host Server authentication on TLS connections. The relevant status code was Keyset does not exist
 
 You can also check for SCHANNEL error events 36872 and 36870 by running the following commands:
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Keywords:**       <br />
 **User:**          SYSTEM <br />
 **Computer:**      *computer* <br />
-**Description:** A fatal error occurred when attempting to access the SSL server credential private key. The error code returned from the cryptographic module is 0x8009030D.  <br />
+**Description:** A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D.  <br />
 The internal error state is 10001.
 
 ### Cause
@@ -186,9 +186,9 @@ If you can't renew the certificate, follow these steps to try to delete the cert
 
 Try to access the VM by using RDP again.
 
-#### Update Secure Sockets Layer (SSL) certificate
+#### Update TLS/SSL certificate
 
-If you set up the VM to use an SSL certificate, run the following command to get the thumbprint. Then check whether it's the same as the certificate's thumbprint:
+If you set up the VM to use a TLS/SSL certificate, run the following command to get the thumbprint. Then check whether it's the same as the certificate's thumbprint:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

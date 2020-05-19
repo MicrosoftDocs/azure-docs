@@ -4,7 +4,7 @@ description: As a solution developer, learn about how to use the service SDK to 
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp

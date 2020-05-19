@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -417,3 +417,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 > [!div class="nextstepaction"]
 > [Cognitive Services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+                                    

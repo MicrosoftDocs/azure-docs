@@ -4,7 +4,7 @@ description: How to use the features of the ADAL SDK to enable Single Sign On ac
 services: active-directory
 author: rwike77 
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
+
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,6 +15,7 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # How to: Enable cross-app SSO on iOS using ADAL
@@ -104,7 +105,7 @@ If a compatible broker is installed on the device, like the Microsoft Authentica
 
 #### How we ensure the application is valid
 
-The need to ensure the identity of an application call the broker is crucial to the security we provide in broker assisted logins. Neither iOS nor Android enforces unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure we are always communicating with the right application at runtime, we ask the developer to provide a custom redirectURI when registering their application with Microsoft. How developers should craft this redirect URI is discussed in detail below. This custom redirectURI contains the Bundle ID of the application and is ensured to be unique to the application by the Apple App Store. When an application calls the broker, the broker asks the iOS operating system to provide it with the Bundle ID that called the broker. The broker provides this Bundle ID to Microsoft in the call to our identity system. If the Bundle ID of the application does not match the Bundle ID provided to us by the developer during registration, we will deny access to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
+The need to ensure the identity of an application that calls the broker is crucial to the security we provide in broker assisted logins. Neither iOS nor Android enforces unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure we are always communicating with the right application at runtime, we ask the developer to provide a custom redirectURI when registering their application with Microsoft. How developers should craft this redirect URI is discussed in detail below. This custom redirectURI contains the Bundle ID of the application and is ensured to be unique to the application by the Apple App Store. When an application calls the broker, the broker asks the iOS operating system to provide it with the Bundle ID that called the broker. The broker provides this Bundle ID to Microsoft in the call to our identity system. If the Bundle ID of the application does not match the Bundle ID provided to us by the developer during registration, we will deny access to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
 
 **The developer has the choice whether the SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of using SSO credentials that the user may have already added on the device and prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune management capabilities, and certificate-based authentication.
 
@@ -304,7 +305,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### Step 4: Add a configuration parameter to your app
 
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
+ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add "msauth" to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>

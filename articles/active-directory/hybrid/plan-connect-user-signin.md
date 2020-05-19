@@ -81,7 +81,7 @@ If you're deploying a new farm, you need:
 
 * A Windows Server 2012 R2 server for the federation server.
 * A Windows Server 2012 R2 server for the Web Application Proxy.
-* A .pfx file with one SSL certificate for your intended federation service name. For example: fs.contoso.com.
+* A .pfx file with one TLS/SSL certificate for your intended federation service name. For example: fs.contoso.com.
 
 If you're deploying a new farm or using an existing farm, you need:
 

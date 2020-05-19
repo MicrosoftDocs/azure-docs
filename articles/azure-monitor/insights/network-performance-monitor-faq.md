@@ -182,7 +182,7 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
-When either of the endpoints lies in Azure, traceroute shows up unidentified hops as Azure ndrastructure does not reveal identity to traceroute. 
+When either of the endpoints lies in Azure, traceroute shows up unidentified hops as Azure Infrastructure does not reveal identity to traceroute. 
 
 ### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy?
 NPM raises an alert if end to end latency between source and destination crosses the threshold for any path between them. Some networks have multiple paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath (for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 

@@ -1,12 +1,9 @@
 ---
 title: Azure Functions geo-disaster recovery and high availability 
 description: How to use geographical regions for redundancy and to fail over in Azure Functions.
-author: wesmc7777
-
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: jehollan
 
 ---
 

@@ -21,6 +21,9 @@ Just a few examples of what you can do with Azure Monitor include:
 - Support operations at scale with [smart alerts](platform/alerts-smartgroups-overview.md) and [automated actions](platform/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](app/usage-workbooks.md).
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
+
+
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Overview

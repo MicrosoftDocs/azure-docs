@@ -5,7 +5,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -14,6 +13,7 @@ ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Azure Active Directory Authentication Libraries

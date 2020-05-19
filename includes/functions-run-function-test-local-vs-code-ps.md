@@ -2,15 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/16/2020
+ms.date: 02/19/2020
 ms.author: glenga
 ---
 
 ## Run the function locally
 
-Azure Functions Core Tools integrates with Visual Studio Code to let you run and debug an Azure Functions project locally.  
+Azure Functions Core Tools integrates with Visual Studio Code to let you run and debug an Azure Functions project locally. For details on how to debug in Visual Studio Code, see [Debug PowerShell Azure Functions locally](../articles/azure-functions/functions-debug-powershell-local.md). 
 
-1. To debug your function, insert a call to the [`Wait-Debugger`](/powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6) cmdlet in the function code before you want to attach the debugger, then press F5 to start the function app project and attach the debugger. Output from Core Tools is displayed in the **Terminal** panel.
+1. Press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -33,9 +33,6 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     ![Function execution in Terminal panel](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. To stop debugging, press Ctrl + C to stop Core Tools.
+1. When done, press **Ctrl + C** to stop Core Tools.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
-
-> [!NOTE]
-> Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 

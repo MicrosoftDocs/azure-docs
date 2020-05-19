@@ -78,6 +78,13 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Possible causes**    | The backing parameters are incorrectly specified for Azure backup |
 | **Recommended action** | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
+### UserErrorIncompatibleSrcTargetSystemsForRestore
+
+|Error Message  |The source and target systems for restore are incompatible  |
+|---------|---------|
+|Possible causes   | The source and target systems selected for restore are incompatible        |
+|Recommended action   |   Ensure that your restore scenario is not in the following list of possible incompatible restores: <br><br>   **Case 1:** SYSTEMDB cannot be renamed during restore.  <br><br> **Case 2:** Source - SDC and target - MDC : The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br><br> **Case 3:** Source - MDC and target - SDC : The source database (SYSTEMDB or tenant DB) cannot be restored to the target. <br><br>  For more information, refer to the note 1642148 in the [SAP support launchpad](https://launchpad.support.sap.com). |
+
 ## Restore checks
 
 ### Single Container Database (SDC) restore
@@ -119,7 +126,26 @@ Upgrades to OS or SAP HANA that don't cause a SID change can be handled as outli
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana). Usually, we have seen upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles.
 - [Resume protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
 
+## Re-registration failures
+
+Check for one or more of the following symptoms before you trigger the re-register operation:
+
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
+- If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
+
+  - Lack of permission to perform backup-related operations on the VM
+  - The VM is shutdown, so backups cannot take place
+  - Network issues
+
+These symptoms may arise for one or more of the following reasons:
+
+- An extension was deleted or uninstalled from the portal.
+- The VM was restored back in time through in-place disk restore.
+- The VM was shut down for an extended period, so the extension configuration on it expired.
+- The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM.
+
 ## Next steps
 
-- Review the [frequently asked questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm)
- about backing up SAP HANA databases on Azure VMs]
+- Review the [frequently asked questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) about backing up SAP HANA databases on Azure VMs.

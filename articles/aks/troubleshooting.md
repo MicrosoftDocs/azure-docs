@@ -53,7 +53,7 @@ The reason for the warnings on the dashboard is that the cluster is now enabled 
 
 ## I can't connect to the dashboard. What should I do?
 
-The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
 
 If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
@@ -315,12 +315,12 @@ This issue has been fixed in the following versions of Kubernetes:
 If you are using a version of Kubernetes that does not have the fix for this issue and your node VM is in a failed state, you can mitigate the issue by manually updating the VM status using one of the below:
 
 * For an availability set-based cluster:
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * For a VMSS-based cluster:
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
@@ -458,6 +458,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
+
+### Slow disk attachment, GetAzureDiskLun takes 10 to 15 minutes and you receive an error
+
+On Kubernetes versions **older than 1.15.0** you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this is to wait approximately 15 minutes and retry.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

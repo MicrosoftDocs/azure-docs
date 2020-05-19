@@ -5,7 +5,6 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-monikerRange: 'vsts'
 ---
 
 # Deployment Center for Azure Kubernetes
@@ -34,7 +33,7 @@ In this tutorial, you will:
 
 1. To create the AKS cluster, run the following commands:
 
-    ```cmd
+    ```azurecli
     # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia

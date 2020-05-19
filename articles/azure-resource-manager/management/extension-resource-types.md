@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 04/06/2020
 ---
 
 # Resource types that extend capabilities of other resources
@@ -76,7 +76,6 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.GuestConfiguration/software
 - Microsoft.GuestConfiguration/softwareUpdateProfile
 - Microsoft.GuestConfiguration/softwareUpdates
-- microsoft.insights/automatedExportSettings
 - microsoft.insights/baseline
 - microsoft.insights/calculatebaseline
 - microsoft.insights/dataCollectionRuleAssociations
@@ -109,7 +108,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft.RecoveryServices/backupProtectedItems
-- Microsoft.RecoveryServices/replicationEligibilityResults	
+- Microsoft.RecoveryServices/replicationEligibilityResults    
 - Microsoft.ResourceHealth/availabilityStatuses
 - Microsoft.ResourceHealth/childAvailabilityStatuses
 - Microsoft.ResourceHealth/childResources
@@ -126,7 +125,6 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Security/assessments
 - Microsoft.Security/complianceResults
 - Microsoft.Security/dataCollectionAgents
-- Microsoft.Security/dataCollectionResults
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/networkData
 - Microsoft.Security/serverVulnerabilityAssessments
@@ -136,13 +134,14 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.SecurityInsights/bookmarks
 - Microsoft.SecurityInsights/cases
 - Microsoft.SecurityInsights/dataConnectors
+- Microsoft.SecurityInsights/dataConnectorsCheckRequirements
 - Microsoft.SecurityInsights/entities
 - Microsoft.SecurityInsights/entityQueries
+- Microsoft.SecurityInsights/incidents
 - Microsoft.SecurityInsights/officeConsents
 - Microsoft.SecurityInsights/settings
 - Microsoft.SoftwarePlan/hybridUseBenefits
 - Microsoft.Subscription/CreateSubscription
-- microsoft.support/createsupportticket
 - microsoft.support/supporttickets
 - Microsoft.WorkloadMonitor/components
 - Microsoft.WorkloadMonitor/monitorInstances

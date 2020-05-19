@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -34,6 +34,12 @@ The tutorial app illustrates how to:
 > * Handle errors that might occur
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
+
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
@@ -325,8 +331,8 @@ In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* 
 
 ```javascript
 searchItemRenderers = {
-	news: function(item) { ... },
-	webPages: function (item) { ... }, 
+    news: function(item) { ... },
+    webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }

@@ -80,7 +80,7 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. 
 
 ## Cleaning up 
 1. Exit your ssh session.
-   ```azurecli-interactive
+   ```
    exit
    ```
 

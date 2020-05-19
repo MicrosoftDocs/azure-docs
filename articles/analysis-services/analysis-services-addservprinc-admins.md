@@ -4,7 +4,7 @@ description: Learn how to add an automation service principal to the Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
@@ -14,9 +14,6 @@ ms.custom: fasttrack-edit
 # Add a service principal to the server administrator role 
 
  To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Azure AS server. You can do this using SQL Server Management Studio or a Resource Manager template.
- 
-> [!NOTE]
-> For server operations using Azure PowerShell cmdlets, the service principal must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## Before you begin
 Before completing this task, you must have a service principal registered in Azure Active Directory.
@@ -92,6 +89,24 @@ The following Resource Manager template deploys an Analysis Services server with
     ]
 }
 ```
+
+## Using managed identities
+
+A managed identity can also be added to the Analysis Services Admins list. For example, you might have a [Logic App with a system-assigned managed identity](../logic-apps/create-managed-service-identity.md), and want to grant it the ability to administer your Analysis Services server.
+
+In most parts of the Azure portal and APIs, managed identities are identified using their service principal object ID. However, Analysis Services requires that they be identified using their client ID. To obtain the client ID for a service principal, you can use the Azure CLI:
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+Alternatively you can use PowerShell:
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+You can then use this client ID in conjunction with the tenant ID to add the managed identity to the Analysis Services Admins list, as described above.
 
 ## Related information
 

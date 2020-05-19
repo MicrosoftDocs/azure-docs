@@ -4,9 +4,9 @@ description: Use Azure Resource Manager and Resource Manager REST API to deploy 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ---
-# Deploy resources with Resource Manager templates and Resource Manager REST API
+# Deploy resources with ARM templates and Resource Manager REST API
 
-This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.
+This article explains how to use the Resource Manager REST API with Azure Resource Manager (ARM) templates to deploy your resources to Azure.
 
 You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
@@ -116,7 +116,7 @@ The examples in this article use resource group deployments.
 
    ```json
    {
-	  "properties": {
+      "properties": {
       "mode": "Incremental",
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,5 +186,5 @@ The examples in this article use resource group deployments.
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
-- To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- To learn more about templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 

@@ -5,9 +5,7 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure
-ms.custom: seodec18
-
+ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database

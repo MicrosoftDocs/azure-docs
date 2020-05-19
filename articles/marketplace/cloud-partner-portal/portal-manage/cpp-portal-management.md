@@ -1,13 +1,12 @@
 ---
 title: Cloud Partner Portal management | Azure Marketplace 
 description: Deprecated CPP article, pointed to PC article; was "Describes the types of operations available to manage accounts for the Cloud Partner Portal for the Azure Marketplace."
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Cloud Partner Portal management

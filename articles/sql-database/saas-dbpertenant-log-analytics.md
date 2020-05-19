@@ -35,7 +35,7 @@ See the [Performance monitoring and management tutorial](saas-dbpertenant-perfor
 
 For Azure SQL Database, monitoring and alerting is available on databases and pools in the Azure portal. This built-in monitoring and alerting is convenient, but it's also resource-specific. That means it's less well suited to monitor large installations or provide a unified view across resources and subscriptions.
 
-For high-volume scenarios, you can use Azure Monitor logs for monitoring and alerting. Azure Monitor is a separate Azure service that enables analytics over diagnostic logs and telemetry that's gathered in a workspace from potentially many services. Azure Monitor logs provides a built-in query language and data visualization tools that allow operational data analytics. The SQL Analytics solution provides several predefined elastic pool and database monitoring and alerting views and queries. Azure Monitor logs also provides a custom view designer.
+For high-volume scenarios, you can use Azure Monitor logs for monitoring and alerting. Azure Monitor is a separate Azure service that enables analytics over logs gathered in a workspace from potentially many services. Azure Monitor logs provides a built-in query language and data visualization tools that allow operational data analytics. The SQL Analytics solution provides several predefined elastic pool and database monitoring and alerting views and queries. Azure Monitor logs also provides a custom view designer.
 
 OMS workspaces are now referred to as Log Analytics workspaces. Log Analytics workspaces and analytics solutions open in the Azure portal. The Azure portal is the newer access point, but it might be what's behind the Operations Management Suite portal in some areas.
 

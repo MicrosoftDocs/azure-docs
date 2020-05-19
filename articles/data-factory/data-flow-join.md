@@ -7,10 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
+ms.date:  05/15/2020
 ---
 
 # Join transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the join transformation to combine data from two sources or streams in a mapping data flow. The output stream will include all columns from both sources matched based on a join condition. 
 
@@ -27,7 +29,7 @@ Inner join only outputs rows that have matching values in both tables.
 Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the left stream.
 
 > [!NOTE]
-> The Spark engine used by Data Flows will occasionally possible cartesian products in your join conditions. When that is the case, you can switch to a custom cross join and manually enter your join condition. This may result in slower performance in your data flows as the execution engine may need to calculate all rows from both sides of the relationship and then filter rows.
+> The Spark engine used by data flows will occasionally fail due to possible cartesian products in your join conditions. If this occurs, you can switch to a custom cross join and manually enter your join condition. This may result in slower performance in your data flows as the execution engine may need to calculate all rows from both sides of the relationship and then filter rows.
 
 ### Right Outer
 
@@ -56,13 +58,21 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 ![Join Transformation](media/data-flow/join.png "Join")
 
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your join conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi join](media/data-flow/non-equi-join.png "Non-equi join")
+
 ## Optimizing join performance
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If one or both of the data streams fit into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
 ## Self-Join
 
@@ -83,7 +93,7 @@ When testing the join transformations with data preview in debug mode, use a sma
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 
@@ -101,11 +111,11 @@ The data flow script for this transformation is in the snippet below:
 TripData, TripFare
     join(
         hack_license == { hack_license}
-    	&& TripData@medallion == TripFare@medallion
-    	&& vendor_id == { vendor_id}
-    	&& pickup_datetime == { pickup_datetime},
-    	joinType:'inner',
-    	broadcast: 'left'
+        && TripData@medallion == TripFare@medallion
+        && vendor_id == { vendor_id}
+        && pickup_datetime == { pickup_datetime},
+        joinType:'inner',
+        broadcast: 'left'
     )~> JoinMatchedData
 ```
 
@@ -123,7 +133,7 @@ The data flow script for this transformation is in the snippet below:
 LeftStream, RightStream
     join(
         leftstreamcolumn > rightstreamcolumn,
-	    joinType:'cross',
+        joinType:'cross',
         broadcast: 'none'
     )~> JoiningColumns
 ```

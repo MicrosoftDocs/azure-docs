@@ -38,7 +38,7 @@ The module takes an untrained clustering model that you have already configured 
 
     If you deselect this option, only the cluster assignments are output. 
 
-7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
+7. Submit the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### Results
 

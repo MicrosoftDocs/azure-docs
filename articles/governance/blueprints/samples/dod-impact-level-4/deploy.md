@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample
 description: Deploy steps for the DoD Impact Level 4 blueprint sample including blueprint artifact parameter details.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 4 blueprint sample
@@ -157,7 +157,8 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: DoD Impact Level 4|Policy assignment|MFA should be enabled on accounts with owner permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|MFA should be enabled on accounts with write permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: DoD Impact Level 4|Policy assignment|Long-term geo-redundant backup should be enabled for Azure SQL Databases|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
-
+|Allowed locations|Policy Assignment|Allowed Locations|This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.|
+|Allowed Locations for resource groups|Policy Assignment |Allowed Locations|This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.|
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom:  [amqp, mqtt]
 ---
 
 # Run OPC Publisher

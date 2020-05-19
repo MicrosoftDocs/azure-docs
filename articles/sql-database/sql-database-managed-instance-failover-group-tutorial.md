@@ -750,7 +750,7 @@ Create the gateway for the virtual network of your primary managed instance usin
     | --- | --- |
     | **Subscription** |  The subscription where your primary managed instance is. |
     | **Name** | The name for your virtual network gateway, such as `primary-mi-gateway`. | 
-    | **Region** | The region where your secondary managed instance is. |
+    | **Region** | The region where your primary managed instance is. |
     | **Gateway type** | Select **VPN**. |
     | **VPN Type** | Select **Route-based** |
     | **SKU**| Leave default of `VpnGw1`. |

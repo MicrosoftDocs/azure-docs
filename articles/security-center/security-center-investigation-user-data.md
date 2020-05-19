@@ -22,7 +22,7 @@ This article provides information on how to manage the user data found in Azure 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Searching for and identifying personal data
-In the Azure portal, you can use Security Center's [investigation feature](../security-center/security-center-investigation.md) to search for personal data. The investigation feature is available under **Security Alerts**.
+In the Azure portal, you can use Security Center's investigation feature to search for personal data. The investigation feature is available under **Security Alerts**.
 
 The investigation feature shows all entities, user information, and data under the **Entities** tab.
 

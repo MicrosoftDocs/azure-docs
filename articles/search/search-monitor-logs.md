@@ -62,7 +62,7 @@ For Blob storage, it takes one hour before the containers will appear in Blob st
 
 ## Query log information
 
-In diagnostic logs, two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
+Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
 
 1. Under **Monitoring**, select **Logs**.
 
@@ -93,7 +93,7 @@ Data structures that contain Azure Cognitive Search log data conform to the sche
 
 For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
-The following table is a partial list of fields common to diagnostic logging.
+The following table is a partial list of fields common to resource logging.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |

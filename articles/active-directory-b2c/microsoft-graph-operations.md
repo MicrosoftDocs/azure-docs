@@ -3,14 +3,14 @@ title: Supported Microsoft Graph operations
 titleSuffix: Azure AD B2C
 description: An index of the Microsoft Graph operations supported for the management of Azure AD B2C resources, including users, user flows, identity providers, custom policies, policy keys, and more.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 # Microsoft Graph operations available for Azure AD B2C

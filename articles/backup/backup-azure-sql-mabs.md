@@ -18,7 +18,7 @@ To back up a SQL Server database and recover it from Azure:
 
 Before you begin, ensure that you have [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-## Create a backup policy 
+## Create a backup policy
 
 To protect SQL Server databases in Azure, first create a backup policy:
 
@@ -81,7 +81,6 @@ To protect SQL Server databases in Azure, first create a backup policy:
     > Use Data Protection Manager (DPM) to schedule Azure Backups after the local disk backups finish. When you follow this practice, the latest disk backup is copied to Azure.
     >
 
-
 1. Choose the retention policy schedule. For more information about how the retention policy works, see [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
     ![Choose a retention policy in MABS](./media/backup-azure-backup-sql/pg-retentionschedule.png)
@@ -117,7 +116,7 @@ A recovery point is created when the first backup occurs. Rather than waiting fo
 1. In the drop-down menu, select **Online protection**. Then select **OK** to start the creation of a recovery point in Azure.
 
     ![Start creating a recovery point in Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. You can view the job progress in the **Monitoring** workspace. 
+1. You can view the job progress in the **Monitoring** workspace.
 
     ![View job progress in the Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 

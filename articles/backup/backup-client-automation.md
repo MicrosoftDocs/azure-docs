@@ -72,7 +72,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## Installing the Azure Backup agent
 
-Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like `C:\Downloads\*`.
 
 Alternatively, use PowerShell to get the downloader:
 
@@ -132,7 +132,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > A bug with generation of vault certificate is fixed in Az 3.5.0 release. Use Az 3.5.0 release version or greater to download a vault certificate.
 
-In the latest Az module of Powershell, due to underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
+In the latest Az module of PowerShell, due to underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -203,7 +203,12 @@ Server properties updated successfully.
 
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore.
 
-You must generate a security pin by selecting **Generate**, under **Settings** > **Properties** > **Security PIN** in the **Recovery Services vault** section of the Azure portal. Then, use this as the `generatedPIN` in the command:
+You must generate a security pin by selecting **Generate**, under **Settings** > **Properties** > **Security PIN** in the **Recovery Services vault** section of the Azure portal. 
+
+>[!NOTE]
+> The security PIN can only be generated via the Azure portal.
+
+Then, use this as the `generatedPIN` in the command:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -589,7 +594,7 @@ ServerName : myserver.microsoft.com
 
 ### Choosing a backup point from which to restore
 
-You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
+You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we'll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -734,4 +739,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 For more information about Azure Backup for Windows Server/Client:
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-* [Back up Windows Servers](backup-configure-vault.md)
+* [Back up Windows Servers](backup-windows-with-mars-agent.md)

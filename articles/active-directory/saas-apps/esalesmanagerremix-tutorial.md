@@ -154,7 +154,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	
 	b. In the **Collaboration item** section, in the drop-down list, select **email**.
 
-	c. In the **Collaboration item** box, paste the claim value that you copied earlier from the Azure portal (that is, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+	c. In the **Collaboration item** box, paste the claim value that you copied earlier from the Azure portal (that is, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
 	d. In the **Issuer (entity ID)** box, paste the identifier value that you copied earlier from the **E Sales Manager Remix Domain and URLs** section of the Azure portal.
 

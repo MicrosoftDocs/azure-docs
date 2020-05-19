@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory B2B best practices
 This article contains recommendations and best practices for business-to-business (B2B) collaboration in Azure Active Directory (Azure AD).
 
+   > [!IMPORTANT]
+   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+
 ## B2B recommendations
 | Recommendation | Comments |
 | --- | --- |

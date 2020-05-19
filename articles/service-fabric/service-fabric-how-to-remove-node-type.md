@@ -28,7 +28,7 @@ Service Fabric "orchestrates" underlying changes and updates so that data is not
 
 When removing a node type that is Bronze, all the nodes in the node type go down immediately. Service Fabric doesn't trap any Bronze nodes scale set updates, thus all the VMs go down immediately. If you had anything stateful on those nodes, the data is lost. Now, even if you were stateless, all the nodes in the Service Fabric participate in the ring, so an entire neighborhood may be lost, which might destabilize the cluster itself.
 
-## Remove a non-primary node type
+## Remove a node type
 
 1. Please take care of this pre-requisites before you start the process.
 
@@ -119,7 +119,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     - Locate the Azure Resource Manager template used for deployment.
     - Find the section related to the node type in the Service Fabric section.
     - Remove the section corresponding to the node type.
-    - For Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding `applicationDeltaHealthPolicies` as given below. The below policy should ignore existing errors but not allow new health errors. 
+    - Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding `applicationDeltaHealthPolicies` under cluster resource `properties` as given below. The below policy should ignore existing errors but not allow new health errors. 
  
  
      ```json
@@ -155,7 +155,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     },
     ```
 
-    Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case `forceRestart` is ignored. 
+    - Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case `forceRestart` is ignored. 
     The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node.
     The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 

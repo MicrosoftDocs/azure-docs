@@ -56,7 +56,7 @@ The following list contains recommendations for best performance during the impo
 
 ### Optimize performance after the migration completes
 
-[Update statistics](https://msdn.microsoft.com/library/ms187348.aspx) with full scan after the migration is completed.
+[Update statistics](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) with full scan after the migration is completed.
 
 ## Method 2: Use Transactional Replication
 

@@ -4,12 +4,9 @@ description: Adopt In-Memory OLTP to improve transactional performance in an exi
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
-ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer:
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ---
@@ -18,7 +15,7 @@ ms.date: 11/07/2018
 [In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](sql-database-service-tiers-vcore.md) databases without increasing the pricing tier. 
 
 > [!NOTE] 
-> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Learn how [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Follow these steps to adopt In-Memory OLTP in your existing database.

@@ -36,6 +36,28 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
 
+## Customize build automation
+
+If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+
+1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `dotnet restore` to restore NuGet dependencies.
+1. Run `dotnet publish` to build a binary for production.
+1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
+
+The following example specifies the two variables to a series of commands, separated by commas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+For more information on how App Service runs and builds ASP.NET Core apps in Linux, see [Oryx documentation: How .NET Core apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
+
 ## Access environment variables
 
 In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them in any class using the standard ASP.NET Core dependency injection pattern:
@@ -142,6 +164,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 3/18/2020
 ---
 # Supported Azure Database for MySQL server versions
 

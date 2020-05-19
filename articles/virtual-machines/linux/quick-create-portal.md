@@ -1,16 +1,9 @@
 ---
 title: Quickstart - Create a Linux VM in the Azure portal 
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
@@ -85,7 +78,7 @@ Create an SSH connection with the VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to https://shell.azure.com/bash), paste the SSH connection command into the shell to create an SSH session.
+3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to `https://shell.azure.com/bash`), paste the SSH connection command into the shell to create an SSH session.
 
 ## Install web server
 

@@ -2,7 +2,7 @@
  title: Dv2 and Dsv2-series - Azure Virtual Machines
  description: Specifications for the Dv2 and Dsv2-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: joelpelley
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -23,6 +23,10 @@ Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
 
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks | Throughput: IOPS | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D1_v2 | 1  | 3.5 | 50  | 3000/46/23    | 4  | 4x500  | 2/750   |
@@ -40,6 +44,10 @@ ACU: 210-250
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
 
 ---
@@ -180,6 +180,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. Under **SAML User ID Settings**, check **SAML User ID is Wdesk Username**.
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/wdesk-username.png)
+
 4. Under **General Settings**, check the **Enable SAML Single Sign On**:
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -222,7 +226,7 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
    
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser1.png)  
 
-5. In **User** text box, enter the username of user like brittasimon@contoso.com and click **Continue** button.
+5. In **User** text box, enter the username of user like b.simon@contoso.com and click **Continue** button.
 
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser3.png)
 
@@ -230,9 +234,9 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
   
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser4.png)
  
-    a. In **E-mail** text box, enter the email of user like brittasimon@contoso.com.
+    a. In **E-mail** text box, enter the email of user like b.simon@contoso.com.
 
-    b. In **First Name** text box, enter the first name of user like **Britta**.
+    b. In **First Name** text box, enter the first name of user like **B**.
 
     c. In **Last Name** text box, enter the last name of user like **Simon**.
 

@@ -13,8 +13,7 @@ ms.reviewer: mbullwin
 
 ## Active issues
 
-* Profiling for ASP.NET Core 3.x applications isn't supported yet.
-  * If you must have Profiler on, a workaround is to use [Application Insights Profiler for ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). The profiler is labeled for Linux, but it also works with .NET Core 3.0+ applications on Windows. For details, see [Supported versions](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
+* Profiling for ASP.NET Core 3.x applications is supported now on Azure App Services.
 
 ## <a id="troubleshooting"></a>General troubleshooting
 

@@ -31,7 +31,7 @@ A publisher is the user or organization that decides to send events to Event Gri
 
 An event source is where the event happens. Each event source is related to one or more event types. For example, Azure Storage is the event source for blob created events. IoT Hub is the event source for device created events. Your application is the event source for custom events that you define. Event sources are responsible for sending events to Event Grid.
 
-For information about implementing any of the supported Event Grid sources, see [Event sources in Azure Event Grid](event-sources.md).
+For information about implementing any of the supported Event Grid sources, see [Event sources in Azure Event Grid](overview.md#event-sources).
 
 ## Topics
 

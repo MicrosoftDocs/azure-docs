@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
 ---
 
@@ -23,6 +23,13 @@ Use the following steps to run the migration script:
 2. Copy the script into the cloud shell window and run it.
 3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that to create. Once you enter these inputs, the script  runs and creates your new WAF policy
 4. Associate the new WAF policy with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Select **Associate an Application Gateway** and then select the Application Gateway to associate the WAF policy to.
+
+> [!NOTE]
+> The script does not complete a migration if the following conditions exist:
+> - An entire rule is disabled. To complete a migration, make sure an entire rulegroup is not disabled.
+> - An exclusion entry(s) with the *Equals any* operator. To complete a migration, make sure exclusion entries with *Equals Any* operator is not present.
+>
+> For more information, see the *ValidateInput* function in the script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
