@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/22/20
+ms.date: 05/22/2020
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
@@ -37,7 +37,7 @@ For more information about the sequential convoy pattern, see these articles:
 
   [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the quickstart, [Create your first automated workflow](../logic-apps/quickstart-first-logic-app-workflow.md).
+* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the quickstart, [Create your first automated workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -323,7 +323,7 @@ This Service Bus action always runs as the first action in the `Catch` scope and
 
 Next, the workflow creates an array that has the inputs and outputs from all the actions in the `Try` scope so that the logic app can access information about the error or failure that happened.
 
-<a name="find failure-message"></a>
+<a name="find-failure-message"></a>
 
 ### Find failure msg from 'Try' block
 
