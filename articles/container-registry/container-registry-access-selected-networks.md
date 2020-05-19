@@ -1,5 +1,5 @@
 ---
-title: Configure service firewall rules
+title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
 ms.date: 05/19/2020
