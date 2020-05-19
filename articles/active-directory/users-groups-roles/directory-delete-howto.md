@@ -41,7 +41,7 @@ You can't delete a directory in Azure AD until it passes several checks. These c
   
    ![Confirm organization before deleting](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Select **Delete directory**.
+4. Select **Delete directory** or **Delete tenant**, depending on the portal UI experience.
   
    ![select the command to delete the organization](./media/directory-delete-howto/delete-directory-list.png)
 
