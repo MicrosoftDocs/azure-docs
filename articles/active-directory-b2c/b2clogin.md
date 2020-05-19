@@ -96,9 +96,10 @@ client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 
 ### MSAL for JavaScript validateAuthority property
 
-If you're using [MSAL for JavaScript][msal-js] v1.2.1 or earlier, set the **validateAuthority** property to `false`. Setting this value to `false` is not required for MSAL for JavaScript v1.3.0 and later.
+If you're using [MSAL for JavaScript][msal-js] v1.2.1 or earlier, set the **validateAuthority** property to `false`.
 
 ```JavaScript
+// MSAL.js v1.2.1 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -109,9 +110,10 @@ this.clientApplication = new UserAgentApplication(
 );
 ```
 
-If you set `validateAuthority: true` in MSAL.js 1.3.0+, you must also specify the valid authorities with `knownAuthorities`:
+If you set `validateAuthority: true` in MSAL.js 1.3.0+ (the default), you must also specify a valid token issuer with `knownAuthorities`:
 
 ```JavaScript
+// MSAL.js v1.3.0+
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
