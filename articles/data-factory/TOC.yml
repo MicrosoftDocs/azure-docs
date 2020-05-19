@@ -368,6 +368,8 @@
       href: connector-servicenow.md
     - name: SFTP
       href: connector-sftp.md
+    - name: SharePoint Online List
+      href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
     - name: Spark
