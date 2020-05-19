@@ -133,6 +133,8 @@
   items:
   - name: Move across regions
     href: move-across-regions.md
+  - name: Dynamically add partitions
+    href: dynamically-add-partitions.md
   - name: Use Blob Storage as checkpoint store on Azure Stack Hub
     href: use-blob-storage-checkpoint-store-azure-stack-hub.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
