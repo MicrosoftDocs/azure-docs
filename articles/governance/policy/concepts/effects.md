@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 03/23/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -533,17 +533,16 @@ not, then a deployment to enable is executed.
 This effect is used with a policy definition *mode* of `Microsoft.Kubernetes.Data`. It's used to
 pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to self-managed Kubernetes clusters
-on Azure.
+to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
 > [!NOTE]
-> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports Linux node
-> pools and built-in policy definitions.
+> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
+> node pools and built-in policy definitions.
 
 ### EnforceOPAConstraint evaluation
 
 The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### EnforceOPAConstraint properties
 
@@ -564,8 +563,8 @@ Gatekeeper v3 admission control rule.
 
 ### EnforceOPAConstraint example
 
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
-Engine.
+Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
+Kubernetes.
 
 ```json
 "if": {
@@ -598,20 +597,23 @@ Engine.
 
 ## EnforceRegoPolicy
 
-This effect is used with a policy definition *mode* of `Microsoft.ContainerService.Data`. It's used
+This effect is used with a policy definition _mode_ of `Microsoft.ContainerService.Data`. It's used
 to pass Gatekeeper v2 admission control rules defined with
 [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports Linux node pools
-> and built-in policy definitions.
+> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
+> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
+> category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are being _deprecated_. Instead, use the updated
+> [EnforceOPAConstraint](#enforceopaconstraint) effect.
 
 ### EnforceRegoPolicy evaluation
 
 The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### EnforceRegoPolicy properties
 
@@ -654,7 +656,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 }
 ```
 
-## Layering policies
+## Layering policy definitions
 
 A resource may be impacted by several assignments. These assignments may be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
@@ -687,11 +689,11 @@ If both policy 1 and policy 2 had effect of deny, the situation changes to:
 - Any new resource in resource group B of subscription A is denied
 
 Each assignment is individually evaluated. As such, there isn't an opportunity for a resource to
-slip through a gap from differences in scope. The net result of layering policies or policy overlap
-is considered to be **cumulative most restrictive**. As an example, if both policy 1 and 2 had a
-deny effect, a resource would be blocked by the overlapping and conflicting policies. If you still
-need the resource to be created in the target scope, review the exclusions on each assignment to
-validate the right policies are affecting the right scopes.
+slip through a gap from differences in scope. The net result of layering policy definitions is
+considered to be **cumulative most restrictive**. As an example, if both policy 1 and 2 had a deny
+effect, a resource would be blocked by the overlapping and conflicting policy definitions. If you
+still need the resource to be created in the target scope, review the exclusions on each assignment
+to validate the right policy assignments are affecting the right scopes.
 
 ## Next steps
 

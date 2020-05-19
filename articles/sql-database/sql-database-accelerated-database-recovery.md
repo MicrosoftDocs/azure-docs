@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 03/24/2020
+ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery
 
@@ -27,7 +27,7 @@ ms.date: 03/24/2020
 
   With ADR, the transaction log is aggressively truncated, even in the presence of active long-running transactions, which prevents it from growing out of control.
 
-## The current database recovery process
+## Standard database recovery process
 
 Database recovery in SQL Server follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
 

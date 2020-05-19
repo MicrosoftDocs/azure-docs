@@ -68,7 +68,7 @@ Pivot generates new column names dynamically based on row values. You can add th
 
 ### Sinking pivoted columns
 
-Although pivoted columns are dynamic, they can still be written into your destination data store. Enable **Allow schema drift** in your sink settings. This will allow you to write columns that are not included in metadata. your column metadata, but the schema drift option will allow you to land the data.
+Although pivoted columns are dynamic, they can still be written into your destination data store. Enable **Allow schema drift** in your sink settings. This will allow you to write columns that are not included in metadata. You will not see the new dynamic names in your column metadata, but the schema drift option will allow you to land the data.
 
 ### Rejoin original fields
 
