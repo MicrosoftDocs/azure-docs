@@ -31,10 +31,9 @@ The tutorial is driven by a sample project written in C#. Get the sample project
 
 [!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
 
-> [!NOTE]
-> NOTE FOR BUG BASH PARTICIPANTS: There is typically a step here for setting up an app registration in Azure Active Directory, to grant a client app permission to the Azure Digital Twins APIs (from which users get their own *Application (client) ID* for use later). 
-> 
-> However, for users internal to Microsoft, there is a known limitation with Microsoft's AAD tenant: non-administrative users are unable to grant permissions in this tenant, so you will not be able to create your own app registration easily from a Microsoft-internal account. As a result, the bug bash instructions have been edited to skip the app registration step in favor of giving you a pre-set client ID for authenticating internally: *f7400bff-2504-4e5f-8587-eda134e5a70d*.
+#### Register your application
+
+[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
 
 [!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
