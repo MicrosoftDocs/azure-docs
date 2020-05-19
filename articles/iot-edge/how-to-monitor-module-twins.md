@@ -12,13 +12,13 @@ services: iot-edge
 ---
 # Monitor module twins
 
-The module twins in Azure IoT Hub module enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. This information is maintained in desired and reported property sets in the module twin's JSON structure.
+The module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. This information is maintained in desired and reported property sets in the module twin's JSON structure.
 
 The IoT Edge agent updates the [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) module twins with health and connectivity data about the runtime, your custom modules, and any downstream IoT devices.
 
-For your custom modules, your solution can define desired properties as needed according to your business needs. Your solution is responsible for updating reported properties in its module twin.
+The module twin for your custom modules is for data as needed to your solution. Your solution is responsible for updating desired and reported properties in its module twin.
 
-This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments]. For an overview on the concept of module twins, see (how-to-monitor-iot-edge-deployments.md) and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For an overview on the concept of module twins, see (how-to-monitor-iot-edge-deployments.md) and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 ## Monitor runtime module twins
 
@@ -162,7 +162,7 @@ If you're experiencing issues with your downstream devices, examining this data 
 
 The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for the maintaining data for your solution. The desired properties you defined in your deployment.template.json file are reflected in the module twin, and your module can update desired and reported property values as needed.
 
-You can use the Azure .NET SDK to update reported property values in the module twin based on your module's application code.
+Use the Azure .NET SDK to update reported property values in the module twin based on your module's application code.
 
 1. Create an instance of the [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 
