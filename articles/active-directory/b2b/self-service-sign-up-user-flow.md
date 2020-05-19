@@ -22,7 +22,10 @@ ms.collection: M365-identity-device-management
 | Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up using the options configured in the user flow.
+You can create user flows for apps that are built by your organization. Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up using the options configured in the user flow. 
+
+> [!NOTE]
+> User flows can't be used for Microsoft apps, like SharePoint or Teams.
 
 ## Before you begin
 

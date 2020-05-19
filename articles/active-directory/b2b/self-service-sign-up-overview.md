@@ -22,7 +22,10 @@ ms.collection: M365-identity-device-management
 | Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-When sharing applications with external users, you might not always know in advance who will need access to an application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options for Azure AD or social identity providers and collect information about the user.
+When sharing an application with external users, you might not always know in advance who will need access to an application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options for Azure AD or social identity providers and collect information about the user. 
+
+> [!NOTE]
+> You can associate user flows with apps built by your organization. User flows can't be used for Microsoft apps, like SharePoint or Teams.
 
 ## User flow for self-service sign-up
 
