@@ -35,7 +35,7 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
-- `~/logs/user/logs/`: This folder contains logs written from entry_script using EntryScript helper. Also contains print statement (stdout) from entry_script.
+- `~/logs/user/<node_name>.log.txt`: These are the logs written from entry_script using EntryScript helper. Also contains print statement (stdout) from entry_script.
 
 For a concise understanding of errors in your script there is:
 
@@ -82,19 +82,32 @@ def run(mini_batch):
 
 ### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
-Construct a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) object containing the side input and register with your workspace. After that you can access it in your inference script (for example, in your init() method) as follows:
+Construct a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) containing the side input and register it with your workspace. Pass it to the `side_input` parameter of your `ParallelRunStep`. Additionally, you can add it's path in the `arguments` section to easily access it's mounted path:
 
 ```python
-from azureml.core.run import Run
-from azureml.core.dataset import Dataset
+label_config = label_ds.as_named_input("labels_input")
+batch_score_step = ParallelRunStep(
+    name=parallel_step_name,
+    inputs=[input_images.as_named_input("input_images")],
+    output=output_dir,
+    arguments=["--labels_dir", label_config],
+    side_inputs=[label_config],
+    parallel_run_config=parallel_run_config,
+)
+```
 
-ws = Run.get_context().experiment.workspace
-lookup_ds = Dataset.get_by_name(ws, "<registered-name>")
-lookup_ds.download(target_path='.', overwrite=True)
+After that you can access it in your inference script (for example, in your init() method) as follows:
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--labels_dir', dest="labels_dir", required=True)
+args, _ = parser.parse_known_args()
+
+labels_path = args.labels_dir
 ```
 
 ## Next steps
 
 * See the SDK reference for help with the [azureml-contrib-pipeline-step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) package and the [documentation](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) for ParallelRunStep class.
 
-* Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with parallel run step.
+* Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep and for an example of passing another file as a side input. 
