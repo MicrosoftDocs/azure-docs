@@ -93,8 +93,8 @@ Edge folder contains .env file and deployment.template.json. The deployment temp
 
 App folder contains the following files
 
-* Appsettings.json has the settings required for the program (as covered in the previous section)
-* Graphsettings.json has the Media Graph related settings required for the sample program. The settings are as follows
+* Appsettings.json contains the settings required for the program (as covered in the previous section)
+* Graphsettings.json contains the media graph related settings required for the sample program. The settings are as follows
 
     1. graphTopologyUrl points to the graph topology JSON
     1. graphInstanceName refers to the graph name that the sample program will use when creating the graph instance
