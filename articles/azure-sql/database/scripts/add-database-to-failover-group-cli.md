@@ -12,9 +12,9 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use CLI to add an Azure SQL Database into a failover group
+# Use the Azure CLI to add a database into a failover group
 
-This Azure CLI script example creates an Azure SQL Database, creates a failover group, adds the database to it, and tests failover.
+This Azure CLI script example creates a database in Azure SQL Database, creates a failover group, adds the database to it, and tests failover.
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -44,7 +44,7 @@ az group delete --name $resource
 
 ## Sample reference
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | | |
 |---|---|
