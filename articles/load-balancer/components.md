@@ -17,7 +17,7 @@ ms.author: allensu
 
 Azure Load Balancer comprises of a few key components. These can be configured in your subscription via Azure portal, Azure CLI, Azure PowerShell or Templates.
 
-## Frontend IP configuration
+## Frontend IP configuration <a name = "frontend-ip-configurations"></a>
 
 The IP address of your Azure Load Balancer. It is the point of contact for clients. These IP addresses can be either:
 
@@ -84,7 +84,7 @@ Basic load balancer doesn't support Outbound rules.
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
-- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
+- Learn about using [Load Balancer with Multiple Frontend IP configurations](load-balancer-multivip-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/security-overview.md).
 - Learn about [Probe types](load-balancer-custom-probe-overview.md#types).
 - Learn more about [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
