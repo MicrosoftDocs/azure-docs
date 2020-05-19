@@ -19,7 +19,7 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 
 ## Choosing recording modes  
 
-The choice of whether to use CVR or EVR depends on the business goals. Live video analytics on IoT Edge provides platform capabilities for both CVR and EVR. You can learn more about it in the [CVR](continuous-video-recording-concept.md) and [EVR](event-based-video-recording-concept.md) scenario articles.
+The choice of whether to use CVR or EVR depends on the business goals. Live Video Analytics on IoT Edge provides platform capabilities for both CVR and EVR. You can learn more about it in the [CVR](continuous-video-recording-concept.md) and [EVR](event-based-video-recording-concept.md) scenario articles.
 
 ## Recording policy  
 

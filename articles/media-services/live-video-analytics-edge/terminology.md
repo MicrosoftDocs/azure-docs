@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Terminology
 
-This article provides an overview of terminology related to [Live video analytics on IoT Edge](overview.md).
+This article provides an overview of terminology related to [Live Video Analytics on IoT Edge](overview.md).
 
 ## Azure Media Services
 
@@ -17,7 +17,7 @@ Azure Media Services is a cloud media platform that enables you to build media s
 
 [Asset](../latest/assets-concept.md) is an entity in Azure Media Services that maps to a blob container in the Azure storage account that is attached to a Media Services account. All files associated with an asset are stored as blobs in that container while Azure Media Services holds the metadata (for example, a name, description, creation time) associated with the asset.
 
-Live video analytics on IoT Edge can create assets and/or add data to existing assets. This enables the scenarios of continuous and event-based video recording and playback (with video capture on the edge device, recording to Azure Media Services, and playback via existing Azure Media Services streaming capabilities).
+Live Video Analytics on IoT Edge can create assets and/or add data to existing assets. This enables the scenarios of continuous and event-based video recording and playback (with video capture on the edge device, recording to Azure Media Services, and playback via existing Azure Media Services streaming capabilities).
 
 ## Streaming
 

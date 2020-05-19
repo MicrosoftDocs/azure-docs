@@ -1,11 +1,11 @@
 ---
-title: Media Graph concept - Azure
+title: Media graph concept - Azure
 description: Media Graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of Media Graph.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Media Graph concept
+# Media graph concept
 
 ## Suggested pre-reading
 
@@ -14,11 +14,11 @@ ms.date: 04/27/2020
 
 ## Overview
 
-Media Graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a Media Graph.   
+Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a Media Graph.   
 
 ![A graphical representation of a media graph](./media/media-graph/graphical-representation-media-graph.png)
 
-A media graph has the following nodes:
+Media graph has the following nodes:
 
 * A source node, which represents ingestion of media into the media graph. Media in this context, conceptually, could be an audio stream, a video stream, a data stream, or a stream that has audio, video, and/or data combined together in a single stream.
 * A processor node, which represents processing of the media within the media graph.
@@ -28,11 +28,11 @@ Live Video Analytics on IoT Edge supports different types of sources, processors
 
 ## Media graph topologies and instances 
 
-Live Video Analytics on IoT Edge enables you to manage media graphs via two concepts – "graph topology" and "graph instance". A Graph Topology enables you to define a blueprint of a graph, with parameters as placeholders for values. The topology defines what nodes are used in the media graph, and how they are connected within the media graph. Values for the parameters can be specified when creating graph instances referencing the topology. This enables you to create multiple instances referencing the same topology but with different values for the parameters specified in the topology. 
+Live Video Analytics on IoT Edge enables you to manage media graphs via two concepts – "graph topology" and "graph instance". A graph topology enables you to define a blueprint of a graph, with parameters as placeholders for values. The topology defines what nodes are used in the media graph, and how they are connected within the media graph. Values for the parameters can be specified when creating graph instances referencing the topology. This enables you to create multiple instances referencing the same topology but with different values for the parameters specified in the topology. 
 
 ## Media graph states  
 
-A media graph can be in one of following states:
+Media graph can be in one of the following states:
 
 * Inactive –  represents the state where a media graph is configured but not active.
 * Activating – the state when a media graph is being instantiated (that is, the transition state between Inactive and Active).
@@ -48,7 +48,7 @@ The diagram below illustrates the media graph state machine.
 
 ## Sources, processors, and sinks  
 
-With the latest release, Live Video Analytics on IoT Edge, supports the following types of nodes within a Media Graph:
+With the latest release, Live Video Analytics on IoT Edge, supports the following types of nodes within a media graph:
 
 ### Sources 
 
@@ -96,13 +96,11 @@ An IoT Hub message sink enables you to publish events to IoT Edge hub. The Edge 
 
 ## Scenarios
 
-Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of live video analytics related scenarios. A few example scenarios are as follows
+Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of Live Video Analytics related scenarios. A few example scenarios are as follows
 
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 * [Live Video Analytics without video recording](analyze-live-video-concept.md)
-
-## Next steps
 
 ## Next steps
 
