@@ -67,6 +67,7 @@ export type AuthOptions = {
     clientId: string;
     authority?: string;
     validateAuthority?: boolean;
+    knownAuthorities?: Array<string>;
     redirectUri?: string | (() => string);
     postLogoutRedirectUri?: string | (() => string);
     navigateToLoginRequestUrl?: boolean;
@@ -78,15 +79,23 @@ export type CacheOptions = {
     storeAuthStateInCookie?: boolean;
 };
 
-// Library support
+// Telemetry support
+export type TelemetryOptions = {
+    applicationName: string;
+    applicationVersion: string;
+    telemetryEmitter: TelemetryEmitter
+};
+
+// Library-specific support
 export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
     navigateFrameWait?: number;
+    telemetry?: TelemetryOptions
 };
 
-// Developer App Environment Support
+// Developer app/framework-specific environment support
 export type FrameworkOptions = {
     isAngular?: boolean;
     unprotectedResources?: Array<string>;
@@ -102,40 +111,14 @@ export type Configuration = {
 };
 ```
 
-Below is the total set of configurable options that are supported currently in the config object:
+Below is the full set of configurable options currently supported in the config object.
 
-- **clientID**: Required. The clientID of your application, you should get this from the application registration portal.
-
-- **authority**: Optional. A URL indicating a directory that MSAL can request tokens from. Default value is: `https://login.microsoftonline.com/common`.
-    * In Azure AD, it is of the form https://&lt;instance&gt;/&lt;audience&gt;, where &lt;instance&gt; is the identity provider domain (for example, `https://login.microsoftonline.com`) and &lt;audience&gt; is an identifier representing the sign-in audience. This can be the following values:
-        * `https://login.microsoftonline.com/<tenant>`- tenant is a domain associated to the tenant, such as contoso.onmicrosoft.com, or the GUID representing the `TenantID` property of the directory used only to sign in users of a specific organization.
-        * `https://login.microsoftonline.com/common`- Used to sign in users with work and school accounts or a Microsoft personal account.
-        * `https://login.microsoftonline.com/organizations/`- Used to sign in users with work and school accounts.
-        * `https://login.microsoftonline.com/consumers/` - Used to sign in users with only personal Microsoft account (live).
-    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain i.e. {your-tenant-name}.b2clogin.com, tenant is the name of the Azure AD B2C tenant i.e. {your-tenant-name}.onmicrosoft.com, policyName is the name of the B2C policy to apply.
-
-
-- **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`.
-
-- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal. Defaults to `window.location.href`.
-
-- **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
-
-- **navigateToLoginRequestUrl**: Optional. Ability to turn off default navigation to start page after login. Default is true. This is used only for redirect flows.
-
-- **cacheLocation**: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
-
-- **storeAuthStateInCookie**: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the [authentication loop issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
-
-- **logger**: Optional.  A Logger object with a callback instance that can be provided by the developer to consume and publish logs in a custom manner. For details on passing logger object, see [logging with msal.js](msal-logging.md).
-
-- **loadFrameTimeout**: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
-
-- **tokenRenewalOffsetSeconds**: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
-
-- **navigateFrameWait**: Optional. The number of milliseconds which sets the wait time before hidden iframes navigate to their destination. Default is 500 milliseconds.
-
-These are only applicable to be passed down from the MSAL Angular wrapper library:
-- **unprotectedResources**: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.
-
-- **protectedResourceMap**: Optional.  This is mapping of resources to scopes used by MSAL for automatically attaching access tokens in web API calls. A single access token is obtained for the resource. So you can map a specific resource path as follows: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, or the app URL of the resource as: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. This is required for CORS calls. Defaults to `null`.
+| AuthOptions | Required | Description |
+| ----------- | :------: | :---------- |
+| `clientId` | Required | The **Application (client) ID** of your application. Find this value on the application registration's overview page in **App registrations** in the Azure portal.
+| `authority` | Optional | A URL specifying the endpoint from which MSAL requests security tokens. Default: `https://login.microsoftonline.com/common`<p/>In **Azure AD**, `authority` is in the form `https://<instance>/<audience>`. `<instance>` is the identity provider domain (for example, `https://login.microsoftonline.com`) and `<audience>` is an identifier representing the sign-in audience. `audience` can be one of the following:<p/><li>`https://login.microsoftonline.com/<tenant>` - Sign in users of a specific organization (single-tenant). `tenant` is a domain associated with tenant, like `contoso.onmicrosoft.com`, or the tenant's **Directory (tenant) ID** (a GUID).</li><li>`https://login.microsoftonline.com/common` - Sign in users with work and school accounts or a Microsoft personal account (MSA).</li><li>`https://login.microsoftonline.com/organizations/` - Sign in users with work and school accounts.</li><li>`https://login.microsoftonline.com/consumers/` - Sign in users with personal Microsoft accounts (MSA) *only*.</li><br/>In **Azure AD B2C**, `authority` is in the form `https://<instance>/tfp/<tenant>/<policyName>/`. `<instance>` is `tenant-name.b2clogin.com`, `<tenant>` is `tenant-name.onmicrosoft.com` (or the tenant ID GUID), and `policyName` is the name of the B2C user flow or custom policy (for example, `B2C_1_signupsignin1`).
+| `validateAuthority` | Optional |
+| `knownAuthorities` | Optional |
+| `redirectUri` | Optional |
+| `postLogoutRedirectUri` | Optional |
+| `navigateToLoginRequestUrl` | Optional |
