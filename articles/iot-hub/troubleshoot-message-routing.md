@@ -1,84 +1,77 @@
 ---
 title: Troubleshoot Azure IoT message routing
 description: How to perform troubleshooting for Azure IoT message routing
-author: robinsh
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.author: robinsh
+ms.author: asrastog
 ---
 
 # Troubleshooting message routing
 
-This article provides help troubleshooting problems or issues with message routing. Several common scenarios are be covered, including common error codes.
+This article provides troubleshooting guidance for common issues and resolution for IoT Hub [message routing](iot-hub-devguide-messages-d2c.md). 
 
-## Metrics
+## Monitoring message routing
 
-For detailed information showing all of the available metrics for IoT Hub, see [iot-hub-metrics](iot-hub-metrics.md).
+[IoT Hub metrics](iot-hub-metrics.md) lists all metrics that are enabled by default for your IoT Hub. We recommend you monitor metrics related to message routing and endpoints to give you an overview of the messages sent. Also turn on [diagnostic logs](iot-hub-monitor-resource-health.md) in Azure Monitor diagnostic settings, to track operations for **routes**. These diagnostic logs can be sent to Azure Monitor logs, Event Hubs, or Azure Storage for custom processing. Learn how to [set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).
 
-To set up and use metrics, see the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).
+We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c#fallback-route) if you want to maintain messages that don't match the query on any of the routes. These can be retained in the [built-in endpoint](iot-hub-devguide-messages-read-builtin) for the amount of retention days configured. 
 
-## Which metrics to use when
+## Top issues
 
-Can we provide some guidance here, like metrics used the most?
+[!INCLUDE [iot-hub-include-troubleshoot-routing-top.md](../../../includes/iot-hub-include-troubleshoot-routing-top.md)]
 
-## Scenario driven examples
+### Messages from my devices are not being routed as expected
 
-I was pulling data from build in endpoint into TSI or ASA and after configuring a new message route, TSI/ASA is not getting data. {Note: I don't have any idea what this means. -rs}
+To troubleshoot this issue, analyze the following.
 
-My endpoint status is dead on the portal, what can I do to debug?
+#### The routing metrics for this endpoint
 
-My endpoint is not getting data, how do I troubleshoot?
+All the [IoT Hub metrics](iot-hub-devguide-endpoints.md) related to routing are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](iot-hub-metrics.md#dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
 
-Messages dropped, check per endpoint metrics, diag logs and get endpoint health for last known error
+#### The diagnostic logs for any other operational issues 
 
-What messages go to fallback route? How do I use this capability?
+Observe the **routes** [diagnostic logs](iot-hub-monitor-resource-health.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error codes](#common-error-codes) of 403004 indicates the endpoint ran out of space.
 
-What services can I send data to using message routing? (should this be added? It's more for information than for debugging)
+#### The health of the endpoint
 
-Link to routing docs/custom endpoints
-{These are covered in the routing tutorial and also one of the devguide articles, so adding it here would be super redundant. We should add the links at the bottom in a "for more information" link.}
+Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-iot-hub-routing).
 
-### Route to blob fails
+### I suddenly stopped getting data at the built-in Event Hubs endpoint
 
-TBD.
+To troubleshoot this issue, analyze the following.
 
-### What to do when messages are dropped due to large size of message or enrichment
+#### New route was created
 
-Figure out if it's dropped because the size of the message or enrichment is too large.
-Are there any other reasons we want to cover for dropped messages?
+Once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. To ensure messages continues to flow to the built-in-endpoint if a new route is added, configure a route to the *events* endpoint. 
 
-<!-- I put in some anchors so you can link directly to this spot that shows each table -->
-<!-- I don't ordinarily use anchors, but seems like a good solution here.-->
+#### Fallback route was disabled
 
-## Last known errors for IoT Hub Routing
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
+
+You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
+
+## Last known errors for IoT Hub routing endpoints
 
 <a id="last-known-errors"></a>
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
-## Diagnostic logs
+## Routes diagnostic logs
 
-The following are the error codes and operation names used in the diagnostics logs.
-
-<a id="diagnostics-error-codes"></a>
-### Common error codes output
-
-[!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
+The following are the operation names and error codes logged in the [diagnostic logs](iot-hub-monitor-resource-health.md).
 
 <a id="diagnostics-operation-names"></a>
 ### Operation Names
 
 [!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
+<a id="diagnostics-error-codes"></a>
+### Common error codes
+
+[!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
+
 ## Next steps
 
-<!--combine into one last, as these are all in the same tutorial -->
-* Monitoring and troubleshooting (tutorial)
-  * Setting up metrics
-  * Setting alerts in Azure Monitor
-  * Enabling diagnostic logs
-  * Using diagnostic logs to debug
-
-Update the alerts in the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md) so they use the Azure Monitor alerts instead of the old classic alerts.
-
+If you need more help, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

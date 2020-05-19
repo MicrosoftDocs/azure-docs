@@ -15,7 +15,7 @@
 
 |Error Code|Description|
 |----------|-----------|
-|401002| IotHub Unauthorized Access|
+|401002| Iot Hub Unauthorized Access|
 |413001| Message too large|
 |403004| Device maximum queue depth exceeded|
 |503008| Receive link throttled|
@@ -23,5 +23,5 @@
 |401|Unauthorized|
 |503|Service Unavailable|
 |500001|Server Error|
-|400103| InvalidContentEncodingOrType|
+|400103| Invalid Content Encoding Or Content Type|
 |404001| Device Not found|
