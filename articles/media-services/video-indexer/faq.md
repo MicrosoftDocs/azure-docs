@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
 ---
 
@@ -95,6 +95,10 @@ For details, see articles about customizing [Person](customize-person-model-over
 Yes. Press the **edit video** button from the library display or the **open in editor** button from the player display to get to the **Projects** tab. You can create a new project and add more videos from your library to edit them together, once you are done you can render your video and download. 
 
 If you want to get insights on your new video, index it with Video Indexer and it will appear in your library with its insights.
+
+### Can I index multiple audio streams or channels?
+
+If there are multiple audio streams, Video Indexer takes the first one it encounters and will process only this stream. In any audio stream Video Indexer processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
 
 ### What is the SLA for Video Indexer?
 

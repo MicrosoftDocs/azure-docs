@@ -190,4 +190,4 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 
 ## Next steps
 
-Learn more about [server-side disk encryption](/windows/disk-encryption.md)).
+Learn more about [server-side disk encryption](./windows/disk-encryption.md).
