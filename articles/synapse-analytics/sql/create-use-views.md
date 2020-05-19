@@ -21,7 +21,7 @@ Your first step is to create a database where the view will be created and initi
 
 ## Create a view
 
-You can create views the same way you create regular SQL Server views. The query below creates view that reads *population.csv* file.
+You can create views the same way you create regular SQL Server views. The following query creates view that reads *population.csv* file.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.

@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/14/2020
 
 ---
 
@@ -212,3 +212,4 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

@@ -46,7 +46,7 @@ conceptualContent:
           text: Speech recognition basics
           url: speech-to-text-basics.md          
       footerLink:
-        text: See more
+        text: More
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
@@ -60,7 +60,7 @@ conceptualContent:
           text: Speech synthesis basics
           url: text-to-speech-basics.md          
       footerLink:
-        text: See more
+        text: More
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
@@ -74,7 +74,7 @@ conceptualContent:
         text: Speech translation basics
         url: speech-translation-basics.md        
       footerLink:
-        text: See more
+        text: More
         url: index-speech-translation.yml
     - title: Intent recognition
       links:
@@ -88,7 +88,7 @@ conceptualContent:
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
       footerLink:
-        text: See more
+        text: More
         url: index-intent-recognition.yml
     - title: Conversation scenarios
       links:
@@ -102,7 +102,7 @@ conceptualContent:
           text: Call center transcription
           url: call-center-transcription.md
       footerLink:
-        text: See more
+        text: More
         url: index-conversation-scenarios.yml
     - title: Voice assistants
       links:
@@ -116,7 +116,7 @@ conceptualContent:
           text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
       footerLink:
-        text: See more
+        text: More
         url: index-voice-assistants.yml
     - title: Tools
       links:
@@ -141,7 +141,7 @@ conceptualContent:
           text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
       footerLink:
-        text: See more
+        text: More
         url: index-hosting.yml
     - title: Devices
       links:
@@ -155,7 +155,7 @@ conceptualContent:
         text: Use Speech Devices SDK
         url: speech-devices-sdk-quickstart.md
       footerLink:
-        text: See more
+        text: More
         url: index-devices.yml
     - title: Migration
       links:
