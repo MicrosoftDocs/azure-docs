@@ -1,5 +1,5 @@
 ---
-title: Set up an indexer connection to a Cosmos DB account using a managed identity (preview)
+title: Set up a connection to a Cosmos DB account using a managed identity (preview)
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to a Cosmos DB account using a managed identity (preview)
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Set up an indexer connection to a Cosmos DB account using a managed identity (preview)
+# Set up an indexer connection to a Cosmos DB database using a managed identity (preview)
 
 > [!IMPORTANT] 
 > Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
