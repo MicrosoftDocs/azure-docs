@@ -47,8 +47,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts a single database or elastic pool. |
-| [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Shows the size usage information for the SQL database.|
-| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates SQL database properties or moves the database into, out of, or between elastic pools. |
+| [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Shows the size usage information for the database.|
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates database properties or moves the database into, out of, or between elastic pools. |
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Sets an alert rule to automatically monitor metrics in the future. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
