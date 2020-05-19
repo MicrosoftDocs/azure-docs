@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Questions about backing up Azure Files
 
-This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in [Microsoft Q&A for Azure Backup](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 

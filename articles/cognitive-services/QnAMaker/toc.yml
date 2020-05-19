@@ -30,6 +30,8 @@
   items:
   - name: Azure resources
     href: Concepts/azure-resources.md
+  - name: Collaborate with others
+    href: Concepts/role-based-access-control.md
   - name: Design a knowledge base
     items:
     - name: For languages
@@ -155,6 +157,8 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
+  - name: Role-based access control (RBAC)
+    href: reference-role-based-access-control.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Service configuration

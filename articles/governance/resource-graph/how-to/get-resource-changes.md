@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
 ---
 # Get resource changes
