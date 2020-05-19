@@ -394,9 +394,6 @@
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-      displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: 'Designer transform data'
       displayName: pipeline
       href: how-to-designer-transform-data.md
@@ -418,6 +415,9 @@
     - name: Iterating and evolving machine learning pipelines
       displayName: modularizing testing
       href: concept-pipeline-practices-tips.md
+  - name: 'Azure Pipelines for CI/CD'
+    displayName: continuous, integration, delivery
+    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
