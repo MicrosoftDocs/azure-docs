@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 You can add Facebook to your self-service sign-up user flows (Preview) so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
 > [!NOTE]
-> Users can only use their Facebook accounts to sign up through apps using self-service sign up and user flows. Users cannot be invited and redeem their invitation using a Facebook account.
+> Users can only use their Facebook accounts to sign up through apps using self-service sign-up and user flows. Users cannot be invited and redeem their invitation using a Facebook account.
 
 ## Create an app in the Facebook developers console
 
