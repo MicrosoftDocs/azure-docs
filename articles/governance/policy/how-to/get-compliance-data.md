@@ -250,13 +250,8 @@ additional context and information about those events.
 
 ### Understand non-compliance
 
-<<<<<<< HEAD
 When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
 the reason a resource is **non-compliant** or to find the change responsible, see
-=======
-When a resource is determined to be **non-compliant**, there are many possible reasons. To
-determine the reason a resource is **non-compliant** or to find the change responsible, see
->>>>>>> 46d45dfcfc1... Freshness review and Acrolinx updates
 [Determine non-compliance](./determine-non-compliance.md).
 
 ## Command line
