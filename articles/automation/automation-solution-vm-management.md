@@ -193,11 +193,11 @@ Selecting the solution displays the **Start-Stop-VM[workspace]** solution page. 
 
 You can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and predefined log search queries. Switch to the log analytics advanced portal to search based on your search queries.
 
-## Update the solution
+## Update the feature
 
-If you've deployed a previous version of this solution, delete it from your account before deploying an updated release. Follow the steps to [remove the solution](#remove-the-solution) and then follow the steps to [deploy the solution](automation-solution-vm-management-enable.md).
+If you've deployed a previous version of this solution, delete it from your account before deploying an updated release. Follow the steps to [remove the solution](#remove-the-feature) and then follow the steps to [deploy the solution](automation-solution-vm-management-enable.md).
 
-## Remove the solution
+## Remove the feature
 
 If you no longer need to use the solution, you can delete it from the Automation account. Deleting the solution only removes the runbooks. It does not delete the schedules or variables that were created when the solution was added. Remove these assets manually if you aren't using them with other runbooks.
 
