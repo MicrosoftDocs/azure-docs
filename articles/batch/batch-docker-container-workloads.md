@@ -174,6 +174,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
 StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
@@ -183,6 +184,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
