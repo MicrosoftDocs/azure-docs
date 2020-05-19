@@ -17,7 +17,7 @@ ms.author: diberry
 After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](luis-concept-roles.md), and optional text.
 
 > [!CAUTION]
-> Patterns only include machine-learned entity parents, not subentities.
+> Patterns only include machine-learning entity parents, not subentities.
 
 ## Add template utterance using correct syntax
 
@@ -52,7 +52,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 
 1. In the **Choose an entity type** dialog box, enter the entity name in the **Name** box, and select **Pattern.Any** as the **Type** then select **Create**.
 
-    Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learned and text-matching algorithm.
+    Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learning and text-matching algorithm.
 
 ## Adding example utterances as pattern
 
@@ -68,7 +68,7 @@ If you want to add a pattern for an entity, the _easiest_ way is to create the p
 
     The utterance must include an entity in order to create a pattern from the utterance.
 
-1. In the pop-up box, select **Done** on the **Confirm patterns** page. You don't need to define the entities' subentities, or features. You only need to list the machine-learned entity.
+1. In the pop-up box, select **Done** on the **Confirm patterns** page. You don't need to define the entities' subentities, or features. You only need to list the machine-learning entity.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of confirming example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
