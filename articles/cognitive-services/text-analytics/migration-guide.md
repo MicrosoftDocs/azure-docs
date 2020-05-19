@@ -40,7 +40,8 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ## Feature changes
 
-> Currently, v3 entity categories are only returned on English text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
+> [!NOTE] 
+> Currently, [v3 entity categories](named-entity-types.md) are only returned on English text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
 
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
