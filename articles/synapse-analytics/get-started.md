@@ -238,14 +238,17 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * Add **Line chart** to your report
     * Drag the **PasssengerCount** column to **Visualizations > Axis**
     * Drag the **SumTripDistance** and **AvgTripDistance** columns to **Visualizations > Values**
-* In the **Home** tab, click **Publish** and save with this filename `PassengerAnalysis.pbix` and select your PowerBI workspace
+* In the **Home** tab, click **Publish**
+* It will ask you if you want to save your changes. Click **Save**.
+* It will ask you to pick a filename. Choose `PassengerAnalysis.pbix` and click **Save**
+* It will ask you to **Select a destination** select `NYXTaxiWorkspace1` and click **Select**
 * Wait for publishing to finish
 
 ### Configure authentitication for your dataset
 * Open https://powerbi.microsoft.com and **Sign in**
-* At the left, under Workspaces select the the workspace that you published to
-* Inside that workspace you should see a dataset called `nyxtaxi1`
-* Hover over the `nyctaxi1` dataset and click ther thee icon with the three dots and select **Settings**
+* At the left, under **Workspaces** select the the `NYXTaxiWorkspace1` workspace that you published to
+* Inside that workspace you should see a dataset called `Passenger Analysis` and a report called `Passenger Analysis` and
+* Hover over the `PassengerAnalysis` dataset and click the icon with the three dots and select **Settings**
 * In **Data source credentials** set the Authentication method to **OAuth2** and click **Sign in**
 
 ### Edit a report report in Synapse Studio
