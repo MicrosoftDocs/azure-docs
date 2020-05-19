@@ -26,7 +26,7 @@ The Canvas control allows you to design your runbook. You can add activities fro
 
 ### Library control
 
-The Library control allows you to select [activities](#activities) to add to your runbook. You add them to the canvas, where you can connect them to other activities. The Library control includes the sections defined in the following table.
+The Library control allows you to select [activities](#use-activities) to add to your runbook. You add them to the canvas, where you can connect them to other activities. The Library control includes the sections defined in the following table.
 
 | Section | Description |
 |:--- |:--- |
@@ -236,7 +236,7 @@ You can set [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a
 
 Checkpoints are only enabled in graphical PowerShell Workflow runbooks, and are not available in graphical runbooks. If the runbook uses Azure cmdlets, it should follow any checkpointed activity with a `Connect-AzAccount` activity. The connect operation is used in case the runbook is suspended and must restart from this checkpoint on a different worker.
 
-## Handle runbook input<a name="runbook-input"></a>
+## Handle runbook input
 
 A runbook requires input either from a user starting the runbook through the Azure portal or from another runbook, if the current one is used as a child. For example, for a runbook that creates a virtual machine, the user might need to provide such information as the name of the virtual machine and other properties each time the runbook starts.
 
@@ -262,11 +262,11 @@ Graphical authoring saves data created by any activity that does not have an out
 
 ## Work with PowerShell expressions
 
-One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### Use a PowerShell expression as a data source
 
-You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#activities) with the results of PowerShell code. The expression can be a single line of code that performs a simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
+You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#use-activities) with the results of PowerShell code. The expression can be a single line of code that performs a simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
 
 For example, the following command outputs the current date.
 
