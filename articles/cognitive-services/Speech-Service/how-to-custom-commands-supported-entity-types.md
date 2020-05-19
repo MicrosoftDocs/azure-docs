@@ -1,0 +1,1 @@
+use the on off subject device.. turn subject device param to fetch in information from external catalog.
