@@ -112,7 +112,7 @@ For time series forecasting Rolling Origin Cross Validation (ROCV) is used to sp
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
 
-This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. 
+This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. Learn more about how auto ML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
