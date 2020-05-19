@@ -50,7 +50,7 @@ To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **
 
 The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
 
-### Spark.NET C# kernel features
+### .NET for Apache Spark C# kernel features
 
 The following features are available when you use .NET for Apache Spark in the Azure Synapse Analytics notebook:
 
