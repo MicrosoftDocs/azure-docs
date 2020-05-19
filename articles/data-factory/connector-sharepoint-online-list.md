@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
@@ -25,11 +23,15 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 This SharePoint Online List connector is supported for the following activities:
 
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SharePoint Online List to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Specifically, this SharePoint List Online connector uses service principal authentication and retrieves data via OData protocol.
+
+> [!TIP]
+> This connector supports copying data from SharePoint Online **List** but not file. Learn how to copy file from [Copy file from SharePoint Online](#copy-file-from-sharepoint-online) section.
 
 ## Prerequisites
 
@@ -37,30 +39,31 @@ The SharePoint List Online connector uses service principal authentication to co
 
 1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
 
-   - Application ID
-   - Application key
-   - Tenant ID
+    - Application ID
+    - Application key
+    - Tenant ID
 
 2. Grant SharePoint Online site permission to your registered application: 
 
-   > [!NOTE]
-   >
-   > This operation requires SharePoint Online site owner permission. You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
+    > [!NOTE]
+    > This operation requires SharePoint Online site owner permission. You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.
 
-1. 1. Open SharePoint site link e.g. `https://[tenant-name].sharepoint.com/sites/[site-name]/_layouts/15/appinv.aspx` (replace tenant and site name).
-   2. Search the application ID you just registered in Step 1, fill the empty fields, and click "Create".
-      1. App Domain: localhost.com
-      2. Redirect URL: https://www.localhost.com
-      3. Permission Request XML:
-   3. ```xml
-      <AppPermissionRequests AllowAppOnlyPolicy="true">
-      	<AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-      </AppPermissionRequests>
-      ```
+    1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace tenant and site name).
+    2. Search the application ID you registered, fill the empty fields, and click "Create".
 
-2. ![sharepoint grant permission](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        - App Domain: localhost.com
+        - Redirect URL: https://www.localhost.com
+        - Permission Request XML:
 
-3. 3. Click "Trust It" for this app.
+        ```xml
+        <AppPermissionRequests AllowAppOnlyPolicy="true">
+            <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+        </AppPermissionRequests>
+        ```
+
+        ![sharepoint grant permission](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+
+    3. Click "Trust It" for this app.
 
 ## Get started
 
@@ -75,7 +78,7 @@ The following properties are supported for an SharePoint Online List linked serv
 | **Property**        | **Description**                                              | **Required** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
-| siteUrl             | The SharePoint Online site url. Eg. `https://[tenant-name].sharepoint.com/sites/[site-name]`. | Yes          |
+| siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
@@ -89,13 +92,13 @@ The following properties are supported for an SharePoint Online List linked serv
     "properties": {
         "type": "SharePointOnlineList",
         "typeProperties": {
-            "siteUrl": "https://[tenant-name].sharepoint.com/sites/[site-name]",
+            "siteUrl": "<site URL>",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
-            "tenantId": "<tenant GUID>"
+            "tenantId": "<tenant ID>"
         }
     }
 }
@@ -124,7 +127,7 @@ For a full list of sections and properties that are available for defining datas
         },
         "typeProperties":
         {
-            "listName": "MyList"
+            "listName": "<name of the list>"
         }
     }
 }
@@ -197,6 +200,36 @@ When you copy data from SharePoint Online List, the following mappings are used 
 | Task Outcome                                    | Not supported                                        |                                          |
 | External Data                                   | Not supported                                        |                                          |
 | Managed Metadata                                | Not supported                                        |                                          |
+
+## Copy file from SharePoint Online
+
+You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
+
+![sharepoint copy file flow](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+
+1. Follow the [Prerequisites](#prerequisites) section to create AAD application and grant permission to SharePoint Online. 
+
+2. Create a **Web Activity** to get the access token from SharePoint Online:
+
+    - **URL**: `https://accounts.accesscontrol.windows.net/[Tenant-ID]/tokens/OAuth/2`. Replace the tenant ID.
+    - **Method**: POST
+    - **Headers**:
+        - Content-Type: application/x-www-form-urlencoded
+    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID, client secret, tenant ID and and tenant name.
+
+    > [!CAUTION]
+    > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.
+
+3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
+
+    - HTTP linked service:
+        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Sample relative path to file as `/sites/site2/Shared Documents/TestBook.xlsx`.
+        - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
+    - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
+    - Copy activity source:
+        - **Request method**: GET
+        - **Additional header**: use the following expression`@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`, which uses the Bearer token generated by the upstream Web activity as authorization header. Replace the Web activity name.
+    - Configure the copy activity sink as usual.
 
 ## Lookup activity properties
 
