@@ -164,13 +164,14 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
     import matplotlib.pyplot
     import seaborn
 
-    sns.set(style = "whitegrid")
+    seaborn.set(style = "whitegrid")
     df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
     df = df.toPandas()
     seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
     seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
     matplotlib.pyplot.show()
     ```
+
 ## Load data from a Spark table into a SQL Pool table
 
     ```
@@ -179,7 +180,7 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
     df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
     ```
 
-## Analytze NYC taxi data in Spark databases using SQL-on demand 
+## Analyze NYC taxi data in Spark databases using SQL-on demand 
 
 * Tables in Spark databases are automatically visible and queryable by SQL on-demand
 * In Synapse Studio navigate to the Develop hub and create a new SQL script
