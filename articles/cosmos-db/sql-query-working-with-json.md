@@ -143,12 +143,11 @@ For example, here's a document with a property named `order` and a property `pri
 ```json
 {
   "id": "AndersenFamily",
-  "order":
-     {
+  "order": {
          "orderId": "12345",
          "productId": "A17849",
          "price($)": 59.33
-     },
+   },
   "creationDate": 1431620472,
   "isRegistered": true
 }
