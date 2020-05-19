@@ -50,7 +50,7 @@ In this article, you'll extend that application with parameters so it can turn m
     | **Required**           | Selected         | A check box that indicates whether a value for the parameter is required.  |
     | **Response for required parameter**      |**Simple editor -> On or Off?**      | A prompt to ask for the value of the parameter when it isn't known. |
     | **Type**               | **String**          | The type of parameter. For example, Number, String, Date Time, Geography.   |
-    | **Configuration**      | **Accept predefined input values from internal catalog** | For Strings, this setting limits inputs to a set of possible values. |
+    | **Configuration**      | **Accept predefined input values from internal catalog** | For strings, this setting limits inputs to a set of possible values. |
     | **Predefined input values**     | **on**, **off**             | A set of possible values and their aliases.         |
        
 
