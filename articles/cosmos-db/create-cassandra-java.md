@@ -11,7 +11,7 @@ ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
 ---
 
-# Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data
+# Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v3 Driver)
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
