@@ -1,6 +1,6 @@
 ---
 title: Copy a database 
-description: Create a transactionally consistent copy of an existing Azure SQL Database on either the same server or a different server.
+description: Create a transactionally consistent copy of an existing database in Azure SQL Database on either the same server or a different server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,9 +12,9 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
 ---
-# Copy a transactionally consistent copy of an Azure SQL Database
+# Copy a transactionally consistent copy of a database in Azure SQL Database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing [Azure SQL database](single-database-overview.md) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing [database](single-database-overview.md) on either the same server or a different server. You can copy a database by using the Azure portal, PowerShell, or T-SQL.
 
 ## Overview
 
@@ -110,7 +110,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 You can use the steps in the [Copy a SQL Database to a different server](#copy-to-a-different-server) section to copy your database to a server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database. Additionally, the login must be a member of the `dbmanager` role or a server administrator, on both source and target servers.
 
 > [!NOTE]
-> The [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI do not support database copy to a different subscription.
+> The [Azure portal](https://portal.azure.com), PowerShell, and the Azure CLI do not support database copy to a different subscription.
 
 ## Monitor the progress of the copying operation
 
@@ -145,7 +145,7 @@ To cancel a database copy, you will need to be in the following roles
    Microsoft.Sql/servers/databases/read
    Microsoft.Sql/servers/databases/write
 
-To manage database copy using Azure portal, you will also need the following permissions:
+To manage database copy using the Azure portal, you will also need the following permissions:
 
    Microsoft.Resources/subscriptions/resources/read
    Microsoft.Resources/subscriptions/resources/write

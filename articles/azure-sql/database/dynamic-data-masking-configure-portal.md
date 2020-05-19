@@ -41,12 +41,12 @@ This article shows you how to implement [dynamic data masking](dynamic-data-mask
     ![Navigation pane](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. Click **Add** in the data masking rule page to update the set of masking rules in the dynamic data masking policy.
-9. Type the SQL users or AAD identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Users with administrator privileges always have access to the original unmasked data.
+9. Type the SQL users or Azure Active Directory (Azure AD) identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Users with administrator privileges always have access to the original unmasked data.
 
     ![Navigation pane](./media/dynamic-data-masking-configure-portal/8_ddm_excluded_users.png)
 
     > [!TIP]
-    > To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
+    > To make it so the application layer can display sensitive data for application privileged users, add the SQL user or Azure AD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
 10. Click **Save** in the data masking configuration page to save the new or updated masking policy.
 
