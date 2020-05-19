@@ -11,7 +11,7 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
 ---
-# Tutorial: Secure an Azure SQL Database
+# Tutorial: Secure a database in Azure SQL Database
 
 In this tutorial you learn how to:
 
@@ -35,7 +35,7 @@ Azure SQL Database secures data by allowing you to:
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](security-overview.md) articles.
 
 > [!TIP]
-> The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> The following Microsoft Learn module helps you learn for free about how to [Secure your database in Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## Prerequisites
 

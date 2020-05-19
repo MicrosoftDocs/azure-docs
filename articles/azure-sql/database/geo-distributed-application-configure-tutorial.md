@@ -375,3 +375,4 @@ Advance to the next tutorial on how to add an instance of Azure SQL Managed Inst
 
 > [!div class="nextstepaction"]
 > [Add an instance of Azure SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
+ 

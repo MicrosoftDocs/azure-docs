@@ -4,7 +4,7 @@ description: Configure server-level IP firewall rules for a database in Azure SQ
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
@@ -13,9 +13,9 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
 ---
-# Azure SQL Database and Azure Synapse IP firewall rules
+# Azure SQL Database and Azure Synapse Analytics IP firewall rules
 
-When you create a new server in Azure SQL Database or Azure Synapse named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse).
+When you create a new server in Azure SQL Database or Azure Synapse Analytics named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
 > This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
@@ -262,3 +262,4 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 <!--Image references-->
 [1]: ./media/firewall-configure/sqldb-firewall-1.png
+ 

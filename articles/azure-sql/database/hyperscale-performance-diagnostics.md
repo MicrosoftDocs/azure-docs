@@ -103,3 +103,4 @@ Data IO against remote page servers is not reported in resource utilization view
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](monitoring-with-dmvs.md)
+ 

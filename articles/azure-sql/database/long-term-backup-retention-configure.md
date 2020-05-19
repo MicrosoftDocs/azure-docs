@@ -202,3 +202,4 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 - To learn about service-generated automatic backups, see [automatic backups](automated-backups-overview.md)
 - To learn about long-term backup retention, see [long-term backup retention](long-term-retention-overview.md)
+ 
