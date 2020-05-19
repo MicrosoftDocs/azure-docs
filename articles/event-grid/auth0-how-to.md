@@ -9,68 +9,85 @@ ms.date: 05/18/2020
 ms.author: babanisa
 ---
 
-Note the Azure Subscription and Resource Group you want the Partner Topic to be created in.
-Log in to your Auth0 account dashboard. Navigate to Logs > Streams, click “Create Stream” and select the “Azure Event Grid” event stream.
-Provide the Azure Subscription ID, Resource Group and other required information and click “Save”
-View your pending Partner Topics in Azure and activate the topic to allow events to flow.
+# Integrate Azure Event Grid with Auth0
 
-Integrate Azure Event Grid with Auth0
-In this article
-Azure’s Event Grid is a serverless event bus that acts as an intermediary allowing you to send data from Auth0 into the Azure ecosystem.
-You can create an event-driven workflow using Event Grid to send your Auth0 tenant logs to the targets of your choice (e.g., Azure Functions, Event Hubs, Sentinel and Logic Apps).
-See the Auth0 event type codes for a full list of the events that Auth0 supports
-Send events from Auth0 to Azure Event Grid
-To send Auth0 events to Azure, you will need:
-Enable Event Grid resource provider
-Set up an event source (in this case, this is Auth0).
-Set up an event handler, the app or service where the event will be sent.
-For more information about these concepts, see Concepts in Azure Event Grid
-Enable Event Grid resource provider
+This article describes how to connect your Auth0 and Azure accounts by creating an Event Grid partner topic.
+
+See the [Auth0 event type codes](https://auth0.com/docs/logs/references/log-event-type-codes) for a full list of the events that Auth0 supports
+
+## Send events from Auth0 to Azure Event Grid
+To send Auth0 events to Azure:
+
+1. Enable Event Grid resource provider
+1. Set up an Auth0 Partner Topic in the Auth0 Dashboard
+1. Activate the Partner Topic in Azure
+1. Subscribe to events from Auth0
+
+For more information about these concepts, see Event Grid [concepts](concepts.md).
+
+### Enable Event Grid resource provider
 If you haven’t previously used Event Grid, you will need to register the Event Grid resource provider. If you’ve used Event Grid before, skip to the next section.
 
-In your Azure portal:
-Select Subscriptions on the left menu
-Select the subscription you’re using for Event Grid
-On the left menu, under Settings, select Resource providers
-Find Microsoft.EventGrid
-Select Register
-Refresh to make sure the status changes to Registered
-Set up an Auth0 event source
-Part of the integration process is to set Auth0 up for use as an event source (this step happens on your Dashboard).
-Log in to the Auth0 Dashboard.
-Navigate to Logs > Streams.
-Click + Create Stream.
-Select Azure Event Grid and enter a unique name for your new stream.
-Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
-Click Save.
-Go to the Azure Portal to complete the final steps of the integration.
-Set up an event handler
-Go to your Azure subscription and spin up a service that is supported as an event handler (for a full list of all supported event handlers go to this article).
-Activate your Auth0 Partner Topic in Azure
+In the Azure portal:
+1. Select Subscriptions on the left menu
+1. Select the subscription you’re using for Event Grid
+1. On the left menu, under Settings, select Resource providers
+1. Find Microsoft.EventGrid
+1. Select Register
+1. Refresh to make sure the status changes to Registered
+
+### Set up an Auth0 Partner Topic
+Part of the integration process is to set Auth0 up for use as an event source (this step happens in your [Auth0 Dashboard](https://manage.auth0.com/)).
+
+1. Log in to the [Auth0 Dashboard](https://manage.auth0.com/).
+1. Navigate to Logs > Streams.
+1. Click + Create Stream.
+1. Select Azure Event Grid and enter a unique name for your new stream.
+1. Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
+1. Click Save.
+
+### Activate your Auth0 Partner Topic in Azure
 Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
-Log in to the Azure Portal.
-Search `Partner Topics` at the top and click `Event Grid Partner Topics` under services.
-Click on the topic that matches the stream you created in your Auth0 Dashboard.
-Confirm the `Source` field matches your Auth0 account.
-Click Activate.
 
-Subscribe to your Auth0 Partner Topic
-You subscribe to an event grid topic to tell Event Grid which events to send to which event handler.
-On the Event Grid topic page, select + Event Subscription on the toolbar
-On the Create Event Subscription page:
-Enter a name for the event subscription.
-Select your desired Azure service or WebHook for the Endpoint type.
-Follow the instructions for the particular service.
-Back on the Create Event Subscription page, select Create.
-To send events to your topic, please follow the instructions on this article.
-Testing
-At this point, your Event Grid workflow should be complete. 
-Verify the integration
+1. Log in to the Azure Portal.
+1. Search `Partner Topics` at the top and click `Event Grid Partner Topics` under services.
+1. Click on the topic that matches the stream you created in your Auth0 Dashboard.
+1. Confirm the `Source` field matches your Auth0 account.
+1. Click Activate.
+
+### Subscribe to Auth0 events
+
+#### Create an event handler
+To test your Partner Topic, you will need an event handler. Go to your Azure subscription and spin up a service that is supported as an [event handler](event-handlers.md) such as an [Azure Function](custom-event-to-function.md).
+
+#### Subscribe to your Auth0 Partner Topic
+Subscribing to your Auth0 Partner Topic allows you to tell Event Grid where you want your Auth0 events to go.
+
+1. On the Partner Topic blade for your Auth0 integration, select + Event Subscription at the top.
+1. On the Create Event Subscription page:
+    1. Enter a name for the event subscription.
+    1. Select your desired Azure service or WebHook for the Endpoint type.
+    1. Follow the instructions for the particular service.
+    1. Click Create.
+
+## Testing
+Your Auth0 Partner Topic integration with Azure should be ready to use.
+
+### Verify the integration
 To verify that the integration is working as expected:
-Log in to the Auth0 Dashboard.
-Navigate to Logs > Streams.
-Click on your Event Grid stream.
-Once on the stream, click on the Health tab. The stream should be active and as long as you don't see any errors, the stream is working.
-Delivery attempts and retries
-Auth0 events are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system.
 
+1. Log in to the Auth0 Dashboard.
+1. Navigate to Logs > Streams.
+1. Click on your Event Grid stream.
+1. Once on the stream, click on the Health tab. The stream should be active and as long as you don't see any errors, the stream is working.
+
+Try [invoking any of the Auth0 actions that trigger an event to be published](https://auth0.com/docs/logs/references/log-event-type-codes) in order to see events flow.
+
+## Delivery attempts and retries
+Auth0 events are delivered to Azure via a streaming mechanism that sends each event as it is triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event; otherwise, Auth0 will log the failure to deliver in its system.
+
+## Next steps
+
+- [Auth0 Partner Topic](auth0-overview.md)
+- [Partner topics overview](partner-topics-overview.md)
+- [Become an Event Grid partner](partner-onboarding-how-to.md)

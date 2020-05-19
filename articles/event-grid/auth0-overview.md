@@ -10,7 +10,7 @@ ms.author: babanisa
 ---
 
 # Auth0 Partner Topics
-![Auth0 Logo]()./media/auth0-overview.md/auth0-logo.png)
+![Auth0 Logo](./media/auth0-overview/auth0-logo.png)
 Auth0, the identity platform for application builders, provides developers and enterprises with the building blocks they need to secure their applications.
 
 The Auth0 Partner Topic allows you customers to leverage events emitted by Auth0’s system to accomplish a number of tasks, from engaging with users in meaningful and custom ways after the authentication to automating security and infrastructure tasks.
