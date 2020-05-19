@@ -53,7 +53,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 18. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point the Status should change from **Development** to **Live**.
 	
 ## Configure a Facebook account as an identity provider
-Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. BYou can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign up.
+Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
 
 ### To configure Facebook federation in the Azure AD portal
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD tenant.
