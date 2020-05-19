@@ -134,9 +134,9 @@ The entity schema is the structure you define for machine learned entities with 
 
 ### Entity's subentity
 
-A subentity is a child entity of a machine-learned entity.
+A subentity is a child entity of a machine-learning entity.
 
-### Non-machine-learned entity
+### Non-machine-learning entity
 
 An entity that uses text matching to extract data:
 * List entity
@@ -159,7 +159,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learned feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 

@@ -71,7 +71,7 @@ If you use Pass-through Authentication as your sign-on method, no additional
 
 ### Roll out Seamless Single Sign-On
 
-You can gradually roll out Azure AD Seamless Single Sign-On to your users by using the following instructions. You start by adding the Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us) to all or selected users' Intranet zone settings by using Group Policy in Active Directory.
+You can gradually roll out Azure AD Seamless Single Sign-On to your users by using the following instructions. You start by adding the Azure AD URL `https://autologon.microsoft.us` to all or selected users' Intranet zone settings by using Group Policy in Active Directory.
 
 You also need to enable the intranet zone policy setting **Allow updates to status bar via script through Group Policy**.
 
@@ -84,16 +84,16 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 1. Run Firefox and enter **about:config** in the address bar. Dismiss any notifications that you might see.
 1. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists the sites trusted by Firefox for Kerberos authentication.
 1. Right-click the preference name and then select **Modify**.
-1. Enter [**https://autologon.microsoft.us**](https://autologon.microsoft.us**) in the box.
+1. Enter `https://autologon.microsoft.us` in the box.
 1. Select **OK** and then reopen the browser.
 
 ### Microsoft Edge based on Chromium (all platforms)
 
-If you have overridden the `AuthNegotiateDelegateAllowlist` or `AuthServerAllowlist` policy settings in your environment, ensure that you add the Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us) to them.
+If you have overridden the `AuthNegotiateDelegateAllowlist` or `AuthServerAllowlist` policy settings in your environment, ensure that you add the Azure AD URL `https://autologon.microsoft.us` to them.
 
 ### Google Chrome (all platforms)
 
-If you have overridden the `AuthNegotiateDelegateWhitelist` or `AuthServerWhitelist` policy settings in your environment, ensure that you add the Azure AD URL [https://autologon.microsoft.us](https://autologon.microsoft.us) to them.
+If you have overridden the `AuthNegotiateDelegateWhitelist` or `AuthServerWhitelist` policy settings in your environment, ensure that you add the Azure AD URL `https://autologon.microsoft.us` to them.
 
 ## Next steps
 

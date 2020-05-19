@@ -17,6 +17,28 @@ it can be fixed and a later query succeeds.
 
 ## General errors
 
+### <a name="throttled"></a>Scenario: Throttled requests
+
+#### Issue
+
+Customers making large or frequent resource queries have requests throttled.
+
+#### Cause
+
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
+user can send at most 15 queries within every 5-second window without being throttled. The quota
+value is determined by many factors and is subject to change. For more information, see
+[Throttling in Azure Resource Graph](../overview.md#throttling).
+
+#### Resolution
+
+There are several methods of dealing with throttled requests:
+
+- [Grouping queries](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Staggering queries](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Query in Parallel](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Pagination](../concepts/guidance-for-throttled-requests.md#pagination)
+
 ### <a name="toomanysubscription"></a>Scenario: Too many subscriptions
 
 #### Issue

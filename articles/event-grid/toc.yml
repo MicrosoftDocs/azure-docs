@@ -132,6 +132,14 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+  - name: Partner topics
+    items:
+    - name: Overview of Partner topics
+      href: partner-topics-overview.md
+    - name: Auth0
+      href: auth0-overview.md
+    - name: Become and Event Grid Partner
+    href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
   - name: Event schema formats
@@ -186,6 +194,8 @@
   items:
   - name: Post to custom topic
     href: post-to-custom-topic.md
+  - name: Subscribe to Auth0 events
+    href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
   - name: Dead letter and retry
@@ -214,6 +224,8 @@
       href: configure-firewall.md
     - name: Secure WebHook with AAD
       href: secure-webhook-delivery.md
+    - name: Publish with Managed Identities
+      href: managed-service-identity.md
   - name: Troubleshoot
     items: 
     - name: Enable diagnostic logs
