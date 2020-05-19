@@ -36,14 +36,14 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 * TCP on port 443 --> `https://:443`
 * TCP on port 9418 --> `git://:9418`
 
-|     | Endpoint (DNS)                                                                                               | Description                                                                                                                 |
-| --- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| 1.  | https://management.azure.com                                                                                 | Required for the agent to connect to Azure and register the cluster                                                        |
-| 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com | Data plane endpoint for the agent to push status and fetch configuration information                                      |
-| 3.  | https://docker.io                                                                                            | Required to pull container images                                                                                         |
-| 4.  | https://github.com, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
-| 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
-| 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agents                                                                  |
+| Endpoint (DNS)                                                                                               | Description                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `https://management.azure.com`                                                                                 | Required for the agent to connect to Azure and register the cluster                                                        |
+| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information                                      |
+| `https://docker.io`                                                                                            | Required to pull container images                                                                                         |
+| `https://github.com`, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
+| `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
+| `https://azurearcfork8s.azurecr.io`                                                                            | Required to pull container images for Azure Arc agents                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
 
