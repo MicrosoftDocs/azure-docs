@@ -219,7 +219,8 @@ The name of the container in the storage account: users
 ### Creating CSV and Parquet files in your Storage account
 Run the the following code in a notebook. It creates a CSV and parquet data in the storage account
 
-    ```%%pyspark
+    ```
+    %%pyspark
     df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
     df = df.repartition(1) # This ensure we'll get a single file during write()
     df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
