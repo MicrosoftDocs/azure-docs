@@ -6,8 +6,7 @@ ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
 
-Beyond auditing and [remediating](../how-to/remediate-resources.md) Azure resources, Azure Policy
-can audit settings inside a machine. The validation is performed by the Guest Configuration
+Azure Policy can audit settings inside a machine. The validation is performed by the Guest Configuration
 extension and client. The extension, through the client, validates settings such as:
 
 - The configuration of the operating system
@@ -49,8 +48,8 @@ The following table shows a list of the local tools used on each supported opera
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
+|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Side-loaded to a folder only used by Policy. Will not conflict with Windows PowerShell DSC. PowerShell Core is not added to system path.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependenices for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
@@ -106,7 +105,8 @@ enable a system assigned managed identity, if one doesn't exist.
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **AuditIfNotExists** definition. 
+definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** policies manage dependencies
+for performing audits on each machine.
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
