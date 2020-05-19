@@ -71,10 +71,8 @@
       href: sql-api-dotnet-samples.md
     - name: .NET V3 SDK samples
       href: sql-api-dotnet-v3sdk-samples.md
-    - name: Java samples
-      href: sql-api-java-samples.md
-    - name: Async Java samples
-      href: sql-api-async-java-samples.md
+    - name: Java SDK v4 samples
+      href: sql-api-java-sdk-samples.md
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
@@ -132,11 +130,13 @@
       - name: Request units
         displayName: RUs, RU
         href: request-units.md
-      - name: Provision throughput on containers and databases
+      - name: Provisioned throughput introduction
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
-      - name: Provision throughput - autoscale
+      - name: Provision autoscale throughput
         href: provision-throughput-autoscale.md
+      - name: Choose between autoscale and standard (manual) throughput
+        href: how-to-choose-offer.md    
       - name: Autoscale FAQ
         href: autoscale-faq.md
     - name: SQL query
@@ -492,12 +492,14 @@
         href: change-feed-functions.md
       - name: Change feed pull model
         href: change-feed-pull-model.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
-      - name: Synapse Link for Azure Cosmos DB
+      - name: Azure Synapse Link for Cosmos DB
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
+      - name: Synapse Link supported features
+        href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
       - name: Synapse Link use cases
@@ -568,6 +570,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
+      - name: Azure Policy support
+        href: policy.md
     - name: Service quotas
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
@@ -664,8 +668,6 @@
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
-          href: create-mongodb-golang.md
-        - name: Go
           href: create-mongodb-go.md
       - name: Tutorials
         items:
@@ -922,12 +924,15 @@
         href: how-to-convert-session-token.md
     - name: Provisioned throughput
       items:
-      - name: Provision throughput on a container
+      - name: Provision standard (manual) throughput on a container
         displayName: request units, RUs, RU, collection level
         href: how-to-provision-container-throughput.md
-      - name: Provision throughput on a database
+      - name: Provision standard (manual) throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level
         href: how-to-provision-database-throughput.md
+      - name: Provision autoscale throughput on a database or container
+        displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+        href: how-to-provision-autoscale-throughput.md
       - name: Estimate RU/s with Cosmos capacity planner
         displayName: request units, RUs, RU, capacity
         href: estimate-ru-with-capacity-planner.md
@@ -1020,10 +1025,14 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
-    - name: Analytics with Synapse Link
+    - name: Analytics with Azure Synapse Link
       items:
-      - name: Configure Synapse Link
+      - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
+      - name: Connect to Azure Synapse Link
+        href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Query with Azure Synapse Spark
+        href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -1036,8 +1045,10 @@
         href: enable-notebooks.md
       - name: Import notebooks from GitHub
         href: import-github-notebooks.md
-      - name: Use built-in notebook commands
-        href: use-notebook-features-and-commands.md
+      - name: Use built-in Python notebook commands
+        href: use-python-notebook-features-and-commands.md
+      - name: Use built-in C# notebook commands
+        href: use-csharp-notebook-features-and-commands.md        
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, and UDFs
@@ -1162,6 +1173,8 @@
         href: migrate-relational-to-cosmos-db-sql-api.md
       - name: Migrate - Couchbase to SQL API
         href: couchbase-cosmos-migration.md
+      - name: Migrate - DynamoDB to SQL API
+        href: dynamo-to-cosmos.md
     - name: Bulk executor library
       items:
       - name: About bulk executor library
@@ -1184,12 +1197,16 @@
       href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET bulk executor library
       href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java
-      href: sql-api-sdk-java.md
     - name: Java bulk executor library
       href: sql-api-sdk-bulk-executor-java.md
-    - name: Async Java
-      href: sql-api-sdk-async-java.md
+    - name: Java SDK v4 for Core
+      href: sql-api-sdk-java-v4.md
+    - name: Older Java SDKs for Core
+      items:
+      - name: Async Java SDK v2
+        href: sql-api-sdk-async-java.md
+      - name: Sync Java SDK v2
+        href: sql-api-sdk-java.md        
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
