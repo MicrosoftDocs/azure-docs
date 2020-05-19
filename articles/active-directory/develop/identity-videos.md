@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
@@ -19,9 +19,57 @@ ms.reviewer: celested
 
 Learn the basics of modern authentication, the Microsoft identity platform, and the Microsoft Authentication Libraries (MSAL).
 
+## Microsoft identity platform for developers
+
+The *Identity for Developers* video series focuses on just what you need to know to get started adding identity support to your application. Tuned for quick delivery of the fundamental aspects of the platform and how to use its authentication libraries, these are a good place to start for any developer.
+___
+
+:::row:::
+    :::column:::
+        1 - Overview of the Microsoft identity platform for developers (33:55)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+    :::column-end:::
+     :::column:::
+        2 - How to authenticate users of your apps with the Microsoft identity platform (29:09)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - Microsoft identity platform’s permissions and consent framework (45:08)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+    :::column-end:::
+    :::column:::
+        4 - How to protect APIs using the Microsoft identity platform (33:17)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - Application roles and security groups on the Microsoft identity platform (15:52)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+    :::column-end:::
+    :::column:::
+        <!-- BLANK TITLE CELL -->
+    :::column-end:::
+    :::column:::
+        <!-- BLANK VIDEO CELL -->
+    :::column-end:::
+:::row-end:::
+
 ## Authentication fundamentals
 
-If you're new to concepts like identity providers, security tokens, claims, and audience, this video series is a good place to start.
+If you're new to concepts like identity providers, security tokens, claims, and audience, this video series can help clear up the concepts and components in modern authentication.
 ___
 
 :::row:::
