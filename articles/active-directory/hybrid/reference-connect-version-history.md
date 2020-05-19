@@ -50,10 +50,13 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Fixed issues
 This hotfix build fixes an issue where unselected domains were getting incorrectly selected from the wizard UI if only grandchild containers were selected.
+<<<<<<< HEAD
 
 >[!NOTE]
 >This version is required to use the new Azure AD Connect sync V2 endpoint API.  For more information see [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md).
 
+=======
+>>>>>>> 3b3b031a9eb047e2897c5cfa52741873c5d5e59b
 
 ## 1.5.29.0
 

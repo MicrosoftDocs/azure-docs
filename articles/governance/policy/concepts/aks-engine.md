@@ -18,8 +18,9 @@ of your Azure resources and AKS Engine self-managed clusters from one place.
 
 > [!NOTE]
 > Azure Policy for AKS Engine is in Public Preview and has no SLA. Gatekeeper v3 is in Beta and is
-> supported by the open source community. The service only supports built-in policy definitions and
-> a single AKS Engine cluster for each resource group configured with a Service Principal.
+> supported by the open source community. The service only supports built-in policy definitions,
+> Linux node pools, and a single AKS Engine cluster for each resource group configured with a
+> Service Principal.
 
 > [!IMPORTANT]
 > To get support for Azure Policy for AKS Engine, AKS Engine, or Gatekeeper v3, create a
