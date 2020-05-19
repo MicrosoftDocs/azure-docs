@@ -65,7 +65,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## Install CLI extensions
+## Install Azure CLI extensions
 
 Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
 
@@ -199,7 +199,7 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 
 ## Delete a connected cluster
 
-You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI or Azure portal.
+You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azure CLI or Azure portal.
 
 The Azure CLI command `az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
