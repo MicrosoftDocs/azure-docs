@@ -153,9 +153,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a replication policy with Azure CLI, first install version ??? of the Azure CLI. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-Run the following command to install the Azure Storage preview module for Azure CLI:
+To create a replication policy with Azure CLI, first install the preview extension for Azure Storage.:
 
 ```azurecli
 az extension add -n storage-or-preview
