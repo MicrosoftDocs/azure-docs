@@ -14,7 +14,7 @@ ms.date: 04/27/2020
 
 ## Overview
 
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live video analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a Media Graph consisting of an RTSP Source and an Asset Sink. The diagram below shows a graphical representation of the topology of such a media graph. <!--An example JSON description of a CVR Media Graph topology can be found here.-->
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live Video Analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a Media Graph consisting of an RTSP Source and an Asset Sink. The diagram below shows a graphical representation of the topology of such a media graph. <!--An example JSON description of a CVR Media Graph topology can be found here.-->
 
 ![Continuous video recording](./media/continuous-video-recording/continuous-video-recording-overview.png)
 
@@ -22,7 +22,7 @@ The Media Graph depicted above can be run on an Edge device, with the asset sink
 
 ## Resilient recording
 
-Live video analytics on IoT Edge supports operating under less-than-perfect network conditions, where the Edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis.  <!--See <TODO Link to section in OpenAPI doc> for more information on the properties of the asset sink that determine the cache policy.-->
+Live Video Analytics on IoT Edge supports operating under less-than-perfect network conditions, where the Edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis.  <!--See <TODO Link to section in OpenAPI doc> for more information on the properties of the asset sink that determine the cache policy.-->
 
 ## Segmented recording  
 

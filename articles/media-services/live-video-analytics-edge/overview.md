@@ -7,17 +7,17 @@ ms.date: 04/27/2020
 ---
 # What is Live Video Analytics on IoT Edge?
 
-Live video analytics on IoT Edge provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video and publish the results (video and/or video analytics) to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Live video analytics on IoT Edge functionality can be combined with other Azure edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge as well as Azure services in the cloud such as Media Services, Event Hub, Cognitive Services, etc. to build powerful hybrid (i.e. edge + cloud) applications.
+Live Video Analytics on IoT Edge provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video and publish the results (video and/or video analytics) to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Live Video Analytics on IoT Edge functionality can be combined with other Azure edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge as well as Azure services in the cloud such as Media Services, Event Hub, Cognitive Services, etc. to build powerful hybrid (that is, edge + cloud) applications.
 
-Live video analytics on IoT Edge is designed to be a pluggable platform, enabling you to plug video analysis edge modules (for example, Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) and use them to analyze live video without worrying about the complexity of building and running a live video pipeline.
+Live Video Analytics on IoT Edge is designed to be a pluggable platform, enabling you to plug video analysis edge modules (for example, Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) and use them to analyze live video without worrying about the complexity of building and running a live video pipeline.
 
 ## Accelerate IoT solutions development 
 
-IoT solutions that combine video analytics with signals from other IoT sensors and/or business data can help you automate or semi-automate business decisions, resulting in productivity improvements. Live video analytics on IoT Edge enables you to build such solutions quicker. You can focus on building the video analysis modules and logic that are specific to your business, and letting the platform hide the complexities of managing and running a video pipeline.
+IoT solutions that combine video analytics with signals from other IoT sensors and/or business data can help you automate or semi-automate business decisions, resulting in productivity improvements. Live Video Analytics on IoT Edge enables you to build such solutions quicker. You can focus on building the video analysis modules and logic that is specific to your business, and letting the platform hide the complexities of managing and running a video pipeline.
 
-With Live video analytics on IoT Edge, you can continue to use your [CCTV cameras](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) with your existing [video management systems (VMS)](https://en.wikipedia.org/wiki/Video_management_system) and build video analytics apps independently. Live video analytics on IoT Edge can be used in conjunction with computer vision SDKs and toolkits such as [Nvidia DeepStream](https://developer.nvidia.com/deepstream-sdk), [Intel OpenVINO](https://software.intel.com/en-us/openvino-toolkit), and others to build cutting edge hardware accelerated live video analytics enabled IoT solutions. The diagram below illustrates this.
+With Live Video Analytics on IoT Edge, you can continue to use your [CCTV cameras](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) with your existing [video management systems (VMS)](https://en.wikipedia.org/wiki/Video_management_system) and build video analytics apps independently. Live Video Analytics on IoT Edge can be used in conjunction with computer vision SDKs and toolkits such as [Nvidia DeepStream](https://developer.nvidia.com/deepstream-sdk), [Intel OpenVINO](https://software.intel.com/en-us/openvino-toolkit), and others to build cutting edge hardware accelerated Live Video Analytics enabled IoT solutions. The diagram below illustrates this.
 
-![Develop IoT solutions with Live Video Analytics on IoT Edge](./media/overview/overview-diagram.svg)
+![Develop IoT solutions with Live Video Analytics on IoT Edge](./media/overview/lva-product-diagram.png)
 
 ## Supported environments
 
@@ -34,7 +34,7 @@ Read the following concept articles, and then try a quickstart to run motion det
 * [Video playback](video-playback-concept.md)
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
-* [Live video analytics without video recording](analyze-live-video-concept.md)
+* [Live Video Analytics without video recording](analyze-live-video-concept.md)
 <!--
 ### Quickstart
 
