@@ -123,7 +123,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional add on feature with [Uptime SLA][uptime-sla.md].
+AKS provides SLA guarantees as an optional add on feature with [Uptime SLA][uptime-sla].
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
