@@ -5,6 +5,7 @@ services: event-grid
 author: banisadr
 
 ms.service: event-grid
+ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
 ---
@@ -26,7 +27,7 @@ To send Auth0 events to Azure:
 For more information about these concepts, see Event Grid [concepts](concepts.md).
 
 ### Enable Event Grid resource provider
-If you haven’t previously used Event Grid, you will need to register the Event Grid resource provider. If you’ve used Event Grid before, skip to the next section.
+Unless you've used Event Grid before, you'll need to register the Event Grid resource provider. If you’ve used Event Grid before, skip to the next section.
 
 In the Azure portal:
 1. Select Subscriptions on the left menu
@@ -37,13 +38,13 @@ In the Azure portal:
 1. Refresh to make sure the status changes to Registered
 
 ### Set up an Auth0 Partner Topic
-Part of the integration process is to set Auth0 up for use as an event source (this step happens in your [Auth0 Dashboard](https://manage.auth0.com/)).
+Part of the integration process is to set up Auth0 for use as an event source (this step happens in your [Auth0 Dashboard](https://manage.auth0.com/)).
 
 1. Log in to the [Auth0 Dashboard](https://manage.auth0.com/).
 1. Navigate to Logs > Streams.
 1. Click + Create Stream.
 1. Select Azure Event Grid and enter a unique name for your new stream.
-1. Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
+1. Create the event source by providing your Azure Subscription ID, Azure Region, and a Resource Group name. 
 1. Click Save.
 
 ### Activate your Auth0 Partner Topic in Azure
@@ -58,7 +59,7 @@ Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
 ### Subscribe to Auth0 events
 
 #### Create an event handler
-To test your Partner Topic, you will need an event handler. Go to your Azure subscription and spin up a service that is supported as an [event handler](event-handlers.md) such as an [Azure Function](custom-event-to-function.md).
+To test your Partner Topic, you'll need an event handler. Go to your Azure subscription and spin up a service that is supported as an [event handler](event-handlers.md) such as an [Azure Function](custom-event-to-function.md).
 
 #### Subscribe to your Auth0 Partner Topic
 Subscribing to your Auth0 Partner Topic allows you to tell Event Grid where you want your Auth0 events to go.
@@ -66,7 +67,7 @@ Subscribing to your Auth0 Partner Topic allows you to tell Event Grid where you 
 1. On the Partner Topic blade for your Auth0 integration, select + Event Subscription at the top.
 1. On the Create Event Subscription page:
     1. Enter a name for the event subscription.
-    1. Select your desired Azure service or WebHook for the Endpoint type.
+    1. Select the Azure service or WebHook you created for the Endpoint type.
     1. Follow the instructions for the particular service.
     1. Click Create.
 
@@ -81,10 +82,10 @@ To verify that the integration is working as expected:
 1. Click on your Event Grid stream.
 1. Once on the stream, click on the Health tab. The stream should be active and as long as you don't see any errors, the stream is working.
 
-Try [invoking any of the Auth0 actions that trigger an event to be published](https://auth0.com/docs/logs/references/log-event-type-codes) in order to see events flow.
+Try [invoking any of the Auth0 actions that trigger an event to be published](https://auth0.com/docs/logs/references/log-event-type-codes) to see events flow.
 
 ## Delivery attempts and retries
-Auth0 events are delivered to Azure via a streaming mechanism that sends each event as it is triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event; otherwise, Auth0 will log the failure to deliver in its system.
+Auth0 events are delivered to Azure via a streaming mechanism. Each event is sent as it is triggered in Auth0. If Event Grid is unable to receive the event, Auth0 will retry up to three times to deliver the event. Otherwise, Auth0 will log the failure to deliver in its system.
 
 ## Next steps
 

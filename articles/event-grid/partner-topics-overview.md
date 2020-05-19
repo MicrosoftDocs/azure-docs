@@ -5,6 +5,7 @@ services: event-grid
 author: banisadr
 
 ms.service: event-grid
+ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
 ---
