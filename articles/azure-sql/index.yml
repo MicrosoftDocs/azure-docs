@@ -137,12 +137,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: overview
+          - text: Overview
             url: database/connect-query-content-reference-guide.md 
           - text: SQL Server Management Studio (SSMS)
             url: database/connect-query-ssms.md
           - text: Azure Data Studio
-            url: azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
+            url: /azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
           - text: Azure portal
             url: database/connect-query-portal.md 
           - text: Visual Studio (.NET)
@@ -160,14 +160,6 @@ landingContent:
         links:
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
-        - text: "Microsoft Learn: SQL DB"
-          url: https://docs.microsoft.com/learn/browse/?term=sql%20database   
-        - text: "Microsoft Learn: SQL MI"
-          url: https://docs.microsoft.com/learn/browse/?term=sql%20managed%20instance   
-        - text: "Microsoft Learn: SQL VM"
-          url: https://docs.microsoft.com/en-us/learn/browse/?term=sql%20virtual%20machines 
-        - text: "Microsoft Learn: SQL Server"  
-          url: https://docs.microsoft.com/learn/browse/?products=sql-server
       - linkListType: deploy
         links:
         - text: Azure CLI samples
