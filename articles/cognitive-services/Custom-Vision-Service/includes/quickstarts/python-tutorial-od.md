@@ -52,7 +52,7 @@ prediction_resource_id = "<your prediction resource id>"
 publish_iteration_name = "detectModel"
 
 credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
-trainer = CustomVisionTrainingClient(endpoint=ENDPOINT, credentials)
+trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 
 # Find the object detection domain
 obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")

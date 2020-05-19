@@ -50,7 +50,7 @@ prediction_resource_id = "<your prediction resource id>"
 publish_iteration_name = "classifyModel"
 
 credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
-trainer = CustomVisionTrainingClient(endpoint=ENDPOINT, credentials)
+trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 
 # Create a new project
 print ("Creating project...")
