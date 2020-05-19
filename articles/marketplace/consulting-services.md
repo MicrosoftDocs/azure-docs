@@ -1,7 +1,6 @@
 ---
-title: Microsoft AppSource and Azure Marketplace consulting services 
-description: This article describes the eligibility criteria and publishing requirements for new consulting-service offers in Microsoft AppSource and Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Consulting services in Microsoft commercial marketplace  
+description: This article describes the eligibility criteria and publishing requirements for new consulting service offers in Microsoft AppSource and Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,15 +9,15 @@ ms.date: 05/08/2020
 ms.author: dsindona
 ---
 
-# Consulting services for Microsoft AppSource and Azure Marketplace
+# Consulting service offers
 
-Microsoft AppSource and Azure Marketplace consulting services give Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
+This article explains the eligibility criteria and requirements for publishing new consulting service offers to the commercial marketplace. Consulting service offers give Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
 
 Consulting service offers are customer-specific engagements. Publishers have the option to determine the listing type, scope, duration, and pricing structure (fixed-price or free). Offers have a defined agenda for deliverables to the customer. Leads are received through a notification in partners' CRM systems, and partners aim to respond to customers within 48 hours.
 
 ## Compare consulting services
 
-The marketplace storefronts are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
+The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -90,14 +89,6 @@ System-integrator partners can submit consulting-service offers for the followin
 ## Register for consulting services in the commercial marketplace
 
 Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
-
-<!---
-**What to expect after registration**
-The Onboarding Team will reach out in 1 to 3 business days with a welcome email, which will include your Cloud Partner Portal sign-in information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions.
-
->[!Note]
->Partners need to register only once to become a publisher. After you become a publisher and receive your welcome email and Partner Center sign-in information, you don't need to re-register to publish different listing types.
---->
 
 ## Prepare your publishing artifacts
 Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 

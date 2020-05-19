@@ -91,5 +91,5 @@ Verify the schema for the newly created database in the results.
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
 
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->
+<!-- - [Learn more about the Synchronization with SQL on-demand](overview.md)
+- [Learn more about the Synchronization with SQL pools](overview.md)-->

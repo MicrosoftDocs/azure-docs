@@ -88,7 +88,7 @@ Now you'll set the Google client ID and client secret, either by entering it in 
 
 #### To configure Google federation in the Azure AD portal 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships** (or **External Identities**).
+2. Select **External Identities**.
 3. Select **All identity providers**, and then click the **Google** button.
 4. Enter a name. Then enter the client ID and client secret you obtained earlier. Select **Save**. 
 
@@ -111,7 +111,7 @@ You can delete your Google federation setup. If you do so, Google guest users wh
  
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships** (or **External Identities**).
+2. Select **External Identities**.
 3. Select **All identity providers**.
 4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
