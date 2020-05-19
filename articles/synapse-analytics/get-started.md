@@ -72,6 +72,27 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * This query shows how the total trip distances and average trip distance relate to the number of passengers
 * In the SQL scripts, result window select **Chart** to see a visualization of the results as a line chart
 
+## Load the NYC data into a Spar Database
+
+* In Synapse Studio, navigate to the **Develop hub"
+* Click **+** and select **Notebook**
+* At the top of the notebook, set the **Attach to** value to `Spark11
+* Click **Add code** to create several notebook cells
+* In the first cell paste this text:
+    ```
+    %%spark
+    spark.sql("CREATE DATABASE nyctaxi")
+    val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
+    df.saveAsTable("nyxtaxi.trip")
+    ```
+ * Click the Run button on the cell
+ * NOTE: This will be the first time you run any spark code, it will take about 2 minutes to allocate spark resources 
+   for your notebook. Every subsequent run of a cell will be much faster.
+ * 
+ 
+    ```
+
+* 
 
 
 
