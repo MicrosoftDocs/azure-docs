@@ -33,13 +33,14 @@ This getting started guide will walk you through applying a set of configuration
 
 The example repository is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
 
-- **Namespaces:** `cluster-config`, `team-a`, `team-b`
-- **Deployment:** `cluster-config/azure-vote`
-- **ConfigMap:** `team-a/endpoints`
+* **Namespaces:** `cluster-config`, `team-a`, `team-b`
+* **Deployment:** `cluster-config/azure-vote`
+* **ConfigMap:** `team-a/endpoints`
 
 ### Notes
-- The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up a new or updated configuration.
-- If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository)
+
+* The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up a new or updated configuration.
+* If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository)
 
 ### Using Azure CLI
 
@@ -191,10 +192,10 @@ When the `sourceControlConfiguration` is created, a few things happen under the 
 1. The Azure Arc `config-agent` monitors Azure Resource Manager for new or updated configurations (`Microsoft.KubernetesConfiguration/sourceControlConfiguration`)
 1. `config-agent` notices the new `Pending` configuration
 1. `config-agent` reads the configuration properties and prepares to deploy a managed instance of `flux`
-    1. `config-agent` creates the destination namespace
-    1. `config-agent` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope)
-    1. `config-agent` deploys an instance of `flux`
-    1. `flux` generates a SSH key and logs the public key
+    * `config-agent` creates the destination namespace
+    * `config-agent` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope)
+    * `config-agent` deploys an instance of `flux`
+    * `flux` generates a SSH key and logs the public key
 1. `config-agent` reports status back to the `sourceControlConfiguration`
 
 While the provisioning process happens, the `sourceControlConfiguration` will move through a few state changes. Monitor progress with the `az k8sconfiguration show ...` command above:
