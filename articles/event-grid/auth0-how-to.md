@@ -9,6 +9,11 @@ ms.date: 05/18/2020
 ms.author: babanisa
 ---
 
+Note the Azure Subscription and Resource Group you want the Partner Topic to be created in.
+Log in to your Auth0 account dashboard. Navigate to Logs > Streams, click “Create Stream” and select the “Azure Event Grid” event stream.
+Provide the Azure Subscription ID, Resource Group and other required information and click “Save”
+View your pending Partner Topics in Azure and activate the topic to allow events to flow.
+
 Integrate Azure Event Grid with Auth0
 In this article
 Azure’s Event Grid is a serverless event bus that acts as an intermediary allowing you to send data from Auth0 into the Azure ecosystem.
