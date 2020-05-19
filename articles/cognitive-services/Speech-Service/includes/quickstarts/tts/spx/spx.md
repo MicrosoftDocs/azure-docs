@@ -10,9 +10,9 @@ ms.author: v-demjoh
 
 ## Run the SPX tool
 
-#### [Windows](#tab/windows)
-[!INCLUDE [windows](./windows.md)]
-#### [Linux](#tab/linux)
-[!INCLUDE [linux](./linux.md)]
+#### [Windows OS](#tab/windowsOS)
+[!INCLUDE [windowsOS](./windowsos.md)]
+#### [Linux OS](#tab/linuxOS)
+[!INCLUDE [linuxOS](./linuxos.md)]
 
 ***
