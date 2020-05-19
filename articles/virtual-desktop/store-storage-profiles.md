@@ -1,6 +1,6 @@
 ---
 title: Store storage profiles with Azure Files domain controller - Azure
-description: How to set up an Azure Files profile container in an existing Windows Virtual Desktop host pool.
+description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,13 +10,13 @@ ms.date: 05/19/2020
 ms.author: helohr
 manager: lizross
 ---
-# Store storage profiles with Azure Files
+# Store storage profiles on an Azure file share
 
-In this article, you'll learn how to create an Azure Files file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
+In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
 
 ## Prerequisites
 
-Before you get started, make sure your domain controller is synced to Azure and resolvable from the Azure virtual network (VNET) your session hosts are connected to. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
+Before you get started, make sure your domain controller is synchronized to Azure and resolvable from the Azure virtual network (VNET) your session hosts are connected to. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
 ## Set up a storage account 
 
@@ -34,16 +34,16 @@ To set up a storage account:
 
     - Create a new resource group.
     - Enter a unique name for your storage account.
-    - For **Location**, the location you choose must be the same as the Windows Virtual Desktop host pool.
+    - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
     - For **Performance**, select **Standard** (for deployments with fewer than 200 users).
     - For **Account type**, select **StorageV2**.
-    - For **Replication**, select **Read-access geo-redundant (RA-GRS)**.
+    - For **Replication**, select **Locally-redundant storage (LRS)**.
 
 5. When you're done, select **Review + create**, then select **Create**.
 
 ## Create an Azure file share
 
-Next, you'll need to create an Azure Files share.
+Next, you'll need to create an Azure file share.
 
 To create a file share:
 
@@ -51,15 +51,15 @@ To create a file share:
 
 2. On the Overview page, select **File shares**.
 
-3. Select **+File shares**, create a new file share named **profiles**, then enter a quota of **30 GB**.
+3. Select **+File shares**, create a new file share named **profiles**, then either enter an appropriate quota or leave the field blank for no quota.
 
 4. Select **Create**.
 
-## Enable domain controller authentication
+## Enable Azure AD authentication
 
 Next, you'll need to enable domain controller authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
-1. Remote Desktop Protocol into the domain controller VM.
+1. Remote Desktop Protocol into the domain-joined VM.
 
 2. [Download the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases).
 
@@ -119,8 +119,6 @@ Next, you'll need to enable domain controller authentication. To enable this pol
 
 ## Assign Azure RBAC permission to storage account
 
-At least one admin needs to be assigned the Storage File Data SMB Share Elevated Contributor role. This admin will then assign other users NTFS permissions on the file share.
-
 All users that need to have FSLogix profiles stored on the SA must be assigned the Storage File Data SMB Share Contributor role. You'll also need to create an Azure AD group for all users with FSLogix profiles.
 
 To assign role-based access control (RBAC) permissions:
@@ -140,7 +138,7 @@ To assign role-based access control (RBAC) permissions:
 To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
 
 >[!NOTE]
->The accounts you use here should have been created in the domain controller and synced to Azure AD. Accounts sourced from Azure AD won't work.
+>The accounts you use here should have been created in the domain controller and synchronized to Azure AD. Accounts sourced from Azure AD won't work.
 
 ## Configure NTFS permissions over SMB
 
@@ -189,7 +187,7 @@ To configure your NTFS permissions:
 
 1. Open a command prompt on the VM running the domain controller.
 
-2. Run the following cmdlet to mount the Azure files share and assign it a drive letter:
+2. Run the following cmdlet to mount the Azure file share and assign it a drive letter:
 
      ```powershell
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
