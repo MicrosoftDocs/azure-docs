@@ -31,6 +31,9 @@ The Jetpack installer:
 * Creates [udev](https://www.freedesktop.org/wiki/Software/systemd/) rules on Linux
 * Sets the environment variable `CYCLECLOUD_HOME`
 
+> [!NOTE] 
+> If Jetpack has been [pre-installed on the image](./how-to/install-jetpack.md), the custom script extension **will not** re-install Jetpack. Instead, an initialization step will be run which will validate the node's connection to CycleCloud and start the `healthcheck` and `jetpackd` services before continuing to configure the node.
+
 ## Jetpack Subdirectories
 
 | Directory | Description  |
