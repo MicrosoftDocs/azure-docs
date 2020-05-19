@@ -64,7 +64,7 @@ First, you'll use the *AdtSampleApp* solution from the sample project to build t
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="An excerpt from the full building scenario graphic highlighting section A, the Azure Digital Twins instance":::
 
-n your Visual Studio window where the _**AdtE2ESample**_ project is open, run the project with this button in the toolbar:
+In your Visual Studio window where the _**AdtE2ESample**_ project is open, run the project with this button in the toolbar:
 
 :::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
 
