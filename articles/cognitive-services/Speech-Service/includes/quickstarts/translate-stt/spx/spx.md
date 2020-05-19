@@ -1,0 +1,22 @@
+---
+author: v-demjoh
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.date: 05/18/2020
+ms.author: v-demjoh
+---
+
+
+## Run the SPX tool
+
+Now you're ready to run the SPX tool to translate speech into text in a different language.
+
+From the command line, change to the directory that contains the SPX tool binary file, and type:
+
+```bash
+spx translate --microphone --target de-DE
+```
+
+The SPX tool will translate natural language spoken English into text printed in German.
+Press ENTER to stop the tool.
