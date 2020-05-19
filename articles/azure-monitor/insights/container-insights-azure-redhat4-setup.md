@@ -90,7 +90,7 @@ The following step enables monitoring of your cluster using the bash script you 
 
 4. Run the following command to enable monitoring, replacing the value for the `workspaceResourceId` and `azureAroV4ResourceIdparameter` parameters: 
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <LogAnayticsWorkspaceResourceId>`
+    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <workspaceResourceId>`
 
     Example:
 

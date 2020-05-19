@@ -110,7 +110,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 4. Run the following command to enable monitoring, replacing the value for the `resourceIdOfAzureArcCluster` and `workspaceResourceId` parameter:
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> <LogAnayticsWorkspaceResourceId>
+    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> <workspaceResourceId>
     ```
     Example:
 
@@ -130,9 +130,19 @@ Perform the following steps to enable monitoring using the provided bash script.
 
 2. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aroV4/onboarding_azuremonitor_for_containers.sh.`
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh`
 
 3. To identify the **kube-context** of your cluster, after successful `oc login` on to your cluster, run the command `kubectl config current-context` and copy the value.
+
+Run the following command to enable monitoring, replacing the value for the `workspaceResourceId` and `resourcedIdOfAzureArcCluster` parameters:
+
+    `bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context> <workspaceResourceId>`
+
+    Example:
+
+    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4 /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ### Integrate with default workspace
 
@@ -145,6 +155,7 @@ The following step enables monitoring of your Arc enabled Kubernetes cluster usi
     `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+
 ## Next steps
 
 - With monitoring enabled to collect health and resource utilization of your RedHat OpenShift cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
