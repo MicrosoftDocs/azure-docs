@@ -42,13 +42,13 @@ In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object.
+Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Lock the area search box to prevent further movement and show the scene within it. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Click **Stop Search** to stop tracking and all detected instances will be removed.
 
 You can also do other actions using the hand menu:
 
 **Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
 
-**Toggle SearchArea**: Show/hide search area bounding box.
+**Lock/Unlock SearchArea**: Lock area bounding box to prevent accidential movement by hands.
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
@@ -83,6 +83,8 @@ In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **O
 :::image type="content" source="./media/unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
 
 There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
+
+Note that **OUAutoSearchArea** works with a single object model, while **OUSampleScene** supports multiple.
 
 ## Next steps
 
