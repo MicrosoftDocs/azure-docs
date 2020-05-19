@@ -62,7 +62,7 @@ subscription even though it gets the value from a resource group. For more infor
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-2.json" range="19-29" highlight="3-4,7-8":::
 
-The **policyRule.if** uses `concat` like [Sample #1](#sample-1-parameterized-tags) to evaluate the
+The **policyRule.if** uses `concat` like [Sample #1](#sample-1-parameterize-tags) to evaluate the
 **tagName**'s value, but uses the `resourceGroup()` function to compare it to the value of the same
 tag on the parent resource group. The second clause here checks that the tag on the resource group
 has a value and isn't null.
