@@ -21,8 +21,10 @@ We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c.md
 
 ## Top issues
 
-<a id="iot-hub-include-troubleshoot-routing-top"></a>
-[!INCLUDE [iot-hub-include-troubleshoot-routing-top.md](../../includes/iot-hub-include-troubleshoot-routing-top.md)]
+The following are the most common issues observed with message routing. To start troubleshooting, click on the issue for detailed steps.
+
+* [Messages from my devices are not being routed as expected](#messages-from-my-devices-are-not-being-routed-as-expected)
+* [I suddenly stopped getting data at the built-in Event Hubs endpoint(#i-suddenly-stopped-getting-data-at-the-built-in-Event-Hubs-endpoint)
 
 ### Messages from my devices are not being routed as expected
 
