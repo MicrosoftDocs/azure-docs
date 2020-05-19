@@ -1,5 +1,5 @@
 ---
-title: Onboard as an Event Grid Partner
+title: Onboard as an Azure Event Grid partner
 description: Onboard as an Azure Event Grid Partner Topic Type. Understand the resource model and publishing flow for Partner Topics.
 services: event-grid
 author: banisadr
@@ -140,12 +140,13 @@ Publish events to Azure Event Grid using the CloudEvents 1.0 schema. Event Grid 
 ```
 
 After posting to the partnerNamespace endpoint, you'll receive a response. The response is a standard HTTP response code. Some common responses are:
-|Result | Response |
-|-------|----------|
-| Success | 200 OK |
-| Event data has incorrect format | 400 Bad Request |
-| Invalid access key | 401 Unauthorized |
-| Incorrect endpoint | 404 Not Found |
+
+| Result                             | Response              |
+|------------------------------------|-----------------------|
+| Success                            | 200 OK                |
+| Event data has incorrect format    | 400 Bad Request       |
+| Invalid access key                 | 401 Unauthorized      |
+| Incorrect endpoint                 | 404 Not Found         |
 | Array or event exceeds size limits | 413 Payload Too Large |
 
 ## Reference
