@@ -47,7 +47,12 @@ The GROUP BY clause divides the query's results according to the values of one o
 Queries with an aggregate system function and a subquery with `GROUP BY` are not supported. For example, the following query is not supported:
 
 ```sql
-SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
 ```
 
 ## Examples
