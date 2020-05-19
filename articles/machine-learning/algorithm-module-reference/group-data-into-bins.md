@@ -76,7 +76,7 @@ Because there are so many ways to group data, all customizable, we recommend tha
 
       + **ResultOnly**: Returns just the result columns.
 
-7. If you select the **Quantiles** binning mode, use the **Quantile normalization** option to determine how values are normalized prior to sorting into quantiles. Note that normalizing values transforms the values, but does not affect the final number of bins. For an example, see  [Effects of Different Normalization Methods](#bkmk_Effects).
+7. If you select the **Quantiles** binning mode, use the **Quantile normalization** option to determine how values are normalized prior to sorting into quantiles. Note that normalizing values transforms the values, but does not affect the final number of bins.
 
     The following normalization types are supported:
 
