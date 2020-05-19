@@ -411,6 +411,7 @@ This template creates an Azure Cosmos account in one region with a container wit
 }
 ```
 
+
 <a id="create-analytical-store"></a>
 
 ## Azure Cosmos account with analytical store

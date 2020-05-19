@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 03/24/2020
+  ms.date: 05/20/2020
 
 highlightedContent:
   items:
@@ -115,6 +115,8 @@ additionalContent:
               url: /javascript/api/@azure/arm-managementgroups/managementgroups
             - text: REST
               url: /rest/api/resources/managementgroups
+            - text: Resource Manager templates
+              url: /azure/templates/microsoft.management/managementgroups
         - title: Azure Policy
           links:
             - text: Azure CLI
