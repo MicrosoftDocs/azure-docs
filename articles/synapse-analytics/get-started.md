@@ -14,66 +14,80 @@ ms.date: 05/19/2020
 # Getting Started with Azure Synapse Analytics
 This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
 
-## Find and prepare an ADLSGEN2 account for use with Azure Synapse
-* Open the Azure Portal
+## Prepare an Storag account for use with an  Synapse workspace
+* Open the [Azure Portal](https://portal.azure.com)
 * Create a new Storage account
-* Key settings for the ADLSGEN2 account in the **Basics** tab
+* Key settings in the **Basics** tab
     * **Storage account name** - you can give it any name. In this document we'll refer to it as `contosolake`
     * **Account kind** - must be set to `StorageV2`
     * **Location** - you can pick any location but its recommended your Synapse workspace and ADLSGEN2 account are in the same region
-* Key settings for the ADLSGEN2 account in the **Advanced** tab
-    * **Data Lake Storage Gen2** - set to `Enabled`
-* One the sotrage account is created, perform these steps
-    * Ensure that you are assigned to the Owner role on the storage account
-    * Assign yourself to the Azure Blob Storage Owner role on the Storage Account
+* Key settings in the **Advanced** tab
+    * **Data Lake Storage Gen2** - set to `Enabled`. Azure Synapse only works with storage accounts where this setting is enabled.
+* Once the storage account is created, perform these steps:
+    * Ensure that you are assigned to the **Owner** role on the storage account
+    * Assign yourself to the **Azure Blob Storage Owner** role on the Storage Account
     * Create a container. You can give it any name. In this document we will use the name 'users`
+* Click **Review + create**. Click **Create**. 
+  
   
 ## Create a Synapse workspace
-* Open the Azure portal and at the top search for `Synapse`
+* Open the [Azure Portal](https://portal.azure.com) and at the top search for `Synapse`.
 * In the search results, under **Services** click **Azure Synapse Analytics (workspaces preview)**
 * Click **+ Add**
-* In the **Basics** tab enter this information
+Key settings in the **Basics** tab enter
     * **Workspace name** - you can call it anything. In this document we will use `myworkspace`
     * **Region** - match the region you chose for the storage account
     * Under **Select Data Lake Storage Gen 2** select the account and container you prevpoiusly creates
-* Click **Review + create**
-* Click **Create**
-* Your workspace will be ready in a few minutes
+* Click **Review + create**. Click **Create**. Your workspace will be ready in a few minutes
 
 ## Launch Synapse Studio
-Once your workspace is created, you can use Synapse Studio with it one of two ways:
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the Overview section click
-* Go to https://web.azuresynapse.net and login to your workspace
+Once your Synapse workspace is created, you can use Synapse Studio.
+
+You have two ways to open Synapse Studio
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the **Overview** section click **Launch Synapse Studio**
+* Directly go to https://web.azuresynapse.net and login to your workspace.
 
 ## Create a SQL pool
-
 * In Synapse Studio, on the left side click **Manage > SQL pools**
-* Click **+New**
-* For **SQL pool name** enter `SQLDB1`
-* For **Performance level** use `DW100C`
-* Click **Review+create**
-* Click **Create**
+* Click **+New** and enter these settings:
+    * For **SQL pool name** enter `SQLDB1`
+    * For **Performance level** use `DW100C`
+* Click **Review+create** and then click **Create**
 * Your pool will be ready in a few minutes
 
-## Create a Spark pool
+NOTE:
+* A Synapse SQL pool corresponds to what used to be called an "Azure SQL Datawartehouse"
+* A SQL pool consumes billiable resources as long as it's runing. So, you can pause the pool when needed to reduce costs
 
-* In Synapse Studio, on the left side click **Manage > Apache Sparke pools**
-* Click **+New**
-* For **Apache Spark pool name** enter `Spark1`
-* For **Node size** select `Small`
-* For **Number of nodes** set the minimum to 3 and the maximum to 3
-* Click **Review+create**
-* Click **Create**
+## Create a Apache Spark pool
+
+* In Synapse Studio, on the left side click **Manage > Apache Spark pools**
+* Click **+New** and enter these settings:
+    * For **Apache Spark pool name** enter `Spark1`
+    * For **Node size** select `Small`
+    * For **Number of nodes** set the minimum to 3 and the maximum to 3
+* Click **Review+create** and then click **Create**
 * Your Spark pool will be ready in a few seconds
 
-## Load the NYC Taxi Sample data into your SQL pool
+NOTE:
+* Despite the name, a spark pool is not like a SQL pool. It's just some some basic metadata that you use to inform
+  the Synapse workspace how to interact with Spark. 
+* Because they are metadata Spark pools cannot be started or stopped. 
+* When you do any Spark activity in Synapse, you specify a spark pool to use. The pool informs SYnapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool the reources will automatically time-out and be recycled.
 
-* In Synapse Studio, it the topmost blue meny, click on the **?** icon.
+## SQL on-demand
+SQL on-demand is a special kind of SQL pool that is alwways available with a Synapse workspace. It allows you to work with SQL without having to create or think avout managing a Synapse SQL pool.
+
+NOTE:
+* Unlike the other kinds of pools, billing for SQL on-demand is based on the amount of data scanned to run the query - and not the number of resources used to execute the query.
+
+## Load the NYC Taxi Sample data into your SQL pool SQLDB1
+
+* In Synapse Studio, in the top-most blue menu, click on the **?** icon.
 * Select **Getting started > Getting started hub**
-* In the card labelled **Query sample data** select the SQL pool `SQLDB1`
-* Click **Query data**
-* You will see a notification saying "Loading sample data". 
-* NYXC taxi data tables are being loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
+* In the card labelled **Query sample data** select the SQL pool named `SQLDB1`
+* Click **Query data**. You will see a notification saying "Loading sample data". 
+* The NYXC taxi tables will be loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
 
 ## Explore the NYC taxi data in the SQL Pool
 
