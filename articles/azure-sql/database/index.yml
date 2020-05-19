@@ -13,7 +13,7 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.reviewer: carlrab
-  ms.date: 03/30/2020
+  ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -40,9 +40,10 @@ landingContent:
             url: serverless-tier-overview.md
           - text: Hyperscale service tier
             url: service-tier-hyperscale.md
-
-
-
+          - text: Migrate from SQL Server
+            url: migrate-to-database-from-sql-server.md
+          - text: T-SQL differences with SQL Server
+            url: transact-sql-tsql-differences-sql-server.md
 
   # Card 
   - title: Elastic pools
@@ -82,13 +83,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security capabilities
-            url: sql-database-security-overview.md
+            url: security-overview.md
           - text: Security best practices
-            url: sql-database-security-best-practice.md
+            url: security-best-practice.md
           - text: Logins, user accounts, roles, and permissions
-            url: sql-database-manage-logins.md
+            url: logins-create-manage.md
           - text: Azure Active Directory
-            url: sql-database-aad-authentication.md
+            url: aad-authentication-overview.md
           - text: Auditing
             url: auditing-overview.md 
           - text: Transparent Data Encryption (TDE)
@@ -123,12 +124,18 @@ landingContent:
             url: business-continuity-high-availability-disaster-recover-hadr-overview.md
           - text: High availability
             url: high-availability-sla.md
+          - text: Active-geo replication
+            url: active-geo-replication-overview.md 
+          - text: Auto-failover groups
+            url: auto-failover-group-overview.md 
           - text: Automated backups
             url: automated-backups-overview.md
           - text: Recover with backup 
             url: recovery-using-backup.md 
           - text: Long-term backup retention  
             url: long-term-retention-overview.md
+
+
 
   # Card 
   - title: Reference 

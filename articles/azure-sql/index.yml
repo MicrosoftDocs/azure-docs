@@ -49,6 +49,9 @@ landingContent:
             url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
           - text: Monitoring and tuning
             url: database/monitor-tune-overview.md
+          - text: T-SQL differences with SQL Server
+            url: database/transact-sql-tsql-differences-sql-server.md
+
 
   # Card 
   - title: Azure SQL Managed Instance
@@ -79,6 +82,9 @@ landingContent:
             url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
           - text: Monitoring and tuning
             url: database/monitor-tune-overview.md
+          - text: T-SQL differences with SQL Server
+            url: managed-instance/transact-sql-tsql-differences-sql-server.md
+
 
   # Card 
   - title: SQL Server on Azure VM
