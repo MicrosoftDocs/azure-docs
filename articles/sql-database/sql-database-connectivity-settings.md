@@ -23,16 +23,16 @@ This article introduces settings that control connectivity to Azure SQL Database
 > [!NOTE]
 > Once these settings are applied, they **take effect immediately** and may result in connection loss for your clients if they do not meet the requirements for each setting.
 
-The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the screenshot below:
+The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
  ![Screenshot of connectivity settings][1]
 
 
 ## Deny public network access
 
-Customers can connect to Sql Database using  public endpoints (IP-based firewall rules, VNET based firewall rules) or private endpoints (using Private Link) as outlined [here](sql-database-networkaccess-overview.md)
+Customers can connect to SQL Database using  public endpoints (IP-based firewall rules, VNET based firewall rules) or private endpoints (using Private Link) as outlined in the [network access overview](sql-database-networkaccess-overview.md). 
 
-When **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed and all connectivity via public endpoint is denied with this error message.
+When **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed and all connections via public endpoints are denied with an error message similar to:  
 
 ```output
 Error 47073
@@ -78,21 +78,21 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ## Minimal TLS Version 
 
-Minimal TLS Version allows customer to control the version of  [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) for their Azure SQL Server.
+The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version allows customer to control the version of the [Transport Layer Security] for their SQL server in Azure.
 
-At present we support TLS 1.0, 1.1 and 1.2. Setting a minimal TLS version ensures that subsequent, newer TLS versions are supported, e.g.,  choosing >1.1. means only connections with TLS 1.1 and 1.2 are accepted and TLS 1.0 is rejected. After testing to make sure your applications can support it, we recommend setting minimal TLS version to 1.2 since it includes fixes for vulnerabilities found in previous versions and is the highest version of TLS supported in Azure Sql Database.
 
-For customers with applications that rely on older version of TLS, we recommend setting the Minimal TLS version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
+For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
 
 For more information, see [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
-After setting Minimal TLS version, login attempts from clients that are using a TLS version less than the Minimal TLS version of the server will fail with following error:
+After setting the Minimal TLS Version, login attempts from clients that are using a TLS version lower than the Minimal TLS Version of the server will fail with following error:
+
 ```output
 Error 47072
 Login failed with invalid TLS version
 ```
 
-## Set Minimal TLS Version via PowerShell
+## Set minimal TLS version via PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
