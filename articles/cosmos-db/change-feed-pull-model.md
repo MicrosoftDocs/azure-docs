@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/12/2020
 ms.reviewer: sngun
 ---
 
@@ -144,6 +144,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.
+
 ## Comparing with change feed processor
 
 Many scenarios can process the change feed using either the [change feed processor](change-feed-processor.md) or the pull model. The pull model's continuation tokens and the change feed processor's lease container are both "bookmarks" for the last processed item (or batch of items) in the change feed.
@@ -151,9 +153,9 @@ However, you can't convert continuation tokens to a lease container (or vice ver
 
 You should consider using the pull model in these scenarios:
 
-- You want to do a one-time read of the existing data in the change feed
-- You only want to read changes from a particular partition key
-- You don't want a push model and want to consume the change feed at your own pace
+- Reading changes from a particular partition key
+- Controlling the pace at which your client receives changes for processing
+- Doing a one-time read of the existing data in the change feed (for example, to do a data migration)
 
 Here's some key differences between the change feed processor and pull model:
 

@@ -3,12 +3,12 @@ title: 'SD-WAN connectivity architecture'
 titleSuffix: Azure Virtual WAN
 description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN
 services: virtual-wan
-author: cherylmc
+author: skishen525
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: cherylmc
+ms.date: 05/12/2020
+ms.author: sukishen
 
 ---
 
