@@ -18,7 +18,7 @@ a WAV file (16kHz or 8kHz, 16-bit, and mono PCM) that contains English speech.
 
 Now you're ready to run the SPX tool to recognize speech found in the sound file.
 
-From the command line, change to the directory that contains spx.exe, and type:
+From the command line, change to the directory that contains the spx binary file, and type:
 
 ```bash
 spx recognize --file whatstheweatherlike.wav
