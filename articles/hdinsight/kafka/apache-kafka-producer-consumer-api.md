@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
+ms.date: 05/19/2020
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
@@ -113,13 +113,11 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 Download the jars from the [Kafka Get Started Azure sample](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). If your cluster is **Enterprise Security Package (ESP)** enabled, use kafka-producer-consumer-esp.jar. Use the command below to copy the jars to your cluster.
 
-
-    ```cmd
-    scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
-    ```
+```cmd
+scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+```
 
 ## Build the JAR files from code
-
 
 If you would like to skip this step, prebuilt jars can be downloaded from the `Prebuilt-Jars` subdirectory. Download the kafka-producer-consumer.jar. If your cluster is **Enterprise Security Package (ESP)** enabled, use kafka-producer-consumer-esp.jar. Execute step 3 to copy the jar to your HDInsight cluster.
 
@@ -140,7 +138,6 @@ If you would like to skip this step, prebuilt jars can be downloaded from the `P
     ```
 
 ## <a id="run"></a> Run the example
-This conversation was marked as resolved by anusricorp
 
 1. Replace `sshuser` with the SSH user for your cluster, and replace `CLUSTERNAME` with the name of your cluster. Open an SSH connection to the cluster, by entering the following command. If prompted, enter the password for the SSH user account.
 
@@ -159,6 +156,7 @@ This conversation was marked as resolved by anusricorp
 
     > [!Note]  
     > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari.
+    
 1. Create Kafka topic, `myTest`, by entering the following command:
 
     ```bash
