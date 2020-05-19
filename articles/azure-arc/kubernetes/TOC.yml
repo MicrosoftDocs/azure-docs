@@ -8,10 +8,10 @@
   items:
   - name: Cluster operations
     items:
-    - name: Connect a cluster
-      href: connect-a-cluster.md
+    - name: Connect cluster
+      href: connect-cluster.md
     - name: Use GitOps for connected clusters
-      href: use-gitops-in-connected-cluster.md
+      href: use-gitops-connected-cluster.md
     - name: Use GitOps with Helm
       href: use-gitops-with-helm.md
     - name: Azure Monitor for containers
@@ -20,5 +20,7 @@
       href: use-azure-policy.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
+    - name: Onboarding service principal
+      href: create-onboarding-service-principal.md
     - name: Troubleshooting
       href: Troubleshooting.md

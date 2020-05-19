@@ -1,5 +1,5 @@
 ---
-title: "Connect a Kubernetes cluster (Preview)"
+title: "Connect an Azure Arc-enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -7,11 +7,11 @@ ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Connect a Kubernetes cluster with Azure Arc"
+description: "Connect an Azure Arc-enabled Kubernetes cluster with Azure Arc"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Connect a Kubernetes cluster (Preview)
+# Connect an Azure Arc-enabled Kubernetes cluster (Preview)
 
 Connect a Kubernetes cluster to Azure Arc. 
 
@@ -42,7 +42,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com | Data plane endpoint for the agent to push status and fetch configuration information                                      |
 | 3.  | https://docker.io                                                                                            | Required to pull container images                                                                                         |
 | 4.  | https://github.com, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
-| 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update ARM tokens                                                                                    |
+| 5.  | https://login.microsoftonline.com                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
 | 6.  | https://azurearcfork8s.azurecr.io                                                                            | Required to pull container images for Azure Arc agents                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
@@ -150,7 +150,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest -c AzureArcTest1 --cluster-type connectedClusters -o table
+az connectedk8s list -g AzureArcTest
 ```
 
 **Output:**
@@ -193,7 +193,7 @@ You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI 
 
 The Azure CLI command `az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
-The Azure Portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
+The Azure portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
 
 To remove the agents in the cluster you need to run `az connectedk8s delete` or `helm uninstall azurearcfork8s`.
 
