@@ -2084,6 +2084,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/cli-samples.md",
+      "redirect_url": "articles/virtual-machine-scale-sets/scripts/cli-sample-create-simple-scale-set",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/powershell-samples.md",
+      "redirect_url": "articles/virtual-machine-scale-sets/scripts/powershell-sample-create-simple-scale-set",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/front-door-rest-api.md",
       "redirect_url": "/rest/api/frontdoor",
       "redirect_document_id": false
