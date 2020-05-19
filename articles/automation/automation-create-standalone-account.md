@@ -1,6 +1,6 @@
 ---
 title: Create a standalone Azure Automation account
-description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
+description: This article tells how to create a standalone Azure Automation account and a Classic Run As account.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
@@ -25,13 +25,11 @@ With this account created for you, you can quickly start building and deploying 
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
 * To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
-* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **User settings**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
+* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **User settings**, if **App registrations** is set to **Yes**, non-administrator users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
 
-If you aren't a member of the subscription's Active Directory instance before you're added to the subscription's global Administrator/Coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the Add Automation Account pane: `You do not have permissions to create.`
+If you aren't a member of the subscription's Active Directory instance before you're added to the subscription's global Administrator/Coadministrator role, you're added to Active Directory as a guest. In this scenario, you see this message on the Add Automation Account pane: `You do not have permissions to create.`
 
-If a user is added to the global Administrator/Coadministrator role first, you can remove the user from the subscription's Active Directory instance. You can readd the user to the User role in Active Directory.
-
-To verify user roles:
+If a user is added to the global Administrator/Coadministrator role first, you can remove the user from the subscription's Active Directory instance. You can readd the user to the User role in Active Directory. To verify user roles:
 
 1. In the Azure portal, go to the Azure Active Directory pane.
 1. Select **Users and groups**.
@@ -76,8 +74,6 @@ To create an Azure Automation account in the Azure portal, complete the followin
    >
 
 1. To track the progress of the Automation account creation, select **Notifications** in the menu.
-
-### Resources included
 
 When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
 

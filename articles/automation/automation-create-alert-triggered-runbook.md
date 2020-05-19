@@ -1,6 +1,6 @@
 ---
 title: Use an alert to trigger an Azure Automation runbook
-description: Learn how to trigger a runbook to run when an Azure alert is raised.
+description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
@@ -16,7 +16,7 @@ You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts
-* Near real-time metric alerts
+* Near-real-time metric alerts
 
 > [!NOTE]
 > The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](../azure-monitor/platform/alerts-common-schema.md)

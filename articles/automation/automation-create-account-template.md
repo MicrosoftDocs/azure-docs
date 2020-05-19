@@ -1,16 +1,14 @@
 ---
-title: Use Azure Resource Manager templates to create an Automation account | Microsoft Docs
-description: You can use an Azure Resource Manager template to create an Azure Automation account.
+title: Create an Automation account using an Azure Resource Manager template | Microsoft Docs
+description: This article tells how to use an Azure Resource Manager template to create an Azure Automation account.
 ms.service:  automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-
 ---
-
-# Create an Automation account by using an Azure Resource Manager template
+# Create an Automation account using an Azure Resource Manager template
 
 You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to create an Azure Automation account in your resource group. This article provides a sample template that:
 
