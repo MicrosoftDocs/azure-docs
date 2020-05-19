@@ -1,5 +1,5 @@
 ---
-title: Query Spark tables using SQL on-demand (preview)
+title: Synchronize Apache Spark for Azure Synapse external table definitions in SQL on-demand (preview)
 description: Overview of how to query Spark tables using SQL on-demand (preview)
 services: synapse-analytics 
 author: julieMSFT
@@ -11,9 +11,9 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Query Spark tables with Azure Synapse Analytics using SQL on-demand (preview)
+# Synchronize Apache Spark for Azure Synapse external table definitions in SQL on-demand (preview)
 
-The SQL on-demand (preview) can automatically synchronize metadata from Spark pools within Synapse workspace (preview). A SQL on-demand database will be created for each database existing in Spark pools (preview). 
+The SQL on-demand (preview) can automatically synchronize metadata from Apache Spark for Azure Synapse pools. A SQL on-demand database will be created for each database existing in Spark pools (preview). 
 
 For each Spark external table based on Parquet and located in Azure Storage, an external table is created in the SQL on-demand database. As such, you can shut down your Spark pools and still query Spark external tables from SQL on-demand.
 
