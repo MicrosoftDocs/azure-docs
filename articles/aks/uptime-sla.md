@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
@@ -15,7 +15,7 @@ Customers needing an SLA to meet compliance requirements or require extending an
 Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
 
 > [!Important]
-> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports for Uptime SLA.
+> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## SLA terms and conditions
 
@@ -65,6 +65,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 * Currently, cannot convert as existing cluster to enable the Uptime SLA.
 * Currently, there is no way to remove Uptime SLA from an AKS cluster after creation with it enabled.  
+* Private clusters aren't currently supported.
 
 ## Next steps
 
