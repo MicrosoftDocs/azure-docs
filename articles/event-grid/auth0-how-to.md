@@ -50,7 +50,7 @@ Part of the integration process is to set up Auth0 for use as an event source (t
 ### Activate your Auth0 Partner Topic in Azure
 Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
 
-1. Log in to the Azure Portal.
+1. Log in to the Azure portal.
 1. Search `Partner Topics` at the top and click `Event Grid Partner Topics` under services.
 1. Click on the topic that matches the stream you created in your Auth0 Dashboard.
 1. Confirm the `Source` field matches your Auth0 account.

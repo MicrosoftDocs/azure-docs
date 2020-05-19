@@ -46,8 +46,6 @@ In the last section, you learned how to enable system-managed identity while cre
 4. Switch to the **Identity** tab. 
 5. Turn on the switch to enable the identity. 
 
-    [![Enable identity for an existing topic](./media/managed-service-identity/existing-topic-identity.png)](./media/managed-service-identity/existing-topic-identity.png)
-
     You can use similar steps to enable identity for an event grid domain.
 
 ### Using Azure CLI
@@ -87,8 +85,6 @@ The following example adds a managed identity for an event grid topic named **ms
     1. Select the role. In this case, it's **Azure Service Bus Data Sender**. 
     2. Select the **identity** for your topic or domain. 
     3. select **Save** to save the configuration.
-
-    [![Service Bus configurations](./media/managed-service-identity/service-bus.png)](./media/managed-service-identity/service-bus.png)
 
 The steps are similar for adding an identity to other roles mentioned in the table. 
 
