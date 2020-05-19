@@ -363,7 +363,7 @@ To test a failover:
 
 ## Next steps
 
-In this tutorial, you configured an Azure SQL Database and application for failover to a remote region and tested a failover plan. You learned how to:
+In this tutorial, you configured a database in Azure SQL Database and an application for failover to a remote region and tested a failover plan. You learned how to:
 
 > [!div class="checklist"]
 >
@@ -371,7 +371,7 @@ In this tutorial, you configured an Azure SQL Database and application for failo
 > - Run a Java application to query a database in SQL Database
 > - Test failover
 
-Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group:
+Advance to the next tutorial on how to add an instance of Azure SQL Managed Instance to a failover group:
 
 > [!div class="nextstepaction"]
-> [Add an Azure SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Add an instance of Azure SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
