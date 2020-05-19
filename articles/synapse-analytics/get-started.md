@@ -264,33 +264,4 @@ Click **New Power BI report** next to the name of the Power BI dataset that you 
 ![Save report](./media/get-started-synapse-analytics/pbi-save-report.png)
 
 
-## Orchestrate using a pipeline
-
-After ingesting, exploring, analyzing, and serving your data, you can schedule these activities to automatically run using pipeline orchestration.
-
-   1. Go to **Develop** and find the Spark notebook you used to analyze your data.
-   2. Open your **Spark notebook**.
-   3. Click the **Add to pipeline** button at the upper right of the view.
-   4. Select **Existing pipeline**. All of your workspace's pipelines will be listed.
-   5. Select the pipeline you created during the **data ingestion step**.
-   6. Click **Add** to open an authoring view of that pipeline, with the Spark notebook activity added.
-   7. Click and drag the **green box** next to the **Copy activity**, and connect it to the **new Spark notebook activity**.
-   8. Publish your modified pipeline by clicking **Publish all** in the upper left of the view.
-   9. To manually trigger the pipeline, click **Add trigger**, then **Trigger now**.
-         Your pipeline is now running the data ingestion step, followed by the Spark notebook analysis step.
-   10. Click **Add trigger**, **New/Edit**.
-   11. Click **Choose trigger...**, then **New**.
-   12. For **Recurrence**, enter **Every 1 hour**. For **End on**, enter a date-time soon in the future to make sure this tutorial pipeline doesn't continue running.
-   13. Click **OK**, then **OK** to go back to the pipeline authoring view.
-   14. Publish your new trigger by clicking **Publish all** in the upper left of the view.
-          Your pipeline will now run every week until your chosen end date.
-
-## Monitor
-
-After setting up a pipeline that lets you ingest and analyze your data automatically, you can monitor the progress and history of your pipeline runs.
-
-   1. Click **Monitor** and open **Pipeline runs**.
-   2. You should see your tutorial pipeline's runs listed. If you see other more recent pipeline runs instead, you can **filter** the list by pipeline name to just see runs of your pipeline.
-   3. Open **the most recent run of your pipeline** to see the details of when each activity ran within your pipeline. The **pipeline run details view** will open.
-   4. To see details about each activity run in your pipeline, examine the **activity runs**, which are listed at the bottom of the view.
-
+#
