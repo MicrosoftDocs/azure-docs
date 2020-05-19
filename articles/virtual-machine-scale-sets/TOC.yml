@@ -94,7 +94,7 @@
       - name: Create a zone-redundant scale set
         href: ./scripts/powershell-sample-zone-redundant-scale-set.md
   - name: Azure Policy built-ins
-  displayName: samples, policies, definitions
+    displayName: samples, policies, definitions
     href: ./policy-samples.md
 - name: Concepts
   items:
