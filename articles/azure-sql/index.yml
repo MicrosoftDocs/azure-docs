@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure SQL documentation
-summary: "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully-managed database in Azure SQL Database, a fully-managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
+summary: "Find documentation about the Azure SQL family of SQL Server database engine products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM. "
 
 metadata:
   title: Documentation
-  description: "Find documentation about the Azure SQL family of SQL Server products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM. "
+  description:  "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully-managed database in Azure SQL Database, a fully-managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -32,7 +32,7 @@ landingContent:
           - text: Elastic pools 
             url: database/elastic-pool-overview.md 
           - text: What's new? 
-            url: database/doc-changes-updates-release-notes.md&tabs=single-database            
+            url: database/doc-changes-updates-release-notes.md
       - linkListType: quickstart
         links:
           - text: Create Azure SQL Database
@@ -47,25 +47,10 @@ landingContent:
             url: database/security-overview.md
           - text: Business continuity
             url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
-          - text: High availability
-            url: database/high-availability-sla.md
           - text: Monitoring and tuning
             url: database/monitor-tune-overview.md
           - text: Scalability
             url: database/scale-resources.md
-          - text: Purchasing options
-            url: database/purchasing-models.md
-          - text: Service tiers
-            url: database/service-tiers-general-purpose-business-critical.md
-      - linkListType: reference
-        links:
-          - text: Azure CLI samples 
-            url: database/az-cli-script-samples-content-guide.md?tabs=single-database
-          - text: Azure PowerShell
-            url: database/powershell-script-content-guide.md?tabs=single-database
-          - text: ARM Templates
-            url: database/arm-templates-content-guide.md?tabs=single-database
-
 
   # Card 
   - title: Azure SQL Managed Instance
@@ -94,26 +79,8 @@ landingContent:
             url: database/security-overview.md
           - text: Business continuity
             url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
-          - text: High availability
-            url: database/high-availability-sla.md
           - text: Monitoring and tuning
             url: database/monitor-tune-overview.md
-          - text: Scalability
-            url: database/scale-resources.md
-          - text: Purchasing options
-            url: database/purchasing-models.md
-          - text: Service tiers
-            url: database/service-tiers-general-purpose-business-critical.md
-      - linkListType: reference
-        links:
-          - text: Frequently asked questions
-            url: managed-instance/frequently-asked-questions-faq.md 
-          - text: Azure CLI samples 
-            url: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
-          - text: Azure PowerShell
-            url: database/powershell-script-content-guide.md?tabs=managed-instance
-          - text: ARM Templates
-            url: database/arm-templates-content-guide.md?tabs=managed-instance
 
   # Card 
   - title: SQL Server on Azure VM
@@ -129,9 +96,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create windows SQL on Azure VM 
-            url: windows/sql-vm-create-portal-quickstart.md
+            url: virtual-machines/windows/sql-vm-create-portal-quickstart.md
           - text: Create linux SQL on Azure VM 
-            url: virtual-machines/create-sql-vm-portal.md 
+            url: virtual-machines/linux/create-sql-vm-portal.md 
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -139,17 +106,8 @@ landingContent:
           - text: Security considerations
             url: virtual-machines/windows/security-considerations-best-practices.md
           - text: High availability & disaster recovery
-            url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md.md
-      - linkListType: reference
-        links:
-          - text: Frequently asked questions (Windows)
-            url: virtual-machines/windows/frequently-asked-questions-faq.md 
-          - text: Frequently asked questions (Linux) 
-            url: virtual-machines/linux/frequently-asked-questions-faq.md 
-          - text: Azure PowerShell
-            url: database/powershell-script-content-guide.md?tabs=managed-instance
-          - text: ARM Templates
-            url: database/arm-templates-content-guide.md?tabs=managed-instance
+            url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+
 
   # Card
   - title: Development
@@ -169,10 +127,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Design first database (SSMS)
-            url: sql-database-design-first-database.md
+            url: design-first-database-tutorial.md
           - text: Design first database (C#)
-            url: sql-database-design-first-database-csharp.md
-
+            url: design-first-database-csharp-tutorial.md
 
 
   # Card
@@ -189,10 +146,6 @@ landingContent:
           - text: Visual Studio (.NET)
             url: database/connect-query-dotnet-visual-studio.md
 
-
-
-
-
   # Card 
   - title: Reference 
     linkLists:
@@ -208,6 +161,14 @@ landingContent:
           url: https://docs.microsoft.com/en-us/learn/browse/?term=sql%20virtual%20machines 
         - text: "Microsoft Learn: SQL Server"  
           url: https://docs.microsoft.com/learn/browse/?products=sql-server
+      - linkListType: deploy
+        links:
+        - text: Azure CLI samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: PowerShell samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: ARM template samples 
+          url: /sql/ssms/download-sql-server-management-studio-ssms
       - linkListType: download
         links:
         - text: SQL Server Management Studio (SSMS)
@@ -220,6 +181,8 @@ landingContent:
           url: https://visualstudio.microsoft.com/downloads/
       - linkListType: reference
         links:
+          - text: Migration how-to-guide
+            url: https://datamigration.microsoft.com/
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI

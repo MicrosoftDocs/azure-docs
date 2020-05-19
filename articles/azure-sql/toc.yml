@@ -648,7 +648,7 @@
       - name: Security configuration
         href: database/elastic-scale-split-merge-security-configuration.md
       - name: Add a shard
-        href: database/elastic-scale-add-a-shard
+        href: database/elastic-scale-add-a-shard.md
       - name: Fix shard map problems
         href: database/elastic-database-recovery-manager.md
       - name: Migrate sharded database
