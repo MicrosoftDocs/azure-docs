@@ -72,7 +72,7 @@ When you specify a value for a parameter, you select a data source to determine 
 | Credential Asset |Select an Automation credential as input. |
 | Certificate Asset |Select an Automation certificate as input. |
 | Connection Asset |Select an Automation connection as input. |
-| PowerShell Expression |Specify a simple [PowerShell expression](#powershell-expressions). The expression is evaluated before the activity and the result is used for the parameter value. You can use variables to refer to the output of an activity or a runbook input parameter. |
+| PowerShell Expression |Specify a simple [PowerShell expression](#work-with-powershell-expressions). The expression is evaluated before the activity and the result is used for the parameter value. You can use variables to refer to the output of an activity or a runbook input parameter. |
 | Not Configured |Clear any value that was previously configured. |
 
 #### Optional additional parameters

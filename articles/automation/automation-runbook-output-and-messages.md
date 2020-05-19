@@ -26,7 +26,7 @@ The following table briefly describes each stream with its behavior in the Azure
 
 ## Output stream
 
-The Output stream is used for the output of objects created by a script or workflow when it runs correctly. Azure Automation primarily uses this stream for objects to be consumed by parent runbooks that call the [current runbook](automation-child-runbooks.md). When a parent [calls a runbook inline](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution), the child returns data from the Output stream to the parent. 
+The Output stream is used for the output of objects created by a script or workflow when it runs correctly. Azure Automation primarily uses this stream for objects to be consumed by parent runbooks that call the [current runbook](automation-child-runbooks.md). When a parent [calls a runbook inline](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), the child returns data from the Output stream to the parent. 
 
 Your runbook uses the Output stream to communicate general information to the client only if it is never called by another runbook. As a best practice, however, you runbooks should typically use the [Verbose stream](#verbose-stream) to communicate general information to the user.
 
