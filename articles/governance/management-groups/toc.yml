@@ -26,3 +26,5 @@
     href: /javascript/api/@azure/arm-managementgroups/managementgroups
   - name: REST
     href: /rest/api/resources/managementgroups
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.management/managementgroups
