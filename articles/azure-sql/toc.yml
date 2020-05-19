@@ -689,6 +689,8 @@
 
 - name: SQL Managed Instance (SQL MI)
   items:
+  - name: Documentation index
+    href: managed-instance/index.yml  
   - name: Overview
     items:
     - name: Overview
@@ -822,7 +824,9 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL Server on Azure VM
-  items: 
+  items:
+  - name: Documentation index
+    href: virtual-machines/index.yml
   - name: Windows
     items: 
     - name: Overview
