@@ -58,6 +58,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * Navigate to **SQLDB1 > Tables > dbo.Trip**
 * Right-click on the **dbo.Trip** table and select **New SQL Script > Select TOP 100 Rows**
 * A new SQL script will be created and automaticall run
+* Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called SQLDB1
 * Replace the text of the SQL script with this code and run it.
     ```
     SELECT PassengerCount,
