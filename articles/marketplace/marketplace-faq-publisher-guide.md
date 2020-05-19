@@ -1,7 +1,7 @@
 ---
 
 title: Microsoft commercial marketplace publisher FAQ 
-description: Get answers to commonly asked questions about Azure Marketplace and Microsoft AppSource.
+description: Get answers to common questions about Azure Marketplace and Microsoft AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,9 +10,9 @@ ms.date: 05/08/2020
 ms.author: dsindona
 ---
 
-# Common questions about the Microsoft commercial marketplace
+# Common questions about Microsoft commercial marketplace
 
-This article answers commonly asked questions about the Microsoft commercial marketplace.
+This article answers commonly asked questions about the commercial marketplace.
 
 ## General
 
@@ -304,7 +304,7 @@ To receive refunds, customers can cancel subscriptions within a specified time f
 
 Here are some resources to get you started:
 
-- [Introduction to the Microsoft commercial marketplace](https://docs.microsoft.com/learn/commercial-marketplace/intro-commercial-marketplace/intro-commercial-marketplace/)
+- [Introduction to the Microsoft commercial marketplace](/azure/marketplace/marketplace-publishers-guide)
 - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/)
 
