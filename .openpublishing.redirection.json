@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cosmos-db/sql-api-async-java-samples.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-java-samples.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/openshift/howto-azure-monitor-v4.md",
       "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
       "redirect_document_id": false
@@ -8049,7 +8059,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java",
       "redirect_document_id": false
     },
     {

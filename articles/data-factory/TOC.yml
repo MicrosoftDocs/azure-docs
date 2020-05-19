@@ -605,6 +605,8 @@
       href: enable-aad-authentication-azure-ssis-ir.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Built-in and preinstalled components on Azure-SSIS IR
+      href: built-in-preinstalled-components-ssis-integration-runtime.md
     - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
     - name: Install licensed components for Azure-SSIS IR

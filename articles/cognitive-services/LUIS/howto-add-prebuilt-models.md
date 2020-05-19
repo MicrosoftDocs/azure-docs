@@ -73,7 +73,7 @@ The easiest way to view the value of a prebuilt model is to query from the publi
 
 ## Entities containing a prebuilt entity token
 
-If you have a machine-learned entity that needs a required feature of a prebuilt entity, add a subentity to the machine-learned entity, then add a _required_ feature of a prebuilt entity.
+If you have a machine-learning entity that needs a required feature of a prebuilt entity, add a subentity to the machine-learning entity, then add a _required_ feature of a prebuilt entity.
 
 ## Next steps
 > [!div class="nextstepaction"]

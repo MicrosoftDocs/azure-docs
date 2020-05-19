@@ -32,9 +32,9 @@ When you need your LUIS app to be able to generalize and identify new items for 
 With a phrase list, LUIS considers context and generalizes to identify items that are similar to, but not an exact text match.
 
 Steps to use a phrase list:
-* Start with a machine-learned entity
+* Start with a machine-learning entity
     * Add example utterances
-    * Label with a machine-learned entity
+    * Label with a machine-learning entity
 * Add a phrase list
     * Add words with similar meaning - do **not** add every possible word or phrase. Instead, add a few words or phrases at a time, then retrain and publish.
     * Review and add suggested words
@@ -48,7 +48,7 @@ An example of words that may need a phrase list to boost their significance are 
 If you want to extract the medical terms:
 * First create example utterances and label medical terms within those utterances.
 * Then create a phrase list with examples of the terms within the subject domain. This phrase list should include the actual term you labeled and other terms that describe the same concept.
-* Add the phrase list to the entity or subentity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learned entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
+* Add the phrase list to the entity or subentity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learning entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -84,7 +84,7 @@ For example, if n shipping address entity contained a street address subentity, 
 
 ## Nested subentities with features
 
-A machine learned subentity indicates a concept is present to the parent entity, whether that parent is another subentity or the top entity. The value of the subentity acts as a feature to its parent. 
+A machine learned subentity indicates a concept is present to the parent entity, whether that parent is another subentity or the top entity. The value of the subentity acts as a feature to its parent.
 
 A subentity can have both a phrase list as a feature as well as a model (another entity) as a feature.
 
