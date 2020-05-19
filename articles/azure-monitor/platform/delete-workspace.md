@@ -112,7 +112,7 @@ You can recover your workspace during the soft-delete period including its data,
 
    ![Recover workspace](media/delete-workspace/recover-workspace.png)
 
-5.
+
 ### PowerShell
 ```PowerShell
 PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
