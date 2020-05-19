@@ -1366,6 +1366,8 @@
         href: settlingmusic-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
+      - name: ShareVault
+        href: sharevault-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
