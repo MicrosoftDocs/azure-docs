@@ -1,6 +1,6 @@
 ---
 title: Partner Topics
-description: Send events from 3rd party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
+description: Send events from third party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
 services: event-grid
 author: banisadr
 
@@ -11,12 +11,12 @@ ms.author: babanisa
 ---
 
 # Partner Topics in Azure Event Grid (Preview)
-Partner Topics allow you to connect 3rd party event sources, such as SaaS and PaaS solutions, directly to Event Grid. This allows you to subscribe to events from partners in the same way you are able to subscribe to events from other Azure services, such as Azure Storage and IoT Hub. 
+Partner Topics allow you to connect third party event sources directly to Event Grid. This integration allows you to subscribe to events from partners in the same way you subscribe to events from Azure services. 
 
 ## Available Partners
-The first partner available through Event Grid Partner Topics is Auth0. The [Auth0 partner topic](auth0-overview.md) enables you to connect your Auth0 and Azure accounts in order to react to, log, and monitor Auth0 events in real time.
+The first partner available through Event Grid Partner Topics is Auth0. The [Auth0 partner topic](auth0-overview.md) enables you to connect your Auth0 and Azure accounts. The the integration to react to, log, and monitor Auth0 events in real time.
 
-[Try it out](auth0-how-to.md) today by logging in to your Auth0 account and creating an Event Grid integration. Once you click create in Auth0, you’ll see a pending Auth0 Topic in your Azure account. Click activate and you’ll be able to create Event Subscriptions, route, filter, and deliver your events just as you do any other event source.
+[Try it out](auth0-how-to.md) today by logging in to your Auth0 account and creating an Event Grid integration. Once you click create in Auth0, you’ll see a pending Auth0 Topic in your Azure account. Click activate and you can create Event Subscriptions, route, filter, and deliver your events just as you do any other event source.
 
 ## Pricing
 Partner topics are charged at the same operation rate as system topics.
