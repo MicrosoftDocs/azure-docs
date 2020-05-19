@@ -811,6 +811,12 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint"
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
@@ -875,7 +881,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-publish-app",
       "redirect_document_id": false
     },
     {
@@ -5386,12 +5392,12 @@
       "source_path": "articles/event-grid/premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-grid/update-tier.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
@@ -16120,7 +16126,7 @@
       "source_path": "articles/machine-learning/concept-event-grid-integration.md",
       "redirect_url": "/azure/machine-learning/how-to-use-event-grid",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/machine-learning/sample-designer-datasets.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
@@ -17305,7 +17311,7 @@
       "source_path": "articles/service-bus-relay/network-security.md",
       "redirect_url": "/azure/azure-relay/network-security",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/service-bus-relay/private-link-service.md",
       "redirect_url": "/azure/azure-relay/private-link-service",
@@ -17380,12 +17386,12 @@
       "source_path": "articles/service-bus-relay/relay-migrate-acs-sas.md",
       "redirect_url": "/azure/azure-relay/relay-migrate-acs-sas",
       "redirect_document_id": false
-    },            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-port-settings.md",
       "redirect_url": "/azure/azure-relay/relay-port-settings",
       "redirect_document_id": false
-    },            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-what-is-it.md",
       "redirect_url": "/azure/azure-relay/relay-what-is-it",
@@ -17395,7 +17401,7 @@
       "source_path": "articles/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md",
       "redirect_url": "/azure/azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay",
       "redirect_document_id": false
-    },                
+    },
     {
       "source_path": "articles/service-bus-relay/service-bus-relay-rest-tutorial.md",
       "redirect_url": "/azure/azure-relay/service-bus-relay-rest-tutorial",
@@ -17410,7 +17416,7 @@
       "source_path": "articles/service-bus-relay/service-bus-relay-tutorial.md",
       "redirect_url": "/azure/azure-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
-    },                            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/azure-relay/azure-relay-tutorial",
@@ -20255,7 +20261,7 @@
       "source_path": "articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/marketplace/enable-lead-sharing.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
@@ -51570,7 +51576,7 @@
     },
     {
       "source_path": "articles/databox-online/data-box-edge-troubleshoot.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot", 
+      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot",
       "redirect_document_id": false
     },
     {
