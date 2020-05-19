@@ -58,7 +58,7 @@ To copy data from Google Cloud Storage, make sure you have been granted the foll
 The following sections provide details about properties that are used to define Data Factory entities specific to Google Cloud Storage.
 
 ## Linked service properties
-> Section updated
+
 The following properties are supported for Google Cloud Storage linked service:
 
 | Property | Description | Required |
@@ -93,7 +93,6 @@ Here is an example:
 ```
 
 ## Dataset properties
-> Section updated
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
@@ -138,7 +137,6 @@ The following properties are supported for Google Cloud Storage under `location`
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google Cloud Storage source.
 
 ### Google Cloud Storage as source
-> Section updated
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
