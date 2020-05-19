@@ -11,7 +11,7 @@ ms.author: asrastog
 
 # Troubleshooting message routing
 
-This article provides troubleshooting guidance for common issues and resolution for IoT Hub [message routing](iot-hub-devguide-messages-d2c.md). 
+This article provides monitoring and troubleshooting guidance for common issues and resolution for IoT Hub [message routing](iot-hub-devguide-messages-d2c.md). 
 
 ## Monitoring message routing
 
