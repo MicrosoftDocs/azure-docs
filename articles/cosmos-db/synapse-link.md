@@ -49,7 +49,7 @@ Azure Cosmos DB analytical store is optimized to provide scalability, elasticity
 
 With Azure Synapse Link, you can get a cost-optimized, fully managed solution for operational analytics. It eliminates the extra layers of storage and compute required in traditional ETL pipelines for analyzing operational data. 
 
-Azure Cosmos DB analytical store follows a consumption-based pricing model, which is based on data storage and analytical read/write operationsand queries executed . It doesn’t require you to provision any throughput, as you do today for the transactional workloads. Accessing your data with highly elastic compute engines from Azure Synapse Analytics makes the overall cost of running storage and compute very efficient.
+Azure Cosmos DB analytical store follows a consumption-based pricing model, which is based on data storage and analytical read/write operations and queries executed . It doesn’t require you to provision any throughput, as you do today for the transactional workloads. Accessing your data with highly elastic compute engines from Azure Synapse Analytics makes the overall cost of running storage and compute very efficient.
 
 
 ### Analytics for locally available, globally distributed, multi master data
@@ -123,7 +123,7 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 ## Pricing
 
-The billing model of Azure Synapse Link translates to the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md#analytical-store-pricing) and [Azure Synapse Analytics pricing]() articles.
+The billing model of Azure Synapse Link includes the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md#analytical-store-pricing) and [Azure Synapse Analytics pricing]() articles.
 
 ## Next steps
 
