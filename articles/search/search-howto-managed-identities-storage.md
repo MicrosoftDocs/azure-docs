@@ -42,7 +42,7 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 In this step you will give your Azure Cognitive Search service permission to read data from your storage account.
 
-1. In the Azure Portal, navigate to the Storage account that contains the data that you would like to index.
+1. In the Azure portal, navigate to the Storage account that contains the data that you would like to index.
 2. Select **Access control (IAM)**
 3. Select **Add** then **Add role assignment**
 
