@@ -20,7 +20,7 @@ ms.reviewer: jroth
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-vm-create-portal-quickstart.md)
-> * [Linux](../linux/provision-virtual-machine.md)
+> * [Linux](../linux/sql-vm-create-portal-quickstart.md)
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 

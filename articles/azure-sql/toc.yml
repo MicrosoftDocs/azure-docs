@@ -1,56 +1,51 @@
-- name: Azure SQL Documentation
+- name: Azure SQL Documentation 
   href: index.yml
 
 - name: Azure SQL
   items: 
   - name: Overview
     items: 
-    - name: Azure SQL 
+    - name: What is Azure SQL? 
       href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: Doc updates & release notes
+
   - name: Concepts
     items: 
-    - name: Accelerated database recovery
-      href: accelerated-database-recovery.md
     - name: Azure Hybrid Benefit
       href: azure-hybrid-benefit.md
-    - name: Intelligent insights into performance
-      href: intelligent-insights.md
-    - name: Use Intelligent Insights diagnostics log
-      href: intelligent-insights-use-diagnostics-log.md
-    - name: Troubleshoot performance with Intelligent Insights
-      href: intelligent-insights-troubleshoot-performance.md
-    - name: Identify query performance issues
-      href: identify-query-performance-issues.md
-    - name: Monitor In-memory OLTP space
-      href: in-memory-oltp-monitoring.md
+    - name: Multi-model features
+      href: multi-model-features.md
+    - name: Accelerated database recovery
+      href: accelerated-database-recovery.md
+    - name: Temporal tables
+      href: temporal-tables.md
     - name: In-memory
       href: in-memory-oltp-overview.md
+
+  - name: How to guides
+    items:
+    - name: Identify query performance issues
+      href: identify-query-performance-issues.md
+    - name: Batching for performance
+      href: performance-improve-use-batching.md
+    - name: Load data with BCP
+      href: load-from-csv-with-bcp.md
+    - name: In-memory OLTP
       items:
       - name: Configure In-Memory OLTP
         href: in-memory-oltp-migration.md
-      - name: Temporal tables
-        href: temporal-tables.md
-      - name: Load data with BCP
-        href: load-from-csv-with-bcp.md
-      - name: Batching for perf
-        href: performance-improve-use-batching.md
       - name: Try in-memory features
         href: in-memory-sample.md
+      - name: Monitor In-memory OLTP space
+        href: in-memory-oltp-monitoring.md
 
-- name: Common SQL DB & SQL MI docs 
+- name: Shared SQL DB & SQL MI docs 
   items:
-  - name: Common concepts 
+  - name: Shared concepts 
     itemS: 
     - name: Feature comparison
       href: database/features-comparison.md
-    - name: Release notes
-      items:
-      - name: Release notes
-        href: database/doc-changes-updates-release-notes.md
-      - name: Gateway IP address updates
-        href: database/gateway-migration.md
-      - name: Periodic maintenance events
-        href: database/planned-maintenance.md
+
 
     - name: Purchasing models
       items:
@@ -153,59 +148,6 @@
           href: database/threat-detection-overview.md
         - name: Security attributes
           href: database/security-controls.md
-    - name: Connect and query
-      href: database/connect-query-content-reference-guide.md
-      items:
-      - name: Connect and run ad-hoc queries
-        items:
-        - name: Azure Data Studio
-          href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
-        - name: SSMS
-          href: database/connect-query-ssms.md
-        - name: Azure portal
-          href: database/connect-query-portal.md
-        - name: VS Code
-          href: database/connect-query-vscode.md
-      - name: Connect and query from apps
-        items:
-        - name: .NET with Visual Studio
-          href: database/connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: database/connect-query-dotnet-core.md
-        - name: .NET with Active Directory MFA
-          href: database/active-directory-interactive-connect-azure-sql-db.md
-        - name: Go
-          href: database/connect-query-go.md
-        - name: Java
-          href: database/connect-query-java.md
-        - name: Node.js
-          href: database/connect-query-nodejs.md
-        - name: PHP
-          href: database/connect-query-php.md
-        - name: Python
-          href: database/connect-query-python.md
-        - name: Ruby
-          href: database/connect-query-ruby.md
-        - name: R
-          href: database/connect-query-r.md
-        - name: SQL Server drivers
-          href: /sql/connect/sql-server-drivers
-          items:
-          - name: ADO.NET
-            href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
-          - name: JDBC
-            href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
-          - name: Node.js
-            href: /sql/connect/node-js/node-js-driver-for-sql-server
-          - name: ODBC
-            href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
-          - name: PHP
-            href: /sql/connect/php/microsoft-php-driver-for-sql-server
-          - name: Python
-            href: /sql/connect/python/python-driver-for-sql-server
-          - name: Ruby
-            href: /sql/connect/ruby/ruby-driver-for-sql-server
-
     - name: Backup, restore, high availability (BCDR)
       items:
         - name: Business continuity
@@ -238,16 +180,12 @@
 
     - name: Monitor and tune
       items:
-      - name: Monitor and tune documentation
+      - name: Documentation index
         href: database/monitoring-tuning-index.yml
-      - name: Monitoring and performance overview
+      - name: Overview
         href: database/monitor-tune-overview.md
-      - name: Database advisors and Query Performance Insight
-        items:
-        - name: Database advisor performance recommendations
-          href: database/database-advisor-implement-performance-recommendations.md
-        - name: Query Performance Insights
-          href: database/query-performance-insight.md
+      - name: Intelligent Insights
+        href: intelligent-insights.md
       - name: Automatic tuning
         href: database/automatic-tuning-overview.md
       - name: Intelligent Insights and SQL Analytics
@@ -304,17 +242,64 @@
       - name: Elastic transactions
         href: database/elastic-transactions-overview.md
 
-    - name: Database features
-      items:
-      - name: Multi-model capabilities
-        href: multi-model-features.md
-      - name: Job automation
-        href: database/job-automation-overview.md
-
-  - name: Common how-to's
+  - name: Shared how-to's
     items:
     - name: Request quota increases
       href: database/quota-increase-request.md
+    - name: Job automation
+      href: database/job-automation-overview.md
+    - name: Connect and query
+      href: database/connect-query-content-reference-guide.md
+      items:
+      - name: Connect and run ad-hoc queries
+        items:
+        - name: Azure Data Studio
+          href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+        - name: SSMS
+          href: database/connect-query-ssms.md
+        - name: Azure portal
+          href: database/connect-query-portal.md
+        - name: VS Code
+          href: database/connect-query-vscode.md
+      - name: Connect and query from apps
+        items:
+        - name: .NET with Visual Studio
+          href: database/connect-query-dotnet-visual-studio.md
+        - name: .NET Core
+          href: database/connect-query-dotnet-core.md
+        - name: .NET with Active Directory MFA
+          href: database/active-directory-interactive-connect-azure-sql-db.md
+        - name: Go
+          href: database/connect-query-go.md
+        - name: Java
+          href: database/connect-query-java.md
+        - name: Node.js
+          href: database/connect-query-nodejs.md
+        - name: PHP
+          href: database/connect-query-php.md
+        - name: Python
+          href: database/connect-query-python.md
+        - name: Ruby
+          href: database/connect-query-ruby.md
+        - name: R
+          href: database/connect-query-r.md
+        - name: SQL Server drivers
+          href: /sql/connect/sql-server-drivers
+          items:
+          - name: ADO.NET
+            href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+          - name: JDBC
+            href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+          - name: Node.js
+            href: /sql/connect/node-js/node-js-driver-for-sql-server
+          - name: ODBC
+            href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+          - name: PHP
+            href: /sql/connect/php/microsoft-php-driver-for-sql-server
+          - name: Python
+            href: /sql/connect/python/python-driver-for-sql-server
+          - name: Ruby
+            href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: Design a database
       items:
       - name: Design database using SSMS
@@ -447,7 +432,7 @@
           - name: ETL for analytics
             href: database/saas-multitenantdb-tenant-analytics.md
 
-- name: SQL Database
+- name: SQL Database (SQL DB)
   items:
   - name: Azure SQL Database documentation
     href: database/index.yml
@@ -461,11 +446,12 @@
       href: database/elastic-pool-overview.md
     - name: Logical SQL servers
       href: database/logical-servers.md
+    - name: Release notes
+      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
 
   - name: Quickstarts
     items:
     - name: Create
-      href: database/quickstart-content-reference-guide.md
       items:
       - name: Using Azure portal
         href: database/single-database-create-quickstart.md
@@ -611,8 +597,12 @@
 
   - name: How to
     items:
-    - name: Overview
+    - name: Documentation index
       href: database/how-to-content-reference-guide.md
+    - name: Database recommendations
+      href: database/database-advisor-implement-performance-recommendations.md
+    - name: Query Performance Insights
+      href: database/query-performance-insight.md
     - name: Migrate to a single/pooled database
       href: database/migrate-to-database-from-sql-server.md
     - name: Manage SQL database after migration
@@ -658,7 +648,7 @@
       - name: Security configuration
         href: database/elastic-scale-split-merge-security-configuration.md
       - name: Add a shard
-        href: database/elastic-convert-to-use-elastic-tools.md
+        href: database/elastic-scale-add-a-shard
       - name: Fix shard map problems
         href: database/elastic-database-recovery-manager.md
       - name: Migrate sharded database
@@ -697,7 +687,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL Managed Instance
+- name: SQL Managed Instance (SQL MI)
   items:
   - name: Overview
     items:
@@ -708,8 +698,9 @@
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
+    - name: Release notes
+      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
   - name: Quickstarts
-    href: managed-instance/quickstart-content-reference-guide.md
     items:
     - name: Create
       items:
@@ -988,7 +979,7 @@
     - name: Quickstarts
       items:
       - name: Create SQL VM - Portal
-        href: virtual-machines/linux/provision-virtual-machine.md
+        href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH
@@ -1011,11 +1002,10 @@
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
 
 
-
-
-
 - name: Reference
   items:
+  - name: T-SQL language reference
+    href: /sql/t-sql/language-reference
   - name: Azure CLI
     href: /cli/azure/sql
   - name: Azure PowerShell
@@ -1024,8 +1014,6 @@
     href: /dotnet/api/microsoft.azure.management.sql.models
   - name: Java
     href: /java/api/com.microsoft.azure.management.sql
-  - name: T-SQL language reference
-    href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
   - name: Resource Manager templates for SQL
@@ -1047,7 +1035,6 @@
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server Drivers
     href: /sql/connect/sql-connection-libraries
-
 
 - name: Resources
   items:
@@ -1077,6 +1064,12 @@
       items:
       - name: Import/Export service hangs
         href: database/database-import-export-hang.md
+  - name: Service updates
+    items:
+    - name: Gateway IP address updates
+      href: database/gateway-migration.md
+    - name: Periodic maintenance events
+      href: database/planned-maintenance.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
