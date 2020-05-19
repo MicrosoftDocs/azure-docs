@@ -58,22 +58,6 @@ To deploy the solution, use the new security recommendation:
 
 
 
-### Alert suppression rules (preview)
-
-This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
-
-Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
-
-Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
-
-- suppress alerts that you've identified as false positives
-
-- suppress alerts that are being triggered too often to be useful
-
-[Learn more about suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
-
-
-
 ### Changes to just-in-time (JIT) virtual machine (VM) access
 
 Security Center includes an optional feature to protect the management ports of your VMs. This provides a defense against the most common form of brute force attacks.
@@ -109,19 +93,37 @@ The security controls - and this toggle - are part of the new secure score exper
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
-### Account security recommendations moved to "Security best practices" security control
+### Expanded security control "Implement security best practices" 
 
-One of the security controls introduced with the enhanced secure score is "Security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
+One of the security controls introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
 
 With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
 
-The recommendations are:
+In addition, two new recommendations have been introduced and added to this control.
 
-- MFA should be enabled on accounts with read permissions on your subscription (originally in the "Enable MFA" control)
-- External accounts with read permissions should be removed from your subscription (originally in the "Manage access and permissions" control)
-- A maximum of 3 owners should be designated for your subscription (originally in the "Manage access and permissions" control)
+The three recommendations that moved are:
+
+- **MFA should be enabled on accounts with read permissions on your subscription** (originally in the "Enable MFA" control)
+- **External accounts with read permissions should be removed from your subscription** (originally in the "Manage access and permissions" control)
+- **A maximum of 3 owners should be designated for your subscription** (originally in the "Manage access and permissions" control)
+
+The two new recommendations added to the control are:
+
+- **[Preview] Guest configuration agent should be installed** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
+
+- **[Preview] Windows exploit guard should be enabled** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
+
+Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+
+
+
+
+
+
+
+
 
 
 ### Custom policies with custom metadata are now generally available

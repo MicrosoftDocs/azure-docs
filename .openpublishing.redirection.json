@@ -757,6 +757,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/integrate-qnamaker-luis.md",
+      "redirect_url": "/azure/cognitive-services/luis/choose-natural-language-processing-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -2446,6 +2451,11 @@
     {
       "source_path": "articles/cosmos-db/autopilot-faq.md",
       "redirect_url": "/azure/cosmos-db/autoscale-faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
     },
     {
@@ -8039,7 +8049,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java",
       "redirect_document_id": false
     },
     {

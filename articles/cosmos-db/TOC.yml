@@ -1039,8 +1039,10 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
-      - name: Use built-in notebook commands
-        href: use-notebook-features-and-commands.md
+      - name: Use built-in Python notebook commands
+        href: use-python-notebook-features-and-commands.md
+      - name: Use built-in C# notebook commands
+        href: use-csharp-notebook-features-and-commands.md        
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, and UDFs
