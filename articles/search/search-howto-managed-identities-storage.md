@@ -20,7 +20,8 @@ ms.date: 05/18/2020
 
 This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
 
-Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer. More information can be found at the following links:
+Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
+* [Indexer overview](search-indexer-overview.md)
 * [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
 * [Azure Table indexer](search-howto-indexing-azure-tables.md)
@@ -90,7 +91,7 @@ api-key: [admin key]
 }   
 ```
 
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idatasourcesoperations.createorupdatewithhttpmessagesasync) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
+The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 4 - Create the index
 

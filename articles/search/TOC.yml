@@ -153,16 +153,6 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
-    - name: Connect using managed identities
-      items:
-        - name: Managed identities overview
-          href: search-howto-managed-identities-data-sources.md
-        - name: Azure Storage
-          href: search-howto-managed-identities-storage.md
-        - name: Azure Cosmos DB
-          href: search-howto-managed-identities-cosmos-db.md
-        - name: SQL Database
-          href: search-howto-managed-identities-sql.md
     - name: Data sources
       items:
       - name: Azure Blobs
@@ -191,6 +181,16 @@
         href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
       - name: SQL Server VMs
         href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Connect using managed identities
+      items:
+      - name: Managed identities overview
+        href: search-howto-managed-identities-data-sources.md
+      - name: Azure Storage
+        href: search-howto-managed-identities-storage.md
+      - name: Azure Cosmos DB
+        href: search-howto-managed-identities-cosmos-db.md
+      - name: SQL Database
+        href: search-howto-managed-identities-sql.md
   - name: Ingest using AI
     items:
     - name: Attach a Cognitive Services resource
