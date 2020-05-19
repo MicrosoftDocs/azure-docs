@@ -55,7 +55,7 @@ The reason for the warnings on the dashboard is that the cluster is now enabled 
 
 The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
+If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
@@ -116,7 +116,7 @@ Naming restrictions are implemented by both the Azure platform and AKS. If a res
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
 * The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 
-## I’m receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
+## I'm receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 
 *This troubleshooting assistance is directed from aka.ms/aks-pending-operation*
 
@@ -154,40 +154,13 @@ Verify that your settings are not conflicting with any of the required or option
 | 1.14 | 1.14.2 or later |
 
 
-### What versions of Kubernetes have Azure Disk support on the Sovereign Cloud?
+### What versions of Kubernetes have Azure Disk support on the Sovereign Clouds?
 
 | Kubernetes version | Recommended version |
 | -- | :--: |
 | 1.12 | 1.12.0 or later |
 | 1.13 | 1.13.0 or later |
 | 1.14 | 1.14.0 or later |
-
-
-### WaitForAttach failed for Azure Disk: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax
-
-In Kubernetes version 1.10, MountVolume.WaitForAttach may fail with an the Azure Disk remount.
-
-On Linux, you may see an incorrect DevicePath format error. For example:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-On Windows, you may see a wrong DevicePath(LUN) number error. For example:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.10 | 1.10.2 or later |
-| 1.11 | 1.11.0 or later |
-| 1.12 and later | N/A |
 
 ### Failure when setting uid and gid in mountOptions for Azure Disk
 
@@ -293,7 +266,7 @@ If you are using a version of Kubernetes that does not have the fix for this iss
 In some cases, if an Azure Disk detach operation fails on the first attempt, it will not retry the detach operation and will remain attached to the original node VM. This error can occur when moving a disk from one node to another. For example:
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 This issue has been fixed in the following versions of Kubernetes:
@@ -321,7 +294,6 @@ This issue has been fixed in the following versions of Kubernetes:
 | 1.15 and later | N/A |
 
 If you are using a version of Kubernetes that does not have the fix for this issue and your node VM has an obsolete disk list, you can mitigate the issue by detaching all non-existing disks from the VM as a single, bulk operation. **Individually detaching non-existing disks may fail.**
-
 
 ### Large number of Azure Disks causes slow attach/detach
 
@@ -379,7 +351,7 @@ Recommended settings:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+Mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -475,7 +447,7 @@ To update your Azure secret file, use `kubectl edit secret`. For example:
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
-After a few minutes, the agent node will retry the azure file mount with the updated storage key.
+After a few minutes, the agent node will retry the file mount with the updated storage key.
 
 ### Cluster autoscaler fails to scale with error failed to fix node group sizes
 
