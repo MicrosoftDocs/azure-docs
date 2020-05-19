@@ -33,7 +33,7 @@ To publish a built-in app:
    ```
 
 >[!NOTE]
-> Windows Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\Windows Apps`.
+> Windows Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
 
 ## Update app icons
 

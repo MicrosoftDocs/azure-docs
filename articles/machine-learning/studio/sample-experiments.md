@@ -55,5 +55,4 @@ A new experiment is created in your Machine Learning Studio (classic) workspace 
 
 ## Next steps
 * [Import data from various sources](import-data.md)
-* [Quickstart tutorial for the R language in Machine Learning](r-quickstart.md)
 * [Deploy a Machine Learning web service](deploy-a-machine-learning-web-service.md)

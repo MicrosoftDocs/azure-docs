@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Get sentence lengths - Translator Text API"
+title: "Quickstart: Get sentence lengths - Translator"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to determine sentence length using the Translator Text API.
+description: In this quickstart, you'll learn how to determine sentence length using the Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,11 +13,11 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
 
-# Quickstart: Use the Translator Text API to determine sentence length
+# Quickstart: Use the Translator to determine sentence length
 
-In this quickstart, you'll learn how to determine the length of sentences using the Translator Text API.
+In this quickstart, you'll learn how to determine the length of sentences using the Translator.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]

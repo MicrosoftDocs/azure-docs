@@ -7,18 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="chromeless"
 
-## Return Azure Data Box Disk 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -38,6 +34,12 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 
 ## Ship Data Box Disk back
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Return Azure Data Box Disk 
 
 ::: zone-end
 

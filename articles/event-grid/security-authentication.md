@@ -24,12 +24,18 @@ You include the authentication value in the HTTP header. For SAS, use **aeg-sas-
 
 ### Key authentication
 
-Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>`
+Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>` in the message header.
 
 For example, you pass a key with:
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+You can also specify `aeg-sas-key` as a query parameter. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### SAS tokens
@@ -75,17 +81,21 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
-## Authenticate event delivery to webhook endpoints using Azure AD 
+## Authenticate event delivery to webhook endpoints
+The following sections describe how to authenticate event delivery to webhook endpoints. You need to use a validation handshake mechanism irrespective of the method you use. See [Webhook event delivery](webhook-event-delivery.md) for details. 
+
+### Using Azure Active Directory (Azure AD)
 You can secure your webhook endpoint by using Azure Active Directory (Azure AD) to authenticate and authorize Event Grid to deliver events to your endpoints. You'll need to create an Azure AD Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure Azure Active Directory with Event Grid](secure-webhook-delivery.md).
 
-You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
+### Using client secret as a query parameter
+You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a client secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) or a shared secret. The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook. If the client secret is updated, event subscription also needs to be updated. To avoid delivery failures during this secret rotation, make the webhook accept both old and new secrets for a limited duration. 
 
-When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+As query parameters could contain client secrets, they are handled with extra care. They are stored as encrypted and not accessible to service operators. They are not logged as part of the service logs/traces. When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
-Finally, it's important to note that Azure Event Grid only supports HTTPS webhook endpoints. 
+For more information on delivering events to webhooks, see [Webhook event delivery](webhook-event-delivery.md)
 
-> [!NOTE]
-> For more information on delivering events to webhooks, see [Webhook event delivery](webhook-event-delivery.md)
+> [!IMPORTANT]
+Azure Event Grid only supports **HTTPS** webhook endpoints. 
 
 ## Next steps
 
