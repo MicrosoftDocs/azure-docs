@@ -195,6 +195,10 @@ A (machine learned) model is a function that makes a prediction on input data. I
 
 You add values to your [list](#list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
 
+## Overfitting
+
+Overfitting happens when the model is fixated on the specific examples and is not able to generalize well.
+
 ## Owner
 
 Each app has one owner who is the person that created the app. The owner manages permissions to the application in the Azure portal.
@@ -255,7 +259,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 
 ## Schema
 
-Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances. 
+Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
 Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).

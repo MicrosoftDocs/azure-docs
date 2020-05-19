@@ -1,6 +1,6 @@
 ---
-title: Marketplace offers and services publishing criteria | Azure Marketplace 
-description: This article describes how to become a publisher on Azure Marketplace.  
+title: Azure Marketplace offer and service listing requirements
+description: This article explains requirements and guidelines for listing new offers and services on Azure Marketplace.  
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,13 +11,13 @@ ms.author: dsindona
 
 # Azure Marketplace listing guidelines
 
-This document contains requirements and guidelines for new offers and services to be listed on Azure Marketplace.
+This article explains the requirements and guidelines for listing new offers and services on Azure Marketplace.
 
-All offers must meet the requirements that are listed in the "Listing requirements for all offers" section.
+All offers must meet the requirements that are listed in the [Listing requirements for all offers](#listing-requirements-for-all-offers) section.
 
 Additional requirements and checklists are provided for specific listing types, including: 
 * [Trial offer requirements](#trial-offer-requirements)
-* [SaaS app requirements](#saas-app-requirements)
+* [SaaS application requirements](#saas-application-requirements)
 * [Container offer requirements](#container-offer-requirements)
 * [Consulting offer requirements](#consulting-offer-requirements)
 
@@ -48,7 +48,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ---
 
-## SaaS app requirements
+## SaaS application requirements
 
 |  | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |

@@ -2,7 +2,7 @@
 title: Best practices for building your LUIS app
 description: Learn the best practices to get the best results from your LUIS app's model.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ---
 # Best practices for building a language understanding (LUIS) app
@@ -25,13 +25,27 @@ The following list includes best practices for LUIS apps:
 
 |Do|Don't|
 |--|--|
-|[Define distinct intents](#do-define-distinct-intents)<br>[Add features to intents](#do-add-features-to-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents)<br>[Use few or simple entities](#dont-use-few-or-simple-entities) |
+|[Plan your schema](#do-plan-your-schema)|[Build and publish without a plan](#dont-publish-too-quickly)|
+|[Define distinct intents](#do-define-distinct-intents)<br>[Add features to intents](#do-add-features-to-intents)<br>
+[Use machine learned entities](#do-use-machine-learned-entities) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents)<br>[Use few or simple entities](#dont-use-few-or-simple-entities) |
 |[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
 |[Build your app iteratively with versions](#do-build-your-app-iteratively-with-versions)<br>[Build entities for model decomposition](#do-build-for-model-decomposition)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add patterns in later iterations](#do-add-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Balance your utterances across all intents](#balance-your-utterances-across-all-intents) except the None intent.<br>[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add too many patterns](#dont-add-many-patterns)|
 |[Monitor the performance of your app with batch testing](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example-utterance)|
+
+## Do plan your schema
+
+Before you start building your app's schema, you should identify what and where you plan to use this app. The more thorough and specific your planning, the better your app becomes.
+
+* Research targeted users
+* Defining end-to-end personas to represent your app - voice, avatar, issue handling (proactive, reactive)
+* Identify user interactions (text, speech) through which channels, handing off to existing solutions or creating a new solution for this app
+* End-to-end user journey
+    * What you should expect this app to do and not do? * What are the priorities of what it should do?
+    * What are the main use cases?
+* Collecting data - [learn](data-collection.md) about collecting and preparing data
 
 ## Do define distinct intents
 Make sure the vocabulary for each intent is just for that intent and not overlapping with a different intent. For example, if you want to have an app that handles travel arrangements such as airline flights and hotels, you can choose to have these subject areas as separate intents or the same intent with entities for specific data inside the utterance.
@@ -53,6 +67,14 @@ Features describe concepts for an intent. A feature can be a phrase list of word
 
 ## Do find sweet spot for intents
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this flip/flop doesn't happen. Good distinction for intents should result in the expected top intent every time.
+
+## Do use machine learned entities
+
+Machine learned entities are tailored to your app and require labeling to be successful. If you are not using machine learned entities, you might be using the wrong tool.
+
+Machine learned entities can use other entities as features. These other entities can be custom entities such as regular expression entities or list entities, or you can use prebuilt entities as features.
+
+Learn about [effective machine learned entities](luis-concept-entity-types.md#effective-machine-learned-entities).
 
 <a name="#do-build-the-app-iteratively"></a>
 
@@ -115,6 +137,14 @@ Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endp
 Monitor the prediction accuracy using a [batch test](luis-concept-batch-test.md) set.
 
 Keep a separate set of utterances that aren't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app.
+
+## Don't publish too quickly
+
+Publishing your app too quickly, without [proper planning](#do-plan-your-schema), may lead to several issues such as:
+
+* Your app will not work in your actual scenario at an acceptable level of performance.
+* The schema (intents and entities) would not be appropriate, and if you have developed client app logic following the schema, you may need to rewrite that from scratch. This would cause unexpected delays and an extra cost to the project you are working on.
+* Utterances you add to the model might cause bias towards the example utterance set that is hard to debug and identify. It will also make removing ambiguity difficult after you have committed to a certain schema.
 
 ## Don't add many example utterances to intents
 
