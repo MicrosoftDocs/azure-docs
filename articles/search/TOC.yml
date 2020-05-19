@@ -70,6 +70,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
+  - name: Debug a skillset
+    href: cognitive-search-tutorial-debug-sessions.md
   - name: Query from Power Apps   
     href: search-howto-powerapps.md  
 - name: Samples
@@ -95,14 +97,17 @@
     href: search-indexer-overview.md
   - name: AI enrichment
     href: cognitive-search-concept-intro.md
-  - name: Skillsets
-    href: cognitive-search-working-with-skillsets.md
-  - name: Knowledge store 
-    href: knowledge-store-concept-intro.md
-  - name: Projections
-    href: knowledge-store-projection-overview.md
-  - name: Incremental enrichment
-    href: cognitive-search-incremental-indexing-conceptual.md
+    items:
+    - name: Skillsets
+      href: cognitive-search-working-with-skillsets.md
+    - name: Debug sessions
+      href: cognitive-search-debug-session.md
+    - name: Knowledge store 
+      href: knowledge-store-concept-intro.md
+    - name: Projections
+      href: knowledge-store-projection-overview.md
+    - name: Incremental enrichment
+      href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -463,7 +468,7 @@
     - name: Financial files demo
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
-      href: https://aka.ms/jfkfiles
+      href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

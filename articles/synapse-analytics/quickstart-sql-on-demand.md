@@ -1,5 +1,5 @@
 ---
-title: Using SQL on-demand (preview)
+title: Use SQL on-demand (preview)
 description: In this quickstart, you'll see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
@@ -11,11 +11,11 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Using SQL on-demand
+# Quickstart: Use SQL on-demand
 
 Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
-This quickstart shows querying: CSV, Apache Parquet and JSON files.
+This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Choose a SQL client to issue queries:
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
-Parameters for quickstart:
+Parameters for this quickstart:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -84,7 +84,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## Querying CSV files
+## Query CSV files
 
 The following image is a preview of the file to be queried:
 
@@ -113,7 +113,7 @@ WHERE
 You can specify schema at query compilation time.
 For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
 
-## Querying parquet files
+## Query Parquet files
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
@@ -131,7 +131,7 @@ FROM OPENROWSET
 
 Find more information about [querying parquet files](sql/query-parquet-files.md).
 
-## Querying JSON files
+## Query JSON files
 
 ### JSON sample file
 
@@ -153,7 +153,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 }
 ```
 
-### Querying JSON files
+### Query JSON files
 
 The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 

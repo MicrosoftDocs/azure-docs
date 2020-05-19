@@ -261,6 +261,9 @@
       - name: Version & track datasets
         displayName: data, data set
         href: how-to-version-track-datasets.md
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: how-to-differential-privacy.md
   - name: Train models
     items:
     - name: Use estimators for ML
@@ -376,6 +379,9 @@
             href: how-to-monitor-data-drift.md
           - name: Monitor with Application Insights
             href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md            
 
   - name: Build & use ML pipelines
     displayName: pipelines
