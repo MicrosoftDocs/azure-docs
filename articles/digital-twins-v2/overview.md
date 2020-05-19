@@ -17,21 +17,21 @@ ms.service: digital-twins
 
 # What is Azure Digital Twins?
 
-Azure Digital Twins is a developer platform for next-generation IoT solutions that lets you create, run, and manage digital representations of your business environment, securely and efficiently in the cloud. With Azure Digital Twins, creating live operational state representations is quick and cost-effective, and digital representations stay current with real-time data from IoT and other data sources.
-
-Using Azure Digital Twins' flexible model definitions, you can make Azure Digital Twins solutions that represent a large variety of business scenarios: buildings, factory floors, energy grids, construction processes, bulk manufacturing processes, and more. Digital twin-based IoT solutions can support many insights, such as remote monitoring, maintenance, prediction, forecasting, simulation, and optimization of operations. 
+Azure Digital Twins is an IoT platform that enables enterprises to create digital representations of their assets, environments and business systems. By leveraging your domain expertise on top of Azure Digital Twins' flexible modeling, your enterprise can build contextually aware solutions to address scenarios such as workflow modeling in manufacturing, energy efficiency in smart spaces, digital twin simulation in oil and gas, and more. 
 
 Here are some more uses of Azure Digital Twins:
 
 :::image type="content" source="media/overview/use-cases.png" alt-text="Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management" border="false":::
- 
+
 Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
 
-Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
+With Azure Digital Twins next generation IoT solutions, customers are better able to track the past, control the present, and predict the future. 
 
 ## Azure Digital Twins capabilities
 
 Here is a summary of what you can do with Azure Digital Twins.
+
+Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
 
 ### Represent your real-world business environment
 

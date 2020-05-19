@@ -319,7 +319,7 @@ Continue to the next tutorial to use the sample command-line tool in combination
 > [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Object models](concepts-models.md)
+* [Concepts: Custom models](concepts-models.md)
 
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
 * [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)

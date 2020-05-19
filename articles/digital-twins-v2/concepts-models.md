@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Object models
+title: Custom models
 titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe entities in your environment.
 author: baanders
@@ -185,6 +185,12 @@ In this example, *CelestialBody* contributes a name, a mass, and a temperature t
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
 The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
+
+## Validating models
+
+There is a tool available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+
+Or, for more information about the parser library, including an example of how to use it directly, see [How-to: Manage a twin model](how-to-manage-model.md).
 
 ## Next steps
 
