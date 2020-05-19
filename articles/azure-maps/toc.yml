@@ -259,6 +259,20 @@
       href: https://docs.microsoft.com/rest/api/maps/traffic
     - name: Weather service
       href: https://docs.microsoft.com/rest/api/maps/weather
+    - name: Maps Creator service
+      items:
+      - name: Alias service
+        href: https://docs.microsoft.com/rest/api/maps/alias
+      - name: Conversion service
+        href: https://docs.microsoft.com/rest/api/maps/conversion
+      - name: Dataset service
+        href: https://docs.microsoft.com/rest/api/maps/dataset
+      - name: Feature State service
+        href: https://docs.microsoft.com/rest/api/maps/featurestate
+      - name: Tileset service
+        href: https://docs.microsoft.com/rest/api/maps/tileset
+      - name: WFS service
+        href: https://docs.microsoft.com/rest/api/maps/wfs
     - name: Maps account management
       href: https://docs.microsoft.com/rest/api/maps-management
   - name: JavaScript
