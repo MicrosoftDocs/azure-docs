@@ -44,7 +44,7 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## [SQL on-demand (preview)](#tabs/serverless)
+## [SQL on-demand (preview)](#tab/serverless)
 
 To manage the users having access to SQL on-demand, you can use the instructions below.
 
@@ -66,7 +66,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Once login and user are created, you can use the regular SQL Server syntax to grant rights.
 
-## [SQL pool](#tabs/provisioned)
+## [SQL pool](#tab/provisioned)
 
 ### Administrator access path
 
