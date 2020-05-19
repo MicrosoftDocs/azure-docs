@@ -743,7 +743,7 @@
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-gating-process.md",
-      "redirect_url": "azure/cognitive-services/cognitive-services-container-support",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
       "redirect_document_id": false
     },
     {
