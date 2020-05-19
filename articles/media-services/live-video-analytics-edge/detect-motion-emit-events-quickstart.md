@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Detect motion and emit events
+# Quickstart: Detect motion and emit events
 
 This article walks you through the steps to set up Live Video Analytics on IoT Edge to detect motion from a video stream and output the events to IoT Hub sink. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 

@@ -12,7 +12,7 @@ In this quickstart, you will analyze the live video feed from a (simulated) IP c
 
 ## Prerequisites
 
-This article builds on top of the [getting started](get-started-detect-motion-emit-events-quickstart) quickstart. Also, recommended for this quickstart is to finish quickstart 2, as that depicts the manual way to run the below depicted graph topology.
+This article builds on top of the [getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. Also, recommended for this quickstart is to finish quickstart 2, as that depicts the manual way to run the below depicted graph topology.
 Just like in the previous quickstarts, to run this quickstart, you need to have installed:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -23,7 +23,7 @@ Just like in the previous quickstarts, to run this quickstart, you need to have 
 
 ![overview](./media/quickstarts/overview-qs4.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using rtspsim-live555 simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rstp-source) node pulls the video feed from this server, and sends the video frames to the [motion detection processor](media-graph-concept.md#motion-detection-pocessor)  node. The same video feed is sent by the RTSP source to a signal gate, which buffers the feed and waits for an event to open. 
+The diagram above shows how the signals flow in this quickstart. A docker container using rtspsim-live555 simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends the video frames to the [motion detection processor](media-graph-concept.md#motion-detection-processor)  node. The same video feed is sent by the RTSP source to a signal gate, which buffers the feed and waits for an event to open. 
 When the motion detection processor determines that motion is present in the video, it emits an event to the [signal gate processor](media-graph-concept.md#signal-gate-processor) triggering the gate. When such an event arrives at the signal gate, it has the ability to open for a preconfigured amount of time relaying the video feed to the [file sink](media-graph-concept.md#file-sink) that records the video as an mp4 file at the specified local path on your edge device’s files system.
 
 In this quickstart, you will:
