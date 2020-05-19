@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-Use HTML tags to format your description so it's more engaging. Most tags require both an opening and closing component, as shown here.
+Use HTML tags to format your description so it's more engaging. Most tags require both an opening and closing component, as shown in this table.
 
 |   To do this  |  Use  |  Like this  |  To get this   |
 | --- | --- | --- | --- |
