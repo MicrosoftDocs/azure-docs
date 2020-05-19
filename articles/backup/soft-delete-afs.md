@@ -1,17 +1,17 @@
 ---
-title: Accidental Delete Protection for Azure File Shares 
+title: Accidental Delete Protection for Azure file shares 
 description: Learn how to soft delete can protect your Azure File Shares from accidental deletion. 
 ms.topic: conceptual
 ms.date: 02/02/2020
 ---
 
-# Accidental delete protection for Azure File Shares using Azure Backup
+# Accidental delete protection for Azure file shares using Azure Backup
 
-To provide protection against cyberattacks or accidental deletion, soft delete is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for 14 additional days, allowing the recovery of file shares with no data loss.  
+To provide protection against cyberattacks or accidental deletion, [soft delete](https://aka.ms/softdeletefeature) is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for 14 additional days, allowing the recovery of file shares with no data loss.  
 
-Soft delete is supported only for standard and premium storage accounts in [these regions](azure-file-share-support-matrix.md). It is a platform feature of Azure Files that is currently only available for file shares in a storage account with at least one protected file share by Azure Backup but will be available publicly shortly.
+Soft delete is supported only for standard and premium storage accounts and is currently enable from the Azure Backup side in [these regions](azure-file-share-support-matrix.md).
 
-The following flow chart shows the different steps and states of a backup item when Soft Delete is enabled for file shares in a storage account:
+The following flow chart shows the different steps and states of a backup item when soft delete is enabled for file shares in a storage account:
 
  ![Soft delete flow chart](./media/soft-delete-afs/soft-delete-flow-chart.png)
 
@@ -23,22 +23,26 @@ When you configure backup for the first time for any file share in a storage acc
 
 ### Can I configure the number of days for which my snapshots and restore points will be retained in soft-deleted state after I delete the file share?
 
-No, you only have the 14 days retention period to undelete the file share and recover your data.
+Yes, you can set the retention period according to your requirements. [This document](https://aka.ms/stepstoconfigretention) explains the steps to configure the retention period. For storage accounts with backed-up file shares, the minimum retention setting should be 14 days.
 
-### What is the cost incurred for this additional 14-day retention?
+### I configured the file shares retention setting to less than 14 days, but found the value reset to 14 days.
 
-During the soft deleted period, the protected instance cost and snapshot storage cost will stay as is.  Also, you will be charged for the used capacity at the regular rate for standard file shares and at snapshot storage rate for premium file shares.
+From a security perspective, we recommend having minimum retention of 14 days for storage accounts with backed-up file shares. So on each backup job run, if Azure Backup identifies the setting to be less than 14 days, it resets it to 14 days.
+
+### What is the cost incurred during the retention period?
+
+During the soft-deleted period, the protected instance cost and snapshot storage cost will stay as is.  Also, you'll be charged for the used capacity at the regular rate for standard file shares and at snapshot storage rate for premium file shares.
 
 ### Can I perform a restore operation when my data is in soft deleted state?
 
-You need to first undelete the soft deleted file share to perform restore operations. The undelete operation will bring the file share into the backed-up state where you can restore to any point in time. To learn how to undelete your file share, see the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md).
+You need to first undelete the soft deleted file share to perform restore operations. The undelete operation will bring the file share into the backed-up state where you can restore to any point in time. To learn how to undelete your file share, visit [this link](https://aka.ms/howtoundelete) or see the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md).
 
 ### How can I purge the data of a file share in a storage account that has at least one protected file share?
 
 If you have at least one protected file share in a storage account, it means that soft delete is enabled for all file shares in that account and your data will be retained for 14 days after the delete operation. But if you want to purge the data right away and don’t want it to be retained then follow these steps:
 
-1. If you already deleted the file share while Soft Delete was enabled, then first undelete the file share using the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md).
-2. Disable soft delete for file shares in your storage account using the [Disable Soft Delete Script](./scripts/disable-soft-delete-for-file-shares.md).
+1. If you already deleted the file share while Soft Delete was enabled, then first undelete the file share from the [Files portal](https://aka.ms/howtoundelete) or by using the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md).
+2. Disable soft delete for file shares in your storage account by following the steps mentioned in [this document](https://aka.ms/disablesoftdelete).
 3. Now delete the file share whose contents you want to purge immediately.
 
 >[!NOTE]
@@ -46,6 +50,10 @@ If you have at least one protected file share in a storage account, it means tha
 
 >[!WARNING]
 >After disabling soft delete in step 2, any delete operation performed against the file shares is a permanent delete operation. This means if you accidentally delete the backed-up file share after disabling soft delete then you will lose all your snapshots and won’t be able to recover your data.
+
+### In the context of a file share’s soft delete setting, what changes does Azure Backup do when I unregister a storage account?
+
+At the time of unregistration, Azure Backup checks the retention period setting for file shares and if it's greater than 14 days or less than 14 days, it leaves the retention as is. However, if the retention is 14 days, we consider it as being enabled by Azure Backup and so we disable the soft delete during the unregistration process. If you want to unregister the storage account while keeping the retention setting as is, enable it again from the storage account pane after completing unregistration. You can refer to [this link](https://aka.ms/stepstoconfigretention) for the configuration steps.
 
 ## Next steps
 

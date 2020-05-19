@@ -14,7 +14,6 @@ Soft delete protection is available for these services:
 
 - [Soft delete for Azure virtual machines](soft-delete-virtual-machines.md)
 - [Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md)
-- [Soft delete for Azure file shares](soft-delete-afs.md)
 
 This flow chart shows the different steps and states of a backup item when Soft Delete is enabled:
 

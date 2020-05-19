@@ -301,7 +301,7 @@ Error Code: UserErrorBackupAFSInSoftDeleteState
 
 Error Message: Backup failed as the Azure File Share is in soft-deleted state
 
-Undelete the file share using the [Undelete script](scripts/backup-powershell-script-undelete-file-share.md) to continue the backup and prevent permanent deletion of data.
+Undelete the file share from the **Files portal** or by using the [Undelete script](scripts/backup-powershell-script-undelete-file-share.md) to continue the backup and prevent permanent deletion of data.
 
 ### UserErrorBackupAFSInDeleteState- Backup failed as the associated Azure File Share is permanently deleted
 
