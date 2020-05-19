@@ -372,6 +372,8 @@
       href: connector-sftp.md
     - name: Shopify
       href: connector-shopify.md
+    - name: Snowflake
+      href: connector-snowflake.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
