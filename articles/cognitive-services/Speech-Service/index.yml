@@ -118,6 +118,11 @@ conceptualContent:
       footerLink:
         text: More
         url: index-voice-assistants.yml
+    - title: Speaker Recognition
+      links:
+        - itemType: how-to-guide
+          text: About Speaker Recognition
+          url: ../Speaker-recognition/Home.md
     - title: Tools
       links:
         - itemType: overview
