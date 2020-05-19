@@ -157,6 +157,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: Axiad Cloud
+        href: axiad-cloud-tutorial.md
     - name: B
       items:
       - name: BambooHR
@@ -259,6 +261,8 @@
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
+      - name: CCH Tagetik
+        href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
       - name: Ceridian Dayforce HCM
@@ -1654,6 +1658,8 @@
         href: weekdone-tutorial.md
       - name: Whatfix
         href: whatfix-tutorial.md
+      - name: Whimsical
+        href: whimsical-tutorial.md
       - name: Whitesource
         href: whitesource-tutorial.md
       - name: WhosOffice

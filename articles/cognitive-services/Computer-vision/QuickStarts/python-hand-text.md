@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Computer Vision 2.0 and 2.1 - Extract printed and handwritten text - REST, Python"
+title: "Quickstart:  Computer Vision 2.1 and 3.0 - Extract printed and handwritten text - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services
