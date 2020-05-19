@@ -482,7 +482,7 @@
   - name: Reference
     items:
     - name: Azure Storage reference
-      href: ../common/storage-reference.md
+      href: ../common/storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     # - name: Azure PowerShell
     #   href: /powershell/module/az.storage
     # - name: Azure CLI
