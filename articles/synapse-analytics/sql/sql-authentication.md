@@ -66,7 +66,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Once login and user are created, you can use the regular SQL Server syntax to grant rights.
 
-## SQL Pool
+## SQL pool
 
 ### Administrator access path
 
