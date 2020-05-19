@@ -52,7 +52,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * You will see a notification saying "Loading sample data". 
 * NYXC taxi data tables are being loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
 
-## Exploire the NYC taxi data in the SQL Pool
+## Explore the NYC taxi data in the SQL Pool
 
 * In Synapse Studio, navigate to the **Data** hub
 * Navigate to **SQLDB1 > Tables > dbo.Trip**
@@ -86,6 +86,8 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
     ```
  * Navigate to the Data hub, right-click on Databases and select **Refresh**
  * Now you should see a Spark DB called nyxtaxi and inside that DB a table called trip
+ 
+ ## Analyze the NYC Taxi data using Spark and notebooks
  * Return to your notebook
  * Create a new code cell and run this text
    ```
@@ -115,7 +117,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
     ```
  * In the cell results, click on **Chart** to see the data visualized
  
-## Charting with Spark Notebooks
+## Visualize data with Spark and notebooks
 
 With spark notebooks you can control exactly how render charts. The following
 code shows a simple example using the popular libraries matplotlib and seaborn.
@@ -142,7 +144,7 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
     plt.show()
     ```
  
-## Using SQL-on demand with Spark Databases
+## Analytze NYX taxi data in Spark databases using SQL-on demand 
 
 * Tables in Spark databases are automatically visible and queryable by SQL on-demand
 * In Synapse Studio navigate to the Develop hub and create a new SQL script
@@ -156,11 +158,7 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
 * NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run
   your queries. Every subsequent query will not require this time.
   
- 
-
-
-
-
+  
 
 ## Orchestrate using a pipeline
 
