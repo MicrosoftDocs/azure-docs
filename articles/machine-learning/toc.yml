@@ -79,9 +79,8 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
-    - name: Designer datasets
-      href: sample-designer-datasets.md
-    - name: Designer sample pipelines
+    - name: 'Designer examples & datasets'
+      displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
@@ -138,9 +137,6 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
-    - name: Model interpretability
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
@@ -172,6 +168,20 @@
           href: how-to-setup-authentication.md
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
+    - name: Responsible ML
+      items:
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -250,6 +260,9 @@
       - name: Version & track datasets
         displayName: data, data set
         href: how-to-version-track-datasets.md
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: how-to-differential-privacy.md
   - name: Train models
     items:
     - name: Use estimators for ML
@@ -273,6 +286,8 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
+    - name: Reinforcement learning
+      href: how-to-use-reinforcement-learning.md
   - name: 'Interpret & explain models'
     displayName: interpretability
     items:
@@ -363,6 +378,9 @@
             href: how-to-monitor-data-drift.md
           - name: Monitor with Application Insights
             href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md            
 
   - name: Build & use ML pipelines
     displayName: pipelines
@@ -381,9 +399,6 @@
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-      displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: 'Designer transform data'
       displayName: pipeline
       href: how-to-designer-transform-data.md
@@ -405,6 +420,9 @@
     - name: Iterating and evolving machine learning pipelines
       displayName: modularizing testing
       href: concept-pipeline-practices-tips.md
+  - name: 'Azure Pipelines for CI/CD'
+    displayName: continuous, integration, delivery
+    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md

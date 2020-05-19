@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
+ms.custom: designer
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 

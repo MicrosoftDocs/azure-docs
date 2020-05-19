@@ -53,7 +53,7 @@ In the following figure, the numbers represent the flow of the requests in chron
    * Azure AD app values: the client ID and client secret.
 
    To get all the needed values, 
-see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md).
+see [Access Azure Media Services API](access-api-cli-how-to.md).
 
 2. The Azure AD access token is sent to the middle tier.
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
@@ -147,7 +147,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+To get all the needed values, see [Access Azure Media Services API](access-api-cli-how-to.md).
 
 ## Next steps
 

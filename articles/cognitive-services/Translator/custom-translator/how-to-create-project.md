@@ -68,7 +68,7 @@ After selecting a project, you'll see the following on the project page:
 
 - CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text
-    Translator API to get custom translations.
+    Translator to get custom translations.
 
 - Train button: Use this button to start a [training a model](how-to-train-model.md).
 
