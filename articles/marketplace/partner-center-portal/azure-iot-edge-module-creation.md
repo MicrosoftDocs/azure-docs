@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 05/19/2020
 ---
 
 # Create, configure, and publish an IoT Edge module offer in Azure Marketplace
@@ -141,13 +141,15 @@ Provide a more detailed description of your offer. This can be up to 256 charact
 
 ### Description
 
-[!INCLUDE [Long description](./includes/long-description.md)]
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
 IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description, such as:
 
 - Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage
 
-[!INCLUDE [Long description html](./includes/long-description-html.md)]
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
+
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy URL
 

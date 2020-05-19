@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ---
 
 # Create a Power BI app for Microsoft AppSource
@@ -156,9 +156,11 @@ Provide a short description of your offer. This can be up to 100 characters long
 
 ### Description
 
-[!INCLUDE [Long description](./includes/long-description.md)]
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-[!INCLUDE [Long description html](./includes/long-description-html.md)]
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
+
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### Search keywords
 
