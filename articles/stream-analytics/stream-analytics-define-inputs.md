@@ -137,7 +137,7 @@ CSV-formatted inputs require a header row to define fields for the data set, and
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 
-Uploading a very large number of blobs at once might cause Stream Analytics to skip reading few blobs in rare cases. It is recommended to upload blobs at least 2 seconds apart to Blob storage. If this option is not feasible, you can use Event Hubs to stream large volumes of events. 
+In scenarios where many blobs are continously added and Stream Analytics is processing the blobs as they are added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this by uploading blobs at least two seconds apart. If this option is not feasible, you can use Event Hubs to stream large volumes of events.
 
 ### Configure Blob storage as a stream input 
 
