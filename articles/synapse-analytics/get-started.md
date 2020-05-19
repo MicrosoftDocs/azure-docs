@@ -209,38 +209,35 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 * Click **Publish All** and the pipeline will run every hour
 * If you want to make the pipeline run now without waiting for the next hour click **Add trigger > New/edit**
 
-## Monitor activites
-
-* In Synapse Studio, Navigate to the monitor hub.
-* In this location you can see a history of all the activites taking place in the workspace and which ones are active now.
-* Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
-
-
-
 
 ## Visualize data with Power BI
 
 Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before starting, frist follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
 
-### Create an link a PowerBI Workspace
-* Using any method you want create a PowerBI workspace called `NYXTaxiWorkspace`
+### Create a PowerBI Workspace and link it to your Synapse Workspace
+* Log into powerbi.microsoft.com
+* Create a new PowerBI workspace called `NYXTaxiWorkspace1`
 * In Synapse Studio, navigate to the **Manage > Linked Services**
-* Click **+ New** and click **Connect to PowerBI** 
-* Set **Name** to `NYXTaxiWorkspace1`
-* Set **Workspace name** to `NYXTaxiWorkspace1`
+* Click **+ New** and click **Connect to PowerBI** and set these fields:
+    * Set **Name** to `NYXTaxiWorkspace1`
+    * Set **Workspace name** to `NYXTaxiWorkspace1`
 * Click **Create**
 
-### Create PowerBI dataset for the data in your Synapse Workspace
+### Create a PowerBI dataset that uses data in your Synapse workspace
 * In Synapse Studio, navigate to the **Develop > Power BI **
-* Navigate to **NYXTaxiWorkspace > Power BI datasets** and click **New Power BI dataset**
+* Navigate to **NYXTaxiWorkspace1 > Power BI datasets** and click **New Power BI dataset**
 * Hover over the SQLDB1 database and select **Download .pbids file**
-* Open the downloaded pbids file. This will launch Power BI desktop and automatically connect it to SQLDB1
-* The Navigator dialog will open. When it does check the **PassengerCountStats** table and click **Load**
+* Open the downloaded `.pbids` file. This will launch Power BI desktop and automatically connect it to SQLDB1 in your synapse workspace.
+* If you see a dialog appear called **SQL server database**:
+    * Select **Microsoft account** 
+    * Click **Sign in** and log in
+    * Click **Connect**
+* The **Navigator** dialog will open. When it does check the **PassengerCountStats** table and click **Load**
 * A **Connection settings** dialog will appear. Select **DirectQuery** and click **OK**
 * Click on the **Report** button on the left
 * Add **Line chart** to your report
-* Drag the **PasssengerCount** column to **Visualizations > Axis**
-* Drag the **SumTripDistance** and **AvgTripDistance** columns to **Visualizations > Values**
+    * Drag the **PasssengerCount** column to **Visualizations > Axis**
+    * Drag the **SumTripDistance** and **AvgTripDistance** columns to **Visualizations > Values**
 * In the **Home** tab, click **Publish** and save with this filename `PassengerAnalysis.pbix` and select your PowerBI workspace
 * Wait for publishing to finish
 
@@ -261,3 +258,12 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * Close any windows showing the PowerBI report
 * Refresh the **Power BI reports** node
 * Click on the report and now you can edit the report directly within Synapse Studio
+
+## Monitor activites
+
+* In Synapse Studio, Navigate to the monitor hub.
+* In this location you can see a history of all the activites taking place in the workspace and which ones are active now.
+* Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
+
+
+
