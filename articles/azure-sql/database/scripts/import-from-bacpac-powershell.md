@@ -43,7 +43,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for a server. |
-| [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) | Imports a BACPAC file and create a new SQL database on the server. |
+| [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) | Imports a BACPAC file and create a new database on the server. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
