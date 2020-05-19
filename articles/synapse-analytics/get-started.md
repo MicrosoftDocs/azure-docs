@@ -220,7 +220,7 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 
 Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before starting, frist follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
 
-## Create an link a PowerBI Workspace
+### Create an link a PowerBI Workspace
 * Using any method you want create a PowerBI workspace called `NYXTaxiWorkspace`
 * In Synapse Studio, navigate to the **Manage > Linked Services**
 * Click **+ New** and click **Connect to PowerBI** 
@@ -228,7 +228,7 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * Set **Workspace name** to `NYXTaxiWorkspace1`
 * Click **Create**
 
-## Create PowerBI dataset for the data in your Synapse Workspace
+### Create PowerBI dataset for the data in your Synapse Workspace
 * In Synapse Studio, navigate to the **Develop > Power BI **
 * Navigate to **NYXTaxiWorkspace > Power BI datasets** and click **New Power BI dataset**
 * Hover over the SQLDB1 database and select **Download .pbids file**
@@ -239,9 +239,8 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * In **Visualizations**, click **Line chart**. This will cause a new table to appear in the report
 * Resize the line chart to make it bigger
 * Drag the **PasssengerCount** column to **Visualizations > Axis**
-* Drag the **SumTripDistance** column to **Visualizations > Values**
-* Drag the **AvgTripDistance** column to **Visualizations > Values**
-* In the Home tab, click **Publish** and save it with this name `PassengerAnalysis.pbix` publish it to your PowerBI workspace
+* Drag the **SumTripDistance** and **AvgTripDistance** columns to **Visualizations > Values**
+* In the **Home** tab, click **Publish** and savewith this filename `PassengerAnalysis.pbix` and publish it to your PowerBI workspace
 * Refresh **Power BI reports** and yous should see a the report you previously created called **taxi**
 * At the top click **Publish**
     * Select the PowerBI workspace to publish to
@@ -251,17 +250,15 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * Under **Power BI datasets**, Now you should see a new dataset called **PassengerAnalysis**.
 * CLick on the report called **PassengerAnalysis** it won't show anything because you still need to configure authentication for the dataset
 
-## Configure authentitication for your dataset
+### Configure authentitication for your dataset
 * Open https://powerbi.microsoft.com and **Sign in**
 * At the left, under Workspaces select the the workspace that you published to
 * Inside that workspace you should see a dataset called `nyxtaxi1`
 * Hover over the `nyctaxi1` dataset and click ther thee icon with the three dots and select **Settings**
 * In **Data source credentials** set the Authentication method to **OAuth2** and click **Sign in**
 
-## Edit a report report in Synapse Studio
+### Edit a report report in Synapse Studio
 * In Synapse, navigate to **Develop > PowerBI > Your workspace name > Power BI reports**
 * Close any windows showing the PowerBI report
 * Refresh the **Power BI reports** node
-* Right click on the report and select **Open**. 
-* Now you can edit the report directly within Synapse Studio
-
+* Click on the report and now you can edit the report directly within Synapse Studio
