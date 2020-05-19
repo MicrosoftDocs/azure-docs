@@ -796,16 +796,16 @@ Next, you can use the Azure portal to play back the video you recorded.
 1. Locate your Azure Media Services account and open it
 1. Locate and select the Assets entry in the Media Services listing
 
-    ![Assets entry in the Media Services listing](./media/quickstarts/asset_entity.png)
+    ![Assets entry in the Media Services listing](./media/quickstarts/asset-entity.png)
 1. If this is your first use of Azure Media Services, only the Assets generated from this quickstart will be listed, and you can pick the oldest one.
 1. Else, use the name of the Asset that was provided as the outputLocation in the Operational events above
 1. In the details page that opens, click on the "Create new" link just below the Streaming URL textbox
 
-    ![The Streaming URL](./media/quickstarts/asset_streaming_url.png)
+    ![The Streaming URL](./media/quickstarts/asset-streaming-url.png)
 1. In the pane that opens for "Add streaming locator", accept the defaults and hit "Add" at the bottom.
 1. In the Asset details page, the video player should now load to the first frame of the video, and you can hit the play button. You should see the car moving in the parking lot    
 
-    ![Play](./media/quickstarts/asset_playback.png)
+    ![Play](./media/quickstarts/asset-playback.png)
 
 > [!NOTE]
 > Since the simulated live video starts when you activate the graph, the time-of-day values are not relevant, and not exposed via this player shortcut. The tutorial on continuous video recording and playback shows you how you can display the timestamps.
