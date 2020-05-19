@@ -132,14 +132,14 @@ Here is the top-level workflow in the **Correlated in-order delivery using servi
 
 ### "Try" scope
 
-Here is the top-level flow in the `Try` scope action when the details are collapsed:
+Here is the top-level flow in the `Try` [scope action](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) when the details are collapsed:
 
 !["Try" scope action workflow](./media/send-related-messages-sequential-convoy/try-scope-action.png)
 
 | Name | Description |
 |------|-------------|
 | `Send initial message to topic` | This Service Bus action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
-| (parallel branch) | This [parallel branch action](../logic-apps/logic-apps-control-flow-branches.md) creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
+| (parallel branch) | This [parallel branch action](../logic-apps/logic-apps-control-flow-branches.md) creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if something goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
 | `Close a session in a queue and succeed` | This Service Bus action joins the previously described branches and closes the session in the queue after either of the following events happen: <p><p>- The workflow finishes processing available messages in the queue. <br>- The workflow abandons the initial message because something went wrong. <p><p>For details, see [Close a session in a queue and succeed](#close-session-succeed). |
 |||
 
@@ -159,13 +159,13 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 
 #### Branch #2: Abandon initial message from the queue
 
-If anything goes wrong while processing the initial message, the Service Bus action, **Abandon initial message from the queue**, releases the message for another workflow instance run to pick up and process. For details, see [Handle the initial message](#handle-initial-message).
+If something goes wrong while processing the initial message, the Service Bus action, **Abandon initial message from the queue**, releases the message for another workflow instance run to pick up and process. For details, see [Handle the initial message](#handle-initial-message).
 
 <a name="catch-scope"></a>
 
 ### "Catch" scope
 
-Even if actions in the `Try` scope fail, the logic app must still close the session. Here, the `Catch` scope terminates the logic app and returns an error message, which identifies the session that has the problem.
+If actions in the `Try` scope fail, the logic app must still close the session. The `Catch` [scope action](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) runs when the `Try` scope action results in the status, `Failed`, `Skipped`, or `TimedOut`. The scope returns an error message that includes the session ID where the problem happened, and terminates the logic app.
 
 Here is the top-level flow in the `Catch` scope action when the details are collapsed:
 
@@ -232,7 +232,7 @@ Next, you'll provide the necessary information for the actions that follow the *
 
 ### While there are more messages for the session in the queue
 
-This **Until** loop runs these actions while messages exist in the queue or until one hour passes. To change the loop's time limit, edit the loop's **Timeout** property value.
+This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) runs these actions while messages exist in the queue or until one hour passes. To change the loop's time limit, edit the loop's **Timeout** property value.
 
 * Get additional messages from the queue while messages exist.
 
@@ -273,7 +273,7 @@ Next, you'll provide the necessary information for the actions in the **Renew se
 
 ### Renew session lock until cancelled
 
-This **Until** loop makes sure that the session lock is held by this logic app while messages exist in the queue or until one hour passes by running these actions. To change the loop's time limit, edit the loop's **Timeout** property value.
+This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) makes sure that the session lock is held by this logic app while messages exist in the queue or until one hour passes by running these actions. To change the loop's time limit, edit the loop's **Timeout** property value.
 
 * Delay for 25 seconds or an amount of time that's less than the lock timeout duration for the queue that's being processed. The smallest lock duration is 30 seconds, so the default value is enough. However, you can optimize the number of times that the loop runs by adjusting appropriately.
 
@@ -303,7 +303,7 @@ Next, you'll provide the necessary information for the Service Bus action, **Clo
 
 ### Close a session in a queue and succeed
 
-This Service Bus action closes the session in the queue after either the workflow finishes processing all the available messages in the queue, or the workflow abandons the initial message because something went wrong.
+This Service Bus action closes the session in the queue after either the workflow finishes processing all the available messages in the queue, or the workflow abandons the initial message.
 
 * In the Service Bus action, **Close a session in a queue and succeed**, provide the name for your Service Bus queue.
 
@@ -315,21 +315,100 @@ The following sections describe the actions in the `Catch` section, which handle
 
 ### Close a session in a queue and fail
 
+This Service Bus action always runs as the first action in the `Catch` scope and closes the session in the queue.
 
+* In the Service Bus action, **Close a session in a queue and fail**, provide the name for your Service Bus queue.
+
+  ![Service Bus action - "Close a session in a queue and fail"](./media/send-related-messages-sequential-convoy/close-session-in-queue-fail.png)
+
+Next, the workflow creates an array that has the inputs and outputs from all the actions in the `Try` scope so that the logic app can access information about the error or failure that happened.
 
 <a name="find failure-message"></a>
 
 ### Find failure msg from 'Try' block
 
+This [**Filter Array** action](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) creates an array that has the inputs and outputs from all the actions inside the `Try` scope based on the specified criteria by using the [`result()` function](../logic-apps/workflow-definition-language-functions-reference.md#result). In this case, this action returns the outputs from the actions that have `Failed` status by using the [`equals()` function](../logic-apps/workflow-definition-language-functions-reference.md#equals) and [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item).
+
+![Filter array action - "Find failure msg from 'Try' block"](./media/send-related-messages-sequential-convoy/find-failure-message.png)
+
+Here's the JSON definition for this action:
+
+```json
+"Find_failure_msg_from_'Try'_block": {
+   "inputs": {
+      "from": "@Result('Try')",
+      "where": "@equals(item()['status'], 'Failed')"
+   },
+   "runAfter": {
+      "Close_the_session_in_the_queue_and_fail": [
+         "Succeeded"
+      ]
+   },
+   "type": "Query"
+},
+```
+
+Next, the workflow creates an array with a JSON object that contains the error information in the array returned from the `Find failure msg from 'Try' block` action.
+
 <a name="select-error-details"></a>
 
 ### Select error details
 
+This [**Select** action](../logic-apps/logic-apps-perform-data-operations.md#select-action) creates an array that contains JSON objects based on the specified criteria and are built from the values in the array created by the previous action, `Find failure msg from 'Try' block`. Specifically, this action returns an array that contains a JSON object created from the error details returned from the previous action, `Find failure msg from 'Try' block`.
+
+![Select action - "Select error details"](./media/send-related-messages-sequential-convoy/select-error-details.png)
+
+Here's the JSON definition for this action:
+
+```json
+"Select_error_details": {
+   "inputs": {
+      "from": "@body('Find_failure_msg_from_''Try''_block')[0]['outputs']",
+      "select": {
+         "action": "@item()['name']",
+         "errorResult": "@item()"
+      }
+   },
+   "runAfter": {
+      "Find_failure_msg_from_'Try'_block": [
+         "Succeeded"
+      ]
+   },
+   "type": "Select"
+},
+```
+
+Next, the workflow stops the logic app run and returns the run status along with more information about the error or failure that happened.
+
 <a name="terminate-logic-app"></a>
 
-### Terminate logic app
+### Terminate logic app run
 
+This [**Terminate** action](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) stops the logic app run and returns `Failed` as the status for the logic app's run along with the session ID and the error result from the `Select error details` action.
 
+![Terminate action to stop logic app run](./media/send-related-messages-sequential-convoy/terminate-logic-app-run.png)
+
+Here's the JSON definition for this action:
+
+```json
+"Terminate": {
+   "description": "This Failure Termination only runs if the Close Session upon Failure action runs - otherwise the LA will be terminated as Success",
+   "inputs": {
+      "runError": {
+         "code": "",
+         "message": "There was an error processing messages for Session ID @{triggerBody()?['SessionId']}. The following error(s) occurred: @{body('Select_error_details')['errorResult']}"
+         },
+         "runStatus": "Failed"
+      },
+      "runAfter": {
+         "Select_error_details": [
+            "Succeeded"
+         ]
+      },
+      "type": "Terminate"
+   }
+},
+```
 
 ## Next steps
 
