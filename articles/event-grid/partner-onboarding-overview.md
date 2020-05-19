@@ -21,7 +21,7 @@ You don't need special permission to begin using the Event Grid resource types a
 If you're interested in becoming a public Event Grid partner, begin by filling out [this form](https://aka.ms/gridpartnerform), and then contacting the Event Grid team at [GridPartner@microsoft.com](mailto:gridpartner@microsoft.com).
 
 ## How partner topics work
-Partner Topics take the existing architecture that Event Grid already uses in to publish events from Azure resoruces such as Storage and IoT Hub, and makes those tools publicly available for anyone to use. Using these tools is by default private to your Azure Subscription only. To make your events publicly available, fill out the above form and [contact the Event Grid team](mailto:gridpartner@microsoft.com).
+Partner Topics take the existing architecture that Event Grid already uses in to publish events from Azure resources such as Storage and IoT Hub, and makes those tools publicly available for anyone to use. Using these tools is by default private to your Azure Subscription only. To make your events publicly available, fill out the above form and [contact the Event Grid team](mailto:gridpartner@microsoft.com).
 
 Partner topics allow you to publish events to Azure Event Grid for multitenant consumption.
 
@@ -41,7 +41,7 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 
 1. Your customer will visit the Azure portal to note the Azure Subscription ID and Resource Group they would like the Partner Topic created in.
 1. The customer will request a Partner Topic via your system. In response, you'll create an Event Tunnel your Partner Namespace.
-1. Event Grid will create a **Pending** Partner Topic in the customer's Azure Subscription and Resoruce Group.
+1. Event Grid will create a **Pending** Partner Topic in the customer's Azure Subscription and Resource Group.
 ![Create Event Channel](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
 1. The customer activates the Partner Topic via the Azure portal. Events may now flow from your service to the customer's Azure Subscription.
 ![Activate Partner Topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
@@ -153,7 +153,7 @@ After posting to the partnerNamespace endpoint, you'll receive a response. The r
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM Template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
-  * [ARM Temaplate schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
+  * [ARM Template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/partnernamespaces)
   * [CLI Extension](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
