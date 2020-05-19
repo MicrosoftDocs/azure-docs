@@ -18,7 +18,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 ## Confidential Computing Virtual Machines <a id="vm-faq"></a>
 
-1. **How can you start deploying DCsv2 series VMs?**
+1. **How can I deploy DCsv2 series VMs on Azure?**
 
    Here are some ways you can deploy a DCsv2 VM:
    - Using an [Azure Resource Manager Template](../virtual-machines/windows/template-description.md)
@@ -27,7 +27,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 1. **Will all OS images work with Azure confidential computing?**
 
-   No. The virtual machines can only be deployed on Generation 2 virtual machines. We offer Generation 2 support for Ubuntu Server 18.04, Ubuntu Server 16.04, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/linux/generation-2.md) and [Windows](../virtual-machines/windows/generation-2.md)
+   No. The virtual machines can only be deployed on Generation 2 virtual machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/linux/generation-2.md) and [Windows](../virtual-machines/windows/generation-2.md)
 
 1. **DCsv2 virtual machines are grayed out in the portal and I can't select one**
 
@@ -40,19 +40,22 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
    Make sure you've selected an available region. Also make sure you select “clear all filters” in the size selector. 
 
+1. **I get an ARM deployment failure error "Operation could not be completed as it results in exceeding approved standard DcsV2 Family Cores Quota"**
+    [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
+
 1. **What’s the difference between DCsv2-Series and DC-Series VMs?**
 
-   DC-Series VMs run on older 6-core Intel Processors with Intel SGX. These have less total memory, less EPC (Enclave Page Cage) memory, and are available in less regions. These VMs are only available in US East and Europe West are available in two sizes: Standard_DC2s and Standard_DC4s. They will not go GA and can only be deployed in the [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace instance
+   DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less total memory, less EPC (Enclave Page Cage) memory, and are available in only two regions (US East and Europe West in Standard_DC2s and Standard_DC4s sizes). These VMs are not planned to be made Generally Available and are not recommended for production use. To deploy these VMs, use the  [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace instance.
 
 1. **Are DCsv2 virtual machines available globally?**
 
-   No, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
+   No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
 
-1. **How do I install the Open Enclave SDK?**
+1. **How do I install the Open Enclave SDK on the DCsv2 virtual machines?**
    
-   For instruction on how to install the OE SDK on a machine whether in Azure or on-premise, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
+   For instructions on how to install the OE SDK on an Azure or on-premise Machine, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
      
-   You can also head to the Open Enclave SDK GitHub for OS-specific installation instructions:
+   You can also look into the Open Enclave SDK GitHub for OS-specific installation instructions:
      - [Install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
      - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
      - [Install the OE SDK on Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)
