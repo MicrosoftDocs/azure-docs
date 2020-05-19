@@ -52,6 +52,26 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * You will see a notification saying "Loading sample data". 
 * NYXC taxi data tables are being loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
 
+## Exploire the NYC taxi data in the SQL Pool
+
+* In Synapse Studio, navigate to the **Data** hub
+* Navigate to **SQLDB1 > Tables > dbo.Trip**
+* Right-click on the **dbo.Trip** table and select **New SQL Script > Select TOP 100 Rows**
+* A new SQL script will be created and automaticall run
+* Replace the text of the SQL script with this code and run it.
+    ```
+    SELECT PassengerCount,
+          SUM(TripDistanceMiles) as SumTripDistance,
+          AVG(TripDistanceMiles) as AvgTripDistance
+    FROM  dbo.Trip
+    WHERE TripDistanceMiles > 0 AND PassengerCount > 0
+    GROUP BY PassengerCount
+    ORDER BY PassengerCount
+    ```
+* This query shows how the total trip distances and average trip distance relate to the number of passengers
+* In the SQL scripts, result window select **Chart** to see a visualization of the results as a line chart
+
+
 
 
 ## Orchestrate using a pipeline
