@@ -133,6 +133,8 @@
   items:
   - name: Move across regions
     href: move-across-regions.md
+  - name: Dynamically add partitions
+    href: dynamically-add-partitions.md
   - name: Use Blob Storage as checkpoint store on Azure Stack Hub
     href: use-blob-storage-checkpoint-store-azure-stack-hub.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
@@ -205,7 +207,7 @@
       href: event-hubs-ip-filtering.md
     - name: Configure virtual network service endpoints
       href: event-hubs-service-endpoints.md
-    - name: Configure private endpoints (preview)
+    - name: Configure private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md
