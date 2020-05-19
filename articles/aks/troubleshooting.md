@@ -8,7 +8,7 @@ ms.date: 05/16/2020
 
 # AKS troubleshooting
 
-When you create or manage Azure Kubernetes Service (AKS) clusters, you might occasionally encounter problems. This article details some common problems and troubleshooting steps.
+When you create or manage Azure Kubernetes Service (AKS) clusters, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
 
 ## In general, where do I find information about debugging Kubernetes problems?
 
@@ -74,7 +74,7 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
-## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being upgraded or has failed upgrade
 
 *This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
 
@@ -95,7 +95,7 @@ If you've moved your AKS cluster to a different subscription or the cluster's su
 
 You may receive errors that indicate your AKS cluster isn't on a virtual machine scale set, such as the following example:
 
-**AgentPool '<agentpoolname>' has set auto scaling as enabled but isn't on Virtual Machine Scale Sets**
+**AgentPool `<agentpoolname>` has set auto scaling as enabled but isn't on Virtual Machine Scale Sets**
 
 Features such as the cluster autoscaler or multiple node pools require virtual machine scale sets as the `vm-set-type`.
 
@@ -132,9 +132,9 @@ Based on the output of the cluster status:
 When creating an AKS cluster, it requires a service principal or managed identity to create resources on your behalf. AKS can automatically create a new service principal at cluster creation time or receive an existing one. When using an automatically created one, Azure Active Directory needs to propagate it to every region so the creation succeeds. When the propagation takes too long, the cluster will fail validation to create as it can't find an available service principal to do so. 
 
 Use the following workarounds for this issue:
-1. Use an existing service principal, which has already propagated across regions and exists to pass into AKS at cluster create time.
-2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
-3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
+* Use an existing service principal, which has already propagated across regions and exists to pass into AKS at cluster create time.
+* If using automation scripts, add time delays between service principal creation and AKS cluster creation.
+* If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
 
 
@@ -243,7 +243,7 @@ If you're using a version of Kubernetes that doesn't have the fix for this issue
 
 ### Large number of Azure Disks causes slow attach/detach
 
-When the number of Azure Disks attached to a node VM is larger than 10, attach and detach operations may be slow. This issue is a known issue and there are no workarounds at this time.
+When the numbers of Azure Disk attach/detach operations targeting a single node VM is larger than 10, or larger than 3 when targeting single virtual machine scale set pool they may be slower than expected as they are done sequentially. This issue is a known limitation and there are no workarounds at this time. [User voice item to support parallel attach/detach beyond  number.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
 
 ### Azure Disk detach failure leading to potential node VM in failed state
 
