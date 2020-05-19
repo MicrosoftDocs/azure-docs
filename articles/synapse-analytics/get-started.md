@@ -243,15 +243,13 @@ Run the the following code in a notebook. It creates a CSV and parquet data in t
 * Run the cell to analyze the parquet file with spark
 * Right-click on the parquet file inside, and select New **SQL script > SELECT TOP 100 rows**, it will create a notebook with a cell like this:
     ```
-SELECT
-    TOP 100 *
-FROM
-    OPENROWSET(
+    SELECT TOP 100 *
+    FROM OPENROWSET(
         BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
     ) AS [r];
-
     ```
+    
 * The script will be attached to **SQL on-demand** run the script. Notice that it infers the schema from the parquet file.
 
 
