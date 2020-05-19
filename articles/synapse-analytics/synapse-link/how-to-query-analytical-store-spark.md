@@ -1,6 +1,7 @@
 ---
-title: Query Azure Cosmos DB Analytical Store with Synapse Spark
-description: How to query Azure Cosmos DB analytical with Synapse Spark
+
+title: Query Azure Cosmos DB Analytical Store with Apache Spark for Azure Synapse Analytics
+description: How to query Azure Cosmos DB analytical with Apache Spark for Azure Synapse Analytics
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -11,13 +12,13 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Query Azure Cosmos DB Analytical Store with Synapse Spark
+# Query Azure Cosmos DB Analytical Store with Apache Spark for Azure Synapse Analytics
 
 This article gives some examples on how you can interact with the analytical store from Synapse gestures. Gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 ## Load to DataFrame
 
-In this step, you'll read data from Azure Cosmos DB analytical store in a Spark DataFrame. It will display 10 rows from the DataFrame called ***df***. Once your data is into dataframe, you can perform additional analysis. 
+In this step, you'll read data from Azure Cosmos DB analytical store in a Spark DataFrame. It will display 10 rows from the DataFrame called ***df***. Once your data is into dataframe, you can perform additional analysis.
 
 This operation doesn't impact the transactional store.
 
