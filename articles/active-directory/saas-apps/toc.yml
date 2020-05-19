@@ -1845,6 +1845,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
+      - name: MediusFlow
+        href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
