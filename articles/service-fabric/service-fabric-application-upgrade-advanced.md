@@ -90,7 +90,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 > [!NOTE]
 > * The setting to drain requests is not honored for requests from Azure Load balancer.
 > * The settings are not honored if the calling service uses complaint based resolve.
-> * The settings are not honored when the upgrade mode is ForceRestart or it is an impactless upgrade.
+> * The settings are not honored when the upgrade is an impactless one i.e when the replicas will not be brought down during the upgrade.
 >
 >
 
