@@ -141,36 +141,26 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type                         | The type property of the Copy Activity source must be set to **SnowflakeSource**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by COPY into command that ADF will pass through when invoke the statement. | No       |
-
-The following properties are supported in `exportSettings`:
-
-| **Property**            | **Description**                                              | **Required** |
-| ----------------------- | ------------------------------------------------------------ | ------------ |
-| type                    | The type of import command, must be **SnowflakeExportCopyCommand**. | Yes          |
-| additionalCopyOptions   | Additional copy options, provided as a dictionary of key-value pairs. Learn more from [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)<br>Examples:<br>- MAX_FILE_SIZE<br>- OVERWRITE | No           |
-| additionalFormatOptions | Additional file format options provided to COPY command, provided as a a dictionary of key-value pairs. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#type-csv).<br>Examples:<br>- DATE_FORMAT<br>- TIME_FORMAT<br>- TIMESTAMP_FORMAT | No           |
+| ***Under `exportSettings`:*** |  |  |
+| type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
+| additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. Learn more from [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Additional file format options provided to COPY command, provided as a a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#type-csv). | No |
 
 #### Direct copy from Snowflake
 
 If your sink data store and format meet the criteria described in this section, you can use copy activity to directly copy from Snowflake to sink. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
-1. The **sink linked service** is with the following types and authentication methods:
-
-   | Supported sink data store type                | Supported authentication type          |
-   | :-------------------------------------------- | :------------------------------------- |
-   | [Azure Blob](connector-azure-blob-storage.md) | Shared access signature authentication |
+1. The **sink linked service** is [**Azure Blob**](connector-azure-blob-storage.md) type with **shared access signature** authentication.
 
 2. The **sink data format** is of **Parquet** or **delimited text**, with the following configurations:
 
-   1. For **Parquet** format, the compression codec is **None**, **Snappy**, or **Lzo**.
-   2. For **delimited text** format:
-      1. `rowDelimiter` is **\r\n**, or any single character.
-      2. `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
-      3. `encodingName` is left as default or set to **utf-8**.
-      4. `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
-
+   - For **Parquet** format, the compression codec is **None**, **Snappy**, or **Lzo**.
+   - For **delimited text** format:
+     - `rowDelimiter` is **\r\n**, or any single character.
+     - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+     - `encodingName` is left as default or set to **utf-8**.
+     - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
 3. In copy activity source, `additionalColumns` is not specified.
-
 4. Column mapping is not specified.
 
 **Example:**
@@ -217,7 +207,7 @@ If your sink data store and format meet the criteria described in this section, 
 
 #### Staged copy from Snowflake
 
-When your sink data store or format is not natively compatible with Snowflake COPY command as mentioned in last section, enable the built-in staged copy via an interim Azure Blob storage instance. The staged copy feature also provides you better throughput - Data Factory exports data from Snowflake into staging storage, then copy data to sink, finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
+When your sink data store or format is not natively compatible with Snowflake COPY command as mentioned in the last section, enable the built-in staged copy via an interim Azure Blob storage instance. The staged copy feature also provides you better throughput - Data Factory exports data from Snowflake into staging storage, then copy data to sink, finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in Copy Activity.
 
@@ -278,40 +268,33 @@ To copy data to Snowflake, the following properties are supported in the Copy Ac
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | The type property of the Copy Activity sink must be set to **SnowflakeSink**. | Yes                                           |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Snowflake in each run. Use this property to clean up the preloaded data. | No                                            |
-| importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by COPY into command that ADF will pass through when invoke the statement. | No |
-
-The following properties are supported in `importSettings`:
-
-| **Property**            | **Description**                                              | **Required** |
-| ----------------------- | ------------------------------------------------------------ | ------------ |
-| type                    | The type of import command, must be **SnowflakeImportCopyCommand**. | Yes          |
-| additionalCopyOptions   | Additional copy options, provided as a dictionary of key-value pairs. Learn more from [Snowflake Copy Options](https://docs.snowflake.net/manuals/sql-reference/sql/copy-into-table.html#copy-options-copyoptions).<br>Examples:<br>- ON_ERROR<br>- FORCE<br>- LOAD_UNCERTAIN_FILES | No           |
-| additionalFormatOptions | Additional file format options provided to COPY command, provided as a dictionary of key-value pairs. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#type-csv).<br>Examples:<br>- DATE_FORMAT<br/>- TIME_FORMAT<br/>- TIMESTAMP_FORMAT | No           |
+| importSettings | *Advanced settings used to write data into Snowflake. You can configure the ones supported by COPY into command that ADF will pass through when invoke the statement.* | *No* |
+| ***Under `importSettings`:*** |                                                              |  |
+| type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
+| additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Learn more from [Snowflake Copy Options](https://docs.snowflake.net/manuals/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Additional file format options provided to COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#type-csv). | No |
 
 #### Direct copy to Snowflake
 
 If your source data store and format meet the criteria described in this section, you can use copy activity to directly copy from source to Snowflake. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
-1. The **source linked service** is with the following types and authentication methods:
+1. The **source linked service** is [**Azure Blob**](connector-azure-blob-storage.md) type with **shared access signature** authentication.
 
-   | Supported source data store type              | Supported authentication type          |
-   | :-------------------------------------------- | :------------------------------------- |
-   | [Azure Blob](connector-azure-blob-storage.md) | Shared access signature authentication |
+2. The **source data format** is **Parquet** or **Delimited text** with the following configurations:
 
-2. The **source data format** is of **Parquet**,  or **Delimited text**, with the following configurations:
+   - For **Parquet** format, the compression codec is **None**, or **Snappy**.
 
-   1. For **Parquet** format, the compression codec is **None**, **Snappy**.
-   2. For **delimited text** format:
-      1. `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
-      2. `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
-      3. `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-      4. `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+   - For **delimited text** format:
+     - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
+     - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+     - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+     - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
 
 3. In copy activity source, 
 
-   1.  `additionalColumns` is not specified.
-   2. If your source is a folder, `recursive` must be set to true.
-   3. `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` are not specified.
+   -  `additionalColumns` is not specified.
+   - If your source is a folder, `recursive` must be set to true.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` are not specified.
 
 **Example:**
 
@@ -354,9 +337,9 @@ If your source data store and format meet the criteria described in this section
 ]
 ```
 
-#### Staged copy from Snowflake
+#### Staged copy to Snowflake
 
-When your sink data store or format is not natively compatible with Snowflake COPY command as mentioned in last section, enable the built-in staged copy via an interim Azure Blob storage instance. The staged copy feature also provides you better throughput - Data Factory automatically converts the data to meet the data format requirements of Snowflake. Then it invokes COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
+When your sink data store or format is not natively compatible with Snowflake COPY command as mentioned in the last section, enable the built-in staged copy via an interim Azure Blob storage instance. The staged copy feature also provides you better throughput - Data Factory automatically converts the data to meet the data format requirements of Snowflake. Then it invokes COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in Copy Activity.
 
