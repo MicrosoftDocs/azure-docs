@@ -54,7 +54,7 @@
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
-      href: creator-for-indoor-maps.md
+      href: creator-indoor-maps.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
   - name: Coverage
@@ -218,7 +218,7 @@
     - name: Dynamic styling for indoor maps
       href: indoor-map-dynamic-styling.md
     - name: Drawing error visualizer
-      href: azure-maps-drawing-errors-visualizer.md
+      href: drawing-error-visualizer.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference

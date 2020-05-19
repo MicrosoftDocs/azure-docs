@@ -1,9 +1,9 @@
 ---
-title: Drawing package requirements in Creator  | Microsoft Docs
+title: Drawing package requirements in Azure Maps Creator
 description: Learn about the Drawing package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/01/2020
+ms.date: 5/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Prerequisites
 
@@ -262,9 +262,11 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameSubtitle|    string/int |    false    |Subtitle of the zone. |
 
 ### Sample Drawing package manifest
-Below is a sample manifest file for the sample Drawing package. To download the entire package, click [sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+
+Below is a sample manifest file for the sample Drawing package. To download the entire package, click [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 #### Manifest File
+
 ```JSON
 {
     "version": "1.1", 
@@ -398,7 +400,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
 Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
->[Creator for indoor maps](creator-for-indoor-maps.md)
+>[Creator for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)

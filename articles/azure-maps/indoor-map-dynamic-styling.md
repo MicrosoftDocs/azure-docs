@@ -1,9 +1,9 @@
 ---
-title: Implement dynamic styling for Creator Indoor Maps | Microsoft Azure Maps
+title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -108,25 +108,25 @@ The web application you previously opened in a browser should now reflect the up
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-for-indoor-maps.md)
+> [Creator for indoor mapping](creator-indoor-maps.md)
 
 See to the references for the APIs mentioned in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-for-indoor-maps.md#upload-a-drawing-package)
+> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-for-indoor-maps.md#convert-a-drawing-package)
+> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-for-indoor-maps.md#datasets)
+> [Dataset](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset](creator-for-indoor-maps.md#tilesets)
+> [Tileset](creator-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set](creator-for-indoor-maps.md#feature-statesets)
+> [Feature State set](creator-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [WFS service](creator-for-indoor-maps.md#web-feature-service-api)
+> [WFS service](creator-indoor-maps.md#web-feature-service-api)
 

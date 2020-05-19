@@ -1,9 +1,9 @@
 ---
-title: Drawing Conversion Error and Warning in Azure Maps | Microsoft Docs
+title: Azure Maps Drawing Conversion errors and warnings
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/04/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -30,13 +30,13 @@ The Conversion service is unable to create a map feature from an invalid entity 
 
 * The two images below show examples of self-intersecting polygons.
 
-     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometryWarning1.png)
+     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometryWarning2.png)
+     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Below is an image that shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
 
-    ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometryWarning3.png)
+    ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix geometryWarning*
 
@@ -52,7 +52,7 @@ An **unexpectedGeometryInLayer** warning occurs when the drawing contains geomet
 
 The image below shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
 
-![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometryWarning3.png)
+![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix unexpectedGeometryInLayer*
 
@@ -68,7 +68,7 @@ The **unsupportedFeatureRepresentation** warning occurs when the drawing contain
 
 The image below shows an unsupported entity type as a multi-line text object on a label layer.
   
-![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiLine.png)
+![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiline.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
@@ -84,15 +84,15 @@ The **automaticRepairPerformed** warning occurs when the Conversion service auto
 
 * The following image shows how the Conversion service repaired a self-intersecting polygon into valid geometry.
 
-    ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/automaticRepair1.png)
+    ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/automatic-repair-1.png)
 
 * The image below shows how the Conversion service snapped the first and last vertex of a non-closed PolyLine to create a closed PolyLine, where the first and last vertex were less than 1 mm apart.  
 
-    ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automaticRepair2.png)
+    ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automatic-repair-2.png)
 
 * The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines. In order to avoid discarding the non-closed PolyLines, the service combined them into a single closed PolyLine.
 
-    ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automaticRepair3.png)
+    ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
 
 #### *How to fix automaticRepairPerformed*
 
@@ -184,11 +184,11 @@ The **wallOutsideLevel** warning occurs when the drawing contains a Wall geometr
 
 * The image below shows an interior wall, in red, outside the yellow level boundary.
 
-    ![Example of interior wall outside the level boundary](./media/drawing-conversion-error-codes/wallOutsideLevel.png)
+    ![Example of interior wall outside the level boundary](./media/drawing-conversion-error-codes/wall-outside-level.png)
 
 * The following image shows an exterior wall, in red, outside the yellow level boundary.
 
-    ![Example of exterior wall outside the level boundary](./media/drawing-conversion-error-codes/wallOutsideLevelExterior.png)
+    ![Example of exterior wall outside the level boundary](./media/drawing-conversion-error-codes/wall-outside-level-exterior.png)
 
 #### *How to fix wallOutsideLevel*
 
@@ -206,7 +206,7 @@ A **unitOutsideLevel** warning occurs when the drawing contains unit geometry ou
 
  In the following image, unit geometry, in red, exceeds the bounds of the yellow level boundary.
 
- ![Example of unit exceeding the level boundary](./media/drawing-conversion-error-codes/unitOutsideLevel.png)
+ ![Example of unit exceeding the level boundary](./media/drawing-conversion-error-codes/unit-outside-level.png)
 
 #### *How to fix unitOutsideLevel*
 
@@ -222,7 +222,7 @@ A **partiallyOverlappingUnit** warning occurs when the drawing contains a unit g
 
 In the following image, the overlapping unit is highlighted in red. `UNIT110` and `HALLWAY` are discarded.
 
-![Example of overlapping units](./media/drawing-conversion-error-codes/partiallyOverlappingUnit.png)
+![Example of overlapping units](./media/drawing-conversion-error-codes/partially-overlapping-unit.png)
 
 #### *How to fix partiallyOverlappingUnit*
 
@@ -240,7 +240,7 @@ A **doorOutsideLevel** warning occurs when the drawing contains a door geometry 
 
 In the following image, the door geometry, highlighted in red, overlaps the yellow level boundary.
 
-![Example of a door overlapping a level boundary](./media/drawing-conversion-error-codes/doorOutsideLevel.png)
+![Example of a door overlapping a level boundary](./media/drawing-conversion-error-codes/door-outside-level.png)
 
 #### *How to fix doorOutsideLevel*
 
@@ -258,7 +258,7 @@ The **zoneWarning** occurs when a zone doesn't contain a label. The Conversion s
 
 The following image shows a zone that doesn't contain a label.
 
-![Example of a zone doesn't contain a label](./media/drawing-conversion-error-codes/zoneWarning.png)
+![Example of a zone doesn't contain a label](./media/drawing-conversion-error-codes/zone-warning.png)
 
 #### *How to fix zoneWarning*
 
@@ -282,7 +282,7 @@ A **labelWarning** occurs because of one or more of the following reasons:
 
 The following image shows a label that inside two zones.
 
-![Example of a label inside two zones ](./media/drawing-conversion-error-codes/labelWarning.png)
+![Example of a label inside two zones ](./media/drawing-conversion-error-codes/label-warning.png)
 
 #### *How to fix labelWarning*
 
@@ -462,7 +462,7 @@ The **wallError** occurs when the drawing contains an error while attempting to 
 
 The following image displays a wall feature that doesn't overlap any units.
 
-![Example of Wall feature that doesn't overlap any units](./media/drawing-conversion-error-codes/wallError.png)
+![Example of Wall feature that doesn't overlap any units](./media/drawing-conversion-error-codes/wall-error.png)
 
 #### *How to fix wallError*
 
@@ -485,11 +485,11 @@ The **verticalPenetrationError** occurs because of one or more of the following 
 
 The image below shows a vertical penetration area with no overlapping vertical penetration areas on levels above or below it.
 
-![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/VRT2.png)
+![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/vrt-2.png)
 
 The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
 
-![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/VRT.png)
+![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/vrt.png)
 
 #### How to fix verticalPenetrationError
 
@@ -498,7 +498,7 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to use Azure Maps Drawing error visualizer](azure-maps-drawing-errors-visualizer.md)
+> [How to use Azure Maps Drawing error visualizer](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-for-indoor-maps.md)
+> [Creator for indoor mapping](creator-indoor-maps.md)

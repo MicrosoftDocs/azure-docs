@@ -1,9 +1,9 @@
 ---
-title: Creator for indoor maps| Microsoft Azure Maps 
+title: Work with indoor maps in Azure Maps Creator 
 description: This article introduces concepts that apply to Azure Maps Creator services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ This article introduces concepts and tools that apply to Azure Maps Creator. We 
 
 You can use Creator to develop applications with map features based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data. The entire workflow is illustrated in the diagram below.
 
-![Creator map data workflow](./media/creator-for-indoor-maps/workflow.png)
+![Creator map data workflow](./media/creator-indoor-maps/workflow.png)
 
 ## Create Azure Maps Creator
 
@@ -27,17 +27,17 @@ To use Creator services, Azure Maps Creator must be created in an Azure Maps acc
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information on Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload a Drawing package.  Upon a successful upload, the Data Upload API will return a *user data identifier (`udid`). The `udid` will be used in the next step to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload a Drawing package.  Upon a successful upload, the Data Upload API will return a user data identifier (`udid`). The `udid` will be used in the next step to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed. However, it’s recommended that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
-When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. Once you have fixed the errors, you can then attempt to upload and convert the package.
+When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. Once you have fixed the errors, you can then attempt to upload and convert the package.
 
 ## Create indoor map data
 
-Azure Maps Creator provides four services:
+Azure Maps Creator provides three services:
 
 * [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview).
 Use the Dataset service to create a dataset from a converted Drawing package data.

@@ -1,9 +1,9 @@
 ---
-title: Manage Azure Maps Creator | Microsoft Azure Maps 
+title: Manage Azure Maps Creator
 description: In this article, you'll learn how to manage Azure Maps Creator.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -22,15 +22,15 @@ This article takes you through the steps to create and delete a Creator resource
 
 2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, then navigate to the Azure portal menu. Select **All resources**. Find and select your Azure Maps account.
 
-    ![Azure Maps Portal home page](./media/how-to-manage-creator/select-your-azure-maps-account.PNG)
+    ![Azure Maps Portal home page](./media/how-to-manage-creator/select-maps-account.png)
 
 3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**. Click  **Create**  to create an Azure Maps Creator resource.
 
-    ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade.PNG)
+    ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade-settings.png)
 
 4. Enter the name and location for your Creator resource. Currently, Creator is only supported in the United States. Click **Review + create**.
 
-   ![Enter Creator account information page](./media/how-to-manage-creator/creator-creation.PNG)
+   ![Enter Creator account information page](./media/how-to-manage-creator/creator-creation-dialog.png)
 
 5. Review your settings and click **Create**.
 
@@ -38,11 +38,11 @@ This article takes you through the steps to create and delete a Creator resource
 
 6. When the deployment completes, you'll see a page with a success or a failure message.
 
-   ![Resource deployment status page](./media/how-to-manage-creator/creator-resourcecreated.PNG)
+   ![Resource deployment status page](./media/how-to-manage-creator/creator-resource-created.png)
 
 7. Click **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
 
-    ![Creator status page](./media/how-to-manage-creator/creator-resourceview.PNG)
+    ![Creator status page](./media/how-to-manage-creator/creator-resource-view.png)
 
    >[!NOTE]
    >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by clicking Azure Maps Account.
@@ -77,19 +77,19 @@ Also, all data imported into Creator should be uploaded into the same geographic
 Introduction to Creator for indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-for-indoor-maps.md#upload-a-drawing-package)
+> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-for-indoor-maps.md#convert-a-drawing-package)
+> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-for-indoor-maps.md#datasets)
+> [Dataset](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset](creator-for-indoor-maps.md#tilesets)
+> [Tileset](creator-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set](creator-for-indoor-maps.md#feature-statesets)
+> [Feature State set](creator-indoor-maps.md#feature-statesets)
 
 Learn how to use the Creator to render indoor maps in your application:
 

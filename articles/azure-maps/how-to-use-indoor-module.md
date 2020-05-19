@@ -1,9 +1,9 @@
 ---
-title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
+title: Use the Azure Maps Indoor Maps module
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -229,7 +229,7 @@ Your file should now look similar to the HTML below.
 
 To see your indoor map, load it into a web browser. It should appear like the image below. If you click on the stairwell feature, the *level picker* will appear in the upper right-hand corner.
 
-  ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
+  ![indoor map image](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
 ## Next steps
 
@@ -239,7 +239,7 @@ Read about the APIs that are related to the *Azure Maps Indoor* module:
 > [Drawing package requirements](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-for-indoor-maps.md)
+> [Creator for indoor maps](creator-indoor-maps.md)
 
 Learn more about how to add more data to your map:
 

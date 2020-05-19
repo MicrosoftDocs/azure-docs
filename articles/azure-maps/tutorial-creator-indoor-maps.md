@@ -1,9 +1,9 @@
 ---
-title: Use Creator to create indoor maps | Microsoft Docs 
-description: This tutorial shows you how to use Azure Maps Creator to create indoor maps.
+title: Use Creator to create indoor maps
+description: Use Azure Maps Creator to create indoor maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -52,7 +52,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 
 4. In the **Headers** tab, specify a value for the `Content-Type` key. The Drawing package is a zipped folder, so use the `application/octet-stream` value. In the **Body** tab, select **binary**. Click on **Select File** and choose a Drawing package.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/specify-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
 
 5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
 
@@ -124,7 +124,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response will give you a link to the [Drawing error visualizer](drawing-error-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 ```json
 {
@@ -404,19 +404,19 @@ You're now equipped with the skills you need to move on to the next guides:
 Learn more about the different Azure Maps services discussed in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-for-indoor-maps.md#upload-a-drawing-package)
+> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-for-indoor-maps.md#convert-a-drawing-package)
+> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-for-indoor-maps.md#datasets)
+> [Dataset](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset](creator-for-indoor-maps.md#tilesets)
+> [Tileset](creator-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set](creator-for-indoor-maps.md#feature-statesets)
+> [Feature State set](creator-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [WFS service](creator-for-indoor-maps.md#web-feature-service-api)
+> [WFS service](creator-indoor-maps.md#web-feature-service-api)
