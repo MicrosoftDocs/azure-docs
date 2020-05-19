@@ -39,7 +39,7 @@ landingContent:
           - text: What is SQL Server on Windows VM? 
             url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
           - text: What is SQL Server on Linux VM?
-            url: linux/sql-server-on-azure-vm-iaas-what-is-overview.md
+            url: linux/sql-server-on-linux-vm-iaas-what-is-overview.md
           - text: Migrate from SQL Server
             url: windows/migrate-to-vm-from-sql-server.md
           - text: Security considerations
@@ -60,15 +60,13 @@ landingContent:
           - text: Manage with Azure portal
             url: windows/manage-sql-vm-portal.md
           - text: Register with SQL VM resource provider
-            url: windows/sql-vm-resource-provider-register
+            url: windows/sql-vm-resource-provider-register.md
           - text: Automated patching
             url: windows/automated-patching.md 
           - text: Change license type 
             url: windows/licensing-model-azure-hybrid-benefit-ahb-change.md
           - text: Change edition of SQL Server
             url: windows/change-sql-server-edition.md
-          - text: Resource management 
-            url: elastic-pool-resource-management.md
           - text: Move to new region
             url: windows/move-sql-vm-different-region.md 
           - text: Integrate with Azure Key Vault
