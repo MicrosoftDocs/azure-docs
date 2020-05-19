@@ -2,7 +2,7 @@
 title: Getting started with Azure Synapse Analytics 
 description: Steps by steps to quickly understand basic concepts in Azure Synapse
 services: synapse-analytics
-author: julieMSFT
+author: saveenr
 ms.author: jrasnick
 manager: julieMSFT
 ms.reviewer: jrasnick
@@ -14,8 +14,31 @@ ms.date: 05/19/2020
 # Getting Started with Azure Synapse Analytics
 This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
 
+## Find and prepare an ADLSGEN2 account for use with Azure Synapse
+* Open the Azure Portal
+* Create a new Storage account
+* Key settings for the ADLSGEN2 account in the **Basics** tab
+    * **Storage account name** - you can give it any name. In this document we'll refer to it as `contosolake`
+    * **Account kind** - must be set to `StorageV2`
+    * **Location** - you can pick any location but its recommended your Synapse workspace and ADLSGEN2 account are in the same region
+* Key settings for the ADLSGEN2 account in the **Advanced** tab
+    * **Data Lake Storage Gen2** - set to `Enabled`
+* One the sotrage account is created, perform these steps
+    * Ensure that you are assigned to the Owner role on the storage account
+    * Assign yourself to the Azure Blob Storage Owner role on the Storage Account
+    * Create a container. You can give it any name. In this document we will use the name 'users`
+  
 ## Create a Synapse workspace
-First you need a Synapse workspace. Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md) to create a workspace.
+* Open the Azure portal and at the top search for `Synapse`
+* In the search results, under **Services** click **Azure Synapse Analytics (workspaces preview)**
+* Click **+ Add**
+* In the **Basics** tab enter this information
+    * **Workspace name** - you can call it anything. In this document we will use `myworkspace`
+    * **Region** - match the region you chose for the storage account
+    * Under **Select Data Lake Storage Gen 2** select the account and container you prevpoiusly creates
+* Click **Review + create**
+* Click **Create**
+* Your workspace will be ready in a few minutes
 
 ## Launch Synapse Studio
 Once your workspace is created, you can use Synapse Studio with it one of two ways:
