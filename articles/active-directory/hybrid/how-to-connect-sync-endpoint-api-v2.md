@@ -21,7 +21,7 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
  - performance gains on export and import to Azure AD
  
 > [!NOTE]
-> Currently, the new endpoint does not have a configured  group size limit for O365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies.  It is recommended to increase your group sizes incrementally.  In the future, this will be capped to a maximum writeback group size of 250k members by default.
+> Currently, the new endpoint does not have a configured  group size limit for O365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies.  It is recommended to increase your group sizes incrementally.  
 
 
 ## Pre-requisites  
