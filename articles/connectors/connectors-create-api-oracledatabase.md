@@ -3,9 +3,9 @@ title: Connect to Oracle Database
 description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/19/2020
 tags: connectors
 ---
 
@@ -109,6 +109,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 * Views 
 * Any table with composite keys
 * Nested object types in tables
+* Database functions with non-scalar values
  
 ## Connector-specific details
 
