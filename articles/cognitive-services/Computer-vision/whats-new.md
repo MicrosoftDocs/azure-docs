@@ -17,7 +17,7 @@ ms.author: pafarley
 Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## May 2020
-Computer Vision API v3.0 entered General Availability, with updates to [Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api):
+Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
 
 * Support for English, Dutch, French, German, Italian, and Portuguese
 * Improved accuracy
