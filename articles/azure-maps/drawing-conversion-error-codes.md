@@ -68,7 +68,7 @@ The **unsupportedFeatureRepresentation** warning occurs when the drawing contain
 
 The image below shows an unsupported entity type as a multi-line text object on a label layer.
   
-![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiline.png)
+![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
@@ -489,7 +489,7 @@ The image below shows a vertical penetration area with no overlapping vertical p
 
 The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
 
-![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/vrt.png)
+![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### How to fix verticalPenetrationError
 
