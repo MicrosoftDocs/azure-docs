@@ -90,7 +90,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
       azureCategories:
         - iot
-      url: rtos/index.yml
+      url: https://docs.microsoft.com/azure/rtos/index.yml
     # Card
     - title: Bing Autosuggest
       summary: Give your app intelligent autosuggest options for searches
