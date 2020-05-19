@@ -218,7 +218,7 @@ Remote port | netstat
 Remote IP address | netstat
 TCP connection state | netstat
 Process ID | netstat
-No. of active connections | netstat
+Number of active connections | netstat
 
 #### Process data
 Here's the process data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
@@ -240,7 +240,7 @@ Local IP address | netstat
 Remote port | netstat 
 Remote IP address | netstat 
 TCP connection state | netstat 
-No. of active connections | netstat
+Number of active connections | netstat
 Process ID  | netstat 
 Process name | ps
 Process arguments | ps
