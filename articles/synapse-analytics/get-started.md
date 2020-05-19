@@ -220,33 +220,36 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 
 Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before starting, frist follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
 
-* In Synapse Studio, navigate to the **Data** hub
-* Expand the **Power BI** node and example any linked PowerBI workspace.
-* Inside you'll see any PowerBI datasets and reports in the PowerBI workspace
+## Create an link a PowerBI Workspace
+* Using any method you want create a PowerBI workspace called `NYXTaxiWorkspace`
+* In Synapse Studio, navigate to the **Manage > Linked Services**
+* Click **+ New** and click **Connect to PowerBI** 
+* Set **Name** to `NYXTaxiWorkspace1`
+* Set **Workspace name** to `NYXTaxiWorkspace1`
+* Click **Create**
 
-### Create a PowerBI dataset
-
-To create a PowerBI dataset requires you to use PowerBI desktop.
-* Download and install PowerBI Desktop if needed
-* Once PowerBI Desktop is isntalled
-* Under your linked PowerBI workspace, click on** Power BI datasets* and select **+ New  Power BI dataset**
+## Create PowerBI dataset for the data in your Synapse Workspace
+* In Synapse Studio, navigate to the **Develop > Power BI **
+* Navigate to **NYXTaxiWorkspace > Power BI datasets** and click **New Power BI dataset**
 * Hover over the SQLDB1 database and select **Download .pbids file**
-* Open the downlaod pbids file. This will launch Power BI desktop and automatically connect it to SQLDB1
-* Check the **Trip** table and click **Load**
-* A **Connection settings** message will appear, select **DirectQuery** and click **OK**
-* NOTE: If you are more familiar with PowerBI you can click on the **Model** button on the left and model the relationships between tables. This tutorial will skip this to make the tutorial smaller.
+* Open the downloaded pbids file. This will launch Power BI desktop and automatically connect it to SQLDB1
+* The Navigator dialog will open. When it does check the **PassengerCountStats** table and click **Load**
+* A **Connection settings** dialog will appear. Select **DirectQuery** and click **OK**
 * Click on the **Report** button on the left
 * In **Visualizations**, click **Line chart**. This will cause a new table to appear in the report
+* Resize the line chart to make it bigger
 * Drag the **PasssengerCount** column to **Visualizations > Axis**
 * Drag the **SumTripDistance** column to **Visualizations > Values**
 * Drag the **AvgTripDistance** column to **Visualizations > Values**
-* In the Home tab, click **Publish** and save it with this name `taxi.pbix` publish it to your PowerBI workspace
+* In the Home tab, click **Publish** and save it with this name `PassengerAnalysis.pbix` publish it to your PowerBI workspace
 * Refresh **Power BI reports** and yous should see a the report you previously created called **taxi**
 * At the top click **Publish**
     * Select the PowerBI workspace to publish to
     * If you are asked for a filename pick nyctaxi1
 * Once publishiing is finished switch back to Synapse Studio and click **Close and refresh**.
-* Under **Power BI datasets**, Now you should see a new dataset called **taxi**.
+* Under **Power BI datasets**, Now you should see a new dataset called **PassengerAnalysis**.
+* Under **Power BI datasets**, Now you should see a new dataset called **PassengerAnalysis**.
+* CLick on the report called **PassengerAnalysis** it won't show anything because you still need to configure authentication for the dataset
 
 ## Configure authentitication for your dataset
 * Open https://powerbi.microsoft.com and **Sign in**
@@ -255,9 +258,9 @@ To create a PowerBI dataset requires you to use PowerBI desktop.
 * Hover over the `nyctaxi1` dataset and click ther thee icon with the three dots and select **Settings**
 * In **Data source credentials** set the Authentication method to **OAuth2** and click **Sign in**
 
-** Edit a report report in Synapse Studio
-
+## Edit a report report in Synapse Studio
 * In Synapse, navigate to **Develop > PowerBI > Your workspace name > Power BI reports**
+* Close any windows showing the PowerBI report
 * Refresh the **Power BI reports** node
 * Right click on the report and select **Open**. 
 * Now you can edit the report directly within Synapse Studio
