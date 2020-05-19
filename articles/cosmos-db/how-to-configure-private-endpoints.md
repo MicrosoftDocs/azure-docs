@@ -4,7 +4,7 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/14/2020
 ms.author: thweiss
 ---
 
@@ -17,9 +17,6 @@ Private Link allows users to access an Azure Cosmos account from within the virt
 You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
 
 This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
-
-> [!NOTE]
-> Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -638,21 +635,17 @@ You can use the same steps when you remove a region. After removing the region, 
 
 The following limitations apply when you're using Private Link with an Azure Cosmos account:
 
-* When you're using Private Link with an Azure Cosmos account by using a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not yet supported.
-
-* Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
+* When you're using Private Link with an Azure Cosmos account by using a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
 
 * When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
 
-* When you're using the Azure Cosmos DB's API for MongoDB accounts that have Private Link, you can't use tools such as Robo 3T, Studio 3T, and Mongoose. The endpoint can have Private Link support only if the `appName=<account name>` parameter is specified. An example is `replicaSet=globaldb&appName=mydbaccountname`. Because these tools don't pass the app name in the connection string to the service, you can't use Private Link. But you can still access these accounts by using SDK drivers with the 3.6 version.
+* When you're using an Azure Cosmos DB's API for MongoDB account that has Private Link, some tools or libraries may not work as they automatically strip out the `appName` parameter from the connection string. This parameter is required to connect to the account over a private endpoint. Some tools, like Visual Studio Code, do not remove this parameter from the connection string and are therefore compatible.
 
 * You can't move or delete a virtual network if it contains Private Link.
 
-* You can't delete an Azure Cosmos account if it's attached to a private endpoint.
-
 * You can't fail over an Azure Cosmos account to a region that's not mapped to all private endpoints attached to the account.
 
-* A network administrator should be granted at least the "*/PrivateEndpointConnectionsApproval" permission at the Azure Cosmos account scope to create automatically approved private endpoints.
+* A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
 
 ### Limitations to private DNS zone integration
 

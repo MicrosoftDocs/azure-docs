@@ -143,7 +143,7 @@ generated passwords are random and that they have high entropy.
 
 ### Validate file uploads
 
-If your application allows [file uploads](https://www.owasp.org/index.php/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
+If your application allows [file uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
 Antimalware protection helps identify and remove viruses, spyware, and
 other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
