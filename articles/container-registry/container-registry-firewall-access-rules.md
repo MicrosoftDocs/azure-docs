@@ -132,7 +132,7 @@ To enable data endpoints using the portal:
 
 The data endpoint or endpoints appear in the portal.
 
-![Dedicated data endpoints in portal][dedicated-data-endpoints-portal.png]
+![Dedicated data endpoints in portal](./media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png)
 
 ### Azure CLI
 
