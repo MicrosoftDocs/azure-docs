@@ -31,8 +31,6 @@ SQL Database enables you to easily define and scale performance within two diffe
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 
-![Diagram of deployment options](./media/sql-database-paas-overview/deployment-options.png)
-
 - [Single database](single-database-overview.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Elastic pool](elastic-pool-overview.md) is a collection of [single databases](single-database-overview.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
