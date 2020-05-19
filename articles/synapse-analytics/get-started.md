@@ -209,6 +209,51 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 * Click **Publish All** and the pipeline will run every hour
 * If you want to make the pipeline run now without waiting for the next hour click **Add trigger > New/edit**
 
+## Working with data in a storage account
+So far, we've covered scenarios were data resided in databases. Now we'll show how Synapse Analytics can analyze
+simple files in a storage account. In this scenario we'll use the storage account and container that we linked the workspace to.
+
+The name of the storage account: contosolake
+The name of the container in the storage account: users
+
+### Creating CSV and Parquet files in your Storage account
+Run the the following code in a notebook. It creates a CSV and parquet data in the storage account
+
+    ```%%pyspark
+    df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
+    df = df.repartition(1) # This ensure we'll get a single file during write()
+    df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
+    df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+    ```
+
+### Analyzing data in a storage account
+
+* In Synapse Studio, navigate to the **Data** hub
+* Select **Linked**
+* Navigate to **Storage accounts > workspaceame (Primary - contosolake)**
+* Click on **users (Primary)"**
+* You should see a folder called `NYCTaxi'. Inside you should see two folders 'PassengerCountStats.csv' and 'PassengerCountStats.parquet'
+* Navigate into the `PassengerCountStats.parquet' folder
+* Right-click on the parquet file inside, and select New notebook, it will create a notebook with a cell like this:
+    ```
+    %%pyspark
+    data_path = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    data_path.show(100)
+    ```
+* Run the cell to analyze the parquet file with spark
+* Right-click on the parquet file inside, and select New **SQL script > SELECT TOP 100 rows**, it will create a notebook with a cell like this:
+    ```
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+
+    ```
+* The script will be attached to **SQL on-demand** run the script. Notice that it infers the schema from the parquet file.
+
 
 ## Visualize data with Power BI
 
