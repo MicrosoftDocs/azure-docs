@@ -34,16 +34,17 @@ You can also view example call bodies in the Swagger's accompanying [examples fo
 
 ## Azure Digital Twins C# SDK
 
-The Azure Digital Twins C# SDK is part of the [Azure SDK for .NET](http://github.com/azure/azure-sdk-for-net).
+The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
-See the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html) for in-depth information on SDK design.
+> [!NOTE]
+> For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.IoT.DigitalTwins** with your project. You will also need the **Azure.Identity** package.
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the **Azure.Identity** package.
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (Tools>NuGet Package Manager>Manage NuGet Packages for Solution). 
 * Using the .NET command-line tool, you can run:
 ```bash
-dotnet add package Azure.IoT.DigitalTwins
+dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.identity
 ```
 

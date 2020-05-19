@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). You can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
-The samples in this article use the C# SDK.
+The samples in this article use the C# SDK, which can be found here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 ## Create a digital twin (preview)
 
