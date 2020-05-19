@@ -11,11 +11,13 @@ ms.author: baanders
 
 Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't already downloaded the sample project, get it now by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
 
-Navigate to the downloaded folder on your machine and unzip it.
+Navigate to the downloaded file on your machine and unzip it.
 
-Once inside the unzipped file, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, and name the new file *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
+Once inside the unzipped folder, navigate into _digital-twins-samples-master/AdtSampleApp/_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 
-Within the new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
+In Visual Studio, use the *Solution Explorer* pane to create a copy of the _SampleClientApp > **serviceConfig.json.TEMPLATE**_ file (you can use the right-select menus to copy and paste). Rename the copy *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
+
+Select the new file to open it in the editing window. Change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
 
 ```json
 {
@@ -25,4 +27,9 @@ Within the new file, use an editor of your choice to change the `tenantId` to yo
 }
 ```
 
-Save and close the file.
+Next, configure the *serviceConfig.json* file to be copied to the output directory when you build the *SampleClientApp*. Right-select the *serviceConfig.json* file, and choose *Properties.* In the *Properties* inspector, change the value of the *Copy to Output Directory* property to *Copy if newer*.
+
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/copy-config.png" alt-text="Excerpt from Visual Studio window showing the Solution Explorer pane with serviceConfig.json highlighted, and the Properties pane with 'Copy to Output Directory' property set to 'Copy if newer'":::
+
+Save and close the file. Keep the _**AdtE2ESample**_ project open in Visual Studio to continue using it in the tutorial.
+
