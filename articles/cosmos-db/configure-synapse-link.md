@@ -189,6 +189,10 @@ Use the instructions in [Connect to Azure Synapse Link]() on how to access an Az
 
 Use the instructions in the [Query Azure Cosmos DB analytical store]() article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
+## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
+
+You can find samples to get started with Azure Synapse Link on [Github](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and Retail scenarios.
+
 ## Next steps
 
 To learn more, see the following docs:

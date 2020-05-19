@@ -71,10 +71,8 @@
       href: sql-api-dotnet-samples.md
     - name: .NET V3 SDK samples
       href: sql-api-dotnet-v3sdk-samples.md
-    - name: Java samples
-      href: sql-api-java-samples.md
-    - name: Async Java samples
-      href: sql-api-async-java-samples.md
+    - name: Java SDK v4 samples
+      href: sql-api-java-sdk-samples.md
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
