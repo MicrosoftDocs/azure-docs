@@ -164,9 +164,9 @@ The IoT Edge agent does not automatically provide reported values for your desir
 
 1. Get a collection of the module twin's properties with the [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) method.
 
-1. Create a listener (with a user defined defined callback method) to catch changes to desired properties with the [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) method.
+1. Create a listener (with a user defined defined callback method) to catch changes to desired properties with the [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) method.
 
-1. In your callback method, update the reported properties in the module twin with the [UpdateReportedPropertiesAsync]https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) method, passing a [TwinCollection](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.shared.twincollection) of the property values that you want to set.
+1. In your callback method, update the reported properties in the module twin with the [UpdateReportedPropertiesAsync]https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) method, passing a [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) of the property values that you want to set.
 
 For an example, see [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md#edit-the-module-twin).
 
