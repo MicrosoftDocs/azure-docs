@@ -79,7 +79,7 @@ The following procedure shows you how to attach an existing shared image gallery
     
     In this example, there are no images in the shared image gallery yet.
 
-    Azure Lab Services identity is added as a contributor to the shared image gallery that is attached to the lab. It allows teachers/IT admin to save virtual machine images to the shared image gallery. All labs created in this lab account have access to the attached shared image gallery. 
+    Azure Lab Services identity is added as a contributor to the shared image gallery that is attached to the lab. It allows educators/IT admins to save virtual machine images to the shared image gallery. All labs created in this lab account have access to the attached shared image gallery. 
 
     All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button. 
 

@@ -132,6 +132,11 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    }
    ```
 
+## Using Azure PowerShell
+
+- [Create or Update Database Auditing Policy (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Create or Update Server Auditing Policy (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.](sql-database-vnet-service-endpoint-rule-powershell.md)

@@ -39,7 +39,6 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 | VM image | Ubuntu Server 18.04 LTS|
 | Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
-
 ## Install desktop and RDP
 The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. Follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md) article to install the packages that are needed on the template machine to connect via remote desktop protocol (RDP).
 

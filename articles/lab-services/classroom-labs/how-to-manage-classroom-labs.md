@@ -50,7 +50,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
         > Make a note of user name and password. They won't be shown again.
     3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**. 
 
-        A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
+        An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
 
         ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. Then, select **Next** on the **Virtual machine credentials** page. 
@@ -99,7 +99,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 | ---- | ----- | --- | ----------- | 
 | Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
 | Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
-| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Teachers can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
+| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Educators can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
 | Small GPU (Compute) | 6 | 56 GB | <p>This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications.</p><p>Azure Lab Services automatically installs and configures the necessary GPU drivers for you when you create a lab with GPU images. </p> | 
 | Small GPU (Visualization) | 6 | 56 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 | Large | 8 | 16 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
