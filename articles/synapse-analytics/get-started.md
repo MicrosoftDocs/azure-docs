@@ -14,7 +14,7 @@ ms.date: 05/19/2020
 # Getting Started with Azure Synapse Analytics
 This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
 
-## Prepare an Storag account for use with an  Synapse workspace
+## Prepare a Storage account for use with an  Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com)
 * Create a new Storage account
 * Key settings in the **Basics** tab
