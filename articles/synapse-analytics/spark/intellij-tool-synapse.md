@@ -57,6 +57,7 @@ In this tutorial, you learn how to:
     |Project&nbsp;location| Enter the wanted location to save your project.|
     |Project SDK| It might be blank on your first use of IDEA. Select **New...** and navigate to your JDK.|
     |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Synapse only supports **Spark 2.4.0**.|
+    |||
 
     ![Selecting the Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -87,15 +88,15 @@ Sign in to Azure subscription to connect to your Spark pools.
 
 2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
 
-   ![IntelliJ IDEA explorer right-click azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
+   ![IntelliJ IDEA explorer right-click Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
 3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
-    ![IntelliJ IDEA azure sign-in](./media/intellij-tool-synapse/intellij-view-explorer2.png)
+    ![IntelliJ IDEA Azure sign-in](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
 4. In the **Azure Device Login** dialog box, click **Copy&Open**.
 
-   ![IntelliJ IDEA azure device login](./media/intellij-tool-synapse/intellij-view-explorer5.png)
+   ![IntelliJ IDEA Azure device login](./media/intellij-tool-synapse/intellij-view-explorer5.png)
 
 5. In the browser interface, paste the code, and then click **Next**.
 
@@ -265,4 +266,4 @@ It's convenient for you to foresee the script result by sending some code to the
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)
