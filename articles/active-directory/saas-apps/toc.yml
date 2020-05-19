@@ -1624,6 +1624,8 @@
         href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
+      - name: Vyond
+        href: vyond-tutorial.md
     - name: W - Z
       items:
       - name: Watch by Colors
