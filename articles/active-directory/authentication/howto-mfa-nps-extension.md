@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 

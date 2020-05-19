@@ -15,8 +15,8 @@ ms.date: 04/21/2020
 You can choose between a few different Azure storage services when creating HDInsight clusters:
 
 * [Azure Storage](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen1.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
 
 This article provides an overview of these storage types and their unique features.
 

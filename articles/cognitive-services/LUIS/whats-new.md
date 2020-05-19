@@ -1,15 +1,34 @@
 ---
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: overview
+ms.date: 05/19/2020
 ---
 
 # What's new in Language Understanding
 
-Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
+Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### May 2020 - //Build
+
+* Released as **generally available** (GA):
+    * [Language Understanding container](luis-container-howto.md)
+    * Preview portal promoted to [current portal](https://www.luis.ai), [previous](https://previous.luis.ai) portal still available
+    * New machine-learned entity creation and labeling experience
+    * [Upgrade process](migrate-from-composite-entity.md) from composite and simple entities to machine-learned entities
+    * [Setting](how-to-application-settings-portal.md) support for normalizing word variants
+* Preview Authoring API changes
+    * App schema 7.x for nested machine-learned entities
+    * [Migration to required feature](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* New resources for developers
+    * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
+* [Customer managed keys](luis-encryption-of-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
+* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
+
+
 
 ### March 2020
 
@@ -21,7 +40,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 * Improved developer productivity
     * General availability of our [prediction endpoint V3](luis-migration-api-v3.md).
-    * Ability to import and export apps with .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process.
+    * Ability to import and export apps with `.lu` ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process.
 * Language expansion
     * [Arabic and Hindi](luis-language-support.md) in public preview.
 * Prebuilt models

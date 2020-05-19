@@ -15,7 +15,8 @@ Azure Policy makes it possible to manage and report on the compliance state of y
 and AKS clusters from one place.
 
 > [!NOTE]
-> Azure Policy for AKS is in Limited Preview and only supports built-in policy definitions.
+> Azure Policy for AKS is in Limited Preview and only supports Linux node pools and built-in policy
+> definitions.
 
 ## Overview
 

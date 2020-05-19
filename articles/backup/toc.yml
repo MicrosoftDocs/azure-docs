@@ -44,6 +44,11 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Support matrices
@@ -342,10 +347,20 @@
       href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
-    - name: Security for cloud workloads
-      href: backup-azure-security-feature-cloud.md
+    - name: Soft delete 
+      items:
+      - name: Overview
+        href: backup-azure-security-feature-cloud.md
+      - name: For virtual machines
+        href: soft-delete-virtual-machines.md
+      - name: For SQL Server and SAP HANA in Azure VMs
+        href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
+    - name: Private Endpoints
+      href: private-endpoints.md
+    - name: Encryption
+      href: backup-encryption.md
     - name: Built-in security controls
       href: backup-security-controls.md
     - name: Security baseline
@@ -392,8 +407,8 @@
     href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Microsoft Q&A - Azure Backup
+    href: https://docs.microsoft.com/answers/topics/azure-backup.html
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

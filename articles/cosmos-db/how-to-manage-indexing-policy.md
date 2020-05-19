@@ -366,7 +366,9 @@ To create a container with a custom indexing policy see, [Create a container wit
 
 To create a container with a custom indexing policy see, [Create a container with a custom index policy using Powershell](manage-with-powershell.md#create-container-custom-index)
 
-## Use the .NET SDK V2
+## <a id="dotnet-sdk"></a> Use the .NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 The `DocumentCollection` object from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -396,7 +398,7 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## Use the .NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 The `ContainerProperties` object from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (see [this Quickstart](create-sql-api-dotnet.md) regarding its usage) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -452,6 +454,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## Use the Java SDK
 
@@ -605,7 +608,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## Use the Python SDK V3
+## Use the Python SDK
+
+# [Python SDK V3](#tab/pythonv3)
 
 When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
@@ -669,7 +674,7 @@ Update the container with changes
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## Use the Python SDK V4
+# [Python SDK V4](#tab/pythonv4)
 
 When using the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
@@ -734,6 +739,7 @@ Update the container with changes
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+---
 
 ## Next steps
 

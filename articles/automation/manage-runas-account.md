@@ -103,7 +103,7 @@ The following list provides the requirements to create a Run As account in Power
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](#permissions).
 
-To get the values for `SubscriptionId`, `ResourceGroupName`, and  , which is required parameters for the PowerShell script, complete the next steps.
+To get the values for `SubscriptionId`, `ResourceGroupName`, and  `AutomationAccountName`, which is required parameters for the PowerShell script, complete the next steps.
 
 1. In the Azure portal, select **Automation Accounts**.
 1. On the Automation Accounts page, select your Automation account.
@@ -471,7 +471,7 @@ Some configuration items necessary for a Run As or Classic Run As account might 
 * Run As account removed from the Contributor role
 * Service principal or application in Azure AD
 
-For such misconfiguration instances, the Automation account detects the changes and displays a status of `Incomplete` on the Run As Accounts properties pane for the account.
+For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
 
 ![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

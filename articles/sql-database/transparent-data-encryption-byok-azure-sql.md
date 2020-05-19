@@ -87,7 +87,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 ### Recommendations when configuring AKV
 
-- Associate at most 500 General Purpose or 200 Business Critical databases in total with a key vault in a single subscription to ensure high availability when server accesses the TDE protector in the key vault. These figures are based on the experience and documented in the [key vault service limits](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). The intention here is to prevent issues after server failover, as it will trigger as many key operations against the vault as there are databases in that server.
+- Associate at most 500 General Purpose or 200 Business Critical databases in total with a key vault in a single subscription to ensure high availability when server accesses the TDE protector in the key vault. These figures are based on the experience and documented in the [key vault service limits](https://docs.microsoft.com/azure/key-vault/general/service-limits). The intention here is to prevent issues after server failover, as it will trigger as many key operations against the vault as there are databases in that server.
 
 - Set a resource lock on the key vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. Learn more about [resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
@@ -158,7 +158,7 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for target SQL Database logical server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](sql-database-recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with managed instance, see [Quickstart: Restore a database to a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](sql-database-recovery-using-backups.md). To learn more about backup recovery for SQL pool, see [Recover a SQL pool](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with managed instance, see [Quickstart: Restore a database to a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 

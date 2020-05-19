@@ -15,7 +15,7 @@
     href: tutorial-enable-sspr-writeback.md
   - name: Configure custom banned password lists
     href: tutorial-configure-custom-password-protection.md
-  - name: Integrate Azure Identity Protection
+  - name: Enable risk-based sign-in protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
   expanded: true
