@@ -20,7 +20,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + Debug sessions feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions). Debug sessions provides a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets or downloaded for import to your source-controlled project.
 
-+ Security enhancements include the ability to [set up a private search endpoint (preview)](service-create-private-endpoint.md) that is inaccessible on the public internet. You can also [configure IP rules for inbound firewall support](service-configure-firewall.md).
++ Security enhancements include the ability to [set up a private search endpoint (preview)](service-create-private-endpoint.md) that is inaccessible on the public internet. You can also [configure IP rules for inbound firewall support (preview)](service-configure-firewall.md).
 
 ### March 2020
 
