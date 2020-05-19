@@ -262,4 +262,3 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 <!--Image references-->
 [1]: ./media/firewall-configure/sqldb-firewall-1.png
- 

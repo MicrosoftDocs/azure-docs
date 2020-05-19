@@ -58,4 +58,3 @@ If the above mitigation doesn't work, file a support request for SQL Database us
 ## Next steps
 
 - Find out more about [Azure SQL Connectivity Architecture](connectivity-architecture.md)
- 

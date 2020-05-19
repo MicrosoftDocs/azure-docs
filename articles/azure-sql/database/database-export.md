@@ -105,4 +105,3 @@ $exportStatus
 - To learn about using the Data Migration Service to migrate a database, see [Migrate from SQL Server to Azure SQL Database offline using DMS](../../dms/tutorial-sql-server-to-azure-sql.md).
 - If you are exporting from SQL Server as a prelude to migration to Azure SQL Database, see [Migrate a SQL Server database to Azure SQL Database](migrate-to-database-from-sql-server.md).
 - To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
- 
