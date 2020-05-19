@@ -171,9 +171,15 @@ The functionalities of the parser are:
 > [!NOTE]
 > [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both PnP and Azure Digital Twins syntax.
 
-### Model parsing example
+### Use the validator tool
 
-Here is an example defining several models in an Azure Digital Twins instance.
+There is a tool available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library, and is available here: [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+
+### Use the parser library in code
+
+You can also use the parser library directly to validate models yourself.
+
+To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
 
 > [!TIP] 
 > The `dtmi:com:contoso:coffeeMaker` model is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that model.
