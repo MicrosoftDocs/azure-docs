@@ -198,7 +198,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 >[!NOTE] 
 >If you are running your own custom scheduler for Azure AD Connect sync, then please enable the scheduler. 
 
-Once the scheduler is enabled, Azure AD Connect will stop exporting any changes on objects with `cloudNoFlow=true` in the Metaverse, unless any reference attribute (eg. manager) is being updated. In case there is any reference attribute update on the object, Azure AD Connect will ignore the `cloudNoFlow` signal and export all updates on the object.
+Once the scheduler is enabled, Azure AD Connect will stop exporting any changes on objects with `cloudNoFlow=true` in the metaverse, unless any reference attribute (eg. manager) is being updated. In case there is any reference attribute update on the object, Azure AD Connect will ignore the `cloudNoFlow` signal and export all updates on the object.
 
 ## Something went wrong
 In case the pilot does not work as expected, you can go back to the Azure AD Connect sync setup by following the steps below:
