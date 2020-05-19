@@ -14,7 +14,7 @@ ms.date: 05/19/2020
 # Getting Started with Azure Synapse Analytics
 This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
 
-## Prepare a Storage account for use with an  Synapse workspace
+## Prepare a storage account for use with a Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com)
 * Create a new Storage account
 * Key settings in the **Basics** tab
@@ -28,8 +28,7 @@ This tutorial guides your all the basic steps needed to use Azure Synapse Analyt
     * Assign yourself to the **Azure Blob Storage Owner** role on the Storage Account
     * Create a container. You can give it any name. In this document we will use the name 'users`
 * Click **Review + create**. Click **Create**. 
-  
-  
+    
 ## Create a Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com) and at the top search for `Synapse`.
 * In the search results, under **Services** click **Azure Synapse Analytics (workspaces preview)**
@@ -46,7 +45,8 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 * Directly go to https://web.azuresynapse.net and login to your workspace.
 
 ## Create a SQL pool
-* In Synapse Studio, on the left side click **Manage > SQL pools**
+* In Synapse Studio, on the left side navigate to **Manage > SQL pools**
+* NOTE: All Synapse workspaces come with a pre-created pool called **SQL on-demand**.
 * Click **+New** and enter these settings:
     * For **SQL pool name** enter `SQLDB1`
     * For **Performance level** use `DW100C`
@@ -54,8 +54,9 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 * Your pool will be ready in a few minutes
 
 NOTE:
-* A Synapse SQL pool corresponds to what used to be called an "Azure SQL Datawartehouse"
-* A SQL pool consumes billiable resources as long as it's runing. So, you can pause the pool when needed to reduce costs
+* A Synapse SQL pool corresponds to what used to be called an "Azure SQL Data Warehouse"
+* A SQL pool consumes billable resources as long as it's runing. So, you can pause the pool when needed to reduce costs
+* When your SQL pool is created it will be associated with a SQL pool database also called **SQLDB1**.
 
 ## Create a Apache Spark pool
 
@@ -72,25 +73,28 @@ NOTE:
   the Synapse workspace how to interact with Spark. 
 * Because they are metadata Spark pools cannot be started or stopped. 
 * When you do any Spark activity in Synapse, you specify a spark pool to use. The pool informs SYnapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool the reources will automatically time-out and be recycled.
+* NOTE: Spark Databases are independently created from Spark pools. A workspace always has a Spark DB caleld **default** and you can create additional Spark databases.
 
-## SQL on-demand
+## SQL on-demand pools
 SQL on-demand is a special kind of SQL pool that is alwways available with a Synapse workspace. It allows you to work with SQL without having to create or think avout managing a Synapse SQL pool.
 
 NOTE:
 * Unlike the other kinds of pools, billing for SQL on-demand is based on the amount of data scanned to run the query - and not the number of resources used to execute the query.
+* SQL on-demand also has its own kind of SQL on-demand databases that exist independently from any SQL on-demand pool
+* Currently a workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
-## Load the NYC Taxi Sample data into your SQL pool SQLDB1
+## Load the NYC Taxi Sample data into your tge SQLDB1 database
 
 * In Synapse Studio, in the top-most blue menu, click on the **?** icon.
 * Select **Getting started > Getting started hub**
 * In the card labelled **Query sample data** select the SQL pool named `SQLDB1`
-* Click **Query data**. You will see a notification saying "Loading sample data". 
-* The NYXC taxi tables will be loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
+* Click **Query data**. You will see a notification saying "Loading sample data" which will appear an then disappear.
+* You'll see alight-blue  notification bar near the top of Synapse studio indicating that data is being loaded into SQLDB1. Wait until it turns green then dismiss it.
 
 ## Explore the NYC taxi data in the SQL Pool
 
 * In Synapse Studio, navigate to the **Data** hub
-* Navigate to **SQLDB1 > Tables > dbo.Trip**
+* Navigate to **SQLDB1 > Tables**. You'll see several tables have been loaded.
 * Right-click on the **dbo.Trip** table and select **New SQL Script > Select TOP 100 Rows**
 * A new SQL script will be created and automaticall run
 * Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called SQLDB1
@@ -105,16 +109,17 @@ NOTE:
     ORDER BY PassengerCount
     ```
 * This query shows how the total trip distances and average trip distance relate to the number of passengers
-* In the SQL scripts, result window select **Chart** to see a visualization of the results as a line chart
+* In the SQL script result window change the **View** to **Chart** to see a visualization of the results as a line chart
 
 ## Load the NYC data into a Spark Database
+We have data available in a SQL pool DB. Now we load it into a Spark database.
 
 * In Synapse Studio, navigate to the **Develop hub"
 * Click **+** and select **Notebook**
 * At the top of the notebook, set the **Attach to** value to `Spark1`
-* At the top of the notebook, set the **Language** to `Spark (Scala)`
-* Click **Add code** to a notebook code cell and paste the text below:
+* Click **Add code** to add a notebook code cell and paste the text below:
     ```
+    %% spark
     spark.sql("CREATE DATABASE nyctaxi")
     val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
     df.write.saveAsTable("nyctaxi.trip")
