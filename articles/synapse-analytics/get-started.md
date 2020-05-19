@@ -66,7 +66,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
 * Click **Create**
 * Your Spark pool will be ready in a few seconds
 
-## Load the NYX Taxi Sample data into your SQL pool
+## Load the NYC Taxi Sample data into your SQL pool
 
 * In Synapse Studio, it the topmost blue meny, click on the **?** icon.
 * Select **Getting started > Getting started hub**
@@ -137,6 +137,7 @@ Once your workspace is created, you can use Synapse Studio with it one of two wa
       ORDER BY PassengerCount
     """) 
     display(df)
+    df.write.saveAsTable("nyctaxi.passengercountstats")
     ```
  * In the cell results, click on **Chart** to see the data visualized
  
@@ -153,20 +154,19 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
 
     sns.set(style = "whitegrid")
 
-    df = spark.sql("""
-        SELECT PassengerCount,
-              SUM(TripDistanceMiles) as SumTripDistance,
-              AVG(TripDistanceMiles) as AvgTripDistance
-        FROM nyctaxi.trip
-        WHERE TripDistanceMiles > 0 AND PassengerCount > 0
-        GROUP BY PassengerCount
-        ORDER BY PassengerCount
-        """) 
+    df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
     df = df.toPandas()
-    sns.barplot(x="PassengerCount", y="AvgTripDistance", data = df)
+    sns.barplot(x="PassengerCount", y="SumTripDistance", data = df)
     plt.show()
     ```
- 
+## Load data from a Spark table into a SQL Pool table
+
+    ```
+    %%spark
+    val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
+    df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
+    ```
+
 ## Analytze NYC taxi data in Spark databases using SQL-on demand 
 
 * Tables in Spark databases are automatically visible and queryable by SQL on-demand
@@ -174,15 +174,14 @@ code shows a simple example using the popular libraries matplotlib and seaborn.
 * Set **Connect to** to **SQL on-demand** 
 * Paste the following text into the script
     ```
-    SELECT TOP 10 *
-    FROM nyctaxi.dbo.trip
+    SELECT *
+    FROM nyctaxi.dbo.passengercountstats
     ```
 * Click **Run**
 * NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run
   your queries. Every subsequent query will not require this time.
   
   
-
 ## Use pipeline to orchestrate activities
 
 You can orchestrate a wide variety of tasks in Azure Synapse. In this section, you'll see how easy it is.
