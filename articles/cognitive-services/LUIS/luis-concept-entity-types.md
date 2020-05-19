@@ -2,7 +2,7 @@
 title: Entity types - LUIS
 description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/17/2020
 ---
 
 # Extract data with entities
@@ -11,7 +11,7 @@ An entity extracts data from a user utterance at prediction runtime. An _optiona
 
 There are several types of entities:
 
-* [Machine-learned entity](reference-entity-machine-learned-entity.md)
+* [Machine-learned entity](reference-entity-machine-learned-entity.md) - this is the primary entity. You should design your schema with this entity type before using other entities.
 * Non-machine-learned used as a required [feature](luis-concept-feature.md) - for exact text matches, pattern matches, or detection by prebuilt entities
 * [Pattern.any](#patternany-entity) - to extract free-form text such as book titles from a [Pattern](reference-entity-pattern-any.md)
 
@@ -59,6 +59,14 @@ A machine-learned entity triggers based on the context learned through example u
 
 [**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level extractors. Subentities are child entities of machine-learned entities.
 
+## Effective machine learned entities
+
+To build the machine learned entities effectively:
+
+* Your labeling should be consistent across the intents. This includes even utterances you provide in the **None** intent that include this entity. Otherwise the model will not be able to determine the sequences effectively.
+* If you have a machine learned entity with subentities, make sure that the different orders and variants of the entity and subentities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
+* You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model doesn't generalize well, and is a common problem in machine learning models. This implies the app would not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept instead of just the examples shown.
+
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
 <a name="patternany-entity"></a>
@@ -79,6 +87,15 @@ Choose the entity based on how the data should be extracted and how it should be
 |[**Pattern.any**](#patternany-entity)|Entity where finding the end of entity is difficult to determine because the entity is free-form. Only available in [patterns](luis-concept-patterns.md).|
 |[**Prebuilt**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
 |[**Regular Expression**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
+
+
+## Extraction versus resolution
+
+Entities extract data as the data appears in the utterance. Entities do not change or resolve the data. The entity won't provide any resolution if the text is a valid value for the entity or not.
+
+There are ways to bring resolution into the extraction, but you should be aware that this limits the ability of the app to be immune against variations and mistakes.
+
+List entities and regular expression (text-matching) entities can be used as [required features](luis-concept-feature.md#required-features) to a subentity and that acts as a filter to the extraction. You should use this carefully as not to hinder the ability of the app to predict.
 
 ## Extracting contextually related data
 
