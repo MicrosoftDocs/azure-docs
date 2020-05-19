@@ -58,7 +58,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Routes diagnostic logs
 
-The following are the operation names and error codes logged in the [diagnostic logs](iot-hub-monitor-resource-health.md).
+The following are the operation names and error codes logged in the [diagnostic logs](iot-hub-monitor-resource-health.md#routes).
 
 <a id="diagnostics-operation-names"></a>
 ### Operation Names
