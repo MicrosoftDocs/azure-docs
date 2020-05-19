@@ -8,14 +8,14 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.date: 04/15/2020 
+ms.date: 05/19/2020 
 ---
 
 # Getting Started with Azure Synapse Analytics
-This tutorial guides leads developers through all the basic steps to needed to use Azure Synapse Analytics.
+This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
 
 ## Create a Synapse workspace
-First, you need a Synapse workspace. Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md) to create a workspace.
+First you need a Synapse workspace. Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md) to create a workspace.
 
 ## Launch Synapse Studio
 Once your workspace is created, you can use Synapse Studio with it one of two ways:
