@@ -2,7 +2,7 @@
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ---
 
 # What's new in Language Understanding
@@ -22,6 +22,12 @@ Learn what's new in the service. These items include release notes, videos, blog
 * Preview Authoring API changes
     * App schema 7.x for nested machine-learned entities
     * [Migration to required feature](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* New resources for developers
+    * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
+* [Customer managed keys](luis-encryption-of-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
+* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
+
 
 
 ### March 2020

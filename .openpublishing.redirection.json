@@ -757,6 +757,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/integrate-qnamaker-luis.md",
+      "redirect_url": "/azure/cognitive-services/luis/choose-natural-language-processing-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -810,6 +815,12 @@
       "source_path": "articles/cognitive-services/personalizer/how-to-learning-policy.md",
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
+    },
+
+
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
@@ -875,7 +886,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-publish-app",
       "redirect_document_id": false
     },
     {
@@ -2443,6 +2454,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
@@ -2810,6 +2826,11 @@
     {
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/create-mongodb-golang.md",
+      "redirect_url": "/azure/cosmos-db/create-mongodb-go",
       "redirect_document_id": true
     },
     {
@@ -5381,12 +5402,12 @@
       "source_path": "articles/event-grid/premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-grid/update-tier.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
@@ -8028,7 +8049,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
@@ -16115,7 +16136,7 @@
       "source_path": "articles/machine-learning/concept-event-grid-integration.md",
       "redirect_url": "/azure/machine-learning/how-to-use-event-grid",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/machine-learning/sample-designer-datasets.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
@@ -17300,7 +17321,7 @@
       "source_path": "articles/service-bus-relay/network-security.md",
       "redirect_url": "/azure/azure-relay/network-security",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/service-bus-relay/private-link-service.md",
       "redirect_url": "/azure/azure-relay/private-link-service",
@@ -17375,12 +17396,12 @@
       "source_path": "articles/service-bus-relay/relay-migrate-acs-sas.md",
       "redirect_url": "/azure/azure-relay/relay-migrate-acs-sas",
       "redirect_document_id": false
-    },            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-port-settings.md",
       "redirect_url": "/azure/azure-relay/relay-port-settings",
       "redirect_document_id": false
-    },            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-what-is-it.md",
       "redirect_url": "/azure/azure-relay/relay-what-is-it",
@@ -17390,7 +17411,7 @@
       "source_path": "articles/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md",
       "redirect_url": "/azure/azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay",
       "redirect_document_id": false
-    },                
+    },
     {
       "source_path": "articles/service-bus-relay/service-bus-relay-rest-tutorial.md",
       "redirect_url": "/azure/azure-relay/service-bus-relay-rest-tutorial",
@@ -17405,7 +17426,7 @@
       "source_path": "articles/service-bus-relay/service-bus-relay-tutorial.md",
       "redirect_url": "/azure/azure-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
-    },                            
+    },
     {
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/azure-relay/azure-relay-tutorial",
@@ -17760,6 +17781,16 @@
       "source_path": "articles/synapse-analytics/apache-spark-notebook-create-spark-use-sql.md",
       "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/quickstart-create-apache-spark-pool.md",
+      "redirect_url": "/synapse-analytics/quickstart-create-apache-spark-pool-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
+      "redirect_url": "azure/synapse-analytics/quickstart-create-sql-pool-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
@@ -20240,7 +20271,7 @@
       "source_path": "articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/marketplace/enable-lead-sharing.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
@@ -51555,7 +51586,7 @@
     },
     {
       "source_path": "articles/databox-online/data-box-edge-troubleshoot.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot", 
+      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -51925,7 +51956,7 @@
     },
     {
       "source_path": "articles/terraform/terraform-create-complete-vm.md",
-      "redirect_url": "/azure/developer/terraform/create-linux-virtual machine-with-infrastructure",
+      "redirect_url": "/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure",
       "redirect_document_id": false
     },
     {
@@ -52152,6 +52183,11 @@
       "source_path": "articles/sql-database-edge/tutorial-sync-data-factory.md",
       "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
       "redirect_document_id": true
-    }
+    },
+	{
+		"source_path":"articles/azure-monitor/app/alerts.md",
+		"redirect_url":"/articles/azure-monitor/platform/alerts-log",
+		"redirect_document_id": false 		
+	}
  ]
 }

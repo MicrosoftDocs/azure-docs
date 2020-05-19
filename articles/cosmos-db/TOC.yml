@@ -132,11 +132,13 @@
       - name: Request units
         displayName: RUs, RU
         href: request-units.md
-      - name: Provision throughput on containers and databases
+      - name: Provisioned throughput introduction
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
-      - name: Provision throughput - autoscale
+      - name: Provision autoscale throughput
         href: provision-throughput-autoscale.md
+      - name: Choose between autoscale and standard (manual) throughput
+        href: how-to-choose-offer.md    
       - name: Autoscale FAQ
         href: autoscale-faq.md
     - name: SQL query
@@ -568,6 +570,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
+      - name: Azure Policy support
+        href: policy.md
     - name: Service quotas
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
@@ -664,8 +668,6 @@
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
-          href: create-mongodb-golang.md
-        - name: Go
           href: create-mongodb-go.md
       - name: Tutorials
         items:
@@ -922,12 +924,15 @@
         href: how-to-convert-session-token.md
     - name: Provisioned throughput
       items:
-      - name: Provision throughput on a container
+      - name: Provision standard (manual) throughput on a container
         displayName: request units, RUs, RU, collection level
         href: how-to-provision-container-throughput.md
-      - name: Provision throughput on a database
+      - name: Provision standard (manual) throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level
         href: how-to-provision-database-throughput.md
+      - name: Provision autoscale throughput on a database or container
+        displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+        href: how-to-provision-autoscale-throughput.md
       - name: Estimate RU/s with Cosmos capacity planner
         displayName: request units, RUs, RU, capacity
         href: estimate-ru-with-capacity-planner.md
@@ -1034,8 +1039,10 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
-      - name: Use built-in notebook commands
-        href: use-notebook-features-and-commands.md
+      - name: Use built-in Python notebook commands
+        href: use-python-notebook-features-and-commands.md
+      - name: Use built-in C# notebook commands
+        href: use-csharp-notebook-features-and-commands.md        
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, and UDFs
@@ -1160,6 +1167,8 @@
         href: migrate-relational-to-cosmos-db-sql-api.md
       - name: Migrate - Couchbase to SQL API
         href: couchbase-cosmos-migration.md
+      - name: Migrate - DynamoDB to SQL API
+        href: dynamo-to-cosmos.md
     - name: Bulk executor library
       items:
       - name: About bulk executor library
@@ -1182,12 +1191,16 @@
       href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET bulk executor library
       href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java
-      href: sql-api-sdk-java.md
     - name: Java bulk executor library
       href: sql-api-sdk-bulk-executor-java.md
-    - name: Async Java
-      href: sql-api-sdk-async-java.md
+    - name: Java SDK v4 for Core
+      href: sql-api-sdk-java-v4.md
+    - name: Older Java SDKs for Core
+      items:
+      - name: Async Java SDK v2
+        href: sql-api-sdk-async-java.md
+      - name: Sync Java SDK v2
+        href: sql-api-sdk-java.md        
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
