@@ -109,7 +109,7 @@ In every automated machine learning experiment, your data is preprocessed using 
 
 ### Automatic preprocessing (standard)
 
-In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model.
+In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how autoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
 
 |Scaling&nbsp;&&nbsp;normalization| Description |
 | ------------- | ------------- |
