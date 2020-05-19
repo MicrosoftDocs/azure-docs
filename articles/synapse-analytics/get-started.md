@@ -18,27 +18,40 @@ This tutorial guides leads developers through all the basic steps to needed to u
 First, you need a Synapse workspace. Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md) to create a workspace.
 
 ## Launch Synapse Studio
-You can find Synapse Studio in one of two ways:
+Once your workspace is created, you can use Synapse Studio with it one of two ways:
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the Overview section click
-### Provisioning a SQL pool
+* Go to https://web.azuresynapse.net and login to your workspace
 
-Here are the steps to provision a SQL pool using the Azure portal:
+### Create a SQL pool
 
-1. Navigate to the Azure portal.
-2. Navigate to the workspace searching its name, or by navigating to the **Synapse workspaces** service, and selecting the workspace from the list.
-3. Click on **+ New SQL pool**.
-4. Enter a valid name for the SQL pool.
-5. Select a performance level for the SQL pool.
-6. Click on **Next: Additional settings**.
-7. Select a data source to use for the SQL pool database -- none for an empty database or restore point of a backup from an existing database.
-8. [Optional] Change the default collation of the database.
-9. Click on **Review + create**.
-10. If everything looks good, click on **Create**
+* In Synapse Studio, on the left side click **Manage > SQL pools**
+* Click **+New**
+* For **SQL pool name** enter `SQLDB1`
+* For **Performance level** use `DW100C`
+* Click **Review+create**
+* Click **Create**
+* Your pool will be ready in a few minutes
 
-Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
+### Create a Spark pool
 
+* In Synapse Studio, on the left side click **Manage > Apache Sparke pools**
+* Click **+New**
+* For **Apache Spark pool name** enter `Spark1`
+* For **Node size** select `Small`
+* For **Number of nodes** set the minimum to 3 and the maximum to 3
+* Click **Review+create**
+* Click **Create**
+* Your Spark pool will be ready in a few seconds
 
-## Getting started Hub
+## Load the NYX Taxi Sample data into your SQL pool
+
+* In Synapse Studio, it the topmost blue meny, click on the **?** icon.
+* Select **Getting started > Getting started hub**
+* In the card labelled **Query sample data** select the SQL pool `SQLDB1`
+* Click **Query data**
+* You will see a notification saying "Loading sample data". 
+* NYXC taxi data tables are being loaded into SQLDB1 and this takes only a few minutes. Wait until it finishes.
+
 
 You can run some SQL Scripts using the New-York City cabs sample data loaded into a newly created SQL pool or using an existing SQL pool. Here is an overview of the Getting started Hub:
 1. From the Azure home page navigate to the Getting started hub clicking on the "?"
