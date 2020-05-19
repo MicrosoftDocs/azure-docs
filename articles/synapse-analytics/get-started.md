@@ -184,6 +184,7 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 
 
 ## Visualize data with Power BI
+
 Your data can now be easily analyzed and visualized in Power BI. Synapse offers a unique integration which allows you to link a Power BI workspace to you Synapse workspace. Before starting, frist follow the steps in this [quickstart](quickstart-power-bi.md) to link your Power BI workspace.
 
 * In Synapse Studio, navigate to the **Data** hub
