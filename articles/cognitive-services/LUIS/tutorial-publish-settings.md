@@ -33,9 +33,11 @@ Sentiment analysis is a publish setting that applies to every utterance. Once se
 
 Because it is a publish setting, you do not see it labeled on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL.
 
-## Import example .json to begin app
+## Download JSON file for app
 
-1.  Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+
+## Import JSON file for app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

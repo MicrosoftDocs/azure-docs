@@ -141,8 +141,21 @@
     - name: Cloud event schema
       href: cloud-event-schema.md
   - name: Event handlers
-    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
-    href: event-handlers.md
+    href: event-handlers.md  
+    items:
+    - name: Webhooks
+      displayName: Azure Automation, Webhooks, Logic Apps
+      href: handler-webhooks.md
+    - name: Azure Functions
+      href: handler-functions.md
+    - name: Event Hubs 
+      href: handler-event-hubs.md
+    - name: Service Bus
+      href: handler-service-bus.md
+    - name: Relay hybrid connections
+      href: handler-relay-hybrid-connections.md
+    - name: Storage queues
+      href: handler-storage-queues.md
   - name: Event delivery
     items: 
     - name: Event filtering
@@ -226,7 +239,9 @@
   - name: Python
     href: /python/api/overview/azure/event-grid
   - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid
+    href: /javascript/api/overview/azure/eventgrid  
+  - name: Quotas and limits
+    href: quotas-limits.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Template resources
