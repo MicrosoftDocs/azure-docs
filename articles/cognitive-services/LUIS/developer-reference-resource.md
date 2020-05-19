@@ -48,15 +48,16 @@ Both authoring and prediction endpoint APIS are available from REST APIs:
 
 LUIS currently has 2 types of endpoints:
 
-* authoring on the training endpoint
-* query prediction on the runtime endpoint.
+* **authoring** on the training endpoint
+* query **prediction** on the runtime endpoint.
 
 |Purpose|URL|
 |--|--|
-|Authoring on training endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
-|V2 Runtime - all predictions on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
-|V3 Runtime - versions prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
-|V3 Runtime - slot prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V2 Authoring on training endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|V3 Authoring on training endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/authoring/v3.0-preview/apps/{appID}/`|
+|V2 Prediction - all predictions on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|V3 Prediction - versions prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V3 Prediction - slot prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
 The following table explains the parameters, denoted with curly braces `{}`, in the previous table.
 
