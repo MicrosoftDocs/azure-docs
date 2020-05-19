@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -47,6 +47,7 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
+
 ## Supported scenarios
 
 The following scenarios are supported for staged rollout. The feature works only for:
@@ -54,6 +55,7 @@ The following scenarios are supported for staged rollout. The feature works only
 - Users who are provisioned to Azure AD by using Azure AD Connect. It does not apply to cloud-only users.
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
+- Group size is currently limited to 50,000 users.  If you have groups that are larger then 50,000 users, it is recommended to split this group over multiple groups for staged rollout.
 
 ## Unsupported scenarios
 
@@ -73,6 +75,9 @@ The following scenarios are not supported for staged rollout:
 - You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
+
+>[!NOTE]
+> Because tenanted endpoints do not send login hints, they are not supported for staged rollout.  SAML applications use the tenanted endpoints and are also not support for staged rollout.
 
 ## Get started with staged rollout
 

@@ -12,7 +12,7 @@ ms.date: 03/31/2020
 
 # Automatically scale Azure Synapse Analytics Apache Spark pools
 
-Azure Synapse Spark pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Azure Synapse Spark pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
+Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
 
 ## Metrics monitoring
 
@@ -53,7 +53,7 @@ To enable the Autoscale feature, complete the following steps as part of the nor
     * **Min** number of nodes.
     * **Max** number of nodes.
 
-The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can not be less than three.
+The initial number of nodes will be the minimum. This value defines the initial size of the instance when it's created. The minimum number of nodes can't be fewer than three.
 
 ## Best practices
 
@@ -69,4 +69,4 @@ The running jobs will continue to run and finish. The pending jobs will wait to 
 
 ## Next steps
 
-Quickstart to set up a new Spark pool [Create a Spark pool](..\quickstart-create-apache-spark-pool.md)
+Quickstart to set up a new Spark pool [Create a Spark pool](../quickstart-create-apache-spark-pool-portal.md)

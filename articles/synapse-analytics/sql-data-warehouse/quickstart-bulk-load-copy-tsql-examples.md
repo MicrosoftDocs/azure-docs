@@ -23,7 +23,7 @@ The following matrix describes the supported authentication methods for each fil
 |  Azure blob storage  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
 | Azure Data Lake Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
-## A. Storage account key with LF as the row terminator
+## A. Storage account key with LF as the row terminator (Unix-style new line)
 
 
 ```sql
@@ -42,7 +42,7 @@ WITH (
 >
 > - Use the hexadecimal value (0x0A) to specify the Line Feed/Newline character. Note the COPY statement will interpret the '\n' string as '\r\n' (carriage return newline).
 
-## B. Shared Access Signatures (SAS) with CRLF as the row terminator
+## B. Shared Access Signatures (SAS) with CRLF as the row terminator (Windows style new line)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
