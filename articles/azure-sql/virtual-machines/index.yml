@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Find documentation about Azure SQL Database. 
-summary: Find concepts, quickstarts, tutorials, and samples for singled and pooled databases in Azure SQL Database, and the logical SQL server that manages them. 
+title: Find documentation about SQL Server on Azure VMs. . 
+summary: Find concepts, quickstarts, tutorials, and samples for SQL Server installed to Azure virtual machines, both Windows and Linux. 
 
 metadata:
-  title: Azure SQL Database documentation
-  description: Find documentation about Azure SQL Database, a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
+  title: SQL Server on Azure VM documentation
+  description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
   services: sql-database
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: landing-page
-  author: stevestein
-  ms.author: sstein
+  author: MashaMSFT
+  ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 05/27/2020
 
@@ -22,120 +22,87 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: Azure SQL Database
+  - title: SQL Server on Azure VM 
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create SQL Database
-            url: single-database-create-quickstart.md
-      - linkListType: concept
+          - text: Create Windows SQL VM (portal)
+            url: windows/sql-vm-create-portal-quickstart.md
+          - text: Create Windows SQL VM (PowerShell)
+            url: windows/sql-vm-create-powershell-quickstart.md
+          - text: Create Linux SQL VM (portal)
+            url: linux/sql-vm-create-portal-quickstart.md 
+      - linkListType: overview 
         links:
-          - text: What is SQL Database?
-            url: sql-database-paas-overview.md
-          - text: Purchasing options
-            url: purchasing-models.md
-          - text: Service tiers
-            url: service-tiers-general-purpose-business-critical.md
-          - text: Serverless compute
-            url: serverless-tier-overview.md
-          - text: Hyperscale service tier
-            url: service-tier-hyperscale.md
+          - text: What's new? 
+            url: windows/doc-changes-updates-release-notes.md?
+          - text: What is SQL Server on Windows VM? 
+            url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+          - text: What is SQL Server on Linux VM?
+            url: linux/sql-server-on-azure-vm-iaas-what-is-overview.md
           - text: Migrate from SQL Server
-            url: migrate-to-database-from-sql-server.md
-          - text: T-SQL differences with SQL Server
-            url: transact-sql-tsql-differences-sql-server.md
+            url: windows/migrate-to-vm-from-sql-server.md
+          - text: Security considerations
+            url: windows/security-considerations-best-practices.md
+
+          - text: Performance guidelines
+            url: windows/performance-guidelines-best-practices.md
+          - text: Pricing guidance 
+            url: windows/pricing-guidance.md 
 
   # Card 
-  - title: Elastic pools
+  - title: Manage
     linkLists:
       - linkListType: concept
         links:
-          - text: What is an elastic pool? 
-            url: elastic-pool-overview.md
-          - text: Manage
-            url: elastic-pool-manage.md
-          - text: Scale
-            url: elastic-pool-scale.md
+          - text: SQL Server IaaS Agent extension
+            url: windows/sql-server-iaas-agent-extension-automate-management.md 
+          - text: Manage with Azure portal
+            url: windows/manage-sql-vm-portal.md
+          - text: Register with SQL VM resource provider
+            url: windows/sql-vm-resource-provider-register
+          - text: Automated patching
+            url: windows/automated-patching.md 
+          - text: Change license type 
+            url: windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+          - text: Change edition of SQL Server
+            url: windows/change-sql-server-edition.md
           - text: Resource management 
             url: elastic-pool-resource-management.md
+          - text: Move to new region
+            url: windows/move-sql-vm-different-region.md 
+          - text: Integrate with Azure Key Vault
+            url: windows/azure-key-vault-integration-configure.md
 
   # Card 
-  - title: Logical SQL server in Azure
+  - title: Business continuity 
     linkLists:
-      - linkListType: quickstart
+      - linkListType: overview
         links:
-          - text: Configure firewall
-            url: firewall-create-server-level-portal-quickstart.md 
-      - linkListType: concept
-        links:
-          - text: Overview
-            url: sql-database-servers.md
-          - text: Connectivity settings
-            url: sql-database-connectivity-settings.md
-          - text: Resource limits
-            url: resource-limits-logical-server
-            
-
-
-  # Card 
-  - title: Advanced security
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Security capabilities
-            url: security-overview.md
-          - text: Security best practices
-            url: security-best-practice.md
-          - text: Logins, user accounts, roles, and permissions
-            url: logins-create-manage.md
-          - text: Azure Active Directory
-            url: aad-authentication-overview.md
-          - text: Auditing
-            url: auditing-overview.md 
-          - text: Transparent Data Encryption (TDE)
-            url: transparent-data-encryption-tde-overview.md
-          - text: Dynamic Data Masking
-            url: dynamic-data-masking-overview.md 
-
-
-
-  # Card 
-  - title: Scalability
-    linkLists:
+          - text: High availability & disaster recovery
+            url: windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          - text: Backup and restore 
+            url: windows/backup-restore.md
+          - text: Availability groups
+            url: windows/availability-group-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Dynamically scale up or down
-            url: scale-resources.md
-          - text: Read Scale-Out
-            url: read-scale-out.md
-          - text: Cross database jobs
-            url: elastic-jobs-overview.md
-          - text: Elastic scale
-            url: elastic-scale-introduction.md 
-          - text: Elastic query 
-            url: elastic-query-overview
-          
-  # Card 
-  - title: Business continuity  
-    linkLists:
-      - linkListType: how-to-guide
+          - text: Availability group (Az CLI)
+            url: windows/availability-group-az-cli-configure.md
+          - text: Clusterless availability group
+            url: windows/availability-group-clusterless-workgroup-configure.md
+          - text: FCI (Storage Spaces Direct) 
+            url: windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+          - text: FCI (Premium File Share)
+            url: windows/failover-cluster-instance-premium-file-share-manually-configure.md
+      - linkListType: tutorial
         links:
-          - text: Business continuity 
-            url: business-continuity-high-availability-disaster-recover-hadr-overview.md
-          - text: High availability
-            url: high-availability-sla.md
-          - text: Active-geo replication
-            url: active-geo-replication-overview.md 
-          - text: Auto-failover groups
-            url: auto-failover-group-overview.md 
-          - text: Automated backups
-            url: automated-backups-overview.md
-          - text: Recover with backup 
-            url: recovery-using-backup.md 
-          - text: Long-term backup retention  
-            url: long-term-retention-overview.md
-
-
+          - text: Availability group (manually)
+            url: windows/availability-group-manually-configure-prerequisites-tutorial.md 
+          - text: Stonith availability group (RHEL)
+            url: linux/rhel-high-availability-stonith-tutorial.md
+          - text: Availability group listener (RHEL)
+            url: linux/rhel-high-availability-listener-tutorial.md 
 
   # Card 
   - title: Reference 
