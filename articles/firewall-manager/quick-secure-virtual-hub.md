@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Quickstart: Secure your virtual hub using Azure Firewall Manager - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager.
+In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager Preview.
 
 The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
