@@ -79,7 +79,7 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
    > Use the client ID and client secret from the app you created above in the Facebook developer console. For more information, see the [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) article. 
 
 ## How do I remove Facebook federation?
-You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook account will no longer be able to log in. 
+You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to log in. 
 
 ### To delete Facebook federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
