@@ -15,7 +15,7 @@ ms.date: 05/15/2020
 
 # Copy data from and to Snowflake by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Snowflake. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
