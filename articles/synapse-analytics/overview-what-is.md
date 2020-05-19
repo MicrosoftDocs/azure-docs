@@ -59,7 +59,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
 
-* Move data between Synapse and 85+ on-premises data sources
+* Move data between Azure Synapse and 90+ on-premises data sources
 * Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
 * Code-Free ETL with Data flow activities
 
@@ -83,6 +83,6 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * [Create a workspace](quickstart-create-workspace.md)
 * [Use Synapse Studio](quickstart-synapse-studio.md)
-* [Create a SQL pool](quickstart-create-sql-pool.md)
+* [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 * [Use SQL on-demand](quickstart-sql-on-demand.md)
-* [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
+* [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)

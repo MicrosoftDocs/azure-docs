@@ -25,8 +25,6 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Security - Enable Customer Managed Key Encryption
-    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -416,6 +414,8 @@
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Data consistency verification
+      href: copy-activity-data-consistency.md
     - name: Format and compression support (legacy)
       href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
@@ -553,8 +553,12 @@
       href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
+    - name: Customer managed key encryption
+      href: quickstart-enable-customer-managed-key.md
   - name: Monitor and manage
     items:
+    - name: Monitor visually
+      href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor with SDKs
@@ -577,6 +581,8 @@
       href: create-azure-ssis-integration-runtime.md
     - name: Shared self-hosted integration runtime
       href: create-shared-self-hosted-integration-runtime-powershell.md
+    - name: Automation scripts of self-hosted integration runtime
+      href: self-hosted-integration-runtime-automation-scripts.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -597,12 +603,10 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
-    - name: Connect to data with Windows Authentication
-      href: ssis-azure-connect-with-windows-auth.md
-    - name: Save files and connect to file shares
-      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Built-in and preinstalled components on Azure-SSIS IR
+      href: built-in-preinstalled-components-ssis-integration-runtime.md
     - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
     - name: Install licensed components for Azure-SSIS IR
@@ -613,6 +617,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
+      href: how-to-use-sql-managed-instance-with-ir.md
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
