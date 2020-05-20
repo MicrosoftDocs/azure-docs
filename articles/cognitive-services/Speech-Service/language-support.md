@@ -19,7 +19,7 @@ Language support varies by Speech service functionality. The following tables su
 
 ## Speech-to-text
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences. Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences. Pronunciation customization is offered through uploading Related Text: Pronunciation. Learn more about customization [here](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -34,7 +34,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabic (UAE)                      | Yes       | No                                                |
 | `ar-BH` | Arabic (Bahrain), modern standard | Yes       | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Yes       | Language model                                    |
+| `ar-IL` | Arabic (Israel)                   | Yes       | No                                                |
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
+| `ar-PS` | Arabic (Palestine)                | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
 | `ar-SY` | Arabic (Syria)                    | Yes       | Language model                                    |

@@ -47,7 +47,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. From the download location (usually the Downloads folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
+7. Make sure [you have the right machine](#selecting-the-right-machine-to-run-the-script) to execute the script. If the right machine is the same machine where you downloaded the script, then you can continue to the download section. From the download location (usually the *Downloads* folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -78,6 +78,23 @@ After identifying the files and copying them to a local storage location, remove
 Once the disks have been unmounted, you receive a message. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
+
+## Selecting the right machine to run the script
+
+If the script is successfully downloaded, then the next step is to verify whether the machine on which you plan to execute the script  is the right machine. Following are the requirements to be fulfilled on the machine.
+
+### Original backed up machine versus another machine
+
+1. If the backed-up machine is a large disk VM - that is, the number of disks is greater than 16 disks or each disk is greater than 4 TB, then the script **must be executed on another machine** and [these requirements](#file-recovery-from-virtual-machine-backups-having-large-disks) have to be met.
+1. Even if the backed-up machine isn't a large disk VM, in [these scenarios](#special-configurations) the script can't be run on the same backed-up VM.
+
+### OS requirements on the machine
+
+The machine where the script needs to be executed must meet [these OS requirements](#system-requirements).
+
+### Access requirements for the machine
+
+The machine where the script needs to be executed must meet [these access requirements](#access-requirements).
 
 ## Special configurations
 
@@ -212,8 +229,6 @@ For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to 
 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
-You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
-
 ## File recovery from Virtual machine backups having large disks
 
 This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks and each disk size is greater than 32 TB.
@@ -240,7 +255,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
   - In the file /etc/iscsi/iscsid.conf, change the setting from:
     - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
 - After making the change above, run the script again. With these changes, it's highly probable that the file recovery will succeed.
-- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/Powershell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
+- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/PowerShell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to the portal and click **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 ## Troubleshooting
@@ -298,6 +313,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 ## Next steps
 
 - For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
-- Learn how to [restore files via Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
+- Learn how to [restore files via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
 - Learn how to [restore files via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
 - After VM is restored, learn how to [manage backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
