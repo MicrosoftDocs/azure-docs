@@ -6,7 +6,7 @@ ms.author: ashishth
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ---
 
 # Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4
