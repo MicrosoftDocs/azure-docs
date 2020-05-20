@@ -151,4 +151,4 @@ When the move is complete, verify that the capabilities listed below are enabled
 
 ## Next steps
 
-To learn about moving resources in Azure generally, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).
+[Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md)

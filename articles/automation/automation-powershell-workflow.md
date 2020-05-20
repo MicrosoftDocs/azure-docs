@@ -290,4 +290,4 @@ For more information about checkpoints, see [Adding Checkpoints to a Script Work
 
 ## Next steps
 
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+* [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
