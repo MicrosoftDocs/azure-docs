@@ -22,7 +22,7 @@ With Private Link you can:
 - Stop data exfiltration from your networks by only authorizing access to specific resources, and block access to all destinations
 - Securely connect your private on-premises network to Azure Monitor using ExpressRoute and Private Link
 
-For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview#key-benefits.md)
+For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits)
 
 ## How it works
 
@@ -145,7 +145,7 @@ First, you can connect this Application Insights resource to Azure Monitor Priva
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
 If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes cannot upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to dashboards, query API, insights in the Azure portal, and more.
 
-Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security).
+Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
 ## Using customer-owned storage accounts for log ingestion
 
