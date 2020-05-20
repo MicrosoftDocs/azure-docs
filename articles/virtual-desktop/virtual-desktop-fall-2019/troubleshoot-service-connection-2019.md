@@ -35,17 +35,6 @@ Confirm that the user is logging in with the correct credentials.
 
 If the web client is being used, confirm that there are no cached credentials issues.
 
-### Disable BgTaskRegistrationMaintenanceTask
-
-If updating FSLogix doesn't work, the issue might be that a BiSrv component is exhausting system resources during a weekly maintenance task. Temporarily disable the maintenance task by disabling the BgTaskRegistrationMaintenanceTask with one of these two methods:
-
-- Go to the Start menu and search for **Task Scheduler**. Navigate to **Task Scheduler Library** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Look for a task named **BgTaskRegistrationMaintenanceTask**. When you find it, right-click it and select **Disable** from the drop-down menu.
-- Open a command-line menu as administrator and run the following command:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
-
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
