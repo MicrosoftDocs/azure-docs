@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ms.author: allensu
 ---
 
@@ -185,7 +185,7 @@ You configure NAT gateway, IP address(es) to use, and which subnet should use a 
 
 _**Solution:**_
 
-[Virtual Network NAT](nat-overview.md) replaces the outbound connectivity for the subnet it is configured on. When transitioning from default SNAT or load balancer outbound SNAT to using NAT gateways, new connections will immediately begin using the IP address(es) associated with the NAT gateway resource.  However, if a virtual machine still has an established connection during the switch to NAT gateway resources, the connection will continue using the old SNAT IP address that was assigned when the connection was established.  Make sure you are really establishing a new connection rather than reusing a connection that already existed because the OS or the browser was caching the connections in a connection pool.  For example, when using _curl_ in PowerShell, make sure to specify the _-DisableKeepalive_ parameter to force a new connection to be reused.  If you're using a browser, connections may also be pooled.
+[Virtual Network NAT](nat-overview.md) replaces the outbound connectivity for the subnet it is configured on. When transitioning from default SNAT or load balancer outbound SNAT to using NAT gateways, new connections will immediately begin using the IP address(es) associated with the NAT gateway resource.  However, if a virtual machine still has an established connection during the switch to NAT gateway resource, the connection will continue using the old SNAT IP address that was assigned when the connection was established.  Make sure you are really establishing a new connection rather than reusing a connection that already existed because the OS or the browser was caching the connections in a connection pool.  For example, when using _curl_ in PowerShell, make sure to specify the _-DisableKeepalive_ parameter to force a new connection.  If you're using a browser, connections may also be pooled.
 
 It's not necessary to reboot a virtual machine configuring a subnet for a NAT gateway resource.  However, if a virtual machine is rebooted, the connection state is flushed.  When the connection state has been flushed, all connections will begin using the NAT gateway resource's IP address(es).  However, this is a side effect of the virtual machine being rebooted and not an indicator that a reboot is required.
 
