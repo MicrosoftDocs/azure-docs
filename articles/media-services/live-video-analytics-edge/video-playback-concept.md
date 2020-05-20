@@ -9,17 +9,17 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading 
 
-* [Live Video Analytics on IoT Edge Overview](overview.md)
-* [Live Video Analytics on IoT Edge Terminology](terminology.md)
-* [Media Graph Concept](media-graph-concept.md)
+* [Live Video Analytics on IoT Edge overview](overview.md)
+* [Live Video Analytics on IoT Edge terminology](terminology.md)
+* [Media graph concept](media-graph-concept.md)
 
 ## Overview  
 
-You can use [Media Graphs](media-graph-concept.md) to record media into an Azure Media Services [asset](terminology.md#asset). In this document, you can learn about how to play the media, via [streaming](terminology.md#streaming).
+You can use [media graphs](media-graph-concept.md) to record media into an Azure Media Services [asset](terminology.md#asset). In this document, you can learn about how to play the media, via [streaming](terminology.md#streaming).
 
 ## Streaming endpoint 
 
-You can use Azure Media Services to stream the media, that you recorded into Assets, to clients using industry-standard, HTTP-based media streaming protocols like HTTP Live Streaming (HLS) and MPEG-DASH. This conversion of media from recorded content into streaming formats is handled by the so-called [Streaming Endpoint](../latest/streaming-endpoint-concept.md), which is a resource that you need to provision in your Azure Media Service account.
+You can use Azure Media Services to stream the media, that you recorded into Assets, to clients using industry-standard, HTTP-based media streaming protocols like HTTP Live Streaming (HLS) and MPEG-DASH. This conversion of media from recorded content into streaming formats is handled by the so-called [streaming endpoint](../latest/streaming-endpoint-concept.md), which is a resource that you need to provision in your Azure Media Service account.
 
 ## Streaming policy 
 
@@ -37,7 +37,7 @@ Once you have a Streaming Endpoint started in your Media Service account, and St
 
 ## Content recorded using file sink  
 
-As described in [Media Graph file sink](media-graph-concept.md#file-sink), you can use Media Graphs to record video into the local file system of the Edge device using the File Sink component. This component generates [MP4](https://developer.mozilla.org/docs/Web/Media/Formats/Containers#MP4) files, and you can use the HTML5 [&lt;video&gt;](https://developer.mozilla.org/docs/Web/HTML/Element/video) element to play such content. 
+As described in [media graph file sink](media-graph-concept.md#file-sink), you can use Media Graphs to record video into the local file system of the Edge device using the File Sink component. This component generates [MP4](https://developer.mozilla.org/docs/Web/Media/Formats/Containers#MP4) files, and you can use the HTML5 [&lt;video&gt;](https://developer.mozilla.org/docs/Web/HTML/Element/video) element to play such content. 
 
 ## Next steps
 
