@@ -16,7 +16,7 @@ We recommend you review [Limitations and constraints](#limitations-and-constrain
 
 ## Disclaimers
 
-The CMK capability is delivered on dedicated Log Analytics clusters. The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
+The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted.
 
 ## Customer-managed key (CMK) overview
 
@@ -25,6 +25,8 @@ Encryption at Rest(https://docs.microsoft.com/azure/security/fundamentals/encryp
 Azure Monitor ensures that all data is encrypted at rest using Azure-managed keys. Azure Monitor also provides an option for data encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by Storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
 
 Azure Monitor use of encryption is identical to the way [Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) operates.
+
+The CMK capability is delivered on dedicated Log Analytics clusters. The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
 
 Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
 
@@ -73,7 +75,7 @@ The following rules apply:
 
 ## CMK provisioning procedure
 
-1. Subscription whitelisting -- To assure that we have the required capacity in your region to provision a Log Analytics cluster, we need to verify and whitelist your subscription beforehand
+1. Subscription whitelisting -- The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted
 2. Creating Azure Key Vault and storing key
 3. Creating a *Cluster* resource
 5. Granting permissions to your Key Vault
@@ -609,5 +611,5 @@ All your data remains accessible after the key rotation operation including data
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the *Cluster* resource to resume data ingestion and ability to query data.
 
-- For support and help related to customer managed key, use your contacts into Microsoft.
+- For support and help related to customer managed key, use your Microsoft contact to contact us.
 

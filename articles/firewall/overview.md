@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -119,10 +119,11 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Active FTP isn't supported|Active FTP is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP PORT command.|You can use Passive FTP instead. You must still explicitly open TCP ports 20 and 21 on the firewall.
 |SNAT port utilization metric shows 0%|The Azure Firewall SNAT port utilization metric may show 0% usage even when SNAT ports are used. In this case, using the metric as part of the firewall health metric provides an incorrect result.|This issue has been fixed and rollout to production is targeted for May 2020. In some cases, firewall redeployment resolves the issue, but it's not consistent. As an intermediate workaround, only use the firewall health state to look for *status=degraded*, not for *status=unhealthy*. Port exhaustion will show as *degraded*. *Not healthy* is reserved for future use when the are more metrics to impact the firewall health.
 |DNAT isn't supported with Forced Tunneling enabled|Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.|This is by design because of asymmetric routing. The return path for inbound connections goes via the on-premises firewall, which hasn't seen the connection established.
-|Outbound Passive FTP doesn't work for Firewalls with multiple public IP addresses.|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP fails when data and control channels use different source IP addresses.|An explicit SNAT configuration is planned. In the meantime, consider using a single IP address in this situation.|
+|Outbound Passive FTP doesn't work for Firewalls with multiple public IP addresses|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP fails when data and control channels use different source IP addresses.|An explicit SNAT configuration is planned. In the meantime, consider using a single IP address in this situation.|
 |NetworkRuleHit metric is missing a protocol dimension|The ApplicationRuleHit metric allows filtering based protocol, but this capability is missing in the corresponding NetworkRuleHit metric.|A fix is being investigated.|
 |NAT rules with ports between 64000 and 65535 are unsupported|Azure Firewall allows any port in the 1-65535 range in network and application rules, however NAT rules only support ports in the 1-63999 range.|This is a current limitation.
-|Configuration updates may take five minutes on average.|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.
+|Configuration updates may take five minutes on average|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.|
+|Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software does not support the Server Name Indicator (SNI) extension, you won't be able to connect through Azure Firewall.|If browser or server software does not support SNI, then you may be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.
 
 ## Next steps
 

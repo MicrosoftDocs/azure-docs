@@ -88,6 +88,8 @@ landingContent:
             url: how-to-train-pytorch.md
           - text: Train with Keras
             url: how-to-train-keras.md
+          - text: Reinforcement learning
+            url: how-to-use-reinforcement-learning.md
           - text: What are ML pipelines?
             url: concept-ml-pipelines.md                  
 
