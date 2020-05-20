@@ -16,13 +16,13 @@ This tutorial guides you through all the basic steps needed to use Azure Synapse
 
 ## Prepare a storage account for use with a Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com)
-* Create a new Storage account
-* Key settings in the **Basics** tab
-    * **Storage account name** - you can give it any name. In this document we'll refer to it as `contosolake`
-    * **Account kind** - must be set to `StorageV2`
-    * **Location** - you can pick any location but its recommended your Synapse workspace and ADLSGEN2 account are in the same region
-* Key settings in the **Advanced** tab
-    * **Data Lake Storage Gen2** - set to `Enabled`. Azure Synapse only works with storage accounts where this setting is enabled.
+* Create a new Storage account with the following settings:
+    * In the **Basics** tab
+       * **Storage account name** - you can give it any name. In this document we'll refer to it as `contosolake`
+       * **Account kind** - must be set to `StorageV2`
+       * **Location** - you can pick any location but its recommended your Synapse workspace and ADLSGEN2 account are in the same region
+    * In the **Advanced** tab
+        * **Data Lake Storage Gen2** - set to `Enabled`. Azure Synapse only works with storage accounts where this setting is enabled.
 * Once the storage account is created, perform these role assignments or ensure they are already assigned
     * Assign yourself to the **Owner** role on the storage account
     * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
