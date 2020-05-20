@@ -93,7 +93,11 @@ Azure Cosmos DB currently supports three kinds of indexes.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- String prefix matches (CONTAINS keyword will not leverage the range index):
+- String system functions:
+
+   ```sql
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
