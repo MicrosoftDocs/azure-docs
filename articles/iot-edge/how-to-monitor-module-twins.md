@@ -50,21 +50,21 @@ The following JSON shows the `$edgeAgent` module twin in Visual Studio Code with
   },
   "version": 53,
   "properties": {
-    "desired": { ··· },
+    "desired": { "···" },
     "reported": {
       "schemaVersion": "1.0",
-      "version": { ··· },
-      "lastDesiredStatus": {··· },
-      "runtime": { ··· },
+      "version": { "···" },
+      "lastDesiredStatus": { "···" },
+      "runtime": { "···" },
       "systemModules": {
-        "edgeAgent": { ··· },
-        "edgeHub": { ··· }
+        "edgeAgent": { "···" },
+        "edgeHub": { "···" }
       },
       "lastDesiredVersion": 5,
       "modules": {
-        "SimulatedTemperatureSensor": { ··· }
+        "SimulatedTemperatureSensor": { "···" }
       },
-      "$metadata": { ··· },
+      "$metadata": { "···" },
       "$version": 48
     }
   }
@@ -127,12 +127,12 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
   },
   "version": 102,
   "properties": {
-   "desired": { ··· },
+   "desired": { "···" },
     "reported": {
      "schemaVersion": "1.0",
-     "version": { ··· },
+     "version": { "···" },
     "lastDesiredVersion": 5,
-    "lastDesiredStatus": { ··· },
+    "lastDesiredStatus": { "···" },
     "clients": {
       "Windows109/SimulatedTemperatureSensor": {
         "status": "Disconnected",
@@ -140,7 +140,7 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
         "lastDisconnectedTimeUtc": "2020-04-09T07:02:42.1398325Z"
       }
     },
-    "$metadata": { ··· },
+    "$metadata": { "···" },
     "$version": 97
   }
   }
