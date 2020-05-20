@@ -144,6 +144,7 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
     "$version": 97
   }
 }
+
 ```
 
 The JSON can be described in the following sections, starting from the top:
@@ -161,7 +162,7 @@ If you're experiencing issues with your downstream devices, examining this data 
 
 The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for the maintaining data for your solution. The desired properties you defined in your deployment.template.json file are reflected in the module twin, and your module can update reported property values as needed.
 
-You can use the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to update reported property values in the module twin based on your module's application code.
+You can use the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) with your choice of language to update reported property values in the module twin based on your module's application code.
 
 1. Create an instance of the [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 
