@@ -31,7 +31,7 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 ### Q: How do I get started with Azure Synapse Analytics
 
 A: To start using Azure Synapse Analytics, [register Azure Synapse resource provider](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) by selecting *Microsoft.Synapse* from the list of resource providers. Then create a [Synapse workspace](https://portal.azure.com) (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials, such as [Create a Synapse SQL pool](quickstart-create-sql-pool-portal.md) or [Create a workspace](quickstart-create-workspace.md), that will walk you through simple use case. 
-You can also find sample notebooks and SQL scripts in our [repository](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). If you need to connect to a public dataset, create a new linked service with the following attributes:
+You can also find sample notebooks and SQL scripts in our [repository](https://github.com/Azure-Samples/Synapse). If you need to connect to a public dataset, create a new linked service with the following attributes:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""**)
