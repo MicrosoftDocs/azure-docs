@@ -16,9 +16,9 @@ In this article, you'll learn how to create an Azure file share authenticated by
 
 ## Prerequisites
 
-Before you get started, make sure your domain controller is synchronized to Azure and resolvable from the Azure virtual network (VNET) your session hosts are connected to. If you haven't already, follow the instructions in [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
+Before you get started, make sure your domain controller is synchronized to Azure and resolvable from the Azure virtual network (VNET) your session hosts are connected to.
 
-## Set up a storage account 
+## Set up a storage account
 
 First, you'll need to set up an Azure Files storage account.
 
@@ -35,11 +35,13 @@ To set up a storage account:
     - Create a new resource group.
     - Enter a unique name for your storage account.
     - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
-    - For **Performance**, select **Standard** (for deployments with fewer than 200 users).
+    - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
     - For **Account type**, select **StorageV2**.
     - For **Replication**, select **Locally-redundant storage (LRS)**.
 
 5. When you're done, select **Review + create**, then select **Create**.
+
+If you need more detailed configuration instructions, see [Regional availability](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
 ## Create an Azure file share
 
