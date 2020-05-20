@@ -20,11 +20,18 @@ ms.collection: M365-identity-device-management
 
 An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. When sharing your apps and resources with external users, Azure AD is the default identity provider for sharing. This means when you invite external users who already have an Azure AD or Microsoft account, they can automatically sign in without further configuration on your part.
 
-However, you can enable users to sign in with various identity providers. For example:
+However, you can enable users to sign in with various identity providers.
 
-- You can federate with Google to allow your invited users to sign in to your shared apps and resources with their own Gmail accounts. Google federation can also be used in your self-service sign-up user flows.
-- You can set up direct federation with any external identity provider that supports the SAML or WS-Fed protocols, allowing external users to sign in to your apps with their existing social or enterprise accounts. Direct federation can't be used in your self-service sign-up user flows.
-- You can federate with Facebook for use in your self-service sign-up user flows. When building an app, you can configure self-service sign-up and enable Facebook federation so users can sign up for your app using their own Facebook accounts. Note that Facebook isn't available as a sign-in option when users are redeeming an invitation from you.
+- **Google**: Google federation allows external users to redeem invitations from you by signing in to your apps with their own Gmail accounts. Google federation can also be used in your self-service sign-up user flows.
+   > [!NOTE]
+   > In the current self-service sign-up preview, if a user flow is associated with an app and you send a user an invitation to that app, the user won't be able to use a Gmail account to redeem the invitation. As a workaround, the user can go through the self-service sign-up process. Or, they can redeem the invitation by accessing a different app or by using their My Apps portal at https://myapps.microsoft.com.
+
+- **Facebook**: When building an app, you can configure self-service sign-up and enable Facebook federation so that users can sign up for your app using their own Facebook accounts. Facebook can only be used for self-service sign-up user flows and isn't available as a sign-in option when users are redeeming  invitations from you.
+
+- **Direct federation**: You can also set up direct federation with any external identity provider that supports the SAML or WS-Fed protocols. Direct federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. 
+   > [!NOTE]
+   > Direct federation identity providers can't be used in your self-service sign-up user flows.
+
 
 ## How it works
 
