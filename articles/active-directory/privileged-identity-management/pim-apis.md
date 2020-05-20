@@ -23,8 +23,6 @@ For details about the Microsoft Graph APIs, check out the [Azure AD Privileged I
 
 > [!IMPORTANT]
 > APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
->
-> Graph API for approval is currently being developed and will be released over the next few months.
 
 ## Required permissions
 

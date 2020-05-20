@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template from your local computer
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -64,7 +64,7 @@ If you have multiple Azure subscriptions, select the subscription you want to us
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # [Azure CLI](#tab/azure-cli)

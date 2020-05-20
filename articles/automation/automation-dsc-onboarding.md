@@ -1,6 +1,6 @@
 ---
-title: Enable machines for management by Azure Automation State Configuration
-description: How to set up machines for management with Azure Automation State Configuration
+title: Enable Azure Automation State Configuration
+description: This article tells how to set up machines for management with Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
 ---
-# Enable machines for management by Azure Automation State Configuration
+# Enable Azure Automation State Configuration
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 
@@ -119,7 +119,7 @@ To enable any machine for State Configuration, you can generate a [DSC metaconfi
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to enable a machine in an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
-Proxy support for metaconfigurations is controlled by LCM, which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of the proxy URL and the proxy credential as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. See [Configuring the Local Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7).
+Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md). 
 
 ### Generate DSC metaconfigurations using a DSC configuration
 
