@@ -1,7 +1,7 @@
 ---
 title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
 ---
@@ -242,9 +242,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
+Now create the configuration and pool. This example uses the **CloudServiceConfiguration** parameter with a `PSCloudServiceConfiguration` type object initialized in `$configuration`, which sets the **OSFamily** to `6` for 'Windows Server 2019' and **OSVersion** to `*`. Specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

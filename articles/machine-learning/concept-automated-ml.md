@@ -41,7 +41,7 @@ Similar to classification, regression tasks are also a common supervised learnin
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
 
-See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb), 
+See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb), 
 
 ### Time-series forecasting
 
@@ -109,7 +109,7 @@ In every automated machine learning experiment, your data is preprocessed using 
 
 ### Automatic preprocessing (standard)
 
-In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model.
+In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how autoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
 
 |Scaling&nbsp;&&nbsp;normalization| Description |
 | ------------- | ------------- |
@@ -186,8 +186,19 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
 
+## Many models 
 
-## Automated ML in Azure Machine Learning
+The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to use automated ML to train, operate, and manage hundreds or even thousands of machine learning models.
+
+For example, building a model __for each instance or individual__ in the following scenarios can lead to improved results:
+
+* Predicting sales for each individual store
+* Predictive maintenance for hundreds of oil wells
+* Tailoring an experience for individual users.
+
+For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
+
+## AutoML in Azure Machine Learning
 
 Azure Machine Learning offers two experiences for working with automated ML
 
