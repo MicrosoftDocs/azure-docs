@@ -15,7 +15,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 ## Overview
 
-A cluster can be onboarded to Arc from Azure CLI where the user has signed in using his credentials. However for automated workflows like CI/CD pipelines (Azure Pipelines, GitHub Actions,...), service principals with role assignments only allowing for onboarding clusters to Azure, are a better fit.
+It is possible to use service principals having a role assignment with limited privileges for onboarding the cluster to Arc. This is really useful in automated workflows like CI/CD pipelines - Azure Pipelines, GitHub Actions,....
 
 The following steps provide a walkthrough on using service principals for onboarding Kubernetes clusters to Arc.
 
