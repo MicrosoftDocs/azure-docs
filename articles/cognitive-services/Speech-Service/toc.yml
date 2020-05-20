@@ -63,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
+        - name: Improve Custom Speech accuracy
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Train a model for Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Deploy a custom model

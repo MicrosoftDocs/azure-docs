@@ -61,7 +61,7 @@ To authorize partners, click **Select CSP Partners** and a menu appears that let
 
 You can apply search filters, such as **Country**, **Competency**, or **Skill**.
 
-![Country, competency, and skill filters for partner search](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Country/region, competency, and skill filters for partner search](media/marketplace-publishers-guide/csp-add-resellers.png)
 
 Once you've chosen the list of partners, select **Add**.
 
