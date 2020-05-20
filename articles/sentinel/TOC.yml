@@ -34,7 +34,7 @@
     items:
     - name: Connect service-to-service
       items:
-      - name: AWS
+      - name: AWS CloudTrail
         href: connect-aws.md
       - name: Azure AD
         href: connect-azure-active-directory.md
