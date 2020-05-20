@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
+        - name: Pronunciation assessment with reference input
+          href: rest-speech-to-text.md#pronunciation-assessment-parameters
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
@@ -557,6 +559,20 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: SPX
+    items:
+      - name: What is SPX?
+        href: spx-overview.md
+      - name: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech

@@ -99,6 +99,7 @@ The Order details table displays a numbered list of the 1000 top orders sorted b
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
 - If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filters can be applied to the **Order details table** to display only the data that you're interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
+- Because SaaS offers purchased through Azure Marketplace or AppSource do not require an Azure Subscription, the Marketplace Subscription ID will appear as 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
 
 #### Orders Page filters
 

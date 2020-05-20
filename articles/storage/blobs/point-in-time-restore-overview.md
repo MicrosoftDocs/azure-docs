@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -66,7 +66,7 @@ To initiate a restore operation, a client must have write permissions to all con
 
 ## About the preview
 
-The point-in-time restore preview is available in the West Central US region. Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
+Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
 The following regions support point-in-time restore in preview:
 
