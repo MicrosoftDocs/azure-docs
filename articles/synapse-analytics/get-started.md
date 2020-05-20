@@ -354,5 +354,6 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * In this location you can see a history of all the activities taking place in the workspace and which ones are active now.
 * Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
 
-
+## Next steps
+Learn more about [Azure Synapse Analytics (preview)](overview-what-is.md)
 
