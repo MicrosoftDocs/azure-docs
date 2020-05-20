@@ -393,7 +393,7 @@ additionalContent:
               url: ../governance/blueprints/samples/ukofficial/index.md
 
         # Card
-        - title: Country privacy and compliance guides
+        - title: Country/Region privacy and compliance guides
           links:
             - text: Australian security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
