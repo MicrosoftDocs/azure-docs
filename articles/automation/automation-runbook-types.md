@@ -60,8 +60,8 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 ### Limitations
 
 * You must be familiar with PowerShell scripting.
-* Runbooks can't use [parallel processing](automation-powershell-workflow.md#parallel-processing) to execute multiple actions in parallel.
-* Runbooks can't use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook if there's an error.
+* Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
+* Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
 * You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet, which creates a new job.
 
 ### Known issues
@@ -80,14 +80,14 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 ### Advantages
 
 * Implement all complex logic with PowerShell Workflow code.
-* Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume operation if there's an error.
-* Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to do multiple actions in parallel.
+* Use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume operation if there's an error.
+* Use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to do multiple actions in parallel.
 * Can include other graphical runbooks and PowerShell Workflow runbooks as child runbooks to create high-level workflows.
 
 ### Limitations
 
 * You must be familiar with PowerShell Workflow.
-* Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#code-changes).
+* Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.
 * Runbooks can't run on a Linux Hybrid Runbook Worker.
