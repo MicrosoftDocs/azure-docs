@@ -78,7 +78,7 @@ A lab may use either quota time, scheduled time, or a combination of both. If a 
 
 ### Scheduled event - stop only
 
-In the Schedule you can add a stop only event type, which will shut down all machine at a specific time.  Some lab owners have set a stop only event for every day at midnight to reduce the cost and quota usage when a student forgets to shut down the VM they are using.  The downside to this type of event is that all VMs will be shut down even if the student is using the VM.
+In the Schedule you can add a stop only event type, which will stop all machines at a specific time.  Some lab owners have set a stop only event for every day at midnight to reduce the cost and quota usage when a student forgets to shut down the VM they are using.  The downside to this type of event is that all VMs will be shut down even if the student is using the VM.
 
 ### Other costs related to Labs 
 
