@@ -33,5 +33,6 @@ Here is a scenario where this feature will help. A teaching assistant is an educ
 See the following articles:
 
 - [Connect to a VM](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-rdp.md)
+- [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md)
+- [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Use remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md)

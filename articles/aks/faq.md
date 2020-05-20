@@ -123,9 +123,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS offers an optional [uptime SLA add-on][uptime-sla] for the Kubernetes API server. Customers who choose the SLA add-on are guaranteed 99.95% availability for clusters which are spread across availability zones and 99.9% availability for those which are not. For clusters without the SLA add-on, AKS maintaines a service-level objective of 99.5% availability. 
-
-It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines and therefore covered by the [VM SLA][vm-sla]. In the event that the Kubernetes control plane is unavailable, your applications will continue to function. However, you will be unable to deploy new applications, scale or upgrade existing applications, or perform other management operations on the cluster.
+AKS provides SLA guarantees as an optional add on feature with [Uptime SLA][uptime-sla].
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
