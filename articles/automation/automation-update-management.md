@@ -1,9 +1,9 @@
 ---
 title: Azure Automation Update Management overview
-description: Overview of the Update Management feature that manages updates for your Windows and Linux machines
+description: Overview of the Update Management feature that manages updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -68,7 +68,7 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 ### Supported client types
 
-The following table lists the supported operating systems for update assessments. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
+The following table lists the supported operating systems for update assessments. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings). 
@@ -92,9 +92,11 @@ The following table lists unsupported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
 |Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
+
+
 
 ### Client requirements
 

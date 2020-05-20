@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create an Azure Automation runbook | Microsoft Docs
-description: Learn how to create an Azure Automation runbook
+description: This article helps you get started creating an Azure Automation runbook.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
