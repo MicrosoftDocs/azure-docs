@@ -12,7 +12,9 @@ ms.date: 05/20/2020
 
 # Partitioning in Cassandra API
 
-This article describes how partitioning works in Azure Cosmos DB Cassandra API. Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. In partitioning, the records in a table are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a logical partition have the same partition key value. 
+This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
+
+Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. In partitioning, the records in a table are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a logical partition have the same partition key value. 
 
 From the developer perspective, partitioning behaves in exactly the same way for Azure Cosmos DB Cassandra API as it does in native [Apache Cassandra](https://cassandra.apache.org/). There are some minor differences behind the scenes. Apache Cassandra has a concept of tokens, which are hashes of logical partition keys. The tokens are based on a murmur3 64 byte hash, with values ranging from -2^63 to -2^63 - 1. This range is commonly referred to as the "token ring" in Apache Cassandra. 
 
