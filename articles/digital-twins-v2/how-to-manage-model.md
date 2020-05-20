@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md). Management operations include upload, validation, retrieval, and deletion of models. 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core), or with the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
-The samples in this article use the C# SDK, which can be found here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core).
+Management operations include upload, validation, retrieval, and deletion of models. 
 
 ## Create models
 
@@ -332,6 +332,10 @@ After a model has been deleted, you may decide later to upload a new model with 
 * If there are any remaining twins in the graph referencing the deleted model, they are no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one.
 
 Azure Digital Twins does not prevent this state, so be careful to patch twins appropriately in order to make sure they remain valid through the model definition switch.
+
+## Manage models with CLI
+
+Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Next steps
 
