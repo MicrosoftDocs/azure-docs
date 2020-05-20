@@ -4,9 +4,11 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
+
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
