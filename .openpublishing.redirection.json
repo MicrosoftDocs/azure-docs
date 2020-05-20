@@ -44312,6 +44312,146 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-skus-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-support-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-user-image.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-selftest-client.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
       "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
       "redirect_document_id": false
