@@ -43,8 +43,6 @@
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
       displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-    - name: 3. Get sentiment from user utterances
-      href: tutorial-publish-settings.md
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -380,7 +378,7 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items:
-    - name: Machine-learned entity
+    - name: Machine-learning entity
       href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md

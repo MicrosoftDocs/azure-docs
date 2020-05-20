@@ -1,12 +1,12 @@
 ---
-title: Update Management in Azure Automation
-description: This article describes the Update Management feature that manages updates for your Windows and Linux machines.
+title: Azure Automation Update Management overview
+description: Overview of the Update Management feature that manages updates for your Windows and Linux machines
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
 ---
-# Update Management in Azure Automation
+# Update Management overview
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 

@@ -6,8 +6,14 @@
     href: overview-iot-central.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md
+  - name: Develop devices
+    href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: April 2020 new features
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
+    - name: April 2020 updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/
     - name: March 2020
       href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
 - name: Quickstarts

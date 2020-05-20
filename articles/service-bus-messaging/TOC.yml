@@ -184,6 +184,8 @@
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
   - name: Manage
     items:
+    - name: Automatically update messaging units 
+      href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
     - name: Monitor Service Bus with Azure Monitor
