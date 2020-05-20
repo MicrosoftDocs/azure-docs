@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/20/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
@@ -151,7 +151,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## Sample response
+## Example JSON response
 
 Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.  
 
