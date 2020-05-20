@@ -29,7 +29,7 @@ Select the new file to open it in the editing window. Change the `tenantId` to y
 
 Next, configure the *serviceConfig.json* file to be copied to the output directory when you build the *SampleClientApp*. Right-select the *serviceConfig.json* file, and choose *Properties.* In the *Properties* inspector, change the value of the *Copy to Output Directory* property to *Copy if newer*.
 
-:::image type="content" source="../articles/digital-twins-v2/media/include-setup/copy-config.png" alt-text="Excerpt from Visual Studio window showing the Solution Explorer pane with serviceConfig.json highlighted, and the Properties pane with 'Copy to Output Directory' property set to 'Copy if newer'":::
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/copy-config.png" alt-text="Excerpt from Visual Studio window showing the Solution Explorer pane with serviceConfig.json highlighted, and the Properties pane with 'Copy to Output Directory' property set to 'Copy if newer'" border="false":::
 
 Save and close the file. Keep the _**AdtE2ESample**_ project open in Visual Studio to continue using it in the tutorial.
 
