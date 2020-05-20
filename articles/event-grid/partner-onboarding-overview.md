@@ -30,10 +30,14 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 #### Partner flow
 
 1. Create an Azure tenant if you don't already have one.
-1. Using CLI create a new Event Grid `partnerRegistration`. This resource includes information such as display name, description, setup URI and so on. 
-![Create Partner Topic](./media/partner-onboarding-how-to/create-partner-registration.png)
+1. Using CLI create a new Event Grid `partnerRegistration`. This resource includes information such as display name, description, setup URI and so on.
+
+    ![Create Partner Topic](./media/partner-onboarding-how-to/create-partner-registration.png)
+
 1. Create one or more `partnerNamespaces` in each region you want to publish events. As part of this, Event Grid service will provision a publishing endpoint (for example, https://contoso.westus-1.eventgrid.azure.net/api/events) and access keys.
-![Create Partner Namespace](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
+    ![Create Partner Namespace](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
 1. Provide a way for customers to register in your system that they would like a partner topic.
 1. Contact the Event Grid team to let us know you would like your Partner Topic Type to become public.
 
@@ -42,9 +46,12 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 1. Your customer will visit the Azure portal to note the Azure Subscription ID and Resource Group they would like the Partner Topic created in.
 1. The customer will request a Partner Topic via your system. In response, you'll create an Event Tunnel your Partner Namespace.
 1. Event Grid will create a **Pending** Partner Topic in the customer's Azure Subscription and Resource Group.
-![Create Event Channel](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
+    ![Create Event Channel](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
 1. The customer activates the Partner Topic via the Azure portal. Events may now flow from your service to the customer's Azure Subscription.
-![Activate Partner Topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
+
+    ![Activate Partner Topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## Resource Model
 
@@ -60,21 +67,14 @@ Below is the resource model for Partner Topics.
     Only Microsoft approved partnerRegistrations are discoverable by customers.
 * Scope: Created in partner's Azure Subscription. Metadata visible to customers once public.
 
-### Event Types
-* Resource: `partnerRegistrations/eventTypes`
-* Used by: Partners
-* Description: Captures metadata about event types supported by a partner registration.
-* Scope: Discoverable by customers once made public. Lives in a partner’s subscription as a child resource of Partner Registration.
-		
-
 ### Partner Namespaces
 * Resource: partnerNamespaces
 * Used by: Partners
 * Description: Provides a regional resource for publishing customer events to. Each Partner Namespace has a publishing endpoint and auth keys. The namespace is also how the partner requests a Partner Topic for a given customer and lists active customers.
 * Scope: Lives in partner’s subscription.
 
-### Event Tunnels
-* Resource: `partnerNamespaces/eventTunnels`
+### Event Channel
+* Resource: `partnerNamespaces/eventChannels`
 * Used by: Partners
 * Description: The Event Tunnels are a mirror of the customer's Partner Topic. By creating an Event Tunnel and specifying the customer's Azure Subscription and resource Group in the metadata, you're signaling to Event Grid to create a Partner Topic for the customer. Event Grid will issue an ARM call to create a corresponding partnerTopic in the customer’s subscription. The partner topic will be created in a "pending" state. There’s a 1-1 link between each eventTunnel and a partnerTopic.
 * Scope: Lives in partner’s subscription.
