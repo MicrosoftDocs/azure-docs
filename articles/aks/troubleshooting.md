@@ -139,6 +139,7 @@ Use the following workarounds for this issue:
 
 
 
+
 ## I'm receiving errors after restricting egress traffic
 
 When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, certain `kubectl` commands won't work correctly. You may also see errors when creating an AKS cluster.
@@ -181,6 +182,7 @@ This issue has been fixed in the following versions of Kubernetes:
 | 1.10 | 1.10.2 or later |
 | 1.11 | 1.11.0 or later |
 | 1.12 and later | N/A |
+
 
 ### Failure when setting uid and gid in mountOptions for Azure Disk
 
@@ -240,7 +242,6 @@ This issue has been fixed in the following versions of Kubernetes:
 
 If you're using a version of Kubernetes that doesn't have the fix for this issue and your node has an obsolete disk list, you can mitigate by detaching all non-existing disks from the VM as a bulk operation. **Individually detaching non-existing disks may fail.**
 
-
 ### Large number of Azure Disks causes slow attach/detach
 
 When the numbers of Azure Disk attach/detach operations targeting a single node VM is larger than 10, or larger than 3 when targeting single virtual machine scale set pool they may be slower than expected as they are done sequentially. This issue is a known limitation and there are no workarounds at this time. [User voice item to support parallel attach/detach beyond  number.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
@@ -289,7 +290,7 @@ Recommended settings:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kubernetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+Mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -386,6 +387,7 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 After a few minutes, the agent node will retry the Azure File mount with the updated storage key.
+
 
 ### Cluster autoscaler fails to scale with error failed to fix node group sizes
 
