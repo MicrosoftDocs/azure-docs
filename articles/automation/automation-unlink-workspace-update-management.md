@@ -12,7 +12,7 @@ You can decide not to integrate your Automation account with a Log Analytics wor
 
 1. Sign in to Azure at https://portal.azure.com.
 
-2. Remove Update Management for your VMs. See [Remove VMs from Update Management](automation-remove-vms-from-update-managment.md).
+2. Remove Update Management for your VMs. See [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 
 3. If Update Management includes earlier versions of Azure SQL monitoring, setup of the feature might have created Automation assets that you should remove. For Update Management, you might want to remove the following items that are no longer needed:
 
@@ -34,6 +34,6 @@ Alternatively, you can unlink your Log Analytics workspace from your Automation 
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automaton-tutorial-update-management.md)
+* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
 * [Remove VMs from Update Management](automation-remove-vms-from-update-management.md)
 * [Troubleshoot Update Management issues](troubleshoot/update-management.md)

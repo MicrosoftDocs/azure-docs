@@ -121,7 +121,7 @@ This section provides a PowerShell script to create a Run As account. The script
 * Create a Run As account and a Classic Run As account by using a certificate issued by your enterprise certification authority (CA).
 * Create a Run As account and a Classic Run As account by using a self-signed certificate in the Azure Government cloud.
 
-The script uses multiple Azure Resource Manager cmdlets to create resources. For the cmdlets and the permissions they require, see [Permissions to configure Run As accounts](#permissions-to-configure-run-as-accounts).
+The script uses multiple Azure Resource Manager cmdlets to create resources. For the cmdlets and the permissions they require, see [Get permissions to configure Run As accounts](#get-permissions-to-configure-run-as-accounts).
 
 Save the script on your computer using the filename **New-RunAsAccount.ps1**.
 

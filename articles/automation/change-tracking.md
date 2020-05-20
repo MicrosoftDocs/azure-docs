@@ -193,4 +193,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 * [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
 * [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md)
 * [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes)
+* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)

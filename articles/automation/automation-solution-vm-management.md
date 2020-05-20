@@ -222,7 +222,7 @@ To delete Start/Stop VMs during off-hours:
 
     3. Select **Delete** from the menu.
 
-    4. If you don't want to keep the Azure Automation account [feature components](#solution-components), you can manually delete each.
+    4. If you don't want to keep the Azure Automation account [feature components](#components), you can manually delete each.
 
 ## Next steps
 

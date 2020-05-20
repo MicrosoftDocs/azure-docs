@@ -96,7 +96,7 @@ Under **New update deployment**, specify the following information:
 
 * **Machines to update**: Select a Saved search, Imported group, or pick **Machines** from the dropdown menu and select individual machines. If you choose **Machines**, the readiness of each machine is shown in the **Update agent readiness** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
-* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications).
+* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#work-with-update-classifications).
 
 * **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
 

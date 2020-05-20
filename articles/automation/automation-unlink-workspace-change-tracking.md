@@ -12,7 +12,7 @@ You can decide not to integrate your Automation account with a Log Analytics wor
 
 1. Sign in to Azure at https://portal.azure.com.
 
-2. Remove Update Management for your VMs. See [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking-and-inventory.md).
+2. Remove Update Management for your VMs. See [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 
 3. If Change Tracking and Inventory includes earlier versions of Azure SQL monitoring, setup of the feature might have created Automation assets that you should remove. Locate these assets and remove them.
 

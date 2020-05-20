@@ -15,7 +15,7 @@ Azure Automation uses a watcher task to look for events and trigger actions with
 > Watcher tasks are not supported in Azure China Vianet 21.
 
 > [!IMPORTANT]
-> Starting in May 2020, using Azure Logic Apps is the supported way to monitor for events, schedule recurring tasks, and trigger actions. See [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> Starting in May 2020, using Azure Logic Apps is the supported way to monitor for events, schedule recurring tasks, and trigger actions. See [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 This tutorial walks you through creating a watcher task to monitor when a new file is added to a directory. You learn how to:
 
@@ -164,5 +164,5 @@ In this tutorial, you learned how to:
 Follow this link to learn more about authoring your own runbook.
 
 > [!div class="nextstepaction"]
-> [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md)
+> [Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md)
 

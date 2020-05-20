@@ -109,7 +109,7 @@ In the **New update deployment** pane, specify the following information:
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
-- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications). The classification types are:
+- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-view-update-assessments.md#work-with-update-classifications). The classification types are:
   - Critical updates
   - Security updates
   - Update rollups
