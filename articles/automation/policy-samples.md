@@ -1,6 +1,6 @@
 ---
 title: Built-in policy definitions for Azure Automation
-description: Lists Azure Policy built-in policy definitions. These built-in policy definitions provide common approaches to managing your Azure resources.
+description: Lists Azure Policy built-in policy definitions for Azure Automation. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
