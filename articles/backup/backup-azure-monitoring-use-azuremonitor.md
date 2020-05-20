@@ -164,8 +164,8 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 You can also use activity logs to get notification for events such as backup success. To begin, follow these steps:
 
 1. Sign in into the Azure portal.
-1. Open the relevant Recovery Services vault.
-1. In the vault's properties, open the **Activity log** section.
+2. Open the relevant Recovery Services vault.
+3. In the vault's properties, open the **Activity log** section.
 
 To identify the appropriate log and create an alert:
 
@@ -173,9 +173,9 @@ To identify the appropriate log and create an alert:
 
    ![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Select the operation name to see the relevant details.
-1. Select **New alert rule** to open the **Create rule** page.
-1. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+2. Select the operation name to see the relevant details.
+3. Select **New alert rule** to open the **Create rule** page.
+4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

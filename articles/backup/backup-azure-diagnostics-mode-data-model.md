@@ -460,7 +460,7 @@ Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to
 
 For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries. 
 
-Refer to the third column 'Description' in the [data model]((https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model)) described above to identify which columns belong to V1 schema only.
+Refer to the third column 'Description' in the [data model](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
 
 ## Next steps
 
