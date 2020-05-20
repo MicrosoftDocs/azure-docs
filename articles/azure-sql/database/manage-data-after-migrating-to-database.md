@@ -270,7 +270,7 @@ You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 [Query Performance Insight](query-performance-insight-configure.md) allows you to see a history of the top resource-consuming queries and long-running queries for a specific database. You can quickly identify TOP queries by resource utilization, duration, and frequency of execution. You can track queries and detect regression. This feature requires [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) to be enabled and active for the database.
 
-![Query Performance Insight](./media/manage-data-after-migrating-to-database/query-performance-insight-configure.png)
+![Query Performance Insight](./media/manage-data-after-migrating-to-database/query-performance-insight.png)
 
 #### Azure SQL Analytics (Preview) in Azure Monitor logs
 

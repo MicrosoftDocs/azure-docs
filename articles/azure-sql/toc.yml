@@ -123,14 +123,14 @@
         href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
       - name: Automatic tuning
         href: database/automatic-tuning-overview.md
-     - name: In-memory OLTP
-       items:
-        - name: Configure In-Memory OLTP
-          href: in-memory-oltp-configure.md
-        - name: Try in-memory features
-          href: in-memory-sample.md
-        - name: Monitor In-memory OLTP space
-          href: in-memory-oltp-monitoring.md
+      - name: In-memory OLTP
+        items:
+          - name: Configure In-Memory OLTP
+            href: in-memory-oltp-configure.md
+          - name: Try in-memory features
+            href: in-memory-sample.md
+          - name: Monitor In-memory OLTP space
+            href: in-memory-oltp-monitoring.md
       - name: Extended events
         items:
         - name: Extended events

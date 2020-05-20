@@ -53155,7 +53155,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-threat-detection.md",
-        "redirect_url": "/azure/azure-sql/database/threat-detection",
+        "redirect_url": "/azure/azure-sql/database/threat-detection-configure",
         "redirect_document_id": true
     },
     {
