@@ -19,7 +19,11 @@ Language support varies by Speech service functionality. The following tables su
 
 ## Speech-to-text
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences. Pronunciation customization is offered through uploading Related Text: Pronunciation. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
+
+To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](how-to-custom-speech.md).
+
+For more information about how you can improve pronunciation, see [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
