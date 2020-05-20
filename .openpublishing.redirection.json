@@ -12,7 +12,7 @@
     },    
     {
       "source_path": "articles/openshift/howto-azure-monitor-v4.md",
-      "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-azure-redhat4-setup",
       "redirect_document_id": false
     },
     {
@@ -22,12 +22,22 @@
     },
     {
       "source_path": "articles/openshift/tutorial-scale-cluster.md",
-      "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
+      "redirect_url": "/azure/openshift/tutorial-connect-cluster",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/openshift/howto-using-azure-redhat-openshift.md",
-      "redirect_url": "articles/openshift/tutorial-create-cluster.md",
+      "redirect_url": "/azure/openshift/tutorial-create-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/howto-create-private-cluster.md",
+      "redirect_url": "/azure/openshift/howto-create-private-cluster-3x",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/create-private-cluster.md",
+      "redirect_url": "/azure/openshift/howto-create-private-cluster-4x",
       "redirect_document_id": false
     },
     {
@@ -52264,10 +52274,10 @@
       "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
       "redirect_document_id": true
     },
-	{
-		"source_path":"articles/azure-monitor/app/alerts.md",
-		"redirect_url":"/articles/azure-monitor/platform/alerts-log",
-		"redirect_document_id": false 		
-	}
+	 {
+	  	"source_path":"articles/azure-monitor/app/alerts.md",
+		  "redirect_url":"/azure/azure-monitor/platform/alerts-log",
+		  "redirect_document_id": false 		
+	  }
  ]
 }
