@@ -186,8 +186,6 @@
         href: wrangling-data-flow-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
-  - name: Understanding pricing
-    href: pricing-concepts.md
   - name: Naming rules
     href: naming-rules.md
 - name: How-to guides
@@ -368,6 +366,8 @@
       href: connector-servicenow.md
     - name: SFTP
       href: connector-sftp.md
+    - name: SharePoint Online List
+      href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
     - name: Spark
@@ -651,6 +651,12 @@
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+  - name: Understanding pricing
+    items:
+    - name: Plan and manage costs     
+      href: plan-manage-costs.md 
+    - name: Pricing examples     
+      href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
     - name: Activities

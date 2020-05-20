@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 The Conversion service will succeed if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
@@ -68,7 +68,7 @@ The **unsupportedFeatureRepresentation** warning occurs when the drawing contain
 
 The image below shows an unsupported entity type as a multi-line text object on a label layer.
   
-![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiline.png)
+![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
@@ -489,7 +489,7 @@ The image below shows a vertical penetration area with no overlapping vertical p
 
 The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
 
-![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/vrt.png)
+![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### How to fix verticalPenetrationError
 

@@ -127,4 +127,4 @@ You will see two more columns added to your test dataset.
 Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. Next, you can use this model to make predictions for new customers and publish this model as a web service or write results back to Azure Synapse.
 
 ## Next steps
-To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).
+To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).

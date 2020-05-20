@@ -44,7 +44,7 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## SQL on-demand (preview)
+## [SQL on-demand (preview)](#tab/serverless)
 
 To manage the users having access to SQL on-demand, you can use the instructions below.
 
@@ -66,7 +66,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Once login and user are created, you can use the regular SQL Server syntax to grant rights.
 
-## SQL pool
+## [SQL pool](#tab/provisioned)
 
 ### Administrator access path
 
@@ -121,6 +121,8 @@ Now the user can connect to the `master` database and can create new databases. 
 ### Login managers
 
 The other administrative role is the login manager role. Members of this role can create new logins in the master database. If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the master. Usually logins are not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## Non-administrator users
 
