@@ -1,7 +1,7 @@
 ---
-title: Run tasks under user accounts - Azure Batch
+title: Run tasks under user accounts
 description: It's useful to be able to configure the user account under which you want a task to run. Learn the types of user accounts and how to configure them.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
 ---

@@ -57,7 +57,7 @@ The following preview containers are available publicly. The Microsoft Container
 
 #### Public "Gated" preview (container registry: `containerpreview.azurecr.io`)
 
-The following gated preview containers are hosted on the Container Preview registry, and require an application to access. See [Cognitive Services gating process](../../cognitive-services-gating-process.md) for more information.
+The following gated preview containers are hosted on the Container Preview registry, and require an application to access. See the following container articles for more information.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
