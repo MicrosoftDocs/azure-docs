@@ -15,6 +15,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Frequently asked questions for SQL Server on Linux Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/frequently-asked-questions-faq.md)

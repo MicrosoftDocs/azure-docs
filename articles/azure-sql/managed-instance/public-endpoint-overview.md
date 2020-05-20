@@ -12,6 +12,7 @@ ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ---
 # Use  Azure SQL Managed Instance securely with public endpoints
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance can provide user connectivity over [public endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
 

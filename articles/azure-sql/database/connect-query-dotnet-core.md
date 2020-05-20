@@ -12,7 +12,8 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 07/29/2019
 ---
-# Quickstart: Use .NET Core (C#) to query a Microsoft Azure SQL database
+# Quickstart: Use .NET Core (C#) to query a Azure SQL database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database. You'll then run a Transact-SQL statement to query data.
 

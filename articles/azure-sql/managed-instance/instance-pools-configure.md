@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ---
 # Deploy an Azure SQL Managed Instance to an instance pool
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article provides details on how to create an [instance pools](instance-pools-overview.md) and deploy an Azure SQL Managed Instance to it. 
 

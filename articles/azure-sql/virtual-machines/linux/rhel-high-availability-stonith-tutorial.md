@@ -10,6 +10,7 @@ ms.reviewer: jroth
 ms.date: 02/27/2020
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > The tutorial presented is in **public preview**. 

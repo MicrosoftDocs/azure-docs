@@ -10,7 +10,8 @@ ms.reviewer: sstein
 ms.date: 02/04/2020
 ---
 
-# Request quota increases for Azure SQL Database
+# Request quota increases for Azure SQL Database and SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region.
 

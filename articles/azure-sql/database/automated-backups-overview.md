@@ -15,6 +15,7 @@ manager: craigg
 ms.date: 12/13/2019
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Both Azure SQL Database and Azure SQL Managed Instance create database backups that are kept for the duration of the configured retention period. They use Azure [read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy.md) to ensure backups are preserved even if the datacenter is unavailable.
 

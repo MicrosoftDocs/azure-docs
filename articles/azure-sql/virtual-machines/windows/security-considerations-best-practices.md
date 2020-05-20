@@ -19,6 +19,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Security Considerations for SQL Server in Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure virtual machine (VM).
 

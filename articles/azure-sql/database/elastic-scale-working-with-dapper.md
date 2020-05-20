@@ -13,6 +13,8 @@ ms.reviewer:
 ms.date: 12/04/2018
 ---
 # Using elastic database client library with Dapper
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](elastic-scale-introduction.md) to create applications that implement sharding to scale out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data-dependent routing with Dapper. 
 
 **Sample Code**: [Elastic database tools for Azure SQL Database - Dapper integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).

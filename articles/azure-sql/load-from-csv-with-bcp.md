@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 01/25/2019
 ---
 # Load data from CSV into Azure SQL Database (flat files)
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
 

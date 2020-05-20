@@ -15,6 +15,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)

@@ -13,6 +13,7 @@ ms.reviewer: ""
 ---
 
 # Playbook for Addressing Common Security Requirements with Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article provides best practices on how to solve common security requirements. Not all requirements are applicable to all environments, and you should consult your database and security team on which features to implement.
 

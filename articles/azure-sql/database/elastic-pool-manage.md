@@ -13,6 +13,7 @@ ms.custom: seoapril2019 sqldbrb=1
 ---
 
 # Manage elastic pools in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database.
 

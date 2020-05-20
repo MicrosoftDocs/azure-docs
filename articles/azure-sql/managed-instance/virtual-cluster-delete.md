@@ -12,6 +12,7 @@ ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ---
 # Delete a subnet after deleting an Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Managed Instance residing in it.
 

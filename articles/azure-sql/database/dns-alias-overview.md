@@ -13,6 +13,7 @@ ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](logical-servers.md) name.
 

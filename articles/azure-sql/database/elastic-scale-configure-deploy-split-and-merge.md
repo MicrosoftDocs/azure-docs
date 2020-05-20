@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](elastic-scale-overview-split-and-merge.md)
 

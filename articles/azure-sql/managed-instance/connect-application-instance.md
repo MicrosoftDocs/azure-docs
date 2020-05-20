@@ -15,6 +15,7 @@ ms.date: 11/09/2018
 ---
 
 # Connect your application to Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Today you have multiple choices when deciding how and where you host your application.
 

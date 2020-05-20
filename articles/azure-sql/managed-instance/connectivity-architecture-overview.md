@@ -15,6 +15,7 @@ ms.date: 03/17/2020
 ---
 
 # Connectivity architecture for Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article explains communication in an Azure SQL Managed Instance. It also describes connectivity architecture and how the components direct traffic to the SQL Managed Instance.  
 

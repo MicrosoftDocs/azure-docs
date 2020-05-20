@@ -13,6 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/30/2020
 ---
 # Automatic tuning in Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance automatic tuning provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
 

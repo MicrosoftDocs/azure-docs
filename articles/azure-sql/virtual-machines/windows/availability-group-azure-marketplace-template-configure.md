@@ -19,6 +19,7 @@ ms.author: mikeray
 
 ---
 # Configure Always On availability groups in Azure Virtual Machines automatically: Resource Manager
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This tutorial shows you how to create a SQL Server availability group that uses Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
