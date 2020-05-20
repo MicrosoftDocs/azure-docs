@@ -66,7 +66,7 @@ See the following articles for examples of connecting to SQL Managed Instance:
 - [Quickstart: Configure Azure VM to connect to SQL Managed Instance](connect-vm-instance-configure.md)
 - [Quickstart: Configure a point-to-site connection to SQL Managed Instance from on-premises](point-to-site-p2s-configure.md)
 
-1. Log into your managed instance using a standard SQL login account (non-Azure AD) that is a `sysadmin` or an Azure AD admin for SQL Manage Instance, using [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
+1. Log into your managed instance using a standard SQL login account (non-Azure AD) that is a `sysadmin` or an Azure AD admin for SQL Managed Instance, using [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
 2. In **Object Explorer**, right-click the server and choose **New Query**.
 
@@ -149,7 +149,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
      ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
-     For more information, see [Universal Authentication (SSMS support for Multi-Factor Authentication)](../mfa-authentication-ssms-overview.md)
+     For more information, see [Universal Authentication (SSMS support for Multi-Factor Authentication)](../mfa-authentication-ssms-overview.md).
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication login window. Sign in with your Azure AD password.
 
@@ -165,7 +165,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
     GO
     ```
 
-    This example creates a login for the Azure AD user bob@aadsqlmi.net, whose domain aadsqlmi.net is federated with the Azure AD aadsqlmi.onmicrosoft.com.
+    This example creates a login for the Azure AD user bob@aadsqlmi.net, whose domain aadsqlmi.net is federated with the Azure AD aadsqlmi.onmicrosoft.com domain.
 
     Execute the following T-SQL command. Federated Azure AD accounts are the SQL Managed Instance replacements for on-premises Windows logins and users.
 
@@ -208,7 +208,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
       ```
 
 > [!NOTE]
-> Azure AD guest users are supported for SQL Managed Instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD instance that the managed instance belongs to, from another Azure AD instance. For example, joe@contoso.com (Azure AD account) or steve@outlook.com (Microsoft account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the SQL Managed Instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (For example, joe@contoso.com or steve@outlook.com).
+> Azure AD guest users are supported for SQL Managed Instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD instance that the managed instance belongs to, from another Azure AD instance. For example, joe@contoso.com (Azure AD account) or steve@outlook.com (Microsoft account) can be added to a group in the Azure AD aadsqlmi instance. Once the users are added to a group, a login can be created in the SQL Managed Instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (for example, joe@contoso.com or steve@outlook.com).
 
 ## Create an Azure AD user from the Azure AD server principal (login)
 
@@ -253,7 +253,7 @@ For more information on granting database permissions, see [Getting Started with
     GO
     ```
 
-    All users that belong to **mygroup** can access the **MyMITestDB** database.
+    All users that belong to *mygroup* can access the **MyMITestDB** database.
 
     > [!IMPORTANT]
     > When creating a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
