@@ -385,7 +385,7 @@ In the Windows Voice Assistant Client source code, take a look at these files to
 
 ## (Optional) Change the language and bot voice
 
-The bot that you've created will listen for and respond in English, with a default American English text-to-speech voice. However, you're not limited to using English, or a default voice. In this section, you'll learn how to change the language that your bot will listen for and respond in. You will also learn how to select a different voice for that language.
+The bot that you've created will listen for and respond in English, with a default US English text-to-speech voice. However, you're not limited to using English, or a default voice. In this section, you'll learn how to change the language that your bot will listen for and respond in. You will also learn how to select a different voice for that language.
 
 ### Change the language
 
