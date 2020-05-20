@@ -20298,6 +20298,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/si-changes.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal-migration-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-overview#migration-from-cloud-partner-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/enable-lead-sharing.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
       "redirect_document_id": true
