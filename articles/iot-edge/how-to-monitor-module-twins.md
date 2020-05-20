@@ -126,22 +126,23 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
     "secondaryThumbprint": null
   },
   "version": 102,
-  "properties": {
-   "desired": { "···" },
-    "reported": {
-     "schemaVersion": "1.0",
-     "version": { "···" },
-    "lastDesiredVersion": 5,
-    "lastDesiredStatus": { "···" },
-    "clients": {
-      "Windows109/SimulatedTemperatureSensor": {
-        "status": "Disconnected",
-        "lastConnectedTimeUtc": "2020-04-08T21:42:42.1743956Z",
-        "lastDisconnectedTimeUtc": "2020-04-09T07:02:42.1398325Z"
-      }
-    },
-    "$metadata": { "···" },
-    "$version": 97
+    "properties": {
+      "desired": { "···" },
+      "reported": {
+        "schemaVersion": "1.0",
+        "version": { "···" },
+      "lastDesiredVersion": 5,
+      "lastDesiredStatus": { "···" },
+      "clients": {
+        "Windows109/SimulatedTemperatureSensor": {
+          "status": "Disconnected",
+          "lastConnectedTimeUtc": "2020-04-08T21:42:42.1743956Z",
+          "lastDisconnectedTimeUtc": "2020-04-09T07:02:42.1398325Z"
+        }
+      },
+      "$metadata": { "···" },
+      "$version": 97
+    }
   }
 }
 
