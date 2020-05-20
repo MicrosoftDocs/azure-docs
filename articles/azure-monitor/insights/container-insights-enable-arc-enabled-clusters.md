@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
-description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes cluster.
+description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
 ms.date: 05/19/2020
 ---
@@ -18,15 +18,15 @@ Azure Monitor for containers supports monitoring Kubernetes as described in the 
 - Live Data (preview)
 - [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 
-* Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
+- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-* Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS).
+- Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS).
 
 ## Prerequisites
 
 Before you start, make sure that you have the following:
 
-* A Log Analytics workspace.
+- A Log Analytics workspace.
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
@@ -115,7 +115,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     Example:
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster 
+    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace
     ```
 
 ## Enable using bash script
@@ -148,7 +148,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 The following step enables monitoring of your Arc enabled Kubernetes cluster using the bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.  
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
+    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <resourcedIdOfAzureArcCluster>`
 
     For example:
 
