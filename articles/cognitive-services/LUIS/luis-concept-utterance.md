@@ -6,7 +6,7 @@ ms.date: 05/19/2020
 ---
 # Understand what good utterances are for your LUIS app
 
-**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
+**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learning intelligence that LUIS provides.
 
 Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in a variety of different ways:
 

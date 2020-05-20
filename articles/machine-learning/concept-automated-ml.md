@@ -186,8 +186,19 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
 
+## Many models 
 
-## Automated ML in Azure Machine Learning
+The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to use automated ML to train, operate, and manage hundreds or even thousands of machine learning models.
+
+For example, building a model __for each instance or individual__ in the following scenarios can lead to improved results:
+
+* Predicting sales for each individual store
+* Predictive maintenance for hundreds of oil wells
+* Tailoring an experience for individual users.
+
+For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
+
+## AutoML in Azure Machine Learning
 
 Azure Machine Learning offers two experiences for working with automated ML
 
