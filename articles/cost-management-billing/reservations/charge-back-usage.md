@@ -1,6 +1,6 @@
 ---
-title: Charge back Azure reservation costs
-description: Learn how to view Azure reservation costs for chargeback.
+title: Charge back Azure Reservation costs
+description: Learn how to view Azure Reservation costs for chargeback.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 05/14/2020
 ms.author: banders
 ---
 
-# Charge back Azure reservation costs
+# Charge back Azure Reservation costs
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.
 
@@ -16,7 +16,7 @@ Users with an individual subscription can get the amortized cost data from their
 
 ## Get reservation charge back data for chargeback
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Cost Management + Billing**.
 1. Under **Actual Cost**, select the **Amortized Cost** metric.
 1. To see which resources were used by a reservation, apply a filter for **Reservation** and then select reservations.
@@ -24,7 +24,7 @@ Users with an individual subscription can get the amortized cost data from their
 1. Set the chart type to **Table**.
 1. Set the **Group by** option to **Resource**.
 
-[![Example showing reservation resource costs that you can use for chargeback](./media/charge-back-reservation-usage/amortized-reservation-costs.png)](./media/charge-back-reservation-usage/amortized-reservation-costs.png#lightbox)
+[![Example showing reservation resource costs that you can use for chargeback](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
 Here's a video showing how to view reservation utilization costs in the Azure portal.
 

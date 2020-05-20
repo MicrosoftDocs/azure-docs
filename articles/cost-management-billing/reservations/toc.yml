@@ -58,9 +58,9 @@
   - name: Report costs
     items:
     - name: View reservation transactions
-      href: view-reservation-purchase-refunds.md
+      href: view-purchase-refunds.md
     - name: Charge back reservation costs
-      href: charge-back-reservation-usage.md
+      href: charge-back-usage.md
   - name: Renew reservations
     items:
     - name: Renew a reservation
