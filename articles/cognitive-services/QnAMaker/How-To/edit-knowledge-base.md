@@ -2,7 +2,7 @@
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/19/2020
 ---
 # Edit QnA pairs in your knowledge base
 

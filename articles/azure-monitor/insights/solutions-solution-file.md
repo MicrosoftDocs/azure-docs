@@ -42,7 +42,7 @@ The basic structure of a management solution file is the same as a [Resource Man
 ## Parameters
 [Parameters](../../azure-resource-manager/templates/template-syntax.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
-When a user [installs your management solution](solutions.md#install-a-monitoring-solution) through the Azure Marketplace or Azure QuickStart templates they are prompted to select a [Log Analytics workspace and Automation account](solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
+When a user [installs your management solution](solutions.md#install-a-monitoring-solution) through the Azure Marketplace or Azure Quickstart templates they are prompted to select a [Log Analytics workspace and Automation account](solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
 
 A sample parameter is shown below.  
@@ -157,7 +157,7 @@ In this case, you refer to variable values through the solution with the syntax 
 The **dependsOn** element specifies a [dependency](../../azure-resource-manager/templates/define-resource-dependency.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](solutions-resources-automation.md#runbooks) when it's installed using a [job resource](solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
 
 ### Log Analytics workspace and Automation account
-Management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to contain views and an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
+Management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to contain views and an [Automation account](../../automation/automation-security-overview.md) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
 
 
 ## Solution resource

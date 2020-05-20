@@ -91,12 +91,11 @@ support backwards compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
-compliance results. The exception is **resource groups** and **subscriptions**. Policies that
-enforce location or tags on a resource group or subscription should set **mode** to `all` and
+compliance results. The exception is **resource groups** and **subscriptions**. Policy definitions
+that enforce location or tags on a resource group or subscription should set **mode** to `all` and
 specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 `Microsoft.Resources/subscriptions` type. For an example, see
-[Enforce resource group tags](../samples/enforce-tag-rg.md). For a list of resources that support
-tags, see
+[Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
@@ -105,9 +104,10 @@ The following Resource Provider modes are currently supported during preview:
 
 - `Microsoft.ContainerService.Data` for managing admission controller rules on
   [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Policies using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect.
-- `Microsoft.Kubernetes.Data` for managing self-managed AKS Engine Kubernetes clusters on Azure.
-  Policies using this Resource Provider mode **must** use the
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
+  mode is being _deprecated_.
+- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Policies using
+  this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md).
