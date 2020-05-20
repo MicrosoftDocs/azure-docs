@@ -28,7 +28,7 @@ For more information, see one of the following examples:
 
 ### What is Azure Private Link?
 
-Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more details, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
+Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more information, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
 
 ### Required permissions for an existing VNET
 
@@ -36,7 +36,7 @@ The Azure Image Builder requires specific permissions to use an existing VNET. F
 
 ### What is deployed during an image build?
 
-Using an existing VNET means Azure Image Builder deploys an additional VM (proxy VM) and an Azure Load Balancer (ALB) that is connected to the Private Link. Traffic from the AIB service goes across the private link to the ALB. The ALB communicates to the proxy VM using port 60001 for Linux OS's or 60000 for Windows OS's. The proxy forwards commands to the build VM using port 22 for Linux OS's or 5986 for Windows OS's.
+Using an existing VNET means Azure Image Builder deploys an additional VM (proxy VM) and an Azure Load Balancer (ALB) that is connected to the Private Link. Traffic from the AIB service goes across the private link to the ALB. The ALB communicates to the proxy VM using port 60001 for Linux OS or 60000 for Windows OS. The proxy forwards commands to the build VM using port 22 for Linux OS or 5986 for Windows OS.
 
 > [!NOTE]
 > The VNET must be in the same region as the Azure Image Builder Service region.
@@ -46,7 +46,7 @@ Using an existing VNET means Azure Image Builder deploys an additional VM (proxy
 
 When a VM without public IP is behind an Internal Load Balancer, it doesn't have Internet access. The Azure Load Balancer used for VNET is internal. The proxy VM allows Internet access for the build VM during builds. The network security groups associated can be used to restrict the build VM access.
 
-The deployed proxy VM size is Standard A1_v2 ,in addition to the build VM. The proxy VM is used to send commands between the Azure Image Builder Service and the build VM. The proxy VM properties cannot be changed including size or the OS. You cannot change proxy VM properties for both Windows and Linux image builds.
+The deployed proxy VM size is Standard A1_v2 in addition to the build VM. The proxy VM is used to send commands between the Azure Image Builder Service and the build VM. The proxy VM properties cannot be changed including size or the OS. You cannot change proxy VM properties for both Windows and Linux image builds.
 
 ### Image Template parameters to support VNET
 ```json
@@ -63,7 +63,7 @@ The deployed proxy VM size is Standard A1_v2 ,in addition to the build VM. The p
 | subnetName | Name of the subnet within the specified virtual network. Must be specified if and only if *name* is specified. |
 | resourceGroupName | Name of the resource group containing the specified virtual network. Must be specified if and only if *name* is specified. |
 
-Private Link service requires an IP from the given VNET and subnet. Currently, Azure doesn’t support Network Policies on these IPs. Hence, network policies need to be disabled on the subnet. For more details, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
+Private Link service requires an IP from the given VNET and subnet. Currently, Azure doesn’t support Network Policies on these IPs. Hence, network policies need to be disabled on the subnet. For more information, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
 
 ### Checklist for using your VNET
 
