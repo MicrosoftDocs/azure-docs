@@ -374,9 +374,9 @@
 - name: Commercial marketplace in Partner Center
   items: 
   - name: Overview of the commercial marketplace
-    href: ./partner-center-portal/commercial-marketplace-overview.md    
-  - name: Migration FAQ
-    href: ./cloud-partner-portal-migration-faq.md 
+    href: ./partner-center-portal/commercial-marketplace-overview.md
+  - name: Migration FAQ
+    href: ./cloud-partner-portal-faq.md     
   - name: Account Management
     items:
     - name: Create a new Partner Center account
