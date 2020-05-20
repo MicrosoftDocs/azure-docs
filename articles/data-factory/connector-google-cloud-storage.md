@@ -42,10 +42,7 @@ The following set-up is required on your Google Cloud Storage account:
 
 ## Required permissions
 
-To copy data from Google Cloud Storage, make sure you have been granted the following permissions:
-
-- **For copy activity execution:**: For ilustration the permissions defined in the servcie account may contain `storage.buckets.get`, `storage.buckets.list`, `storage.objects.create`, `storage.objects.get`, `storage.hmacKeys.get`, and `storage.hmacKeys.list` for Object Operations.
-- **For Data Factory GUI authoring**: `storage.buckets.get`,  `storage.buckets.list`, `storage.objects.create`, `storage.objects.get`, `storage.hmacKeys.get`, and `storage.hmacKeys.list` for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and specify the path directly in dataset settings.
+To copy data from Google Cloud Storage, make sure you have granted the needed permissions. The permissions defined in the service account may contain `storage.buckets.get`, `storage.buckets.list`, `storage.objects.get` for Object Operations.
 
 ## Getting started
 
