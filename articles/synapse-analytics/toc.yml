@@ -32,8 +32,6 @@
       href: quickstart-create-sql-pool-portal.md
     - name: Create SQL pool using Synapse Studio
       href: quickstart-create-sql-pool-studio.md
-    - name: Create SQL pool
-      href: quickstart-create-sql-pool.md
   - name: Load data with SQL pools
     items:
     - name: COPY statement

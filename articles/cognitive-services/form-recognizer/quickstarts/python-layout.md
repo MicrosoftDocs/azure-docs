@@ -51,7 +51,7 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
