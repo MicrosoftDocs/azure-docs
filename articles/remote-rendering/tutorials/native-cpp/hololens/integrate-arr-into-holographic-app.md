@@ -45,7 +45,7 @@ In the new project, switch the configuration to **"Debug / ARM64"**. You should 
 First step into adding Remote Rendering capabilities is to add the client-side dependencies. Relevant dependencies are available as a NuGet package.
 In the Solution Explorer, right-click on the project and select **"Manage NuGet Packages..."** from the context menu.
 
-In the prompted dialog, browse for the **"Azure Remote Rendering"** NuGet package:
+In the prompted dialog, browse for the NuGet package named **"Microsoft.Azure.RemoteRendering.Cpp"**:
 
 ![Browse for NuGet package](media/add-nuget.png)
 
@@ -107,7 +107,7 @@ namespace RR = Microsoft::Azure::RemoteRendering;
 
 This shortcut is useful so we don't have to write out the full namespace everywhere but still can recognize ARR-specific data structures. Of course, we could also use the `using namespace...` directive.
 
-### Remote Rendering Initialization
+### Remote Rendering initialization
  
 We need to hold a few objects for the session etc. during the lifetime of the application. The lifetime coincides with the lifetime of the application's `HolographicAppMain` object, so we add our objects as members to class `HolographicAppMain`. The next step is adding the following class members in file HolographicAppMain.h:
 
