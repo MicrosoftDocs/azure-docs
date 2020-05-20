@@ -13,7 +13,7 @@ ms.date: 05/20/2020
 
 This article provides background information and steps to configure customer-Managed Keys (CMK) for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
 
-We recommend you review [Limitations and constraints](#limitations-and-constraints) below before configuration.
+We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
 ## Customer-managed key (CMK) overview
 
