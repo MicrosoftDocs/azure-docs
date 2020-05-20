@@ -15,6 +15,9 @@
     href: quick-run-dotnet.md
   - name: Run a Batch job - Python
     href: quick-run-python.md
+  - name: Create a Batch account - ARM template
+    href: quick-create-template.md
+    displayName: Resource Manager
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -41,6 +44,9 @@
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
     href: cli-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Security
@@ -69,6 +75,8 @@
   items:
   - name: Manage Batch accounts
     items:
+    - name: Manage your account
+      href: batch-manage-account-basics.md
     - name: Manage Batch accounts with the portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
@@ -85,10 +93,13 @@
       href: credential-access-key-vault.md
   - name: Copy files and applications to pool nodes
     items: 
+    - name: Copying applications and data to pool nodes
+      href: batch-applications-to-pool-nodes.md 
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
       href: resource-files.md
+
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes

@@ -22,7 +22,7 @@ There are several options for creating a Cloud Foundry environment on Azure:
 - [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](https://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
 
 > [!IMPORTANT] 
-> If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL is in the form https://system.*ip-address*.cf.pcfazure.com.
+> If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL is in the form `https://system.*ip-address*.cf.pcfazure.com`.
 
 ## Connect to the Cloud Controller
 

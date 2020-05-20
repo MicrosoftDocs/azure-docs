@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -132,7 +132,7 @@ The following claims transformation demonstrates how to check the value of a boo
     <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
-      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+    <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -163,6 +163,7 @@ Use this claim transformation to perform logical negation on a claim.
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -197,7 +198,6 @@ The following claims transformation demonstrates how to `Or` two boolean ClaimTy
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation>
 </ClaimsTransformation>
 ```
 

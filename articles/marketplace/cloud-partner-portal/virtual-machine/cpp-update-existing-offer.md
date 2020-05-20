@@ -1,18 +1,20 @@
 ---
 title: Update an existing VM offer in the Azure Marketplace 
 description: Explains how to update an existing VM offer on Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Update an existing VM offer on Azure Marketplace
 
-This article walks you through the different aspects of updating your virtual machine (VM) offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer. 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
+
+This article walks you through the different aspects of updating your virtual machine (VM) offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer.
 
 There are a number of commonplace reasons for you to update your offer, including:
 

@@ -18,7 +18,7 @@ When you create a Traffic Manager profile, Azure automatically assigns a DNS nam
 
 For example, to point name `www.contoso.com` to the Traffic Manager DNS name `contoso.trafficmanager.net`, you create the following DNS resource record:
 
-    www.contoso.com IN CNAME contoso.trafficmanager.net
+    `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
 All traffic requests to *www\.contoso.com* get directed to *contoso.trafficmanager.net*.
 

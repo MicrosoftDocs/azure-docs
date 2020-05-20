@@ -1,5 +1,5 @@
 ---
-title: Safety for your StorSimple device | Microsoft Docs
+title: Safely install & operate StorSimple 8000 series device
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device.
 services: storsimple
 documentationcenter: ''
@@ -63,7 +63,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 To reduce the likelihood of overheating or fire from the electrical connections:
 
 * Provide a suitable power source with electrical overload protection to meet the requirements detailed in the technical specification.
-* Do not use bifurcated power cords (“Y” leads).
+* Do not use bifurcated power cords ("Y" leads).
 * To comply with applicable safety, emission, and thermal requirements, no covers should be removed and all bays must be populated with plug-in modules or drive blanks.
 * Ensure that the equipment is used in a manner specified by the manufacturer. If this equipment is used in a manner not specified by the manufacturer, the protection provided by the equipment may be impaired.
 
@@ -92,7 +92,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 
 * The rack should have a safe electrical distribution system. It must provide over-current protection for the enclosure and must not be overloaded by the total number of enclosures installed. The electrical power consumption rating shown on the nameplate should be observed.
 * The electrical distribution system must provide a reliable ground for each enclosure in the rack.
-* The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with “HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply.”
+* The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with "HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply."
 * The rack, when configured with the enclosures, must meet the safety requirements of UL 60950-1 and IEC 60950-1/EN 60950-1.
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**

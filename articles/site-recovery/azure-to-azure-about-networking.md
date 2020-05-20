@@ -1,5 +1,5 @@
 ---
-title: About networking in Azure VM disaster recovery with Azure Site Recovery 
+title: About networking in Azure VM disaster recovery with Azure Site Recovery
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -41,7 +41,7 @@ Typically, networks are protected using firewalls and network security groups (N
 If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
 
 
-**URL** | **Details**  
+**URL** | **Details**
 --- | ---
 *.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can allow access to the specific storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
@@ -50,11 +50,11 @@ login.microsoftonline.com | Required for authorization and authentication to the
 *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
 *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
 
-## Outbound connectivity for IP address ranges
+## Outbound connectivity using Service Tags
 
 If you are using an NSG to control outbound connectivity, these service tags need to be allowed.
 
-- All IP address ranges that correspond to the storage accounts in source region
+- For the storage accounts in source region:
     - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD

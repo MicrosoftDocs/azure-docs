@@ -13,6 +13,7 @@ ms.reviewer: craigg
 ---
 
 # Azure Data Factory connector overview
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory support the following data stores and formats via Copy, Data Flow, Look-up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
 

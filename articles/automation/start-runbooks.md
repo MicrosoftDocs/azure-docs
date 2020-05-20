@@ -24,47 +24,8 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
-## Start a runbook with the Azure portal
-
-1. In the Azure portal, select **Automation** and then click the name of an automation account.
-2. On the Hub menu, select **Runbooks**.
-3. On the **Runbooks** page, select a runbook, and then click **Start**.
-4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#runbook-parameters).
-5. On the **Job** page, you can view the status of the runbook job.
-
-## Start a runbook with PowerShell
-
-You can use the [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
-
-```azurepowershell-interactive
-Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
-```
-
-Start-AzureRmAutomationRunbook returns a job object that you can use to track its status once the runbook is started. You can then use this job object with [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to determine the status of the job and [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get its output. The following sample code starts a runbook called Test-Runbook, waits until it has completed, and then displays its output.
-
-```azurepowershell-interactive
-$runbookName = "Test-Runbook"
-$ResourceGroup = "ResourceGroup01"
-$AutomationAcct = "MyAutomationAccount"
-
-$job = Start-AzureRmAutomationRunbook –AutomationAccountName $AutomationAcct -Name $runbookName -ResourceGroupName $ResourceGroup
-
-$doLoop = $true
-While ($doLoop) {
-   $job = Get-AzureRmAutomationJob –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup
-   $status = $job.Status
-   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-}
-
-Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
-```
-
-If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx). The key of the hashtable must match the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#runbook-parameters) below.
-
-```azurepowershell-interactive
-$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
-```
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Runbook parameters
 
@@ -147,9 +108,7 @@ Smith
 
 ### Credentials
 
-If the parameter is data type **PSCredential**, then you can provide the name of an Azure Automation [credential asset](automation-credentials.md). The runbook retrieves the credential with the name that you specify.
-
-Consider the following test runbook that accepts a parameter called credential.
+If the parameter is data type `PSCredential`, you can provide the name of an Azure Automation [credential asset](automation-credentials.md). The runbook retrieves the credential with the name that you specify. The following test runbook accepts a parameter called `credential`.
 
 ```powershell
 Workflow Test-Parameters
@@ -161,20 +120,62 @@ Workflow Test-Parameters
 }
 ```
 
-The following text could be used for the user parameter assuming that there was a credential asset called *My Credential*.
+The following text could be used for the user parameter assuming that there was a credential asset called `My Credential`.
 
 ```input
 My Credential
 ```
 
-Assuming the username in the credential was *jsmith*, this results in the following output:
+Assuming that the user name in the credential is `jsmith`, the following output is displayed.
 
 ```output
 jsmith
 ```
 
+## Start a runbook with the Azure portal
+
+1. In the Azure portal, select **Automation** and then click the name of an Automation account.
+2. On the Hub menu, select **Runbooks**.
+3. On the Runbooks page, select a runbook, and then click **Start**.
+4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#runbook-parameters).
+5. On the Job pane, you can view the status of the runbook job.
+
+## Start a runbook with PowerShell
+
+You can use the [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start a runbook with Windows PowerShell. The following sample code starts a runbook called **Test-Runbook**.
+
+```azurepowershell-interactive
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
+```
+
+`Start-AzAutomationRunbook` returns a job object that you can use to track status once the runbook is started. You can then use this job object with [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) to determine the status of the job and [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) to retrieve its output. The following example starts a runbook called **Test-Runbook**, waits until it has completed, and then displays its output.
+
+```azurepowershell-interactive
+$runbookName = "Test-Runbook"
+$ResourceGroup = "ResourceGroup01"
+$AutomationAcct = "MyAutomationAccount"
+
+$job = Start-AzAutomationRunbook –AutomationAccountName $AutomationAcct -Name $runbookName -ResourceGroupName $ResourceGroup
+
+$doLoop = $true
+While ($doLoop) {
+   $job = Get-AzAutomationJob –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup
+   $status = $job.Status
+   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
+
+Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
+```
+
+If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx). The key of the hashtable must match the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#runbook-parameters).
+
+```azurepowershell-interactive
+$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
+```
+
 ## Next steps
 
-* The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premises with the Hybrid Runbook Worker. To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+* To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

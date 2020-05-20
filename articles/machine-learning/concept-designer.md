@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
+ms.custom: designer
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
@@ -78,7 +79,7 @@ A module may have a set of parameters that you can use to configure the module's
 
 ![Module properties](./media/concept-designer/properties.png)
 
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](algorithm-module-reference/module-reference.md)
+For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](algorithm-module-reference/module-reference.md). For help choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
 
 ## <a name="compute"></a> Compute resources
 
@@ -87,9 +88,10 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
+| Azure Machine Learning compute instance | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ## Deploy
 

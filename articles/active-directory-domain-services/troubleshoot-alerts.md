@@ -9,7 +9,7 @@ ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
 

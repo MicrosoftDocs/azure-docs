@@ -13,7 +13,7 @@ ms.date: 03/11/2020
 ms.custom: seoapril2019
 ---
 
-# Managed instance T-SQL differences, limitations, and known issues
+# Managed instance T-SQL differences and limitations
 
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
 
@@ -29,7 +29,7 @@ There are some PaaS limitations that are introduced in Managed Instance and some
 
 Most of these features are architectural constraints and represent service features.
 
-This page also explains [Temporary known issues](#Issues) that are discovered in managed instance, which will be resolved in the future.
+Temporary known issues that are discovered in managed instance and which will be resolved in the future are described in [release notes page](sql-database-release-notes.md).
 
 ## Availability
 
@@ -527,183 +527,9 @@ The following MSDB schemas in managed instance must be owned by their respective
 
 A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) or [managed instance extension(preview)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) for Azure Data Studio.
 
-## <a name="Issues"></a> Known issues
-
-
-### Limitation of manual failover via portal for failover groups
-
-**Date:** Jan 2020
-
-If failover group spans across instances in different Azure subscriptions or resource groups, manual failover cannot be initiated from the primary instance in the failover group.
-
-**Workaround**: Initiate failover via portal from the geo-secondary instance.
-
-### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
-
-**Date:** Dec 2019
-
-If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message “The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)” will be shown.
-
-**Workaround**: Once you add logins to either of SQL Agent fixed database roles: SQLAgentUserRole, SQLAgentReaderRole or SQLAgentOperatorRole, for each of the logins added to these roles execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed.
-
-```tsql
-USE [master]
-GO
-CREATE USER [login_name] FOR LOGIN [login_name]
-GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
-```
-
-### SQL Agent jobs can be interrupted by Agent process restart
-
-**Date:** Dec 2019
-
-SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
-
-### In-memory OLTP memory limits are not applied
-
-**Date:** Oct 2019
-
-Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) in some cases. Managed instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
-
-**Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
-
-### Wrong error returned while trying to remove a file that is not empty
-
-**Date:** Oct 2019
-
-SQL Server/Managed Instance [don't allow user to drop a file that is not empty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. Managed Instance will keep trying to drop the file and the operation will fail after 30min with `Internal server error`.
-
-**Workaround**: Remove the content of the file using `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` command. If this is the only file in the filegroup you would need to delete data from the table or partition associated to this filegroup before you shrink the file, and optionally load this data into another table/partition.
-
-### Change service tier and create instance operations are blocked by ongoing database restore
-
-**Date:** Sep 2019
-
-Ongoing `RESTORE` statement, Data Migration Service migration process, and built-in point-in time restore will block updating service tier or resize of the existing instance and creating new instances until restore process finishes. 
-Restore process will block these operations on the Managed instances and instance pools in the same subnet where restore process is running. The instances in instance pools are not affected. Create or change service tier operations will not fail or timeout - they will proceed once the restore process is completed or canceled.
-
-**Workaround**: Wait until the restore process finishes, or cancel the restore process if creation or update service-tier operation has higher priority.
-
-### Resource Governor on Business Critical service tier might need to be reconfigured after failover
-
-**Date:** Sep 2019
-
-[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) feature that enables you to limit the resources assigned to the user workload might incorrectly classify some user workload after failover or user-initiated change of service tier (for example, the change of max vCore or max instance storage size).
-
-**Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
-[Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
-
-**Date:** Aug 2019
-
-Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages to the target service.
-
-**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
-
-### Impersonification of Azure AD login types is not supported
-
-**Date:** July 2019
-
-Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD principals is not supported:
--	Aliased AAD users. The following error is returned in this case `15517`.
-- AAD logins and users based on AAD applications or service principals. The following errors are returned in this case `15517` and `15406`.
-
-### @query parameter not supported in sp_send_db_mail
-
-**Date:** April 2019
-
-The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
-
-### Transactional Replication must be reconfigured after geo-failover
-
-**Date:** Mar 2019
-
-If Transactional Replication is enabled on a database in an auto-failover group, the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#replication) for more details.
-
-### AAD logins and users are not supported in SSDT
-
-**Date:** Nov 2019
-
-SQL Server Data Tools don't fully support Azure Active directory logins and users.
-
-### Temporary database is used during RESTORE operation
-
-When a database is restoring on Managed Instance, the restore service will first create an empty database with the desired name to allocate the name on the instance. After some time, this database will be dropped and restoring of the actual database will be started. The database that is in *Restoring* state will temporary have a random GUID value instead of name. The temporary name will be changed to the desired name specified in `RESTORE` statement once the restore process completes. In the initial phase, user can access the empty database and even create tables or load data in this database. This temporary database will be dropped when the restore service starts the second phase.
-
-**Workaround**: Do not access the database that you are restoring until you see that restore is completed.
-
-### TEMPDB structure and content is re-created
-
-The `tempdb` database is always split into 12 data files and the file structure cannot be changed. The maximum size per file can't be changed, and new files cannot be added to `tempdb`. `Tempdb` is always re-created as an empty database when the instance starts or fails over, and any changes made in `tempdb` will not be preserved.
-
-### Exceeding storage space with small database files
-
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`, and `RESTORE DATABASE` statements might fail because the instance can reach the Azure Storage limit.
-
-Each General Purpose managed instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a managed instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
-
-For example, a General Purpose managed instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
-
-- The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
-- The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
-
-This example illustrates that under certain circumstances, due to a specific distribution of files, a managed instance might reach the 35-TB limit that's reserved for an attached Azure Premium Disk when you might not expect it to.
-
-In this example, existing databases continue to work and can grow without any problem as long as new files aren't added. New databases can't be created or restored because there isn't enough space for new disk drives, even if the total size of all databases doesn't reach the instance size limit. The error that's returned in that case isn't clear.
-
-You can [identify the number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) by using system views. If you reach this limit, try to [empty and delete some of the smaller files by using the DBCC SHRINKFILE statement](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to the [Business Critical tier, which doesn't have this limit](/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-
-### GUID values shown instead of database names
-
-Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
-
-### Error logs aren't persisted
-
-Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several times on several virtual machines.
-
-### Transaction scope on two databases within the same instance isn't supported
-
-The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
-
-```csharp
-using (var scope = new TransactionScope())
-{
-    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
-    {
-        conn1.Open();
-        SqlCommand cmd1 = conn1.CreateCommand();
-        cmd1.CommandText = string.Format("insert into T1 values(1)");
-        cmd1.ExecuteNonQuery();
-    }
-
-    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
-    {
-        conn2.Open();
-        var cmd2 = conn2.CreateCommand();
-        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
-    }
-
-    scope.Complete();
-}
-
-```
-
-Although this code works with data within the same instance, it required MSDTC.
-
-**Workaround:** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
-
-### CLR modules and linked servers sometimes can't reference a local IP address
-
-CLR modules placed in a managed instance and linked servers or distributed queries that reference a current instance sometimes can't resolve the IP of a local instance. This error is a transient issue.
-
-**Workaround:** Use context connections in a CLR module if possible.
-
 ## Next steps
 
 - For more information about managed instances, see [What is a managed instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [Azure SQL Database feature comparison](sql-database-features.md).
+- For release updates and known issues state, see [SQL Database release notes](sql-database-release-notes.md)
 - For a quickstart that shows you how to create a new managed instance, see [Create a managed instance](sql-database-managed-instance-get-started.md).

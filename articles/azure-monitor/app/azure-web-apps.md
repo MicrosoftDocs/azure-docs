@@ -3,7 +3,6 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 12/11/2019
-
 ---
 
 # Monitor Azure App Service performance
@@ -24,7 +23,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
     * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
-    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
+    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more. This is also currently the only supported option for Linux based workloads.
 
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
@@ -51,21 +50,22 @@ There are two ways to enable application monitoring for Azure App Services hoste
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
-
-   * .NET **Basic collection** level offers essential single-instance APM capabilities.
-
-   * .NET **Recommended collection** level:
-       * Adds CPU, memory, and I/O usage trends.
-       * Correlates micro-services across request/dependency boundaries.
-       * Collects usage trends, and enables correlation from availability results to transactions.
-       * Collects exceptions unhandled by the host process.
-       * Improves APM metrics accuracy under load, when sampling is used.
+ 
+ Below is a summary of data collected for each route:
+        
+|  | .NET Basic Collection | .NET Recommended collection |
+| --- | --- | --- |
+| Adds CPU, memory, and I/O usage trends |Yes |Yes |
+| Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
+| Collects exceptions unhandled by the host process | Yes |Yes |
+| Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
+| Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
 3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix. 
 
     * For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
 
-    * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # [.NET Core](#tab/netcore)
 
@@ -390,6 +390,14 @@ If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded
 This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Please follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### PHP and WordPress are not supported
+
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### Connection string and instrumentation key
+
+When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
 * [Run the profiler on your live app](../app/profiler.md).

@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -32,7 +32,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](https://docs.mic
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) is created using a key and region.
+Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
 
 ```cpp
 auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -214,7 +214,7 @@ config->EnableDictation();
 A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), then add this line directly below it.
 
 ```cpp
-config->SetSpeechRecognitionLanguage("fr-FR");
+config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
 [`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](../../../language-support.md).

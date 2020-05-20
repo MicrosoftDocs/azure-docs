@@ -22,7 +22,7 @@ ms.localizationpriority: high
 
 ::: zone target="chromeless"
 
-# Copy data to Azure Data Box
+## Copy data to Azure Data Box
 
 ::: zone-end
 

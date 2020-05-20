@@ -52,4 +52,4 @@ If you're ready to create your own FSLogix profile containers, get started with 
 - [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
 - The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
 
-You can also start from the very beginning and set up your own Windows Virtual Desktop solution at [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+You can also start from the very beginning and set up your own Windows Virtual Desktop solution at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

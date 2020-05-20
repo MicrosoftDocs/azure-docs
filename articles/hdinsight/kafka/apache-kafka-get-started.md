@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/24/2020
+ms.date: 04/29/2020
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -15,11 +15,11 @@ ms.date: 02/24/2020
 
 [Apache Kafka](./apache-kafka-introduction.md) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
-In this quickstart, you learn how to create an Apache Kafka cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Apache Kafka. For in depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For additional information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+In this Quickstart, you learn how to create an Apache Kafka cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Apache Kafka. For in depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For additional information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-The Apache Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+The Apache Kafka API can only be accessed by resources inside the same virtual network. In this Quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document. For more general information on planning virtual networks for HDInsight, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -68,13 +68,13 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
     |Primary storage type|Use the default value **Azure Storage**.|
     |Selection method|Use the default value **Select from list**.|
     |Primary storage account|Use the drop-down list to select an existing storage account, or select **Create new**. If you create a new account, the name must be between 3 and 24 characters in length, and can include numbers and lowercase letters only|
-    |Container|Use the autopopulated value.|
+    |Container|Use the auto-populated value.|
 
     ![HDInsight Linux get started provide cluster storage values](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Provide storage values for creating an HDInsight cluster")
 
     Select the **Security + networking** tab.
 
-1. For this quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
+1. For this Quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
@@ -163,7 +163,7 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```
 
     > [!Note]  
-    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari. 
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari.
 
 1. To verify that the environment variable is set correctly, use the following command:
 
@@ -182,7 +182,7 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```
 
     > [!Note]  
-    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari. 
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari.
 
 1. To verify that the environment variable is set correctly, use the following command:
 
@@ -210,21 +210,21 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
     * Each partition is replicated across three worker nodes in the cluster.
 
-        If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
+        * If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
         
-        In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
+        * In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+        * For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-        Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
+        * Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
-        To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Apache Kafka cluster.
+        * To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Apache Kafka cluster.
 
-        For the highest availability of your Apache Kafka data, you should rebalance the partition replicas for your topic when:
+        * For the highest availability of your Apache Kafka data, you should rebalance the partition replicas for your topic when:
 
-        * You create a new topic or partition
+            * You create a new topic or partition
 
-        * You scale up a cluster
+            * You scale up a cluster
 
 * **To list topics**, use the following command:
 

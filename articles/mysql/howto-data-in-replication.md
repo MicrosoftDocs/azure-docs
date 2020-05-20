@@ -5,14 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 3/27/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MySQL service. 
+This article describes how to set up Data-in Replication in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
-This article assumes that you have at least some prior experience with MySQL servers and databases.
+To create a replica in the Azure Database for MySQL service, Data-in Replication synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services.
+
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
 ## Create a MySQL server to be used as replica
 
@@ -28,10 +30,21 @@ This article assumes that you have at least some prior experience with MySQL ser
 
    User accounts are not replicated from the master server to the replica server. If you plan on providing users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
 
-## Configure the master server
-The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication. 
+3. Add the master server's IP address to the replica's firewall rules. 
 
-1. Turn on binary logging
+   Update firewall rules using the [Azure portal](howto-manage-firewall-using-portal.md) or [Azure CLI](howto-manage-firewall-using-cli.md).
+
+## Configure the master server
+The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication.
+
+
+1. Review the [master server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
+
+   For example, ensure the master server allows both inbound and outbound traffic on port 3306 and that the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
+   
+   Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+
+2. Turn on binary logging
 
    Check to see if binary logging has been enabled on the master by running the following command: 
 
@@ -43,7 +56,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    If `log_bin` is returned with the value "OFF", turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
 
-2. Master server settings
+3. Master server settings
 
    Data-in Replication requires parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is 1 by default in Azure Database for MySQL. 
 
@@ -51,9 +64,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Create a new replication role and set up permission
+4. Create a new replication role and set up permission
 
-   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) on your master server. 
+   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your master server. 
 
    In the commands below, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
@@ -92,7 +105,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Set the master server to read-only mode
+5. Set the master server to read-only mode
 
    Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the master will be unable to process any write transactions. Evaluate the impact to your business and schedule the read-only window in an off-peak time if necessary.
 
@@ -101,7 +114,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    SET GLOBAL read_only = ON;
    ```
 
-5. Get binary log file name and offset
+6. Get binary log file name and offset
 
    Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
     
@@ -162,7 +175,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
+   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
    -----END CERTIFICATE-----'
    ```
 

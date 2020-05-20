@@ -27,9 +27,9 @@ Using the checkboxes, select the virtual machines you wish to onboard with Chang
 From the command bar, click **Services** and select either **Change tracking**, **Inventory**, or **Update Management**.
 
 > [!NOTE]
-> **Change tracking** and **Inventory** use the same solution, when one is enabled the other is enabled as well.
+> Change Tracking and Inventory use the same solution. When one is enabled, the other is enabled as well.
 
-The following image is for Update Management. Change tracking and Inventory have the same layout and behavior.
+The following image is for Update Management. Change Tracking and Inventory have the same layout and behavior.
 
 The list of virtual machines is filtered to show only the virtual machines that are in the same subscription and location. If your virtual machines are in more than three resource groups, the first three resource groups are selected.
 
@@ -101,13 +101,13 @@ Alternatively you can also unlink your workspace from your Automation Account fr
 
 ## Troubleshooting
 
-When onboarding multiple machines, there may be machines that show as **Cannot enable**. There are different reasons why some machines may not be enabled. The following sections show possible reasons for the **Cannot enable** state on a VM when attempting to onboard.
+When onboarding multiple machines, there may be machines that show as `Cannot enable`. There are different reasons why some machines may not be enabled. The following sections show possible reasons for the `Cannot enable` state on a VM when attempting to onboard.
 
 ### VM reports to a different workspace: '\<workspaceName\>'.  Change configuration to use it for enabling
 
 **Cause**: This error shows that the VM that you are trying to onboard reports to another workspace.
 
-**Solution**: Click **Use as configuration** to change the targeted Automation Account and Log Analytics workspace.
+**Solution**: Click **Use as configuration** to change the targeted Automation account and Log Analytics workspace.
 
 ### VM reports to a workspace that is not available in this subscription
 
@@ -123,7 +123,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Cause:** The solution is not supported for all Linux distributions or all versions of Windows.
 
-**Solution:** Refer to the [list of supported clients](automation-update-management.md#clients) for the solution.
+**Solution:** Refer to the [list of supported clients](automation-update-management.md#supported-client-types).
 
 ### Classic VMs cannot be enabled
 
@@ -142,7 +142,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 To remove a VM from Update Management:
 
 * In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
-* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remove the [Log Analytics agent for Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

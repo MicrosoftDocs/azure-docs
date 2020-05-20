@@ -22,7 +22,7 @@ There are four main concepts to traffic routing available in Front Door:
 * **[Latency](#latency):** The latency-based routing ensures that requests are sent to the lowest latency backends acceptable within a sensitivity range. Basically, your user requests are sent to the "closest" set of backends with respect to network latency.
 * **[Priority](#priority):** You can assign priorities to your different backends when you want to use a primary service backend for all traffic, and provide backups in case the primary or the backup backends are unavailable.
 * **[Weighted](#weighted):** You can assign weights to your different backends when you want to distribute traffic across a set of backends, either evenly or according to weight coefficients.
-* **Session Affinity:** You can configure session affinity for your frontend hosts or domains when you want that subsequent requests from a user are sent to the same backend as long as the user session is still active and the backend instance still reports healthy based on health probes. 
+* **[Session Affinity](#affinity):** You can configure session affinity for your frontend hosts or domains when you want that subsequent requests from a user are sent to the same backend as long as the user session is still active and the backend instance still reports healthy based on health probes. 
 
 All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-health-probes.md). Your Front Door can be configured to either work based off a single routing method and depending on your application needs you can use multiple or all of these routing methods in combination to build an optimal routing topology.
 

@@ -2,14 +2,12 @@
 title: Test app in LUIS portal
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/17/2020
 ---
 
 # Test your LUIS app in the LUIS portal
 
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -19,13 +17,16 @@ ms.date: 11/19/2019
 
 ## Train before testing
 
-In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
 
 ## Test an utterance
 
 The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user.
 
-1. Access your app by selecting its name on the **My Apps** page.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 
 1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
@@ -38,7 +39,7 @@ The test utterance should not be exactly the same as any example utterances in t
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## Inspect score
+## Inspect the prediction
 
 You inspect details of the test result in the **Inspect** panel.
 
@@ -46,23 +47,21 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
-1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the prediction of the selected utterance.
 
-    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
+## Add to example utterances
 
-## Correct top scoring intent
+From the inspection panel, you can add the test utterance to an intent by selecting **Add to example utterances**.
 
-1. If the top scoring intent is incorrect, select the **Edit** button.
+## Disable required features
 
-1.  In the drop-down list, select the correct intent for the utterance.
+Select this toggle to see the what the prediction would be if the entity’s feature was not required.
 
-    ![Select correct intent](./media/luis-how-to-interactive-test/intent-select.png)
+This toggle helps you determine if the trained app is correctly predicting your entities based on required features. The trained app may mispredict a machine learned entity based on either incorrect labeling of example utterances or the required feature doesn't match the text.
 
 ## View sentiment results
 
 If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance.
-
-![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## Correct matched pattern's intent
 

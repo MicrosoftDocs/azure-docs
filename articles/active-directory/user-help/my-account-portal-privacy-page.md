@@ -20,7 +20,7 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 ## View your privacy-related info
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
 2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
 

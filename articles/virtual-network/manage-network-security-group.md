@@ -6,7 +6,7 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -379,4 +379,4 @@ To do tasks on network security groups, security rules, and application security
 ## Next steps
 
 - Create a network or application security group using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](policy-samples.md) for virtual networks

@@ -15,7 +15,7 @@
       href: quick-setup-auto-provision-cli.md
     - name: Azure RM template
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a single simulated device 
+  - name: Provision a single device 
     items:
     - name: Symmetric Key attestation
       items:
@@ -103,6 +103,8 @@
     href: concepts-tpm-attestation.md
   - name: Symmetric key attestation
     href: concepts-symmetric-key-attestation.md
+  - name: Security practices for device manufacturers
+    href: concepts-device-oem-security-practices.md
 - name: How-to guides
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub

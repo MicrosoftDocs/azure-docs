@@ -22,8 +22,9 @@ When you enable large file shares on your storage account, your file shares can 
 
 ## Restrictions
 
-For now, you can only use locally-redundant storage (LRS) or zone-redundant storage (ZRS) on large file share–enabled accounts. You can't use geo-zone-redundant storage (GZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS).
-Enabling large file shares on an account is an irreversible process. After you enable it, you won't be able to convert your account to GZRS, GRS, or RA-GRS.
+For now, you can only use locally-redundant storage (LRS) or zone-redundant storage (ZRS) on large file share–enabled accounts. You can't use geo-zone-redundant storage (GZRS), geo-redundant storage (GRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS).
+
+Enabling large file shares on an account is an irreversible process. After you enable it, you won't be able to convert your account to GZRS, GRS, RA-GRS, or RA-GZRS.
 
 ## Create a new storage account
 
@@ -39,7 +40,7 @@ Enabling large file shares on an account is an irreversible process. After you e
     ![Screenshot showing how to create a resource group in the portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Next, enter a name for your storage account. The name must be unique across Azure. The name also must be 3 to 24 characters in length, and it can only have numbers and lowercase letters.
-1. Select a location for your storage account, and make sure it's [one of the supported replication for large file shares](storage-files-planning.md#regional-availability).
+1. Select a location for your storage account.
 1. Set the replication to either **Locally redundant storage** or **Zone-redundant storage**.
 1. Leave these fields at their default values:
 
@@ -64,7 +65,7 @@ First, [install the latest version of the Azure CLI](https://docs.microsoft.com/
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -75,13 +76,13 @@ First, [install the latest version of PowerShell](https://docs.microsoft.com/pow
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## Enable large files shares on an existing account
 
-You can also enable large file shares on your existing accounts. If you enable large file shares, you won't be able to convert to GZRS, GRS, or RA-GRS. Enabling large file shares is irreversible on this storage account.
+You can also enable large file shares on your existing accounts. If you enable large file shares, you won't be able to convert to GZRS, GRS, RA-GRS, or RA-GZRS. Enabling large file shares is irreversible on this storage account.
 
 ### Portal
 

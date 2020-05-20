@@ -5,11 +5,12 @@ description: Learn how to import your data into Azure Machine Learning designer 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
+ms.custom: designer
 ---
 
 # Import your data into Azure Machine Learning designer (preview)
@@ -56,7 +57,7 @@ For detailed information on how to use the Import Data module, see the [Import D
 
 ## Supported sources
 
-This section lists the data sources supported by the designer. Data comes into into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
+This section lists the data sources supported by the designer. Data comes into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
 
 ### Datastore sources
 For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).

@@ -195,7 +195,7 @@ This error is shown when a `GET` call to `https://<management-endpoint-hostname>
 
 If your API Management service is in a VNet - refer to the VNet connectivity question above.
 
-The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
 ### What's the browser support for the portal?
 

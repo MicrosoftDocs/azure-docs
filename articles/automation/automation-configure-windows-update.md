@@ -3,7 +3,7 @@ title: Configure Windows Update settings to work with Azure Update Management
 description: This article describes the Windows Update settings that you configure to work with Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ---
 # Configure Windows Update settings for Update Management
@@ -16,6 +16,8 @@ Azure Update Management relies on [Windows Update client](https://docs.microsoft
 - Directly editing the Registry
 
 Update Management respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+
+For additional recommendations on setting up WSUS in your Azure subscription and securely keep your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## Pre-download updates
 

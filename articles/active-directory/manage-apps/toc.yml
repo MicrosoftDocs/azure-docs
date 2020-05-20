@@ -7,6 +7,8 @@
        href: what-is-application-management.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
+     - name: Common app management scenarios
+       href: common-scenarios.md
      - name: What is application provisioning?
        href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Quickstarts

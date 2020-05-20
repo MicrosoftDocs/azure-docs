@@ -1,12 +1,12 @@
 --- 
 title: Automate the deployment and release of your mobile applications with Visual Studio App Center and Azure services
 description: Learn about the services such as App Center that help set up continuous delivery pipeline for your mobile applications.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Automate the deployment and release of your mobile applications with continuous delivery services
