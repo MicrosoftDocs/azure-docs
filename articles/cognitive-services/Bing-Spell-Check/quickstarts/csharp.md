@@ -57,7 +57,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     }
     ```
 
-3. Create a variable for your search parameters. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
+3. Create a variable for your search parameters. Append your market code after `mkt=`. The market code is the country/region you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
