@@ -74,7 +74,7 @@ We recommend that you employ the following best practices:
 
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
-* Use streaming ingestion for near real time and recent data only, streaming historical data is not supported.
+* Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
 #### Historical Data Ingestion
 
