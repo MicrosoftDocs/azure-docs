@@ -5,9 +5,10 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
+ms.custom: monitoring
 ---
 
 # Monitor Azure Storage
@@ -303,7 +304,7 @@ You can access resource logs either as a blob in a storage account, as event dat
 For a detailed reference of the fields that appear in these logs, see [Azure Storage monitoring data reference](monitor-storage-reference.md).
 
 > [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
+> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
 
 ### Access logs in a storage account
 

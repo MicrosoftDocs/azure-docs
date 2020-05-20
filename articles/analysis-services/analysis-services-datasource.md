@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -82,7 +82,7 @@ Connecting to on-premises data sources from an Azure Analysis Services server re
 
 ## Understanding providers
 
-When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to an on-premises SQL Server Data Warehouse or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
+When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources for a model project in Visual Studio. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to an on-premises SQL Server Data Warehouse or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
 
 When using the Table Import Wizard in Visual Studio, connections to any data source require a data provider. A default data provider is selected for you. You can change the data provider if needed. The type of provider you choose can depend on performance, whether or not the model is using in-memory storage or DirectQuery, and which Analysis Services platform you deploy your model to.
 
@@ -102,7 +102,7 @@ Just like with tabular 1200 model projects, use **Table Import Wizard** to conne
 
 
 ## Impersonation
-In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SSMS.
+In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SQL Server Management Studio (SSMS).
 
 For on-premises data sources:
 
