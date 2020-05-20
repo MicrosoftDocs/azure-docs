@@ -31,10 +31,18 @@ To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplac
 
 This section covers potential issues when creating the Windows Virtual Desktop tenant.
 
+### Error: AADSTS650052 The app needs access to a service.
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions.650052 Message The app needs access to a service (\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
 ### Error: The user isn't authorized to query the management service
 
 ![Screenshot of PowerShell window in which a user isn't authorized to query the management service.](../media/UserNotAuthorizedNewTenant.png)
 
+**Cause:** Consent not granted to Windows Virtual Desktop in the Azure Active directory instance.
+
+**Fix:** [Follow this guide](https://docs.microsoft.com/en-us/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) to grant consent.
 Example of raw error:
 
 ```Error
