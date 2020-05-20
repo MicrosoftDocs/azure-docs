@@ -16,7 +16,7 @@ ms.reviewer: mbullwin
 
 Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## Pricing model
 

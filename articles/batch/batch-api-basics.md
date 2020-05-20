@@ -532,7 +532,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
+[batch_Microsoft_Q&A_question_page]: https://docs.microsoft.com/answers/topics/azure-batch.html
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples

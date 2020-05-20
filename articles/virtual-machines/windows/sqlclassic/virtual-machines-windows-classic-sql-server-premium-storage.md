@@ -539,7 +539,7 @@ One strategy for minimal downtime is to take an existing cloud secondary and rem
 * No extra cost incurred during migration.
 * A one-to-one migration.
 * Reduced complexity.
-* Allows for increased IOPS from Premium Storage SKUs. When the disks are detached from the VM and copied to the new cloud service, a 3rd party tool can be used to increase the VHD size, which provides higher throughputs. For increasing VHD sizes, see this [forum discussion](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
+* Allows for increased IOPS from Premium Storage SKUs. When the disks are detached from the VM and copied to the new cloud service, a 3rd party tool can be used to increase the VHD size, which provides higher throughputs. For increasing VHD sizes, see this [Microsoft Q&A question page for discussion](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html).
 
 ##### Disadvantages
 

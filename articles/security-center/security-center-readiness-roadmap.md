@@ -114,7 +114,7 @@ Articles
 ## Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Security Center community forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)
+* [Microsoft Q&A question page for Security Center community](https://docs.microsoft.com/answers/topics/azure-security-center.html)
 
 
 

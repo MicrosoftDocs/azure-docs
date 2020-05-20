@@ -55,7 +55,7 @@
     href: dsvm-secure-access-keys.md            
 - name: Resources
   items:
-  - name: MSDN forum
+  - name: Microsoft Q&A question page
     href: https://social.microsoft.com/Forums/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm

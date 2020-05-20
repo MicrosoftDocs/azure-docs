@@ -287,8 +287,8 @@
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Understand and resolve WebHCat errors
       href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-    - name: Get help on the forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
+    - name: Get help on the Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
