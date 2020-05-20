@@ -21,7 +21,9 @@ Learn the basics of modern authentication, the Microsoft identity platform, and 
 
 ## Microsoft identity platform for developers
 
-The *Identity for Developers* video series focuses on just what you need to know to get started adding identity support to your application. Tuned for quick delivery of the fundamental aspects of the platform and how to use its authentication libraries, these are a good place to start for any developer.
+In the *Identity for Developers* video series, Matthijs Hoekstra and Kyle Marsh provide a guided introduction to the Microsoft identity platform. Learn the key components and capabilities of the platform and how to use its authentication libraries to get started adding modern, secure authentication to your apps.
+
+With content curated and honed over the many training sessions they've conducted, this series good place to start for any developer getting started with identity in Azure.
 ___
 
 :::row:::
@@ -29,13 +31,13 @@ ___
         1 - Overview of the Microsoft identity platform for developers (33:55)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+        >[!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
     :::column-end:::
      :::column:::
         2 - How to authenticate users of your apps with the Microsoft identity platform (29:09)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+        >[!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -43,13 +45,13 @@ ___
         3 - Microsoft identity platform’s permissions and consent framework (45:08)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+        >[!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
     :::column-end:::
     :::column:::
         4 - How to protect APIs using the Microsoft identity platform (33:17)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+        >[!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -57,7 +59,7 @@ ___
         5 - Application roles and security groups on the Microsoft identity platform (15:52)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+        >[!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
     :::column-end:::
     :::column:::
         <!-- BLANK TITLE CELL -->
@@ -77,13 +79,13 @@ ___
         1 - Basics: The concepts of modern authentication (4:33)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
      :::column:::
         2 - Modern authentication for web applications (6:02)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -91,13 +93,13 @@ ___
         3 - Web single sign-on (4:13)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
         4 - Federated web authentication (6:19)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -105,13 +107,13 @@ ___
         5 - Native client applications - Part 1 (8:12)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
         6 - Native client applications - Part 2 (5:33)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 
@@ -125,7 +127,7 @@ ___
         Microsoft identity platform overview
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+        >[!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -137,13 +139,13 @@ ___
         Introduction to the MSAL libraries
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
+        >[!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
         How MSAL makes authentication easier
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
+        >[!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -151,13 +153,13 @@ ___
         Scopes explained
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
+        >[!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
     :::column:::
         What are brokers
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
+        >[!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -165,13 +167,13 @@ ___
         What redirect URIs do
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
+        >[!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
         Tenants explained
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
+        >[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -179,13 +181,13 @@ ___
         Role of Azure AD
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
+        >[!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
         Role of Azure AD app objects
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+        >[!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -193,13 +195,13 @@ ___
         Organizational and personal Microsoft account differences
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+        >[!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
         SPA and web app differences
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
+        >[!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
@@ -213,13 +215,13 @@ ___
         Endpoints and the benefits of moving to v2.0
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
         Migrating your ADAL codebase to MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
+        >[!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -227,12 +229,12 @@ ___
         Why migrate from ADAL to MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
         Advantages of MSAL over ADAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
+        >[!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
 :::row-end:::
