@@ -47,7 +47,7 @@ You must create the web application in Azure AD for users to sign in. This web a
    * For a non-AspNetCore implementation or other, see [Acquire token for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) from Azure AD documentation.
    * The secured token endpoint is responsible to return an access token for the authenticated and authorized user to call Azure Maps REST APIs.
 
-8. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](./#grant-role-based-access-for-users-to-azure-maps).
+8. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
 
 9. Configure the web application page with the Azure Maps Web SDK to access the secure token endpoint. 
 
@@ -86,9 +86,9 @@ var map = new atlas.Map("map", {
 
 ## Next steps
 
-Further understanding of Single Page Application Scenario:
+Further understanding of Web Application Scenario:
 > [!div class="nextstepaction"]
-> [Single-page application]([how-to-view-api-usage.md](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview))
+> [Scenario: Web app that signs in users](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

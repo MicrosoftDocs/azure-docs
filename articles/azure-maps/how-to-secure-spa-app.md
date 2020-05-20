@@ -29,7 +29,7 @@ You must create a secured web service application which is responsible for authe
 
 3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure Function to enable creation of a service principal to authenticate to Azure AD.  
 
-4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](./#grant-role-based-access) for details.
+4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](#grant-role-based-access) for details.
 
 5. Write Azure Function code to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
@@ -112,7 +112,7 @@ You grant *role-based access control* (RBAC) by assigning the system-assigned id
 
 Further understanding of Single Page Application Scenario:
 > [!div class="nextstepaction"]
-> [Single-page application]([how-to-view-api-usage.md](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview))
+> [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

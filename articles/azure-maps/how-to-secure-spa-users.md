@@ -67,7 +67,7 @@ Add the Azure AD app registration details and the `x-ms-client-id` from the Azur
 
 Further understanding of Single Page Application Scenario:
 > [!div class="nextstepaction"]
-> [Single-page application]([how-to-view-api-usage.md](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview))
+> [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
