@@ -22,16 +22,16 @@ The Automation account is one of the resources that you can move. In this articl
 4. Delete and re-create the Run As accounts.
 5. Re-enable your features.
 
-## Disable features
+## Remove features
 
-To unlink your workspace from your Automation account, you must disable the feature resources in your workspace:
+To unlink your workspace from your Automation account, you must remove the feature resources in your workspace:
 
 - Change Tracking and Inventory
 - Update Management
 - Start/Stop VMs during off-hours
 
 1. In the Azure portal, locate your resource group.
-2. Find each feature, and select **Delete** on the Delete Resources page.
+2. Find each feature, and select **Delete** on the **Delete Resources** page.
 
     ![Screenshot of deleting feature resources from the Azure portal](../media/move-account/delete-solutions.png)
 
@@ -121,7 +121,7 @@ You can now move your Automation account and its runbooks.
 
 ## Enable features
 
-After you re-create the Run As accounts, you must re-enable the features that you disabled before the move: 
+After you re-create the Run As accounts, you must re-enable the features that you removed before the move:
 
 1. To turn on Change Tracking and Inventory, select **Change Tracking and Inventory** in your Automation account. Choose the Log Analytics workspace that you moved over, and select **Enable**.
 
