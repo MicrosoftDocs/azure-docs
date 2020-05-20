@@ -44,7 +44,7 @@ The following properties are supported for an Snowflake linked service:
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **Snowflake**.              | Yes      |
-| connectionString | Specify the JDBC connection string to connect to the Snowflake instance. You can also put password in Azure Key Vault. Refer to the examples below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes      |
+| connectionString | Configure the [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (including additional segments that identify the region and cloud platform), user name, password, database and warehouse. Specify the JDBC connection string to connect to the Snowflake instance. You can also put password in Azure Key Vault. Refer to the examples below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details.| Yes      |
 | connectVia       | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No       |
 
 **Example:**
@@ -144,7 +144,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. Learn more from [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Additional file format options provided to COPY command, provided as a a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#type-csv). | No |
+| additionalFormatOptions | Additional file format options provided to COPY command, provided as a a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
 #### Direct copy from Snowflake
 
@@ -271,8 +271,8 @@ To copy data to Snowflake, the following properties are supported in the Copy Ac
 | importSettings | *Advanced settings used to write data into Snowflake. You can configure the ones supported by COPY into command that ADF will pass through when invoke the statement.* | *No* |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
-| additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Learn more from [Snowflake Copy Options](https://docs.snowflake.net/manuals/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Additional file format options provided to COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake CSV format options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#type-csv). | No |
+| additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Learn more from [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Additional file format options provided to COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Learn more from [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
 #### Direct copy to Snowflake
 
