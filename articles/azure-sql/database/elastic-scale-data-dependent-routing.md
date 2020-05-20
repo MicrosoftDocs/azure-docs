@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # Use Data-dependent routing to route a query to appropriate database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 **Data-dependent routing** is the ability to use the data in a query to route the request to an appropriate database. Data-dependant routing is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data-dependent routing is restricted to accessing one database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) class.
 

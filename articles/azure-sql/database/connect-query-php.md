@@ -13,6 +13,7 @@ ms.date: 02/12/2019
 ms.custom: sqldbrb=2 
 ---
 # Quickstart: Use PHP to query a Microsoft Azure SQL database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article demonstrates how to use [PHP](https://php.net/manual/en/intro-whatis.php) to connect to an Azure SQL database. You can then use T-SQL statements to query data.
 

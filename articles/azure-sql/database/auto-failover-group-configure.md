@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This topic teaches you how to configure an [auto-failover group](auto-failover-group-overview.md) for Azure SQL Database and Azure SQL Managed Instance.
 

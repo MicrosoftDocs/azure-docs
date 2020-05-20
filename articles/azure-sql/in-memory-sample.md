@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/18/2018
 ---
 # In-Memory sample
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads.
 

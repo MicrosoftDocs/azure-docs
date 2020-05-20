@@ -12,6 +12,7 @@ ms.reviewer: carlrab
 ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in Azure SQL Database C&#x23; and ADO.NET
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
 
