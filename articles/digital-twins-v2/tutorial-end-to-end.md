@@ -114,7 +114,7 @@ On the *App Service - Create New* page, fill in the fields as follows:
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Azure function in Visual Studio: Create new App Service menu with fields completed as described above":::
 
-Before you move on from this screen, take note of your *Azure Storage* account name and your *App Service* (also function app) name. You will use these later.
+Before you move on from this screen, take note of your *App Service* (also function app) name. You will use this later.
 
 Then, select **Create**.
 
@@ -129,9 +129,15 @@ On the *Publish* page that follows, check that all the information looks correct
 
 ### Assign permissions to the function app
 
-To enable the function app to access Azure Digital Twins, the next step is to assign the app a system-managed AAD identity, and give this identity *owner* permissions in the Azure Digital Twins instance.
+To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed AAD identity, and give this identity *owner* permissions in the Azure Digital Twins instance.
 
-In Azure Cloud Shell, use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
+In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your digital twins instance.
+
+```azurecli-interactive
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+```
+
+Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
@@ -232,7 +238,7 @@ az iot hub device-identity show-connection-string --device-id thermostat67 --hub
 You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
 In a new Visual Studio window, open (from the downloaded solution folder) _Device Simulator > **DeviceSimulator.sln**_.
- 
+
 >[!NOTE]
 > You should now have two Visual Studio windows, one with _**DeviceSimulator.sln**_ and one from earlier with _**AdtE2ESample.sln**_.
 
@@ -264,7 +270,7 @@ To see the data from the Azure Digital Twins side, go to your Visual Studio wind
 In the project console window that opens, run the following command to get the temperatures being reported by the digital twin *thermostat67*:
 
 ```cmd
-ObserveProperties thermostat67
+ObserveProperties thermostat67 Temperature
 ```
 
 You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds.
@@ -369,7 +375,7 @@ To see the data from the Azure Digital Twins side, go to your Visual Studio wind
 In the project console window that opens, run the following command to get the temperatures being reported by **both** the digital twin *thermostat67* and the digital twin *room21*.
 
 ```cmd
-ObserveProperties thermostat67 room21
+ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
 You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
