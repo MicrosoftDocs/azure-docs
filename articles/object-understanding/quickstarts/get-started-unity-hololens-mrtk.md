@@ -48,7 +48,7 @@ You can also do other actions using the hand menu:
 
 **Toggle SpatialMapping**: Show/hide spatial mapping rendering. This option can be used to debug if the scan is complete or not.
 
-**Lock/Unlock SearchArea**: Lock area bounding box to prevent accidential movement by hands.
+**Lock/Unlock search area**: Lock area bounding box to prevent accidental movement by hands.
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
