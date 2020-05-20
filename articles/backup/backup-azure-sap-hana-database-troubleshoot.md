@@ -62,7 +62,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | Error Message      | <span style="font-weight:normal">SDC to MDC upgrade detected</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
-| **Recommended action** | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) to resolve the issue |
+| **Recommended action** | Follow the steps listed in the [SDC to MDC upgrade](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) to resolve the issue |
 
 ### UserErrorInvalidBackintConfiguration
 
@@ -76,7 +76,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 |Error Message  |The source and target systems for restore are incompatible  |
 |---------|---------|
 |Possible causes   | The source and target systems selected for restore are incompatible        |
-|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores: <br><br>   **Case 1:** SYSTEMDB cannot be renamed during restore.  <br><br> **Case 2:** Source - SDC and target - MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br><br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target. <br><br>  For more information, see the note 1642148 in the [SAP support launchpad](https://launchpad.support.sap.com). |
+|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores: <br><br>   **Case 1:** SYSTEMDB cannot be renamed during restore.  <br><br> **Case 2:** Source - SDC and target - MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br><br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target. <br><br>  For more information, see note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
 
 ## Restore checks
 
@@ -123,7 +123,7 @@ This scenario could include two possible cases. Learn how to back up the replica
 
     - The extension is already present on the VM, but isn't visible to any of the services
     - Run the pre-registration script
-    - If you discover and protect the new databases, you'll start seeing duplicate databases in the portal. To avoid this, **Stop protection with retain data** for the old databases. Then continue with the remaining steps.
+    - If you discover and protect the new databases, you'll start seeing duplicate active databases in the portal. To avoid this, [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the old databases. Then continue with the remaining steps.
     - Discover the databases to enable backup
     - Enable backups on these databases
     - The already existing backed up databases (from the deleted VM) will continue to be stored in the vault (with their backups being retained according to the policy)
@@ -146,7 +146,7 @@ Follow these  steps to enable backups on the new VM:
 Upgrades to the OS, SDC version change, or MDC version change that don't cause a SID change can be handled as follows:
 
 - Ensure that the new OS version, SDC, or MDC version are currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
-- **Stop protection with retain data** for the database
+- [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the database
 - Perform the upgrade or update
 - Rerun the pre-registration script. Usually, the upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles
 - Resume protection for the database again
@@ -156,7 +156,7 @@ Upgrades to the OS, SDC version change, or MDC version change that don't cause a
 Upgrades from SDC to MDC that don't cause a SID change can be handled as follows:
 
 - Ensure that the new MDC version is currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
-- **Stop protection with retain data** for the old SDC database
+- [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the old SDC database
 - Perform the upgrade. After completion, the HANA system is now MDC with a system DB and tenant DBs
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
 - Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
