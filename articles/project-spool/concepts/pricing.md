@@ -24,6 +24,27 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 | iOS |  Public Preview |  TBD |
 | Android | Public Preview | TBD |
 
+
+## Chat
+
+| | Consumption plan | Rate |  
+|-|:----------------:| :----------------:| 
+| Windows | Public Preview  |  TBD |
+| iOS |  Public Preview |  TBD |
+| Android | Public Preview | TBD |
+
+## Transport Relay
+
+| | Consumption plan | Rate |  
+|-|:----------------:| :----------------:| 
+| Windows | Public Preview  |  TBD |
+| iOS |  Public Preview |  TBD |
+| Android | Public Preview | TBD |
+
+## PSTN
+
+## SMS 
+
 ### meta
 
 -  Customer intent statements: 
