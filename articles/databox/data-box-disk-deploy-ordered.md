@@ -60,7 +60,7 @@ Take the following steps to order Data Box Disk.
     |---|---|
     |Subscription|Select the subscription for which Data Box service is enabled.<br> The subscription is linked to your billing account. |
     |Transfer type| Import to Azure|
-    |Source country | Select the country/region where your data currently resides.|
+    |Source country/region | Select the country/region where your data currently resides.|
     |Destination Azure region|Select the Azure region where you want to transfer data.|
 
   

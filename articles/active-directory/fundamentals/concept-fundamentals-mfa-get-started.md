@@ -40,7 +40,7 @@ For customers with Office 365, there are two options:
 
 For customers with Azure AD Premium P1 or similar licenses that include this functionality such as Enterprise Mobility + Security E3, Microsoft 365 F1, or Microsoft 365 E3: 
 
-Use [Azure AD Conditional Access](../conditional-access/overview.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements.
+Use [Azure AD Conditional Access](../authentication/tutorial-enable-azure-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements.
 
 ## Azure AD Premium P2
 
