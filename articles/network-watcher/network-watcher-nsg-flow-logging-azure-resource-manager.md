@@ -107,7 +107,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
 ```
 
 > [!NOTE]
-> * The name of resource has the format "Parent Resource>/Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_<RegionName>. Example: NetworkWatcher_centraluseuap)
+> * The name of resource has the format "Parent Resource_Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centraluseuap)
 > * targetResourceId is the resource ID of the target NSG
 > * storageId is the resource ID of the destination storage account
 
