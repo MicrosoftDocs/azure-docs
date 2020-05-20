@@ -123,7 +123,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
     Note down the connection string and the container name. You'll use them in the receive code. 
 

@@ -121,7 +121,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 2. In **Create and associate policy**, specify a policy name. We're using **ContosoReplicationPolicy**.
 3. For this tutorial, we'll leave the default settings:
     - **Copy frequency** indicates how often delta data (after initial replication) will replicate. The default frequency is every five minutes.
-    - **Recovery point retention** indicates that recovery points will be retained for two hours.
+    - **Recovery point retention** indicates that recovery points will be retained for two hours. The maximum allowed value for retention when protecting virtual machines hosted on Hyper-V hosts is 24 hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time** indicates that initial replication will start immediately.
 4. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. In our tutorial, that's **ContosoHyperVSite**.

@@ -3,20 +3,17 @@ title: Multiple IP addresses for Azure virtual machines - PowerShell | Microsoft
 description: Learn how to assign multiple IP addresses to a virtual machine using PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud
-ms.reviewer: annahar
+ms.author: allensu
+
 ---
 
 # Assign multiple IP addresses to virtual machines using PowerShell

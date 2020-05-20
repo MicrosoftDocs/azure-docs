@@ -135,7 +135,7 @@ You can use claims resolvers with the following elements:
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful provider](restful-technical-profile.md) technical profile| `InputClaim`| 1, 2|
-|[SAML2](saml-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
+|[SAML identity provider](saml-identity-provider-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
 |[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

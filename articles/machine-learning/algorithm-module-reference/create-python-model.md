@@ -31,7 +31,7 @@ Use of this module requires intermediate or expert knowledge of Python. The modu
 > Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported module.
 
 > [!NOTE]
-Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). Only import pre-installed modules. Please do not install extra packages such as "pip install xgboost" in this script, otherwise errors will be raised when reading models in down-stream modules.
+> Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). Only import pre-installed modules. Please do not install extra packages such as "pip install xgboost" in this script, otherwise errors will be raised when reading models in down-stream modules.
   
 This article shows how to use **Create Python Model** with a simple pipeline. Here's a diagram of the pipeline:
 
@@ -83,9 +83,9 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
    ```
 
-1. Connect the **Create Python Model** module that you just created to **Train Model** and **Score Model**.
+2. Connect the **Create Python Model** module that you just created to **Train Model** and **Score Model**.
 
-1. If you need to evaluate the model, add an [Execute Python Script](execute-python-script.md) module and edit the Python script.
+3. If you need to evaluate the model, add an [Execute Python Script](execute-python-script.md) module and edit the Python script.
 
    The following script is sample evaluation code:
 
@@ -98,7 +98,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):

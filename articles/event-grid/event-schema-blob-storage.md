@@ -16,7 +16,7 @@ This article provides the properties and schema for blob storage events. For an
 
 
 >[!NOTE]
-> Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+> Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (general purpose v1)** does *not* support integration with Event Grid.
 
 ## Event Grid event schema
 

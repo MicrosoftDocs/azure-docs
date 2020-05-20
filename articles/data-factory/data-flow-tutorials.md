@@ -155,3 +155,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
 
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+
+[Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)

@@ -30,6 +30,8 @@
   items:
   - name: Azure resources
     href: Concepts/azure-resources.md
+  - name: Collaborate with others
+    href: Concepts/role-based-access-control.md
   - name: Design a knowledge base
     items:
     - name: For languages
@@ -76,6 +78,8 @@
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
       href: How-To/use-active-learning.md
+    - name: Change default answer
+      href: How-To/change-default-answer.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -105,10 +109,6 @@
   - name: Query knowledge base
     href: How-To/metadata-generateanswer-usage.md
     displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
-  - name: Use with a client application
-    items:
-    - name: LUIS and QnA Maker
-      href: Tutorials/integrate-qnamaker-luis.md
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
   - name: Using REST APIs
@@ -153,6 +153,8 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
+  - name: Role-based access control (RBAC)
+    href: reference-role-based-access-control.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Service configuration
@@ -225,6 +227,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: qna-maker-encryption-of-data-at-rest.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

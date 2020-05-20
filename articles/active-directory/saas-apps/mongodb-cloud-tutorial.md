@@ -34,7 +34,7 @@ To learn more about software as a service (SaaS) app integration with Azure AD, 
 To get started, you need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A MongoDB Cloud subscription that is enabled for single sign-on (SSO).
+* A MongoDB Cloud organization that is enabled for single sign-on (SSO), you can signup for a [free cluster](https://www.mongodb.com/cloud)
 
 ## Scenario description
 
@@ -146,7 +146,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure MongoDB Cloud SSO
 
-To configure single sign-on on the MongoDB Cloud side, you need the appropriate URLs copied from the Azure portal. You also need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud documentation](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). If you have a problem, contact the [MongoDB Cloud support team](https://support.mongodb.com/).
+To configure single sign-on on the MongoDB Cloud side, you need the appropriate URLs copied from the Azure portal. You also need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud documentation](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). If you have a problem, contact the [MongoDB Cloud support team](https://support.mongodb.com/).
 
 ### Create a MongoDB Cloud test user
 

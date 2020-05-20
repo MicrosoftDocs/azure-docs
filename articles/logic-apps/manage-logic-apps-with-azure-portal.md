@@ -5,10 +5,10 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps in the Azure portal
@@ -140,6 +140,10 @@ Deleting your logic app affects your workflow instances in these ways:
 * All in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time.
 
 * The Logic Apps engine won't create or run new workflow instances.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 <a name="delete-single-logic-app"></a>
 

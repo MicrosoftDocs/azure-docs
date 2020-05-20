@@ -1,5 +1,5 @@
 ---
-title: Customer dashboard in commercial marketplace analytics on Partner Center
+title: Customer dashboard in Microsoft commercial marketplace analytics on Partner Center
 description: Learn how to access information about your customers, including growth trends, using the customer dashboard in commercial marketplace analytics.
 author: dsindona
 ms.author: dsindona
@@ -92,7 +92,8 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 - Each column in the grid is sortable.
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
 - If records number is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/State/City/Zip, Customer Language, etc.
+- Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/State/City/Zip, Customer Language, and so on.
+- When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
 
 ### Customer page filters
 

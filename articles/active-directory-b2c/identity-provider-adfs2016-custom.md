@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an ADFS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
+This article shows you how to enable sign-in for an ADFS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider technical profile](saml-identity-provider-technical-profile.md) to a custom policy.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 
 If you want users to sign in using an ADFS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML technical profile](saml-technical-profile.md).
+You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider technical profile](saml-identity-provider-technical-profile.md).
 
 1. Open the *TrustFrameworkExtensions.xml*.
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.

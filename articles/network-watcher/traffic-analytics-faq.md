@@ -130,7 +130,7 @@ Yes, your Azure Storage account can be in one subscription, and your Log Analyti
 
 ## Can I store raw logs in a different subscription?
 
-No. You can store raw logs in any storage account where an NSG is enabled for flow logs. However, both the storage account and the raw logs must be in the same subscription and region.
+Yes. You can configure NSG Flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the NSG. The NSG and the destination storage account must also share the same Azure Active Directory Tenant.
 
 ## What if I can't configure an NSG for traffic analytics due to a "Not found" error?
 

@@ -45,7 +45,7 @@ rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+t
 
 Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
 
-Check these settings both on the NAS itself as well as on any firewalls between the storage system and the cache subnet.
+Check these settings both on the NAS itself and also on any firewalls between the storage system and the cache subnet.
 
 ## Check root access
 

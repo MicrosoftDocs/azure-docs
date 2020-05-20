@@ -1,18 +1,9 @@
 ---
 title: Scheduled Events for Windows VMs in Azure 
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: ''
-
-ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
@@ -142,7 +133,7 @@ Scheduled events are delivered to:
  - Standalone Virtual Machines
  - All Virtual Machines in a Cloud Service		
  - All Virtual Machines in an Availability Set		
- - All Virtual Machines in a Scale Set Placement Group. 		
+ - All Virtual Machines in a Scale Set Placement Group (Including Batch)		
 
 As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 

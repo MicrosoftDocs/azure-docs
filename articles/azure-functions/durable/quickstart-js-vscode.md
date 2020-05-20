@@ -4,15 +4,13 @@ description: Create and publish an Azure Durable Function using Visual Studio Co
 author: anthonychu
 
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ---
 
 # Create your first durable function in JavaScript
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
@@ -57,7 +55,7 @@ Visual Studio Code installs the Azure Functions Core Tools, if needed. It also c
 
 A package.json file is also created in the root folder.
 
-### Enable Azure Functions V2 compatibility mode
+### Enable compatibility mode
 
 Currently, JavaScript Durable Functions require Azure Functions V2 compatibility mode to be enabled.
 
@@ -200,7 +198,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### Enable Azure Functions V2 compatibility mode
+### Enable compatibility mode
 
 The same Azure Functions V2 compatibility that you enabled locally needs to be enabled in the app in Azure.
 

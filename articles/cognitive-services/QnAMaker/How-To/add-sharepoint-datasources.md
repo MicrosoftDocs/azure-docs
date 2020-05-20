@@ -27,7 +27,7 @@ You can add all QnA Maker-supported [file types](../Concepts/content-types.md) f
 
    ![Get the SharePoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. In the QnA Maker portal, on the **Settings** page, [add the URL](manage-knowledge-bases.md#edit-knowledge-base) to the knowledge base.
+1. In the QnA Maker portal, on the **Settings** page, add the URL to the knowledge base.
 
 ### Images with SharePoint files
 

@@ -1,27 +1,22 @@
 ---
-title: Azure Marketplace SaaS Applications Publishing Guide
-description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
+title: SaaS applications publishing guide - Microsoft commercial marketplace
+description: Requirements and resources for publishing publishing SaaS application offers to Microsoft AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: dsindona
 ---
 
-# SaaS applications Offer Publishing Guide
+# SaaS applications offer publishing guide
 
-SaaS applications can be published in the marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This guide explains these three options, including requirements for each. 
+You can publish SaaS applications in the commercial marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This article explains these three options, including requirements for each. 
 
 ## Offer overview  
 
-SaaS applications are available in both Azure Storefronts The following table describes the current available options:
-
-| Storefront option | Listing | Trial/Transact |  
-| --- | --- | --- |  
-| AppSource | Yes | Yes |
-| Azure marketplace | No | Yes |   
+SaaS applications are available in Microsoft AppSource and Azure Marketplace.  Both storefronts support list, trial, and transact offers.
 
 **List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
 **Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
@@ -29,7 +24,7 @@ SaaS applications are available in both Azure Storefronts The following table de
 | SaaS Apps Offer | Business Requirements | Technical Requirements |  
 | --- | --- | --- |  
 | **Contact Us** | Yes | No |  
-| **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
+| **Power BI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
 ## SaaS List

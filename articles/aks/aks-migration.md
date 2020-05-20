@@ -114,7 +114,7 @@ If you use Azure Managed Disks, you can only mount the disk if unattached to any
 * [Mount Static Azure Disk as a Volume](https://docs.microsoft.com/azure/aks/azure-disk-volume#mount-disk-as-volume)
 
 If neither of those approaches work, you can use a backup and restore options:
-* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
 #### Azure Files
 

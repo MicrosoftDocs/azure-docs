@@ -58,11 +58,11 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
 8. Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
-```sql
-        UPDATE dbo.tbl_DLS_GlobalSetting
-        set PropertyValue = '13.0.415.0'
-        where PropertyName = 'DatabaseVersion'
-```
+    ```sql
+            UPDATE dbo.tbl_DLS_GlobalSetting
+            set PropertyValue = '13.0.415.0'
+            where PropertyName = 'DatabaseVersion'
+    ```
 
 9. Start MSDPM service.
 

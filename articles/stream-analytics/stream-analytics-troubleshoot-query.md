@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 This article describes common issues with developing Stream Analytics queries and how to troubleshoot them.
 
-This article describes common issues with developing Azure Stream Analytics queries, how to troubleshoot query issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with developing Azure Stream Analytics queries, how to troubleshoot query issues, and how to correct the issues. Many troubleshooting steps require resource logs to be enabled for your Stream Analytics job. If you do not have resource logs enabled, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Query is not producing expected output
 
@@ -38,9 +38,9 @@ This article describes common issues with developing Azure Stream Analytics quer
 
 5.  Ensure event ordering policies are configured as expected. Go to **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
 
-6. Debug by using audit and diagnostic logs:
-    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
-    - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
+6. Debug by using activity and resource logs:
+    - Use [Activity Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
+    - Use [job resource logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
 ## Resource utilization is high
 

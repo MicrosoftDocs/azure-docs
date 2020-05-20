@@ -1,17 +1,11 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about Windows VMs compute, network, and upcoming maintenance events.
-services: virtual-machines-windows
-documentationcenter: ''
+description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari

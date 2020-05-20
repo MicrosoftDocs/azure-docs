@@ -1,8 +1,8 @@
 ---
 title: Use virtual network rules - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how to create and manage VNet service endpoints and rules for Azure Database for PostgreSQL using Azure CLI command line.
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual

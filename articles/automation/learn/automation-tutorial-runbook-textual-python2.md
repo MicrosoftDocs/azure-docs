@@ -1,10 +1,11 @@
 ---
 title: Create a Python runbook in Azure Automation
-description: Tutorial showing how to create, test, and publish a simple Python runbook.
+description: This article teaches you to create, test, and publish a simple Python runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
+ms.custom: has-adal-ref
 ---
 
 # Tutorial: Create a Python runbook
@@ -73,13 +74,11 @@ Before you publish the runbook to make it available in production, you want to t
 
 ## Publish and start the runbook
 
-The runbook that you created is still in Draft mode. You need to publish it before you can run it in production.
-When you publish a runbook, you overwrite the existing published version with the draft version.
-In this case, you don't have a published version yet because you just created the runbook.
+The runbook that you created is still in Draft mode. You need to publish it before you can run it in production. When you publish a runbook, you overwrite the existing published version with the draft version. In this case, you don't have a published version yet because you just created the runbook.
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 
-2. If you scroll left to view the runbook on the **Runbooks** page, you should see an **Authoring Status** of **Published**.
+2. If you scroll left to view the runbook on the Runbooks page, you should see an **Authoring Status** of **Published**.
 
 3. Scroll back to the right to view the pane for **MyFirstRunbook-Python**.
 
@@ -221,7 +220,7 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 You can also use the following conventions to retrieve various streams from your Python runbooks, including WARNING, ERROR, and DEBUG streams.
 
 ```python
-print("Hello World output") 
+print("Hello World output")
 print("ERROR: - Hello world error")
 print("WARNING: - Hello world warning")
 print("DEBUG: - Hello world debug")
@@ -242,9 +241,9 @@ except Exception as detail:
 
 ## Next steps
 
-- To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-- To get started with Graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
-- To get started with PowerShell workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
-- To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
-- To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
-- To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md)
+- [Create a graphical runbook](automation-tutorial-runbook-graphical.md)
+- [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md)
+- [Azure Automation runbook types](../automation-runbook-types.md)
+- [Azure for Python developers](/azure/python/)
+- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

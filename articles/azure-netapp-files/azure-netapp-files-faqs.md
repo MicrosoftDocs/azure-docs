@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/27/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -41,6 +41,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 > [!NOTE] 
 > Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
 
+### Can I set or select my own IP address for an Azure NetApp Files volume?  
+
+No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+ 
 ## Security FAQs
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
