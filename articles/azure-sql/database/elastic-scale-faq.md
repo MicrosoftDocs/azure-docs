@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # Elastic database tools frequently asked questions (FAQ)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ## If I have a single-tenant per shard and no sharding key, how do I populate the sharding key for the schema info
 

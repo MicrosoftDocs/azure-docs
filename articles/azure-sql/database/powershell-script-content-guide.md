@@ -14,6 +14,7 @@ ms.date: 03/25/2019
 ---
 
 # Azure PowerShell samples for Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance enable you to configure your databases, instances, and pools using Azure PowerShell.
 

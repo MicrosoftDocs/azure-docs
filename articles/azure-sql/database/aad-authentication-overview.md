@@ -12,7 +12,8 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
 ---
-# Use Azure Active Directory Authentication for authentication with Azure SQL
+# Use Azure Active Directory Authentication
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD).
 

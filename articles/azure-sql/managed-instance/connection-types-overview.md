@@ -14,6 +14,7 @@ ms.date: 10/07/2019
 ---
 
 # Azure SQL Managed Instance connection types
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article explains how clients connect to Azure SQL Managed Instance depending on the connection type. Script samples to change connection types are provided below, along with considerations related to changing the default connectivity settings.
 

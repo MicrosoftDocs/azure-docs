@@ -14,6 +14,7 @@ ms.date: 06/28/2019
 ---
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Creating a [single database](single-database-overview.md) is the quickest and simplest option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
 

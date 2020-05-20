@@ -13,6 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can use the Azure portal to find performance recommendations that can optimize performance of your database in Azure SQL Database or to correct some issue identified in your workload. The **Performance recommendation** page in the Azure portal enables you to find the top recommendations based on their potential impact.
 

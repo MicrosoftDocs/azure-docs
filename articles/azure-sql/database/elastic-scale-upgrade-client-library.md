@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 New versions of the [Elastic Database client library](elastic-database-client-library.md) are available through NuGet and the NuGet Package Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
 

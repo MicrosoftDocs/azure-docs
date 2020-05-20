@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 01/25/2019
 ---
 # Query across cloud databases with different schemas (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ![Query across tables in different databases][1]
 

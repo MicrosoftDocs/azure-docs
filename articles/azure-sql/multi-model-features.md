@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Microsoft Azure SQL
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, and so on.
 

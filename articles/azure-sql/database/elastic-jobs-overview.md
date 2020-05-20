@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article, you will learn how to create, configure, and manage elastic jobs.
 

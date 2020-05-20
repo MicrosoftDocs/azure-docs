@@ -14,6 +14,7 @@ ms.reviewer: vanto
 ms.date: 08/05/2019
 ---
 # Configure Advanced Threat Protection in Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 [Advanced Threat Protection](../database/threat-detection-overview.md) for an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Advanced Threat Protection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [Advanced Threat Protection alerts](../database/threat-detection-overview.md#alerts).
 

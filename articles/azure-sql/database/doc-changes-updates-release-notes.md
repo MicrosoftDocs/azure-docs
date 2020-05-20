@@ -12,7 +12,8 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
 ---
-# What's new in Azure SQL Database & SQL Managed Instance? 
+# What's new in Azure SQL Database & SQL Managed Instance?
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 

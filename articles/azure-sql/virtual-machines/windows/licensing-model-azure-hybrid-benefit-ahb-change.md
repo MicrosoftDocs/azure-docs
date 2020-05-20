@@ -17,6 +17,9 @@ ms.reviewer: jroth
 
 ---
 # Change the license model for a SQL Server virtual machine in Azure
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+
 This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL VM resource provider, **Microsoft.SqlVirtualMachine**.
 
 There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit, and disaster recovery (DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 

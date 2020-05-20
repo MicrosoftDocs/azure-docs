@@ -13,7 +13,9 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ---
-# Quickstart: Use the Azure portal's query editor to query a database
+# Quickstart: Use the Azure portal's query editor to query a Database
+
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The query editor is a tool in the Azure portal for running SQL queries against your database in Azure SQL Database or data warehouse in Azure SQL Data Warehouse. 
 

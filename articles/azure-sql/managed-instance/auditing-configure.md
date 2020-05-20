@@ -15,6 +15,8 @@ ms.reviewer: vanto
 ms.date: 03/27/2020
 ---
 # Get started with Azure SQL Managed Instance auditing
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
 
 [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 

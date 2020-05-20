@@ -18,6 +18,7 @@ ms.author: mathoma
 
 ---
 # Configure a workgroup availability group 
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article explains the steps necessary to create an Active Directory domain-independent cluster with an Always On availability group; this is also known as a workgroup cluster. This article focuses on the steps that are relevant to preparing and configuring the workgroup and availability group, and glosses over steps that are covered in other articles, such as how to create the cluster, or deploy the availability group. 
 

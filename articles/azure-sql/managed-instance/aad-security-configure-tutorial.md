@@ -12,6 +12,7 @@ ms.reviewer: vanto
 ms.date: 11/06/2019
 ---
 # Tutorial: Security in Azure SQL Managed Instance using Azure AD server principals (logins)
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 SQL Managed Instance provides nearly all security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
 

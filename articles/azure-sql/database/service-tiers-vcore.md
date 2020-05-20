@@ -12,6 +12,7 @@ ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ---
 # vCore model overview - Azure SQL Database & SQL Managed Instance 
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The virtual core (vCore) purchasing model used by Azure SQL Database and Azure SQL Managed Instance provides several benefits:
 

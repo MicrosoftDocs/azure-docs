@@ -12,6 +12,8 @@ ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Azure SQL Auditing
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+
 
 Auditing for [Azure SQL Database](sql-database-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.
 
@@ -26,14 +28,14 @@ Auditing also:
 
 ## <a id="overview"></a>Overview
 
-You can use SQL database auditing to:
+You can use SQL Database auditing to:
 
 - **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 - **Report** on database activity. You can use pre-configured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database or Azure Synapse allows operations to proceed and may not record some audited events.
+> Azure SQL Database auditing is optimized for availability and performance. During very high activity Azure SQL Database or Azure Synapse allows operations to proceed and may not record some audited events.
 
 ### Auditing limitations
 
@@ -67,7 +69,7 @@ The default auditing policy includes all actions and the following set of action
 - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
 - FAILED_DATABASE_AUTHENTICATION_GROUP
   
-You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#manage-auditing) section.
+You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL Database auditing using Azure PowerShell](#manage-auditing) section.
 
 Azure SQL Database and Azure Synapse Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
 The following section describes the configuration of auditing using the Azure portal.
@@ -112,8 +114,8 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
 > [!WARNING]
-> Enabling auditing on a server that has a SQL database pool on it **results in the SQL database pool being resumed and re-paused again** which may incur billing charges.
-> Enabling auditing on a paused SQL database pool is not possible. To enable it, un-pause the SQL database pool.
+> Enabling auditing on a server that has a SQL Database pool on it **results in the SQL Database pool being resumed and re-paused again** which may incur billing charges.
+> Enabling auditing on a paused SQL Database pool is not possible. To enable it, un-pause the SQL Database pool.
 
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 

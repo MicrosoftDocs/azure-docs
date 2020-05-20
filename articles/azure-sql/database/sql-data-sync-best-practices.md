@@ -14,6 +14,8 @@ ms.date: 12/20/2018
 ---
 # Best practices for Azure SQL Data Sync 
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 This article describes best practices for Azure SQL Data Sync.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).

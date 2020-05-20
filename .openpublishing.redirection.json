@@ -53605,7 +53605,7 @@
     },
     {
         "source_path": "articles/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine.md",
-        "redirect_url": "/azure/azure-sql/virtual-machines/linux/provision-virtual-machine",
+        "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart",
         "redirect_document_id": true
     },
     {
