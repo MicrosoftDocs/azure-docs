@@ -15,9 +15,9 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 ## Overview
 
-It is possible to use service principals having a role assignment with limited privileges for onboarding the cluster to Arc. This is really useful in automated workflows like CI/CD pipelines - Azure Pipelines, GitHub Actions,....
+It is possible to use service principals having a role assignment with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is really useful in automated workflows like CI/CD pipelines (Azure Pipelines, GitHub Actions).
 
-The following steps provide a walkthrough on using service principals for onboarding Kubernetes clusters to Arc.
+The following steps provide a walkthrough on using service principals for onboarding Kubernetes clusters to Azure Arc.
 
 ## Create a new Service Principal
 
