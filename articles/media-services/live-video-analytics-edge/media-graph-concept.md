@@ -1,6 +1,6 @@
 ---
 title: Media graph concept - Azure
-description: Media Graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of Media Graph.
+description: Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of the media graph concept.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
@@ -14,7 +14,7 @@ ms.date: 04/27/2020
 
 ## Overview
 
-Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a Media Graph.   
+Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a media graph.   
 
 ![A graphical representation of a media graph](./media/media-graph/graphical-representation-media-graph.png)
 
@@ -66,7 +66,7 @@ For example, you can have an IoT Edge module that listens to a sensor that detec
 
 #### Motion detection processor 
 
-The motion detection processor enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frames to the downstream component, and emits an event. Motion detection processor (in conjunction with other Media Graph nodes) can be used to trigger recording of the incoming video when there is motion detected.
+The motion detection processor enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frames to the downstream component, and emits an event. Motion detection processor (in conjunction with other media graph nodes) can be used to trigger recording of the incoming video when there is motion detected.
 
 #### Frame rate filter processor  
 
@@ -96,7 +96,7 @@ An IoT Hub message sink enables you to publish events to IoT Edge hub. The Edge 
 
 ## Scenarios
 
-Using a combination of the sources, processors, and sinks defined above, you can use Media Graph for a variety of Live Video Analytics related scenarios. A few example scenarios are as follows
+Using a combination of the sources, processors, and sinks defined above, you can use the media graph for a variety of Live Video Analytics related scenarios. A few example scenarios are as follows
 
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
