@@ -1,12 +1,12 @@
 ---
 title: Azure Monitor resource manager samples
-description: Deploy and configure Azure Monitr features using resource manager templates
+description: Deploy and configure Azure Monitor features using resource manager templates
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.subservice: alerts
+ms.subservice: 
 ---
 # Azure Monitor resource manager samples
 
@@ -17,15 +17,14 @@ The basic steps to use the samples are:
 
 1. Copy the template and save as a JSON file.
 2. Modify the parameters for your environment and save as a JSON file.
-4. Deploy the template using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md). 
+4. Deploy the template using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md). 
 
-For example, use the following commands to deploy  the template and parameters file using PowerShell or Azure CLI.
+For example, use the following commands to deploy the template and parameters file to your subscription using PowerShell or Azure CLI.
 
-Using Azure PowerShell
 
 ```powershell
 Connect-AzAccount
-Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName my-subscription
 New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
 ```
 
@@ -56,4 +55,4 @@ az group deployment create \
 
 ## Next steps
 
-- Learn how to [create an action group with Resource Manager templates](../platform/action-groups-create-resource-manager-template.md)
+- Learn more about [Resource Manager templates](../../azure-resource-manager/templates.md)

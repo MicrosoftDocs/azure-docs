@@ -2220,7 +2220,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 }
 ```
 
-## Dynamic Thresholds alert on all virtual machines in a subscription
+### Dynamic Thresholds alert on all virtual machines in a subscription
 This sample creates a Dynamic Thresholds metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
 
 
