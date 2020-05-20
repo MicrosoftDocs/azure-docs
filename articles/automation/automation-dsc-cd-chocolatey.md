@@ -1,12 +1,12 @@
 ---
-title: Azure Automation State Configuration continuous deployment with Chocolatey
-description: Describes DevOps continuous deployment using Azure Automation state configuration with the Chocolatey package manager. Includes an example with full JSON Resource Manager template and PowerShell source.
+title: Set up Azure Automation continuous deployment with Chocolatey
+description: This article tells how to set up continuous deployment with State Configuration and the Chocolatey package manager.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ---
-# Provide continuous deployment to virtual machines using Automation State Configuration and Chocolatey
+# Set up continuous deployment with Chocolatey
 
 In a DevOps world, there are many tools to assist with various points in the continuous integration
 pipeline. Azure Automation [State Configuration](automation-dsc-overview.md) is a welcome new addition to the options that DevOps teams can employ. 
