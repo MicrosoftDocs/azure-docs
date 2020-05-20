@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 3/14/2019
 ---
 # Scale elastic pool resources in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes how to scale the compute and storage resources available for elastic pools and pooled databases in Azure SQL Database.
 

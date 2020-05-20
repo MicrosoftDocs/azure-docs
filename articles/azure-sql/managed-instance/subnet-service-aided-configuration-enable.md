@@ -12,6 +12,8 @@ ms.author: srbozovi
 ms.date: 03/12/2020
 ---
 # Enabling service-aided subnet configuration for Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
 Service-aided subnet configuration provides automated network configuration management for subnets hosting managed instances. With service-aided subnet configuration user stays in full control of access to data (TDS traffic flows) while managed instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill SLA.
 
 Automatically configured network security groups and route table rules are visible to customer and annotated with prefix _Microsoft.Sql-managedInstances_UseOnly__.

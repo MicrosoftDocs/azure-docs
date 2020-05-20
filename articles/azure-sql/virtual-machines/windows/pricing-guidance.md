@@ -18,6 +18,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
 # Pricing guidance for Azure SQL Server VMs
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides pricing guidance for [SQL Server virtual machines](sql-server-on-azure-vm-iaas-what-is-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 

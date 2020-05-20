@@ -11,6 +11,7 @@ ms.author: sstein
 ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can easily scale out databases in Azure SQL Database using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
 

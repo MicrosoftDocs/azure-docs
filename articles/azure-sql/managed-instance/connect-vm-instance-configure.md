@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure Azure VM to connect to an Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This quickstart shows you how to configure an Azure virtual machine to connect to an Azure SQL Managed Instance using SQL Server Management Studio (SSMS). 
 

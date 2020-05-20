@@ -13,6 +13,7 @@ ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your on-premises SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.
 
@@ -55,6 +56,33 @@ To set or update the license type by using the REST API:
 - [Managed Instances - Update](/rest/api/sql/managedinstances/update)
 
 * * *
+
+
+### Azure Hybrid Benefit questions
+
+#### Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
+
+You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, you can only use the SQL Server license in the cloud in SQL Database. You no longer have dual use rights on-premises and in the cloud.
+
+#### How does Azure Hybrid Benefit for SQL Server differ from license mobility?
+
+We offer license mobility benefits to SQL Server customers with Software Assurance. This allows reassignment of their licenses to a partner's shared servers. You can use this benefit on Azure IaaS and AWS EC2.
+
+Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
+
+- It provides economic benefits for moving highly virtualized workloads to Azure. SQL Server Enterprise Edition customers can get four cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility doesn't allow any special cost benefits for moving virtualized workloads to the cloud.
+- It provides for a PaaS destination on Azure (SQL Database managed instance) that's highly compatible with SQL Server on-premises.
+
+#### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
+
+SQL Database customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
+
+|License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
+|---|---|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|||
+
 
 ## Next steps
 

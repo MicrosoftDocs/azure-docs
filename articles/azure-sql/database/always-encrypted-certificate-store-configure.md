@@ -1,5 +1,5 @@
 ---
-title: Always Encrypted - Windows certificate store
+title: Configure Always Encrypted using Windows certificate store
 description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
@@ -13,9 +13,10 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 04/23/2020
 ---
-# Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store
+# Configure Always Encrypted using Windows certificate store
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+This tutorial shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 

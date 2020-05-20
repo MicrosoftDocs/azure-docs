@@ -16,6 +16,7 @@ ms.reviewer: jroth
 
 ---
 # Bulk register SQL virtual machines in Azure with the SQL VM resource provider
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the `Register-SqlVMs` PowerShell cmdlet.
 

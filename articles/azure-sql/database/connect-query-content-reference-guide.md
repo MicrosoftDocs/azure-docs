@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/18/2018
 ---
 # Quickstarts: Azure SQL Database connect and query
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The following document includes links to Azure examples showing how to connect and query Azure SQL Database. It also provides some recommendations for Transport Level Security.
 

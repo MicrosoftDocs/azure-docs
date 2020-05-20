@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Ruby to query a Microsoft Azure SQL database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL database and query data with Transact-SQL statements.
 

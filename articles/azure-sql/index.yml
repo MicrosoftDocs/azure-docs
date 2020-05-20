@@ -1,19 +1,20 @@
 ### YamlMime:Landing
 
-title: Azure SQL Database documentation
-summary: Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
+title: Find documentation about the Azure SQL family of products. 
+summary: "Find documentation about the Azure SQL family of SQL Server database engine products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM. "
 
 metadata:
-  title: Documentation
-  description: Find documentation about Azure SQL Database, a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
+  title: Azure SQL documentation
+  description:  "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully-managed database in Azure SQL Database, a fully-managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: landing-page
-  author: stevestein
-  ms.author: sstein
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
   ms.date: 10/30/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -23,144 +24,176 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: About SQL Database
+  - title: Azure SQL Database
     linkLists:
       - linkListType: overview
         links:
+          - text: What's new? 
+            url: database/doc-changes-updates-release-notes.md?tabs=single-database
           - text: What is SQL Database?
-            url: sql-database-technical-overview.md
-          - text: Which SQL Database option should I choose?
-            url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
-          - text: Purchasing options
-            url: sql-database-purchase-models.md
-          - text: Service tiers
-            url: sql-database-service-tiers-general-purpose-business-critical.md
+            url: database/sql-database-paas-overview.md
+          - text: What are elastic pools? 
+            url: database/elastic-pool-overview.md 
+      - linkListType: quickstart
+        links:
+          - text: Create SQL Database
+            url: database/single-database-create-quickstart.md
+          - text: Configure firewall
+            url: database/firewall-create-server-level-portal-quickstart.md  
       - linkListType: concept
         links:
-          - text: Scalability
-            url: sql-database-scalability-index.yml
-          - text: Platform as a Service
-            url: sql-database-paas-index.yml
+          - text: Migrate from SQL Server
+            url: database/migrate-to-database-from-sql-server.md
           - text: Advanced security
-            url: sql-database-security-overview.md
-
-
+            url: database/security-overview.md
+          - text: Business continuity
+            url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+          - text: Monitoring and tuning
+            url: database/monitor-tune-overview.md
+          - text: T-SQL differences with SQL Server
+            url: database/transact-sql-tsql-differences-sql-server.md
 
 
   # Card 
-  - title: Deployment models
+  - title: Azure SQL Managed Instance
     linkLists:
       - linkListType: overview
         links:
-          - text: Single database
-            url: database/index.yml
-          - text: Elastic pools
-            url: sql-database-elastic-pool.md
-          - text: Managed instance
-            url: sql-database-managed-instance-index.yml
-          - text: Instance pools
-            url: sql-database-instance-pools.md
-
-
+          - text: What's new? 
+            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: What is SQL Managed Instance?
+            url: managed-instance/sql-managed-instance-paas-overview.md
+          - text: What are instance pools? 
+            url: managed-instance/instance-pools-overview.md 
+      - linkListType: quickstart
+        links:
+          - text: Create SQL Managed Instance 
+            url: managed-instance/instance-create-quickstart.md
+          - text: Configure VM to connect
+            url: managed-instance/connect-vm-instance-configure.md 
+          - text: Restore sample database
+            url: managed-instance/restore-sample-database-quickstart.md  
+      - linkListType: concept
+        links:
+          - text: Migrate from SQL Server
+            url: managed-instance/migrate-to-instance-from-sql-server.md
+          - text: Advanced security
+            url: database/security-overview.md
+          - text: Business continuity
+            url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+          - text: Monitoring and tuning
+            url: database/monitor-tune-overview.md
+          - text: T-SQL differences with SQL Server
+            url: managed-instance/transact-sql-tsql-differences-sql-server.md
 
 
   # Card 
-  - title: Get started
+  - title: SQL Server on Azure VM
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What's new? 
+            url: virtual-machines/windows/doc-changes-updates-release-notes.md
+          - text: What is SQL Server on Windows VM? 
+            url: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+          - text: What is SQL Server on Linux VM? 
+            url: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create SQL on Azure VM (Windows)
+            url: virtual-machines/windows/sql-vm-create-portal-quickstart.md
+          - text: Create SQL on Azure VM (Linux)
+            url: virtual-machines/linux/sql-vm-create-portal-quickstart.md 
+      - linkListType: concept
+        links:
+          - text: Migrate from SQL Server
+            url: virtual-machines/windows/migrate-to-vm-from-sql-server.md
+          - text: Security considerations
+            url: virtual-machines/windows/security-considerations-best-practices.md
+          - text: High availability & disaster recovery
+            url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          - text: Performance guidelines
+            url: virtual-machines/windows/performance-guidelines-best-practices.md
+
+  # Card
+  - title: Connect and query 
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Single database quickstart guide
-            url: sql-database-single-database-quickstart-guide.md
-          - text: Managed instance quickstart guide
-            url: sql-database-managed-instance-quickstart-guide.md
-          - text: Instance pools quickstart guide
-            url: sql-database-instance-pools-how-to.md
+          - text: Overview
+            url: database/connect-query-content-reference-guide.md 
+          - text: SQL Server Management Studio (SSMS)
+            url: database/connect-query-ssms.md
+          - text: Azure Data Studio
+            url: /azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
+          - text: Azure portal
+            url: database/connect-query-portal.md 
+          - text: Visual Studio (.NET)
+            url: database/connect-query-dotnet-visual-studio.md
+          - text: Visual Studio Code
+            url: database/connect-query-vscode.md 
+          - text: .NET Core
+            url: database/connect-query-dotnet-core.md
+          - text: Python
+            url: database/connect-query-python.md
 
-  # Card
-  - title: Migrate to Azure SQL Database
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Which SQL Database option should I choose?
-            url: sql-database-azure-sql-iaas-vs-paas-what-is-overview.md
-          - text: Migrate to SQL Database
-            url: sql-database-single-database-migrate.md
-          - text: Migrate to SQL Managed Instance
-            url: sql-database-managed-instance-migrate.md
-
-
-  # Card
-  - title: Design a database
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Design a database using SQL Server Management Studio (SSMS)
-            url: sql-database-design-first-database.md
-          - text: Design a database programmatically in an app
-            url: sql-database-design-first-database-csharp.md
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
-          - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
-          - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
 
 
   # Card
-  - title: Query a database
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Run queries using SQL Server Management Studio (SSMS)
-            url: sql-database-connect-query-ssms.md
-          - text: Run queries using Azure Data Studio
-            url: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database
-      - linkListType: reference
-        links:
-          - text: Transact-SQL (T-SQL) reference
-            url: https://docs.microsoft.com/sql/t-sql/language-reference
-          - text: Download and install SSMS
-            url: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
-          - text: Download and install Azure Data Studio
-            url: https://docs.microsoft.com/sql/azure-data-studio/download
-
-
-  # Card
-  - title: SQL Database security
+  - title: Development
     linkLists:
       - linkListType: overview
         links:
-          - text: Security overview
-            url: sql-database-security-overview.md
-          - text: Firewall rules
-            url: sql-database-firewall-configure.md
-      - linkListType: architecture
+          - text: Application development 
+            url:  database/develop-overview.md
+          - text: Disaster recovery app design
+            url: database/designing-cloud-solutions-for-disaster-recovery.md
+          - text: Managing rolling upgrades (SQL DB) 
+            url: database/manage-application-rolling-upgrade.md
+          - text: Development strategies (SQL VM)
+            url: virtual-machines/windows/application-patterns-development-strategies.md 
+          - text: SaaS database tenancy patterns
+            url: database/saas-tenancy-app-design-patterns.md
+      - linkListType: how-to-guide
         links:
-          - text: Auditing
-            url: database/auditing-overview.md
-          - text: Advanced data security
-            url: sql-database-advanced-data-security.md
+          - text: Design first database (SSMS)
+            url: database/design-first-database-tutorial.md
+          - text: Design first database (C#)
+            url: database/design-first-database-csharp-tutorial.md
 
-  # Card
-  - title: Business continuity (BCDR)
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Business continuity
-            url: sql-database-business-continuity.md
-          - text: High availability
-            url: sql-database-high-availability.md
-          - text: Database backups
-            url: sql-database-automated-backups.md
 
 
   # Card 
-  - title: API reference
+  - title: Reference 
     linkLists:
+      - linkListType: learn
+        links:
+        - text: Educational SQL resources
+          url: /sql/sql-server/educational-sql-resources
+      - linkListType: deploy
+        links:
+        - text: Azure CLI samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: PowerShell samples
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: ARM template samples 
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+      - linkListType: download
+        links:
+        - text: SQL Server Management Studio (SSMS)
+          url: /sql/ssms/download-sql-server-management-studio-ssms
+        - text: Azure Data Studio 
+          url: /sql/azure-data-studio/download-azure-data-studio
+        - text: SQL Server Data Tools 
+          url: /sql/ssdt/download-sql-server-data-tools-ssdt
+        - text: Visual Studio 2019
+          url: https://visualstudio.microsoft.com/downloads/
       - linkListType: reference
         links:
+          - text: Migration guide
+            url: https://datamigration.microsoft.com/
+          - text: Transact-SQL (T-SQL)
+            url: /sql/t-sql/language-reference
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/sql
           - text: PowerShell
