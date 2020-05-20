@@ -58,7 +58,7 @@ Use the following steps to update your browser's cookie settings.
 
 ### Credit card form doesn't support my billing address
 
-Your billing address must be located in the country that you select in the **About you** section. Make sure that you select the correct country.
+Your billing address must be located in the country/region that you select in the **About you** section. Make sure that you select the correct country/region.
 
 ### No text messages or calls during sign-up account verification
 
@@ -67,7 +67,7 @@ Although the process is typically quick, it may take up to four minutes for a ve
 Here are some additional tips:
 
 - A Voice-over-IP (VoiP) phone number can't be used for the phone verification process.
-- Double-check the phone number that you enter, including the country code that you select in the drop-down menu.
+- Double-check the phone number that you enter, including the country/region code that you select in the drop-down menu.
 - If your phone doesn't receive text messages (SMS), try the **Call me** option.
 - Make sure that your phone can receive calls or SMS messages from a United States-based telephone number.
 

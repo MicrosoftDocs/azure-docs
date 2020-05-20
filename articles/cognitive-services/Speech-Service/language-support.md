@@ -131,7 +131,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | <sup>1</sup>`ar-EG` | Arabic (Egypt) | Female | "ar-EG-Hoda" |
 | `ar-SA` | Arabic (Saudi Arabia) | Male | "ar-SA-Naayf" |
 | `bg-BG` | Bulgarian | Male |  "bg-BG-Ivan" |
-| `ca-ES` | Catalan (Spain) | Female |  "ca-ES-HerenaRUS" |
+| `ca-ES` | Catalan | Female |  "ca-ES-HerenaRUS" |
 | `cs-CZ` | Czech | Male | "cs-CZ-Jakub" |
 | `da-DK` | Danish | Female |  "da-DK-HelleRUS" |
 | `de-AT` | German (Austria) | Male | "de-AT-Michael" |
