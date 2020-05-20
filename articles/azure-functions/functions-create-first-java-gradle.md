@@ -135,7 +135,7 @@ You can get the URL required to trigger your function, with the function key, fr
 
 1. Browse to the [Azure portal], sign in, type the _appName_ of your function app into **Search** at the top of the page, and press enter.
  
-1. In your function app, set **Functions**, choose your function, then click **</> Get Function Url** at the top right. 
+1. In your function app, select **Functions**, choose your function, then click **</> Get Function Url** at the top right. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copy the function URL from the Azure portal":::
 
