@@ -112,7 +112,7 @@ Use tools like the following to validation connectivity. [ICMP ping isn't suppor
 
 #### Configuration
 
-Check your configuation:
+Check your configuration:
 1. Does the NAT gateway resource have at least one public IP resource or one public IP prefix resource? You must at least have one IP address associated with the NAT gateway for it to be able to provide outbound connectivity.
 2. Is the virtual network's subnet configured to use the NAT gateway?
 3. Are you using UDR (user-defined route) and are you overriding the destination?  NAT gateway resources become the default route (0/0) on configured subnets.
