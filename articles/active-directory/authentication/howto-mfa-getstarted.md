@@ -111,7 +111,7 @@ Administrators can choose the [authentication methods](../authentication/concept
 A push notification is sent to the Microsoft Authenticator app on your mobile device. The user views the notification and selects **Approve** to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country. Alternate methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country/region. Alternate methods should be made available for those users.
 
 ### Verification code from mobile app
 
