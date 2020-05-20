@@ -91,6 +91,10 @@ Make sure high availability setting of each resource with below documentation.
 * **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-business-continuity).
 * **Databricks File System**: See [Regional disaster recovery for Azure Databricks clusters](https://docs.microsoft.com/azure/azure-databricks/howto-regional-disaster-recovery).
 
+## CosmosDB
+
+If you provide your own key (customer-managed key) to deploy Azure Machine Learning workspace, Cosmos DB is also provisioned within your subscription. In that case, you are responsible for its high availability. See [High availability with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability)
+
 ## Deploy Azure Machine Learning with high availability setting
 
 Use [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-create) with your preferred SKU parameters for default storage and Azure Container Registry.
