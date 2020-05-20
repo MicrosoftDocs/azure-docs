@@ -1,29 +1,25 @@
 ---
-title: "Quickstart: Create a web app that launches the Immersive Reader with Node.js"
+title: Immersive Reader Node.js client library quickstart 
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
+services: cognitive-services
 author: pasta
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: immersive-reader
-ms.topic: quickstart
-ms.date: 01/14/2020
+ms.topic: include
+ms.date: 05/20/2020
 ms.author: pasta
-#Customer intent: As a developer, I want to quickly integrate the Immersive Reader into my web application so that I can see the Immersive Reader in action and understand the value it provides.
 ---
-
-# Quickstart: Create a web app that launches the Immersive Reader (Node.js)
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader client library. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -244,14 +240,14 @@ npm start
 
 Open your browser and navigate to _http://localhost:3000_. You should see the following:
 
-![Sample app](./media/quickstart-nodejs/1-buildapp.png)
+![Sample app](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](./media/quickstart-nodejs/2-viewimmersivereader.png)
+![Immersive Reader](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)

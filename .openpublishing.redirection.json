@@ -762,6 +762,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/immersion-reader/ios-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/quickstarts/client-libraries.md?pivots=programming-language-swift",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersion-reader/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/quickstarts/client-libraries.md?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersion-reader/quickstart-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/quickstarts/client-libraries.md?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-gating-process.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
       "redirect_document_id": false
