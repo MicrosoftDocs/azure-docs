@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 1. In **Username** type *azureuser*.
 
-1. For **SSH pubic key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
+1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
 
     ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
