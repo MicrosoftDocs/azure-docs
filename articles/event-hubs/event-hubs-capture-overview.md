@@ -23,7 +23,7 @@ ms.author: shvija
 Azure Event Hubs enables you to automatically capture the streaming data in Event Hubs in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice, with the added flexibility of specifying a time or size interval. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units). Event Hubs Capture is the easiest way to load streaming data into Azure, and enables you to focus on data processing rather than on data capture.
 
 > [!NOTE]
-> Configuring Event Hubs Capture to use Azure Data Lake Storage **Gen 2** is same as configuring it to use an Azure Blob Storage. For details, see [Configure Event Hubs Capture](event-hubs-capture-enable-through-portal). 
+> Configuring Event Hubs Capture to use Azure Data Lake Storage **Gen 2** is same as configuring it to use an Azure Blob Storage. For details, see [Configure Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
 
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
