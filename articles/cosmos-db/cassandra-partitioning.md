@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 
 ---
 
-# Partitioning in Azure Cosmos DB Cassandra API
+# Partitioning in Cassandra API
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. In partitioning, the records in a table are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a logical partition have the same partition key value. 
 
