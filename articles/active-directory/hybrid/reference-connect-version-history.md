@@ -53,8 +53,7 @@ This hotfix build fixes an issue where unselected domains were getting incorrect
 
 
 >[!NOTE]
->This version is required to use the new Azure AD Connect sync V2 endpoint API.  Please note that simply installing this version does not enable the V2 endpoint.  You need to follow the information under [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md) in order to enable it and opt-in to the public preview.  
-
+>This version is required to use the new Azure AD Connect sync V2 endpoint API.  Please note that simply installing this version does not enable the V2 endpoint.  You will continue to use the V1 endpoint unless you enable the V2 endpoint.  You need to follow the information under [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md) in order to enable it and opt-in to the public preview.  
 
 ## 1.5.29.0
 
