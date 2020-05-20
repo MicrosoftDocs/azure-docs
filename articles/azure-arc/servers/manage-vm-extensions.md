@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
-description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks on non-Azure VMs.
-ms.date: 05/13/2020
+description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
+ms.date: 05/19/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -27,7 +27,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 > VM extension functionality is available only in the following regions:
 > * EastUS
 > * WestUS2
-> * WestEurope 
+> * WestEurope
 >
 > Ensure you onboard your machine in one of these regions.
 
@@ -69,7 +69,7 @@ The following example shows the installation of the Log Analytics VM extension f
 
 ## Enable extensions with PowerShell
 
-Several PowerShell commands exist for running individual extensions. To see a list, use Get-Command and filter on *ArcExtension*:
+Several PowerShell commands exist for running individual extensions and managing them. To see a list, use Get-Command and filter on *ArcExtension*:
 
 ```powershell
 Get-Command Get-Arc*Extension* -Module ArcExtension
@@ -77,3 +77,12 @@ Get-Command Get-Arc*Extension* -Module ArcExtension
 
 This provides output similar to the following:
 
+The following example shows the installation of the Log Analytics VM extension onto the target virtual machine.
+
+```powershell
+
+```
+
+## Azure Resource Manager templates
+
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), w 
