@@ -17,7 +17,6 @@ ms.author: singhsaumya
 In this article, you will learn about the language generation aspects of speech responses. This can be achieved in two ways-
 1. Use of language generation templates.
 1. Use of adaptive expressions.
-Templates are generated using the template editor and is used to introduce variation to the speech responses being sent to the client. In addition, you can also use adaptive expressions to 
 
 ## Prerequisites
 
@@ -29,7 +28,7 @@ You must have completed the steps in the following articles:
 
 ## Language generation templates overview
 
-Custom Commands' templates are based on the BotFramework's [LG Templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
+Custom Commands' templates are based on the BotFramework's [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
 
 Since Custom Commands creates a new LG template when required (i.e. for speech responses in parameters or actions) you do not have to specify the name of the LG template, i.e. instead of defining your template as.
 
@@ -42,13 +41,18 @@ Since Custom Commands creates a new LG template when required (i.e. for speech r
 
 You only need to define the body of the template without the name, i.e.
 
-![Sample template](../media/custom-speech-commands/template-editor-example.png "")
+![template editor example](./media/custom-speech-commands/template-editor-example.png)
 
-You can refer to the [LG Templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) documentation for more examples, just keep in mind the following restrictions.
+Taking advantage of LG templates we can define complex speech responses for our commands, i.e.
+
+![advanced template editor example](./media/custom-speech-commands/advanced-template-editor-example.png)
+
+You can refer to the [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) documentation for more examples, just keep in mind the following restrictions.
 
 1. In the LG templates entities are represented as ${entityName}, in Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
 1. Template composition and expansion is not supported in Custom Commands.
 1. Functions injected by LG  is not supported in Custom Commands.
+1. Options (strict, replaceNull & lineBreakStyle) are not supported in Custom Commands.
 
 ## Add template responses to TurnOnOff command
 Template editor is used to introduce variation to the speech responses being sent to the client.
