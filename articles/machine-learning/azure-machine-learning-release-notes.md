@@ -25,6 +25,20 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-runtime**
     + AutoML Forecasting now supports customers forecast beyond the pre-specified max-horizon without re-training the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function will still make point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, please see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in [folder](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
   
+  + **azureml-pipeline-steps**
+    + ParallelRunStep is now released and part of azureml-pipeline-steps. Existing ParallelRunStep in azureml-contrib-pipeline-steps package is deprecated. Changes from public preview version:
+      + Added `run_max_try` optional configurable parameter to control max call to run method for any given batch, default value is 3.
+      + No PipelineParameters are auto-generated anymore. Following configurable values can be set as PipelineParameter explicitly.
+        + mini_batch_size
+        + node_count
+        + process_count_per_node
+        + logging_level
+        + run_invocation_timeout
+        + run_max_try
+      + Default value for process_count_per_node is changed to 1. User should tune this value for better performance. Best practice is to set as the number of GPU or CPU node has.
+      + ParallelRunStep does not inject any packages, user needs to include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages in environment definition. If custom docker image is used with user_managed_dependencies then user need to install conda on the image.
+      
+    
   + **Preview features**
     + [Contrib features below] 
 
@@ -63,8 +77,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added support for Windows services in ManagedInferencing
     + Remove old MIR workflows such as attach MIR compute, SingleModelMirWebservice class - Clean out model profiling placed in contrib-mir package
   + **azureml-contrib-pipeline-steps**
-    + Quick fix for ParallelRunStep where loading from YAML was broken
-    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
+    + Minor fix for YAML support
+    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps
   + **azureml-contrib-reinforcementlearning**
     + RL Load testing tool
     + RL estimator has smart defaults
