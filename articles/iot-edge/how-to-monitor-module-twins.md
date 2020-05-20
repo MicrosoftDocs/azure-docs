@@ -143,7 +143,7 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
     "$metadata": { "···" },
     "$version": 97
   }
-  }
+}
 ```
 
 The JSON can be described in the following sections, starting from the top:
