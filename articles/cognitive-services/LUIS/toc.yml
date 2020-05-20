@@ -378,7 +378,7 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items:
-    - name: Machine-learned entity
+    - name: Machine-learning entity
       href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md

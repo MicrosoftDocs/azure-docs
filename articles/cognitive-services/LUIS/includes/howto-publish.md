@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.date: 05/06/2020
+ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ---
 
-In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the endpoint.
+In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.
 
 1. Select **Publish** in the top-right navigation.
 
