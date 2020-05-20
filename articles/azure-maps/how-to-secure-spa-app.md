@@ -105,7 +105,7 @@ You grant *role-based access control* (RBAC) by assigning the system-assigned id
 
    * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-> [!IMPORTANT]
+> [!WARNING]
 > Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
 
 ## Next steps

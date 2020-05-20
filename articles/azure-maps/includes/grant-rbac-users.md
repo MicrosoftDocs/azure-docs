@@ -15,5 +15,5 @@ Read more on [Azure AD](https://docs.microsoft.com/azure/active-directory/fundam
 
    * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-> [!Tip]
+> [!WARNING]
 > Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs for users to a minimum, see [create a custom role definition and assign users](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable users to have the least privilege necessary for the application.

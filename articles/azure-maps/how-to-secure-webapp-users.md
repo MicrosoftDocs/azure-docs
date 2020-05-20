@@ -98,4 +98,4 @@ Find the API usage metrics for your Azure Maps account:
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 > [!div class="nextstepaction"]
-> [Azure Maps WebApp Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)
+> [Azure Maps Azure AD Web App Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)
