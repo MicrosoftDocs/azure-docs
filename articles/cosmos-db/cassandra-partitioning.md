@@ -23,7 +23,7 @@ The token ring is distributed into token ranges, and these ranges are divided am
 
 ## Primary Key
 
-All tables in Cassandra API must have a primary key defined. Suppose we want to create a user table, which stores messages for different users:
+All tables in Cassandra API must have a `primary key` defined. Suppose we want to create a user table, which stores messages for different users:
 
 ```shell
 CREATE TABLE uprofile.user ( 
