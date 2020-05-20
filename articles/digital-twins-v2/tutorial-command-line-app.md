@@ -118,6 +118,8 @@ In the project console window, run the following command to upload your updated 
 CreateModels Room Floor
 ```
 
+The output should indicate the models were created successfully.
+
 > [!TIP]
 > If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
 
@@ -141,12 +143,12 @@ Response 409: Service request failed.
 Status: 409 (Conflict)
 
 Content:
-{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
+{"error":{"code":"ModelAlreadyExists","message":"Could not add model dtmi:example:Room;2 as it already exists. Use Model_List API to view models that already exist. See the Swagger example.(http://aka.ms/ModelListSwSmpl)"}}
 
 Headers:
-api-supported-versions: REDACTED
-Date: Fri, 08 May 2020 01:53:52 GMT
-Content-Length: 115
+Strict-Transport-Security: REDACTED
+Date: Wed, 20 May 2020 00:53:49 GMT
+Content-Length: 223
 Content-Type: application/json; charset=utf-8
 ```
 
@@ -182,7 +184,10 @@ You can can also modify the properties of a twin you've created. Try running thi
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
 ```
 
-Then run this command to see *room0*'s information.:
+The output should indicate the twin was updated successfully.
+
+You can also verify by running this command to see *room0*'s information:
+
 ```cmd/sh
 GetDigitalTwin room0
 ```
