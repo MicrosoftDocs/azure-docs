@@ -24,7 +24,7 @@ environments it supports, and comments and remarks on new features or changes.
 ### Version 2.76
 
 - **Release date:**
-  - May 9, 2018 (Azure) | June 21, 2018 (Azure China, Azure Government)
+  - May 9, 2018 (Azure) | June 21, 2018 (Azure China Vianet 21, Azure Government)
 - **OS support:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -39,7 +39,7 @@ environments it supports, and comments and remarks on new features or changes.
   - WMF 4.0
 - **Environment:**
   - Azure
-  - Azure China
+  - Azure China Vianet 21
   - Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016; for other Windows OSes, it
   installs the
@@ -231,14 +231,14 @@ environments it supports, and comments and remarks on new features or changes.
 - **OS support:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server
   2012, Windows Server 2008 R2 SP1
 - **WMF support:** WMF 5.0 RTM, WMF 4.0 Update, WMF 4.0
-- **Environment:** Azure, Azure China, Azure Government
+- **Environment:** Azure, Azure China Vianet 21, Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSes, it installs the
   [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/)
   (installing WMF requires a reboot).
 - **New features:**
-  - The DSC Extension is now onboarded to Azure China. This version primarily contains fixes for
-    running the Extension on Azure China.
+  - The DSC Extension is now onboarded to Azure China Vianet 21. This version primarily contains fixes for
+    running the Extension on Azure China Vianet 21.
 
 ### Version 2.18
 
