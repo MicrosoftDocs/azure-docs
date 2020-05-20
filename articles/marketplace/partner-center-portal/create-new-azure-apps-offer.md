@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 05/19/2020
 ---
 
 # Create an Azure application offer
 
-This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer. 
+This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer.
 
 Before you can publish a new Azure application offer, [create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and make sure your account is enrolled in the commercial marketplace program.
 
@@ -169,26 +169,19 @@ The name you enter here will be shown to customers as the title of your offer li
 
 #### Search results summary
 
-Provide a short description of your offer (up to 100 characters), which may be used in search results.
+Provide a short description of your offer, up to 100 characters. This description may be used in search results.
 
 #### Long summary
 
-Provide a longer description of your offer (up to 256 characters). This description may be used in search results.
+Provide a longer description of your offer, up to 256 characters. This description may be used in search results.
 
 #### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-SHere are some tips for writing your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Clearly describe the value proposition of your offer in the first few sentences of your description. Include the following items:
-  * Description of your offer.
-  * The type of user that benefits from your offer.
-  * Customer needs or issues that the offer addresses.
-* Remember that the first few sentences might be displayed in search engine results.
-* Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
-* Use industry-specific or benefit-based words.
-* Consider using HTML tags to format your description to make it more engaging.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### Search keywords
 

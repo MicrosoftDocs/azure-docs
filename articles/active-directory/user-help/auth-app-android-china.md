@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator availability and limitations foe Android in China | Microsoft Docs
+title: Microsoft Authenticator availability and limitations for Android in China | Microsoft Docs
 description: Learn about how to get the Microsoft Authenticator app - availability in China
 services: active-directory
 author: curtand
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.author: curtand
 ---
 
