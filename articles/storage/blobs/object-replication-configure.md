@@ -62,7 +62,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
+To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
 1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 
