@@ -3,7 +3,7 @@ title: Partitioning in Azure Cosmos DB Cassandra API
 description: Learn about partitioning in Azure Cosmos DB Cassandra API
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
