@@ -35,13 +35,13 @@ landingContent:
         links:
           - text: Use C# (ASP.NET Core)
             itemType: quickstart
-            url: ../immersion-reader/quickstarts/client-libraries.md?pivots=programming-language-csharp
+            url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-csharp
           - text: Use Node.js
             itemType: quickstart
-            url: ../immersion-reader/quickstarts/client-libraries.md?pivots=programming-language-nodejs
+            url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-nodejs
           - text: Use Swift (iOS)
             itemType: quickstart
-            url: ../immersion-reader/quickstarts/client-libraries.md?pivots=programming-language-swift
+            url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
           - text: Python

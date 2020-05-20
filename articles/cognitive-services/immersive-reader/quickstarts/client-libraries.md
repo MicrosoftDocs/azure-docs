@@ -18,18 +18,18 @@ ms.author: pasta
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/immersion-reader-client-library-csharp)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/immersive-reader-client-library-csharp)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [Node.js quickstart](../includes/quickstarts/immersion-reader-client-library-nodejs)]
+[!INCLUDE [Node.js quickstart](../includes/quickstarts/immersive-reader-client-library-nodejs)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
 
-[!INCLUDE [Swift quickstart](../includes/quickstarts/immersion-reader-client-library-swift)]
+[!INCLUDE [Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift)]
 
 ::: zone-end
