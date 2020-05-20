@@ -511,6 +511,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmos-java-sql-api-samples",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
+      "branch": "master"
+    },    
+    {
       "path_to_root": "azure-storage-snippets",
       "url": "https://github.com/azure-samples/AzureStorageSnippets",
       "branch": "master"
