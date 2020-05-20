@@ -26,7 +26,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + AutoML Forecasting now supports customers forecast beyond the pre-specified max-horizon without re-training the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function will still make point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, please see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in [folder](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
   
   + **azureml-pipeline-steps**
-    + ParallelRunStep is now released and part of azureml-pipeline-steps. Existing ParallelRunStep in azureml-contrib-pipeline-steps package is deprecated. Changes from public preview version:
+    + ParallelRunStep is now released and is part of **azureml-pipeline-steps** package. Existing ParallelRunStep in **azureml-contrib-pipeline-steps** package is deprecated. Changes from public preview version:
       + Added `run_max_try` optional configurable parameter to control max call to run method for any given batch, default value is 3.
       + No PipelineParameters are auto-generated anymore. Following configurable values can be set as PipelineParameter explicitly.
         + mini_batch_size
