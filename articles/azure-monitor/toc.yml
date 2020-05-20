@@ -959,17 +959,19 @@
       href: insights/container-insights-troubleshoot.md
   - name: Other insights
     items: 
-    - name: Resource groups
-      href: insights/resource-group-insights.md
-    - name: Storage
-      displayname: storage, monitor, insights, storage accounts, azure storage
-      href: insights/storage-insights-overview.md
-    - name: Networks
-      href: insights/network-insights-overview.md
-    - name: Cosmos DB
+    - name: Azure Cache for Redis (preview)
+      href: insights/redis-cache-insights-overview.md
+    - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: Networks
+      href: insights/network-insights-overview.md
+    - name: Storage
+      displayname: storage, monitor, insights, storage accounts, azure storage
+      href: insights/storage-insights-overview.md
+    - name: Resource groups
+      href: insights/resource-group-insights.md
   - name: Solutions
     items:
     - name: Overview
