@@ -238,7 +238,7 @@
         href: app/cloudservices.md
       - name: Azure Functions
         displayname: functions, monitor functions, automation
-        href: ../azure-functions/functions-monitoring.md
+        href: app/azure-functions-monitoring.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
       - name: Standalone - any environment
