@@ -128,6 +128,9 @@ conceptualContent:
           - url: ./live-video-analytics-edge/overview.md
             itemType: overview
             text: Overview
+          - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+            itemType: quickstart
+            text: Run Live Video Analytics with your own model  
 
 additionalContent:
   sections:
