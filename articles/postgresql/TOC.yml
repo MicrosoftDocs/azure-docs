@@ -200,6 +200,8 @@
           href: howto-create-users.md
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-aad-authentication.md
+        - name: Connect with Managed Identity
+          href: howto-connect-with-managed-identity.md
     - name: Optimize
       items: 
         - name: Bulk inserts

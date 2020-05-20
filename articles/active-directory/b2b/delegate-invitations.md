@@ -35,7 +35,7 @@ By default, all users, including guests, can invite guest users.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a tenant administrator.
 2. Select **Azure Active Directory**.
-3. Select **Organizational Relationships** > **Settings** (or select **External Identities** > **External collaboration settings**).
+3. Select **External Identities** > **External collaboration settings**.
 6. On the **External collaboration settings** page, choose the policies you want to enable.
 
    ![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
