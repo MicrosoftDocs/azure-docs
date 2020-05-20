@@ -44267,6 +44267,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-offer-settings-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-skus-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-marketplace-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-support-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
       "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
       "redirect_document_id": false
