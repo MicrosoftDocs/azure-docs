@@ -70,7 +70,7 @@ To begin the return process, take the following steps.
 5. Affix the shipping label that you received from Azure on the package.
 6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
-    1. Call the local UPS (country-specific toll free number).
+    1. Call the local UPS (country/region-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
     3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
 
