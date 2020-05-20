@@ -42,7 +42,7 @@ You can target your deployment to a management group, an Azure subscription, or 
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
   ```
 
-  For more information about management group level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
+  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
 The examples in this article use resource group deployments.
 
