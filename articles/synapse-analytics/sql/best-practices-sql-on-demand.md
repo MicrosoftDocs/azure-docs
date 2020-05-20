@@ -58,7 +58,7 @@ The data types you use in your query affect performance. You can get better perf
   - If all character column values are of fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
   - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges [here](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
-- Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations are performed faster on integers than on character data.
+- Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
 - If you're using schema inference, [check inferred data types](#check-inferred-data-types).
 
 ## Check inferred data types
@@ -116,7 +116,7 @@ For more information, read about the [filename](develop-storage-files-overview.m
 > [!NOTE]
 > Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
 
-If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the necessary files.
+If your stored data isn't partitioned, consider partitioning. That way you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the necessary files.
 
 ## Use PARSER_VERSION 2.0 to query CSV files
 
