@@ -17,6 +17,8 @@ ms.reviewer: jroth
 ---
 
 # Quickstart: Create a SQL Server 2017 Windows virtual machine in the Azure portal
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-vm-create-portal-quickstart.md)

@@ -17,6 +17,7 @@ ms.reviewer: jroth
 
 ---
 # SQL Server VM on an Azure Dedicated Host 
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article details the specifics of using a SQL Server VM with an [Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts). Additional information about the azure dedicated host can be found in the blog post [Introducing Azure Dedicated Host](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 

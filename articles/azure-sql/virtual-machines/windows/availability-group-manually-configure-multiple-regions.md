@@ -21,6 +21,7 @@ ms.custom: "seo-lt-2019"
 ---
 
 # Configure an availability group on Azure SQL Server virtual machines in different regions
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
 
