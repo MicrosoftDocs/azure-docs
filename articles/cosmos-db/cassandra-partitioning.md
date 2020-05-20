@@ -3,7 +3,8 @@ title: Partitioning in Azure Cosmos DB Cassandra API
 description: Learn about partitioning in Azure Cosmos DB Cassandra API
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cosmosdb-cassandra
+ms.service: cosmosdb
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 
@@ -15,7 +16,7 @@ This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 
 From the developer perspective, partitioning behaves in exactly the same way for Azure Cosmos DB Cassandra API as it does in native [Apache Cassandra](https://cassandra.apache.org/). There are some minor differences behind the scenes. Apache Cassandra has a concept of tokens, which are hashes of logical partition keys. The tokens are based on a murmur3 64 byte hash, with values ranging from -2^63 to -2^63 - 1. This range is commonly referred to as the "token ring" in Apache Cassandra. 
 
-The token ring is distributed into token ranges, and these ranges are divided amongst the nodes present in a native Apache Cassandra cluster. Partitioning for Azure Cosmos DB is implemented in a similar way, except it uses a different hash algorithm, and has a larger token ring. You can learn how Partitioning and horizontal scaling works behind the scenes in Azure Cosmos DB [here](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data).
+The token ring is distributed into token ranges, and these ranges are divided amongst the nodes present in a native Apache Cassandra cluster. Partitioning for Azure Cosmos DB is implemented in a similar way, except it uses a different hash algorithm, and has a larger token ring. You can learn how Partitioning and horizontal scaling works behind the scenes in Azure Cosmos DB [here](partition-data.md).
 
 
 ## Primary Key
