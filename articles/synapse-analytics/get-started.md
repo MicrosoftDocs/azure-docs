@@ -103,7 +103,9 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
     |---|---|---|
     |**Apache Spark pool name**|`Spark1`
     |**Node size**| `Small`|
-    |**Number of nodes**| Set the minimum to 3 and the maximum to 3
+    |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
+    |||
+
 * Select **Review+create** and then select **Create**.
 * Your Apache Spark pool will be ready in a few seconds.
 
@@ -116,6 +118,7 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 > Spark databases are independently created from Spark pools. A workspace always has a Spark DB called **default** and you can create additional Spark databases.
 
 ## SQL on-demand pools
+
 SQL on-demand is a special kind of SQL pool that is always available with a Synapse workspace. It allows you to work with SQL without having to create or think about managing a Synapse SQL pool.
 
 > [!NOTE]
@@ -208,7 +211,8 @@ We have data available in a SQL pool database. Now we load it into a Spark datab
 ## Customize data visualization data with Spark and notebooks
 
 With spark notebooks you can control exactly how render charts. The following
-code shows a simple example using the popular libraries matplotlib and sea-born.
+code shows a simple example using the popular libraries matplotlib and sea-born. It will 
+render the same chart you saw when running the SQL queries earlier.
 
 ```py
 %%pyspark
@@ -223,7 +227,12 @@ seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
 matplotlib.pyplot.show()
 ```
     
-## Load data from a Spark table into a SQL Pool table
+## Load data from a Spark table into a SQL pool table
+
+Earlier we copied data from a SQL pool database into a Spark DB. Using
+Spark, we aggregated the data into the nyctaxi.passengercountstats. 
+Now run the cell below in a notebook and it will copy the aggregated table back into
+the SQL pool datbase.
 
 ```scala
 %%spark
@@ -244,7 +253,7 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
     ```
 
 * Select **Run**
-* NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run your queries. Every subsequent query will not require this time.
+* NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run your queries. Subsequent queries will not require this time.
   
 ## Use pipeline to orchestrate activities
 
