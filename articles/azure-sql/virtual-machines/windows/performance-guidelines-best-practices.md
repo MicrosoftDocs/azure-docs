@@ -18,10 +18,13 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Performance guidelines for SQL Server in Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+This article provides guidance for optimizing SQL Server performance in Microsoft Azure Virtual Machine.
 
 ## Overview
 
-This article provides guidance for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
+ While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
 [SQL Server images provisioned in the Azure portal](sql-vm-create-portal-quickstart.md) follow general storage configuration best practices (for more information on how storage is configured, see [Storage configuration for SQL Server VMs](storage-configuration.md)). After provisioning, consider applying other optimizations discussed in this article. Base your choices on your workload and verify through testing.
 

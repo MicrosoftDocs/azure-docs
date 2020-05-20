@@ -17,6 +17,7 @@ ms.date: 08/05/2019
 ms.author: mathoma
 ---
 # Frequently asked questions for SQL Server running on Windows virtual machines in Azure
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](frequently-asked-questions-faq.md)

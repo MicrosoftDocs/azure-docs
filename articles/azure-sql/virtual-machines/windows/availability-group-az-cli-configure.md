@@ -18,6 +18,8 @@ ms.custom: "seo-lt-2019"
 
 ---
 # Use the Azure CLI to configure an Always On availability group for SQL Server on an Azure VM
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
 This article describes how to use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. Deployment of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
 
 ## Prerequisites

@@ -15,6 +15,7 @@ ms.reviewer: jroth
 ---
 
 # Provision a Linux SQL Server virtual machine in the Azure portal
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Linux](sql-vm-create-portal-quickstart.md)

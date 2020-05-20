@@ -17,6 +17,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # What is SQL Server on Azure Virtual Machines? (Windows)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
