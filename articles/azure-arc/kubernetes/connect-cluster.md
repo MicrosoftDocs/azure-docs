@@ -165,7 +165,7 @@ AzureArcTest1  eastus      AzureArcTest
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods here:
 
 ```console
-kubectl -n azure-arc get deploy,po
+kubectl -n azure-arc get deployments,pods
 ```
 
 **Output:**
@@ -194,8 +194,13 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
-* `deploy/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
-* `deploy/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
+* `deployment.apps/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
+* `deployment.apps/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
+* `deployment.apps/metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
+* `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count and Arc agent version
+* `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
+* `deployment.apps/clusteridentityoperator`: maintains the managed service identity (MSI) certificate used by other agents for communication with Azure
+* `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
 
 ## Delete a connected cluster
 
