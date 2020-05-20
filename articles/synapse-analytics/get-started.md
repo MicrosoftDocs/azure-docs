@@ -232,7 +232,7 @@ matplotlib.pyplot.show()
 Earlier we copied data from a SQL pool database into a Spark DB. Using
 Spark, we aggregated the data into the nyctaxi.passengercountstats. 
 Now run the cell below in a notebook and it will copy the aggregated table back into
-the SQL pool datbase.
+the SQL pool database.
 
 ```scala
 %%spark
