@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Automation runbook errors
-description: Learn how to troubleshoot and resolve issues you might encounter with Azure Automation runbooks.
+title: Troubleshoot Azure Automation runbook issues
+description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -11,12 +11,9 @@ manager: carmonm
 ms.custom: has-adal-ref
 ---
 
-# Troubleshoot runbook errors
+# Troubleshoot runbook issues
 
- This article describes various runbook errors that might occur and how to resolve them.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Azure Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+ This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 ## Diagnose runbook issues
 
@@ -447,8 +444,6 @@ Use any of the following solutions to fix this problem:
 * Pass the name or value that you need from the complex object instead of passing the entire object.
 * Use a PowerShell runbook instead of a PowerShell Workflow runbook.
 
-
-
 ## <a name="expired webhook"></a>Scenario: 400 Bad Request status when calling a webhook
 
 ### Issue
@@ -615,7 +610,7 @@ This error is probably caused by using an incomplete migration from AzureRM to A
 
 ### Resolution
 
-We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrating-to-az-modules).
+We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of the modules, see [Migrate to Az modules](../shared-resources/modules.md#migrate-to-az-modules).
 
 ## <a name="access-denied-azure-sandbox"></a>Scenario: Access denied when using Azure sandbox for runbook or application
 
@@ -665,7 +660,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](https://docs.micr
 
 ## Next steps
 
-If you didn't see your problem here or you're unable to solve your issue, try one of the following channels for more support:
+If you don't see your problem here or you're unable to resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects you to the Azure community for answers, support, and experts.
