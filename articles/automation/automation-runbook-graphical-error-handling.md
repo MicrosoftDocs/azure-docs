@@ -61,6 +61,6 @@ Error links flow from these activities to a single `error management` code activ
 
 ## Next steps
 
-* To learn more about links and link types in graphical runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
+* To learn more about links and link types in graphical runbooks, see [Use links for workflow](automation-graphical-authoring-intro.md#use-links-for-workflow).
 
 * To learn more about runbook execution, monitoring of runbook jobs, and other technical details, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
