@@ -46,7 +46,10 @@
       href: analyze-live-video-concept.md
 - name: Reference
   items:
+  - name: Telemetry schema
+    href: telemetry-schema.md
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  
     href: module-twin-configuration-schema.md
+
