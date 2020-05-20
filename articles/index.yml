@@ -730,7 +730,7 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
       azureCategories:
         - developer-tools
-      url: https://review.docs.microsoft.com/sql/azure-data-studio/?branch=pr-en-us-14781
+      url: https://docs.microsoft.com/sql/azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
