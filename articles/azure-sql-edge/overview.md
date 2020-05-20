@@ -37,7 +37,7 @@ SQL Edge is available with two different editions or software plans. These editi
 
 ## Pricing and Availability
 
-Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
