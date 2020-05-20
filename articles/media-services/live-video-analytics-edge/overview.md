@@ -29,18 +29,15 @@ Read the following concept articles, and then try a quickstart to run motion det
 
 ### Concepts
 
-* [Media Graph](media-graph-concept.md)
+* [Media graph](media-graph-concept.md)
 * [Video recording](video-recording-concept.md)
 * [Video playback](video-playback-concept.md)
 * [Continuous video recording](continuous-video-recording-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 * [Live Video Analytics without video recording](analyze-live-video-concept.md)
-<!--
-### Quickstart
 
-Follow the [Quickstart: Run Live Video Analytics with your own model](use-your-model-quickstart.md) article to see how you can run motion detection on a live video feed.
--->
 ## Next steps
 
-Review [Terminology](terminology.md)
+* Follow the [Quickstart: Run Live Video Analytics with your own model](use-your-model-quickstart.md) article to see how you can run motion detection on a live video feed.
+* Review [terminology](terminology.md)
 
