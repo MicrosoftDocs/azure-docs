@@ -130,10 +130,10 @@ Based on the output of the cluster status:
 
 ## I'm receiving errors that my service principal was not found when I try to create a new cluster without passing in an existing one.
 
-When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to fully propagate the new service principal in a reasonable time in order to have the cluster succeed in creation. When this propagation takes too long, the cluster will fail validation to create as it cannot find an available service principal to do so. 
+When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to propagate the new service principal in a reasonable time in order to have the cluster creation success. If regional propagation exceeds timeout thresholds, the cluster will fail validation to create as it cannot find an available service principal.
 
 Use the following workarounds for this:
-1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
+1. Use an existing service principal to pass to AKS at cluster create time.
 2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
@@ -154,40 +154,13 @@ Verify that your settings are not conflicting with any of the required or option
 | 1.14 | 1.14.2 or later |
 
 
-### What versions of Kubernetes have Azure Disk support on the Sovereign Cloud?
+### What versions of Kubernetes have Azure Disk support on the Sovereign Clouds?
 
 | Kubernetes version | Recommended version |
 | -- | :--: |
 | 1.12 | 1.12.0 or later |
 | 1.13 | 1.13.0 or later |
 | 1.14 | 1.14.0 or later |
-
-
-### WaitForAttach failed for Azure Disk: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax
-
-In Kubernetes version 1.10, MountVolume.WaitForAttach may fail with an the Azure Disk remount.
-
-On Linux, you may see an incorrect DevicePath format error. For example:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-On Windows, you may see a wrong DevicePath(LUN) number error. For example:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.10 | 1.10.2 or later |
-| 1.11 | 1.11.0 or later |
-| 1.12 and later | N/A |
 
 ### Failure when setting uid and gid in mountOptions for Azure Disk
 
@@ -322,7 +295,6 @@ This issue has been fixed in the following versions of Kubernetes:
 
 If you are using a version of Kubernetes that does not have the fix for this issue and your node VM has an obsolete disk list, you can mitigate the issue by detaching all non-existing disks from the VM as a single, bulk operation. **Individually detaching non-existing disks may fail.**
 
-
 ### Large number of Azure Disks causes slow attach/detach
 
 When the number of Azure Disks attached to a node VM is larger than 10, attach and detach operations may be slow. This issue is a known issue and there are no workarounds at this time.
@@ -379,7 +351,7 @@ Recommended settings:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kubernetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+Mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -475,7 +447,7 @@ To update your Azure secret file, use `kubectl edit secret`. For example:
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
-After a few minutes, the agent node will retry the azure file mount with the updated storage key.
+After a few minutes, the agent node will retry the file mount with the updated storage key.
 
 ### Cluster autoscaler fails to scale with error failed to fix node group sizes
 
