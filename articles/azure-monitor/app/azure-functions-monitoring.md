@@ -38,7 +38,7 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## Next Steps
 
-* Read more instructions and information about monitoring [Azure Functions]([Monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring).)
+* Read more instructions and information about monitoring [Monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * Get an overview of [Distributed Tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
 * See what [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can do for your business
 * Read about [requests and dependencies for Java apps](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
