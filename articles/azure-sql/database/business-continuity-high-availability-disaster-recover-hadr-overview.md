@@ -1,7 +1,7 @@
 ---
 title: Cloud business continuity - database recovery
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn how Azure SQL Database and SQL Managed Instance support cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
+description: Learn how Azure SQL Database and SQL Managed Instance support cloud business continuity and database recovery and help keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
 ms.service: sql-database
@@ -102,7 +102,7 @@ Use auto-failover groups if your application meets any of these criteria:
 
 You may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-The following sections provide an overview of the steps to recover using either database backups or active geo-replication. For detailed steps including planning requirements, post recovery steps, and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](disaster-recovery-guidance.md).
+The following sections provide an overview of the steps to recover using either database backups or active geo-replication. For detailed steps including planning requirements, post recovery steps, and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a database in SQL Database from an outage](disaster-recovery-guidance.md).
 
 ### Prepare for an outage
 
@@ -132,11 +132,11 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
-- Redirect clients and client applications to the new server and restored database
+- Redirect clients and client applications to the new server and restored database.
 - Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
-- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
-- Configure auditing, as appropriate
-- Configure alerts, as appropriate
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Configure auditing, as appropriate.
+- Configure alerts, as appropriate.
 
 > [!NOTE]
 > If you are using a failover group and connect to the databases using the read-write listener, the redirection after failover will happen automatically and transparently to the application.
@@ -147,4 +147,4 @@ Sometimes an application must be taken offline because of planned maintenance su
 
 ## Next steps
 
-For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+For a discussion of application design considerations for standalone databases and for elastic pools, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -1,6 +1,6 @@
 ---
 title: Always Encrypted - Azure Key Vault
-description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
+description: This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the Always Encrypted Wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
@@ -15,7 +15,7 @@ ms.date: 04/23/2020
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
-This article shows you how to secure sensitive data in Azure SQL Database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption using the [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -39,9 +39,9 @@ For this tutorial, you'll need:
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 - [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
 
-## Enable your client application to access the SQL Database service
+## Enable your client application to access SQL Database
 
-You must enable your client application to access the SQL Database service by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
+You must enable your client application to access SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
 To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -81,7 +81,7 @@ Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceG
 $subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
 $applicationId = '<applicationId from AAD application>'
-$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your SQL Database below
+$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your database in Azure SQL Database below
 $location = '<datacenterLocation>'
 $vaultName = '<vaultName>'
 
@@ -98,7 +98,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 * * *
 
-## Create a blank SQL database
+## Create a blank database in Azure SQL Database
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **Create a resource** > **Databases** > **SQL Database**.
@@ -119,7 +119,7 @@ Open SSMS and connect to the server with the Clinic database.
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
 
-2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name, including *database.windows.net*.
+2. Enter your server name and credentials. The server name can be found on the SQL database pane and in the connection string you copied earlier. Type the complete server name, including *database.windows.net*.
 
     ![Copy the connection string](./media/always-encrypted-azure-key-vault-configure/ssms-connect.png)
 

@@ -15,7 +15,7 @@ ms.date: 04/23/2020
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store
 
-This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -38,7 +38,7 @@ For this tutorial, you'll need:
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## Create a blank SQL database
+## Create a blank database in Azure SQL Database
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
@@ -58,7 +58,7 @@ You will need the connection string later in the tutorial. After the database is
 Open SSMS and connect to the server with the Clinic database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
-2. Enter your server name and credentials. The server name can be found on the **SQL database** blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
+2. Enter your server name and credentials. The server name can be found on the **SQL database** pane and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
     ![Copy the connection string](./media/always-encrypted-certificate-store-configure/ssms-connect.png)
 
