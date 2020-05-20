@@ -14,11 +14,9 @@ ms.date: 05/20/2020
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 
-Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. In partitioning, the records in a table are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a logical partition have the same partition key value. 
+Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. In partitioning, the records in a table are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a logical partition have the same partition key value. Azure Cosmos DB transparently and automatically manages the placement of logical partitions on physical partitions to efficiently satisfy the scalability and performance needs of the table. As the throughput and storage requirements of an application increase, Azure Cosmos DB moves logical partitions to automatically spread the load across a greater number of physical partitions. 
 
-From the developer perspective, partitioning behaves in exactly the same way for Azure Cosmos DB Cassandra API as it does in native [Apache Cassandra](https://cassandra.apache.org/). There are some minor differences behind the scenes. Apache Cassandra has a concept of tokens, which are hashes of logical partition keys. The tokens are based on a murmur3 64 byte hash, with values ranging from -2^63 to -2^63 - 1. This range is commonly referred to as the "token ring" in Apache Cassandra. 
-
-The token ring is distributed into token ranges, and these ranges are divided amongst the nodes present in a native Apache Cassandra cluster. Partitioning for Azure Cosmos DB is implemented in a similar way, except it uses a different hash algorithm, and has a larger token ring. You can learn how Partitioning and horizontal scaling works behind the scenes in Azure Cosmos DB [here](partition-data.md).
+From the developer perspective, partitioning behaves in exactly the same way for Azure Cosmos DB Cassandra API as it does in native [Apache Cassandra](https://cassandra.apache.org/). There are some minor differences behind the scenes. Apache Cassandra has a concept of tokens, which are hashes of logical partition keys. The tokens are based on a murmur3 64 byte hash, with values ranging from -2^63 to -2^63 - 1. This range is commonly referred to as the "token ring" in Apache Cassandra. The token ring is distributed into token ranges, and these ranges are divided amongst the nodes present in a native Apache Cassandra cluster. Partitioning for Azure Cosmos DB is implemented in a similar way, except it uses a different hash algorithm, and has a larger token ring. 
 
 
 ## Primary Key
@@ -32,7 +30,7 @@ CREATE TABLE uprofile.user (
    message text);
 ```
 
-In this design, we have defined the `id` field as the `primary key`. The primary key functions as the identifier for the record in the table, but is also the value used as the `partition key` in Azure Cosmos DB. If the primary key is defined in the manner above, there will only be a single record in each logical partition. Although this will result in a perfect distribution when writing the data to the database, it has limitations for reading the data. Unless the primary key is supplied by the application in the query, all physical partitions will be scanned. 
+In this design, we have defined the `id` field as the `primary key`. The primary key functions as the identifier for the record in the table, but is also the value used as the `partition key` in Azure Cosmos DB. If the primary key is defined in the manner above, there will only be a single record in each logical partition. This will result in a perfectly horizontal and scalable distribution when writing data to the database, and is ideal for key-value lookup use cases. The application should provide the primary key for reads.
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
 
@@ -73,7 +71,7 @@ CREATE TABLE uprofile.user (
    message text, 
    PRIMARY KEY ((firstname, lastname), id) );
 ```
-In this example, the unique combination of firstname and lastname would form the partition key. 
+In this example, the unique combination of `firstname` and `lastname` would form the partition key. 
 
 
 ## Next steps
