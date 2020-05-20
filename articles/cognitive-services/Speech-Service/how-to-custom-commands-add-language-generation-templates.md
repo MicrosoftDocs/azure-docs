@@ -27,6 +27,29 @@ You must have completed the steps in the following articles:
 > * 
 > *
 
+## Language generation templates overview
+
+Custom Commands' templates are based on the BotFramework's [LG Templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
+
+Since Custom Commands creates a new LG template when required (i.e. for speech responses in parameters or actions) you do not have to specify the name of the LG template, i.e. instead of defining your template as.
+
+ ```
+    # CompletionAction
+    - Ok, turning {OnOff} the {SubjectDevice}
+    - Done, turning {OnOff} the {SubjectDevice}
+    - Proceeding to turn {OnOff} {SubjectDevice}
+ ```
+
+You only need to define the body of the template without the name, i.e.
+
+![Sample template](../media/custom-speech-commands/template-editor-example.png "")
+
+You can refer to the [LG Templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) documentation for more examples, just keep in mind the following restrictions.
+
+1. In the LG templates entities are represented as ${entityName}, in Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
+1. Template composition and expansion is not supported in Custom Commands.
+1. Functions injected by LG  is not supported in Custom Commands.
+
 ## Add template responses to TurnOnOff command
 Template editor is used to introduce variation to the speech responses being sent to the client.
 
@@ -34,7 +57,7 @@ Template editor is used to introduce variation to the speech responses being sen
 1. In the **Edit action** pop-up, switch to **Template Editor** and replace the text with-
 
     ```
-    -  Ok, turning {OnOff} the {SubjectDevice}
+    - Ok, turning {OnOff} the {SubjectDevice}
     - Done, turning {OnOff} the {SubjectDevice}
     - Proceeding to turn {OnOff} {SubjectDevice}
     ```
