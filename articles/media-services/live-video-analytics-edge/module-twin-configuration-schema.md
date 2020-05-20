@@ -1,20 +1,20 @@
 ---
 title: Module twin JSON schema - Azure
-description: This topic describes module twin JSON schema of Media Services on IoT Edge.
+description: This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
 # Module twin JSON schema
 
-This topic describes module twin JSON schema of Media Services on IoT Edge.
+This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
 
 > [!NOTE]
 > To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. For more information, see [Accessing the Azure Media Services API](../latest/media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 ## Module twin properties
 
-Media Services on IoT Edge exposes the following module twin properties. 
+Live Video Analytics on IoT Edge exposes the following module twin properties. 
 
 |Property |Required |Dynamic |Description |
 |---|---|---|---|

@@ -1,13 +1,13 @@
 ---
-title: Use direct methods in Media Services on IoT Edge - Azure  
-description: Media Services on IoT Edge exposes several Direct Methods. The Direct Methods are based on the conventions described in this topic.
+title: Use direct methods in Live Video Analytics on IoT Edge - Azure  
+description: Live Video Analytics on IoT Edge exposes several Direct Methods. The Direct Methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
 # Direct methods
 
-Media Services on IoT Edge exposes several Direct Methods. For more information, see [Understand and invoke direct methods from IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Live Video Analytics on IoT Edge exposes several Direct Methods. For more information, see [Understand and invoke direct methods from IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
 
 This topic describes these methods and conventions.
 
@@ -28,7 +28,7 @@ The Direct Methods are based on the following conventions:
     }
     ```
 
-2. A given version of Media Services on IoT Edge module will support all the Direct Methods up-to its current version. For example, module version 1.3 will support Direct Methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
+2. A given version of Live Video Analytics on IoT Edge module will support all the Direct Methods up-to its current version. For example, module version 1.3 will support Direct Methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
 3. All Direct Methods are synchronous.
 4. Error results follow OData error schema.
 5. Names should observe the following constraints:
