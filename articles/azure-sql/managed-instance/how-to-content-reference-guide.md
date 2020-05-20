@@ -56,7 +56,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-configure.md)
 - [Configure Azure Automation](../database/automation-manage.md)
 - [Transactional replication](replication-between-two-instances-configure-tutorial.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
 - [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 

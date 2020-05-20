@@ -184,7 +184,7 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 ## Next steps
 
 - [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
-- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 - [Monitor In-Memory OLTP storage](in-memory-oltp-monitoring.md) for In-Memory OLTP
 - [Try In-memory features](in-memory-sample.md)
 
@@ -202,7 +202,7 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 ### Application design
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
 ### Tools
 

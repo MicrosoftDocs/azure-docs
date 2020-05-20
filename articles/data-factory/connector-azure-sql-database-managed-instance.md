@@ -15,7 +15,7 @@ ms.date: 03/12/2020
 
 # Copy data to and from Azure SQL Managed instance by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-sqldb-sqlmi.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Managed instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 

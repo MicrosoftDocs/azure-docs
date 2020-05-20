@@ -39,7 +39,7 @@ Azure SQL Database includes [database advisors](database-advisor-implement-perfo
 
 ### Query Performance Insight in Azure SQL Database
 
-[Query Performance Insight](query-performance-insight.md) shows the performance in the Azure portal of top consuming and longest running queries for single and pooled databases.
+[Query Performance Insight](query-performance-insight-configure.md) shows the performance in the Azure portal of top consuming and longest running queries for single and pooled databases.
 
 ## Generate intelligent assessments of performance issues
 

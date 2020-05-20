@@ -36,7 +36,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-configure.md)
 - [Configure Azure Automation](automation-manage.md)
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection-configure.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.

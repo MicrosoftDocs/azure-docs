@@ -52605,7 +52605,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-query-performance.md",
-        "redirect_url": "/azure/azure-sql/database/query-performance-insight",
+        "redirect_url": "/azure/azure-sql/database/query-performance-insight-configure",
         "redirect_document_id": true
     },
     {
@@ -53325,7 +53325,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-in-memory-oltp-migration.md",
-        "redirect_url": "/azure/azure-sql/in-memory-oltp-migration",
+        "redirect_url": "/azure/azure-sql/in-memory-oltp-configure",
         "redirect_document_id": true
     },
     {
@@ -53972,6 +53972,11 @@
         "source_path": "articles/sql-database/sql-database-single-index.yml",
         "redirect_url": "/azure/azure-sql/database/index",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path": "articles/data-factory/connector-azure-sql-database-managed-instance.md",
+        "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
+        "redirect_document_id": true
+    }   
  ]
 }

@@ -16,6 +16,7 @@ tags: azure-synapse
 ---
 
 # Using Multi-factor AAD authentication
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using *Azure Active Directory - Universal with MFA* authentication. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication.
 

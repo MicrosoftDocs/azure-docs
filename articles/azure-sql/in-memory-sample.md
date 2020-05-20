@@ -331,7 +331,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 - [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
 - [Monitor In-Memory OLTP storage](in-memory-oltp-monitoring.md) for In-Memory OLTP
 
@@ -355,7 +355,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
 #### Tools
 
