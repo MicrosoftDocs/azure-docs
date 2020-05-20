@@ -16,8 +16,8 @@ The application requires a service to service authentication flow to Azure AD to
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
-[!Tip]
-> Azure maps can support access tokens from user sign-on / interactive flows. This can enable a more restricted scope of access revocation and secret management.
+> [!Tip]
+> Azure maps can support access tokens from user sign-on / interactive flows. Interactive flows enable a more restricted scope of access revocation and secret management.
 
 ## Create an Azure Function
 
@@ -25,7 +25,7 @@ You must create a secured web service application which is responsible for authe
 
 1. In the Azure portal, see [Create an Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
 
-2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients from the designated origins allowed access. See [Add CORS functionality](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
 
 3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure Function to enable creation of a service principal to authenticate to Azure AD.  
 
@@ -55,12 +55,12 @@ Content-Type: application/json
 }
 ```
 
-1. Configure Security for Azure Function HttpTrigger
+6. Configure Security for Azure Function HttpTrigger
 
    * [Create a function access key](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
    * [Secure HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure Function in production.
    
-2. Configure Web application Azure Maps Web SDK. 
+7. Configure Web application Azure Maps Web SDK. 
 
 ```javascript
 //URL to custom endpoint to fetch Access token
@@ -105,7 +105,7 @@ You grant *role-based access control* (RBAC) by assigning the system-assigned id
 
    * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
 
 ## Next steps

@@ -12,7 +12,7 @@ manager: timlt
 
 # Secure a web application with user sign-in
 
-An application which is hosted on web servers such as IIS and maintain multiple business scenarios and deployments beyond a single page application. The application provides protected resources secured only to Azure AD users and does not expose unprotected web pages. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+An application which is hosted on web servers, maintain multiple business scenarios, and deployments beyond a single page application. The application provides protected resources secured only to Azure AD users and does not expose unprotected web pages. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
@@ -36,10 +36,12 @@ You must create the web application in Azure AD for users to sign in. This web a
 
     ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Enable the web application to call Azure Maps REST APIs by configuring the app registration with an application secret, see [A web app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). A secret is required to authenticate to Azure AD on-behalf of the user. If the application already has configured an Azure AD app registration and secret this may not be required.
+6. Enable the web application to call Azure Maps REST APIs by configuring the app registration with an application secret, see [A web app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). A secret is required to authenticate to Azure AD on-behalf of the user. 
+   
+   * If the application already has configured an Azure AD app registration and a secret this step may be skipped.
 
-[!Tip]
-> This secret should be stored in a secure service for the web application to retrieve. If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) and an Azure Key Vault instance to [acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) for accessing Azure Key Vault secrets and simplify the complexity of secret management operations. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect via Managed Identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> [!Tip]
+> The App registration certificate or secret should be stored in a secure service for the web application to retrieve. If the application is hosted in an Azure environment, we recommend using [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) and an Azure Key Vault instance to [acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) for accessing Azure Key Vault secrets. To connect to Azure Key Vault to retrieve secrets, see [tutorial to connect via Managed Identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
    
 7. Implement a secure token endpoint for the Azure Maps Web SDK to access a token. 
    
@@ -96,4 +98,4 @@ Find the API usage metrics for your Azure Maps account:
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 > [!div class="nextstepaction"]
-> [Azure Maps Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)
+> [Azure Maps WebApp Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/OpenIdConnect)

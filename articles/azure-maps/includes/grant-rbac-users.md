@@ -9,7 +9,7 @@ Read more on [Azure AD](https://docs.microsoft.com/azure/active-directory/fundam
 
 1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
 
-    ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    ![Grant RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Select the principal by name. Then select **Save**.
 

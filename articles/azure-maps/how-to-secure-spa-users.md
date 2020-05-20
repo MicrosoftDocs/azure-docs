@@ -24,7 +24,7 @@ You must create the web application in Azure AD for users to sign in. This web a
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
-2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For more details on Redirect URI, please see Azure Maps Azure AD samples. Then select **Register**.  
+2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For a detailed sample please see [Azure Maps Azure AD samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
 
 3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
@@ -40,13 +40,13 @@ You must create the web application in Azure AD for users to sign in. This web a
 
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
-## User sign-in with Azure Maps web SDK
+## User sign-in with Azure Maps Web SDK
 
 Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
 ```javascript
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js" />
 <script>
     var map = new atlas.Map("map", {
         center: [-122.33, 47.64],

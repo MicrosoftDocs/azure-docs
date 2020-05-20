@@ -37,20 +37,33 @@ From a step by step overview:
 6. Implement Azure AD authentication in the daemon application to retrieve the shared key secret from Azure Key Vault.
 7. Create Azure Maps REST API request with shared key.
 
-[!Tip]
+> [!Tip]
 > If the app is hosted in Azure environment, we recommend implementing a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via Managed Identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
 The daemon application is responsible to retrieve the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. We **encourage** direct Azure AD Role based access control with Azure maps as a result of the additional complexity and operational requirements of using shared key authentication.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > To simplify key regeneration, we recommend applications use 1 key at a time. Applications can then regenerate the unused key and deploy the new regenerated key to a secure storage like Azure Key Vault.
 
 ## Scenario: Azure AD Role Based Access Control
 
 Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure Portal authentication details page. This value represents the account which will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making http requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
-[!Tip]
+> [!Tip]
 > We recommend hosting on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services to enable benefits of Managed Identity components.
+
+### Daemon hosted on Azure resources
+
+When running on Azure resources, configure Azure Managed Identities to enable low cost, minimal credential management effort. 
+
+See [Overview of Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to enable the application access to a Managed Identity.
+
+Managed Identity Benefits:
+
+* Azure system managed X509 certificate public key cryptography authentication.
+* Superior Azure AD security with X509 certificates instead of client secrets.
+* Azure manages and renews all certificates associated with the Managed Identity resource.
+* No management and requirement of secret configuration stores.
 
 ### Daemon hosted on non-Azure resources
 
@@ -81,19 +94,6 @@ When running on a non-Azure environment Managed Identities are not available. Th
     * After you select **Add**, copy the secret and store it securely in a service such as Azure Key Vault. Review [Azure Key Vault Developer Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide) to securely store the certificate or secret. You'll use this secret to get tokens from Azure AD.
 
        ![Add a client secret](./media/how-to-manage-authentication/add-key.png)
-
-### Daemon hosted on Azure resources
-
-When running on Azure resources, configure Azure Managed Identities to enable low cost, minimal credential management effort. 
-
-See [Overview of Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to enable the application access to a Managed Identity.
-
-Managed Identity Benefits:
-
-* Azure system managed X509 certificate public key cryptography authentication.
-* Superior Azure AD security with X509 certificates instead of client secrets.
-* Azure manages and renews all certificates associated with the Managed Identity resource.
-* No management and requirement of secret configuration stores.
 
 ### Grant role based access for the daemon application to Azure Maps
 
@@ -155,6 +155,5 @@ Find the API usage metrics for your Azure Maps account:
 > [View usage metrics](how-to-view-api-usage.md)
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
-
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure Maps Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

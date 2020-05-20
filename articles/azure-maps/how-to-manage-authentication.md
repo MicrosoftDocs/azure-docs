@@ -33,19 +33,20 @@ Depending on application needs there are specific pathways to securing the appli
 
 The following table is intended to provide a guide to common scenarios to configure authentication and authorization to Azure Maps. The table is a relative comparison of protection each scenario generally provides.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > Microsoft recommends implementing Azure AD Role based access control for production applications.
 
 ### Scenarios
 
-| Scenario                                                                                    | Authentication | Authorization | Level of protection | Development effort | Operational effort |
-| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------- | ------------------ | ------------------ |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Shared Key     | N/A           | Low                 | Medium             | High               |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Medium              | Low                | Medium             |
-| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium              | Medium             | Medium             |
-| [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium              | Medium             | Medium             |
-| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | Medium              | High               | Medium             |
-| [Public / Native client with interactive single-sign-on](./tbd)                             | Azure AD       | High          | Medium              | High               | Medium             |
+| Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
+| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Shared Key     | N/A           | Medium             | High               |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Low                | Medium             |
+| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
+| [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
+| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
+| [Public / Native client with interactive single-sign-on](./tbd)                             | Azure AD       | High          | High               | Medium             |
+| [IoT device / Smart TV / Input constrained device](./tbd)                                   | Azure AD       | High          | Medium             | Medium             |
 
 Click on specific scenarios in the table to discover how to configure applications.
 
