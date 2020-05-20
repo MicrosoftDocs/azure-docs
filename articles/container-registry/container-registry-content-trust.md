@@ -9,7 +9,7 @@ ms.date: 09/06/2019
 Azure Container Registry implements Docker's [content trust][docker-content-trust] model, enabling pushing and pulling of signed images. This article gets you started enabling content trust in your container registries.
 
 > [!NOTE]
-> Content trust is a feature of the [Premium SKU](container-registry-skus.md) of Azure Container Registry.
+> Content trust is a feature of the [Premium service tier](container-registry-skus.md) of Azure Container Registry.
 
 ## How content trust works
 

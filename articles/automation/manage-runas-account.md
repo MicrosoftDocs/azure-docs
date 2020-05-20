@@ -103,7 +103,7 @@ The following list provides the requirements to create a Run As account in Power
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](#permissions).
 
-To get the values for `SubscriptionId`, `ResourceGroupName`, and  , which is required parameters for the PowerShell script, complete the next steps.
+To get the values for `SubscriptionId`, `ResourceGroupName`, and  `AutomationAccountName`, which is required parameters for the PowerShell script, complete the next steps.
 
 1. In the Azure portal, select **Automation Accounts**.
 1. On the Automation Accounts page, select your Automation account.

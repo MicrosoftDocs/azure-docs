@@ -350,6 +350,9 @@
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
+    - name: Anomaly Finder
+      tocHref: /azure/cognitive-services/labs/anomaly-finder/
+      topicHref: /azure/cognitive-services/anomaly-detector/overview
     - name: Conversation Learner
       tocHref: /azure/cognitive-services/labs/conversation-learner/
       topicHref: /azure/cognitive-services/labs/conversation-learner/overview
@@ -397,7 +400,7 @@
       topicHref: /azure/cognitive-services/web-language-model/home
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
-      topicHref: /azure/cognitive-services/project-personality-chat/overview
+      topicHref: /azure/cognitive-services/qnamaker/overview/overview
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
@@ -602,11 +605,11 @@
       tocHref: /azure/machine-learning/data-science-virtual-machine
       topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
-    tocHref: /azure/marketplace/
+    tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace/
   - name: Marketplace Publishing
-    tocHref: /azure/marketplace/cloud-partner-portal
-    topicHref: /azure/marketplace/cloud-partner-portal
+    tocHref: /azure/marketplace-publishing/
+    topicHref: /azure/marketplace/marketplace-publishers-guide
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
@@ -637,8 +640,8 @@
         tocHref: /azure/service-bus-messaging/
         topicHref: /azure/service-bus-messaging/
       - name: Azure Relay
-        tocHref: /azure/azure-relay
-        topicHref: /azure/azure-relay
+        tocHref: /azure/service-bus-relay/
+        topicHref: /azure/azure-relay/
   - name: Migrate
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
@@ -646,8 +649,8 @@
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
   - name: Mobile Services
-    tocHref: /azure/app-service-mobile/
-    topicHref: /azure/app-service-mobile/
+    tocHref: /azure/mobile-services/
+    topicHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -750,7 +753,7 @@
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
   - name: Resiliency
-    tocHref: /azure/architecture/framework/resiliency/overview
+    tocHref: /azure/resiliency/
     topicHref: /azure/architecture/framework/resiliency/overview
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
@@ -870,7 +873,7 @@
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql
   - name: Confidential Computing
-    tocHref: /azure/confidential-computing/overview
+    tocHref: /azure/confidential-computing/
     topicHref: /azure/confidential-computing/overview
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
