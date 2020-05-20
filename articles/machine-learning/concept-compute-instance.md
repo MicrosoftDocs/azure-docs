@@ -110,7 +110,7 @@ You can perform the following actions:
 
 * Create a compute instance. Specify the name, Azure VM type including GPUs (please note VM type can not be changed after creation), enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
 * Refresh the compute instances tab
-* Start, stop and restart a compute instance
+* Start, stop and restart a compute instance. Stop the VM when you are not using it to reduce cost. Then start it again when you need it.
 * Delete a compute instance
 
 For each compute instance in your workspace you can:
