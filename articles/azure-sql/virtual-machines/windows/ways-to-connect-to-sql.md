@@ -18,6 +18,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Connect to a SQL Server Virtual Machine on Azure
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 ## Overview
 

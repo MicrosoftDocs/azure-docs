@@ -18,6 +18,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # How to provision SQL Server virtual machines with Azure PowerShell
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This guide explains your options to create Windows SQL Server VMs with Azure PowerShell. For a streamlined Azure PowerShell example with more default values, see the [SQL VM Azure PowerShell quickstart](sql-vm-create-powershell-quickstart.md).
 

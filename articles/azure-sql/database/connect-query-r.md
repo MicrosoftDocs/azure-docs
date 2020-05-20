@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Quickstart: Use R with Machine Learning Services to query an Azure SQL Database (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you use R with Machine Learning Services to connect to an Azure SQL Database and use T-SQL statements to query data.
 

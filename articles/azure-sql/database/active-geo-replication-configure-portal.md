@@ -12,7 +12,8 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ---
-# Tutorial: Configure active geo-replication & failover in portal (Azure SQL Database)
+# Tutorial: Configure active geo-replication & fail over in portal (Azure SQL Database)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
 This article shows you how to configure [active geo-replication for Azure SQL Database](active-geo-replication-overview.md#active-geo-replication-terminology-and-capabilities) using the [Azure portal](https://portal.azure.com) and to initiate failover.

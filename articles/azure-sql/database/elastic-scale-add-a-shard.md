@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/03/2019
 ---
 # Adding a shard using Elastic Database tools
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ## To add a shard for a new range or key
 

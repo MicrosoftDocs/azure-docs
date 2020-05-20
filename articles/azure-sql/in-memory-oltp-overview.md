@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/19/2019
 ---
 # Optimize performance by using In-Memory technologies in Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 In-Memory technologies enable you to improve performance of your application, and potentially reduce cost of your database.
 

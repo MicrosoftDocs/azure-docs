@@ -15,6 +15,7 @@ ms.reviewer:
 ms.date: 05/27/2020
 ---
 # What is Azure SQL? 
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Azure SQL is a family of managed, secure, and intelligent SQL Server database products.
 

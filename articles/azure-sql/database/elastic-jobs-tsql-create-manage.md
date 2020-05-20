@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 02/07/2020
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides many example scenarios to get started working with Elastic Jobs using T-SQL.
 

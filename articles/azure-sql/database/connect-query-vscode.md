@@ -14,7 +14,8 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/25/2019
 ---
-# Quickstart: Use Visual Studio Code to connect and query (Azure SQL Database & SQL Managed Instance)
+# Quickstart: Use Visual Studio Code to connect and query 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics. In this quickstart, you'll use Visual Studio Code to connect to Azure SQL Database or Azure SQL Managed Instance and then run Transact-SQL statements to query, insert, update, and delete data.
 

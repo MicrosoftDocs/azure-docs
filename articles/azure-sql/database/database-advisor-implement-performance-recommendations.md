@@ -13,6 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
 # Database Advisor performance recommendations for Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database learns and adapts with your application. Azure SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize performance. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
 
