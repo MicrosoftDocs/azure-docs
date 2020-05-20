@@ -480,6 +480,8 @@
         href: image-builder-permissions-cli.md
       - name: Configure permissions - PowerShell
         href: image-builder-permissions-powershell.md
+      - name: Networking options
+        href: image-builder-networking.md
       - name: ARM template reference
         href: image-builder-json.md
         displayName: ARM,Resource Manager
