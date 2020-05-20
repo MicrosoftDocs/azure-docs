@@ -8,8 +8,9 @@ ms.date: 05/20/2020
 ms.subservice: 
 ---
 
+# Use Azure Private Link to securely connect networks to Azure Monitor
 
-[Azure Private Link](../../private-link/private-link-overview) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. As a result, we have built a resource called an Azure Monitor Private Link Scope (AMPLS) that allows you to define the boundaries of your monitoring network and connect to your virtual network. This article will cover why to use and how to set up an Azure Monitor Private Link Scope.
+[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. As a result, we have built a resource called an Azure Monitor Private Link Scope (AMPLS) that allows you to define the boundaries of your monitoring network and connect to your virtual network. This article will cover why to use and how to set up an Azure Monitor Private Link Scope.
 
 ## Advantages of Private Link with Azure Monitor
 
@@ -21,7 +22,7 @@ With Private Link you can:
 - Stop data exfiltration from your networks by only authorizing access to specific resources, and block access to all destinations
 - Securely connect your private on-premises network to Azure Monitor using ExpressRoute and Private Link
 
-For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview#key-benefits)
+For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview#key-benefits.md)
 
 ## How it works
 
@@ -126,10 +127,10 @@ First, you can connect this Log Analytics resource to Azure Monitor Private Link
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
 If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to dashboards, query API, insights in the Azure portal, and more.
 
-Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security).
+Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
 > [!NOTE] 
-> Logs and metrics uploaded to a workspace via Diagnostic Settings (https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings) go over a secure private Microsoft channel, and are not controlled by these settings.
+> Logs and metrics uploaded to a workspace via Diagnostic Settings (diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
 
 ## Configuring Application Insights components
 
@@ -137,7 +138,7 @@ In the Azure portal in your Azure Monitor Application Insights Component resourc
 
 **---------- TODO ------------- get screenshot----**
 
-![AI Network Isolation](AMPLSScreenshotAINetworkIsolation.png)
+![AI Network Isolation](./media/private-link-security/6-ampls-ai-network-isolation.png)
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connecting-azure-monitor-resources).  
 
