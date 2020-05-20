@@ -309,7 +309,7 @@ az ad app delete --id <your-application-ID>
 
 Finally, delete the project sample folder you downloaded to your local machine.
 
-## Next steps
+## Next steps 
 
 In this tutorial, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You used the client app to explore Azure Digital Twins, creating models, digital twins, and relationships. You also ran some queries on the solution, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
