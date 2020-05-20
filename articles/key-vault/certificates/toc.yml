@@ -18,6 +18,12 @@
   - name: Python
     href: quick-create-python.md
 
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+
 - name: Tutorials 
   items:
   - name: Import a certificate

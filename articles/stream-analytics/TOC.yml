@@ -33,6 +33,9 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Choose a streaming analytics technology

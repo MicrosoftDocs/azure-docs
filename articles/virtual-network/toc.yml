@@ -35,8 +35,9 @@
     href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
-  - name: Azure Policy templates
-    href: policy-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Business continuity

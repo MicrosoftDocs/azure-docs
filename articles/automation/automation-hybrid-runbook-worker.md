@@ -36,7 +36,7 @@ The process to install a Hybrid Runbook Worker depends on the operating system. 
 
 The recommended installation method is to use an Azure Automation runbook to completely automate the process of configuring a Windows computer. The second method is to follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
 
-## <a name="network-planning"></a>Network configuration
+## <a name="network-planning"></a>Network planning
 
 For the Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for Log Analytics agent](../azure-monitor/platform/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
 

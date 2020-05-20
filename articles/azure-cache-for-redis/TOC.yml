@@ -27,10 +27,13 @@
   items:
     - name: Azure Cache for Redis samples
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure 
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Security
@@ -63,7 +66,7 @@
       href: cache-migrate-to-redis.md
   - name: Automate
     items:
-    - name: Deploy and manage using Azure Powershell
+    - name: Deploy and manage using Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md

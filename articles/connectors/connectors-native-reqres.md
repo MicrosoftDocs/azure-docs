@@ -3,15 +3,15 @@ title: Receive and respond to calls by using HTTPS
 description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
 ---
 
 # Receive and respond to inbound HTTPS requests in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger and Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 * Trigger a workflow when an external webhook event happens.
@@ -46,11 +46,11 @@ The Request trigger supports [Azure Active Directory Open Authentication](../act
 
 ## Add Request trigger
 
-This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app.
+This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic App Designer opens, in the search box, enter "http request" as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
+1. After Logic App Designer opens, in the search box, enter `http request` as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
 
    ![Select Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 

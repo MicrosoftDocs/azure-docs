@@ -38,7 +38,13 @@
   - name: Respond to incidents
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
-    href: security-center-compliance-dashboard.md  
+    href: security-center-compliance-dashboard.md
+
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 
 - name: Concepts
   items:

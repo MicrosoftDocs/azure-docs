@@ -4,7 +4,7 @@ description: This article describes how to code model refreshes for Azure Analys
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
 
 ---
@@ -55,7 +55,7 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Enter the details for the credential.  For the **User name**, enter the **SPN ClientId**, for the **Password**, enter the **SPN Secret**.
+2. Enter the details for the credential. In **User name**, enter the service principal Application Id (appid), and then in **Password**, enter the service principal Secret.
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -63,7 +63,7 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **description**, and then click **Create**.
+4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **Description**, and then click **Create**.
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 

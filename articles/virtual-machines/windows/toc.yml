@@ -138,6 +138,9 @@
         items:
         - name: Azure Monitor
           href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Images

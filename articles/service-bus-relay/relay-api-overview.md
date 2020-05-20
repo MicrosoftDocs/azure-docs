@@ -1,7 +1,7 @@
 ---
 title: Azure Relay API overview | Microsoft Docs
 description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
-services: event-hubs
+services: service-bus-relay
 documentationcenter: na
 author: spelluru
 manager: timlt
@@ -29,7 +29,7 @@ The [additional information](#additional-information) section contains more info
 | --- | --- | --- | --- |
 | .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Node | Hybrid Connections | [Websockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP Requests: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Node | Hybrid Connections | [WebSockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP Requests: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### Additional information
 
@@ -48,7 +48,7 @@ applications.
 
 The .NET Standard library is based on the open protocol definition for the
 Hybrid Connections Relay that builds on HTTP and WebSockets. The library
-supports a stream abstraction over Websockets and a simple request-response API
+supports a stream abstraction over WebSockets and a simple request-response API
 gesture for answering HTTP requests. The [Web
 API](https://github.com/Azure/azure-relay-dotnet) sample shows how to integrate
 Hybrid Connections with ASP.NET Core for web services.
@@ -60,7 +60,7 @@ existing Node.js modules with alternative implementations that listen on
 the Azure Relay service instead of the local networking stack.
 
 The `hyco-https` module amends and partially overrides the core Node.js modules
-`http` and `https`, providing a HTTPS listener implementation that is
+`http` and `https`, providing an HTTPS listener implementation that is
 compatible with many existing Node.js modules and applications that rely on
 these core modules.
 

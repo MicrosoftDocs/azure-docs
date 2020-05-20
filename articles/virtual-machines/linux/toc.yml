@@ -67,6 +67,9 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Images

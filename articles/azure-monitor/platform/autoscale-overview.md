@@ -102,6 +102,7 @@ You can set up autoscale via
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Azure App Service |[Scale up an app in Azure App service](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| Logic Apps |[Adding integration service environment (ISE) capacity](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 

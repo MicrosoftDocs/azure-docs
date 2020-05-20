@@ -1,5 +1,6 @@
 ---
-title: OAuth authorization code flow - Microsoft identity platform | Azure
+title: Microsoft identity platform and OAuth 2.0 authorization code flow | Azure
+titleSuffix: Microsoft identity platform
 description: Build web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 author: hpsin
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -21,11 +22,11 @@ The OAuth 2.0 authorization code grant can be used in apps that are installed on
 
 This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [web apps](v2-app-types.md#web-apps) and [natively installed  apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform endpoint.
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [web apps](v2-app-types.md#web-apps) and [natively installed apps](v2-app-types.md#mobile-and-native-apps). This OAuth flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform endpoint.
 
 ## Protocol diagram
 
-At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
+At a high level, the entire OAuth2 authentication flow for a native/mobile application looks a bit like this:
 
 ![OAuth Auth Code Flow](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
@@ -145,7 +146,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | required   | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). |
 | `code`          | required  | The authorization_code that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same redirect_uri value that was used to acquire the authorization_code. |
-| `client_secret` | required for web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent. For more information click [here](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | required for web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent. For more information, see the [URI Generic Syntax specification](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | optional  | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### Successful response
@@ -259,7 +260,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | required    | Must be `refresh_token` for this leg of the authorization code flow. |
 | `scope`         | required    | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg. If the scopes specified in this request span multiple resource server, then the Microsoft identity platform endpoint will return a token for the resource specified in the first scope. For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). |
 | `refresh_token` | required    | The refresh_token that you acquired in the second leg of the flow. |
-| `client_secret` | required for web apps | The application secret that you created in the app registration portal for your app. It should not be used in a native  app, because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. This secret needs to be URL-Encoded, for more information click [here](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | required for web apps | The application secret that you created in the app registration portal for your app. It should not be used in a native  app, because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. This secret needs to be URL-Encoded. For more information, see the [URI Generic Syntax specification](https://tools.ietf.org/html/rfc3986#page-12). |
 
 #### Successful response
 
