@@ -105,21 +105,24 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## Java V2 SDK
+## Java V4 SDK
 
 The following code shows how to set preferred locations by using the Java SDK:
 
-```java
-ConnectionPolicy policy = new ConnectionPolicy();
-policy.setUsingMultipleWriteLocations(true);
-policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
-AsyncDocumentClient client =
-        new AsyncDocumentClient.Builder()
-                .withMasterKeyOrResourceToken(this.accountKey)
-                .withServiceEndpoint(this.accountEndpoint)
-                .withConnectionPolicy(policy)
-                .build();
-```
+### <a id="java4-preferred-locations"></a>
+#### [Async](#tab/api-async)
+
+   [!INCLUDE [cosmos-db-sdk-heading-java-v4-async](../../includes/cosmos-db-sdk-heading-java-v4-async.md)]
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
+
+#### [Sync](#tab/api-sync)
+
+   [!INCLUDE [cosmos-db-sdk-heading-java-v4-sync](../../includes/cosmos-db-sdk-heading-java-v4-sync.md)]
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippetsSync.java?name=TutorialGlobalDistributionPreferredLocationSync)]
+
+--- 
 
 ## REST
 Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
