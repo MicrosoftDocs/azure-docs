@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 05/19/2020
 ---
 
 # Create, configure, and publish an IoT Edge module offer in Azure Marketplace
@@ -141,44 +141,15 @@ Provide a more detailed description of your offer. This can be up to 256 charact
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description, such as:
 
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
+- Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage
 
-IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description. For example:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage*
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-    - Description of the offer.
-    - The type of user that benefits from the offer.
-    - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false":::
-
-- To change the format of your content, highlight the text that you want to format and select a text style, as shown in this screenshot:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
-
-- To add a bulleted or numbered list to the text, use the options shown in this screenshot:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
-
-- To add or remove indentation to the text, use the options shown in this screenshot:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy URL
 
