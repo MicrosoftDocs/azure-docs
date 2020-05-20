@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Automation
-description: Lists Azure Policy built-in policy definitions for Azure Automation. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 05/13/2020
+description: This article lists Azure Policy built-in policy definitions, which provide common approaches to managing your Azure resources.
+ms.date: 04/30/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
 ---
@@ -21,6 +21,6 @@ the link in the **GitHub** column to view the source on the
 
 ## Next steps
 
-- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
-- Review [Understanding policy effects](../governance/policy/concepts/effects.md).
+- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy)
+- Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md)
+- Review [Understanding policy effects](../governance/policy/concepts/effects.md)

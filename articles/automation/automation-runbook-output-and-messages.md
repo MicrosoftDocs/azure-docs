@@ -1,12 +1,12 @@
 ---
-title: Runbook output and messages in Azure Automation
-description: Describes how to create and retrieve output and error messages from runbooks in Azure Automation.
+title: Monitor runbook output in Azure Automation
+description: This article tells how to monitor runbook output and messages.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
 ---
-# Runbook output and messages in Azure Automation
+# Monitor runbook output
 
 Most Azure Automation runbooks have some form of output. This output can be an error message to the user or a complex object intended to be used with another runbook. Windows PowerShell provides [multiple streams](/powershell/module/microsoft.powershell.core/about/about_redirection) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for using the streams when you're creating a runbook.
 
@@ -21,10 +21,7 @@ The following table briefly describes each stream with its behavior in the Azure
 | Verbose |Messages that give general or debugging information. |Written to job history only if verbose logging is turned on for the runbook |Displayed in Test output pane only if `VerbosePreference` variable is set to Continue in runbook |
 | Warning |Warning message intended for the user. |Written to job history |Displayed in Test output pane |
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
-## Output stream
+## Use the Output stream
 
 The Output stream is used for the output of objects created by a script or workflow when it runs correctly. Azure Automation primarily uses this stream for objects to be consumed by parent runbooks that call the [current runbook](automation-child-runbooks.md). When a parent [calls a runbook inline](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), the child returns data from the Output stream to the parent. 
 
@@ -38,7 +35,7 @@ Write-Output –InputObject $object
 $object
 ```
 
-### Handling output from a function
+### Handle output from a function
 
 When a runbook function writes to the Output stream, the output is passed back to the runbook. If the runbook assigns that output to a variable, the output is not written to the output stream. Writing to any other streams from within the function writes to the corresponding stream for the runbook. Consider the following sample PowerShell Workflow runbook.
 
@@ -74,7 +71,7 @@ Verbose inside of function
 
 Once you've published the runbook and before you start it, you must also turn on verbose logging in the runbook settings to get the Verbose stream output.
 
-### Declaring output data type
+### Declare output data type
 
 The following are examples of output data types:
 
@@ -120,11 +117,11 @@ The first activity calls the **AuthenticateTo-Azure** runbook. The second activi
 
 The resulting output is the name of the subscription.<br> ![Test-ChildOutputType Runbook Results](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-## Message streams
+## Monitor message streams
 
 Unlike the Output stream, message streams communicate information to the user. There are multiple message streams for different kinds of information, and Azure Automation handles each stream differently.
 
-### Warning and error streams
+### Monitor warning and error streams
 
 The Warning and Error streams log problems that occur in a runbook. Azure Automation writes these streams to the job history when executing a runbook. Automation includes the streams in the Test output pane in the Azure portal when a runbook is tested. 
 
@@ -140,11 +137,11 @@ Write-Warning –Message "This is a warning message."
 Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
-### Debug stream
+### Monitor debug stream
 
 Azure Automation uses the Debug message stream for interactive users. It should not be used in runbooks.
 
-### Verbose stream
+### Monitor verbose stream
 
 The Verbose message stream supports general information about runbook operation. Since the Debug stream is not available for a runbook, your runbook should use verbose messages for debug information. 
 
@@ -160,7 +157,7 @@ The following code creates a verbose message using the [Write-Verbose](https://t
 Write-Verbose –Message "This is a verbose message."
 ```
 
-## Progress records
+## Handle progress records
 
 You can use the **Configure** tab of the Azure portal to configure a runbook to log progress records. The default setting is to not log the records, to maximize performance. In most cases, you should keep the default setting. Turn on this option only to troubleshoot or debug a runbook. 
 
@@ -169,7 +166,7 @@ If you enable progress record logging, your runbook writes a record to job histo
 >[!NOTE]
 >The [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
 
-## Preference variables
+## Work with preference variables
 
 You can set certain Windows PowerShell [preference variables](https://technet.microsoft.com/library/hh847796.aspx) in your runbooks to control the response to data sent to different output streams. The following table lists the preference variables that can be used in runbooks, with their default and valid values. Additional values are available for the preference variables when used in Windows PowerShell outside of Azure Automation.
 
@@ -187,7 +184,7 @@ The next table lists the behavior for the preference variable values that are va
 | SilentlyContinue |Continues executing the runbook without logging the message. This value has the effect of ignoring the message. |
 | Stop |Logs the message and suspends the runbook. |
 
-## <a name="runbook-output"></a>Retrieving runbook output and messages
+## <a name="runbook-output"></a>Retrieve runbook output and messages
 
 ### Retrieve runbook output and messages in Azure portal
 
@@ -256,6 +253,6 @@ For more information on configuring integration with Azure Monitor logs to colle
 
 ## Next steps
 
-* To learn more about runbook execution, monitoring of runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
-* To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md).
-* For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview).
+* [Runbook execution in Azure Automation](automation-runbook-execution.md)
+* [Create modular runbooks](automation-child-runbooks.md)
+* [PowerShell Docs](/powershell/scripting/overview)
