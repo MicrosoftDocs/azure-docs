@@ -35,7 +35,7 @@ Perform the steps in this topic in sequence to enable the Start/Stop VMs during 
 
 With the resource created, the Add Solution page appears. You're prompted to configure the feature before you can import it into your Automation subscription. See [Configure Start/Stop VMs during off-hours](automation-solution-vm-management-config.md).
 
-   ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+   ![VM management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 ## Select a Log Analytics workspace
 
