@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ---
 
 # Create an Azure virtual machine offer in the Azure Marketplace
@@ -192,32 +192,11 @@ Provide a longer description of your offer. This can be up to 256 characters lon
 
 #### Description
 
-Provide a detailed description of your offer, up to 3,000 characters. This is displayed to customers in the commercial marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits of your offer
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value proposition of your offer in the first few sentences of your description. Include the following items:
-  - Description of your offer.
-  - The type of user that benefits from your offer.
-  - Customer needs or issues that the offer addresses.
-- Remember that the first few sentences might be displayed in search engine results.
-- Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
-- Use industry-specific or benefit-based words.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy link
 
