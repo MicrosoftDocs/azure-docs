@@ -120,7 +120,7 @@ The following code shows how to set preferred locations by using the Java SDK:
 
    [!INCLUDE [cosmos-db-sdk-heading-java-v4-sync](../../includes/cosmos-db-sdk-heading-java-v4-sync.md)]
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippetsSync.java?name=TutorialGlobalDistributionPreferredLocationSync)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=TutorialGlobalDistributionPreferredLocationSync)]
 
 --- 
 
