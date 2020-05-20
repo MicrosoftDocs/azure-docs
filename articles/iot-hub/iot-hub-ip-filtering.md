@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: robinsh
 ---
 
@@ -160,5 +160,4 @@ To save your new IP filter rule order, click **Save**.
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Operations monitoring](iot-hub-operations-monitoring.md)
 * [IoT Hub metrics](iot-hub-metrics.md)
