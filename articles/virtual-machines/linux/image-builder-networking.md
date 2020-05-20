@@ -15,19 +15,20 @@ You need to choose to deploy Azure Image Builder with or without an existing VNE
 
 ## Deploy without specifying an existing VNET
 
-If you do not specify an existing VNET, then AIB will create a VNET and subnet in the staging resource group, in addition a public IP resource is used, with NSGs to restrict inbound traffic to the AIB service. The public IP is used to facilate the channel for the AIB cmds for the image build. Once the build had completed, the VM, public IP, disks, VNET are all deleted. To use this model, do not specify any VNET properties.
+If you do not specify an existing VNET, Azure Image Builder creates a VNET and subnet in the staging resource group. A public IP resource is used with a network security group to restrict inbound traffic to the Azure Image Builder service. The public IP facilitates the channel for Azure Image Builder commands during the image build. Once the build completes, the VM, public IP, disks, and VNET are deleted. To use this option, do not specify any VNET properties.
 
-## Deploy using an existing VNET (new)
-If you specify a VNET and subnet, then AIB will deploy the build VM to your chosen VNET, this means you can access resources that are accessible on your VNET. Of course, you can also create a silo'd VNET that is not connected to any other VNET too, and this will not use a Public IP either.
+## Deploy using an existing VNET
 
-When the VM is deployed, a public IP is NOT deployed, communication from the AIB service to the build VM uses Azure Private Link technology instead.
+If you specify a VNET and subnet, Azure Image Builder deploys the build VM to your chosen VNET. You can access resources that are accessible on your VNET. You can also create a siloed VNET that is not connected to any other VNET. If you specify a VNET, Azure Image Builder does not use a public IP address. Communication from Azure Image Builder Service to the build VM uses Azure Private Link technology.
 
-We have end to end examples now you can try:
-1. [Windows](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#create-a-windows-linux-image-allowing-access-to-an-existing-azure-vnet)
-2. [Linux](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#create-a-custom-linux-image-allowing-access-to-an-existing-azure-vnet)
+For more information, see one of the following examples:
+
+* [Create a Windows Image allowing access to an existing Azure VNET](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#create-a-windows-linux-image-allowing-access-to-an-existing-azure-vnet)
+* [Create a Custom Linux Image allowing access to an existing Azure VNET](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#create-a-custom-linux-image-allowing-access-to-an-existing-azure-vnet)
 
 ### What is Azure Private Link?
-Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more details, review the Private Link [documentation](https://docs.microsoft.com/en-us/azure/private-link/).
+
+Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more details, review the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
 
 ### Permissions AIB requires to use an existing VNET
 The AIB SPN will require specific permissions to use an existing VNET, please review this [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#allowing-aib-to-customize-images-on-your-existing-vnets).
