@@ -157,9 +157,14 @@ You can save any of the above example templates locally as `azuredeploy.json`. U
 
 To deploy the template, run the following command in PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> The above commands are deploying a resource to the NetworkWatcherRG resource group and not the resource group containing the NSG
 
 
 ## Verifying your deployment
