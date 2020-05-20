@@ -201,33 +201,33 @@ The output should reflect the updated name.
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
 Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
 ```cmd/sh
-CreateEdge floor0 contains room0 relationship0
-CreateEdge floor1 contains room1 relationship1
+CreateRelationship floor0 contains room0 relationship0
+CreateRelationship floor1 contains room1 relationship1
 ```
 
 The output from these commands confirms that the relationships were created successfully:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-edge.png" alt-text="Excerpt from the results of CreateEdge commands, showing relationship0 and relationship1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Excerpt from the results of CreateRelationship commands, showing relationship0 and relationship1":::
 
 You can also verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
 * To see all relationships coming off of each floor (viewing the relationships from one side),
     ```cmd/sh
-    GetEdges floor0
-    GetEdges floor1
+    GetRelationships floor0
+    GetRelationships floor1
     ```
 * To see all relationships arriving at each room (viewing the relationship from the "other" side),
     ```cmd/sh
-    GetIncomingEdges room0
+    GetIncomingRelationships room0
     ```
 * To query for these relationships individually, 
     ```cmd/sh
-    GetEdge floor0 contains relationship0
-    GetEdge floor1 contains relationship1
+    GetRelationship floor0 contains relationship0
+    GetRelationship floor1 contains relationship1
     ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
