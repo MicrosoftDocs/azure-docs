@@ -13,9 +13,11 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Azure Arc enabled Kubernetes troubleshooting (Preview)
 
+This document provides some common troubleshooting scenarios with connectivity, permissions, and agents.
+
 ## General troubleshooting
 
-### az CLI setup
+### Azure CLI set up
 Before using az connectedk8s or az k8sconfiguration CLI commands, assure that az is set to work against the correct Azure subscription.
 
 ```console
@@ -65,7 +67,7 @@ Connecting clusters to Azure requires access to both an Azure subscription and `
 
 ### Insufficient cluster permissions
 
-If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the CLI command will return an error attempting to call the Kubernetes API.
+If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error attempting to call the Kubernetes API.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -80,7 +82,7 @@ Cluster owner should use a Kubernetes user with cluster administrator permission
 
 ### Installation timeouts
 
-Azure Arc agent installation requires running a set of containers on the target cluster. If the cluster is running over a slow internet connection the container image pull may take longer than the CLI timeouts.
+Azure Arc agent installation requires running a set of containers on the target cluster. If the cluster is running over a slow internet connection the container image pull may take longer than the Azure CLI timeouts.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -195,9 +197,3 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
-
-### Source control configurations remain on my cluster
-
-## Next steps
-
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
