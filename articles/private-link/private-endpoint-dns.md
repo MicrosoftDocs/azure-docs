@@ -30,7 +30,7 @@ Your applications don't need to change the connection URL. When attempting to re
 
 For Azure services, use the recommended zone names as described in the following table:
 
-| Private Link resource type / Subresource |Private DNS Zone name | Public DNS zone name |
+| Private Link resource type / Subresource |Private DNS Zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | SQL DB (Microsoft.Sql/servers) / Sql Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / Sql Server  | privatelink.database.windows.net | database.windows.net |
@@ -48,7 +48,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.net | vault.azure.net |
+| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) / managedCluster | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io | azurecr.io |
@@ -144,7 +144,7 @@ To configure properly, you would need the following resources:
 The following diagram illustrates the DNS resolution sequence from an on-premises network that conditionally forwards DNS traffic to Azure, where the resolution is made by a private DNS zone [linked to a virtual network.](../dns/private-dns-virtual-network-links.md)
 
 > [!IMPORTANT]
-> The conditional forwarding must be made to the [public DNS zone](#azure-services-dns-zone-configuration) Ex: `database.windows.net` , instead of **privatelink**.database.windows.net
+> The conditional forwarding must be made to the recomended [**public DNS zone forwarder**](#azure-services-dns-zone-configuration) Ex: `database.windows.net` , instead of **privatelink**.database.windows.net
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="On-premises forwarding to Azure DNS":::
 

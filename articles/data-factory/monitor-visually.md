@@ -137,7 +137,7 @@ Clicking the icon opens a consumption report of resources used by that pipeline 
 
 ![Monitor consumption](media/monitor-visually/monitor-consumption-2.png)
 
-You can plug these values into the [Azure pricing calcula.hat pipeline run. For more information on Azure Data Factory pricing, see [Understanding pricing](pricing-concepts.md).
+You can plug these values into the [Azure pricing calculator].(https://azure.microsoft.com/pricing/details/data-factory/) to estimate the cost of the pipeline run. For more information on Azure Data Factory pricing, see [Understanding pricing](pricing-concepts.md).
 
 > [!NOTE]
 > These values returned by the pricing calculator is an estimate. It doesn't reflect the exact amount you will be billed by Azure Data Factory 

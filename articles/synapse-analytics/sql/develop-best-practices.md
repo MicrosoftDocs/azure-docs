@@ -149,7 +149,7 @@ Consequently, you will achieve better performance. For more information, check [
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
-When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
+When [querying partitioned Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
