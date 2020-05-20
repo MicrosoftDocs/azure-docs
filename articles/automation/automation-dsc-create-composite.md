@@ -1,6 +1,6 @@
 ---
-title: Convert configurations to composite resources for state configuration - Azure Automation
-description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
+title: Convert configurations to composite resources for Azure Automation State Configuration
+description: This article tells how to convert configurations to composite resources for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Convert configurations to composite resources
+# Convert configurations to composite resources for Azure Automation State Configuration
 
 > Applies To: Windows PowerShell 5.1
 

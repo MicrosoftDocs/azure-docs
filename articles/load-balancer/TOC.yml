@@ -156,7 +156,7 @@
   - name: Node.js
     href: http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
+    href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
   - name: REST

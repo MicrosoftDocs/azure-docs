@@ -21,7 +21,7 @@ Graph:
 
 ## Understand throttling headers
 
-Azure Resource Graph allocates quota number for each user based on a time window. For example, a
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
 user can send at most 15 queries within every 5-second window without being throttled. The quota
 value is determined by many factors and is subject to change.
 
