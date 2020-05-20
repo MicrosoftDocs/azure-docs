@@ -98,6 +98,8 @@
   #  href: concepts/media-devices.md
   - name: SDK Options
     href: concepts/sdk-options.md
+  - name: ACS Metrics
+    href: concepts/azure-communication-metric-definitions.md
   - name: Pricing Model
     href: concepts/pricing.md
   #- name: Security Model
