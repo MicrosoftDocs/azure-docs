@@ -23,7 +23,7 @@ Learn the basics of modern authentication, the Microsoft identity platform, and 
 
 In the *Identity for Developers* video series, Matthijs Hoekstra and Kyle Marsh provide a guided introduction to the Microsoft identity platform. Learn the key components and capabilities of the platform and how to use its authentication libraries to get started adding modern, secure authentication to your apps.
 
-With content curated and honed over the many training sessions they've conducted, this series good place to start for any developer getting started with identity in Azure.
+With content curated and honed over the many training sessions they've conducted, this series is a good place to start for any developer getting started with identity in Azure.
 ___
 
 :::row:::
