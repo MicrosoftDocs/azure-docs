@@ -1,8 +1,8 @@
 ---
 title: Migrate Apache Spark workloads to Spark 
 description: Learn how to migrate Apache Spark 2.1 and 2.2 to 2.3 or 2.4.
-author: ashishth
-ms.author: hrasheed
+author: ashishthaps
+ms.author: ashishth
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
