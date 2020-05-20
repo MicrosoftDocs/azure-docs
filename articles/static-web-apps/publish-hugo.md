@@ -155,7 +155,7 @@ Next, you add configuration settings that the build process uses to build your a
    ```yml
    - uses: actions/checkout@v2
      with:
-          submodules: true
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8
