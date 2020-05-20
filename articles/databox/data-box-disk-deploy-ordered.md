@@ -18,6 +18,7 @@ Azure Data Box Disk is a hybrid cloud solution that allows you to import your on
 This tutorial describes how you can order an Azure Data Box Disk. In this tutorial, you learn about:
 
 > [!div class="checklist"]
+>
 > * Order a Data Box Disk
 > * Track the order
 > * Cancel the order
@@ -33,21 +34,22 @@ Before you deploy, complete the following configuration prerequisites for Data B
 ### For device
 
 Before you begin, make sure that:
-- You have a client computer available from which you can copy the data. Your client computer must:
-    - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.  
+
+* You have a client computer available from which you can copy the data. Your client computer must:
+  * Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.  
 
 ## Order Data Box Disk
 
 Sign in to:
 
-- The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
-- Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
+* Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 Take the following steps to order Data Box Disk.
 
 1. In the upper left corner of the portal, click **+ Create a resource**, and search for *Azure Data Box*. Click **Azure Data Box**.
-    
+
    ![Search Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
 2. Click **Create**.
@@ -62,13 +64,12 @@ Take the following steps to order Data Box Disk.
     |Transfer type| Import to Azure|
     |Source country | Select the country/region where your data currently resides.|
     |Destination Azure region|Select the Azure region where you want to transfer data.|
-
   
-5.  Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes.
+4. Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes.
 
      ![Select Data Box Disk option](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-6.  In **Order**, specify the **Order details**. Enter or select the following information.
+5. In **Order**, specify the **Order details**. Enter or select the following information.
 
     |Setting|Value|
     |---|---|
@@ -93,34 +94,34 @@ Take the following steps to order Data Box Disk.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-7. Click **Next**.
+6. Click **Next**.
 
     ![Supply order details](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-8. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+7. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
    After the order is processed, you will receive an email notification. For more information about self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Provide shipping address](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-9. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses. 
+8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-10. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+9. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-11. Click **Order**. The order takes a few minutes to be created.
- 
+10. Click **Order**. The order takes a few minutes to be created.
+
 ## Track the order
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
-![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
+![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 If the disks are not available, you receive a notification. If the disks are available, Microsoft identifies the disks for shipment and prepares the disk package. During disk preparation, following actions occur:
 
-- Disks are encrypted using AES-128 BitLocker encryption.  
-- Disks are locked to prevent an unauthorized access to the disks.
-- The passkey that unlocks the disks is generated during this process.
+* Disks are encrypted using AES-128 BitLocker encryption.  
+* Disks are locked to prevent an unauthorized access to the disks.
+* The passkey that unlocks the disks is generated during this process.
 
 When the disk preparation is complete, the portal shows the order in **Processed** state.
 
@@ -136,12 +137,12 @@ You can only cancel when the disks are ordered, and the order is being processed
 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
-
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+>
 > * Order Data Box Disk
 > * Track the order
 > * Cancel the order

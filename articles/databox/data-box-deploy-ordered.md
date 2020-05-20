@@ -59,7 +59,7 @@ Perform the following steps in the Azure portal to order a device.
     |Source country     |	Select the country/region where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
 
-5. Select Data **Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -90,7 +90,7 @@ Perform the following steps in the Azure portal to order a device.
 
    After the order is placed successfully, if self-managed shipping was selected, you will receive an email notification. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-9. Click **Next** once the shipping details have been validated successfully.
+8. Click **Next** once the shipping details have been validated successfully.
 
 9. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
