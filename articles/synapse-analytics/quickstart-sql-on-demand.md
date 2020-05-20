@@ -55,7 +55,7 @@ Use the following query, changing `mydbname` to a name of your choice:
 CREATE DATABASE mydbname
 ```
 
-### Create data source and credentials
+### Create data source
 
 To run queries using SQL on-demand, create data source that SQL on-demand can use use to access files in storage.
 Execute the following code snippet to create data source used in samples in this section:
