@@ -126,6 +126,8 @@ Click the **Review + create** button.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
+To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
+
 ### Review + create
 
 After the request validates, you can continue to create the application.
