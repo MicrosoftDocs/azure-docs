@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Static Web Apps documentation
+title: Azure Static Web Apps documentation 
 summary: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
 
 metadata:
@@ -39,18 +39,10 @@ landingContent:
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API
             url: /learn/modules/publish-app-service-static-web-app-api
-  - title: Key concepts
-    linkLists: 
-      - linkListType: concept
+      - linkListType: video
         links:
-          - text: Routes
-            url: routes.md
-          - text: Public APIs  
-            url: apis.md
-          - text: Staging 
-            url: review-publish-pull-requests.md
-          - text: Restrict access
-            url: authentication-authorization.md  
+          - text: Build and deploy a static web app
+            url: https://aka.ms/staticwebappsqs
   - title: Publish scenarios
     linkLists: 
       - linkListType: tutorial
@@ -69,3 +61,15 @@ landingContent:
         links:
           - text: Publish a static web app with Gatsby 
             url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+  - title: Key concepts
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Routes
+            url: routes.md
+          - text: Public APIs  
+            url: apis.md
+          - text: Staging 
+            url: review-publish-pull-requests.md
+          - text: Restrict access
+            url: authentication-authorization.md 

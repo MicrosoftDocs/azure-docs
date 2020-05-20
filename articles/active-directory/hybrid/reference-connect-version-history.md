@@ -51,6 +51,11 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ### Fixed issues
 This hotfix build fixes an issue where unselected domains were getting incorrectly selected from the wizard UI if only grandchild containers were selected.
 
+
+>[!NOTE]
+>This version is required to use the new Azure AD Connect sync V2 endpoint API.  For more information see [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md).
+
+
 ## 1.5.29.0
 
 ### Release status
@@ -1331,7 +1336,6 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New preview features:**
 
 * [User writeback](how-to-connect-preview.md#user-writeback)
-* [Group writeback](how-to-connect-preview.md#group-writeback)
 * [Device writeback](how-to-connect-device-writeback.md)
 * [Directory extensions](how-to-connect-preview.md)
 
