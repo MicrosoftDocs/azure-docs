@@ -13,18 +13,19 @@ ms.author: v-grpr
 
 # Use self-managed shipping for Azure Data Box in the Azure portal
 
-This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of choosing a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter.
+This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. <!--You have the option of choosing a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter.-->
 
-It is important that you follow the datacenter's security procedures as sign-off is required at particular points between pickup and drop-off. You, or your point of contact, will be required to present the authorization code obtained from the Azure portal during pick up and device local user interface during drop-off.
+As per security requirements, at the time of scheduling pick-up and drop off, it is necessary to present the name of the person who would arrive for pick-up and drop off. See detailed steps below regarding Government ID validation and authorization code.
 
 ## Prerequisites
 
 Self-managed shipping for Azure Data Box is only available to the following regions:
 
-1. Western Europe
-2. Japan
-3. Singapore
-4. South Korea
+1. US Government
+2. Western Europe
+3. Japan
+4. Singapore
+5. South Korea
 
 For detailed information on how to create a Data Box order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
@@ -35,7 +36,7 @@ When you place a Data Box order, you can choose self-managed shipping option.
 1. In your Azure Data Box order, under the **Contact details**, select **+ Add Shipping Address**.
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
-2. When choosing shipping type, select the **Self-managed shipping** option. This option is only available if you are located in a supported region.
+2. When choosing shipping type, select the **Self-managed shipping** option. This option is only available if you are in a supported region.
 
 3. Once you have provided your shipping address, you will need to validate it and complete your order.
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
@@ -54,7 +55,7 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
    Make a note of this **Authorization code**.
 
-   You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter.
+   You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact must carry a Government approved photo ID that will be validated at the datacenter.
 
    Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
 
@@ -75,7 +76,7 @@ When you place a Data Box order, you can choose self-managed shipping option.
    >
    > The authorization code is no longer available in the Azure portal once **Prepare to ship** is complete. It is available only in the device local UI. -->
 
-9. If you have scheduled an appointment for drop off and shared the drop off point of contact's details, then your order status should be at **Ready to receive at Azure datacenter**. Follow the instructions under **Schedule drop-off** to return the device.
+9. If you have received an appointment for drop off the order should be at **Ready to receive at Azure datacenter** state in the Azure portal. Follow the instructions under **Schedule drop-off** to return the device.
 
    ![Viewing your authorization code](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
