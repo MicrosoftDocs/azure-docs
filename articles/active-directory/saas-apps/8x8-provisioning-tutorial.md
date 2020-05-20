@@ -37,7 +37,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An 8x8 X series subscription of any level.
 * An 8x8 user account with administrator permission in [Configuration Manager](https://vo-cm.8x8.com).
-* [Single Sign-On with Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) has already been configured.
+* [Single Sign-On with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) has already been configured.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -52,15 +52,15 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 1. Sign in to [Configuration Manager](https://vo-cm.8x8.com). Select **Identity Management**.
 
-   ![Identity Management](common/8x8-identity-management.png)
+   ![Identity Management](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Click the **Show user provisioning information** link to generate a token.
 
-   ![Show User Provisioning](common/8x8-show-user-provisioning.png)
+   ![Show User Provisioning](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copy the **8x8 URL** and **8x8 API Token** values. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your 8x8  application in the Azure portal.
 
-   ![Copy URL and Token](common/8x8-copy-url-token.png)
+   ![Copy URL and Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## Step 3. Add 8x8 from the Azure AD application gallery
 
