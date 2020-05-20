@@ -39,7 +39,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 - **Flexibility**
 
-  Applications need to stretch flexibly beyond the limits of a single Azure SQL Database database. Use the tool to move data as needed to new databases while retaining integrity.
+  Applications need to stretch flexibly beyond the limits of a single database in Azure SQL Database. Use the tool to move data as needed to new databases while retaining integrity.
 
 - **Split to grow**
 

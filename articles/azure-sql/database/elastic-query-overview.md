@@ -55,14 +55,14 @@ Customer scenarios for elastic query are characterized by the following topologi
 * **Horizontal Partitioning - Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. With this approach, the schema is identical on all participating databases. This approach is also called “sharding”. Sharding can be performed and managed using (1) the elastic database tools libraries or (2) self-sharding. An elastic query is used to query or compile reports across many shards. Shards are typically databases within an elastic pool. You can think of elastic query as an efficient way for querying all databases of elastic pool at once, as long as databases share the common schema.
 
 > [!NOTE]
-> Elastic query works best for reporting scenarios where most of the processing (filtering, aggregation) can be performed on the external source side. It is not suitable for ETL operations where large amount of data is being transferred from remote database(s). For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics).
+> Elastic query works best for reporting scenarios where most of the processing (filtering, aggregation) can be performed on the external source side. It is not suitable for ETL operations where large amount of data is being transferred from remote database(s). For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
 >  
 
 ## Vertical partitioning - cross-database queries
 
 To begin coding, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
 
-An elastic query can be used to make data located in a database in SQL Database available to other databases in SQL Database. This allows queries from one database to refer to tables in any other remote SQL database. The first step is to define an external data source for each remote database. The external data source is defined in the local database from which you want to gain access to tables located on the remote database. No changes are necessary on the remote database. For typical vertical partitioning scenarios where different databases have different schemas, elastic queries can be used to implement common use cases such as access to reference data and cross-database querying.
+An elastic query can be used to make data located in a database in SQL Database available to other databases in SQL Database. This allows queries from one database to refer to tables in any other remote database in SQL Database. The first step is to define an external data source for each remote database. The external data source is defined in the local database from which you want to gain access to tables located on the remote database. No changes are necessary on the remote database. For typical vertical partitioning scenarios where different databases have different schemas, elastic queries can be used to implement common use cases such as access to reference data and cross-database querying.
 
 > [!IMPORTANT]
 > You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
@@ -130,7 +130,7 @@ You can use regular SQL Server connection strings to connect your applications a
 
 ## Cost
 
-Elastic query is included into the cost of Azure SQL Database. Note that topologies where your remote databases are in a different data center than the elastic query endpoint are supported, but data egress from remote databases is charged regularly [Azure rates](https://azure.microsoft.com/pricing/details/data-transfers/).
+Elastic query is included in the cost of Azure SQL Database. Note that topologies where your remote databases are in a different data center than the elastic query endpoint are supported, but data egress from remote databases is charged regularly [Azure rates](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Preview limitations
 
