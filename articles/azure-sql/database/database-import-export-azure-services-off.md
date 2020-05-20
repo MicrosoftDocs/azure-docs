@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL Database without allowing Azure services to access the server
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
 

@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 02/07/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In February 2018, Microsoft announced that the Premium RS service tier in Azure SQL Database would not be released for general availability and would no longer be supported after January 31, 2019. This end of support deadline has been extended to June 30, 2019. This article explains your options for migrating from the Premium RS service tier to another service tier. After June 30, 2019, Microsoft will automatically migrate your Premium RS databases to a generally available service tier that most closely matches the performance requirements of your Premium RS database.
 

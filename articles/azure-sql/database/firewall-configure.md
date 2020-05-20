@@ -13,7 +13,8 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
 ---
-# Azure SQL Database and Azure Synapse Analytics IP firewall rules
+# Azure SQL Database and Azure Synapse IP firewall rules
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 When you create a new server in Azure SQL Database or Azure Synapse Analytics named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse).
 

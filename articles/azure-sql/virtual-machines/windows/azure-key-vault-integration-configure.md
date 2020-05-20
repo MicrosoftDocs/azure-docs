@@ -18,6 +18,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Resource Manager)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](azure-key-vault-integration-configure.md)

@@ -13,6 +13,7 @@ ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single Azure SQL Database. You then query the database using **Query editor** in the Azure portal.
 

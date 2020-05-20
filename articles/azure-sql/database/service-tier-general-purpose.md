@@ -13,7 +13,8 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
 ---
-# General purpose service tier - Azure SQL Database
+# General purpose service tier - Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
 > The general-purpose service tier in the vCore-based purchasing model is called the standard service tier in the DTU-based purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [purchasing models and resources](purchasing-models.md).

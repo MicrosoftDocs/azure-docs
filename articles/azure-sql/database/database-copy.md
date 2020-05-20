@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 02/24/2020
 ---
 # Copy a transactionally consistent copy of an Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing [Azure SQL database](single-database-overview.md) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
 

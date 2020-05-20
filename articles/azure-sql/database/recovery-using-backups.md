@@ -14,6 +14,7 @@ ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](automated-backups-overview.md). You can:
 

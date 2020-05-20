@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Distributed transactions across cloud databases
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 

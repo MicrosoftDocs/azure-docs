@@ -13,6 +13,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
 ---
 # Azure SQL Database serverless
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Serverless is a compute tier for single Azure SQL Databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 

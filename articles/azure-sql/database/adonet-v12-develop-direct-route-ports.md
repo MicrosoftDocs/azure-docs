@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 04/03/2019
 ---
 # Ports beyond 1433 for ADO.NET 4.5
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version.
 

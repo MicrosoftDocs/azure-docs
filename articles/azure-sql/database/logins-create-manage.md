@@ -15,6 +15,7 @@ ms.reviewer: carlrab
 ms.date: 03/23/2020
 ---
 # Authorizing database access to SQL Database, SQL Managed Instance and Azure Synapse Analytics
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In this article, you learn about:
 

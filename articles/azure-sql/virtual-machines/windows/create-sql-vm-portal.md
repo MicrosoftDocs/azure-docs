@@ -18,6 +18,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This guide provides details on the different options available when you create a Windows SQL Server virtual machine in the Azure portal. This article covers more configuration options than the [SQL Server VM quickstart](sql-vm-create-portal-quickstart.md), which goes more through one possible provisioning task. 
 

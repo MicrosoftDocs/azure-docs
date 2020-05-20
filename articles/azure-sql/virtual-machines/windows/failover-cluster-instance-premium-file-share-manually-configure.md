@@ -17,6 +17,7 @@ ms.author: mathoma
 ---
 
 # Configure a SQL Server failover cluster instance with premium file share on Azure virtual machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 

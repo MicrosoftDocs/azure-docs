@@ -14,6 +14,7 @@ ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Once you have identified a performance issue that you are facing with Azure SQL Database and Azure SQL Managed Instance, this article is designed to help you:
 

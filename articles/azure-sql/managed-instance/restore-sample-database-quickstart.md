@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to an Azure SQL Managed Instance with SSMS
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).
 

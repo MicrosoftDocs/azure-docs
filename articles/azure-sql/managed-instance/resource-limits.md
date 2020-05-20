@@ -14,6 +14,7 @@ ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
 ---
 # Overview Azure SQL Managed Instance resource limits
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
