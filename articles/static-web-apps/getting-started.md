@@ -76,7 +76,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select your _Azure subscription_
 - Select or create a new _Resource Group_
 - Name the app **my-first-static-web-app**.
-  - Valid characters are `a-z` (case insensitive), `0-9`, and `_`.
+  - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
 - Select a _Region_ closest to you
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub

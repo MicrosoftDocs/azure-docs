@@ -21,5 +21,4 @@
   - name: Security architecture
     href: iot-security-architecture.md
   - name: Secure deployment
-    href: iot-security-deployment.md 
-
+    href: iot-security-deployment.md
