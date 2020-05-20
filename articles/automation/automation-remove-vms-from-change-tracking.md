@@ -36,7 +36,7 @@ When you're finished deploying changes to VMs in your environment, you can remov
 
 * [Change Tracking and Inventory overview](change-tracking.md)
 * [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-from-change-tracking.md)
+* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
 * [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md)
 * [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md)
 * [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
