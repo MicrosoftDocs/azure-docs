@@ -20,7 +20,7 @@ The token ring is distributed into token ranges, and these ranges are divided am
 
 ## Primary Key
 
-All tables in Cassandra API must have a primary key defined. Suppose we want to create a user table which stores messages for different users:
+All tables in Cassandra API must have a primary key defined. Suppose we want to create a user table, which stores messages for different users:
 
 ```bash
 CREATE TABLE uprofile.user ( 
@@ -45,17 +45,14 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY (user, id));
 ```
 
-A compound primary key consists of more than one column; the first column is the partition key, and any additional columns are the clustering keys. In the above, the column "id" serves as a single clustering key, but you can defined as many clustering keys as you wish. Note that the clustering key(s) values must be unique in order to result in  different records being added to the logical partition, for example:
+A compound primary key consists of more than one column; the first column is the partition key, and any additional columns are the clustering keys. In the above, the column "id" serves as a single clustering key, but you can define as many clustering keys as you wish. The clustering key(s) values must be unique in order to result in  different records being added to the logical partition, for example:
 
 ```bash
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
 insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 ```
-With data modelled in this way, we can issue a query that is efficiently routed by the partition key (in this case, "user"), to retrieve the messages for specific users:
 
-![select partitions](./media/cassandra-partitioning/select-from-pk.png)
-
-In this scenario, multiple records will be assigned to each logical partition, grouped by user:
+With data modeled in this way, we can issue a query that is efficiently routed by the partition key (in this case, "user"). Multiple records will be assigned to each logical partition, grouped by user:
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
 

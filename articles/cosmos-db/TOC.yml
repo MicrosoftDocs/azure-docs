@@ -612,6 +612,8 @@
           href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
+        - name: Partitioning
+          href: cassandra-partitioning.md          
         - name: Secondary Indexes
           href: cassandra-secondary-index.md          
       - name: How-to guides
