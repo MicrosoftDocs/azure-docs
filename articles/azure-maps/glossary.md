@@ -403,5 +403,5 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
 
-<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In azure maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 
