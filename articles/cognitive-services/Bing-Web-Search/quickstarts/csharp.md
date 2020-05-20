@@ -18,7 +18,7 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing Web Search API. This C# application sends a search request to the API, and shows the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
-This example program only uses .NET Core classes.
+This example program in this quickstart uses only .NET Core classes.
 
 ## Prerequisites
 
@@ -58,7 +58,13 @@ namespace BingSearchApisQuickstart
 
 ## Define variables
 
-A few variables must be set before we can continue. You can use the value of `uriBase` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Confirm that `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. You can customize the search query by replacing the value for `searchTerm`. Add this code to the `Program` class as noted in the previous section.
+A few variables must be set before we can continue. Add this code to the `Program` class you created in the previous section: 
+
+1. For the value of `uriBase` you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Confirm that `uriBase` is valid and replace the `accessKey` value with a subscription key from your Azure account. 
+
+3. Optionally, customize the search query by replacing the value for `searchTerm`. 
 
 ```csharp
 // Enter a valid subscription key.
@@ -76,7 +82,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 The `Main()` method is required and is the first method invoked when you start the program. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
 
-Keep in mind that `main()` is dependent on methods that are created in the next few sections.
+Keep in mind that `main()` is dependent on methods that you create in the next few sections.
 
 ```csharp
 static void Main()
@@ -105,7 +111,7 @@ static void Main()
 
 ## Create a struct for search results
 
-This struct returns search results with relevant headers. It's called when making a request to the Bing Web Search API to create a result object.
+Create a struct that returns search results with relevant headers. You call it when you make a request to the Bing Web Search API to create a result object.
 
 ```csharp
 // Returns search results with headers.
@@ -154,7 +160,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## Format the response
 
-This method formats the JSON response, primarily indenting and adding line breaks.
+This method formats the JSON response, by primarily indenting and adding line breaks.
 
 ```csharp
 /// <summary>
@@ -362,6 +368,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

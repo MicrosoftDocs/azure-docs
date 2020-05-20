@@ -69,7 +69,13 @@ public class BingWebSearch {
 
 ## Define variables
 
-This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. You can use the value of `host` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. You can customize the search query by replacing the value for `searchTerm`. Add this code to the `BingWebSearch` class as noted in the previous section.
+The following code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Add this code to the `BingWebSearch` class described in the previous section:
+
+1. For the value of `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. 
+
+3. Optionally, customize the search query by replacing the value for `searchTerm`. 
 
 ```java
 // Enter a valid subscription key.
@@ -87,7 +93,7 @@ static String searchTerm = "Microsoft Cognitive Services";
 
 ## Construct a request
 
-This method, which is included in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
+The `SsearchWeb()` method, which is included in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
 
 ```java
 public static SearchResults SearchWeb (String searchQuery) throws Exception {
@@ -163,7 +169,7 @@ public static void main (String[] args) {
 
 ## Create a container class for search results
 
-The `SearchResults` container class is outside of the `BingWebSearch` class. It includes relevant headers and JSON data for the response.
+The `SearchResults` container class is defined outside of the `BingWebSearch` class. It includes relevant headers and JSON data for the response.
 
 ```java
 class SearchResults{

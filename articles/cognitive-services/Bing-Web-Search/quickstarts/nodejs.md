@@ -29,7 +29,7 @@ Here are a few things that you'll need before running this quickstart:
 
 ## Create a project and declare required modules
 
-Create a new Node.js project in your favorite IDE or editor. Then, copy the following code snippet to your project in a file named `search.js`:
+Create a new Node.js project in your favorite IDE or editor. Then, copy the following code snippet to your project in a file named search.js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -52,9 +52,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## Create a function to make the request
 
-This function makes a secure GET request and saves the search query as a query parameter in the path. You can use the value of `hostname` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  
+This function makes a secure GET request and saves the search query as a query parameter in the path. 
 
-In this function, `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app prints the interesting headers and message body. You can adjust the colors and set the depth to suit your preference. A depth of `1` gives a nice summary of the response.
+1. For the value of `hostname`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  
+
+2. Use `encodeURIComponent` to escape invalid characters. The subscription key is passed in a header. 
+
+3. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. 
+
+4. When the app is complete, it prints the interesting headers and message body. You can adjust the colors and set the depth to suit your preference. A depth of `1` gives a nice summary of the response.
 
 ```javascript
 function bingWebSearch(query) {
@@ -100,7 +106,7 @@ bingWebSearch(query)
 
 ## Put it all together
 
-The last step is to run your code: `node search.js "<your query>"`.
+The last step is to run your code with the command: `node search.js "<your query>"`.
 
 If you'd like to compare your code with ours, here's the complete program:
 
@@ -266,6 +272,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]
