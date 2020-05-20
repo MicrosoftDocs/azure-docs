@@ -38,7 +38,7 @@ This tutorial will guide you through all the basic steps needed to setup and use
 * Once the storage account is created, make these role assignments or ensure they are already assigned. While in the storage account, select **Access control (IAM)** from the left navigation.
     * Assign yourself to the **Owner** role on the storage account
     * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
-* From the left navigation, select **Containers** and create a container. You can give it any name. Accept the default **Public access level**. In this document, we will call the container 'users`. Select **Create**. 
+* From the left navigation, select **Containers** and create a container. You can give it any name. Accept the default **Public access level**. In this document, we will call the container `users`. Select **Create**. 
 
 ## Create a Synapse workspace
 
@@ -255,11 +255,11 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 * Select **Run**
 * NOTE: THe first time you run this it will take about 10 seconds for SQL on-demand to gather SQL resources needed to run your queries. Subsequent queries will not require this time.
   
-## Use pipeline to orchestrate activities
+## Use pipelines to orchestrate activities
 
 You can orchestrate a wide variety of tasks in Azure Synapse. In this section, you'll see how easy it is.
 
-* In Synapse Studio, navigate to the Orchestrate bug.
+* In Synapse Studio, navigate to the Orchestrate hub.
 * Select **+** then select **Pipeline**. A new pipeline will be created.
 * Navigate to the Develop hub and find any of the notebooks you previously created.
 * Drag that notebook into the pipeline.
@@ -324,14 +324,14 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 ### Create a Power BI Workspace and link it to your Synapse Workspace
 
 * Log into [powerbi.microsoft.com](https://powerbi.microsoft.com/).
-* Create a new Power BI workspace called `NYXTaxiWorkspace1`.
+* Create a new Power BI workspace called `NYCTaxiWorkspace1`.
 * In Synapse Studio, navigate to the **Manage > Linked Services**.
 * Select **+ New** and select **Connect to Power BI** and set these fields:
 
     |Setting | Suggested value | 
     |---|---|---|
-    |**Name**|`NYXTaxiWorkspace1`|
-    |**Workspace name**|`NYXTaxiWorkspace1`|
+    |**Name**|`NYCTaxiWorkspace1`|
+    |**Workspace name**|`NYCTaxiWorkspace1`|
     |||
     
 * Select **Create**.
@@ -339,7 +339,7 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 ### Create a Power BI dataset that uses data in your Synapse workspace
 
 * In Synapse Studio, navigate to the **Develop > Power BI**.
-* Navigate to **NYXTaxiWorkspace1 > Power BI datasets** and select **New Power BI dataset**.
+* Navigate to **NYCTaxiWorkspace1 > Power BI datasets** and select **New Power BI dataset**.
 * Hover over the SQLDB1 database and select **Download .pbids file**.
 * Open the downloaded `.pbids` file. This will launch Power BI desktop and automatically connect it to SQLDB1 in your synapse workspace.
 * If you see a dialog appear called **SQL server database**:
@@ -355,13 +355,13 @@ Your data can now be easily analyzed and visualized in Power BI. Synapse offers 
 * In the **Home** tab, select **Publish**.
 * It will ask you if you want to save your changes. Select **Save**.
 * It will ask you to pick a filename. Choose `PassengerAnalysis.pbix` and select **Save**.
-* It will ask you to **Select a destination** select `NYXTaxiWorkspace1` and select **Select**.
+* It will ask you to **Select a destination** select `NYCTaxiWorkspace1` and select **Select**.
 * Wait for publishing to finish.
 
 ### Configure authentication for your dataset
 
 * Open [powerbi.microsoft.com](https://powerbi.microsoft.com/) and **Sign in**
-* At the left, under **Workspaces** select the the `NYXTaxiWorkspace1` workspace that you published to.
+* At the left, under **Workspaces** select the the `NYCTaxiWorkspace1` workspace that you published to.
 * Inside that workspace you should see a dataset called `Passenger Analysis` and a report called `Passenger Analysis`.
 * Hover over the `PassengerAnalysis` dataset and select the icon with the three dots and select **Settings**.
 * In **Data source credentials** set the Authentication method to **OAuth2** and select **Sign in**.
