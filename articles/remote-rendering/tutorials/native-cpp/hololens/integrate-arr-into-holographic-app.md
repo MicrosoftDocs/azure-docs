@@ -60,8 +60,8 @@ The NuGet package adds the Remote Rendering dependencies to the project. Specifi
 
 We need make small changes to the existing project. These changes are subtle, but without them Remote Rendering would not work.
 
-### Enable multi thread protection on DirectX device
-The `DirectX11` device must have multi thread protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
+### Enable multithread protection on DirectX device
+The `DirectX11` device must have multithread protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
 
 ```cpp
 // Enable multi thread protection as now multiple threads use the immediate context.
