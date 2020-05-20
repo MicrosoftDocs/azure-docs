@@ -224,7 +224,7 @@
       href: configure-firewall.md
     - name: Secure WebHook with AAD
       href: secure-webhook-delivery.md
-    - name: Publish with Managed Identities
+    - name: Event delivery with managed identity
       href: managed-service-identity.md
   - name: Troubleshoot
     items: 
