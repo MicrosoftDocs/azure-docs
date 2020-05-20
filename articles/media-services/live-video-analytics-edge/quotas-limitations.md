@@ -31,7 +31,7 @@ With the Preview release, there are limitations on different nodes can be connec
     * Only one RTSP source is allowed per graph topology.
 * Frame rate filter processor
     * Must be immediately downstream from RTSP source or motion detection processor.
-    * Can be chained together, but cannot be used on separate .
+    * Can be chained together, but cannot be used on separate.
 * HTTP extension processor
     * Only one HTTP extension processor per graph topology.
 * Motion detection processor
