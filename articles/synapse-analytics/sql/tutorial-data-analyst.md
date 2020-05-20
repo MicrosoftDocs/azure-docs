@@ -21,10 +21,10 @@ The focus of the analysis is to find trends in changes of number of taxi rides o
 
 ## Create Data source
 
-Data source object is used to reference Azure storage account where you need to analyze data. Public Azure storage don't need some credential to acces storage.
+Data source object is used to reference Azure storage account where you need to analyze data. Publicly available storage doesn't need some credential to access storage.
 
 ```sql
--- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+-- There is no credential in data surce. We are using public storage account which doesn't need a credential.
 CREATE EXTERNAL DATA SOURCE AzureOpenData
 WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
