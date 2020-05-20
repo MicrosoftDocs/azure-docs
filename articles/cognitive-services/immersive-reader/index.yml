@@ -30,16 +30,15 @@ landingContent:
             url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
-    links:
-      - text: Use C# (ASP.NET Core)
-        itemType: quickstart
-        url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-csharp
-      - text: Use Node.js
-        itemType: quickstart
-        url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-nodejs
-      - text: Use Swift (iOS)
-        itemType: quickstart
-        url: ../immersive-reader/quickstarts/client-libraries.md?pivots=programming-language-swift
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Use C# (ASP.NET Core)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Node.js
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Swift (iOS)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
           - text: Python
