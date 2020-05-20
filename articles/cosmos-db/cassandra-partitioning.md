@@ -28,17 +28,18 @@ All tables in Cassandra API must have a primary key defined. Suppose we want to 
 ```shell
 CREATE TABLE uprofile.user ( 
    id UUID PRIMARY KEY, 
+   user text,  
    message text);
 ```
 
-The primary key functions as the identifier for the record in the table, but is also the value used as the partition key in Azure Cosmos DB. If primary key is defined in the manner above, there will only be a single record in each logical partition. Although this will result in a perfect distribution when writing the data to the database, it has limitations for reads. Unless the primary key is supplied by the application in the query, all physical partitions will be scanned. 
+In this design, we have defined the `id` field as the `primary key`. The primary key functions as the identifier for the record in the table, but is also the value used as the `partition key` in Azure Cosmos DB. If the primary key is defined in the manner above, there will only be a single record in each logical partition. Although this will result in a perfect distribution when writing the data to the database, it has limitations for reading the data. Unless the primary key is supplied by the application in the query, all physical partitions will be scanned. 
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
 
 
 ## Compound primary key
 
-Apache Cassandra also has a concept of compound keys, which is the combination of a primary key and a "clustering key". We might want to improve on the above design by making it possible to get all the messages for a given user, for example:
+Apache Cassandra also has a concept of compound keys, which is the combination of a primary key and a "clustering key". Suppose we want to change the above design and make it possible to efficiently retrieve messages for a given user:
 
 ```shell
 CREATE TABLE uprofile.user (
@@ -48,7 +49,7 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY (user, id));
 ```
 
-A compound primary key consists of more than one column; the first column is the partition key, and any additional columns are the clustering keys. In the above, the column "id" serves as a single clustering key, but you can define as many clustering keys as you wish. The clustering key(s) values must be unique in order to result in  different records being added to the logical partition, for example:
+A compound `primary key` consists of more than one column; the first column is the `partition key`, and any additional columns are the `clustering keys`. In this design, we are now defining `user` as the `partition key`, and `id` as the `clustering key`. You can define as many clustering keys as you wish, but each value (or combination of values) must be unique in order to result in different records being added to the logical partition, for example:
 
 ```shell
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
