@@ -12,7 +12,7 @@ Labeling an entity in an example utterance gives LUIS an example of what the ent
 
 You can label machine-learned entities and subentities.
 
-Because you can't label regular expression, list or prebuilt entities, create a entity or subentity, then add these entities are features, when applicable, to the entity or subentity.
+Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities are features, when applicable, to the entity or subentity.
 
 ## Label example utterances from the Intent detail page
 
@@ -26,8 +26,8 @@ To label examples of entities within the utterance, select the utterance's inten
 ## Two techniques to label entities
 
 Two labeling techniques are supported on the Intent detail page.
-* Select entity or subentity from **[Entity Palette](label-with-the-entity-palette-visible)** then select within example utterance text. This is the recommended technique because you can visually verify you are working with the correct entity or subentity, according to your schema.
-* Select within the example utterance text first. When you do this, a pop-up menu of [labeling choices](#label-entity-from-in-place-menu) is presented.
+* Select entity or subentity from [Entity Palette](#label-with-the-entity-palette-visible) then select within example utterance text. This is the recommended technique because you can visually verify you are working with the correct entity or subentity, according to your schema.
+* Select within the example utterance text first. When you do this, a pop-up menu of [labeling choices](#how-to-label-entity-from-in-place-menu) is presented.
 
 ## Label with the Entity Palette visible
 
@@ -116,6 +116,12 @@ If you are labeling for a subentity, the parent will be labeled automatically.
 ## Automatic labeling for non-machine learned entities
 
 Non-machine learned entities include prebuilt entities, regular expression entities, list entities, and pattern.any entities. These are automatically labeled by LUIS so they are not required to be manually labeled by users.
+
+## Intent prediction errors
+
+An intent prediction error indicates that the example utterance, given the current trained app, would not be predicted for the intent.
+
+Learn how to [view these errors](luis-how-to-add-intents.md#intent-prediction-errors) on the Intent detail page.
 
 ## Entity prediction errors
 
