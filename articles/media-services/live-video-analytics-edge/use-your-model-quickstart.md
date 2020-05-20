@@ -20,8 +20,10 @@ This article builds on top of the [Getting started](get-started-detect-motion-em
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends the video frames to the [frame fate filter processor](media-graph-concept.md#) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-graph-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The Http Extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends the video frames to the [frame fate filter processor](media-graph-concept.md#) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-graph-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The Http Extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+
 The video you will use for this quickstart has been built into the rtspsim-live555 container. A copy of this is available at [yolov3-onnx](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx). If you play this video, you will see that the footage is of traffic on a highway, with many vehicles moving on it. 
+
 In this quickstart, you will:
 
 1. Set up Azure resources
@@ -151,14 +153,14 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 
     1. The Program will have paused at the Console.Readline() stage. Go the TERMINAL window, and hit the “Enter” key. The Media Graph will be stopped, and the Program will exit.
 
-## Interpreting the results
+## Interpret results
 
-In the media graph <Link to diagram above>, the results from the Http Extension processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the [streaming messaging format](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) established for device-to-cloud communications by IoT Hub:
+In the media graph ([shown in the overview](#overview)), the results from the Http Extension processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the [streaming messaging format](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) established for device-to-cloud communications by IoT Hub:
 
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
 * An opaque binary body
 
-In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. <TODO: add link to sections in our Telemetry article when ready>
+In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. For more information, see [telemetry](telemetry-schema.md).
 
 ### Connection Established event
 
@@ -249,8 +251,8 @@ Note the following in the above messages
 If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
 
 ## Next Steps
-
-Review additional challenges for advanced users –
+<!--add a link to a how to-->
+Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page by looking for devices that conform with profiles G, S, or T.
 * Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) and then follow instructions in this [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
