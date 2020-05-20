@@ -85,15 +85,9 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
 1. Next, browse to "src/cloud-to-device-console-app" folder. Here you will see the appsettings.json file that you created along with a few other files:
 
-    * c2d-console-app.csproj
-
-        The project file for VSCode.
-    * operations.json
-
-        This file will list the different operations that you would like the program to run.
-    * Program.cs
-
-        This is the sample program code, which does the following:
+    * c2d-console-app.csproj - the project file for VSCode.
+    * operations.json - this file lists the different operations that you would like the program to run.
+    * Program.cs - the sample program code, which does the following:
     
         * Loads the app settings
         * Invoke the Live Video Analytics on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph
@@ -147,7 +141,7 @@ Follow the steps below to run the sample code.
 
     The Program will have paused at the Console.Readline() stage. Go the TERMINAL window, and hit the “Enter” key. The program will then start deactivating and deleting the GraphInstance. after which it will exit.
 
-## Interpreting the results
+## Interpret results
 
 In the Media Graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
 

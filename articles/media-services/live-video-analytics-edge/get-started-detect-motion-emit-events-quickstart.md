@@ -404,7 +404,7 @@ Within few seconds, you will see the following response in the Output window:
 Note the following in the response payload
 
 * Status code is 201, indicating a new instance was created
-* State is "Inactive", indicating that the MediaGraph was created but not activated. You can read about MediaGraph states in the MediaGraph concept page
+* State is "Inactive", indicating that the MediaGraph was created but not activated. For more information, [media graph states](media-graph-concept.md).
 
 Try the following as next steps
 
@@ -478,7 +478,7 @@ Note the following in the response payload
 * Status code is 200, indicating success.
 * State is "Active", indicating the MediaGraph is now in "Active" state.
 
-## Observe the results
+## Observe results
 
 The MediaGraph that we created and activated above, uses the motion detection processor to detect motion in the incoming live video stream and output events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. To do so, follow these steps
 
@@ -654,5 +654,5 @@ If you're not going to continue to use this application, delete resources create
 
 ## Next steps
 
-Learn how to invoke Live Video Analytics on IoT Edge Direct Methods programmatically.
-Learn more about diagnostic messages.
+* Learn how to invoke Live Video Analytics on IoT Edge Direct Methods programmatically.
+* Learn more about diagnostic messages.

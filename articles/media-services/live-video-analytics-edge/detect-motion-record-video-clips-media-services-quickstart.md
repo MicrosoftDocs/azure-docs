@@ -500,7 +500,7 @@ Within few seconds, you will see the following response in the Output window:
 Note the following in the response payload
 
 * Status code is 201, indicating a new instance was created
-* State is "Inactive", indicating that the MediaGraph was created but not activated. You can read about MediaGraph states in the MediaGraph concept page
+* State is "Inactive", indicating that the MediaGraph was created but not activated. For more information, see [media graph states](media-graph-concept.md).
 
 Try the following as next steps
 
@@ -528,7 +528,7 @@ The Media Graph you created uses the Motion Detection Processor node to detect m
     [IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
     ```
 
-###  Invoke GraphInstanceActivate
+### Invoke GraphInstanceActivate
 
 Now invoke Direct Method GraphInstanceActivate with the following payload
 
@@ -596,7 +596,7 @@ Note the following in the response payload
 * Status code is 200, indicating success.
 * State is "Active", indicating the MediaGraph is now in "Active" state.
 
-## Observe the results
+## Observe results
 
 The MediaGraph that we created and activated above, uses the motion detection processor to detect motion in the incoming live video stream and output events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. You will see the following messages in the Output window
 
@@ -792,7 +792,7 @@ Try the following as next steps
 
 Next, you can use the Azure portal to play back the video you recorded.
 
-1. Log into the Azure portal, type "Media Services" in the search box
+1. Log into the [Azure portal](https://portal.azure.com/), type "Media Services" in the search box
 1. Locate your Azure Media Services account and open it
 1. Locate and select the Assets entry in the Media Services listing
 

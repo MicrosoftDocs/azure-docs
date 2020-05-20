@@ -12,26 +12,26 @@ In this quickstart, you will analyze the live video feed from a (simulated) IP c
 
 ## Prerequisites
 
-This article builds on top of the [getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. Also, recommended for this quickstart is to finish quickstart 2, as that depicts the manual way to run the below depicted graph topology.
+This article builds on top of the [getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. Also, recommended for this quickstart is to finish the [Event-based recording of videos using Live Video Analytics on IoT Edge](detect-motion-record-video-clips-media-services-quickstart.md) quickstart, as that depicts the manual way to run the below depicted graph topology.
 Just like in the previous quickstarts, to run this quickstart, you need to have installed:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-* Complete [Setting up Azure resources](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#set-up-azure-resources), [Deploying modules](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#deploy-modules-on-your-edge-device), and [Configuring Visual Studio Code](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code).
 
 ## Overview
 
 ![overview](./media/quickstarts/overview-qs4.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using rtspsim-live555 simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends the video frames to the [motion detection processor](media-graph-concept.md#motion-detection-processor)  node. The same video feed is sent by the RTSP source to a signal gate, which buffers the feed and waits for an event to open. 
+The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends the video frames to the [motion detection processor](media-graph-concept.md#motion-detection-processor)  node. The same video feed is sent by the RTSP source to a signal gate, which buffers the feed and waits for an event to open. 
+
 When the motion detection processor determines that motion is present in the video, it emits an event to the [signal gate processor](media-graph-concept.md#signal-gate-processor) triggering the gate. When such an event arrives at the signal gate, it has the ability to open for a preconfigured amount of time relaying the video feed to the [file sink](media-graph-concept.md#file-sink) that records the video as an mp4 file at the specified local path on your edge device’s files system.
 
 In this quickstart, you will:
 
 1. Set up Azure resources
-1. Create and Deploy the media graph
+1. Create and deploy the media graph
 1. Interpret the results
-1. Cleanup resources
+1. Clean up resources
 
 ## Set up Azure resources
 
@@ -97,7 +97,7 @@ The text should look like:
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"
     ```
     
-## Examine the sample files
+### Examine the sample files
 
 1. In VSCode, browse to "src/edge". You will see the .env file that you created along with a few deployment template files
 
@@ -158,7 +158,7 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 
     1. The Program will have paused at the Console.Readline() stage. Go the TERMINAL window and hit the “Enter” key. The media graph will be stopped, and the Program will exit.
 
-## Interpreting the Results 
+## Interpret results 
 
 ### Monitoring the events sent to the IoT Edge Hub - Connection Established event
 
@@ -194,18 +194,18 @@ Note the following in the above message
     ![Resource group](./media/quickstarts/resource-group.png)
  
     ![VM](./media/quickstarts/virtual-machine.png)
-1. Once signed in, on the command prompt, go to the relevant folder (default: /home/lvaadmin/samples/output) and you should see the mp4 files clips there. You can scp the files over to your local machine and play them back via VLC player or any other mp4 player.
+1. Once signed in, on the command prompt, go to the relevant folder (default: /home/lvaadmin/samples/output) and you should see the mp4 files clips there. You can [scp the files](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) over to your local machine and play them back via VLC player or any other mp4 player.
 
     ![Output](./media/quickstarts/samples-output.png)
 
-## Cleanup resources
+## Clean up resources
 
 If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
 
 ## Next steps
 
 * Run  the [Run Live Video Analytics with your own model](use-your-model-quickstart.md) quickstart, which shows how to apply AI to live video feeds.
-* Additional challenges for advanced users –
+* Review additional challenges for advanced users:
 
     * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products](https://en.wikipedia.org/wiki/IP_camera) page by looking for devices that conform with profiles G, S, or T.
     * Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) and then follow instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
