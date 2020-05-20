@@ -144,7 +144,7 @@ To configure properly, you would need the following resources:
 The following diagram illustrates the DNS resolution sequence from an on-premises network that conditionally forwards DNS traffic to Azure, where the resolution is made by a private DNS zone [linked to a virtual network.](../dns/private-dns-virtual-network-links.md)
 
 > [!IMPORTANT]
-> The conditional forwarding must be made to the recomended [**public DNS zone forwarder**](#azure-services-dns-zone-configuration) Ex: `database.windows.net` , instead of **privatelink**.database.windows.net
+> The conditional forwarding must be made to the recommended [**public DNS zone forwarder**](#azure-services-dns-zone-configuration) Ex: `database.windows.net` , instead of **privatelink**.database.windows.net
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="On-premises forwarding to Azure DNS":::
 

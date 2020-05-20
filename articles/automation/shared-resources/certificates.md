@@ -160,6 +160,6 @@ print cert
 
 ## Next steps
 
-* To learn more about the cmdlets used to access certificates, see [Manage modules in Azure Automation](modules.md).
-* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md). 
+* [Manage modules in Azure Automation](modules.md)
+* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
+* [Azure Automation State Configuration overview](../automation-dsc-overview.md) 

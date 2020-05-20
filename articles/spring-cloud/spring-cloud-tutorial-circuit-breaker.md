@@ -27,7 +27,6 @@ Build the 3 applications that will be used in this tutorial:
 * recommendation-service: A simple REST service that has a single endpoint of /recommendations, which will be called by user-service.
 * hystrix-turbine: A Hystrix dashboard service to display Hystrix streams and a Turbine service aggregating Hystrix metrics stream from other services.
 ```
-cd spring-cloud/spring-turbine
 mvn clean package -D skipTests -f user-service/pom.xml
 mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml

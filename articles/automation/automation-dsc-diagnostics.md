@@ -1,6 +1,6 @@
 ---
-title: Forward Azure Automation State Configuration reporting data to Azure Monitor logs
-description: This article demonstrates how to send Desired State Configuration (DSC) reporting data from Azure Automation State Configuration to Azure Monitor logs to deliver additional insight and management.
+title: Integrate with Azure Monitor logs
+description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor logs.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,7 +10,7 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Forward State Configuration reporting data to Azure Monitor logs
+# Integrate with Azure Monitor logs
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 
@@ -23,7 +23,6 @@ Azure Monitor logs provides greater operational visibility to your Automation St
 - Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## Prerequisites
 

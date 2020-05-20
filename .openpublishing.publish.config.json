@@ -29,7 +29,7 @@
     "tysonn@microsoft.com"
   ],
   "branches_to_filter": [],
-  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "master",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
