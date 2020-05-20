@@ -85,7 +85,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). The template for this article is too long to show here. To view the template, see the [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) file.
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). The template for this article is too long to show here. To view the template, see the [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) file.
 
 Multiple Azure resources have been defined in the template:
 
