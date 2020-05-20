@@ -240,10 +240,7 @@
         displayname: functions, monitor functions, automation
         href: ../azure-functions/functions-monitoring.md
       - name: Azure Kubernetes Service
-        items:
-        - name: Kubernetes (Deprecated)
-          displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
-          href: app/kubernetes.md
+        href: app/kubernetes-codeless.md
       - name: Standalone - any environment
         items:  
           - name: Java (preview)
@@ -1266,6 +1263,8 @@
       href: insights/azure-web-apps-analytics.md
     - name: Application Insights Connector
       href: platform/app-insights-connector.md
+    - name: Application Insights for AKS codeless 
+      href: app/kubernetes.md
     - name: Monitor Docker applications
       href: app/docker.md
     - name: OMS portal deprecation

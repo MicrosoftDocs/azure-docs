@@ -193,5 +193,5 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 
 ## Next steps
 
-* To learn more about the cmdlets used to access schedules, see [Manage modules in Azure Automation](modules.md).
-* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+* [Manage modules in Azure Automation](modules.md)
+* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
