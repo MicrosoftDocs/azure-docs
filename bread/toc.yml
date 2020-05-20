@@ -649,8 +649,8 @@
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
   - name: Mobile Services
-    tocHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
-    topicHref: /azure/mobile-services/
+    tocHref: /azure/mobile-services/
+    topicHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
