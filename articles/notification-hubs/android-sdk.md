@@ -1,7 +1,7 @@
 ---
 
-title: Intent and product brand in a unique string of 43-59 chars including spaces. Do not include site identifier (it is auto-generated).
-description: 115-145 characters including spaces. This abstract displays in the search result.
+title: Send push notifications to Android using Azure Notification Hubs and Firebase SDK version 1.0.0-preview1
+description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices.
 author: sethmanheim
 ms.author: sethm
 ms.date: 5/18/2020
@@ -11,9 +11,9 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 05/18/2020
 ---
 
-# Tutorial: Integrate Azure Notification Hubs SDK with Android
+# Tutorial: Send push notifications to Android devices using Firebase SDK version 1.0.0-preview1
 
-This tutorial shows how to use the updated version of Azure Notification Hubs and Firebase Cloud Messaging (FCM) to send push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications using Firebase Cloud Messaging (FCM).
+This tutorial shows how to use Azure Notification Hubs and the updated version of the Firebase Cloud Messaging (FCM) SDK (version 1.0.0-preview1) to send push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications using Firebase Cloud Messaging (FCM).
 
 You can download the completed code for this tutorial from GitHub.
 
