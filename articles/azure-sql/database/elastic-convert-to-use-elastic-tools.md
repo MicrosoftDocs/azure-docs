@@ -14,6 +14,7 @@ ms.date: 01/25/2019
 
 ---
 # Migrate existing databases to scale out
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Easily manage your existing scaled-out sharded databases using tools (such as the [Elastic Database client library](elastic-database-client-library.md)). First convert an existing set of databases to use the [shard map manager](elastic-scale-shard-map-management.md).
 

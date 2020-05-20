@@ -19,6 +19,9 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
 # Automate management tasks on Azure virtual machines by using the SQL Server IaaS Agent Extension
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](sql-server-iaas-agent-extension-automate-management.md)
 > * [Classic](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)

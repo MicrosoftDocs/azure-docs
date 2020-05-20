@@ -18,6 +18,7 @@ ms.reviewer: jroth
 ---
 
 # Automated Backup v2 for Azure Virtual Machines (Resource Manager)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)

@@ -18,6 +18,9 @@ ms.custom: "seo-lt-2019"
 
 ---
 # Configure one or more Always On availability group listeners - Resource Manager
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+
 This topic shows how to:
 
 * Create an internal load balancer for SQL Server availability groups using PowerShell cmdlets.

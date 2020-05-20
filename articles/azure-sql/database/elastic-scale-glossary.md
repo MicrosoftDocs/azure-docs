@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The following terms are defined for the [Elastic Database tools](elastic-scale-introduction.md). The tools are used to manage [shard maps](elastic-scale-shard-map-management.md), and include the [client library](elastic-database-client-library.md), the [split-merge tool](elastic-scale-overview-split-and-merge.md), [elastic pools](elastic-pool-overview.md), and [queries](elastic-query-overview.md). 
 

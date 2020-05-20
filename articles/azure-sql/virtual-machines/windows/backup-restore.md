@@ -17,6 +17,7 @@ ms.date: 06/04/2018
 ms.author: mikeray
 ---
 # Backup and Restore for SQL Server in Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides guidance on the backup and restore options available for SQL Server running in a Windows virtual machine in Azure. Azure Storage maintains three copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to focus on hardware failures. However, you should still backup your SQL Server databases to protect against application or user errors, such as inadvertent data insertions or deletions. In this situation, it is important to be able to restore to a specific point in time.
 

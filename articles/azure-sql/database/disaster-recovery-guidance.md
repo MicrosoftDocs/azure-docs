@@ -13,6 +13,7 @@ ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ---
 # Restore an Azure SQL Database or failover to a secondary
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database offers the following capabilities for recovering from an outage:
 

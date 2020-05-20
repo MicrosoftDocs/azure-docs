@@ -12,6 +12,7 @@ ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ---
 # Use In-Memory OLTP to improve your application performance in Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 [In-Memory OLTP](in-memory-oltp-overview.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](database/service-tiers-vcore.md) databases without increasing the pricing tier.
 

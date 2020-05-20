@@ -17,6 +17,7 @@ ms.reviewer: jroth
 ---
 
 # Quickstart: Create a SQL Server Windows virtual machine with Azure PowerShell
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This quickstart steps through creating a SQL Server virtual machine with Azure PowerShell.
 

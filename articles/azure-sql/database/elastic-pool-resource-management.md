@@ -14,6 +14,7 @@ ms.date: 03/13/2019
 ---
 
 # Resource management in dense elastic pools
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database [elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) is a cost-effective solution for managing many databases with varying resource usage. All databases in an elastic pool share the same allocation of resources, such as CPU, memory, worker threads, storage space, tempdb, on the assumption that **only a subset of databases in the pool will use compute resources at any given time**. This assumption allows elastic pools to be cost-effective. Instead of paying for all resources each individual database could potentially need, customers pay for a much smaller set of resources, shared among all databases in the pool.
 

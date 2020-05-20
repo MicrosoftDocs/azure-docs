@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This post is aimed at C and C++ developers trying to connect to Azure SQL Database. It is broken down into sections so you can jump to the section that best captures your interest.
 
