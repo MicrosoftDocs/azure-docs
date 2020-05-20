@@ -1,6 +1,6 @@
 ---
 title: Control what a user can do at the file level - Azure file shares
-description: Learn how to configure NTFS permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
+description: Learn how to configure Windows NTFS permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
 author: roygara
 ms.service: storage
 ms.subservice: files
@@ -9,7 +9,7 @@ ms.date: 05/18/2020
 ms.author: rogarana
 ---
 
-# Part three: configure NTFS permissions over SMB 
+# Part three: configure Windows NTFS permissions over SMB 
 
 Before you begin this article, make sure you completed the previous article, [Assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 

@@ -70,4 +70,4 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 ## Next steps
 
-[Configure NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
+[Configure Windows NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
