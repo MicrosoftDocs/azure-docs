@@ -87,7 +87,7 @@ Here's the result set:
 |0|2|pickup_datetime|datetime2(7)|8|
 |0|3|passenger_count|int|4|
 
-Once we know inferred data types for query, we can specify appropriate data types:
+After you know the inferred data types for the query, you can specify appropriate data types:
 
 ```sql  
 SELECT
@@ -98,7 +98,7 @@ FROM
 		FORMAT='PARQUET'
     ) 
 	WITH (
-		vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+		vendor_id varchar(4), -- we used length of 4 instead of the inferred 8000
 		pickup_datetime datetime2,
 		passenger_count int
 	) AS nyc;
@@ -106,36 +106,36 @@ FROM
 
 ## Use filename and filepath functions to target specific partitions
 
-Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This function will reduce the number of files and amount of data the query needs to read and process. An added bonus is that you'll achieve better performance.
+Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. Doing so will reduce the number of files and the amount of data the query needs to read and process. An added bonus is that you'll achieve better performance.
 
-For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
+For more information, read about the [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and see the examples for [querying specific files](query-specific-files.md).
 
 > [!TIP]
-> Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
+> Always cast the results of the filepath and filename functions to appropriate data types. If you use character data types, be sure to use the appropriate length.
 
 > [!NOTE]
-> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
+> Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
 
-If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
+If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the necessary files.
 
-## Use PARSER_VERSION 2.0 for querying CSV files
+## Use PARSER_VERSION 2.0 to query CSV files
 
-You can use performance optimized parser when querying CSV files. Check [PARSER_VERSION](develop-openrowset.md) for details.
+You can use a performance-optimized parser when you query CSV files. For details, see [PARSER_VERSION](develop-openrowset.md).
 
 ## Use CETAS to enhance query performance and joins
 
 [CETAS](develop-tables-cetas.md) is one of the most important features available in SQL on-demand. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
 
-You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. Next, you can join to this single external table instead of repeating common joins in multiple queries.
+You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. You can then join to this single external table instead of repeating common joins in multiple queries.
 
 As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
 
-## AAD pass-through performance
+## Azure AD Pass-through performance
 
-SQL on-demand allows you to access files in storage using AAD pass-through or SAS credential. You might experience slower performance with AAD pass-through comparing to SAS. 
+SQL on-demand allows you to access files in storage by using Azure Active Directory (Azure AD) Pass-through or SAS credentials. You might experience slower performance with Azure AD Pass-through than you would with SAS.
 
-If you need better performance, try SAS credentials to access storage until AAD pass-through performance is improved.
+If you need better performance, try using SAS credentials to access storage until Azure AD Pass-through performance is improved.
 
 ## Next steps
 
-Review the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions. If you're working with SQL pool rather than SQL on-demand, see the [Best Practices for SQL pool](best-practices-sql-pool.md) article for specific guidance.
+Review the [troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for solutions to common problems. If you're working with SQL pools rather than SQL on-demand, see [Best practices for SQL pools](best-practices-sql-pool.md) for specific guidance.
