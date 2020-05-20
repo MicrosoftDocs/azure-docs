@@ -26,6 +26,7 @@ This article helps administrators diagnose and resolve connectivity problems whe
 * [ICMP ping is failing](#icmp-ping-is-failing)
 * [Connectivity failures](#connectivity-failures)
 * [IPv6 coexistence](#ipv6-coexistence)
+* [Connection doesn't originate from NAT gateway IP(s)](#connection-doesnt-originate-from-nat-gateway-ips)
 
 To resolve these problems, follow the steps in the following section.
 
