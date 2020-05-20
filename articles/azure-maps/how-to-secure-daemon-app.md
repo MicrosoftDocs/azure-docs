@@ -14,7 +14,7 @@ manager: timlt
 
 For background processes, timers, and jobs which are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
 
-[!Tip]
+> [!Tip]
 > Microsoft recommends implementing Azure AD Role based access control for production applications.
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]

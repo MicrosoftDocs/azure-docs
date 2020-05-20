@@ -27,7 +27,7 @@ For information about viewing your keys in the Azure portal, see [Manage authent
 > [!Tip]
 > We recommend regenerating your keys regularly. You're provided with two keys, so that you can maintain connections with one key while regenerating the other. When you regenerate your keys, you need to update any applications, that access your account, with the new keys.
 
-## Authentication with Azure Active Directory
+## Azure Active Directory authentication
 
 Azure Subscriptions are provided with an Azure AD tenant to enable fine grained access control. Azure Maps offers authentication for Azure Maps services using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Azure AD provides identity-based authentication for users and applications registered in the Azure AD tenant.
 
@@ -47,7 +47,7 @@ For general information about authenticating with Azure AD, see [What is authent
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provide Azure services with an automatically managed application based security principal which can authenticate with Azure AD. With Role Based Access Control, the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. To discover a comprehensive list of managed identities, see [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
-### Configuring Application Authentication to Azure AD
+### Configuring Application Azure AD Authentication
 
 Applications will authenticate with the paired Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. Comprehensive coverage of scenarios are covered in [Microsoft identity platform documentation](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
 
@@ -75,11 +75,11 @@ For information about viewing your client ID, see [View authentication details](
 ## Authorization with Role Based Access Control
 
 What is [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)?
-Azure Maps supports access to all principal types for Azure role based access control including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition, to REST API actions which are applied to one or more Azure Maps accounts, also known as a scope. The next sections discuss concepts and components of Azure Maps integration with Azure AD role based access control.
+Azure Maps supports access to all principal types for Azure role based access control including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
 
-As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. When configuring Azure role based access control a security principal is chosen and applied to a role assignment. 
+The next sections discuss concepts and components of Azure Maps integration with Azure AD role based access control. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. 
 
-To learn how to add role assignments on the Azure portal, see [Add or remove Azure role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+When configuring Azure role based access control, a security principal is chosen and applied to a role assignment. To learn how to add role assignments on the Azure portal, see [Add or remove Azure role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ### Picking a Role Definition
 
@@ -89,7 +89,7 @@ The following role definition types exist to support application scenarios.
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Azure Maps Data Reader      | Provides access to immutable Azure Maps REST APIs.                                                       |
 | Azure Maps Data Contributor | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
-| Custom Role Definition      | Create a crafted role to enable very restricted access to Azure Maps REST APIs.                          |
+| Custom Role Definition      | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs.                      |
 
 REST API services may require elevated privileges to perform write or delete actions. The following table describes where Azure Maps Data Contributor role is required for specific access rights.
 
