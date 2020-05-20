@@ -61,11 +61,11 @@ Some points to consider:
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
 
 ### Set up alerts automatically
-[Use PowerShell to create new alerts](../../azure-monitor/platform/alerts-log.md#automation)
+[Use PowerShell to create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Use PowerShell to Manage Application Insights
 * [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Create new alerts](../../azure-monitor/platform/alerts-log.md#automation)
+* [Create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Separate telemetry from different versions
 
