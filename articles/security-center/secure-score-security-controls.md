@@ -88,7 +88,7 @@ The table below lists the security controls in Azure Security Center. For each c
 > [!TIP]
 > If you'd like to filter or sort this list differently, copy and paste it into Excel.
 
-|Security controls (listed by maximum score)|Recommendations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|Security controls<br>(listed by maximum score)|Recommendations|
 |-----------|---------------|
 |**Enable MFA** (max score **10**)<br>*If you only use a password to authenticate a user, it leaves an insecure vector for attack. If the password is weak or has been exposed elsewhere, is it really the user signing in with the username and password. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still sign on to almost any application with single sign-on.*|- MFA should be enabled on accounts with owner permissions on your subscription<br>- MFA should be enabled accounts with write permissions on your subscription|
 |**Secure management ports** (max score **8**)<br>*Brute force attacks target management ports to gain access to a VM. Since the ports don’t always need to be open, one mitigation strategy is to reduce exposure to the ports using just-in-time network access controls, network security groups, and virtual machine port management.<br>Since many IT do not block SSH communications outbound from their network, attackers can create encrypted tunnels that allow RDP ports on infected systems to communicate back to the attacker command to control servers. Attackers can use the Windows Remote Management subsystem to move laterally across your environment and use stolen credentials to access other resources on a network.*|- Just-In-Time network access control should be applied on virtual machines<br>- Virtual machines should be associated with a Network Security Group<br>- Management ports should be closed on your virtual machines|
@@ -106,6 +106,67 @@ The table below lists the security controls in Azure Security Center. For each c
 |**Enable auditing and logging** (max score **1**)|- Auditing on SQL server should be enabled<br>- Diagnostic logs in App Services should be enabled<br>- Diagnostic logs in Azure Data Lake Store should be enabled<br>- Diagnostic logs in Azure Stream Analytics should be enabled<br>- Diagnostic logs in Batch accounts should be enabled<br>- Diagnostic logs in Data Lake Analytics should be enabled<br>- Diagnostic logs in Event Hub should be enabled<br>- Diagnostic logs in IoT Hub should be enabled<br>- Diagnostic logs in Key Vault should be enabled<br>- Diagnostic logs in Logic Apps should be enabled<br>- Diagnostic logs in Search service should be enabled<br>- Diagnostic logs in Service Bus should be enabled<br>- Diagnostic logs in Virtual Machine Scale Sets should be enabled<br>- Metric alert rules should be configured on Batch accounts<br>- SQL Auditing settings should have Action-Groups configured to capture critical activities<br>- SQL servers should be configured with auditing retention days greater than 90 days.|
 |**Implement security best practices** (max score **0**)|- A maximum of 3 owners should be designated for your subscription<br>- External accounts with read permissions should be removed from your subscription<br>- MFA should be enabled on accounts with read permissions on your subscription<br>- Access to storage accounts with firewall and virtual network configurations should be restricted<br>- All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace<br>- An Azure Active Directory administrator should be provisioned for SQL servers<br>- Authorization rules on the Event Hub instance should be defined<br>- Storage accounts should be migrated to new Azure Resource Manager resources<br>- Virtual machines should be migrated to new Azure Resource Manager resources<br>- Advanced data security settings for SQL server should contain an email address to receive security alerts<br>- Advanced data security should be enabled on your managed instances<br>- All advanced threat protection types should be enabled in SQL managed instance advanced data security settings<br>- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings<br>- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings<br>- Subnets should be associated with a Network Security Group<br>- All advanced threat protection types should be enabled in SQL server advanced data security settings<br>- [Preview] Windows exploit guard should be enabled <br>- [Preview] Guest configuration agent should be installed|
 ||||
+
+
+
+
+
+
+
+
+
+
+
+<div class="foo">
+
+
+<table class="blueTable">
+<thead>
+<tr>
+<th>head1</th>
+<th>head2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell1_1</td>
+<td>cell2_1</td>
+</tr>
+<tr>
+<td>cell1_2</td>
+<td>cell2_2</td>
+</tr>
+<tr>
+<td>cell1_3</td>
+<td>cell2_3</td>
+</tr>
+<tr>
+<td>cell1_4</td>
+<td>cell2_4</td>
+</tr>
+<tr>
+<td>cell1_5</td>
+<td>cell2_5</td>
+</tr>
+<tr>
+<td>cell1_6</td>
+<td>cell2_6</td>
+</tr>
+<tr>
+<td>cell1_7</td>
+<td>cell2_7</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+
+
+
+
 
 ## Secure score FAQ
 
