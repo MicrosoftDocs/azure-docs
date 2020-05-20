@@ -17,9 +17,9 @@ ms.custom: Build2019
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to process large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep is a high-performance and high-throughput way to generate inferences and processing data. It provides parallelism capabilities out of the box.
+Learn how to run batch inference on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep is a high-performance and high-throughput way to generate inferences and processing data. It provides parallelism capabilities out of the box.
 
-With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data resulting in improved productivity and optimized cost.
+With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data with improved productivity and optimized cost.
 
 In this article, you learn the following tasks:
 
@@ -265,7 +265,7 @@ Now you have everything you need: the data inputs, the model, the output and you
 
 First, specify the dependencies for your script. This allows you to install pip packages as well as configure the environment. Please always include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages.
 
-If you use custom docker image, you should also have conda installed.
+If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
 
 ```python
 from azureml.core.environment import Environment
@@ -327,9 +327,9 @@ Create the ParallelRunStep by using the script, environment configuration, and p
 - `name`: The name of the step, with the following naming restrictions: unique, 3-32 characters, and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets to be partitioned for parallel processing.
-- `side_inputs`: One or more reference data or datasets used as side inputs. No need to be partitioned.
+- `side_inputs`: One or more reference data or datasets used as side inputs without need to be partitioned.
 - `output`: A `PipelineData` object that corresponds to the output directory.
-- `arguments`: A list of arguments passed to the user script (optional).
+- `arguments`: A list of arguments passed to the user script. Use unknown_args to retrieve them in your entry script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 
 ```python
