@@ -498,10 +498,10 @@
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
-      - name: Synapse Link FAQ
-        href: synapse-link-frequently-asked-questions.md
       - name: Synapse Link use cases
         href: synapse-link-use-cases.md
+      - name: Synapse Link FAQ
+        href: synapse-link-frequently-asked-questions.md
     - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
