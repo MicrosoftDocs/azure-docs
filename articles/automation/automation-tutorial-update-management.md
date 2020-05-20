@@ -117,7 +117,7 @@ Under **New update deployment**, specify the following information:
 
    For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications).
 
-* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
+* **Include/exclude updates** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
 
 > [!NOTE]
 > It's important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management installs no patches or packages, as they're all excluded. Excluded patches still show as missing from the machine. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
@@ -143,7 +143,7 @@ Under **New update deployment**, specify the following information:
   > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Reboot options**: Use to specify options for handling reboots. The following options are available:
-  * Reboot if necessary (default)
+  * Reboot if required (default)
   * Always reboot
   * Never reboot
   * Only reboot - doesn't install updates

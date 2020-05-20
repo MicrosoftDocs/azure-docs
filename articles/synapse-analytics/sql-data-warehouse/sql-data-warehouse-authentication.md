@@ -16,7 +16,7 @@ tag: azure-synapse
 
 # Authenticate to Azure Synapse Analytics
 
-Learn how to authenticate to SQL Analytics in Azure Synapse by using Azure Active Directory (AAD) or SQL Server authentication.
+Learn how to authenticate to Synapse SQL in Azure Synapse by using Azure Active Directory (AAD) or SQL Server authentication.
 
 To connect to a SQL pool, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
@@ -75,7 +75,7 @@ Currently Azure Active Directory users are not shown in SSDT Object Explorer. As
 
 ### Find the details
 
-* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and SQL Analytics in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and Synapse SQL in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Next steps

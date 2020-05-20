@@ -1,7 +1,7 @@
 ---
 title: Add full text search to Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Extract content and add structure to Azure blobs when building a full text search index in Azure Cognitive search.
+description: Extract content and add structure to Azure blobs when building a full text search index in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
