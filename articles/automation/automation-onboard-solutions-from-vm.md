@@ -44,9 +44,9 @@ Update Management uses a scope configuration within the workspace to target the 
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automaton-tutorial-update-management.md)
+* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
 * [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md)
-* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-from-update-management.md)
+* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md)
 * [Remove VMs from Update Management](automation-remove-vms-from-update-management.md)
 * [Troubleshoot Update Management issues](troubleshoot/update-management.md)
 * [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md)
