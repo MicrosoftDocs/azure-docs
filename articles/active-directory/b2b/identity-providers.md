@@ -43,7 +43,7 @@ Once you've added an identity provider to your Azure AD tenant:
 - When you enable [self-service sign-up](self-service-sign-up-overview.md) for your apps, external users can sign up for your apps using their own accounts with the identity providers you've added.
 
 > [!NOTE]
-> The default identity provider for self-service sign-up is Azure AD, so users always have the option of signing up using an Azure AD account.
+> Azure AD is enabled by default for self-service sign-up, so users always have the option of signing up using an Azure AD account.
 
 When redeeming your invitation or signing up for your app, the external user has the option to sign in and authenticate with the social identity provider:
 
