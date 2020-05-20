@@ -12,7 +12,7 @@ ms.date: 05/19/2020
 ---
 
 # Getting Started with Azure Synapse Analytics
-This tutorial guides your all the basic steps needed to use Azure Synapse Analytics.
+This tutorial guides you through all the basic steps needed to use Azure Synapse Analytics.
 
 ## Prepare a storage account for use with a Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com)
@@ -23,21 +23,29 @@ This tutorial guides your all the basic steps needed to use Azure Synapse Analyt
     * **Location** - you can pick any location but its recommended your Synapse workspace and ADLSGEN2 account are in the same region
 * Key settings in the **Advanced** tab
     * **Data Lake Storage Gen2** - set to `Enabled`. Azure Synapse only works with storage accounts where this setting is enabled.
-* Once the storage account is created, perform these steps:
-    * Ensure that you are assigned to the **Owner** role on the storage account
-    * Assign yourself to the **Azure Blob Storage Owner** role on the Storage Account
-    * Create a container. You can give it any name. In this document we will use the name 'users`
+* Once the storage account is created, perform these role assignments or ensure they are already assigned
+    * Assign yourself to the **Owner** role on the storage account
+    * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
+* Create a container. You can give it any name. In this document we will use the name 'users`
 * Click **Review + create**. Click **Create**. 
     
 ## Create a Synapse workspace
 * Open the [Azure Portal](https://portal.azure.com) and at the top search for `Synapse`.
-* In the search results, under **Services** click **Azure Synapse Analytics (workspaces preview)**
+* In the search results under **Services**, click **Azure Synapse Analytics (workspaces preview)**
 * Click **+ Add**
-Key settings in the **Basics** tab enter
+* Key settings in the **Basics** tab:
     * **Workspace name** - you can call it anything. In this document we will use `myworkspace`
-    * **Region** - match the region you chose for the storage account
+    * **Region** - match the region of the storage account
     * Under **Select Data Lake Storage Gen 2** select the account and container you prevpoiusly creates
+    * NOTE: The storage account chosen here will be referred to as the "primary" storage account of the Synapse workspace
 * Click **Review + create**. Click **Create**. Your workspace will be ready in a few minutes
+
+## Verify the Synapse workspace MSI has access to the storage account
+This may have already been done for you. In any case, you should verify.
+
+* Open the [Azure Portal](https://portal.azure.com) open the primary storage account chosen for your workpace
+* Ensure that the following assignment exists or create it if it doesn't
+    * Assign 'myworkspace' - it will always have the same name os the worksapce to the Storage Blob Data Contributor role on the storage account
 
 ## Launch Synapse Studio
 Once your Synapse workspace is created, you have two ways to open Synapse Studio:
