@@ -13,8 +13,16 @@ ms.service: azure-project-spool
 ---
 
 # Pricing
+Azure Communication Services consumption plan is billed based on per-minute of VOIP Calls and per GB for any Data Transfer on the Relays, regardless of which SDK is used to establish the call. If there is no activity on your service, there will be no charges. 
 
-TODO
+
+## VOIP 
+
+| | Consumption plan | Rate |  
+|-|:----------------:| :----------------:| 
+| Windows | Public Preview  |  TBD |
+| iOS |  Public Preview |  TBD |
+| Android | Public Preview | TBD |
 
 ### meta
 
