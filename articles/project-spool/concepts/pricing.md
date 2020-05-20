@@ -47,6 +47,8 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 
 ### meta
 
+- Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/en-us/pricing/details/functions/
+
 -  Customer intent statements: 
    - I want to know what the pricing model for ACS looks like.
 
