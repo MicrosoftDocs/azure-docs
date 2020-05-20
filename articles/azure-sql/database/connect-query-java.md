@@ -13,6 +13,7 @@ ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
 ---
 # Quickstart: Use Java to query a Microsoft Azure SQL database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you use Java to connect to an Azure SQL database and use T-SQL statements to query data.
 

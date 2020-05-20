@@ -14,6 +14,7 @@ ms.date: 10/10/2019
 
 ---
 # Report across scaled-out cloud databases (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can create reports from multiple databases from a single connection point using an [elastic query](elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 

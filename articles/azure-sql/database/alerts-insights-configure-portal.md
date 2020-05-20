@@ -14,6 +14,7 @@ ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Database and Azure Synapse using Azure portal
 
+
 ## Overview
 
 This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.

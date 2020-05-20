@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Python to query a Microsoft Azure SQL database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
 

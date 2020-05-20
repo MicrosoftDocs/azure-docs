@@ -13,6 +13,7 @@ ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
 # Connect to Azure SQL Database with Azure Multi-Factor Authentication
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 

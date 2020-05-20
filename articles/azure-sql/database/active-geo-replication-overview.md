@@ -14,6 +14,7 @@ ms.date: 04/28/2020
 ---
 
 # Creating and using active geo-replication - Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
 

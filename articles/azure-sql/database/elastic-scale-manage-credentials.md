@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/03/2019
 ---
 # Credentials used to access the Elastic Database client library
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The [Elastic Database client library](elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
 

@@ -13,6 +13,7 @@ ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes the authentication requirements to configure and control [active geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md). It also provides the steps required to set up user access to the secondary database. Finally, it also describes how to enable access to the recovered database after using [geo-restore](recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 

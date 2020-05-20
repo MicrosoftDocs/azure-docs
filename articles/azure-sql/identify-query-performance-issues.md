@@ -14,6 +14,7 @@ ms.date: 03/10/2020
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 When trying to resolve a performance bottleneck, start by determining whether the bottleneck is occurring while the query is in a running state or a waiting state. Different resolutions apply depending upon this determination. Use the following diagram to help understand the factors that can cause either a running-related problem or a waiting-related problem. Problems and resolutions relating to each type of problem are discussed in this article.
 
