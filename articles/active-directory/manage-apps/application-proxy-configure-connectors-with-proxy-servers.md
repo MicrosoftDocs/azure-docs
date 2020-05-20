@@ -159,7 +159,7 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
 
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 

@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
+        - name: Pronunciation assessment with reference input
+          href: rest-speech-to-text.md#pronunciation-assessment-parameters
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
