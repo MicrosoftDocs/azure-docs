@@ -154,7 +154,7 @@ Next, you add configuration settings that the build process uses to build your a
 
    ```yml
    - uses: actions/checkout@v2
-        with:
+     with:
           submodules: true
 
    - name: Setup Hugo
