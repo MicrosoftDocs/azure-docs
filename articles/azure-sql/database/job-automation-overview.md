@@ -12,6 +12,7 @@ ms.reviewer: carlr
 ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 You can create and schedule jobs that could be periodically executed against one or many databases to run T-SQL queries and perform maintenance tasks.
 

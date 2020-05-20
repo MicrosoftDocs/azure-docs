@@ -14,6 +14,7 @@ ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 This article provides a PowerShell script that demonstrates how you can manage a DNS alias for the [SQL server](logical-servers.md) hosting your Azure SQL Database.
 

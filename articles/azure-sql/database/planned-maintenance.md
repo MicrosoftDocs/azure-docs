@@ -14,6 +14,7 @@ ms.date: 01/30/2019
 ---
 
 # Planning for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Learn how to prepare for planned maintenance events on your database in Azure SQL Database and Azure SQL Managed Instance.
 

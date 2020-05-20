@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/03/2020
 ---
 # Azure SQL Database Hyperscale FAQ
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, referred to as just Hyperscale in the remainder of this FAQ. This article describes the scenarios that Hyperscale supports and the features that are compatible with Hyperscale.
 
