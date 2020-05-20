@@ -203,13 +203,13 @@ To resume protection for an SAP HANA database:
 
 * On the **Backup policy** menu, select a policy, and then select **Save**.
 
-### Upgrading from SAP HANA 1.0 to 2.0
+### Upgrading from SDC to MDC
 
-Learn how to continue backup for an SAP HANA database [after upgrading from SAP HANA 1.0 to 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
+Learn how to continue backup for an SAP HANA database [after upgrading from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
-### Upgrading without a SID change
+### Upgrading from SDC to MDC without a SID change
 
-Learn how to continue backup of an SAP HANA database whose [SID has not changed after upgrade](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
+Learn how to continue backup of an SAP HANA database whose [SID has not changed after upgrade from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### Unregister an SAP HANA instance
 
