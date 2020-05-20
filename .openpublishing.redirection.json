@@ -52275,9 +52275,9 @@
       "redirect_document_id": true
     },
     {
-    "source_path":"articles/azure-monitor/app/alerts.md",
-    "redirect_url":"/azure/azure-monitor/platform/alerts-log",
-    "redirect_document_id": false 		
+      "source_path":"articles/azure-monitor/app/alerts.md",
+      "redirect_url":"/azure/azure-monitor/platform/alerts-log",
+      "redirect_document_id": false 		
     }
   ]
 }
