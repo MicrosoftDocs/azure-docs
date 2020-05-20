@@ -4,9 +4,11 @@ description: Azure security baseline for Azure ExpressRoute
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
+
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
@@ -201,7 +203,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22025).
 
-**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resourcess at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
+**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
 
 While metrics are available by enabling Diagnostic Settings, audit logging at the data plane is [not yet available] for ExpressRoute.
 
@@ -588,7 +590,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 * [Leverage RBAC in the ExpressRoute Partner Resource Manager API](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
-* [Understand administraiton roles in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
+* [Understand administration roles in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 
 **Azure Security Center monitoring**: Not applicable
 
