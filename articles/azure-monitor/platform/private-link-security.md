@@ -16,11 +16,11 @@ ms.subservice:
 
 With Private Link you can:
 
-- Connect to Azure Monitor without opening up any public network access
-- Keep all traffic inside the Microsoft Network
-- Restrict access to your monitoring data to only authorized private links
-- Stop data exfiltration from your networks by only authorizing access to specific resources, and block access to all destinations
+- Connect privately to Azure Monitor without opening up any public network access
+- Ensure your monitoring data is only accessed through authorized private networks
+- Prevent data exfiltration from your private networks by defining specific Azure Monitor resources connect thru your private endpoint
 - Securely connect your private on-premises network to Azure Monitor using ExpressRoute and Private Link
+- Keep all traffic inside the Microsoft Azure backbone network
 
 For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits)
 
@@ -52,7 +52,10 @@ If the answer to any of these questions is yes, set the restrictions as explaine
 Remember – you can connect the same workspaces or application to multiple AMPLS, to allow them to be reached by different networks.
 
 ### Group together Monitoring resources by network accessibility
-Since each VNet can connect to only one AMPLS resource, you must group together monitoring resources that should be accessible to the same networks. The simplest way to manage this is to create one AMPLS per VNet, and select the resources to connect to that network. However, to reduce resources and improve manageability, you may want to reuse an AMPLS across network. For example, if your internal virtual networks VNet1 and VNet2 should connect to workspaces Workspace1 and Workspace2 and Application Insights component Application Insights 3, associate all three resources to the same AMPLS. If VNet3 should only access Workspace1, create another AMPLS resource, associate Workspace1 to it and connect VNet3 as shown in the following diagrams:
+
+Since each VNet can connect to only one AMPLS resource, you must group together monitoring resources that should be accessible to the same networks. The simplest way to manage this is to create one AMPLS per VNet, and select the resources to connect to that network. However, to reduce resources and improve manageability, you may want to reuse an AMPLS across network. 
+
+For example, if your internal virtual networks VNet1 and VNet2 should connect to workspaces Workspace1 and Workspace2 and Application Insights component Application Insights 3, associate all three resources to the same AMPLS. If VNet3 should only access Workspace1, create another AMPLS resource, associate Workspace1 to it, and connect VNet3 as shown in the following diagrams:
 
 ![Diagram of AMPLS A topology](./media/private-link-security/1a-ampls-topology-a.png)
 
