@@ -42,7 +42,7 @@ In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Lock the area search box to prevent further movement and show the scene within it. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Click **Stop Search** to stop tracking and all detected instances will be removed.
+Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you should see a red bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect. Do a **facepalm** gesture to open the menu. Click **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Click **Stop Search** to stop tracking and all detected instances will be removed.
 
 You can also do other actions using the hand menu:
 
