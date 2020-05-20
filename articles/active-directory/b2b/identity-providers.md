@@ -35,12 +35,15 @@ However, you can enable users to sign in with various identity providers.
 
 ## How it works
 
-The Azure AD External identities feature is pre-configured for federation with Google and Facebook. To set up these identity providers in your Azure AD tenant, you'll create an application at each identity provider and configure credentials. You'll obtain a client or app ID and a client or app secret, which you can then add to your Azure AD tenant.
+The Azure AD External Identities self-service sign up feature allows users to sign up with their Azure AD, Google, or Facebook account. To set up social identity providers in your Azure AD tenant, you'll create an application at each identity provider and configure credentials. You'll obtain a client or app ID and a client or app secret, which you can then add to your Azure AD tenant.
 
 Once you've added an identity provider to your Azure AD tenant:
 
 - When you invite an external user to apps or resources in your organization, the external user can sign in using their own account with that identity provider.
 - When you enable [self-service sign-up](self-service-sign-up-overview.md) for your apps, external users can sign up for your apps using their own accounts with the identity providers you've added.
+
+> [!NOTE]
+> The default identity provider for self-service sign-up is Azure AD, so users always have the option of signing up using an Azure AD account.
 
 When redeeming your invitation or signing up for your app, the external user has the option to sign in and authenticate with the social identity provider:
 

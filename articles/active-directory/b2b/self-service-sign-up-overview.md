@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 | Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-When sharing an application with external users, you might not always know in advance who will need access to the application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options for Azure AD or social identity providers and collect information about the user. 
+When sharing an application with external users, you might not always know in advance who will need access to the application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options to sign up with Azure AD or social identity providers and collect information about the user during the sign-up process.
 
 > [!NOTE]
 > You can associate user flows with apps built by your organization. User flows can't be used for Microsoft apps, like SharePoint or Teams.
@@ -48,7 +48,7 @@ They use the email of their choice to sign up.
 
 ![Example showing selection of Facebook for sign-in](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-Azure AD creates a relationship with Woodgrove using the partner's Facebook account, and creates a new account. 
+Azure AD creates a relationship with Woodgrove using the partner's Facebook account, and creates a new guest account for the user after they sign up.
 
 Woodgrove wants to know more about the user, like name, business name, business registration code, phone number.
 
