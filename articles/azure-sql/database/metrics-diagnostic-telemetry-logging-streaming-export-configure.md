@@ -13,7 +13,8 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
 ---
 
-# Configure streaming export of Azure SQL Database and Azure SQL Managed Instance diagnostic telemetry
+# Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 In this article, you will learn about the performance metrics and resource logs for Azure SQL Database that you can export to one of several destinations for analysis. You will learn how to configure the streaming export of this diagnostic telemetry through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager templates.
 

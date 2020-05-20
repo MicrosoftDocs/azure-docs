@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database?
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The single database resource type creates a database in Azure SQL Database with its own set of resources and is managed via a [server](logical-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](service-tiers-dtu.md) or [vCore-based purchasing model](service-tiers-vcore.md) and a guaranteed compute size.
 

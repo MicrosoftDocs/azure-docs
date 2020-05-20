@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 08/20/2019
 ---
 # What is SQL Data Sync for Azure?
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud. 
 

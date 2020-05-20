@@ -13,7 +13,8 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
 ---
-# Save costs for resources with reserved capacity - Azure SQL Database & SQL Managed Instance 
+# Save costs for resources with reserved capacity - Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Save money with Azure SQL Database and SQL Managed Instance by committing to a reservation for compute resources compared to pay-as-you-go prices. With reserved capacity, you make a commitment for SQL Database and/or SQL Managed Instance use for a period of one or three years to get a significant discount on the compute costs. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 

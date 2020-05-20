@@ -1,2 +1,2 @@
-<Token>**APPLIES TO:** ![yes](../media/applies-to/yes.png))Azure SQL Database ![yes](../media/applies-to/yes.png)Azure SQL Managed Instance (Preview) ![yes](../media/applies-to/yes.png) Azure Synapse Analytics</Token>
+<Token>**APPLIES TO:** ![yes](../media/applies-to/yes.png)Azure SQL Database ![yes](../media/applies-to/yes.png)Azure SQL Managed Instance (Preview) ![yes](../media/applies-to/yes.png) Azure Synapse Analytics</Token>
 

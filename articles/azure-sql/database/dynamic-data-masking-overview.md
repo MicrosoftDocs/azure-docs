@@ -14,6 +14,7 @@ ms.date: 04/28/2020
 tags: azure-synpase
 ---
 # Dynamic data masking 
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support dynamic data masking. Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 

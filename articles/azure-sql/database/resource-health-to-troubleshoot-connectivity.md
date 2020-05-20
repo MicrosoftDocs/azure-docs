@@ -13,6 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database and Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 ## Overview
 

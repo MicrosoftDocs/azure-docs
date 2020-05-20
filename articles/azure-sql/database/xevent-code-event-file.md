@@ -13,6 +13,7 @@ ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ---
 # Event File target code for extended events in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 

@@ -12,7 +12,8 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ---
-# Extended events in Azure SQL Database
+# Extended events in Azure SQL Database 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
