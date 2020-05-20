@@ -44,7 +44,7 @@ To configure user consent settings through the Azure portal:
 1. Under **User consent for applications**, select which consent setting you'd like to configure for all users.
 1. Select **Save** to save your settings.
 
-![User consent settings](./media/configure-user-consent/configure-consent-setting-for-all-users.png)
+![User consent settings](./media/configure-user-consent/setting-for-all-users.png)
 
 > [!TIP]
 > Consider [enabling the admin consent workflow](configure-admin-consent-workflow.md) to allow users to request an administrator's review and approval of an application that the user is not allowed to consent to--for example, when user consent has been disabled or when an application is requesting permissions that the user is not allowed to grant.
@@ -97,7 +97,7 @@ Permission classifications allow you to identify the impact that different permi
 
 In this example, we've classified the minimum set of permission required for single sign-on:
 
-![Permission classifications](./media/configure-user-consent/configure-permission-classifications.png)
+![Permission classifications](./media/configure-user-consent/permission-classifications.png)
 
 > [!TIP]
 > For the Microsoft Graph API, the minimum permissions needed to do basic single sign on are `openid`, `profile`, `User.Read` and `offline_access`. With these permissions an app can read the profile details of the signed-in user and can maintain this access even when the user is no longer using the app.
@@ -187,7 +187,7 @@ You can configure which users are allowed to consent to apps accessing their gro
 
 In this example, all group owners are allowed to consent to apps accessing their groups' data:
 
-![Permission classifications](./media/configure-user-consent/configure-group-owner-consent.png)
+![Permission classifications](./media/configure-user-consent/group-owner-consent.png)
 
 ### Configure group owner consent using PowerShell
 
