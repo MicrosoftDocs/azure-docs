@@ -61,7 +61,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
    For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. In **Additional Settings**, under **Use existing data**, choose **Sample** so that AdventureWorksDW will be created as the sample database.
+5. Select **Additional Settings**, under **Use existing data**, choose **Sample** so that AdventureWorksDW will be created as the sample database.
 
     ![select Use existing data](./media/create-data-warehouse-portal/create-sql-pool-additional.png) 
 
