@@ -2,7 +2,7 @@
 title: Use the Shared Image Gallery to create a custom pool
 description: Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 
 # Use the Shared Image Gallery to create a custom pool
@@ -48,7 +48,7 @@ In Azure, you can prepare a managed image from:
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports generalized custom images. You can't create a custom image from a specialized image at this time.
+> Currently, Batch only supports managed images. You can't create a custom image pool from a specialized image at this time.
 
 To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot.
 

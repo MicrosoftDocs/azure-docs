@@ -2,7 +2,7 @@
 title: Provision a custom pool from a managed image
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 
 # Use a managed image to create a pool of virtual machines
@@ -54,14 +54,14 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 ## Create a pool from a custom image
 
-Once you have saved your custom image and you know its resource ID or name, create a Batch pool from that image. The following steps show you how to create a pool from a Shared Image using the C# SDK.
+Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
 
 > [!NOTE]
 > Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
 > The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
 
-### C#
+### Batch Service .NET SDK
 
 ```csharp
 private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
@@ -91,7 +91,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     }
 ```
 
-### REST API
+### Batch Management REST API
 
 REST API URI
 
