@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 
@@ -37,145 +37,15 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 ## Azure Cosmos account with analytical store
 
-This template creates an Azure Cosmos account in one region with a container with Analytical TTL enabled and options for manual or autoscale throughput.
+This template creates an Azure Cosmos account in one region with a container with Analytical TTL enabled and options for manual or autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-       "accountName": {
-          "type": "string",
-          "defaultValue": "",
-          "metadata": {
-             "description": "Cosmos DB account name"
-          }
-       },
-       "location": {
-          "type": "string",
-          "defaultValue": "",
-          "metadata": {
-             "description": "Location for the Cosmos DB account."
-          }
-       },
-        "databaseName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The name for the database"
-            }
-        },
-        "containerName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "The name for the container"
-            }
-        },
-        "partitionKeyPath": {
-            "type": "string",
-            "defaultValue": "/partitionKey",
-            "metadata": {
-                "description": "The partition key for the container"
-            }
-        },
-        "throughputPolicy":{
-            "type": "string",
-            "defaultValue": "Autoscale",
-            "allowedValues": [ "Manual", "Autoscale" ],
-            "metadata": {
-                "description": "The throughput policy for the container"
-            }
-        },
-        "manualProvisionedThroughput": {
-            "type": "int",
-            "defaultValue": 400,
-            "minValue": 400,
-            "maxValue": 1000000,
-            "metadata": {
-                "description": "Throughput value when using Manual Throughput Policy for the container"
-            }
-        },
-        "maxAutoscaleThroughput": {
-            "type": "int",
-            "defaultValue": 4000,
-            "minValue": 4000,
-            "maxValue": 1000000,
-            "metadata": {
-                "description": "Maximum throughput when using Autoscale Throughput Policy for the container"
-            }
-        }
-    },
-    "variables": {
-        "accountName": "[toLower(parameters('accountName'))]",
-        "locations": 
-        [ 
-            {
-                "locationName": "[parameters('location')]",
-                "failoverPriority": 0,
-                "isZoneRedundant": false
-            }
-        ],
-        "throughputPolicy": {
-            "Manual": {
-                "Throughput": "[parameters('manualProvisionedThroughput')]"
-            },
-            "Autoscale": {
-                "ProvisionedThroughputSettings": "[concat('{\"maxThroughput\":\"', parameters('maxAutoscaleThroughput'), '\"}')]"
-            }            
-        },
-        "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
-    },
-    "resources": 
-    [
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts",
-            "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "consistencyPolicy": {"defaultConsistencyLevel": "Session"},
-                "databaseAccountOfferType": "Standard",
-                "locations": "[variables('locations')]",
-                "enableAnalyticalStorage": true
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
-            "properties":{
-                "resource":{
-                    "id": "[parameters('databaseName')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
-            "properties":
-            {
-                "resource":{
-                    "id":  "[parameters('containerName')]",
-                    "partitionKey": {
-                        "paths": [ "[parameters('partitionKeyPath')]" ],
-                        "kind": "Hash"
-                    },
-                    "analyticalStorageTtl": -1
-                },
-                "options": "[variables('throughputPolicyToUse')]"
-            }
-        }
-    ]
-}
-```
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-analytical-store%2Fazuredeploy.json)
+
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-analytical-store/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account with standard (manual) throughput
+## Azure Cosmos account with standard provisioned throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for standard throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
