@@ -647,3 +647,7 @@ For more information, see [appRoleAssignment](https://docs.microsoft.com/graph/a
 Use the following URL to get the Azure AD SAML metadata for the specific configured application. The metadata contains information such as the signing certificate, Azure AD entityID, and Azure AD SingleSignOnService, among others.
 
 https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}
+
+## Next steps
+- [Use Microsoft Graph APIs to configure user provisioning](../app-provisioning/application-provisioning-configure-api.md)
+- [Use the AD FS application activity report to migrate applications to Azure AD](migrate-adfs-application-activity.md)
