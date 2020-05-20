@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 In this article you can find a content reference to various guides, scripts, and explanations that help you manage and configure your Azure SQL Managed Instance.
 
