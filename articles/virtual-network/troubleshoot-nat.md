@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ms.author: allensu
 ---
 
@@ -177,6 +177,14 @@ _**Solution:**_
 _**Solution:**_ Deploy NAT gateway on a subnet without IPv6 prefix.
 
 You can indicate interest in additional capabilities through [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+
+### Connection doesn't originate from NAT gateway IP(s)
+
+NAT gateway is deployed, completely configured, subnet is configured with NAT gateway resource, but connections from virtual machine instances that existed before the NAT gateway was deployed, do not use the IP address(es) associated with the NAT gateway.
+
+_**Solution:**_
+
+[Virtual Network NAT](nat-overview.md) replaces the outbound connectivity for the subnet it is configured on. When transitioning from default SNAT or load balancer outbound SNAT to using NAT gateways, new connections will immediately begin using the IP address(es) associated with the NAT gateway resource.  However, if a virtual machine still has an established connection during the switch to NAT gateway resources, the connection will continue using the old SNAT IP address that was assigned when the connection was established.  Make sure you are really establishing a new connection rather than reusing a connection that already existed because the OS or the browser was caching the connections in a connection pool.  For example, when using _curl_ in PowerShell, make sure to specify the _-DisableKeepalive_ parameter to force a new connection to be reused.
 
 ## Next steps
 
