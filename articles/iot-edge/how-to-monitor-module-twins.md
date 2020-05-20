@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -12,13 +12,13 @@ services: iot-edge
 ---
 # Monitor module twins
 
-The module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. This information is maintained in desired and reported property sets in the module twin's JSON structure.
+Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. This information is maintained in desired and reported property sets in the module twin's JSON structure.
 
-The IoT Edge agent updates the [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) module twins with health and connectivity data about the runtime, your custom modules, and any downstream IoT devices.
+The IoT Edge agent updates the [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) module twin with health and connectivity data about the runtime, your custom modules, and any downstream IoT devices. The IoT Edge hub updates the [IoT Edge agent](iot-edge-runtime.md#iot-edge-hub) module twin with data about communications between the IoT Edge hub running on a device and Azure IoT Hub.
 
-The module twin for your custom modules is for data as needed to your solution. Your solution is responsible for updating desired and reported properties in its module twin.
+The module twin for your custom modules is for data as needed for your solution. Your solution is responsible for updating desired and reported properties in its module twin.
 
-This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For an overview on the concept of module twins, see (how-to-monitor-iot-edge-deployments.md) and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For an overview on the concept of module twins, and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 ## Monitor runtime module twins
 
@@ -77,7 +77,7 @@ The JSON can be described in the following sections, starting from the top:
 
 * Version - The version of the edgeAgent runtime module.
 * Properties - Contains the `desired` and `reported` subsections.
-* Properties. Desired - (shown collapsed) Expected property values set by the IoT Edge runtime or by a custom module.
+* Properties.Desired - (shown collapsed) Expected property values set by the IoT Edge runtime.
 * Properties.Reported - Latest property values reported by IoT Hub.
 
 Both the `properties.desired` and `properties.reported` sections have a similar structure and contain additional metadata for schema, version, and runtime information. Also included is the `modules` section for any custom modules (such as `SimulatedTemperatureSensor`), and the `systemModules` section for `$edgeAgent` and the `$edgeHub` runtime modules.
@@ -143,8 +143,7 @@ The following JSON shows the `$edgeHub` module twin in Visual Studio code with m
     "$metadata": { ··· },
     "$version": 97
   }
-}
-
+  }
 ```
 
 The JSON can be described in the following sections, starting from the top:
@@ -153,16 +152,16 @@ The JSON can be described in the following sections, starting from the top:
 
 * Version - The version of the edgeHub runtime module.
 * Properties - Contains the `desired` and `reported` subsections.
-* Properties. Desired - (shown collapsed) Expected property values set by the IoT Edge runtime or by a custom module.
+* Properties.Desired - (shown collapsed) Expected property values set by the IoT Edge hub.
 * Properties.Reported - Latest property values reported by IoT Hub.
 
 If you're experiencing issues with your downstream devices, examining this data would be a good place to start.
 
 ## Monitor custom module twins
 
-The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for the maintaining data for your solution. The desired properties you defined in your deployment.template.json file are reflected in the module twin, and your module can update desired and reported property values as needed.
+The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for the maintaining data for your solution. The desired properties you defined in your deployment.template.json file are reflected in the module twin, and your module can update reported property values as needed.
 
-Use the Azure .NET SDK to update reported property values in the module twin based on your module's application code.
+You can use the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to update reported property values in the module twin based on your module's application code.
 
 1. Create an instance of the [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 
@@ -171,8 +170,6 @@ Use the Azure .NET SDK to update reported property values in the module twin bas
 1. Create a listener (passing a callback) to catch changes to desired properties with the [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) method.
 
 1. In your callback method, update the reported properties in the module twin with the [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) method, passing a [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) of the property values that you want to set.
-
-The tutorial [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md#edit-the-module-twin) contains an example of programmatically updating the module twin.
 
 ## Access the module twins
 
