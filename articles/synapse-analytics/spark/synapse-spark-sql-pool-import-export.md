@@ -145,13 +145,13 @@ Assume you have a dataframe "pyspark_df" that you want to write into the DW.
 
 Create a temp table using the dataframe in PySpark:
 
-```Python
+```python
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
 Run a Scala cell in the PySpark notebook using magics:
 
-```Scala
+```scala
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
