@@ -84,7 +84,7 @@ In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **O
 
 There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
 
-Note that **OUAutoSearchArea** works with a single object model, while **OUSampleScene** supports multiple.
+The **OUAutoSearchArea** scene works with a single object model.  The **OUSampleScene** supports multiple object models.
 
 ## Next steps
 
