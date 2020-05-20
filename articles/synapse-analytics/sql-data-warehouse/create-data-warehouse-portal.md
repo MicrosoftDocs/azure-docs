@@ -63,6 +63,8 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
 5. In **Additional Settings**, under **Use existing data**, choose **Sample** so that AdventureWorksDW will be created as the sample database.
 
+    ![select Use existing data](./media/create-data-warehouse-portal/create-sql-pool-additional.png) 
+
 6. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
 
    ![select Review + Create](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
