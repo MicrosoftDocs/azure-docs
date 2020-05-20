@@ -61,7 +61,7 @@ Here’s the problematic policy:
 1. On the repair VM, open the Registry Editor.
 2. Locate the key **HKEY_LOCAL_MACHINE** and select **File** > **Load Hive...** from the menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Screenshot shows highlighted HKEY_LOCAL_MACHINE and the menu containing “Load Hive…".":::
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Screenshot shows highlighted HKEY_LOCAL_MACHINE and the menu containing Load Hive.":::
 
     - Load Hive allows you to load registry keys from an offline system, in this case the broken disk attached to the repair VM.
     - System-wide settings are stored on `HKEY_LOCAL_MACHINE` and can be abbreviated as “HKLM”.
