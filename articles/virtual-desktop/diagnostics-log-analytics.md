@@ -113,6 +113,9 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
+>[!NOTE]
+>The [Azure Monitor data refence](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/) includes details on all tables stored in Azure Monitor Logs. Filter the TOC for WVD to find all tables related to Windows Virtual Desktop.
+
 ## Cadence for sending diagnostic events
 
 Diagnostic events are sent to Log Analytics when completed.
@@ -233,6 +236,27 @@ WVDErrors
 | render barchart 
 ```
 
+To find the occurrence of an error across all users:
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+To query applications users have have started from the published list of apps we leverage the WVDCheckpoints table. While connections will show you applications name too it will show you only the first app started for a connection but not subsequent app starts for the same connection. When publishing desktops to your users the service doesn't provide information on which apps are started in the session.
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
 >The most important table for troubleshooting is WVDErrors. Use this query to understand which issues occur for user activities like connections or feeds when a user subscribes to the list of apps or desktops. The table will show you management errors as well as host registration issues.
 >
