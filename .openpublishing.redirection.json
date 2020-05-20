@@ -52274,10 +52274,10 @@
       "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
       "redirect_document_id": true
     },
-	 {
-	  	"source_path":"articles/azure-monitor/app/alerts.md",
+	  {
+	    "source_path":"articles/azure-monitor/app/alerts.md",
 		  "redirect_url":"/azure/azure-monitor/platform/alerts-log",
 		  "redirect_document_id": false 		
 	  }
- ]
+  ]
 }
