@@ -25,7 +25,7 @@ The token ring is distributed into token ranges, and these ranges are divided am
 
 All tables in Cassandra API must have a primary key defined. Suppose we want to create a user table, which stores messages for different users:
 
-```bash
+```shell
 CREATE TABLE uprofile.user ( 
    id UUID PRIMARY KEY, 
    message text);
@@ -40,7 +40,7 @@ The primary key functions as the identifier for the record in the table, but is 
 
 Apache Cassandra also has a concept of compound keys, which is the combination of a primary key and a "clustering key". We might want to improve on the above design by making it possible to get all the messages for a given user, for example:
 
-```bash
+```shell
 CREATE TABLE uprofile.user (
    user text,  
    id int, 
@@ -50,7 +50,7 @@ CREATE TABLE uprofile.user (
 
 A compound primary key consists of more than one column; the first column is the partition key, and any additional columns are the clustering keys. In the above, the column "id" serves as a single clustering key, but you can define as many clustering keys as you wish. The clustering key(s) values must be unique in order to result in  different records being added to the logical partition, for example:
 
-```bash
+```shell
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
 insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 ```
@@ -64,7 +64,7 @@ With data modeled in this way, we can issue a query that is efficiently routed b
 
 Composite partition keys work in essentially the same way as compound keys, except that you are able to specify separate columns as a composite partition key, for example:
 
-```bash
+```shell
 CREATE TABLE uprofile.user ( 
    firstname text, 
    lastname text,
