@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database: Manage long-term backup retention"
-description: "Learn how to store and restore automated backups for an Azure SQL Database single or pooled database in Azure Blob storage (for up to 10 years) using the Azure portal and PowerShell"
+description: "Learn how to store and restore automated backups for an Azure SQL Database single or pooled database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -56,7 +56,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 
    ![restore](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Click **OK** to restore your database from the backup in Azure Blob storage to the new database.
+1. Click **OK** to restore your database from the backup in Azure storage to the new database.
 
 1. On the toolbar, click the notification icon to view the status of the restore job.
 
@@ -74,7 +74,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure Blob storage, and restore from a backup in Azure Blob storage.
+The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure storage, and restore from a backup in Azure storage.
 
 ### RBAC roles to manage long-term retention
 

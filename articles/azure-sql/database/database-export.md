@@ -1,5 +1,5 @@
 ---
-title: Export an Azure SQL Database a BACPAC file (the Azure portal)
+title: Export an Azure SQL Database to a BACPAC file (the Azure portal)
 titleSuffix: Azure SQL Database and SQL Managed Instance
 description: Export an Azure SQL database to a BACPAC file using the Azure portal.
 services: sql-database
@@ -12,7 +12,7 @@ ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.topic: conceptual
 ---
-# Export to a BACPAC file - Azure SQL Database & SQL Managed Instance
+# Export to a BACPAC file - Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
@@ -33,7 +33,7 @@ When you need to export a database for archiving or for moving to another platfo
 > [!NOTE]
 > BACPACs are not intended to be used for backup and restore operations. Azure automatically creates backups for every user database. For details, see [business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md) and [SQL Database backups](automated-backups-overview.md).
 
-## Azure portal
+## The Azure portal
 
 Exporting a BACPAC of a database from [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) using the Azure portal is not currently supported. Use SQL Server Management Studio or SQLPackage instead.
 
