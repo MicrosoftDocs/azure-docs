@@ -118,6 +118,14 @@ conceptualContent:
       footerLink:
         text: More
         url: index-voice-assistants.yml
+    - title: Speaker Recognition
+      links:
+        - itemType: how-to-guide
+          text: About Speaker Recognition
+          url: ../Speaker-recognition/Home.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
     - title: Tools
       links:
         - itemType: overview
