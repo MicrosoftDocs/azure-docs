@@ -57,6 +57,8 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Request increase for CPU core quota
+      href: ./quota-increase-request.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
