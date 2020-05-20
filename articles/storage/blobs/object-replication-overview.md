@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -141,6 +141,10 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ```
 
 ---
+
+## Ask questions or provide feedback
+
+To ask questions about the object replication preview, or to provide feedback, contact Microsoft at AzureStorageFeedback@microsoft.com. Ideas and suggestions about Azure Storage are always welcomed at the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
 
 ## Next steps
 
