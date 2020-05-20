@@ -60,5 +60,5 @@ To complete this quickstart, you need:
 
 For more information, see:
 
-- [Location as a condition in Conditional Access](../conditional-access/concept-conditional-access-conditions#locations.md).
+- [Location as a condition in Conditional Access](../conditional-access/concept-conditional-access-conditions.md#locations).
 - [Risky sign-ins report](concept-risky-sign-ins.md).  
