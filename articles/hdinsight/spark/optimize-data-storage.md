@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 # Data storage optimization
 
-This article discusses strategies to optimize data storage for efficient Apache Spark job execution.
+This article discusses strategies to optimize data storage for efficient Apache Spark job execution on Azure HDInsight.
 
-## Use optimal data format
+## Overview
 
 Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Apache Spark packages](https://spark-packages.org).
 

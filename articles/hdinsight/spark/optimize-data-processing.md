@@ -7,9 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 # Data processing optimization
+
+This article discusses how to optimize the configuration of your Apache Spark cluster for best performance on Azure HDInsight.
+
+## Overview
 
 If you have slow jobs on a Join or Shuffle, the cause is probably *data skew*. Data skew  is asymmetry in your job data. For example, a map job may take 20 seconds. But running a job where the data is joined or shuffled takes hours. To fix data skew, you should salt the entire key, or use an *isolated salt* for  only some subset of keys. If you're using an isolated salt, you should further filter to isolate your subset of salted keys in map joins. Another option is to introduce a bucket column and pre-aggregate in buckets first.
 

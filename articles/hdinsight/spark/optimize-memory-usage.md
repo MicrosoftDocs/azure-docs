@@ -7,9 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 # Memory usage optimization
+
+This article discusses how to optimize memory management of your Apache Spark cluster for best performance on Azure HDInsight.
+
+## Overview
 
 Spark operates by placing data in memory. So managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 

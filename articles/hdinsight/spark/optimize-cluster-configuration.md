@@ -7,11 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seomay2020
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ---
 # Cluster configuration optimization
 
-Depending on your Spark cluster workload, you may determine  a non-default Spark configuration would result in more optimized Spark job execution.  Do benchmark testing with sample workloads to validate any non-default cluster configurations.
+This article discusses how to optimize the configuration of your Apache Spark cluster for best performance on Azure HDInsight.
+
+## Overview
+
+Depending on your Spark cluster workload, you may determine that a non-default Spark configuration would result in more optimized Spark job execution.  Do benchmark testing with sample workloads to validate any non-default cluster configurations.
 
 Here are some common parameters you can adjust:
 
