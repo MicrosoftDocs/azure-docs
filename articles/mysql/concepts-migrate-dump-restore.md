@@ -126,7 +126,7 @@ Importing your database is similar to exporting. Do the following actions:
 6. Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Known Issues
-For Known issues, tips and tricks, we recommend you to look at our [techcommunity blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/tips-and-tricks-in-using-mysqldump-and-mysql-restore-to-azure/ba-p/916912).
+For known issues, tips and tricks, we recommend you to look at our [techcommunity blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/tips-and-tricks-in-using-mysqldump-and-mysql-restore-to-azure/ba-p/916912).
 
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
