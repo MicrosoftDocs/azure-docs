@@ -28,7 +28,6 @@ Media Services on IoT Edge exposes the following module twin properties.
 |aadResourceId |No |No |Cloud specific Azure AD audience/resource ID <br/>Default: `https://management.core.windows.net/` |
 |armEndpoint |No |No |Cloud specific Azure Resource Manage endpoint. <br/>Default: `https://management.azure.com/` |
 |diagnosticsLevel |No |Yes |Events verbosity: <br/>Information &#x02758; Warning &#x02758; Error &#x02758; Critical &#x02758; None |
-|diagnosticsMetricsOutputName |No |Yes |Hub output for metrics.<br/>(Empty means metrics are not published)|
 |diagnosticsEventsOutputName |No |Yes |Hub output for diagnostics events. <br/>(Empty means diagnostics are not published)|
 |operationalEventsOutputName|No|Yes|Hub output for operational events.<br/>(Empty means operational events are not published)
 |logLevel|No|Yes|One of the following: <br/>&#x000B7; Verbose<br/>&#x000B7; Information (Default)<br/>&#x000B7; Warning<br/>&#x000B7; Error<br/>&#x000B7; None|
@@ -59,8 +58,7 @@ Dynamic properties can be updated without the restarting the module. You can obt
         
         // Optional Diagnostics 
         "diagnosticsLevel": "Warning", 
-        "diagnosticsEventsOutputName": "Diagnostics", 
-        "diagnosticsMetricsOutputName": "Metrics" 
+        "diagnosticsEventsOutputName": "Diagnostics"
     } 
 } 
 ```
