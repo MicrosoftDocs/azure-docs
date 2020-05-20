@@ -4,9 +4,11 @@ description: Azure security baseline for Azure Monitor
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
+
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
@@ -655,7 +657,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21364).
 
-**Guidance**: Use Azure Active Directory role-based acess control (RBAC) to control access to Azure Monitor.
+**Guidance**: Use Azure Active Directory role-based access control (RBAC) to control access to Azure Monitor.
 
 * [Roles, permissions, and security in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security)
 
@@ -818,7 +820,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintainan inventory of approved Azure resources
+### 6.4: <div>Define and Maintain an inventory of approved Azure resources</div>
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21376).
