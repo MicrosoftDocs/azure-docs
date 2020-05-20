@@ -55,4 +55,4 @@ az group deployment create \
 
 ## Next steps
 
-- Learn more about [Resource Manager templates](../../azure-resource-manager/templates.md)
+- Learn more about [Resource Manager templates](../../azure-resource-manager/templates/overview.md)
