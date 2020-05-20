@@ -1,4 +1,3 @@
-
 ---
 title: Telemetry schema - Azure
 description: This article provides an overview of Live Video Analytics on IoT Edge telemetry schema.
@@ -16,12 +15,12 @@ Live Video Analytics on IoT Edge emits events, metrics or telemetry data accordi
 
 ### Events:
 
-* **Operational**: events generated as part of actions taken by a user, or during the execution of a Media Graph<TODO: Link>
+* **Operational**: events generated as part of actions taken by a user, or during the execution of a [media graph](media-graph-concept.md)
 
     * Volume: expected to be low (a few times a minute, or even lower rate)
     * Examples:
 
-        * Graph Started, Graph Stopped
+        * graph started, graph stopped
 * **Diagnostics**: events that help with diagnosing of problems and/or performance
 
     * Volume: can be high (several times a minute)
@@ -33,7 +32,7 @@ Live Video Analytics on IoT Edge emits events, metrics or telemetry data accordi
     * Volume: can be high (several times a minute or more often)
     * Examples:
 
-        * Motion detected
+        * motion detected
 
 ### Metrics
 
@@ -41,7 +40,7 @@ Live Video Analytics on IoT Edge emits events, metrics or telemetry data accordi
 
 ## Schemas
 
-Events and metrics originate on the Edge device, and are typically consumed in the cloud – hence they conform to the [streaming messaging pattern]() established by Azure IoT Hub.
+Events and metrics originate on the Edge device, and are typically consumed in the cloud – hence they conform to the [streaming messaging pattern](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) established by Azure IoT Hub.
 
 ## System/Header properties
 
@@ -49,28 +48,28 @@ Events and metrics originate on the Edge device, and are typically consumed in t
 
 Every event will have a set of common properties as described below.
 
-|Property|Data type|Description|
+|**Property**|**Data type**|**Description**|
 |---|---|---|
-|id	|guid|	Unique event ID|
-|topic	|string	|Azure Resource Manager Media Services account|
-|subject|string	|Azure Resource Manager entity path + sub path|
-|eventTime|	string	|Time the event was generated|
-|eventType|	string|	Event Type identifier (see below)|
-|data	|object|	Particular event data|
-|dataVersion|	string|	{Major}.{Minor}|
+|**id**	|guid|	Unique event ID|
+|**topic**	|string	|Azure Resource Manager Media Services account|
+|**subject**|string	|Azure Resource Manager entity path + sub path|
+|**eventTime**|	string	|Time the event was generated|
+|**eventType**|	string|	Event Type identifier (see below)|
+|**data**|object|	Particular event data|
+|**dataVersion**|	string|	{Major}.{Minor}|
 
 ### Mappings
 
 Depending on where the event is viewed, the properties have different mappings.
 
-|Property|	IoT Hub	|Azure Monitor|
+|**Property**|**IoT Hub**|**Azure Monitor**|
 |---|---|---|
-|id	|message-id	|eventHeader.id|
-|topic	|appProperties.topic|resourceId|
-|subject|	appProperties.subject|	eventHeader.subject|
-|eventType|	appProperties.eventType|	eventHeader.eventType|
-|eventTime|	appProperties.eventTime	|Time|
-|data|	body|	properties|
+|**id**|message-id	|eventHeader.id|
+|**topic**|appProperties.topic|resourceId|
+|**subject**|	appProperties.subject|	eventHeader.subject|
+|**eventType**|	appProperties.eventType|	eventHeader.eventType|
+|**eventTime**|	appProperties.eventTime	|Time|
+|**data**|	body|	properties|
 
 ### Properties
 
@@ -88,12 +87,10 @@ Represents the media account associated with the graph (same topic is applied to
 
 Entity which is emitting the event:
 
-```
-/graphInstances/{graphInstanceName}
-/graphInstances/{graphInstanceName}/sources/{sourceName}
-/graphInstances/{graphInstanceName}/processors/{processorName}
-/graphInstances/{graphInstanceName}/sinks/{sinkName}
-```
+`/graphInstances/{graphInstanceName}`<br/>
+`/graphInstances/{graphInstanceName}/sources/{sourceName}`<br/>
+`/graphInstances/{graphInstanceName}/processors/{processorName}`<br/>
+`/graphInstances/{graphInstanceName}/sinks/{sinkName}`
 
 The subject property allows for generic events to be mapped to its generating module. For instance, in case of invalid RTSP username or password the generated event would be Microsoft.Media.Graph.Diagnostics.AuthorizationError on the /graphInstances/myGraph/sources/myRtspSource module.
 
@@ -105,12 +102,12 @@ Event types are assigned to a namespace according with the following schema:
 
 #### Event classes
 
-|Category|	Description|
+|**Category**|**Description**|
 |---|---|
-|Analytics	|Events generated as part of content analysis
-|Content	|Events that represent content
-|Diagnostics|Events that aid with diagnostics of problems and performance
-|Operational|Events generated as part of resource operation
+|**Analytics**|Events generated as part of content analysis
+|**Content**|Events that represent content
+|**Diagnostics**|Events that aid with diagnostics of problems and performance
+|**Operational**|Events generated as part of resource operation
 
 ##### Examples:
 
