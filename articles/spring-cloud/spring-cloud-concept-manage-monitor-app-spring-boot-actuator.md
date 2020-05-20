@@ -20,7 +20,7 @@ This article assumes that you have a Spring Boot 2.x application that can be suc
 
 1. In the **Overview** pane, you should see **Test Endpoint**.  Access this endpoint from command line or browser and observe the API response.
 
-1. Note the **Test endpoint** URI which will be used in the coming section.
+1. Note the **Test endpoint** URI that will be used in the coming section.
 
 >[!TIP]
 > * If the app returns a front-end page and references other files through relative path, confirm that your test endpoint ends with a slash (/). This will ensure that the CSS file is loaded correctly.
@@ -28,7 +28,7 @@ This article assumes that you have a Spring Boot 2.x application that can be suc
 
 ## Add actuator dependency
 
-To add the actuator to a Maven based project, add the following 'Starter' dependency:
+To add the actuator to a Maven-based project, add the 'Starter' dependency:
 
 ```xml
 <dependencies>
@@ -54,7 +54,7 @@ To observe the configuration and configurable environment, we need to enable `en
    ```
 1. Click **Save** button, your application will restart automatically and load the new environment variables.
 
-You can now go back to the app overview pane and wait for a while, until the Provisioning Status changes to "Succeeded" and there are more than one running instances.
+You can now go back to the app overview pane and wait until the Provisioning Status changes to "Succeeded".  There will be more than one running instances.
 
 > Note: Once you expose the app to public, these actuator endpoints are exposed to public as well. You can hide all endpoints by deleting the environment variables `management.endpoints.web.exposure.include`, and set `management.endpoints.web.exposure.exclude=*`
 
