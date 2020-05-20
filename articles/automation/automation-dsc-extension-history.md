@@ -3,7 +3,6 @@ title: Work with Azure Desired State Configuration extension version history
 description: This article tells how to work with the version history for the Desired State Configuration (DSC) extension in Azure.
 ms.date:  06/21/2018
 keywords:  dsc, powershell, azure, extension
-title:  Azure DSC extension version history
 author: mgoedtel
 ms.author: magoedte
 services: automation
