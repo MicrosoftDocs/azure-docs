@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
@@ -17,10 +17,7 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 ## Prerequisites
 
-Before reading rest of this article, review the following articles:
-
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+Your first step is to **create a database** where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 ## Dataset
 
@@ -57,7 +54,8 @@ SELECT
         COUNT(*) AS cnt
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        BULK 'parquet/taxi/*/*/*',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) WITH (
         pickup_datetime DATETIME2,
@@ -85,7 +83,8 @@ SELECT
     COUNT_BIG(*)
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS nyc;
 ```
@@ -105,7 +104,8 @@ SELECT
     SUM(fare_amount) AS fare_total
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS nyc
 WHERE
