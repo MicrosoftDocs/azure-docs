@@ -12,13 +12,9 @@ manager: timlt
 
 # Secure a single page application with user sign-in
 
-An application which can be hosted on content server which has minimal web server component dependencies. The application provides protected resources secured only to Azure AD users and does not expose unprotected web pages.
+An application which can be hosted on content server and has minimal web server component dependencies. The application provides protected resources secured only to Azure AD users and does not expose unprotected web pages. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
 
-You can view the Azure Maps account authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
-
-![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
-
-Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure Portal authentication details page. This value represents the account which will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making http requests. The objective of the scenario is to enable the web  application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+[!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
 ## Create an application registration in Azure AD
 
@@ -42,25 +38,7 @@ You must create the web application in Azure AD for users to sign in. This web a
 
 6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK.
 
-## Grant role based access for users to Azure Maps
-
-You grant *role-based access control* (RBAC) by assigning either an Azure AD group or security principals to one or more Azure Maps access control role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
-
-* To efficiently manage a large amount of users' access to Azure Maps, see [Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
-* For users to be allowed to authenticate to the application, the users must be created in Azure AD. See [Add or Delete users using Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
-
-Read more on [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/) to effectively manage a directory for users.
-
-1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
-
-    ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Select the principal by name. Then select **Save**.
-
-   * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
-
-[!Tip]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs for users to a minimum, see [create a custom role definition and assign users](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable users to have the least privilege necessary for the application.
+[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
 ## User sign-in with Azure Maps web SDK
 

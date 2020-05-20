@@ -10,80 +10,103 @@ services: azure-maps
 manager: timlt
 ---
 
-# Secure a single page application with non-interactive sign-in
+# How to secure a single page application with non-interactive sign-in
 
-TODO
+The application requires a service to service authentication flow to Azure AD to acquire an access token which represents the application instead of users. This flow requires hosting of a web service which must be secured to only be accessed by the single page web application. There are multiple implementations which can accomplish authentication to Azure AD. This example leverages Azure Functions to acquire access tokens.
 
-You can view the Azure Maps account authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
+[!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
-![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
+[!Tip]
+> Azure maps can support access tokens from user sign-on / interactive flows. This can enable a more restricted scope of access revocation and secret management.
 
-Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure Portal authentication details page. This value represents the account which will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making http requests. The objective of the scenario is to enable the web  application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+## Create an Azure Function
 
-## Create an application registration in Azure AD
+You must create a secured web service application which is responsible for authentication to Azure AD. 
 
-You must create the web application in Azure AD for users to sign in. This web application will then delegate user access to Azure Maps REST APIs.
+1. In the Azure portal, see [Create an Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
 
-1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
+2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients from the designated origins allowed access. See [Add CORS functionality](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
 
-    ![App registration](./media/how-to-manage-authentication/app-registration.png)
+3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure Function to enable creation of a service principal to authenticate to Azure AD.  
 
-2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For more details on Redirect URI, please see Azure Maps Azure AD samples. Then select **Register**.  
+4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](./#grant-role-based-access) for details.
 
-3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
+5. Write Azure Function code to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
-    ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+A sample REST protocol example:
 
-4. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
+```http
+GET /MSI/token?resource=https://atlas.microsoft.com/&api-version=2019-08-01 HTTP/1.1
+Host: localhost:4141
+```
 
-    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+Sample response:
 
-5. Enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to `true`.
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK.
+{
+    "access_token": "eyJ0eXAi…",
+    "expires_on": "1586984735",
+    "resource": "https://atlas.microsoft.com/",
+    "token_type": "Bearer",
+    "client_id": "..."
+}
+```
 
-## Grant role based access for users to Azure Maps
+1. Configure Security for Azure Function HttpTrigger
 
-You grant *role-based access control* (RBAC) by assigning either an Azure AD group or security principals to one or more Azure Maps access control role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
+   * [Create a function access key](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
+   * [Secure HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure Function in production.
+   
+2. Configure Web application Azure Maps Web SDK. 
 
-* To efficiently manage a large amount of users' access to Azure Maps, see [Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
-* For users to be allowed to authenticate to the application, the users must be created in Azure AD. See [Add or Delete users using Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
+```javascript
+//URL to custom endpoint to fetch Access token
+var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
 
-Read more on [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/) to effectively manage a directory for users.
+var map = new atlas.Map('myMap', {
+    		center: [-122.33, 47.6],
+    		zoom: 12,
+    		language: 'en-US',
+    		view: "Auto",
+        authOptions: {
+              authType: "anonymous",
+              clientId: "<insert>", // azure map account client id
+              getToken: function(resolve, reject, map) {
+                  fetch(url).then(function(response) {
+                      return response.text();
+                  }).then(function(token) {
+                      resolve(token);
+                  });
+              }
+        }
+    });
+
+    // use the following events to debug, you can remove them at any time.
+    map.events.add("tokenacquired", function () {
+        console.log("token acquired");
+    });
+    map.events.add("error", function (err) {
+        console.log(JSON.stringify(err.error));
+    });
+```
+
+## Grant role based access
+
+You grant *role-based access control* (RBAC) by assigning the system-assigned identity to one or more Azure role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
 
 1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
 
     ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Select the principal by name. Then select **Save**.
+2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Function App**. Select the principal by name. Then select **Save**.
 
    * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-[!Tip]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs for users to a minimum, see [create a custom role definition and assign users](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable users to have the least privilege necessary for the application.
-
-## User sign-in with Azure Maps web SDK
-
-Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
-
-```javascript
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script>
-    var map = new atlas.Map("map", {
-        center: [-122.33, 47.64],
-        zoom: 12,
-        language: "en-US",
-        authOptions: {
-            authType: "aad",
-            clientId: "<insert>",  // azure map account client id
-            aadAppId: "<insert>",  // azure ad app registration id
-            aadTenant: "<insert>", // azure ad tenant id
-            aadInstance: "https://login.microsoftonline.com/"
-        }
-    });
-</script>
-```
+[!IMPORTANT]
+> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
 
 ## Next steps
 
@@ -95,6 +118,6 @@ Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore other samples that show how to integrate Azure AD with Azure Maps:
 > [!div class="nextstepaction"]
-> [Azure Maps Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant)
+> [Azure Maps Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ClientGrant)

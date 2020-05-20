@@ -38,14 +38,14 @@ The following table is intended to provide a guide to common scenarios to config
 
 ### Scenarios
 
-| Scenario                                                                                             | Authentication | Authorization | Level of protection | Development effort | Operational effort |
-| ---------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------- | ------------------ | ------------------ |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)                 | Shared Key     | N/A           | Low                 | Medium             | High               |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)                 | Azure AD       | High          | Medium              | Low                | Medium             |
-| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md)          | Azure AD       | High          | Medium              | Medium             | Medium             |
-| [Web single page application with non-interactive sign-in](./how-to-secret-how-to-secure-spa-app.md) | Azure AD       | High          | Medium              | Medium             | Medium             |
-| [Web application with interactive single-sign-on](./tbd)                                             | Azure AD       | High          | Medium              | High               | Medium             |
-| [Public / Native client with interactive single-sign-on](./tbd)                                      | Azure AD       | High          | Medium              | High               | Medium             |
+| Scenario                                                                                    | Authentication | Authorization | Level of protection | Development effort | Operational effort |
+| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------- | ------------------ | ------------------ |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Shared Key     | N/A           | Low                 | Medium             | High               |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Medium              | Low                | Medium             |
+| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium              | Medium             | Medium             |
+| [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium              | Medium             | Medium             |
+| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | Medium              | High               | Medium             |
+| [Public / Native client with interactive single-sign-on](./tbd)                             | Azure AD       | High          | Medium              | High               | Medium             |
 
 Click on specific scenarios in the table to discover how to configure applications.
 
@@ -70,7 +70,7 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#Scenarios).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#scenarios).
 
 ## Next steps
 

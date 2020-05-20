@@ -46,25 +46,20 @@ Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated w
 
 Azure Maps generates a *unique identifier (client ID)* for each Azure Maps account. You can request tokens from Azure AD when you combine this client ID with additional parameters. To request a token, specify the values in the following table based on your Azure Environment.
 
-| Azure Environment   | Azure AD token endpoint |
-| --------------------|-------------------------|
-| Azure Public        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
-
 For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 For general information about authenticating with Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 ## Configuring Application Authentication to Azure AD
 
-Applications will authenticate with the paired Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. Compreshensive coverage of scenarios are covered in [Microsoft identity platform documentation](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
+Applications will authenticate with the paired Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. Comprehensive coverage of scenarios are covered in [Microsoft identity platform documentation](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
 
-After the application receives an access token, the SDK's and/or application sends an HTTPS request with the following set of required HTTP headers in addition to other REST API HTTP headers:
+After the application receives an access token, the SDK and/or application sends an HTTPS request with the following set of required HTTP headers in addition to other REST API HTTP headers:
 
-| Header Name       |    Value    |
-|:------------------|:------------|
-| x-ms-client-id    | 30d7cc….9f55|
-| Authorization     | Bearer eyJ0e….HNIVN |
+| Header Name    | Value               |
+| :------------- | :------------------ |
+| x-ms-client-id | 30d7cc….9f55        |
+| Authorization  | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
@@ -94,50 +89,50 @@ Azure Maps supports access to all principal types for Azure role based access co
 
 The following role definition types exist to support application scenarios.
 
-| Azure Role Definition |    Description    |
-|:-----------------------------|:------------------|
-| Azure Maps Data Reader       | Provides access to immutable Azure Maps REST APIs.  |
-| Azure Maps Data Contributor  | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
-| Custom Role Definition       | Create a crafted role to enable very restricted access to Azure Maps REST APIs. |
+| Azure Role Definition       | Description                                                                                              |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Azure Maps Data Reader      | Provides access to immutable Azure Maps REST APIs.                                                       |
+| Azure Maps Data Contributor | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
+| Custom Role Definition      | Create a crafted role to enable very restricted access to Azure Maps REST APIs.                          |
 
-REST API services may require elevated privileges to perform write or delete actions. The following table describes where Azure Maps Data Contributor role is required.
+REST API services may require elevated privileges to perform write or delete actions. The following table describes where Azure Maps Data Contributor role is required for specific access rights.
 
-| Azure Maps Service | Azure Maps Role Definition    |
-|:------------------------|:-----------------------|
-| Render / Map Tiles      | Azure Maps Data Reader |
-| Geolocation             | Azure Maps Data Reader |
-| Mobility                | Azure Maps Data Reader |
-| Route                   | Azure Maps Data Reader |
-| Search                  | Azure Maps Data Reader |
-| Timezone                | Azure Maps Data Reader |
-| Traffic                 | Azure Maps Data Reader |
-| Weather                 | Azure Maps Data Reader |
-| Data                    | Azure Maps Data Reader, Azure Maps Data Contributor |
-| Creator                 | Azure Maps Data Reader, Azure Maps Data Contributor |
-| Spatial                 | Azure Maps Data Reader, Azure Maps Data Contributor |
+| Azure Maps Service | Azure Maps Role Definition                          |
+| :----------------- | :-------------------------------------------------- |
+| Render / Map Tiles | Azure Maps Data Reader                              |
+| Geolocation        | Azure Maps Data Reader                              |
+| Mobility           | Azure Maps Data Reader                              |
+| Route              | Azure Maps Data Reader                              |
+| Search             | Azure Maps Data Reader                              |
+| Timezone           | Azure Maps Data Reader                              |
+| Traffic            | Azure Maps Data Reader                              |
+| Weather            | Azure Maps Data Reader                              |
+| Data               | Azure Maps Data Reader, Azure Maps Data Contributor |
+| Creator            | Azure Maps Data Reader, Azure Maps Data Contributor |
+| Spatial            | Azure Maps Data Reader, Azure Maps Data Contributor |
 
 For information about viewing your RBAC settings, see [How to configure RBAC for Azure Maps](https://aka.ms/amrbac).
 
 #### Custom Role Definitions
 
- One aspect of application security is to apply the principle of least privilege. The principle implies that the security principal should only be allowed the access which is required and no other access. Creating custom role definitions can support use cases which require further granularity to access by preventing over provisioning of access for security principal. To read more on Azure custom role definitions, read [Azure Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+ One aspect of application security is to apply the principle of least privilege. The principle implies that the security principal should only be allowed the access which is required and no other access. Creating custom role definitions can support use cases which require further granularity to access control by selecting specific data actions to include for the custom role definition. You can then assign the created custom role definition to any security principal. To read more on Azure custom role definitions, see [Azure Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
-Here are some possible scenarios where custom roles are beneficial for improved application security.
+Here are some possible scenarios where custom roles are beneficial for improved overall application security.
 
-| Scenario                | Custom Role Data Action(s)    |
-|:---------------------------------------------------------------------|:-----------------------|
-| A public facing or authentication required web page with base map tiles and no other REST APIs. | `Microsoft.Maps/accounts/services/render/read` |
-| An application which only requires access reverse geocoding.             | `Microsoft.Maps/accounts/services/search/read` |
-| A role for a security principal which requests **reading** of Creator based map data and base map tile data. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read` |
-| A role for a security principal which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role but does not allow access to base tile set data. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
+| Scenario                                                                                                                                                                                                                 | Custom Role Data Action(s)                                                                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| A public facing or interactive sign-in web page with base map tiles and no other REST APIs.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
+| An application which only requires reverse geocoding and no other REST APIs.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
+| A role for a security principal which requests **reading** of Creator based map data and base map tile REST APIs.                                                                                                        | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| A role for a security principal which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role but does not allow access to other REST APIs like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
 ### Understanding Scope
 
-When creating a role assignment it is defined within the Azure resource hierarchy. At the top of the hierarchy is a management group and the the lowest is an Azure resource like an Azure Maps account.
-
-Microsoft's recommendation is assigning access to the Azure Maps account scope because it prevents **unintended access to other Azure Maps accounts** existing in the current Azure subscription.
-
+When creating a role assignment it is defined within the Azure resource hierarchy. At the top of the hierarchy is a [management group](https://docs.microsoft.com/azure/governance/management-groups/overview) and the the lowest is an Azure resource like an Azure Maps account.
 Assigning a role assignment to a resource group can enable access to multiple Azure Maps accounts or resources in the group.
+
+> [!Tip]
+> Microsoft's recommendation is assigning access to the Azure Maps account scope because it prevents **unintended access to other Azure Maps accounts** existing in the current Azure subscription.
 
 ## Next steps
 

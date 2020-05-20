@@ -17,9 +17,7 @@ For background processes, timers, and jobs which are hosted in a trusted and sec
 [!Tip]
 > Microsoft recommends implementing Azure AD Role based access control for production applications.
 
-You can view the Azure Maps account authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
-
-![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
+[!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
 ## Scenario: Shared Key
 
@@ -42,7 +40,10 @@ From a step by step overview:
 [!Tip]
 > If the app is hosted in Azure environment, we recommend implementing a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via Managed Identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
-The daemon application is responsible to retrieve the shared key from a secure location. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. We **encourage** direct Azure AD Role based access control with Azure maps as a result of the additional complexity and operational requirements of using shared key authentication.
+The daemon application is responsible to retrieve the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. We **encourage** direct Azure AD Role based access control with Azure maps as a result of the additional complexity and operational requirements of using shared key authentication.
+
+[!IMPORTANT]
+> To simplify key regeneration, we recommend applications use 1 key at a time. Applications can then regenerate the unused key and deploy the new regenerated key to a secure storage like Azure Key Vault.
 
 ## Scenario: Azure AD Role Based Access Control
 
