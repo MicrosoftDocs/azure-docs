@@ -44312,11 +44312,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-prerequisites.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-technical-assets",
       "redirect_document_id": false
