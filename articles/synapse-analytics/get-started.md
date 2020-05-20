@@ -38,7 +38,7 @@ This tutorial guides you through all the basic steps needed to use Azure Synapse
     * **Region** - match the region of the storage account
     * Under **Select Data Lake Storage Gen 2** select the account and container you prevpoiusly creates
     * NOTE: The storage account chosen here will be referred to as the "primary" storage account of the Synapse workspace
-* Click **Review + create**. Click **Create**. Your workspace will be ready in a few minutes
+* Click **Review + create**. Click **Create**. Your workspace will be ready in a few minutes.
 
 ## Verify the Synapse workspace MSI has access to the storage account
 This may have already been done for you. In any case, you should verify.
