@@ -192,7 +192,7 @@
             - name: Unlink workspace from Automation account
               href: automation-unlink-workspace-change-tracking.md
             - name: Remove VMs from Change Tracking and Inventory
-              href: automation-remove-vms-change-tracking.md
+              href: automation-remove-vms-from-change-tracking.md
             - name: Troubleshoot
               items:
                 - name: Troubleshoot feature deployment issues
@@ -252,7 +252,7 @@
         - name: Unlink workspace from Automation account
           href: automation-unlink-workspace-update-management.md
         - name: Remove VMs from Update Management
-          href: automation-remove-vms-update-management.md
+          href: automation-remove-vms-from-update-management.md
         - name: Troubleshoot
           items:
             - name: Troubleshoot feature deployment issues

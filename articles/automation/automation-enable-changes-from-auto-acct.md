@@ -33,7 +33,7 @@ Sign in to Azure at https://portal.azure.com.
 
 ## <a name="scope-configuration"></a>Check the scope configuration
 
-Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configuration-change-tracking.md).
+Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
 
 ## Enable Azure VMs
 
@@ -41,7 +41,7 @@ Change Tracking and Inventory uses a scope configuration within the workspace to
 
 2. Click **+ Add Azure VMs** and select one or more VMs from the list. Virtual machines that can't be enabled are grayed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation account. 
 
-3. Click **Enable** to add the selected VMs to the computer group saved search for the feature. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configuration-change-tracking.md).
+3. Click **Enable** to add the selected VMs to the computer group saved search for the feature. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
 
     ![Enable Azure VMs](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -67,7 +67,7 @@ Manually installed machines or machines already reporting to your workspace must
 
 5. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
 
-6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configuration-change-tracking.md).
+6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
 
 7. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
 
@@ -76,7 +76,7 @@ Manually installed machines or machines already reporting to your workspace must
 * [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
 * [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
 * [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-from-change-tracking.md)
+* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
 * [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
 * [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
 * [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
