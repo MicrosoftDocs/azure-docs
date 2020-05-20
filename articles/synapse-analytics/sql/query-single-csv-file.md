@@ -217,7 +217,7 @@ The following query returns the number of distinct country names in a file, spec
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'csv/population/population.csv',,
+        BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
