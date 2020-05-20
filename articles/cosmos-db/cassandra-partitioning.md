@@ -39,7 +39,7 @@ In this design, we have defined the `id` field as the `primary key`. The primary
 
 ## Compound primary key
 
-Apache Cassandra also has a concept of compound keys, which is the combination of a primary key and a "clustering key". Suppose we want to change the above design and make it possible to efficiently retrieve messages for a given user:
+Apache Cassandra also has a concept of compound keys, which is the combination of a `primary key` and a `clustering key`. Suppose we want to change the above design and make it possible to efficiently retrieve messages for a given user:
 
 ```shell
 CREATE TABLE uprofile.user (
@@ -49,14 +49,14 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY (user, id));
 ```
 
-A compound `primary key` consists of more than one column; the first column is the `partition key`, and any additional columns are the `clustering keys`. In this design, we are now defining `user` as the `partition key`, and `id` as the `clustering key`. You can define as many clustering keys as you wish, but each value (or combination of values) must be unique in order to result in different records being added to the logical partition, for example:
+A compound `primary key` consists of more than one column; the first column is the `partition key`, and any additional columns are the `clustering keys`. In this design, we are now defining `user` as the `partition key`, and `id` as the `clustering key`. You can define as many clustering keys as you wish, but each value (or combination of values) must be unique in order to result in multiple records being added to the same logical partition, for example:
 
 ```shell
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
 insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 ```
 
-With data modeled in this way, we can issue a query that is efficiently routed by the partition key (in this case, "user"). Multiple records will be assigned to each logical partition, grouped by user:
+With data modeled in this way, we can issue a query that is efficiently routed by the `partition key` (in this case, `user`). Multiple records will be assigned to each logical partition, grouped by user:
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
 
