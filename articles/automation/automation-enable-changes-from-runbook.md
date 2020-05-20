@@ -100,7 +100,7 @@ You must have enabled Change Tracking and Inventory for an Azure VM to start thi
 * [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
 * [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
 * [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-from-change-tracking.md)
+* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
 * [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
 * [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
 * [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)

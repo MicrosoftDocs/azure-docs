@@ -198,9 +198,9 @@ A User Access Administrator can manage user access to Azure resources. The follo
 |Microsoft.Authorization/*|Manage authorization|
 |Microsoft.Support/*|Create and manage support tickets|
 
-## Feature deployment permissions
+## Feature setup permissions
 
-The following sections describe the minimum required permissions needed for enabling VMs for the Update Management and Change Tracking and Inventory features.
+The following sections describe the minimum required permissions needed for enabling the Update Management and Change Tracking and Inventory features.
 
 ### Permissions for enabling Update Management and Change Tracking and Inventory from a VM
 

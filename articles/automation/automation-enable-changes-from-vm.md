@@ -32,20 +32,20 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 3. On the VM page, select either **Inventory** or **Change tracking** under **Configuration Management**.
 
-4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Permissions needed to enable machines](automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Feature setup permissions](automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
 
 5. Choose the Log Analytics workspace and Automation account, and click **Enable** to enable Change Tracking and Inventory for the VM. The setup takes up to 15 minutes to complete. 
 
 ## <a name="scope-configuration"></a>Check the scope configuration
 
-Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to enable for the feature. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configuration-change-tracking.md).
+Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to enable for the feature. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
 
 ## Next steps
 
 * [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
 * [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
 * [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-from-change-tracking.md)
+* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
 * [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
 * [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
 * [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
