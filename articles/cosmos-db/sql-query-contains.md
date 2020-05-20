@@ -4,17 +4,18 @@ description: Learn about how the CONTAINS SQL system function in Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # CONTAINS (Azure Cosmos DB)
+
  Returns a Boolean indicating whether the first string expression contains the second.  
   
 ## Syntax
   
 ```sql
-CONTAINS(<str_expr1>, <str_expr2>)  
+CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## Arguments
@@ -24,6 +25,9 @@ CONTAINS(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    Is the string expression to find.  
+
+*bool_expr*
+    Optional value for ignoring case. When set to true, CONTAINS will do a case-insensitive search. When unspecified, this value is false.
   
 ## Return types
   
@@ -34,7 +38,7 @@ CONTAINS(<str_expr1>, <str_expr2>)
   The following example checks if "abc" contains "ab" and if "abc" contains "d".  
   
 ```sql
-SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
+SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 ```  
   
  Here is the result set.  
@@ -45,7 +49,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 
 ## Remarks
 
-This system function will not utilize the index.
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

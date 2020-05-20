@@ -44,9 +44,9 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### Will backups work after migrating SAP HANA from 1.0 to 2.0?
+### Will backups work after migrating SAP HANA from SDC to MDC?
 
-Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) of the troubleshooting guide.
+Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
 
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
