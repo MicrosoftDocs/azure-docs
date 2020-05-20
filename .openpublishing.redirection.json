@@ -17809,12 +17809,12 @@
     },
     {
       "source_path": "articles/synapse-analytics/quickstart-create-apache-spark-pool.md",
-      "redirect_url": "/synapse-analytics/quickstart-create-apache-spark-pool-portal",
+      "redirect_url": "/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
-      "redirect_url": "azure/synapse-analytics/quickstart-create-sql-pool-portal",
+      "redirect_url": "/azure/synapse-analytics/quickstart-create-sql-pool-portal",
       "redirect_document_id": false
     },
     {
@@ -44349,6 +44349,51 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-offer-settings-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-skus-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-marketplace-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-support-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/containers/cpp-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-container-offer",
       "redirect_document_id": false
     },
     {
