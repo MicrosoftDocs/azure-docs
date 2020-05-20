@@ -56,7 +56,7 @@ insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
 insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 ```
 
-With data modeled in this way, we can issue a query that is efficiently routed by the `partition key` (in this case, `user`). Multiple records will be assigned to each logical partition, grouped by user:
+With data modeled in this way, we can issue a query that is efficiently routed by the `partition key` (in this case, `user`). Multiple records can thus be assigned to each logical partition, grouped by user:
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
 
