@@ -16,6 +16,9 @@ manager: anandsub
 ---
 
 # Reconfigure the Azure-SSIS integration runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR) in Azure Data Factory, see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
 
 ## Data Factory UI 

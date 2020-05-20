@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
-ms.custom: seodec18
+ms.custom: seodec18, has-adal-ref
 ---
 # Work with data using Azure Storage Explorer
 
@@ -24,9 +24,9 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 ## Connect to an Azure subscription
 
 1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image:
-       
+
    ![Plug in icon](./media/storage-explorer/plug-in-icon.png)
- 
+
 2. Select **Add an Azure Account**, and then click **Sign-in**.
 
    ![Connect to Azure subscription](./media/storage-explorer/connect-to-azure-subscription.png)
@@ -95,27 +95,27 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 * You can also add Azure Cosmos DB account, database, collection to **Quick Access**.
 * **Search from Here** enables keyword search under the selected path.
 
-    ![search from here](./media/storage-explorer/search-from-here.png) 
+    ![search from here](./media/storage-explorer/search-from-here.png)
 
 ### Database and collection management
-#### Create a database 
+#### Create a database
 -   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
-       
-    ![Create database](./media/storage-explorer/create-database.png) 
+
+    ![Create database](./media/storage-explorer/create-database.png)
 
 #### Delete a database
 - Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-    ![Delete database1](./media/storage-explorer/delete-database1.png)  
+    ![Delete database1](./media/storage-explorer/delete-database1.png)
 
-    ![Delete database2](./media/storage-explorer/delete-database2.png) 
+    ![Delete database2](./media/storage-explorer/delete-database2.png)
 
 #### Create a collection
-1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
+1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish.
 
     ![Create collection1](./media/storage-explorer/create-collection.png)
 
-    ![Create collection2](./media/storage-explorer/create-collection2.png) 
+    ![Create collection2](./media/storage-explorer/create-collection2.png)
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
@@ -124,11 +124,11 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     ![Partition key](./media/storage-explorer/partitionkey.png)
 
 #### Delete a collection
-- Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window. 
+- Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window.
 
     The collection node is deleted, and the database refreshes automatically.
 
-    ![Delete collection](./media/storage-explorer/delete-collection.png) 
+    ![Delete collection](./media/storage-explorer/delete-collection.png)
 
 ### Document management
 
@@ -150,8 +150,8 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 ### Graph management
 
 #### Create and modify vertex
-1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.    
-2. To modify an existing vertex, click the pen icon in the right pane.   
+1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.
+2. To modify an existing vertex, click the pen icon in the right pane.
 
     ![Graph](./media/storage-explorer/vertex.png)
 
@@ -188,7 +188,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     ![Table Query](./media/storage-explorer/table-query.png)
 
 ### Manage stored procedures, triggers, and UDFs
-* To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**. 
+* To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**.
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
     ![Stored procedure](./media/storage-explorer/stored-procedure.png)
@@ -210,14 +210,14 @@ There are a few reasons you may be seeing this error, the two most common ones a
 
 + You're behind a *transparent proxy*, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
-+ You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
++ You're running software, such as anti-virus software, which is injecting a self-signed TLS/SSL certificates into the HTTPS messages you receive.
 
 When Storage Explorer encounters one of these "self-signed certificates", it can no longer know if the HTTPS message it's receiving has been tampered with. If you have a copy of the self-signed certificate though, then you can tell Storage Explorer to trust it. If you're unsure of who is injecting the certificate, then you can try to find it yourself by doing the following steps:
 
-1. Install Open SSL
+1. Install OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions is ok)
      - Mac and Linux: Should be included with your operating system
-2. Run Open SSL
+2. Run OpenSSL
     - Windows: Go to the install directory, then **/bin/**, then double-click on **openssl.exe**.
     - Mac and Linux: execute **openssl** from a terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
@@ -243,7 +243,7 @@ If you're unable to retrieve your subscriptions after you successfully signed in
 
 ![console](./media/storage-explorer/console.png)
 
-#### Unable to see the authentication page 
+#### Unable to see the authentication page
 
 If you're unable to see the authentication page:
 
@@ -268,7 +268,7 @@ If you're unable to remove an account, or if the reauthenticate link does not do
 
 ### Http/Https proxy issue
 
-You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment. 
+You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment.
 
 ### "Development" node under "Local and Attached" node issue
 
@@ -284,7 +284,7 @@ If you see below error after attaching Azure Cosmos DB account in "Local and Att
 
 ### Expand Azure Cosmos DB node error
 
-You may see below error while trying to expand the tree nodes in left. 
+You may see below error while trying to expand the tree nodes in left.
 
 ![Expand Error](./media/storage-explorer/expand-error.png)
 
@@ -301,4 +301,3 @@ If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling
 
 * Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-

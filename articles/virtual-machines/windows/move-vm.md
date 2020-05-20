@@ -1,17 +1,10 @@
 ---
 title: Move a Windows VM resource in Azure
 description: Move a Windows VM to another Azure subscription or resource group in the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
 ---

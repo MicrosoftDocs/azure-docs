@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -73,17 +73,17 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Operation | Yes | Must be **OneWaySMS**.  |
-| UserMessageIfInvalidFormat | No | Custom error message if the phone number provided is not a valid phone number |
-| UserMessageIfCouldntSendSms | No | Custom error message if the phone number provided does not accept SMS |
-| UserMessageIfServerError | No | Custom error message if the server has encountered an internal error |
 
-### Return an error message
+#### UI elements
 
-As described in [Metadata](#metadata), you can customize the error message shown to the user for different error cases. You can further localize those messages by prefixing the locale. For example:
+The following metadata can be used to configure the error messages displayed upon sending SMS failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-mfa-error-messages).
 
-```XML
-<Item Key="en.UserMessageIfInvalidFormat">Invalid phone number.</Item>
-```
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| UserMessageIfCouldntSendSms | No | User error message if the phone number provided does not accept SMS. |
+| UserMessageIfInvalidFormat | No | User error message if the phone number provided is not a valid phone number. |
+| UserMessageIfServerError | No | User error message if the server has encountered an internal error. |
+| UserMessageIfThrottled| No | User error message if a request has been throttled.|
 
 ### Example: send an SMS
 
@@ -91,19 +91,19 @@ The following example shows an Azure MFA technical profile that is used to send 
 
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
-    <DisplayName>Send Sms</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">OneWaySMS</Item>
-    </Metadata>
-    <InputClaimsTransformations>
-        <InputClaimsTransformation ReferenceId="CombinePhoneAndCountryCode" />
-        <InputClaimsTransformation ReferenceId="ConvertStringToPhoneNumber" />
-    </InputClaimsTransformations>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="userPrincipalName" />
-        <InputClaim ClaimTypeReferenceId="fullPhoneNumber" PartnerClaimType="phoneNumber" />
-    </InputClaims>
+  <DisplayName>Send Sms</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">OneWaySMS</Item>
+  </Metadata>
+  <InputClaimsTransformations>
+    <InputClaimsTransformation ReferenceId="CombinePhoneAndCountryCode" />
+    <InputClaimsTransformation ReferenceId="ConvertStringToPhoneNumber" />
+  </InputClaimsTransformations>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="userPrincipalName" />
+    <InputClaim ClaimTypeReferenceId="fullPhoneNumber" PartnerClaimType="phoneNumber" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 
@@ -128,24 +128,22 @@ The Azure MFA protocol provider does not return any **OutputClaims**, thus there
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-## Metadata
+### Metadata
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Operation | Yes | Must be **Verify** |
-| UserMessageIfInvalidFormat | No | Custom error message if the phone number provided is not a valid phone number |
-| UserMessageIfWrongCodeEntered | No | Custom error message if the code entered for verification is wrong |
-| UserMessageIfMaxAllowedCodeRetryReached | No | Custom error message if the user has attempted a verification code too many times |
-| UserMessageIfThrottled | No | Custom error message if the user is throttled |
-| UserMessageIfServerError | No | Custom error message if the server has encountered an internal error |
 
-### Return an error message
+#### UI elements
 
-As described in [Metadata](#metadata), you can customize the error message shown to the user for different error cases. You can further localize those messages by prefixing the locale. For example:
+The following metadata can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-mfa-error-messages).
 
-```XML
-<Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>
-```
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| UserMessageIfMaxAllowedCodeRetryReached| No | User error message if the user has attempted a verification code too many times. |
+| UserMessageIfServerError | No | User error message if the server has encountered an internal error. |
+| UserMessageIfThrottled| No | User error message if the request is throttled.|
+| UserMessageIfWrongCodeEntered| No| User error message if the code entered for verification is wrong.|
 
 ### Example: verify a code
 

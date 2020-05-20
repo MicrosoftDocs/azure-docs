@@ -3,7 +3,7 @@ title:  X-EC-Debug HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # X-EC-Debug HTTP headers for Azure CDN rules engine

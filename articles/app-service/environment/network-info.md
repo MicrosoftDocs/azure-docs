@@ -133,7 +133,7 @@ All these IP addresses are visible in the Azure portal from the ASE UI. If you h
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 

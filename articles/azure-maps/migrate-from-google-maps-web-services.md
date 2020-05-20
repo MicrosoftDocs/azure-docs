@@ -70,7 +70,7 @@ The following table cross-references the Google Maps API parameters with the com
 An example of how to use the search service is documented [here](how-to-search-for-address.md). Be sure to review [best practices for search](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> The free-form address geocoding and fuzzy search APIs can be used in autocomplete mode by adding `&amp;typeahead=true` to the request URL. This will tell the server that the input text is likely partial, and the search will go into predictive mode.
+> The free-form address geocoding and fuzzy search APIs can be used in autocomplete mode by adding `&typeahead=true` to the request URL. This will tell the server that the input text is likely partial, and the search will go into predictive mode.
 
 ## Reverse geocode a coordinate
 
@@ -121,7 +121,7 @@ Azure Maps provides several search APIs for points of interest:
 Currently Azure Maps doesn't have a comparable API to the Text Search API in Google Maps.
 
 > [!TIP]
-> The POI search, POI category search, and fuzzy search APIs can be used in autocomplete mode by adding `&amp;typeahead=true` to the request URL. This will tell the server that the input text is likely partial.The API will conduct the search in predictive mode.
+> The POI search, POI category search, and fuzzy search APIs can be used in autocomplete mode by adding `&typeahead=true` to the request URL. This will tell the server that the input text is likely partial.The API will conduct the search in predictive mode.
 
 Review the [best practices for search](how-to-use-best-practices-for-search.md) documentation.
 
@@ -216,6 +216,8 @@ Azure Maps routing API has additional features, that aren't available in Google 
 - Specify maximum vehicle speed.
 
 In addition to this, the route service in Azure Maps supports [calculating routable ranges](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
+
+Review the [best practices for routing](how-to-use-best-practices-for-routing.md) documentation.
 
 ## Retrieve a map image
 
@@ -434,6 +436,8 @@ This table cross-references the Google Maps API parameters with the comparable A
 > [!TIP]
 > All the advanced routing options available in the Azure Maps routing API are supported in the Azure Maps distance matrix API. Advanced routing options include: truck routing, engine specifications, and so on.
 
+Review the [best practices for routing](how-to-use-best-practices-for-routing.md) documentation.
+
 ## Get a time zone
 
 Azure Maps provides an API for retrieving the time zone of a coordinate. The Azure Maps time zone API is comparable to the time zone API in Google Maps:
@@ -473,6 +477,7 @@ The following are additional documentation and resources for the Azure Maps REST
 
 - [Best practices for search](how-to-use-best-practices-for-search.md)
 - [Search for an address](how-to-search-for-address.md)
+- [Best practices for routing](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
 
 ## Next steps
@@ -483,7 +488,10 @@ Learn more about the Azure Maps REST services.
 > [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [How to use the services module (Web SDK)](how-to-use-services-module.md)
+> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

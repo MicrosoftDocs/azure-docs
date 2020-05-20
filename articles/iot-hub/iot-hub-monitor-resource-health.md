@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
+ms.custom: amqp
 ---
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
 

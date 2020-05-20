@@ -21,7 +21,7 @@ ms.author: memildin
 ## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center uses the Microsoft Monitoring Agent to collect and store data. For in-depth details, see [Data collection in Azure Security Center](security-center-enable-data-collection.md).
+Security Center uses the Log Analytics agent to collect and store data. For in-depth details, see [Data collection in Azure Security Center](security-center-enable-data-collection.md).
 
 
 ## How do I get Azure Security Center?
@@ -55,7 +55,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 
 
 ## Who can modify a security policy?
-To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
+To modify a security policy, you must be a Security Admin or an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 

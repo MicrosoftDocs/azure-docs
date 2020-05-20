@@ -86,9 +86,10 @@ The following table describes the required domains for communication:
 
 | Service | Public cloud endpoint | Azure Government endpoint | Usage |
 |---------|----------------|---------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
-| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
+| **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
+| **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
+| **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Use the public endpoint URL. | This URL is accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to log in the administrator. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
@@ -257,7 +258,7 @@ if ($found) {
 You can then use the IP address ranges in `$ipAddressRanges` to update your firewall. Check your firewall/network appliance's website for information on how to update your firewall.
 
 ## Test network connectivity to service endpoints
-Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine tune proxy and firewall configurations.
+Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine-tune proxy and firewall configurations.
 
 To run the network connectivity test, install Azure File Sync agent version 9.1 or later and run the following PowerShell commands:
 ```powershell

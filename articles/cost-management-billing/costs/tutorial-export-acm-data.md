@@ -3,7 +3,7 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -14,7 +14,9 @@ ms.custom: seodec18
 
 If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that's collected by Cost Management. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
 
-Watch the [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage.
+Watch the [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
 The examples in this tutorial walk you though exporting your cost management data and then verify that the data was successfully exported.
 
@@ -35,7 +37,7 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, regardless of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 
-If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
@@ -46,7 +48,7 @@ To create or view a data export or to schedule an export, open the desired scope
 
 > [!NOTE]
 > - Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
->- When you’re signed in as a partner at the billing account scope or on a customer’s tenant, you can export data to an Azure Storage account that’s linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
+>- When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 >
 
 

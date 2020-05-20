@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -157,13 +157,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. In the **SAML Certificate** textbox, open the downloaded **Certificate (Base64)** into Notepad, copy the content and paste it into SAML Certificate textbox.
 
-    f. Select **SHA-256** from the dropdown for the **HASH Algorithm**.
+    f. In the **Name ID Format** textbox, use `Unspecified` for the **Name ID Format**.
 
-    g. Enter appropriate name for the **SSO Button Label**.
+    g. Select **SHA-256** from the dropdown for the **HASH Algorithm**.
 
-    h. Make **Allow Just-in-Time provisioning** On.
+    h. Enter appropriate name for the **SSO Button Label**.
 
-    i. Click **Update**.
+    i. Make **Allow Just-in-Time provisioning** On.
+
+    j. Click **Update**.
 
 ### Create InVision test user
 

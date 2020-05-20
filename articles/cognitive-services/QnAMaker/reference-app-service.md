@@ -22,8 +22,8 @@ You can set an individual setting either through the Application Settings list, 
 
 |Resource|Setting|
 |--|--|
-|AzureSearchAdminKey|Cognitive Search - used for QnA set storage and Ranker #1|
-|AzureSearchName|Cognitive Search - used for QnA set storage and Ranker #1|
+|AzureSearchAdminKey|Cognitive Search - used for QnA pair storage and Ranker #1|
+|AzureSearchName|Cognitive Search - used for QnA pair storage and Ranker #1|
 |DefaultAnswer|Text of answer when no match is found|
 |UserAppInsightsAppId|Chat log and telemetry|
 |UserAppInsightsKey|Chat log and telemetry|

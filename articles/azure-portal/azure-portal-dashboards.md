@@ -5,7 +5,7 @@ services: azure-portal
 documentationcenter: ''
 author: sewatson
 manager: mtillman
-editor: tysonn
+
 
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal

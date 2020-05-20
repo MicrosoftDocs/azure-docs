@@ -234,7 +234,7 @@ However, unless you require this information to track the progress of a runbook 
 **To enable activity-level tracing:**
 
 1. In the Azure portal, open your Automation account.
-2. Select **Runbooks** in the **Process Automation** section to open the list of runbooks.
+2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 3. On the Runbooks page, select a graphical runbook from your list of runbooks.
 4. Under **Settings**, click **Logging and tracing**.
 5. On the Logging and Tracing page, under **Log verbose records**, click **On** to enable verbose logging.
@@ -247,7 +247,7 @@ However, unless you require this information to track the progress of a runbook 
 Azure Automation can send runbook job status and job streams to your Log Analytics workspace. Azure Monitor supports logs that allow you to:
 
 * Get insight on your Automation jobs.
-* Trigger an email or alert based on your runbook job status, for example, failed or suspended.
+* Trigger an email or alert based on your runbook job status, for example, Failed or Suspended.
 * Write advanced queries across job streams.
 * Correlate jobs across Automation accounts.
 * Visualize job history.

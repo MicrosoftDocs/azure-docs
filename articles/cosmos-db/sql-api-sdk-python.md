@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL Python API, SDK & resources'
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 11/29/2018
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 
 ---
@@ -17,8 +17,9 @@ ms.author: sngun
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -67,7 +68,7 @@ ms.author: sngun
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
 ### <a name="2.3.0"/>2.3.0
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="2.2.1"/>2.2.1
 * Bug fix for aggregate dictionary.
@@ -80,7 +81,7 @@ ms.author: sngun
 
 ### <a name="2.1.0"/>2.1.0
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
-* Added an option for disabling SSL verification when running against Cosmos DB Emulator.
+* Added an option for disabling TLS verification when running against Cosmos DB Emulator.
 * Removed the restriction of dependent requests module to be exactly 2.10.0.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Added support for enabling script logging during stored procedure execution.
@@ -121,7 +122,7 @@ ms.author: sngun
 
 ### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial index.
-* Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
+* Validates ID property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0

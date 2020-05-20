@@ -22,7 +22,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Static
-- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -39,7 +39,7 @@ Let's say you have created a simple Dynamic Thresholds metric alert rule as foll
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Dynamic
-- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -136,6 +136,10 @@ You can specify the scope of monitoring by a single metric alert rule in one of 
 - all virtual machines (in one Azure region) in one subscription
 
 Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
 
 ## Typical latency
 

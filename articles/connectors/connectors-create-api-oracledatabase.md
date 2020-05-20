@@ -67,7 +67,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 or Gmail. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
+7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 

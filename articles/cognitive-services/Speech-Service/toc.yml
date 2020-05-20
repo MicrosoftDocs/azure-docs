@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
+        - name: Pronunciation assessment with reference input
+          href: rest-speech-to-text.md#pronunciation-assessment-parameters
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
@@ -56,7 +58,7 @@
     - name: Customization
       items:
         - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-data.md
+          href: how-to-custom-speech-test-and-train.md
         - name: Inspect Custom Speech data
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
@@ -67,10 +69,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Custom keyword naming guidelines
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
-          href: speech-devices-sdk-create-kws.md
     - name: Reference
       items:
         - name: Speech SDK APIs
@@ -117,6 +115,8 @@
       items:
         - name: What is text-to-speech?
           href: text-to-speech.md
+        - name: Text-to-speech basics
+          href: text-to-speech-basics.md
     - name: Quickstart
       items:
         - name: Synthesize speech to a speaker
@@ -216,6 +216,8 @@
       items:
         - name: What is speech translation?
           href: speech-translation.md
+        - name: Speech translation basics
+          href: speech-translation-basics.md
     - name: Quickstart
       items:
         - name: Translate speech-to-text
@@ -373,9 +375,11 @@
             - name: Speech SDK
               items:
                 - name: C++
-                  href: 'https://aka.ms/csspeech/cppref'
+                  href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
                 - name: 'C#'
-                  href: 'https://aka.ms/csspeech/csharpref'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                - name: 'Java'
+                  href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
 - name: Voice assistants
   items:
     - name: Voice assistants documentation
@@ -414,12 +418,8 @@
           href: direct-line-speech.md
         - name: Quickstarts
           items:
-            - name: 'C# (UWP)'
-              href: quickstart-voice-assistant-csharp-uwp.md
-            - name: 'Java (Windows, macOS, Linux)'
-              href: quickstart-voice-assistant-java-jre.md
-            - name: Java (Android)
-              href: quickstart-voice-assistant-java-android.md
+            - name: 'Create a custom voice assistant'
+              href: quickstarts/voice-assistants.md
         - name: Tutorials
           items:
             - name: Voice enable your bot with Speech SDK
@@ -428,11 +428,31 @@
           items:
             - name: Voice assistants FAQ
               href: faq-voice-assistants.md
+    - name: Voice assistants on Windows
+      items:
+        - name: Overview of voice assistants on Windows
+          href: windows-voice-assistants-overview.md
+        - name: How-to guides
+          items:
+            - name: 'Start developing your assistant with Windows'
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Resources
+          items:
+            - name: 'Privacy requirements and guidelines'
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: 'Best practices for assistant experiences'
+              href: windows-voice-assistants-best-practices.md
+            - name: 'Samples and frequently asked questions'
+              href: windows-voice-assistants-faq.md
     - name: Custom Keyword
       items:
+        - name: Custom keyword overview
+          href: custom-keyword-overview.md
         - name: Custom keyword naming guidelines
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
+        - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
 - name: Hosting
   items:
@@ -452,6 +472,10 @@
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
+    - name: Resources
+      items:
+      - name: Containers FAQ
+        href: speech-container-faq.md
 - name: Speech SDK
   items:
     - name: Overview
@@ -460,8 +484,6 @@
           href: speech-sdk.md
         - name: Scenario availability
           href: scenario-availability.md
-        - name: Ship an application
-          href: ship-application.md
     - name: Quickstart
       items:
         - name: Setup Speech SDK
@@ -476,12 +498,17 @@
         - name: Configure OpenSSL for Linux
           displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
           href: how-to-configure-openssl-linux.md
+        - name: Configure RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
     - name: Samples
       items:
         - name: Speech SDK samples (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
         - name: Speech devices SDK samples (GitHub)
           href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+        - name: Voice Assistant samples (GitHub)
+          href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
     - name: Reference
       items:
         - name: C++
@@ -516,6 +543,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 details
           href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
     - name: Quickstart
       items:
         - name: Use Speech devices SDK
@@ -528,6 +559,20 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: SPX
+    items:
+      - name: What is SPX?
+        href: spx-overview.md
+      - name: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech
@@ -548,6 +593,8 @@
       href: sovereign-clouds.md
     - name: Pricing and limits
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption

@@ -4,7 +4,7 @@ description: This article provides information about migrating your Azure databa
 author: gitralf
 services: germany
 cloud: Azure Germany
-ms.author: ralfwi 
+ms.author: juliako 
 ms.service: germany
 ms.date: 11/12/2019
 ms.topic: article
@@ -16,7 +16,7 @@ ms.custom: bfmigrate
 > [!IMPORTANT]
 > Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
 >
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
 >
 > Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
@@ -129,6 +129,12 @@ For this approach, you must modify your application. The application needs to wr
 For more information:
 
 - Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
+
+## PostgreSQL and MySQL
+
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
+
+![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 
 ## Next steps
 

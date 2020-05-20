@@ -4,7 +4,7 @@ description: As an operator, learn how to manage devices in your Azure IoT Centr
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr

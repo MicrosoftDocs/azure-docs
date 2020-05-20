@@ -125,11 +125,7 @@ If you already have a service with the dependencies installed in your environmen
 
    ![Edit the service](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. In **Advanced Settings**, select **Enable Model data collection**.
-
-    [![Select data collection](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   You can also select **Enable AppInsights diagnostics** to track the health of your service.
+1. In **Advanced Settings**, select **Enable Application Insights diagnostics and data collection**.
 
 1. Select **Update** to apply the changes.
 
@@ -147,9 +143,7 @@ You can stop collecting data at any time. Use Python code or Azure Machine Learn
 
    [![Select the Edit option](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. In **Advanced Settings**, clear **Enable Model data collection**.
-
-    [![Clear the data collection checkbox](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. In **Advanced Settings**, clear **Enable Application Insights diagnostics and data collection**.
 
 1. Select **Update** to apply the change.
 

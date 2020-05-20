@@ -50,7 +50,7 @@ To view a transaction node's endpoint details:
 
     ![Endpoints](./media/configure-transaction-nodes/endpoints.png)
 
-Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over SSL.
+Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over TLS.
 
 ### Azure Active Directory access control
 

@@ -697,7 +697,7 @@ az spring-cloud app binding redis add --app
 
 | Optional Parameters | |
 | --- | ---: |
-| --disable-ssl | Disable SSL. |
+| --disable-ssl | Disable TLS. |
 
 ## az spring-cloud app binding redis update
 
@@ -712,7 +712,7 @@ Update a service binding for Azure Cache for Redis.
 
 | Optional Parameters | |
 | --- | ---: |
-| --disable-ssl | Disable SSL. |
+| --disable-ssl | Disable TLS. |
 
 ## az spring-cloud app deployment create
 

@@ -155,4 +155,3 @@ For more information, see [Create a backup policy](#create-a-backup-policy).
 
 * Learn how to [Restore files in Azure](backup-azure-restore-windows-server.md).
 * Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
-

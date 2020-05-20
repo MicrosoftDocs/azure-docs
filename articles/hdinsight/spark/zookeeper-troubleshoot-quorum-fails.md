@@ -37,11 +37,11 @@ When the volume of snapshot files is large or snapshot files are corrupted, ZooK
 
 Check ZooKeeper data directory `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2` to find out if the snapshots file size is large. Take the following steps if large snapshots exist:
 
-1. Back up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`.
+1. Check the status of other ZooKeeper servers in the same quorum to make sure they are working fine with the command “`echo stat | nc {zk_host_ip} 2181 (or 2182)`”.  
 
-1. Clean up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`.
+1. Login the problematic ZooKeeper host, backup snapshots and transaction logs in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`, then cleanup these files in the two directories. 
 
-1. Restart all ZooKeeper servers from Apache Ambari UI.
+1. Restart the problematic ZooKeeper server in Ambari or the ZooKeeper host. Then restart the service which has problems.
 
 ## Next steps
 

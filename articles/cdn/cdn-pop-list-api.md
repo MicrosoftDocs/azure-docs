@@ -3,7 +3,7 @@ title: Retrieve the current POP IP list for Azure CDN| Microsoft Docs
 description: Learn how to retrieve the current POP list.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: 
 
 ---

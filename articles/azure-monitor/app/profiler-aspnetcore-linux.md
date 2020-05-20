@@ -164,10 +164,6 @@ You should see output similar to the following example:
 
     ![View Profiler traces](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## Known issues
-
-### Profile Now button doesn't work for Linux Profiler
-The Linux version of the App Insights profiler does not yet support on demand profiling using the profile now button.
 
 
 ## Next steps

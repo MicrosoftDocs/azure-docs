@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: [mvc, mqtt]
 ms.date: 06/21/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.

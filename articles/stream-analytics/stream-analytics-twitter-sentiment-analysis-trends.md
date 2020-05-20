@@ -34,7 +34,7 @@ In this how-to guide, you use a client application that connects to Twitter and 
 
 * The TwitterClientCore application, which reads the Twitter feed. To get this application, download [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-* Install the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Install the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) version 2.1.0.
 
 ## Create an event hub for streaming input
 
@@ -89,12 +89,6 @@ Before a process can send data to an event hub, the event hub needs a policy tha
    > [!NOTE]
    > For security, parts of the connection string in the example have been removed.
 
-8.  In the text editor, remove the `EntityPath` pair from the connection string (don't forget to remove the semicolon that precedes it). When you're done, the connection string looks like this:
-   
-   ```
-   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
-   ```
-
 ## Configure and start the Twitter client application
 
 The client application gets tweet events directly from Twitter. In order to do so, it needs permission to call the Twitter Streaming APIs. To configure that permission, you create an application in Twitter, which generates unique credentials (such as an OAuth token). You can then configure the client application to use these credentials when it makes API calls. 
@@ -105,7 +99,7 @@ If you do not already have a Twitter application that you can use for this how-t
 > [!NOTE]
 > The exact process in Twitter for creating an application and getting the keys, secrets, and token might change. If these instructions don't match what you see on the Twitter site, refer to the Twitter developer documentation.
 
-1. From a web browser, go to [Twitter For Developers](https://developer.twitter.com/en/apps), and select **Create an app**. You might see a message saying that you need to apply for a Twitter developer account. Feel free to do so, and after your application has been approved, you should see a confirmation email. It could take several days to be approved for a developer account.
+1. From a web browser, go to [Twitter For Developers](https://developer.twitter.com/en/apps), create a developer account, and select **Create an app**. You might see a message saying that you need to apply for a Twitter developer account. Feel free to do so, and after your application has been approved, you should see a confirmation email. It could take several days to be approved for a developer account.
 
    ![Twitter application details](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter application details")
 
@@ -134,7 +128,7 @@ Before the application runs, it requires certain information from you, like the 
    * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API secret key).
    * Set `oauth_token` to the Twitter Access token.
    * Set `oauth_token_secret` to the Twitter Access token secret.
-   * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
+   * Set `EventHubNameConnectionString` to the connection string.
    * Set `EventHubName` to the event hub name (that is  the value of the entity path).
 
 3. Open the command line and navigate to the directory where your TwitterClientCore app is located. Use the command `dotnet build` to build the project. Then use the command `dotnet run` to run the app. The app sends Tweets to your Event Hub.

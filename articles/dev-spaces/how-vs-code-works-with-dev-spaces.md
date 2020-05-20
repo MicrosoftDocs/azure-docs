@@ -48,7 +48,7 @@ You can see Visual Studio Code and the Azure Dev Spaces extension working with A
 * [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
-[azds-yaml]: how-dev-spaces-works.md#prepare-your-code
+[azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org

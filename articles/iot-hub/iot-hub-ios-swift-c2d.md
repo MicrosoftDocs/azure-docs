@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
+ms.custom: mqtt
 ---
 
 # Send cloud-to-device messages with IoT Hub (iOS)

@@ -60,11 +60,11 @@ The parameter `stream` is the stream containing the serialized object. `Deserial
 
 `StreamingDiagnostics` is the diagnostics for user defined operators including serializer, deserializer, and user defined functions.
 
-`WriteError` writes an error message to diagnostic logs and sends the error to diagnostics.
+`WriteError` writes an error message to resource logs and sends the error to diagnostics.
 
-`briefMessage` is a brief error message. This message  shows up in diagnostics and is used by the product team for debugging purposes. Do not include sensitive information, and keep the message less than 200 characters
+`briefMessage` is a brief error message. This message shows up in diagnostics and is used by the product team for debugging purposes. Do not include sensitive information, and keep the message less than 200 characters
 
-`detailedMessage` is a detailed error message that is only added to your diagnostic logs in your storage. This message should be less than 2000 characters.
+`detailedMessage` is a detailed error message that is only added to your resource logs in your storage. This message should be less than 2000 characters.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -242,6 +242,10 @@ This functionality is not supported. If you need this capability, you can vote f
 ### Can I share my deserializer implementation with the community so that others can benefit?
 
 Once you have implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### What are the other limitation of using custom deserializers in Stream Analytics?
+
+If your input is of Protobuf format with schema containing MapField type, you will not be able to implement a custom deserializer. We are working on supporting this type going forward.
 
 ## Next Steps
 

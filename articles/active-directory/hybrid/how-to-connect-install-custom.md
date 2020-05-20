@@ -176,7 +176,7 @@ This screen allows you to select the optional features for your specific scenari
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
 | Password hash synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password hash synchronization can then be used as a backup option. For additional information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md). </br></br>If you selected Pass-through Authentication this option can also be enabled to ensure support for legacy clients and as a backup option. For additional information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md).|
 | Password writeback |By enabling password writeback, password changes that originate in Azure AD is written back to your on-premises directory. For more information, see [Getting started with password management](../authentication/quickstart-sspr.md). |
-| Group writeback |If you use the **Office 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. For more information, see [Group writeback](how-to-connect-preview.md#group-writeback). |
+| Group writeback |If you use the **Office 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. |
 | Device writeback |Allows you to writeback device objects in Azure AD to your on-premises Active Directory for Conditional Access scenarios. For more information, see [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md). |
 | Directory extension attribute sync |By enabling directory extensions attribute sync, attributes specified are synced to Azure AD. For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -241,16 +241,16 @@ Configuring AD FS with Azure AD Connect is simple and only requires a few clicks
 
 * A Windows Server 2012 R2 or later server for the federation server with remote management enabled
 * A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
-* An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+* A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 >[!NOTE]
->You can update SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
+>You can update a TLS/SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
 
 ### AD FS configuration pre-requisites
 To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. Make sure you have completed the other tasks in [federation prerequisites](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### Create a new AD FS farm or use an existing AD FS farm
-You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the SSL certificate. If the SSL certificate is protected by a password, you are prompted for the password.
+You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the TLS/SSL certificate. If the TLS/SSL certificate is protected by a password, you are prompted for the password.
 
 ![AD FS Farm](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -316,7 +316,7 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 ## Configuring federation with PingFederate
 Configuring PingFederate with Azure AD Connect is simple and only requires a few clicks. However, the following prerequisites are required.
 - PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+- A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### Verify the domain
 After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.

@@ -44,7 +44,7 @@ For data at rest in the Private Cloud environment, you can use vSAN encryption. 
 
 ### Data Protection for data that is required to move through public networks
 
-To protect data that moves through public networks, you can create IPsec and SSL VPN tunnels for your Private Clouds. Common encryption methods are supported, including 128-byte and 256-byte AES. Data in transit (including authentication, administrative access, and customer data) is encrypted with standard encryption mechanisms (SSH, TLS 1.2, and Secure RDP). Communication that transports sensitive information  uses the standard encryption mechanisms.
+To protect data that moves through public networks, you can create IPsec and TLS VPN tunnels for your Private Clouds. Common encryption methods are supported, including 128-byte and 256-byte AES. Data in transit (including authentication, administrative access, and customer data) is encrypted with standard encryption mechanisms (SSH, TLS 1.2, and Secure RDP). Communication that transports sensitive information  uses the standard encryption mechanisms.
 
 ### Secure Disposal
 
