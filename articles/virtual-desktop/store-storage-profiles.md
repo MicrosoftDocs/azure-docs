@@ -157,7 +157,7 @@ To configure your NTFS permissions:
 
     Replace `<mounted-drive-letter>` with the letter of the drive you mapped to.
 
-    Both *NT Authority\Authenticated Users* and *BUILTIN\Users* have certain permissions by default. These default permissions let these users read other users' profile containers. However, the permissions described in [Configure storage permissions for use with Profile Containers and Office Containers](https://github.com/fslogix/fslogix-storage-config-ht) don't let users read each others' profile containers.
+    Both *NT Authority\Authenticated Users* and *BUILTIN\Users* have certain permissions by default. These default permissions let these users read other users' profile containers. However, the permissions described in [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht) don't let users read each others' profile containers.
 
 4. Run the following cmdlets to let your Windows Virtual Desktop users create their own profile containers while blocking access to their profile container from other users.
      
