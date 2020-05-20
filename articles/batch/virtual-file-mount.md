@@ -1,9 +1,8 @@
 ---
-title: Mount a virtual file system on a pool - Azure Batch | Microsoft Docs
+title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: labrenne
 ---
 
 # Mount a virtual file system on a Batch pool
