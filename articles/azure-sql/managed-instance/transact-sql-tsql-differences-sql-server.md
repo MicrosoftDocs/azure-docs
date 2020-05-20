@@ -14,6 +14,7 @@ ms.custom: seoapril2019, sqldbrb=1
 ---
 
 # T-SQL differences between SQL Server & Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Managed Instance and SQL Server. 
 

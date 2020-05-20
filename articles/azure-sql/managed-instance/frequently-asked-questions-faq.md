@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
 ---
 # Azure SQL Managed Instance frequently asked questions (FAQ)
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article contains the most common questions about [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).
 

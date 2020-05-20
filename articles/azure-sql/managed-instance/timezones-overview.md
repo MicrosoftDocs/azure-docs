@@ -12,6 +12,7 @@ ms.reviewer:
 ms.date: 09/03/2019
 ---
 # Time zones in Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Coordinated Universal Time (UTC) is the recommended time zone for the data tier of cloud solutions. Azure SQL Managed Instance also offers a choice of time zones to meet the needs of existing applications that store date and time values and call date and time functions with an implicit context of a specific time zone.
 
