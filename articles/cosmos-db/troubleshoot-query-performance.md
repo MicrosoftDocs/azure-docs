@@ -194,8 +194,8 @@ If an expression can be translated into a range of string values, it can use the
 
 Here's the list of some common string functions that can use the index:
 
-- STARTSWITH(str_expr, str_expr)
-- CONTAINS(str_expr, str_expr)
+- STARTSWITH(str_expr1, str_expr2, bool_expr)  
+- CONTAINS(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
 
