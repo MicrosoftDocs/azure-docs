@@ -82,6 +82,8 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate `public AzureSpatialAnchorsManager(Session arCoreSession)` and add the following line, substituting in your account domain from earlier: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");`.
+
 # [NDK](#tab/openproject-ndk)
 
 Open `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
@@ -89,6 +91,8 @@ Open `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Locate `AzureSpatialAnchorsApplication::StartCloudSession()` and add the following line, substituting in your account domain from earlier: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");`.
 
 ---
 
