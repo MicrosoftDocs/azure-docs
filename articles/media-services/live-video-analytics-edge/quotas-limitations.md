@@ -23,38 +23,32 @@ You can have at most 1000 graph instances per module (created via GraphInstanceS
 
 You can have at most 50 graph topologies per module (created via GraphTopologySet)
 
-## Limitations on graph topologies at preview
+## Limitations on graph topologies at Preview
 
 With the Preview release, there are limitations on different nodes can be connected together in a media graph topology.
 
 * RTSP source
-
     * Only one RTSP source is allowed per graph topology
 * Frame rate filter processor
-
-    * Must be immediately downstream from RTSP source or motion detection processor.
+    * Must be immediately downstream from RTSP source or motion detection processor
+    * Can be chained together, but cannot be used on separate 
 * HTTP extension processor
-
-    * Only one HTTP extension processor per graph topology.
+    * Only one HTTP extension processor per graph topology
 * Motion detection processor
-
-    * Must be immediately downstream from RTSP source.
-    * There can be at most one such processor per topology.
+    * Must be immediately downstream from RTSP source
+    * There can be at most one such processor per topology
 * Signal gate processor
-    
     * Must be immediately downstream from RTSP source.
 * Asset sink 
-
-    * Only one Asset sink is supported per graph.
-    * Must be immediately downstream from RTSP source or signal gate processor.
+    * Only one Asset sink is supported per graph
+        * If an Asset sink is used, then a file sink cannot be present, or vice versa
+    * Must be immediately downstream from RTSP source or signal gate processor
 * File sink
-
-    * Only one file sink is supported per graph.
-    * Must be immediately downstream from signal gate processor.
-    * Cannot be immediately downstream of HTTP extension processor, or motion detection processor.
+    * Only one file sink is supported per graph (see above note regarding asset sink)
+    * Must be immediately downstream from signal gate processor
+    * Cannot be immediately downstream of HTTP extension processor, or motion detection processor
 * IoT Hub Sink
-
-Cannot be immediately downstream of an IoT Hub source.
+    * Cannot be immediately downstream of an IoT Hub source.
 
 ## Next steps
 
