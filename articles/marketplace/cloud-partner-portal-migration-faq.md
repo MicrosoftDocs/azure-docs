@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions about the migration to Partner Center | Azure Marketplace
-description: This article addresses commonly asked questions about the migration of offers from Cloud Partner Portal to Partner Center.
+title: Common questions about the migration to Partner Center - Microsoft commercial marketplace
+description: Answers to commonly asked questions about the migration of offers from Cloud Partner Portal to Partner Center.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/19/2020
 ms.author: mingshen
 ---
 
-# Frequently asked questions for migrating from the Cloud Partner Portal to Partner Center
+# Common questions about migrating from the Cloud Partner Portal to Partner Center
 
 This article addresses commonly asked questions about the migration of offers from the Cloud Partner Portal to Partner Center.
 
@@ -28,12 +28,9 @@ We are moving your offer data from the Cloud Partner Portal to Partner Center wi
 
 ## Can I still access the Cloud Partner Portal and manage my offers during migration?
 
-Offers will be migrated to Partner Center starting April 13 throughout the month of May. During this time period you'll be able to access the Cloud Partner Portal as usual, except for the time you offer is scheduled for migration.
-While your offers are being migrated, they'll have the status "Locked – moving to Partner Center", as seen in the following screenshot. This migration period should be less than 24 hours. During this time, you won't be able to make any updates to your offers. You'll receive an email notification after we've completed the migration of your offers.
+All offers have been migrated to Partner Center. The migration period for each offer should have been less than 24 hours. After your offer was migrated, you should have received an email notification.
 
-:::image type="content" source="media/migration-faq/all-offers-1.png" alt-text="Illustrates the status of migrated offers.":::
-
-After your offers are migrated, they'll be in read-only mode **for a limited period of time** in the Cloud Partner Portal. Their status will show "Moved to Partner Center" and include a link to your offer in Partner Center, as shown in the following screenshots. From this point, you'll manage updates to all your offers or create new offers exclusively through Partner Center,
+After your offers are migrated, they will be in read-only mode **for a limited period of time** in the Cloud Partner Portal. Their status will show "Moved to Partner Center" and include a link to your offer in Partner Center, as shown in the following screenshots. From this point, you'll manage updates to all your offers or create new offers exclusively through Partner Center,
 
 :::image type="content" source="media/migration-faq/all-offers-2.png" alt-text="Illustrates the message given for offers that have been migrated to Partner Center":::
 

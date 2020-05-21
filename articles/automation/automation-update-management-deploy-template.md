@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates to onboard Update Management | Microsoft Docs
-description: You can use an Azure Resource Manager template to onboard the Azure Automation Update Management solution.
+title: Enable Update Management using Azure Resource Manager template | Microsoft Docs
+description: This article tells how to use an Azure Resource Manager template to enable Update Management.
 ms.service:  automation
 ms.subservice: update-management
 ms.topic: conceptual
@@ -9,24 +9,21 @@ ms.author: magoedte
 ms.date: 04/24/2020
 ---
 
-# Onboard Update Management solution using Azure Resource Manager template
+# Enable Update Management using Azure Resource Manager template
 
-You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a sample template that automates the following:
+You can use an [Azure Resource Manager template](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
 
 * Creation of a Azure Monitor Log Analytics workspace.
 * Creation of an Azure Automation account.
 * Linking the Automation account to the Log Analytics workspace, if not already linked.
-* Onboarding the Azure Automation Update Management solution.
+* Enabling Update Management.
 
-The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+The template does not automate the enabling of one or more Azure or non-Azure VMs.
 
-If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. The workspace doesn't already have the Update Management solution deployed. Using this template successfully creates the link and deploys the Update Management solution. 
-
->[!NOTE]
->The **nxautomation** user onboarded as part of Update Management on Linux executes only signed runbooks.
+If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. The workspace doesn't already have Update Management enabled. Using this template successfully creates the link and deploys Update Management for your VMs. 
 
 >[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+>The **nxautomation** user enabled as part of Update Management on Linux executes only signed runbooks.
 
 ## API versions
 
@@ -239,10 +236,10 @@ It is important to understand the following configuration details if you are new
 
 ## Next steps
 
-Now that you have the Update Management solution deployed, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
+Now that you have Update Management enabled, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
 
-- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines.
+- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines
 
-- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs
 
-- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
+- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal 

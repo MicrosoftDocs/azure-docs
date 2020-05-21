@@ -241,9 +241,9 @@ except Exception as detail:
 
 ## Next steps
 
-- [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md)
-- [Create a graphical runbook](automation-tutorial-runbook-graphical.md)
-- [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md)
-- [Azure Automation runbook types](../automation-runbook-types.md)
-- [Azure for Python developers](/azure/python/)
-- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
+- To get started with Graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
+- To get started with PowerShell workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
+- To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
+- To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
+- To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
