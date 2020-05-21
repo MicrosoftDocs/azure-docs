@@ -263,7 +263,7 @@
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
      - name: Move data
-        items: 
+       items: 
         - name: Migrate using DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json 
         - name: Set up Azure SQL Data Sync
