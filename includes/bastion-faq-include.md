@@ -75,3 +75,10 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 ### <a name="udr"></a>How do I handle deployment failures?
 
 Review any error messages and [raise a support request in the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures may result from [Azure subscription limits, quotas and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+
+### <a name="nsgflowlog"></a>Is there any case where NSG flow logs won't show allowed traffic?
+
+Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
+- You've deployed Bastion
+- You have an NSG on the Bastion subnet
+- You've enabled NSG flow logs on that NSG
