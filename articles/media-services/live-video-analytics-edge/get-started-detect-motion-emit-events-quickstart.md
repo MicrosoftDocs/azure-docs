@@ -28,14 +28,14 @@ The following Azure resources are required for this tutorial.
 
 You can use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
 
-1. Browse to https://shell.azure.com
-1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
-1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
+1. Browse to https://shell.azure.com.
+1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information.
+1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
 
     ![Environment Selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command
-
+<!-- TODO - Would be nice to have some screen shots from https://docs.microsoft.com/azure/cloud-shell/quickstart copied over here -->
     ```bash
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
@@ -50,23 +50,24 @@ Run the following command from Cloud Shell
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment.quickstart.json-in-cloud-shell-storage>
 ```
 
-The above command will deploy the following modules
+<!-- TODO - Replace path-to-deployment.quickstart.json-in-cloud-shell-storage with actual value -->
+The above command will deploy the following modules:
 
 * Live Video Analytics on IoT Edge
 * RTSP simulator
 
-The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the Live Video Analytics resources setup script. At this stage, you have the modules deployed but no MediaGraphs are active.
+The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no MediaGraphs are active.
 
 ## Configure Azure IoT Tools extension in Visual Studio Code
 
-Start Visual Studio Code and follow the instructions below to connect to your Azure IoT Hub using the Azure IoT Tools extension
+Start Visual Studio Code and follow the instructions below to connect to your Azure IoT Hub using the Azure IoT Tools extension.
 
 1. In Explorer of VS Code, click "Azure IoT Hub Devices" in the bottom-left corner.
 1. Click "Set IoT Hub Connection String" in context menu.
-1. An input box will pop up, then enter your IoT Hub Connection String. You can get the connection string for your IoT Hub from /clouddrive/lva-sample/appsettings.json in Cloud Shell
+1. An input box will pop up, then enter your IoT Hub Connection String. You can get the connection string for your IoT Hub from /clouddrive/lva-sample/appsettings.json in Cloud Shell.
 1. If the connection succeeds, the device list will be shown.
 1. You can now manage your IoT devices and interact with Azure IoT Hub through context menu.
-1. You can view the module deployed on the edge device by expanding the Modules node under "lva-sample-device"
+1. You can view the module deployed on the edge device by expanding the Modules node under "lva-sample-device".
 
     ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
@@ -103,7 +104,7 @@ Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [Media Graph topology](media-graph-concept.md) using the following JSON as the payload.
+Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload.
 
 ```
 {
@@ -252,7 +253,7 @@ Within a few seconds, you will see the following response in the Output window:
 }
 ```
 
-The status returned is 201, indicating that a new topology was created. Try the following as next steps
+The status returned is 201, indicating that a new topology was created. Try the following as next steps:
 
 * Invoke GraphTopologySet again and note that the status code returned is 200. Status code 200 indicates that an existing topology was successfully updated.
 * Invoke GraphTopologySet again but change the description string. Note the status code in the response is 200 and the description is updated to the new value.
@@ -347,14 +348,14 @@ Within a few seconds, you should see the following response in the Output window
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
 * Status code is 200, indicating success.
 * The payload has the "created" and the "lastModified" timestamp.
 
 ### Invoke GraphInstanceSet
 
-Now invoke Direct Method GraphInstanceSet with the following payload
+Now invoke Direct Method GraphInstanceSet with the following payload.
 
 ```
 {
@@ -370,10 +371,10 @@ Now invoke Direct Method GraphInstanceSet with the following payload
 }
 ```
 
-Note the following
+Note the following:
 
-* The payload above specifies the topology name for which the instance needs to be created
-* The payload contains parameter value for "rtspUrl", which did not have a default value in the topology payload
+* The payload above specifies the topology name for which the instance needs to be created.
+* The payload contains parameter value for "rtspUrl", which did not have a default value in the topology payload.
 
 Within few seconds, you will see the following response in the Output window:
 
@@ -401,12 +402,12 @@ Within few seconds, you will see the following response in the Output window:
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
-* Status code is 201, indicating a new instance was created
+* Status code is 201, indicating a new instance was created.
 * State is "Inactive", indicating that the MediaGraph was created but not activated. For more information, [media graph states](media-graph-concept.md).
 
-Try the following as next steps
+Try the following as next steps:
 
 * Invoke GraphInstanceSet again with the same payload and note that the returned status code is now 200.
 * Invoke GraphInstanceSet again but with a different description and note that the updated description in the response payload, indicating that the MediaGraph instance was successfully updated.
@@ -438,7 +439,7 @@ Status code of 200 in the response payload indicates that the MediaGraph was suc
 
 ### Invoke GraphInstanceGet
 
-Now invoke Direct Method GraphInstanceGet with the following payload
+Now invoke Direct Method GraphInstanceGet with the following payload:
 
 ```
  {
@@ -473,18 +474,18 @@ Within few seconds, you should see the following response in the Output window:
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
 * Status code is 200, indicating success.
 * State is "Active", indicating the MediaGraph is now in "Active" state.
 
 ## Observe results
 
-The MediaGraph that we created and activated above, uses the motion detection processor to detect motion in the incoming live video stream and output events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. To do so, follow these steps
+The MediaGraph that we created and activated above, uses the motion detection processor to detect motion in the incoming live video stream and output events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. To do so, follow these steps.
 
 1. Open the Explorer pane in VSCode and look for Azure IOT Hub at the bottom-left corner.
-2. Expand the Devices node
-3. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
+2. Expand the Devices node.
+3. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
 
 ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
 
@@ -532,9 +533,9 @@ You will see the following messages in the Output window:
 
 Note the following in the above message
 
-* The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 * "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
-* "eventType" in applicationProperties indicates that this is an Analytics event
+* "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 * "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
 * "inferences" section indicates that the "type" is "motion" and has additional data about the "motion" event.
@@ -559,9 +560,9 @@ If you let the MediaGraph run for sometime, you will see the following message a
 
 Note the following in the above message
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the MediaGraph
-* "eventType" in applicationProperties indicates that this is a Diagnostic event
-* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body
+* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
+* "eventType" in applicationProperties indicates that this is a Diagnostic event.
+* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body.
 
 ## Invoke additional Direct Methods
 
@@ -569,7 +570,7 @@ Now, lets invoke Direct Methods to deactivate the MediaGraph and delete the Medi
 
 ### Invoke GraphInstanceDeactivate
 
-Invoke Direct Method GraphInstanceDeactivate with the following payload
+Invoke Direct Method GraphInstanceDeactivate with the following payload.
 
 ```
 {
@@ -591,7 +592,7 @@ Within few seconds, you should see the following response in the Output window:
 
 Status code of 200 indicates that the MediaGraph was successfully deactivated.
 
-Try the following, as next steps
+Try the following, as next steps.
 
 * Invoke GraphTopologyGet as indicated in the earlier sections and observe the "state" value.
 
@@ -643,7 +644,7 @@ Within few seconds, you should see the following response in the Output window:
 
 Status code of 200 indicates that the MediaGraph topology was successfully deleted.
 
-Try the following as next steps
+Try the following as next steps.
 
 * Invoke GraphTopologyList and observe that there are no topologies anymore.
 * Invoke GraphInstanceList with the same payload as GraphTopologyList and observe that are no instances enumerated.
