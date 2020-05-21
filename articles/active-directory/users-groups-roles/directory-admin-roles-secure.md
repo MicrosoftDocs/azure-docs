@@ -78,7 +78,7 @@ After you turn on Azure AD Privileged Identity Management:
 
 4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
 
-The first person to use PIM in your organization is assigned to the **Security administrator** and **Privileged role administrator** roles. Only privileged role administrators can manage the Azure AD directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
+Make sure the first person to use PIM in your organization is assigned to the **Security administrator** and **Privileged role administrator** roles. Only privileged role administrators can manage the Azure AD directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
 
 #### Identify and categorize accounts that are in highly privileged roles
 

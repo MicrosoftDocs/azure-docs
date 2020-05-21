@@ -194,7 +194,8 @@ If an expression can be translated into a range of string values, it can use the
 
 Here's the list of some common string functions that can use the index:
 
-- STARTSWITH(str_expr, str_expr)
+- STARTSWITH(str_expr1, str_expr2, bool_expr)  
+- CONTAINS(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
 
@@ -202,7 +203,6 @@ Following are some common system functions that don't use the index and must loa
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Use Azure Search for full-text search.                        |
 | UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
