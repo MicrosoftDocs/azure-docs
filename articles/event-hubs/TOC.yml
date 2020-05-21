@@ -42,7 +42,7 @@
       href: event-hubs-storm-getstarted-receive.md
   - name: Send and receive events (old versions/packages)
     items:
-    - name: .NET Core (Microsoft.Azure.EventHubs)
+    - name: .NET (Microsoft.Azure.EventHubs)
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: Java (azure-eventhubs)
       href: event-hubs-java-get-started-send.md

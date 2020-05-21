@@ -131,6 +131,8 @@
               href: howto-manage-iot-central-from-cli.md
             - name: Manage from Azure PowerShell
               href: howto-manage-iot-central-from-powershell.md
+            - name: Manage programmatically
+              href: howto-manage-iot-central-programmatically.md
             - name: Manage from CSP portal
               href: howto-create-and-manage-applications-csp.md
         - name: Personalize application
