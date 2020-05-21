@@ -6,16 +6,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seomay2020
-ms.date: 05/18/2020
+ms.date: 05/21/2020
 ---
 # Optimize Apache Spark jobs in HDInsight
 
-The performance of your Apache Spark jobs depends on multiple factors. This includes how the data is stored, how the cluster is configured, and the operations that are used when processing the data.
+The performance of your Apache Spark jobs depends on multiple factors. These performance factors include: how your data is stored, how the cluster is configured, and the operations that are used when processing the data.
 
-Common challenges you might face include memory constraints due to improperly-sized executors, long-running operations, and tasks that result in Cartesian operations.
+Common challenges you might face include memory constraints due to improperly sized executors, long-running operations, and tasks that result in Cartesian operations.
 
-There are also various strategies that can help you to overcome these challenges, such as caching, and allowing for data skew.
+There are also various strategies that can help you overcome these challenges, such as caching, and allowing for data skew.
 
 In each of the following articles, you can find common challenges and solutions for a different aspect of spark optimization.
 

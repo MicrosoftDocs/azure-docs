@@ -6,7 +6,6 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seomay2020
 ms.date: 05/20/2020
 ---
 # Memory usage optimization
