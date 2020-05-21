@@ -112,67 +112,76 @@ When the receive operation is successful, the message details will display on th
 
 With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the deadletter queue.
 
-To peek the message on a queue, click on the ***Peek*** tab on the Service Bus Explorer.
+1. To peek the message on a queue, click on the ***Peek*** tab on the Service Bus Explorer.
 
-![PeekTab](./media/service-bus-explorer/peek-tab-selected.png)
+    ![PeekTab](./media/service-bus-explorer/peek-tab-selected.png)
 
-Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to peek.
+2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to peek.
 
-![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
+    ![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
 
-Then pick between the ***Queue*** or the ***Deadletter*** subqueue.
+3. Then pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-![QueueOrDeadletter](./media/service-bus-explorer/queue-or-deadletter.png)
+    ![QueueOrDeadletter](./media/service-bus-explorer/queue-or-deadletter.png)
 
-Click the ***Peek*** button to peek up to top 32 messages from the queue. Since peek is not a destructive operation the message will not be removed from the queue.
+4. Click the ***Peek*** button. 
 
-![PeekMessageFromQueue](./media/service-bus-explorer/peek-message-from-queue.png)
+Once the peek operation completes, up to 32 messages will show up on the grid as below. To view the details of a particular message, select it from the grid. 
 
-To view the message details and the content, click on the message from the list.
-![PeekMessageDetails](./media/service-bus-explorer/peek-message-details.png)
+![PeekMessageFromQueue](./media/service-bus-explorer/peek-message-from-queue-2.png)
+
+> [!NOTE]
+>
+> Since peek is not a destructive operation the message **will not** be removed from the queue.
+>
 
 ### Receiving a Message from a Subscription
 
 Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its deadletter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
 
-Click on the ***Receive*** tab and select the specific ***Subscription*** from the dropdown selector.
+> [!IMPORTANT]
+> Please note that the Receive operation performed by the Service Bus explorer is a ***destructive receive***, i.e. the message is removed from the queue when it is displayed on the Service Bus Explorer tool.
+>
+> To browse messages without removing them from the queue, consider using the ***Peek*** functionality.
+>
 
-![ReceiveTabSelected](./media/service-bus-explorer/receive-subscription-tab-selected.png)
+1. Click on the ***Receive*** tab and select the specific ***Subscription*** from the dropdown selector.
 
-Then pick between the ***Subscription*** or the ***DeadLetter*** subentity.
+    ![ReceiveTabSelected](./media/service-bus-explorer/receive-subscription-tab-selected.png)
 
-![SubscriptionOrDeadletter](./media/service-bus-explorer/subscription-or-deadletter.png)
+2. Pick between the ***Subscription*** or the ***DeadLetter*** sub-entity.
 
-Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
+    ![SubscriptionOrDeadletter](./media/service-bus-explorer/subscription-or-deadletter.png)
 
-When the receive operation is successful, the message details will display on the grid as below.
+3. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
-![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-queue.png)
+When the receive operation is successful, the received message will display on the grid as below. To view the message details, click on the message.
 
-To view the message details and the content, click on the message.
-
-![ReceivedMessageDetails](./media/service-bus-explorer/received-message-details.png)
+![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-subscription.png)
 
 
 ### Peeking a Message from a Subscription
 
-To simply browse the messages on a Subscription or its deadletter subentity, the ***Peek*** functionality can be utilized on the Subscription as well.
+To simply browse the messages on a Subscription or its deadletter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
 
-Click on the ***Peek*** tab and select the specific ***Subscription*** from the dropdown selector.
+1. Click on the ***Peek*** tab and select the specific ***Subscription*** from the dropdown selector.
 
-![PeekTabSelected](./media/service-bus-explorer/peek-subscription-tab-selected.png)
+    ![PeekTabSelected](./media/service-bus-explorer/peek-subscription-tab-selected.png)
 
-Then pick between the ***Subscription*** or the ***DeadLetter*** subentity.
+2. Pick between the ***Subscription*** or the ***DeadLetter*** subentity.
 
-![SubscriptionOrDeadletter](./media/service-bus-explorer/subscription-or-deadletter.png)
+    ![SubscriptionOrDeadletter](./media/service-bus-explorer/subscription-or-deadletter.png)
 
-Click the ***Peek*** button to receive at most 32 messages. The message details will then display on the grid as below.
+3. Click the ***Peek*** button.
+
+Once the peek operation completes, up to 32 messages will show up on the grid as below. To view the details of a particular message, select it from the grid. 
 
 ![PeekMessageFromSubscription](./media/service-bus-explorer/peek-message-from-subscription.png)
 
-To view the message details and the content, click on the message.
-
-![ReceivedMessageDetails](./media/service-bus-explorer/received-message-details.png)
+> [!NOTE]
+>
+> Since peek is not a destructive operation the message **will not** be removed from the queue.
+>
 
 ## Next Steps
 
