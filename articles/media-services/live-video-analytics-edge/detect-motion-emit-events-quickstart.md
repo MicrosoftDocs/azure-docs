@@ -49,7 +49,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
 
 1. Clone the repo from here https://github.com/Azure-Samples/lva-edge-rc4.
 2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
-3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "apsettings.json". This file will contain the settings needed to run the program.
+3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 3. Copy the contents from clouddrive/lva-sample/appsettings.json file. See step 5 in the previous section.
 
     The text should look like:
