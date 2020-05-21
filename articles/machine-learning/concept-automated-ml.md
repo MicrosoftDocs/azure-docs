@@ -95,11 +95,12 @@ While model building is automated, you can also [learn how important or relevant
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## Preprocessing
+## Feature engineering
 
-In every automated machine learning experiment, your data is preprocessed using the default methods and optionally through advanced preprocessing.
+Feature engineering is the process of using domain knowledge of the data to create features that make machine learning algorithms work. customization gives you the flexibility to identify features from raw data that help facilitate the machine learning process. Allowing you to increase the predictive power of machine learning algorithms with transparency and flexibility.
+
+In every automated machine learning experiment, your data is preprocessed using the default methods. But you can also customize the feature engineering steps, featurization, for your experiments.
 
 > [!NOTE]
 > Automated machine learning pre-processing steps (feature normalization, handling missing data,
@@ -107,7 +108,7 @@ In every automated machine learning experiment, your data is preprocessed using 
 > predictions, the same pre-processing steps applied during training are applied to
 > your input data automatically.
 
-### Automatic preprocessing (standard)
+### Automatic featurization (standard)
 
 In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model.
 
@@ -121,14 +122,15 @@ In every automated machine learning experiment, your data is automatically scale
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |This transformer performs linear dimensionality reduction by means of truncated singular value decomposition (SVD). Contrary to PCA, this estimator does not center the data before computing the singular value decomposition, which means it can work with scipy.sparse matrices efficiently |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Each sample (that is, each row of the data matrix) with at least one non-zero component is rescaled independently of other samples so that its norm (l1 or l2) equals one |
 
-### Advanced preprocessing & featurization
+### Customize featurization
 
-Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Additional advanced preprocessing and feature engineering techniques are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-configure-auto-features.md#featurization). 
+
 Enable this setting with:
 
-+ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
++ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## Classification & regression
 

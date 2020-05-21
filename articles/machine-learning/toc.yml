@@ -301,6 +301,9 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Featurization settings in autoML (Python)
+      displayName: feature engineering
+      href: how-to-configure-auto-features.md
     - name: Use automated ML in ML pipelines (Python)
       displayName: machine learning automl 
       href: how-to-use-automlstep-in-pipelines.md
