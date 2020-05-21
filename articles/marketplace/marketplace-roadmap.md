@@ -1,27 +1,19 @@
 ---
-title: Microsoft commercial marketplace roadmap
-description: This roadmap highlights new and upcoming features and other releases for the commercial marketplace
+title: Microsoft commercial marketplace release resources
+description: Learn about new and upcoming features, releases, and other updates for the commercial marketplace
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 05/19/2020
 ---
 
-# Microsoft commercial marketplace roadmap
+# Microsoft commercial marketplace resources
 
-This article outlines recent releases and what's next for Microsoft commercial marketplace for publishers, sellers, and customers. It captures some of the features we have committed to and gives a rough time frame for when you can expect to see them. It is not a comprehensive list of all new features but is intended to provide visibility into our key investments. These feature sets and delivery time frames are current and subject to change.
+See the following resources for information on recent releases and other updates around the Microsoft commercial marketplace.
 
-We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
-
-## Roadmap
-![Marketplace roadmap for November 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
-
-## Recent releases
-
-Once a capability is live, it will be removed from the roadmap. Functionality that has been added to the marketplace can be found in the following documentation.
-
+* [Microsoft AppSource and Azure Marketplace - Partner Community forum ](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)
 * [Marketplace and Cloud Solution Provider (CSP) Update Blog](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
 * [Publish offerings into CSP channel (ISV)](./cloud-solution-providers.md)
 * [Resell Marketplace offerings (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
@@ -36,6 +28,4 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 ) / [Update Existing Offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [Offer Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
 * [Get support for marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
-## Next steps
-
-Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.
+We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
