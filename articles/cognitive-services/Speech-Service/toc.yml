@@ -564,7 +564,7 @@
   - name: Speech CLI
     displayName: SPX
     items:
-      - name: What is Speech CLI?
+      - name: What is the Speech CLI?
         displayName: What is SPX?
         href: spx-overview.md
       - name: Speech CLI Basics
