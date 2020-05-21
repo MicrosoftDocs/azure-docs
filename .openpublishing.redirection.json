@@ -42719,7 +42719,7 @@
     {
       "source_path": "articles/application-insights/app-insights-usage-workbooks.md",
       "redirect_url": "/azure/azure-monitor/app/usage-workbooks",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-visual-studio-codelens.md",
