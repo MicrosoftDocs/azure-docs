@@ -106,12 +106,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 You can use a similar pattern for REST and other supported languages to get node counts for pools.
  
 ## Next steps
 
-* See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features.
-
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * For information about applying filters to queries that list Batch resources, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 
