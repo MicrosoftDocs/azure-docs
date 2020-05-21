@@ -12,7 +12,7 @@ ms.date: 05/22/2020
 
 When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus. For example, suppose that you have 10 messages for a session named "Session 1", and you have 5 messages for a session named "Session 2". You can create a logic app that processes "Session 1" with one trigger run and "Session 2" in another trigger run.
 
-![General sequental convoy pattern](./media/send-related-messages-sequential-convoy/general-pattern-overview.png)
+![General sequential convoy pattern](./media/send-related-messages-sequential-convoy/general-pattern-overview.png)
 
 For a more concrete example, suppose that you have an online company that receives new orders from direct clients and from dealers throughout the day. All orders received before 2:00 PM must go to the warehouse in a single batch, which must preserve the arrival sequence for those orders. That way, earlier orders get priority in case any items are low in stock at the warehouse. To build this batch order, you put all the orders for the day into a single file that has batch header information. At 2:00 PM, the day's orders go to the warehouse for processing. All orders received after 2:00 PM go into a new batch for processing the next day.
 
