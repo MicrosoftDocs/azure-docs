@@ -262,14 +262,14 @@
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
-     - name: Move data
-       items: 
-        - name: Migrate using DMS
-          href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json 
-        - name: Set up Azure SQL Data Sync
-          href: database/sql-data-sync-sql-server-configure.md
-        - name: Migrate SQLite to serverless
-          href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
+    - name: Move data
+      items: 
+      - name: Migrate using DMS
+        href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json 
+      - name: Set up SQL Data Sync
+        href: database/sql-data-sync-sql-server-configure.md
+      - name: Migrate SQLite to serverless
+        href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
 
   - name: Concepts
     items:
