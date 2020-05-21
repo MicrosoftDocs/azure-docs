@@ -246,7 +246,7 @@ WVDErrors
 | render barchart 
 ```
 
-To query applications users have have started from the published list of apps we leverage the WVDCheckpoints table. While connections will show you applications name too it will show you only the first app started for a connection but not subsequent app starts for the same connection. When publishing desktops to your users the service doesn't provide information on which apps are started in the session.
+To query applications users have used:
 
 ```kusto
 WVDCheckpoints 
@@ -258,9 +258,10 @@ WVDCheckpoints
 | render columnchart
 ```
 >[!NOTE]
->The most important table for troubleshooting is WVDErrors. Use this query to understand which issues occur for user activities like connections or feeds when a user subscribes to the list of apps or desktops. The table will show you management errors as well as host registration issues.
->
->During public preview, if you need help with resolving an issue, make sure you give the CorrelationID for the error in your help request. Also, make sure your Service Error value always says ServiceError = “false”. A "false" value means the issue can be resolved by an admin task on your end. If ServiceError = “true”, you'll need to escalate the issue to Microsoft.
+>- When a user opens a Full Desktop any application usage in the session is not tracked as checkpoint in the WVDCheckpoints table.
+>- In WVDConnections the column ResourcesAlias provides information whether the user has connected to a full desktop or a published app. The app named is only the first app the user has started for this connection. Any subsequent applications the user has used, including the first app started, are tracked in WVDCheckpoints.
+>- The most important table for troubleshooting is WVDErrors. Use this query to understand which issues occur for user activities like connections or feeds when a user subscribes to the list of apps or desktops. The table will show you management errors as well as host registration issues.
+>- During public preview, if you need help with resolving an issue, make sure you give the CorrelationID for the error in your help request. Also, make sure your Service Error value always says ServiceError = “false”. A "false" value means the issue can be resolved by an admin task on your end. If ServiceError = “true”, you'll need to escalate the issue to Microsoft.
 
 ## Next steps 
 
