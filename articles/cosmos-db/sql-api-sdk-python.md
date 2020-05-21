@@ -36,7 +36,7 @@ ms.author: anfeldma
 
 ## Release History
 
-### 4.0.0 (2020-05-20)
+### 4.0.0
 
 * Stable release.
 * Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
@@ -303,6 +303,7 @@ Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |
 | [2.3.3](#233) |Sept 08, 2018 |August 30, 2020 |
