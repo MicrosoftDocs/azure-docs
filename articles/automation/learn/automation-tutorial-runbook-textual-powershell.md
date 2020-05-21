@@ -268,9 +268,10 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
 
 ## Next steps
 
-* [PowerShell Docs](/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
-* [Create a graphical runbook](automation-tutorial-runbook-graphical.md)
-* [Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
-* [Azure Automation runbook types](../automation-runbook-types.md)
-* [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
+* To get started with graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
+* To get started with PowerShell Workflow runbooks, see [Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md).
+* To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
+* For more information on the PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
