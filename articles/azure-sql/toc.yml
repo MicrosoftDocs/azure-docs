@@ -1,42 +1,28 @@
-- name: Azure SQL 
+- name: Azure SQL Documentation
   href: index.yml
 
 - name: Azure SQL
   items: 
   - name: What is Azure SQL? 
     href: azure-sql-iaas-vs-paas-what-is-overview.md
-  - name: Concepts
-    items: 
-    - name: Azure Hybrid Benefit
-      href: azure-hybrid-benefit.md
-    - name: Multi-model features
-      href: multi-model-features.md
-    - name: Accelerated database recovery
-      href: accelerated-database-recovery.md
-    - name: Application and database tuning guidance
-      href: database/performance-guidance.md
-    - name: Use DMVs to monitor performance
-      href: database/monitoring-with-dmvs.md
+  - name: Multi-model features
+    href: multi-model-features.md
 
-  - name: How to guides
-    items:
-    - name: Identify query performance issues
-      href: identify-query-performance-issues.md
-    - name: Batching for performance
-      href: performance-improve-use-batching.md
-    - name: Load data with BCP
-      href: load-from-csv-with-bcp.md
 
 - name: Shared SQL DB & SQL MI docs 
   items:
   - name: Shared concepts 
     itemS: 
     - name: Feature comparison
-      href: database/features-comparison.md
+      href: database/features-comparison.md    
+    - name: Azure Hybrid Benefit
+      href: azure-hybrid-benefit.md
+    - name: Accelerated database recovery
+      href: accelerated-database-recovery.md
+    - name: In-memory OLTP
+      href: in-memory-oltp-overview.md
     - name: Temporal tables
       href: temporal-tables.md
-    - name: In-memory OLTP
-      href: in-memory-oltp-overview.md      
 
     - name: Purchasing models
       items:
@@ -153,19 +139,39 @@
       href: database/quota-increase-request.md
     - name: Job automation
       href: database/job-automation-overview.md
-    - name: Configure failover group
-      href: database/auto-failover-group-configure.md
-    - name: Store vulnerability scans in storage
-      href: database/sql-database-vulnerability-assessment-storage.md
-    - name: Log diagnostic telemetry
-      href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
-    - name: Configure TDE with BYOK
-      href: database/transparent-data-encryption-byok-configure.md
-    - name: Configure temporal retention policy
-      href: database/temporal-tables-retention-policy.md
-    - name: Configure backup retention using Azure Blob storage
-      href: database/long-term-backup-retention-configure.md
+
+    - name: Business continuity  
+      items: 
+      - name: Configure failover group
+        href: database/auto-failover-group-configure.md
+      - name: Configure temporal retention policy
+        href: database/temporal-tables-retention-policy.md
+      - name: Configure backup retention using Azure Blob storage
+        href: database/long-term-backup-retention-configure.md
+
+    - name: Security  
+      items: 
+      - name: Configure TDE with BYOK
+        href: database/transparent-data-encryption-byok-configure.md 
+      - name: Store vulnerability scans in storage
+        href: database/sql-database-vulnerability-assessment-storage.md
+
   
+    - name: Monitor & tune
+      items: 
+      - name: Identify query performance issues
+        href: identify-query-performance-issues.md
+      - name: Batching for performance
+        href: performance-improve-use-batching.md
+      - name: Load data with BCP
+        href: load-from-csv-with-bcp.md
+      - name: Application and database tuning guidance
+        href: database/performance-guidance.md
+      - name: Use DMVs to monitor performance
+        href: database/monitoring-with-dmvs.md 
+      - name: Log diagnostic telemetry
+        href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+
     - name: Load and move data
       items:
       - name: Import a database from a BACPAC file
