@@ -50,7 +50,7 @@ You can configure the token lifetime on any user flow.
 
 ## Next steps
 
-Learn more about how to [use access tokens](access-tokens.md).
+Learn more about how to [request access tokens](access-tokens.md).
 
 
 
