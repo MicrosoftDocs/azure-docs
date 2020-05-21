@@ -45,7 +45,7 @@ Standard SKU public IP addresses are:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Are secure by default and closed to inbound traffic. You must explicit whitelist allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
+- Are secure by default and closed to inbound traffic. You must explicit allow list allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
 - Assigned to network interfaces, Standard public Load Balancers, or Application Gateways. For more information about Standard Load Balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Can be zone-redundant or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
