@@ -54,7 +54,10 @@ The names of the following properties in the JSON response have been changed, wh
 
 ### Text Analytics API v3.1 Public Preview
    * New sentiment analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * New [NER domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for personal (`PII`) and protected health (`PHI`) information.
+   * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
+   * New Personal (`PII`) categories:
+      * International Classification of Diseases (ICD-9-CM)
+      * International Classification of Diseases (ICD-10-CM)
 
 ## February 2020
 
