@@ -30,7 +30,10 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
-IoT Hub currently supports the following services as custom endpoints:
+
+If your custom endpoint has firewall configurations consider using the Microsoft trusted first party exception, to give your IoT Hub access to the specific endpoint - [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) and [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). This is available in select regions for IoT Hubs with [managed service identity](./virtual-network-support#create-an-iot-hub-with-managed-service-identity).
+
+IoT Hub currently supports the following endpoints:
 
 ### Built-in endpoint
 
@@ -70,9 +73,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
-
 To create an Azure Data Lake Gen2-compatible storage account, create a new V2 storage account and select *enabled* on the *Hierarchical namespace* field on the **Advanced** tab as shown in the following image:
 
 ![Select Azure Date Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -82,17 +82,9 @@ To create an Azure Data Lake Gen2-compatible storage account, create a new V2 st
 
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
-> [!NOTE]
-> If your service bus resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
-
-
 ### Event Hubs
 
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
-
-> [!NOTE]
-> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
-
 
 ## Reading data that has been routed
 
