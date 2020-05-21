@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: scottwhi
 ---
 
@@ -35,7 +35,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. You can use the value of `baseUri` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -53,25 +53,25 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
 
 ## Construct and send the search request
 
-When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+1. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
 
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+   ```
+   --boundary_1234-abcd
+   Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+   ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
---boundary_1234-abcd--
-```
+   --boundary_1234-abcd--
+   ```
 
-1. Create a new **FormData** object using `FormData()`, and append your image path to it by using `fs.createReadStream()`:
+2. Create a new **FormData** object with `FormData()`, and append your image path to it by using `fs.createReadStream()`:
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Use the request library to upload the image, and call `requestCallback()` to print the response. Add your subscription key to the request header:
+3. Use the request library to upload the image, and call `requestCallback()` to print the response. Add your subscription key to the request header:
 
     ```javascript
     form.getLength(function(err, length){

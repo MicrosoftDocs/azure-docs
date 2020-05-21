@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 
@@ -26,14 +26,13 @@ This quickstart uses the Ruby programming language to call Bing Visual Search an
 
 ## Project and required modules
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which is used to encode the file name string: 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which encodes the file name string: 
 
 ```
 require 'net/https'
 require 'uri'
 require 'json'
 require 'base64'
-
 ```
 
 ## Define variables
@@ -62,7 +61,7 @@ end
 
 ## Form data for POST request
 
-1. The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
+1. Enclose the image data to POST by leading and trailing boundaries. The following functions set the boundaries:
 
    ```
    def BuildFormDataStart(batNum, fileName)
@@ -107,7 +106,7 @@ request.body = post_body.join
 
 ## Request and response
 
-Ruby sends the request and gets the response with the following line of code:
+Ruby sends the request and gets the response with the following code:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

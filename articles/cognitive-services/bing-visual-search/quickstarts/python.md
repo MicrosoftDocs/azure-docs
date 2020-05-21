@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: scottwhi
 ---
 
@@ -31,7 +31,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. You can use the value of `BASE_URI` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. For the value of `BASE_URI`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
 
@@ -65,27 +65,27 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
 
 ## Parse the JSON response
 
-1. Create a method called `print_json()` to take in the API response, and print the JSON:
+Create a method called `print_json()` to take in the API response, and print the JSON:
 
-    ```python
-    def print_json(obj):
-        """Print the object as json"""
-        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-    ```
+```python
+def print_json(obj):
+    """Print the object as json"""
+    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+```
 
 ## Send the request
 
-1. Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
+Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
 
-    ```python
-    try:
-        response = requests.post(BASE_URI, headers=HEADERS, files=file)
-        response.raise_for_status()
-        print_json(response.json())
+```python
+try:
+    response = requests.post(BASE_URI, headers=HEADERS, files=file)
+    response.raise_for_status()
+    print_json(response.json())
     
-    except Exception as ex:
-        raise ex
-    ```
+except Exception as ex:
+    raise ex
+```
 
 ## Next steps
 

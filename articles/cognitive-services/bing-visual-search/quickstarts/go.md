@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 
@@ -184,7 +184,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## Add image bytes to POST body
 
-This code segment creates the POST request that contains image data:
+The following code creates the POST request that contains image data:
 
 ```go
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
