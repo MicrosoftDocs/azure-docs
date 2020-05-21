@@ -192,7 +192,7 @@
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
     - name: Use Service Bus Explorer to perform data operations on Service Bus
-      href: service-bus-explorer.md
+      href: explorer.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
