@@ -185,12 +185,12 @@ Here are 3 ways to locate and verify the device state:
 1. Open Windows PowerShell.
 2. Enter `dsregcmd /status`.
 3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
-4. You can use the **DeviceId** and compare the status on the service using either the Azure Portal or PowerShell.
+4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
 
 ### Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information on how to locate a device can be found in [How to manage device identities using the Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
 3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
 4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
 
