@@ -61,5 +61,5 @@ When you add a user-defined route, define the route for each related Batch IP ad
 
 ## Next steps
 
-- For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
-- For more about creating a user-defined route, see [Create a user-defined route - Azure portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+- For information about creating a user-defined route, see [Create a user-defined route - Azure portal](../virtual-network/tutorial-create-route-table-portal.md).
