@@ -7,13 +7,10 @@ ms.date: 4/22/2020
 ms.author: baanders
 ---
 
-## Prerequisites
+### Add the IoT extension to Cloud Shell
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
 
-Also before you start, complete the following setup:
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5 or later on your development machine. If you have an older version installed already, you can open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
-* Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
