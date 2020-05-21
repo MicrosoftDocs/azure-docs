@@ -390,7 +390,7 @@ public async static Task ListRelationships(DigitalTwinsClient client, string src
 }
 ```
 
-THen, add the following code to the end of the `Main` method to call the `ListRelationships` code:
+Then, add the following code to the end of the `Main` method to call the `ListRelationships` code:
 
 ```csharp
 //List the relationships
