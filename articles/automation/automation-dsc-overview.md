@@ -1,6 +1,6 @@
 ---
 title: Azure Automation State Configuration overview
-description: An overview of Azure Automation State Configuration, its terms, and known issues
+description: This article provides an overview of Azure Automation State Configuration.
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
@@ -99,13 +99,13 @@ you also need to allow traffic between nodes. See the documentation for each DSC
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
-used to register nodes.
+Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
+used to register nodes. 
 
 >[!NOTE]
 >Azure Automation State Configuration does not provide DSC proxy support for previous versions of Windows.
 
-For Linux nodes, the DSC agent supports proxy and uses the `http_proxy` variable to determine the URL.
+For Linux nodes, the DSC agent supports proxy and uses the `http_proxy` variable to determine the URL. To find out more about proxy support, see [Generate DSC metaconfigurations](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
 #### Azure Automation State Configuration network ranges and namespace
 

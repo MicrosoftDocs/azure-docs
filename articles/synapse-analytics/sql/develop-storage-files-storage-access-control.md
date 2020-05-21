@@ -96,7 +96,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ### [Anonymous access](#tab/public-access)
 
-You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
+You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

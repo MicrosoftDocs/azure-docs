@@ -9,7 +9,7 @@ ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun

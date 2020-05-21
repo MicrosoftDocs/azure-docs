@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 
@@ -96,7 +96,7 @@ If you have multiple Azure subscriptions, select the subscription you want to us
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # [Azure CLI](#tab/azure-cli)

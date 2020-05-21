@@ -1,6 +1,6 @@
 ---
-title: Create configurations from existing servers - Azure Automation
-description: Learn how to create configurations from existing servers for Azure Automation.
+title: Create configurations from existing servers for Azure Automation State Configuration
+description: This article tells how to create configurations from existing servers for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Create configurations from existing servers
+# Create configurations from existing servers for Azure Automation State Configuration
 
 > Applies To: Windows PowerShell 5.1
 

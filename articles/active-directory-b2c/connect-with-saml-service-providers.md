@@ -365,7 +365,6 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Multiple logout URLs or POST binding for logout URL in application/service principal object.
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
-* Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 
