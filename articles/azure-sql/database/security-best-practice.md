@@ -132,7 +132,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
 - MFA can be enabled for the entire Azure AD or for the whole Active Directory federated with Azure AD.
 
 - Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by MFA authentication:
-  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](../mfa-authentication-ssms-overview.md).
+  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](authentication-mfa-ssms-overview.md).
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Use other SQL tools supporting MFA.
     - SSMS Wizard support for export/extract/deploy database  

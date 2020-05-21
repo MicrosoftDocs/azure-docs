@@ -52,16 +52,18 @@
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Best practices
         href: database/security-best-practice.md
+      - name: Security baseline
+        href: database/security-baseline.md
       - name: Security attributes
         href: database/security-controls.md
-      - name: Advanced data security
+      - name: Advanced Data Security
         href: database/advanced-data-security.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
-      - name: Vulnerability assessment
-        href: database/sql-vulnerability-assessment.md        
+      - name: SQL Vulnerability Assessment
+        href: database/sql-vulnerability-assessment.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -188,8 +190,6 @@
         href: database/develop-overview.md
       - name: Working with JSON data
         href: database/json-features.md
-      - name: Authenticate app
-        href: database/application-authentication-get-client-id-keys.md
       - name: Use Spark Connector
         href: database/spark-connector.md
       - name: Use ASP.NET App Service
@@ -288,7 +288,12 @@
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
-      href: database/automation-manage.md      
+      href: database/automation-manage.md
+    - name: Elastic queries
+      href: database/elastic-query-overview.md
+    - name: Elastic transactions
+      href: database/elastic-transactions-overview.md
+              
 
     - name: Service Tiers
       items: 
@@ -332,7 +337,7 @@
       - name: Recovery drills
         href: database/disaster-recovery-drills.md
 
-    - name: SQL Data sync
+    - name: SQL Data Sync
       items:
       - name: Overview
         href: database/sql-data-sync-data-sql-server-sql-database.md
@@ -342,7 +347,6 @@
         href: database/sql-data-sync-best-practices.md
       - name: Troubleshoot Data Sync
         href: database/sql-data-sync-troubleshoot.md
-
 
     - name: Security
       items: 
@@ -399,28 +403,24 @@
             href: database/machine-learning-services-add-r-packages.md
 
 
+    - name: Database sharding
+      items:
       - name: Database sharding
-        items:
-        - name: Database sharding
-          href: database/elastic-scale-introduction.md
-        - name: Glossary
-          href: database/elastic-scale-glossary.md
-        - name: Elastic client library
-          href: database/elastic-database-client-library.md
-        - name: Shard maps
-          href: database/elastic-scale-shard-map-management.md
-        - name: Query routing
-          href: database/elastic-scale-data-dependent-routing.md
-        - name: Manage credentials
-          href: database/elastic-scale-manage-credentials.md
-        - name: Move sharded data
-          href: database/elastic-scale-overview-split-and-merge.md
-        - name: Elastic tools FAQ
-          href: database/elastic-scale-faq.md
-      - name: Elastic queries
-        href: database/elastic-query-overview.md
-      - name: Elastic transactions
-        href: database/elastic-transactions-overview.md
+        href: database/elastic-scale-introduction.md
+      - name: Glossary
+        href: database/elastic-scale-glossary.md
+      - name: Elastic client library
+        href: database/elastic-database-client-library.md
+      - name: Shard maps
+        href: database/elastic-scale-shard-map-management.md
+      - name: Query routing
+        href: database/elastic-scale-data-dependent-routing.md
+      - name: Manage credentials
+        href: database/elastic-scale-manage-credentials.md
+      - name: Move sharded data
+        href: database/elastic-scale-overview-split-and-merge.md
+      - name: Elastic tools FAQ
+        href: database/elastic-scale-faq.md
 
   - name: How to
     href: database/how-to-content-reference-guide.md
@@ -598,6 +598,8 @@
 
     - name: Design data applications
       items:
+      - name: Authenticate app
+        href: database/application-authentication-get-client-id-keys.md    
       - name: Design for disaster recovery
         href: database/designing-cloud-solutions-for-disaster-recovery.md
       - name: Design for elastic pools
@@ -760,8 +762,6 @@
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
-    - name: Security baseline
-      href: database/security-baseline.md
     - name: Features
       items:
       - name: Linked servers

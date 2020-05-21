@@ -1,6 +1,6 @@
 ---
-title: Azure Security Baseline for Azure SQL Database
-description: Azure Security Baseline for Azure SQL Database
+title: Azure Security Baseline
+description: Azure Security Baseline for Azure SQL Database and Azure SQL Managed Instance
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -10,7 +10,8 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure Security Baseline for Azure SQL Database
+# Azure Security Baseline for Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The Azure Security Baseline for Azure SQL Database contains recommendations that will help you improve the security posture of your deployment.
 

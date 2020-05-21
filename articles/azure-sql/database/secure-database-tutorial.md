@@ -12,6 +12,7 @@ ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
 ---
 # Tutorial: Secure an Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial you learn how to:
 

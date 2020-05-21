@@ -149,7 +149,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
      ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
-     For more information, see the following article: [Universal Authentication (SSMS support for MFA)](../mfa-authentication-ssms-overview.md)
+     For more information, see the following article: [Universal Authentication (SSMS support for MFA)](authentication-mfa-ssms-overview.md)
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication (MFA) login window. Sign in with your Azure AD password.
 

@@ -13,6 +13,7 @@ ms.reviewer: carlr
 ms.date: 01/14/2020
 ---
 # Configure & manage content reference - Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article you can find a content reference of various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. 
 
@@ -30,8 +31,8 @@ In this article you can find a content reference of various guides, scripts, and
 
 - [Configure Azure AD auth](aad-authentication-configure.md)
 - [Configure Conditional Access](conditional-access-configure.md)
-- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
-- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
+- [Multi-factor AAD auth](authentication-mfa-ssms-overview.md)
+- [Configure multi-factor auth](authentication-mfa-ssms-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)

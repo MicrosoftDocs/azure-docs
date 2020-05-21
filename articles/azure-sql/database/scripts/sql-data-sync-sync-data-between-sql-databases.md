@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 # Use PowerShell to sync between multiple SQL Databases
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell example configures SQL Data Sync to sync between multiple databases in Azure SQL Database.
 

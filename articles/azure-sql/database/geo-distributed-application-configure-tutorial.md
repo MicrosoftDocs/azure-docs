@@ -13,6 +13,7 @@ ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Configure a database in SQL Database and client application for failover to a remote region and test a failover plan. You learn how to:
 

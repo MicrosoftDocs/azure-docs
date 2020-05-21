@@ -24,7 +24,7 @@ Azure SQL Database, Azure Managed Instance, and Azure Synapse Analytics support 
 
 For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
 
-  ![1mfa-universal-connect](./media/mfa-authentication-ssms-overview/1mfa-universal-connect.png "Completes the User name box.")  
+  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completes the User name box.")  
 
 ## The five authentication options  
 
@@ -42,16 +42,16 @@ The interactive method that also supports Azure multi-factor authentication (MFA
 Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
-For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](mfa-authentication-ssms-configure.md).
+For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](../database/authentication-mfa-ssms-configure.md).
 
 ### Azure AD domain name or tenant ID parameter
 
 Beginning with [SSMS version 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), users that are imported into the current Active Directory from other Azure Active Directories as guest users, can provide the Azure AD domain name, or tenant ID when they connect. Guest users include users invited from other Azure ADs, Microsoft accounts such as outlook.com, hotmail.com, live.com, or other accounts like gmail.com. This information, allows **Active Directory Universal with MFA Authentication** to identify the correct authenticating authority. This option is also required to support Microsoft accounts (MSA) such as outlook.com, hotmail.com, live.com, or non-MSA accounts. All these users who want to be authenticated using Universal Authentication must enter their Azure AD domain name or tenant ID. This parameter represents the current Azure AD domain name or tenant ID,  the Azure Server is linked with. For example, if Azure Server is associated with Azure AD domain `contosotest.onmicrosoft.com` where user `joe@contosodev.onmicrosoft.com` is hosted as an imported user from Azure AD domain `contosodev.onmicrosoft.com`, the domain name required to authenticate this user is `contosotest.onmicrosoft.com`. When the user is a native user of the Azure AD linked to Azure Server, and is not an MSA account, no domain name or tenant ID is required. To enter the parameter (beginning with SSMS version 17.2), in the **Connect to Database** dialog box, complete the dialog box, selecting **Active Directory - Universal with MFA** authentication, click **Options**, complete the **User name** box, and then click the **Connection Properties** tab. Check the **AD domain name or tenant ID** box, and provide authenticating authority, such as the domain name (**contosotest.onmicrosoft.com**) or the GUID of the tenant ID.  
-   ![mfa-tenant-ssms](./media/mfa-authentication-ssms-overview/mfa-tenant-ssms.png)
+   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 If you are running SSMS 18.x or later, The AD domain name or tenant ID is no longer needed for guest users because 18.x or later automatically recognizes it.
 
-   ![mfa-tenant-ssms](./media/mfa-authentication-ssms-overview/mfa-no-tenant-ssms.png)
+   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### Azure AD business to business support
 
@@ -69,7 +69,7 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 
 ## Next steps
 
-- For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](mfa-authentication-ssms-configure.md).
+- For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](../database/authentication-mfa-ssms-configure.md).
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](database/logins-create-manage.md)  
 - Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](database/firewall-configure.md)  
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](database/aad-authentication-configure.md)  

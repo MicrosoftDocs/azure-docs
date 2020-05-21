@@ -14,6 +14,7 @@ ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add an Azure SQL Managed Instance to a failover group 
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 This PowerShell script example creates two SQL Managed Instances, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. 
 
