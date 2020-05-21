@@ -60,7 +60,7 @@ namespace BingSearchApisQuickstart
 
 A few variables must be set before we can continue. Add this code to the `Program` class you created in the previous section: 
 
-1. For the value of `uriBase` you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+1. For the `uriBase` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 2. Confirm that `uriBase` is valid and replace the `accessKey` value with a subscription key from your Azure account. 
 
@@ -82,7 +82,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 The `Main()` method is required and is the first method invoked when you start the program. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
 
-Keep in mind that `main()` is dependent on methods that you create in the next few sections.
+Keep in mind that `main()` is dependent on methods that you create in the next sections.
 
 ```csharp
 static void Main()
