@@ -52,7 +52,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
-When you run the above command, you will be prompted for:
+When you run the above command, enter:
 
 1. A project name that will form the basis of the names of the created resource group and Azure ML workspace
 1. The Azure location in which you wish to make the deployment
@@ -65,7 +65,7 @@ To see your Azure ML workspace:
 1. Sign in 
 1. Choose the workspace you just created
 
-You will see the Azure Machine Learning homepage: 
+You'll see the Azure Machine Learning homepage: 
 
 :::image type="content" source="media/tutorial-resource-manager-workspace/workspace-home.png" alt-text="Screenshot of the Azure ML workspace":::
 
@@ -73,7 +73,7 @@ To see all the resources associated with the deployment, click the link in the u
 
 ## Clean up resources
 
-If you do not wish to use this workspace going forward, delete it. Since the workspace is associated with other resources such as a storage account, you'll probably want to delete the entire resource group you created. You can delete the resource group using the portal by clicking on the "Delete" button and confirming. Or, you can delete the resource group from the CLI with: 
+If you don't want to use this workspace, delete it. Since the workspace is associated with other resources such as a storage account, you'll probably want to delete the entire resource group you created. You can delete the resource group using the portal by clicking on the "Delete" button and confirming. Or, you can delete the resource group from the CLI with: 
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
