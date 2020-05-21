@@ -139,7 +139,7 @@ Restricting access in this manner only applies to data in the workspace. Configu
 
 ## Configure Application Insights
 
-In the Azure portal in your Azure Monitor Application Insights Component resource is a menu item Network Isolation on the left-hand side. You can control two different states from this menu. 
+In your Azure Monitor Application Insights Component resource in the Azure portal is a menu item Network Isolation on the left-hand side. You can control two different states from this menu.
 
 **---------- TODO ------------- get screenshot----**
 
@@ -178,7 +178,7 @@ Your must use the Log Analytics agent version 18.20.18038.0 or later.
 
 ### Log Analytics Linux agent
 
-Your must use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
+You must use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
 
 ```cmd
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
@@ -191,8 +191,7 @@ Querying the Azure Resource Manager API does not work unless you add the Service
 
 ### Application Insights SDK downloads from a content delivery network
 
-You should bundle the JavaScript code in your script, so that the browser does not attempt to download code from a CDN.
-An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
+Bundle the JavaScript code in your script so that the browser does not attempt to download code from a CDN. An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
 
 ### Log Analytics solution download
 
