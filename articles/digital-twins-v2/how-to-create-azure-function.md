@@ -84,16 +84,19 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
-Visit [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
+See [Authenticate a client application with Azure Digital Twins](./how-to-authenticate-client.md) for more detailed information.
 
-To access Azure Digital Twins from your Azure function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
+In order to use the .NET SDK, you need to include the following packages in your project:
+* Azure.DigitalTwins.Core
+* Azure.Identity
 
-Alternatively, you can also add the generated code from AutoRest directly to the function app project.
+Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
 
-Once you have added a reference to the project or added the classes, add the following line to your project to enable you to access the Azure Digital Twins API.
+Add the following using statements to your Azure Function.
 
 ```csharp
-using ADTApi;
+using Azure.Identity;
+using Azure.DigitalTwins.Core;
 ```
 
 ## Add authentication code to the Azure function
@@ -121,102 +124,21 @@ namespace adtIngestFunctionSample
         [FunctionName("Function1")]
         public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
-            log.LogInformation(eventGridEvent.Data.ToString());
-        }
-    }
-}
-```
-
-Next, add an authentication method. Use the following sample as a guide:
-
-```csharp
-public async static Task Authenticate(ILogger log)
-{
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AdtAppId);
-
-    var wc = new System.Net.Http.HttpClient();
-    wc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-    try
-    {
-        TokenCredentials tk = new TokenCredentials(accessToken);
-        client = new AzureDigitalTwinsAPIClient(tk)
-        {
-            BaseUri = new Uri(AdtInstanceUrl)
-        };
-        log.LogInformation($"Azure Digital Twins client connection created.");
-    }
-    catch (Exception e)
-    {
-        log.LogError($"Azure Digital Twins client connection failed.");
-    }
-}
-```
-
-Here is the complete function, with the authentication code integrated into the earlier code samples:
-
-```csharp
-// Default URL for triggering Event Grid function in the local environment
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using ADTApi;
-using System.Threading.Tasks;
-using Microsoft.Azure.Services.AppAuthentication;
-using System.Net.Http.Headers;
-using Microsoft.Rest;
-
-namespace adtIngestFunctionSample
-{
-    public static class Function1
-    {
-        const string AdtAppId = "https://digitaltwins.azure.net";
-        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
-        static AzureDigitalTwinsAPIClient client;
-
-        [FunctionName("Function1")]
-        static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            await Authenticate(log);
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (client!=null)
-            {
-                // Add your code here
-            }
-        }
-
-        public async static Task Authenticate(ILogger log)
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AdtAppId);
-
-            var wc = new System.Net.Http.HttpClient();
-            wc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
             try
             {
-                TokenCredentials tk = new TokenCredentials(accessToken);
-                client = new AzureDigitalTwinsAPIClient(tk)
-                {
-                    BaseUri = new Uri(AdtInstanceUrl)
-                };
-                log.LogInformation($"Azure Digital Twins client connection created.");
+                ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred);
             }
             catch (Exception e)
             {
-                log.LogError($"Azure Digital Twins client connection failed.");
+                Console.WriteLine($"ADT service client connection failed.");
+                return;
             }
+            log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
-
-Now your Azure function is complete and ready to publish.
 
 ## Publish the Azure function app
 
