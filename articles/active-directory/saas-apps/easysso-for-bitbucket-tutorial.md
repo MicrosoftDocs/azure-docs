@@ -173,7 +173,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for BitBucket configuration is complete.
 
-1. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Jira login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
+1. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Jira login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, color and translation for production mode, too.
 
     ![Look & Feel](./media/easysso-for-bitbucket-tutorial/jira-admin-5.png)
 
