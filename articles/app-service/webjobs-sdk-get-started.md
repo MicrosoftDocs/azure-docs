@@ -1,7 +1,7 @@
 ---
 title: Get started with the WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
-author: ggailey777
+author: ggailley777
 
 ms.devlang: dotnet
 ms.topic: article
@@ -12,13 +12,19 @@ ms.author: glenga
 
 # Get started with the Azure WebJobs SDK for event-driven background processing
 
-This article shows how to use Visual Studio 2019 to create an Azure WebJobs SDK project, run it locally, and then deploy it to [Azure App Service](overview.md). Version 3.x of the WebJobs SDK supports both .NET Core and .NET Framework console apps. To learn more about working with the WebJobs SDK, see [How to use the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-how-to.md).
+Get started with the Azure WebJobs SDK for Azure App Service to enable your web apps to run background tasks, scheduled tasks, and respond to events. 
 
-This article shows you how to deploy WebJobs as a .NET Core console app. To deploy WebJobs as a .NET Framework console app, see [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). If you are interested in WebJobs SDK version 2.x, which only supports .NET Framework, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+You’ll use Visual Studio 2019 to create a .NET core console app that uses the WebJobs SDK to respond to Azure Storage Queue messages, run the project locally, and finally deploy it to Azure.
+
+Completing this Quickstart will incur USD $1 in your Azure account, when using the Free App Service tier.
+
+[Azure App Service](overview.md) | [WebJobs for .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) | [WebJobs SDK how to](webjobs-sdk-how-to.md)
+
+Note: This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. The WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ## Prerequisites
 
-* [Install Visual Studio 2019](/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
+* [Install Visual Studio 2019](/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools** > **Get Tools and Features**.
 
 * You must have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) to publish your WebJobs SDK project to Azure.
 
@@ -32,30 +38,34 @@ This article shows you how to deploy WebJobs as a .NET Core console app. To depl
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
-## WebJobs NuGet packages
+## Install WebJobs NuGet packages
 
-1. Install the latest stable 3.x version of the [`Microsoft.Azure.WebJobs.Extensions` NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/), which includes `Microsoft.Azure.WebJobs`.
+Install the latest WebJobs NuGet package. This package includes Microsoft.Azure.WebJobs, which lets you publish your function code to WebJobs in Azure App Service.
 
-     Here's the **Package Manager Console** command:
+1. Get the latest stable 3.x version of the [Microsoft.Azure.WebJobs.Extensions NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/).
+
+2. In Visual Studio, go to **Tools** > **NuGet Package Manager**.
+
+3. Select **Package Manager Console**. You'll see a list of NuGet cmdlets, a link to documentation, and a PM> entry point.
+4. In the following command, replace 3.X.VERSION with the current version number you found in step 1. 
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
-
-    In this command, replace `<3_X_VERSION>` with a supported version of the package. 
-
+5. In the **Package Manager Console**, execute the command. The extension list appears and automatically installs. 
+  
 ## Create the Host
 
 The host is the runtime container for functions that listens for triggers and calls functions. The following steps create a host that implements [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), which is the Generic Host in ASP.NET Core.
 
-1. In *Program.cs*, add these `using` statements:
+1. Select the *Program.cs* tab and add these `using` statements:
 
     ```cs
     using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
-1. Replace the `Main` method with the following code:
+1. Also in Program.cs, replace the `Main` method with the following code:
 
     ```cs
     static async Task Main()
@@ -73,28 +83,27 @@ The host is the runtime container for functions that listens for triggers and ca
     }
     ```
 
-In ASP.NET Core, host configurations are set by calling methods on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. For more information, see [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). The `ConfigureWebJobs` extension method initializes the WebJobs host. In `ConfigureWebJobs`, you initialize specific WebJobs extensions and set properties of those extensions.  
+In ASP.NET Core, host configurations are set by calling methods on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. For more information, see [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). The `ConfigureWebJobs` extension method initializes the WebJobs host. In `ConfigureWebJobs`, initialize specific WebJobs extensions and set properties of those extensions.  
 
 ## Enable console logging
 
-In this section, you set up console logging that uses the [ASP.NET Core logging framework](/aspnet/core/fundamentals/logging).
+Set up console logging that uses the [ASP.NET Core logging framework](/aspnet/core/fundamentals/logging). This framework, Microsoft.Extensions.Logging, includes an API that works with a variety of built-in and third-party logging providers.
 
-1. Install the latest stable version of the [`Microsoft.Extensions.Logging.Console` NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/), which includes `Microsoft.Extensions.Logging`.
+1. Get the latest stable version of the [`Microsoft.Extensions.Logging.Console` NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/), which includes `Microsoft.Extensions.Logging`.
 
-   Here's the **Package Manager Console** command:
+2. In the following command, replace <3_X_VERSION> with the current version number you found in step 1. Each type of NuGet Package has a unique version number.
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
-   In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
+3. In the **Package Manager Console**, fill in the current version number and execute the command. The extension list appears and automatically installs. 
 
-1. In *Program.cs*, add a `using` statement:
+4. Under the tab *Program.cs*, add this `using` statement:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
-
-1. Call the [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) method on [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). The [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) method adds console logging to the configuration.
+5. Continuing in *Program.cs*, add the [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) method to [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). The [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) method adds console logging to the configuration.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -125,7 +134,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
     }
     ```
 
-    This update does the following:
+    This addition makes these changes:
 
     * Disables [dashboard logging](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). The dashboard is a legacy monitoring tool, and dashboard logging is not recommended for high-throughput production scenarios.
     * Adds the console provider with default [filtering](webjobs-sdk-how-to.md#log-filtering).
@@ -134,19 +143,18 @@ Now, you can add a function that is triggered by messages arriving in an Azure S
 
 ## Install the Storage binding extension
 
-Starting with version 3.x, you must explicitly install the Storage binding extension required by the WebJobs SDK. In prior versions, the Storage bindings were included in the SDK.
+The WebJobs SDK version 3 requires manual installation of the Storage binding extension. In prior versions, the Storage bindings were included in the SDK.
 
-1. Install the latest stable version of the  [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. 
+1. Get the latest stable version of the  [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x.
 
-    Here's the **Package Manager Console** command:
+2. In the following command, replace 3.X.VERSION with the current version  number you found in step 1. Each type of NuGet Package has a unique version number. 
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
-    
-    In this command, replace `<3_X_VERSION>` with a supported version of the package. 
+3. In the **Package Manager Console**, with the current version number, execute the command at the PM> entry point.
 
-2. In the `ConfigureWebJobs` extension method, call the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like the following example:
+4. Continuing in *Program.cs*, in the `ConfigureWebJobs` extension method, add the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -158,9 +166,11 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 ## Create a function
 
-1. Right-click the project, select **Add** > **New Item...**, choose **Class**, name the new C# class file *Functions.cs*, and select **Add**.
+1. In Solution Explorer, right-click the project, select **Add** > **New Item...**, and choose **Class**. 
 
-1. In Functions.cs, replace the generated template with the following code:
+2. Name the new C# class file *Functions.cs*, and select **Add**.
+
+3. In *Functions.cs*, replace the generated template with the following code:
     
     ```cs
     using Microsoft.Azure.WebJobs;
@@ -186,7 +196,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
 
-1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
+1. Open **Server Explorer** in Visual Studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 
    ![Sign in to Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -433,7 +443,7 @@ During deployment, you create an app service instance in which to run your funct
 
 ## Trigger the function in Azure
 
-1. Make sure you're not running locally (close the console window if it's still open). Otherwise the local instance might be the first to process any queue messages you create.
+1. Make sure you're not running locally. Close the console window if it's still open. Otherwise, the local instance might be the first to process any queue messages you create.
 
 1. In the **Queue** page in Visual Studio, add a message to the queue as before.
 
