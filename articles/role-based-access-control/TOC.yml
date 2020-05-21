@@ -11,6 +11,9 @@
   items:
   - name: View access for a user
     href: check-access.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-role-assignments-template.md
 - name: Tutorials
   items:
   - name: Grant a user access - Portal
