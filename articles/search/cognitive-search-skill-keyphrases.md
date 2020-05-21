@@ -90,8 +90,8 @@ Then your skill definition may look like this:
 
 For the example above, the output of your skill will be written to a new node in the enriched tree called "document/myKeyPhrases" since that is the `targetName` that we specified. If you don’t specify a `targetName`, then it would be "document/keyPhrases".
 
+#### document/myKeyPhrases 
 ```json
-"document/myKeyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
