@@ -45,7 +45,7 @@ The following table is intended to provide a guide to common scenarios to config
 | [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
 | [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
 | [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
-| [Public / Native client with interactive single-sign-on](./tbd)                             | Azure AD       | High          | High               | Medium             |
+| [Mobile app with interactive single-sign-on](./how-to-secure-mobile-users.md)               | Azure AD       | High          | High               | Medium             |
 | [IoT device / Smart TV / Input constrained device](./tbd)                                   | Azure AD       | High          | Medium             | Medium             |
 
 Click on specific scenarios in the table to discover how to configure applications.
