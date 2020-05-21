@@ -14,7 +14,7 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Complete [Setting up Azure resources](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#set-up-azure-resources), [Deploying modules](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#deploy-modules-on-your-edge-device), and [Configuring Visual Studio Code](https://github.com/Azure-Samples/lva-edge-rc3/blob/master/src/quick-start/quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code).
 
 ## Review the sample video
@@ -172,9 +172,9 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
 }
 ```
 
-The above JSON payload results in the creation of a MediaGraph topology that defines five parameters (four of which have default values). The topology has one source node (RTSP Source), two processor nodes (Motion Detection Processor and Signal Gate Processor), and two sink nodes (IoT Hub Sink and Asset Sink). The visual representation of the topology is shown above.
+The above JSON payload results in the creation of a MediaGraph topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](media-graph-concept.md#rtsp-source)), two processor nodes ([motion detection processor](media-graph-concept.md#motion-detection-processor) and [signal gate processor](media-graph-concept.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [asset sink](media-graph-concept.md#asset-sink)). The visual representation of the topology is shown above.
 
-Within a few seconds you will see the following response in the Output window
+Within a few seconds you will see the following response in the Output window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -299,7 +299,7 @@ Within a few seconds you will see the following response in the Output window
 }
 ```
 
-Note that the status returned is 201, indicating that a new topology was created. Try the following as next steps
+Note that the status returned is 201, indicating that a new topology was created. Try the following as next steps:
 
 * Invoke GraphTopologySet again and note that the status code returned is 200. Status code 200 indicates that an existing topology was successfully updated.
 * Invoke GraphTopologySet again but change the description string. Note the status code in the response is 200 and the description is updated to the new value.
@@ -441,14 +441,14 @@ Within a few seconds, you should see the following response in the Output window
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
 * Status code is 200, indicating success.
 * The payload has the "created" and the "lastModified" timestamp.
 
 ### Invoke GraphInstanceSet
 
-Now invoke Direct Method GraphInstanceSet with the following payload
+Now invoke Direct Method GraphInstanceSet with the following payload:
 
 ```
 {
@@ -464,10 +464,10 @@ Now invoke Direct Method GraphInstanceSet with the following payload
 }
 ```
 
-Note the following
+Note the following:
 
-* The payload above specifies the topology name for which the instance needs to be created
-* The payload contains parameter value for "rtspUrl", which did not have a default value in the topology payload
+* The payload above specifies the topology name for which the instance needs to be created.
+* The payload contains parameter value for "rtspUrl", which did not have a default value in the topology payload.
 
 Within few seconds, you will see the following response in the Output window:
 
@@ -497,12 +497,12 @@ Within few seconds, you will see the following response in the Output window:
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
-* Status code is 201, indicating a new instance was created
-* State is "Inactive", indicating that the MediaGraph was created but not activated. For more information, see [media graph states](media-graph-concept.md).
+* Status code is 201, indicating a new instance was created.
+* State is "Inactive", indicating that the MediaGraph was created but not activated. For more information, see [media graph](media-graph-concept.md) states.
 
-Try the following as next steps
+Try the following as next steps:
 
 * Invoke GraphInstanceSet again with the same payload and note that the returned status code is now 200.
 * Invoke GraphInstanceSet again but with a different description and note that the updated description in the response payload, indicating that the MediaGraph instance was successfully updated.
@@ -530,7 +530,7 @@ The Media Graph you created uses the Motion Detection Processor node to detect m
 
 ### Invoke GraphInstanceActivate
 
-Now invoke Direct Method GraphInstanceActivate with the following payload
+Now invoke Direct Method GraphInstanceActivate with the following payload:
 
 ```
 {
@@ -554,7 +554,7 @@ Status code of 200 in the response payload indicates that the MediaGraph was suc
 
 ### Invoke GraphInstanceGet
 
-Now invoke Direct Method GraphInstanceGet with the following payload
+Now invoke Direct Method GraphInstanceGet with the following payload:
 
 ```
 {
@@ -591,7 +591,7 @@ Within few seconds, you should see the following response in the Output window
 }
 ```
 
-Note the following in the response payload
+Note the following in the response payload:
 
 * Status code is 200, indicating success.
 * State is "Active", indicating the MediaGraph is now in "Active" state.
@@ -644,13 +644,13 @@ The MediaGraph that we created and activated above, uses the motion detection pr
 
 Note the following in the above messages
 
-* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
-* The first message is a Diagnostics event, MediaSessionEstablished, saying that the RTSP Source node (subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed
+* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* The first message is a Diagnostics event, MediaSessionEstablished, saying that the RTSP Source node (subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
 * The "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the RTSP Source node.
-* "eventType" in applicationProperties indicates that this is a Diagnostics event
+* "eventType" in applicationProperties indicates that this is a Diagnostics event.
 * "eventTime" indicates the time when the event occurred.
-* "body" contains data about the diagnostic event - it's the SDP message
-* The second message is an Analytics event. Note that it is sent roughly 5 seconds after the MediaSessionEstablished message, which corresponds to the delay between the start of the video, and when the car drives through the parking lot
+* "body" contains data about the diagnostic event - it's the SDP message.
+* The second message is an Analytics event. Note that it is sent roughly 5 seconds after the MediaSessionEstablished message, which corresponds to the delay between the start of the video, and when the car drives through the parking lot.
 * The "subject" in applicationProperties references the Motion Detection Processor node in the graph, which generated this message
 * The event is an Inference event and hence the body contains "timestamp" and "inferences" data.
 * "inferences" section indicates that the "type" is "motion" and has additional data about the "motion" event.
@@ -674,8 +674,8 @@ The next message you will see is the following.
 }
 ```
 
-* The third message is an Operational event. Note that it is sent almost immediately after the motion detection message, which acted as the trigger to start recording
-* The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message
+* The third message is an Operational event. Note that it is sent almost immediately after the motion detection message, which acted as the trigger to start recording.
+* The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message.
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded. You should note down this value.
 
 In the topology, the Signal Gate Processor was configured with activation times of 30 seconds, which means that the graph will record roughly 30 seconds worth of video into the Asset. During that 30 seconds, the Motion Detection Processor will continue to emit Inference events, which will show up in the Output window. After some time, you will see the following message.
@@ -721,19 +721,19 @@ If you let the Media Graph continue to run you will see this message.
 ```
 
 * This message is also an Operational event. The event, RecordingStopped, indicates that recording has stopped.
-* Note that roughly 30 seconds has elapsed since the RecordingStarted event, matching the values of the activation times in the Signal Gate Processor
-* The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message
+* Note that roughly 30 seconds has elapsed since the RecordingStarted event, matching the values of the activation times in the Signal Gate Processor.
+* The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message.
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded.
 
 If you let the Media Graph continue to run, the RTSP simulator will reach the end of the video file and stop/disconnect. The RTSP Source node will then reconnect to the simulator, and the process will repeat.
     
 ## Invoke additional Direct Methods
 
-Now, lets invoke Direct Methods to deactivate the MediaGraph and delete the MediaGraph topology and instance
+Now, lets invoke Direct Methods to deactivate the MediaGraph and delete the MediaGraph topology and instance.
 
 ### Invoke GraphInstanceDeactivate
 
-Invoke Direct Method GraphInstanceDeactivate with the following payload
+Invoke Direct Method GraphInstanceDeactivate with the following payload:
 
 ```
 {
@@ -742,7 +742,7 @@ Invoke Direct Method GraphInstanceDeactivate with the following payload
 }
 ```
 
-Within few seconds, you should see the following response in the Output window
+Within few seconds, you should see the following response in the Output window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDeactivate] to [lva-sample-device/lvaEdge] ...
@@ -755,13 +755,13 @@ Within few seconds, you should see the following response in the Output window
 
 Status code of 200 indicates that the MediaGraph was successfully deactivated.
 
-Try the following, as next steps
+Try the following, as next steps:
 
 * Invoke GraphTopologyGet as indicated in the earlier sections and observe the "state" value.
 
 ### Invoke GraphTopologyDelete
 
-Invoke Direct Method GraphTopologyDelete with the following payload
+Invoke Direct Method GraphTopologyDelete with the following payload:
 
 ```
 {
@@ -783,7 +783,7 @@ Within few seconds, you should see the following response in the Output window
 
 Status code of 200 indicates that the MediaGraph topology was successfully deleted.
 
-Try the following as next steps
+Try the following as next steps:
 
 * Invoke GraphTopologyList and observe that there are no topologies anymore.
 * Invoke GraphInstanceList with the same payload as GraphTopologyList and observe that are no instances enumerated.
@@ -792,18 +792,18 @@ Try the following as next steps
 
 Next, you can use the Azure portal to play back the video you recorded.
 
-1. Log into the [Azure portal](https://portal.azure.com/), type "Media Services" in the search box
-1. Locate your Azure Media Services account and open it
-1. Locate and select the Assets entry in the Media Services listing
+1. Log into the [Azure portal](https://portal.azure.com/), type "Media Services" in the search box.
+1. Locate your Azure Media Services account and open it.
+1. Locate and select the Assets entry in the Media Services listing.
 
     ![Assets entry in the Media Services listing](./media/quickstarts/asset-entity.png)
 1. If this is your first use of Azure Media Services, only the Assets generated from this quickstart will be listed, and you can pick the oldest one.
-1. Else, use the name of the Asset that was provided as the outputLocation in the Operational events above
-1. In the details page that opens, click on the "Create new" link just below the Streaming URL textbox
+1. Else, use the name of the Asset that was provided as the outputLocation in the Operational events above.
+1. In the details page that opens, click on the "Create new" link just below the Streaming URL textbox.
 
     ![The Streaming URL](./media/quickstarts/asset-streaming-url.png)
 1. In the pane that opens for "Add streaming locator", accept the defaults and hit "Add" at the bottom.
-1. In the Asset details page, the video player should now load to the first frame of the video, and you can hit the play button. You should see the car moving in the parking lot    
+1. In the Asset details page, the video player should now load to the first frame of the video, and you can hit the play button. You should see the car moving in the parking lot.
 
     ![Play](./media/quickstarts/asset-playback.png)
 
