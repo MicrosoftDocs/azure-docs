@@ -12,7 +12,7 @@ This article walks you through the steps to set up Live Video Analytics on IoT E
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 > [!TIP]
 > You might be prompted to install docker. Feel free to ignore it.
@@ -28,13 +28,13 @@ The following Azure resources are required for this tutorial.
 
 You can use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
 
-1. Browse to https://shell.azure.com
-1. If this is the first time you are using Cloud Shell, you will prompted be to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
-1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
+1. Browse to https://shell.azure.com.
+1. If this is the first time you are using Cloud Shell, you will prompted be to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information.
+1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
 
     ![Environment selector](./media/quickstarts/env-selector.png)
 
-1. Run the following command
+1. Run the following command:
 
     ```bash
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
@@ -132,10 +132,10 @@ Right click on the Live Video Analytics device and click "Start Monitoring Built
 Follow the steps below to run the sample code.
 
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
-1. In the TERMINAL window, you will see the responses to the Direct Method calls. In this quickstart, there will be 2 instances where the program will ask you to press the "Enter" key for it to load and run the Media Graph.
+1. In the TERMINAL window, you will see the responses to the Direct Method calls. In this quickstart, there will be 2 instances where the program will ask you to press the "Enter" key for it to load and run the media graph.
 
-    * After invoking the GraphTopologyList and getting a successful response with status: 200
-    * After invoking the GraphInstanceList and getting a successful response with status: 200
+    * After invoking the GraphTopologyList and getting a successful response with status: 200.
+    * After invoking the GraphInstanceList and getting a successful response with status: 200.
 1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
 1. The Media Graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the Media Graph, you can do the following:
 
@@ -172,8 +172,8 @@ When the Media Graph is instantiated, the RTSP Source node attempts to connect t
 
 Note the following in the above message:
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the MediaGraph
-* "eventType" in applicationProperties indicates that this is a Diagnostic event
+* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
+* "eventType" in applicationProperties indicates that this is a Diagnostic event.
 * "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body contains the sdp information.
 
 ## Motion Detection event
@@ -213,7 +213,7 @@ Note the following in the above message:
 The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 * "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
-* "eventType" in applicationProperties indicates that this is an Analytics event
+* "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
 * "inferences" section indicates that the "type" is "motion" and has additional data about the "motion" event.
