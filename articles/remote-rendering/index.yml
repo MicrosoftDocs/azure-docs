@@ -73,4 +73,4 @@ landingContent:
           - text: "Unity: Changing environment and materials"
             url: tutorials/unity/changing-environment-and-materials.md
           - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
-            url: tutorials/native-cpp/hololens/integrate-arr-into-holographic-app.md
+            url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md
