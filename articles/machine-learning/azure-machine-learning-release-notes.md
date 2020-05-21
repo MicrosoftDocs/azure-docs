@@ -43,7 +43,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + [Contrib features below] 
 
 + **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+  + **azureml-pipeline-steps**
+    + Deprecated the use of azureml.dprep.Dataflow as a valid type of input for AutoMLConfig and AutoMLStep
+  + **azureml-train-automl-client**
+    + Deprecated the use of azureml.dprep.Dataflow as a valid type of input for AutoMLConfig and AutoMLStep
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
