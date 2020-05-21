@@ -12,20 +12,22 @@ ms.date: 05/20/2020
 # Customer-owned storage accounts for log ingestion in Azure Monitor
 Storage accounts are used by Azure Monitor in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. Customers that want control over their data during ingestion can use their own storage accounts instead of the service-managed storage. The use of customer storage account provides customers control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as  Bring Your Own Storage, or BYOS. 
 
-One scenario that requires this feature is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or simply considered a bad practice. Logs should instead be ingested through a customer-owned storage account inside the VNet or easily accessible from it. 
+One scenario that requires this feature is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it. 
 
-Another scenario is the encryption of logs with Customer Managed Keys (CMK). Customers can encrypt logged data by using CMK on the clusters that store the logs. The same key can also be used to encrypt logs during the ingestion process. 
+Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Customers can encrypt logged data by using CMK on the clusters that store the logs. The same key can also be used to encrypt logs during the ingestion process. 
 
 ## Data types supported
 Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](azure-storage-iis-table.md) for more information about the ingestion of these types.
 
-- IIS logs (Blob: wad-iis-logfiles) 
-- Windows event logs (Table: WADWindowsEventLogsTable) 
-- Syslog (Table: LinuxsyslogVer2v0) 
-- Windows ETW logs (Table: WADETWEventTable) 
-- Service fabric (Table: WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable) 
-- Custom logs 
-- Azure Security Center Watson dump files  
+| Type | Table information |
+|:-----|:------------------|
+| IIS logs | Blob: wad-iis-logfiles| 
+|Windows event logs | Table: WADWindowsEventLogsTable | 
+| Syslog | Table: LinuxsyslogVer2v0 | 
+| Windows ETW logs | Table: WADETWEventTable|
+| Service fabric | Table: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
+| Custom logs | n/a | 
+| Azure Security Center Watson dump files | n/a|  
 
 ## Storage account requirements 
 The storage account must meet the following requirements:
@@ -210,7 +212,7 @@ Agent configuration will be refreshed after a few minutes, and they will switch 
 ## Manage storage account
 
 ### Load
-Storage accounts can handle a certain load of read and write requests before they start throttling requests. Throttling affects the time it takes to ingest logs and may results in lost data. If your storage is overloaded, register additional storage accounts and spread the load between them. 
+Storage accounts can handle a certain load of read and write requests before they start throttling requests. Throttling affects the time it takes to ingest logs and may result in lost data. If your storage is overloaded, register additional storage accounts and spread the load between them. 
 
 ### Related charges
 Storage accounts are charged by the volume of stored data, types of storage, and type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
