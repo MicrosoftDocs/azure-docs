@@ -133,6 +133,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: askSpoke
+        href: askspoke-tutorial.md
       - name: AskYourTeam
         href: askyourteam-tutorial.md
       - name: Asset Bank
@@ -467,10 +469,6 @@
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
-      - name: EasySSO for Confluence
-        href: easysso-for-confluence-tutorial.md
-      - name: EasySSO for Jira
-        href: easysso-for-jira-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -511,6 +509,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
