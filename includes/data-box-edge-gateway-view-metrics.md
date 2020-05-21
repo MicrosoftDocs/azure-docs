@@ -22,7 +22,7 @@ Take the following steps in the Azure portal to create a chart for selected devi
 
     ![Choose another resource](media/data-box-edge-gateway-view-metrics/view-metrics-3.png)
 
-3. From the dropdown list, select a metric to monitor your device. The metrics can be **Capacity metrics**, **Transaction metrics**, or **Edge compute metrics**. The capacity metrics are related to the capacity of the device. The transaction metrics are related to the read and write operations to Azure Storage. For a full list of these metrics, see [Metrics on your device](#metrics-on-your-device).
+3. From the dropdown list, select a metric to monitor your device. For a full list of these metrics, see [Metrics on your device](#metrics-on-your-device).
 
 4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max, or Min.
 
