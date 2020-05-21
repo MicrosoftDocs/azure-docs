@@ -445,7 +445,7 @@ See the [SQL Managed Instance security features](sql-managed-instance-paas-overv
 
 ### SQL Managed Instance capabilities
 
-For a complete overview of a SQL Managed Instance capabilities, see:
+For a complete overview of SQL Managed Instance capabilities, see:
 
 > [!div class="nextstepaction"]
 > [SQL Managed Instance capabilities](sql-managed-instance-paas-overview.md)

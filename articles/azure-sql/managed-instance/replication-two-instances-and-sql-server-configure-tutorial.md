@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - A SQL Server subscriber, either on-premises or on an Azure VM. This tutorial uses an Azure VM.  
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/sql/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
-- Port 445 and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall.
+- Ports 445 and 1433 allow SQL traffic on both the Azure firewall and the Windows firewall.
 
 ## 1 - Create the resource group
 
@@ -408,7 +408,7 @@ See the [What is Azure SQL Managed Instance?](sql-managed-instance-paas-overview
 
 ### Managed instance capabilities
 
-For a complete overview of a managed instance capabilities, see:
+For a complete overview of managed instance capabilities, see:
 
 > [!div class="nextstepaction"]
 > [What is Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md)

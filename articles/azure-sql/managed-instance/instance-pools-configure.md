@@ -29,7 +29,7 @@ The following table shows the available operations related to instance pools and
 |Check an instance pool usage and properties|No|Yes |
 |Delete an instance pool|No|Yes|
 |Create a managed instance inside an instance pool|No|Yes|
-|Update resource useage for a managed instance|Yes |Yes|
+|Update resource usage for a managed instance|Yes |Yes|
 |Check usage and properties for a managed instance|Yes|Yes|
 |Delete a managed instance from the pool|Yes|Yes|
 |Create a database in instance within the pool|Yes|Yes|
@@ -186,7 +186,7 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 To connect to a managed instance in a pool, the following two steps are required:
 
-1. [Enable the public endpoint for the instance](#enable-public-endpoint).
+1. [Enable the public endpoint for the instance](#enable-the-public-endpoint).
 2. [Add an inbound rule to the network security group (NSG)](#add-an-inbound-rule-to-the-network-security-group).
 
 After both steps are complete, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 

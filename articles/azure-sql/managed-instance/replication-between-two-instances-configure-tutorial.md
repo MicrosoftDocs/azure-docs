@@ -245,7 +245,7 @@ EXEC sp_startpublication_snapshot
 
 ## 9 - Modify agent parameters
 
-Azure SQL Managed Instance is currently experiencing some backend issues with connectivity with the replication agents. While this issue is being addressed, the workaround is to increase the login time out value for the replication agents.
+Azure SQL Managed Instance is currently experiencing some backend issues with connectivity with the replication agents. While this issue is being addressed, the workaround is to increase the login timeout value for the replication agents.
 
 Run the following T-SQL command on the publisher to increase the login timeout:
 
