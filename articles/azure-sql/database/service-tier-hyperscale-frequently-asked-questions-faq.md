@@ -86,7 +86,7 @@ Hyperscale provides rapid scalability based on your workload demand.
 
   Provisioning of each of these additional compute replicas can be done in constant time and is an online operation. You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections  with the `ReadOnly` application intent are automatically routed to one of the additional read-only compute replicas.
 
-## Deep Dive Questions
+## Deep dive questions
 
 ### Can I mix Hyperscale and single databases in a single server
 
@@ -114,7 +114,7 @@ If you are currently running interactive analytics queries using SQL Server as a
 
 If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, SQL Data Warehouse may be the best choice.
   
-## Hyperscale Compute Questions
+## Hyperscale compute questions
 
 ### Can I pause my compute at any time
 
@@ -140,7 +140,7 @@ However, if there’s only one replica, it may take some time to build the local
 
 For mission-critical apps that require high availability with minimal failover impact, you should provision at least 2 compute replicas including the primary compute replica. This is the default configuration. That way there is a hot-standby replica available that serves as a failover target.
 
-## Data Size and Storage Questions
+## Data size and storage questions
 
 ### What is the maximum database size supported with Hyperscale
 
@@ -194,7 +194,7 @@ Yes, including row, page, and columnstore compression.
 
 Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses [proportional fill strategy](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
 
-## Data Migration Questions
+## Data migration questions
 
 ### Can I move my existing databases in Azure SQL Database to the Hyperscale service tier
 
@@ -279,7 +279,7 @@ Not at this time.
 
 No. The storage format for Hyperscale databases is different from any released version of SQL Server, and you don’t control backups or have access to them. To take your data out of a Hyperscale database, you can extract data using any data movement technologies, i.e. Azure Data Factory, Azure Databricks, SSIS, etc.
 
-## Cross-Feature Questions
+## Cross-feature questions
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
@@ -319,7 +319,7 @@ Because the storage is shared and there is no direct physical replication happen
 
 For most performance problems, particularly the ones not rooted in storage performance, common SQL diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](hyperscale-performance-diagnostics.md).
 
-## Scalability Questions
+## Scalability questions
 
 ### How long would it take to scale up and down a compute replica
 
@@ -345,7 +345,7 @@ Yes. The `tempdb` database will scale up automatically as the compute grows.
 
 No. Only the primary compute replica accepts read/write requests. Secondary compute replicas only accept read-only requests.
 
-## Read Scale-out Questions
+## Read scale-out questions
 
 ### How many secondary compute replicas can I provision
 
@@ -385,6 +385,6 @@ No. Hyperscale databases have shared storage, meaning that all compute replicas 
 
 Data latency from the time a transaction is committed on the primary to the time it is visible on a secondary depends on current log generation rate. Typical data latency is in low milliseconds.
 
-## Next Steps
+## Next steps
 
 For more information about the Hyperscale service tier, see [Hyperscale service tier](service-tier-hyperscale.md).
