@@ -130,7 +130,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Set _App location_ to **public**.
 
-1. Clear value for the _App artifact location_.
+1. Leave the _App artifact location_ blank.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
