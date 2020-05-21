@@ -6,14 +6,14 @@
 
 - name: Shared SQL DB & SQL MI docs 
   items:
-  - name: Azure Hybrid Benefit
-    href: azure-hybrid-benefit.md
   - name: Purchasing models
     items:
     - name: Overview
       href: database/purchasing-models.md
     - name: vCore model overview
       href: database/service-tiers-vcore.md
+    - name: Azure Hybrid Benefit
+      href: azure-hybrid-benefit.md
     - name: Reserved capacity
       href: database/reserved-capacity-overview.md
   - name: Compute & storage
@@ -24,14 +24,14 @@
     - name: General purpose / Standard
       href: database/service-tier-general-purpose.md
     - name: Business critical / Premium
-      href: database/service-tier-business-critical.md        
+      href: database/service-tier-business-critical.md
 
   - name: Shared concepts 
     itemS: 
     - name: Feature comparison
       href: database/features-comparison.md
     - name: Multi-model features
-      href: multi-model-features.md      
+      href: multi-model-features.md
 
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
@@ -669,11 +669,6 @@
             href: database/saas-multitenantdb-schema-management.md
           - name: ETL for analytics
             href: database/saas-multitenantdb-tenant-analytics.md
-
-
-
-    - name: Load and move data
-      items:
 
   - name: Samples
     items:
