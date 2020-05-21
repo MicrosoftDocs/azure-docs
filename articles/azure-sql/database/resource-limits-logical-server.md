@@ -152,3 +152,4 @@ When encountering a log rate limit that is hampering desired scalability, consid
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+ 

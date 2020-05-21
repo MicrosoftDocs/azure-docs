@@ -14,7 +14,7 @@ ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
-[A single database](../index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
+[A single database](../index.yml) is fully managed platform as a service (PaaS) database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
 
 ## Quickstart overview
 
@@ -41,14 +41,15 @@ These quickstarts enable you to quickly create or import your database to Azure 
 The following Microsoft Learn modules help you learn for free about Azure SQL Database.
 
 - [Provision a database in SQL Database to store application data](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Secure your database in Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## Next steps
 
 - Find a [high-level list of supported features in Azure SQL Database](features-comparison.md).
 - Learn how to make your [database more secure](secure-database-tutorial.md).
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](how-to-content-reference-guide.md).
-- Find more sample scripts written in [PowerShell](powershell-script-content-guide.md) and [Azure CLI](az-cli-script-samples-content-guide.md).
+- Find more sample scripts written in [PowerShell](powershell-script-content-guide.md) and [the Azure CLI](az-cli-script-samples-content-guide.md).
 - Learn more about the [management API](single-database-manage.md) that you can use to configure your databases.
-- [Identify the right Azure SQL Database or SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identify the right Azure SQL Database or Azure SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).
+ 

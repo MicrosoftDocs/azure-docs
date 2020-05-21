@@ -13,9 +13,8 @@ ms.reviewer:
 ms.date: 12/03/2018
 ---
 # Resolving Transact-SQL differences during migration to SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your SQL Server database requires some re-engineering before it can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## Overview
 
@@ -84,3 +83,4 @@ In some cases, the general subject of an article can be used in a product, but t
 ## Next steps
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.
+ 

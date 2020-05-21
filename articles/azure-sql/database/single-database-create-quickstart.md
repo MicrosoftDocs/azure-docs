@@ -1,6 +1,6 @@
 ---
 title: Create a single database
-description: Create a single Azure SQL Database using the Azure portal, PowerShell, or Azure CLI. Query the database with Query Editor in the Azure portal.
+description: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or the Azure CLI. Query the database with Query Editor in the Azure portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -13,9 +13,8 @@ ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single Azure SQL Database. You then query the database using **Query editor** in the Azure portal.
+In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single database in Azure SQL Database. You then query the database using **Query editor** in the Azure portal.
 
 A [single database](single-database-overview.md) is the quickest and simplest option for Azure SQL Database. You manage a single database within a [server](logical-servers.md), which is inside an [Azure resource group](../../active-directory-b2c/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and server for the new database.
 
@@ -70,7 +69,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. On the resource group page, select **Delete resource group**.
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
-### [Azure CLI](#tab/azure-cli)
+### [The Azure CLI](#tab/azure-cli)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
@@ -93,4 +92,6 @@ Remove-AzResourceGroup -Name <your resource group>
 [Connect and query](connect-query-content-reference-guide.md) your database using different tools and languages:
 > [!div class="nextstepaction"]
 > [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
+>
 > [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+ 

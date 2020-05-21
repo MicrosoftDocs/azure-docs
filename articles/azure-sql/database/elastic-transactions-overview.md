@@ -1,6 +1,6 @@
 ---
 title: Distributed transactions across cloud databases
-description: Overview of Elastic Database Transactions with Azure SQL Database
+description: Overview of Elastic Database Transactions with Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -13,17 +13,16 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Distributed transactions across cloud databases
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-On premises, such a scenario usually required running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC is not available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database. Applications can connect to any SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure.
+On premises, such a scenario usually required running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC is not available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database. Applications can connect to any database in SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure.
 
   ![Distributed transactions with Azure SQL Database using elastic database transactions ][1]
 
 ## Common scenarios
 
-Elastic database transactions for SQL Database enable applications to make atomic changes to data stored in several different SQL Databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience using T-SQL is planned for a later time.  
+Elastic database transactions for SQL Database enable applications to make atomic changes to data stored in several different databases in SQL Database. The preview focuses on client-side development experiences in C# and .NET. A server-side experience using T-SQL is planned for a later time.  
 Elastic database transactions targets the following scenarios:
 
 * Multi-database applications in Azure: With this scenario, data is vertically partitioned across several databases in SQL Database such that different kinds of data reside on different databases. Some operations require changes to data which is kept in two or more databases. The application uses elastic database transactions to coordinate the changes across databases and ensure atomicity.
@@ -95,7 +94,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
 Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1.
 
-For Azure App Services, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+For Azure App Service, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
@@ -156,3 +155,4 @@ For questions, please reach out to us on the [SQL Database forum](https://social
 
 <!--Image references-->
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
+ 

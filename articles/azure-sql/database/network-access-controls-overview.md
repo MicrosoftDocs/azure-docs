@@ -1,7 +1,7 @@
 ---
 title: Network Access Controls 
-titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Overview of how to manage and control network access for Azure SQL Database and SQL Data Warehouse (formerly SQL Data Warehouse).
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
+description: Overview of how to manage and control network access for Azure SQL Database and Azure SQL Data Warehouse (formerly SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -15,7 +15,6 @@ ms.date: 03/09/2020
 ---
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 When you create a logical SQL server from the [Azure portal](single-database-create-quickstart.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
@@ -24,10 +23,10 @@ You can use the following network access controls to selectively allow access to
 - Allow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 - IP firewall rules: Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines
 
-You can also allow private access to the database from [Virtual Networks](../../virtual-network/virtual-networks-overview.md) via:
+You can also allow private access to the database from [virtual networks](../../virtual-network/virtual-networks-overview.md) via:
 
-- Virtual Network firewall rules: Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
-- Private Link: Use this feature to create a private endpoint for [logical SQL server](logical-servers.md) within a specific Virtual Network
+- Virtual network firewall rules: Use this feature to allow traffic from a specific virtual network within the Azure boundary
+- Private Link: Use this feature to create a private endpoint for [logical SQL server](logical-servers.md) within a specific virtual network
 
 > [!IMPORTANT]
 > This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
@@ -46,9 +45,9 @@ You can also change this setting via the firewall pane after the logical SQL ser
 
 When set  to **ON**, your server allows communications from all resources inside the Azure boundary, that may or may not be part of your subscription.
 
-In many cases, the **ON** setting is more permissive than what most customers want. You may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. 
+In many cases, the **ON** setting is more permissive than what most customers want. You may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or virtual network firewall rules. 
 
-However, doing so affects the following features that run on virtual machines in Azure that are not part of your VNet and hence connect to the database via an Azure IP address:
+However, doing so affects the following features that run on virtual machines in Azure that are not part of your virtual network and hence connect to the database via an Azure IP address:
 
 ### Import Export Service
 
@@ -104,26 +103,26 @@ You can now add these as distinct firewall rules and then set **Allow Azure serv
 
 Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](firewall-create-server-level-portal-quickstart.md) of the client machines.
 
-## Virtual Network firewall rules
+## Virtual network firewall rules
 
 In addition to IP rules, the server firewall allows you to define *virtual network rules*.  
-To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md) or watch this video:
+To learn more, see [Virtual network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md) or watch this video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
 ### Azure Networking terminology
 
-Be aware of the following Azure Networking terms as you explore Virtual Network firewall rules
+Be aware of the following Azure Networking terms as you explore Virtual network firewall rules
 
 **Virtual network:** You can have virtual networks associated with your Azure subscription
 
 **Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
 
-**Virtual Network service endpoint:** A [Virtual Network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
+**Virtual network service endpoint:** A [Virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
 
-**Virtual network rule:** A virtual network rule for your server is a subnet that is listed in the access control list (ACL) of your server. To be in the ACL for your SQL Database, the subnet must contain the **Microsoft.Sql** type name. A virtual network rule tells your server to accept communications from every node that is on the subnet.
+**Virtual network rule:** A virtual network rule for your server is a subnet that is listed in the access control list (ACL) of your server. To be in the ACL for your database in SQL Database, the subnet must contain the **Microsoft.Sql** type name. A virtual network rule tells your server to accept communications from every node that is on the subnet.
 
-## IP vs. Virtual Network firewall rules
+## IP vs. Virtual network firewall rules
 
 The Azure SQL Database firewall allows you to specify IP address ranges from which communications are accepted into SQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. However, virtual machines (VMs) within the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses can change when your VM is restarted and in turn invalidate the IP-based firewall rule. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
 
@@ -136,13 +135,13 @@ Virtual network rules are easier alternative to establish and to manage access f
 
 ## Private Link
 
-Private Link allows you to connect to a server via a **private endpoint**. A private endpoint is a private IP address within a specific [Virtual Network](../../virtual-network/virtual-networks-overview.md) and Subnet.
+Private Link allows you to connect to a server via a **private endpoint**. A private endpoint is a private IP address within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
 ## Next steps
 
 - For a quickstart on creating a server-level IP firewall rule, see [Create a database in SQL Database](single-database-create-quickstart.md).
 
-- For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md).
+- For a quickstart on creating a server-level virtual network firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md).
 
 - For help with connecting to a database in SQL Database from open source or third-party applications, see [Client quickstart code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
@@ -155,3 +154,4 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
+ 

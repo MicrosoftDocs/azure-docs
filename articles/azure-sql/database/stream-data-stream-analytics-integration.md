@@ -1,5 +1,5 @@
 ---
-title: Stream data using Stream Analytics integration (preview)
+title: Stream data using Azure Stream Analytics integration (preview)
 description: Use Azure Stream Analytics integration to stream data into Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,9 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Stream data into Azure SQL Database using Stream Analytics integration (preview)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# Stream data into Azure SQL Database using Azure Stream Analytics integration (preview)
 
-Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a SQL database in the Azure portal using [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the Azure SQL Database and Stream Analytics experiences.
+Users can now ingest, process, view, and analyze real-time streaming data into a table directly from a database in Azure SQL Database. They do so in the Azure portal using [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). This experience enables a wide variety of scenarios such as connected car, remote monitoring, fraud detection, and many more. In the Azure portal, you can select an events source (Event Hub/IoT Hub), view incoming real-time events, and select a table to store events. You can also write Azure Stream Analytics Query Language queries in the portal to transform incoming events and store them in the selected table. This new entry point is in addition to the creation and configuration experiences that already exist in Stream Analytics. This experience starts from the context of your database, enabling you to quickly set up a Stream Analytics job and navigate seamlessly between the database in Azure SQL Database and Stream Analytics experiences.
 
 ![Stream Analytics flow](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -27,7 +26,7 @@ Users can now ingest, process, view, and analyze real-time streaming data into a
 - Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table
 
 > [!IMPORTANT]
-> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse (formerly Azure SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics (formerly Azure SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## Prerequisites
 
@@ -44,7 +43,7 @@ To complete the steps in this article, you need the following resources:
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. To start ingesting your streaming data into this SQL database, select **Create** and give a name to your streaming job, and then select **Next: Input**.
+3. To start ingesting your streaming data into this database, select **Create** and give a name to your streaming job, and then select **Next: Input**.
 
     ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -64,7 +63,7 @@ To complete the steps in this article, you need the following resources:
 
 5. Select which table you want to ingest your streaming data into. Once done, select **Create**.
 
-   - **Username**, **Password**: Enter your credentials for SQL server authentication. Select **Validate**.
+   - **Username**, **Password**: Enter your credentials for SQL Server authentication. Select **Validate**.
    - **Table**: Select **Create new** or **Use existing**. In this flow, let’s select **Create**. This will create a new table when you start the stream Analytics job.
 
      ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create.png)
@@ -113,8 +112,8 @@ To complete the steps in this article, you need the following resources:
 8. Once you start the job, you will see the Running job in the list, and you can take following actions:
    - **Start/stop the job**: If the job is running, you can stop the job. If the job is stopped, you can start the job.
    - **Edit job**: You can edit the query. If you want to do more changes to the job ex, add more inputs/outputs, then open the job in Stream Analytics. Edit option is disabled when the job is running.
-   - **Preview output table**: You can preview the table in SQL query editor.
-   - **Open in Stream Analytics**: Open the job in Stream Analytics service to view monitoring, debugging details of the job.
+   - **Preview output table**: You can preview the table in the SQL query editor.
+   - **Open in Stream Analytics**: Open the job in Stream Analytics to view monitoring, debugging details of the job.
 
      ![stream analytics jobs](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -122,3 +121,4 @@ To complete the steps in this article, you need the following resources:
 
 - [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
 - [Azure Stream Analytics solution patterns](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

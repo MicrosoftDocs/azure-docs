@@ -13,7 +13,6 @@ ms.reviewer: carlrab
 ms.date: 04/30/2020
 ---
 # Scale single database resources in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](serverless-tier-overview.md) provides compute auto-scaling and bills per second for compute used.
 
@@ -30,11 +29,11 @@ The following video shows dynamically changing the service tier and compute size
 
 Changing the service tier or compute size of mainly involves the service performing the following steps:
 
-1. Create new compute instance for the database  
+1. Create a new compute instance for the database. 
 
     A new compute instance is created with the requested service tier and compute size. For some combinations of service tier and compute size changes, a replica of the database must be created in the new compute instance which involves copying data and can strongly influence the overall latency. Regardless, the database remains online during this step, and connections continue to be directed to the database in the original compute instance.
 
-2. Switch routing of connections to new compute instance
+2. Switch routing of connections to a new compute instance.
 
     Existing connections to the database in the original compute instance are dropped. Any new connections are established to the database in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when the database is unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](../accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
 
@@ -72,7 +71,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 
 A service tier change or compute rescaling operation can be canceled.
 
-### Azure portal
+### The Azure portal
 
 In the database overview blade, navigate to **Notifications** and click on the tile indicating there is an ongoing operation:
 
@@ -150,3 +149,4 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 ## Next steps
 
 For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](resource-limits-vcore-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](resource-limits-dtu-single-databases.md).
+ 
