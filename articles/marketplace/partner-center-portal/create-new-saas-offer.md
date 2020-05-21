@@ -335,7 +335,7 @@ This page lets you configure the markets this plan will be available in, the des
 
 #### Markets (optional)
 
-Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
+Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries/regions, in which Microsoft remits sales and use tax on your behalf.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. Review the price for each market before publishing. View pricing using the "Export prices (xlsx)" link after saving your changes.
 
