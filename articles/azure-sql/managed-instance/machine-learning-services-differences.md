@@ -19,7 +19,7 @@ ms.date: 05/27/2020
 The functionality of [Machine Learning Services in Azure SQL Managed Instance (preview)](sql-database-managed-instance-machine-learning-services-overview.md) is nearly identical to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Following are some key differences.
 
 > [!IMPORTANT]
-> Machine Learning Services in Azure SQL Managed Instance is currently in public preview. To sign up, see [Sign up for the preview](sql-database-managed-instance-machine-learning-services-overview.md#signup).
+> Machine Learning Services in Azure SQL Managed Instance is currently in public preview. To sign up, see [Sign up for the preview](machine-learning-services-overview.md#signup).
 
 ## Preview limitations
 
@@ -43,7 +43,7 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
   | SQL Managed Instance | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
-- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](sql-database-managed-instance-machine-learning-services-overview.md#signup) for the preview, machine learning is enabled for your SQL database.
+- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](machine-learning-services-overview.md#signup) for the preview, machine learning is enabled for your SQL database.
 
 ## Packages
 
@@ -75,6 +75,6 @@ Memory usage depends on how much is used in your R scripts and the number of par
 
 ## Next steps
 
-- See the overview, [Machine Learning Services in Azure SQL Managed Instance](sql-database-managed-instance-machine-learning-services-overview.md).
-- To learn how to use Python in Machine Learning Services, see [Run Python scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=azure/sql-database/context/ml-context&view=sql-server-ver15).
-- To learn how to use R in Machine Learning Services, see [Run R scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=azure/sql-database/context/ml-context&view=sql-server-ver15).
+- See the overview, [Machine Learning Services in Azure SQL Managed Instance](machine-learning-services-overview.md).
+- To learn how to use Python in Machine Learning Services, see [Run Python scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- To learn how to use R in Machine Learning Services, see [Run R scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).

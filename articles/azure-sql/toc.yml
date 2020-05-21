@@ -764,9 +764,9 @@
     - name: Machine Learning Services
       items:
       - name: Overview
-        href: sql-database-managed-instance-machine-learning-services-overview.md
+        href: machine-learning-services-overview.md
       - name: Key differences
-        href: sql-database-managed-instance-machine-learning-services-differences.md
+        href: machine-learning-services-differences.md
       - name: Quickstarts
         items:
         - name: Python
