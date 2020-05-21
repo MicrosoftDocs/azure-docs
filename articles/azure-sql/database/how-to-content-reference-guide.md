@@ -29,7 +29,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Configure features
 
-- [Configure Azure AD auth](aad-authentication-configure.md)
+- [Configure Azure AD auth](authentication-aad-configure.md)
 - [Configure Conditional Access](conditional-access-configure.md)
 - [Multi-factor AAD auth](authentication-mfa-ssms-overview.md)
 - [Configure multi-factor auth](authentication-mfa-ssms-configure.md)

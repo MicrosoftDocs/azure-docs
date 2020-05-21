@@ -48,7 +48,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Feature configuration
 
-- [Configure Azure AD auth](../database/aad-authentication-configure.md)
+- [Configure Azure AD auth](../database/authentication-aad-configure.md)
 - [Configure Conditional Access](../database/conditional-access-configure.md)
 - [Multi-factor AAD auth](authentication-mfa-ssms-overview.md)
 - [Configure multi-factor auth](authentication-mfa-ssms-configure.md)

@@ -52805,12 +52805,12 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-aad-authentication-configure.md",
-        "redirect_url": "/azure/azure-sql/database/aad-authentication-configure",
+        "redirect_url": "/azure/azure-sql/database/authentication-aad-configure",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-aad-authentication.md",
-        "redirect_url": "/azure/azure-sql/database/aad-authentication-overview",
+        "redirect_url": "/azure/azure-sql/database/authentication-aad-overview",
         "redirect_document_id": true
     },
     {
@@ -53455,12 +53455,12 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication-configure.md",
-        "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-configure",
+        "redirect_url": "/azure/azure-sql/database/authentication-mfa-ssms-configure",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication.md",
-        "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-overview",
+        "redirect_url": "/azure/azure-sql/database/authentication-mfa-ssms-overview",
         "redirect_document_id": true
     },
     {

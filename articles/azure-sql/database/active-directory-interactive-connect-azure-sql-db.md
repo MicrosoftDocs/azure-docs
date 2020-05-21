@@ -80,7 +80,7 @@ For your C# program to run, a [logical SQL server](logical-servers.md) admin nee
 
 On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 
@@ -88,7 +88,7 @@ An Azure AD admin for a [logical SQL server](logical-servers.md) can run the C# 
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
-For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](aad-authentication-overview.md).
+For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](authentication-aad-overview.md).
 
 ## New authentication enum value
 

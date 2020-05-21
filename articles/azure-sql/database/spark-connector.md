@@ -170,7 +170,7 @@ collection.show()
 
 If you are using the access token-based authentication mode, you need to download [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) and its dependencies, and include them in the Java build path.
 
-See [Use Azure Active Directory Authentication for authentication](aad-authentication-overview.md) to learn how to get access token to your database in Azure SQL Database or Azure SQL Managed Instance.
+See [Use Azure Active Directory Authentication for authentication](authentication-aad-overview.md) to learn how to get access token to your database in Azure SQL Database or Azure SQL Managed Instance.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

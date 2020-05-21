@@ -25,7 +25,7 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 ## Authentication
 
-Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](aad-authentication-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
+Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](authentication-aad-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
 
 Learn more about [managing database access and login](logins-create-manage.md).
 

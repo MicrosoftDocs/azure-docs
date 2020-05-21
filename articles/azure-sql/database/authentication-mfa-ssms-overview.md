@@ -16,7 +16,7 @@ tags: azure-synapse
 ---
 
 # Using Multi-factor AAD authentication
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](includes/appliesto-sqldb-sqlmi-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using *Azure Active Directory - Universal with MFA* authentication. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication.
 
@@ -72,7 +72,7 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 - For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](../database/authentication-mfa-ssms-configure.md).
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](database/logins-create-manage.md)  
 - Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](database/firewall-configure.md)  
-- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](database/aad-authentication-configure.md)  
+- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](database/authentication-aad-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [Import a BACPAC file to a new Azure SQL Database](database/database-import.md)  

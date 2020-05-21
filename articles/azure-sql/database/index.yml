@@ -82,7 +82,7 @@ landingContent:
           - text: Logins, user accounts, roles, and permissions
             url: logins-create-manage.md
           - text: Azure Active Directory
-            url: aad-authentication-overview.md
+            url: authentication-aad-overview.md
           - text: Auditing
             url: auditing-overview.md 
           - text: Transparent Data Encryption (TDE)

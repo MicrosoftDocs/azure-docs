@@ -67,10 +67,10 @@
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
-        href: database/aad-authentication-overview.md
+        href: database/authentication-aad-overview.md
         items:
         - name: Configure Azure AD auth
-          href: database/aad-authentication-configure.md
+          href: database/authentication-aad-configure.md
         - name: Multi-factor AAD auth
           href: mfa-authentication-ssms-overview.md
         - name: Configure multi-factor auth

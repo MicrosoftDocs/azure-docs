@@ -182,7 +182,7 @@ SQL Database helps secure your data by providing encryption. For data in motion,
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](aad-authentication-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](authentication-mfa-ssms-overview.md) to increase data and application security, while supporting a single sign-in process.
+SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](authentication-aad-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](authentication-mfa-ssms-overview.md) to increase data and application security, while supporting a single sign-in process.
 
 ## Easy-to-use tools
 

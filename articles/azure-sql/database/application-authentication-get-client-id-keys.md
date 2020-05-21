@@ -97,4 +97,4 @@ Write-Output "_applicationSecret:" $secret
 ## See also
 
 [Create an Azure SQL Database with C#](design-first-database-csharp-tutorial.md)  
-[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](aad-authentication-overview.md)
+[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](authentication-aad-overview.md)
