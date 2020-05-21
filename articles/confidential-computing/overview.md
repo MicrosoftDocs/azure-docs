@@ -37,7 +37,7 @@ Microsoft Azure helps you minimize your attack surface to gain stronger data pro
 
 ## Introduction to confidential computing <a id="intro to acc"></a>
 
-Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), a foundation dedicated to defining and accelerating the adoption of confidential computing. Confidential computing is the protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
+Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines Confidential computing as the protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
 
 A TEE is an environment that enforces execution of only authorized code. Any data in the TEE can't be read or tampered with by any code outside that environment.
 
@@ -93,9 +93,9 @@ An application built with enclaves is partitioned in two ways:
 
 **The host** is where your enclave application is running on top of and is an untrusted environment. The enclave code deployed on the host can't be accessed by the host. 
 
-**The enclave** is where the application code and its cached data/memory is run. Secure computations should occur in the enclaves to ensure secrets and sensitive data, stay protected. 
+**The enclave** is where the application code and its cached data/memory runs. Secure computations should occur in the enclaves to ensure secrets and sensitive data, stay protected. 
 
-During application design, it is important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components. 
+During application design, it's important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components. 
 
 ### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 
