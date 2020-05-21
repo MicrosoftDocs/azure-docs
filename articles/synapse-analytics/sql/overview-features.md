@@ -126,7 +126,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Internal storage** | Yes | No |
 | **Azure Data Lake v2** | Yes | Yes |
 | **Azure Blob Storage** | Yes | Yes |
-| **CosmosDB analytical storage** | No | Yes using [Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (under [gated preview](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Azure CosmosDB analytical storage** | No | Yes using [Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (under [gated preview](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
 
 ## Data formats
 
