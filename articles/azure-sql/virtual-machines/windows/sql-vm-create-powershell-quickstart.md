@@ -1,6 +1,6 @@
 ---
 title: Create SQL Server on a Windows virtual machine with Azure PowerShell | Microsoft Docs
-description: This tutorial shows how to use Azure Powershell to create a Windows virtual machine running SQL Server 2017.
+description: This tutorial shows how to use Azure PowerShell to create a Windows virtual machine running SQL Server 2017.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -17,6 +17,7 @@ ms.reviewer: jroth
 ---
 
 # Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This quickstart steps through creating a SQL Server virtual machine (VM) with Azure PowerShell.
@@ -173,7 +174,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 1. In the **Connect to Server** dialog box, keep the defaults. The server name is the name of the VM. Authentication is set to **Windows Authentication**. Select **Connect**.
 
-You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](ways-to-connect-to-sql.md) from the portal or manually.
+You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](ways-to-connect-to-sql.md) from the Azure portal or manually.
 
 ## Clean up resources
 

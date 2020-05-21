@@ -17,6 +17,7 @@ ms.reviewer: jroth
 ---
 
 # Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
@@ -28,7 +29,7 @@ This quickstart steps through creating a SQL Server virtual machine (VM) in the 
 
 
   > [!TIP]
-  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](create-sql-vm-portal.md).
+  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for SQL Server on Windows VM in the Azure portal](create-sql-vm-portal.md).
   > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
