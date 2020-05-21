@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure askSpoke SSO
 
-1. In a different web broswer window, sign into askSpoke website as an administrator.
+1. In a different web browser window, sign into askSpoke website as an administrator.
 
 1. Click on **Settings** tab from the left navigation pane.
 
