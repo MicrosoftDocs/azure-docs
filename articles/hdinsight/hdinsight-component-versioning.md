@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/08/2020
+ms.date: 05/20/2020
 ---
 
 # Apache components and versions available for Azure HDInsight
@@ -38,7 +38,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.4, 2.3.1*   | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0* (See the note.)   |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
