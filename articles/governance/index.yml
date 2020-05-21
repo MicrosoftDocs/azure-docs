@@ -46,8 +46,8 @@ productDirectory:
           text: Overview
         - url: ./policy/how-to/get-compliance-data.md
           text: Evaluate compliance
-        - url: ./policy/concepts/rego-for-aks.md
-          text: Manage AKS configuration
+        - url: ./policy/concepts/policy-for-kubernetes.md
+          text: Manage Kubernetes configuration
         - url: ./policy/concepts/guest-configuration.md
           text: Manage VM configuration
         - url: ./policy/index.yml

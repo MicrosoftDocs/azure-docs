@@ -20,20 +20,20 @@ The entity represents a word or phrase inside the utterance that you want extrac
 
 ## Plan entities, then create and label
 
-Machine-learned entities can be created from the example utterances or created from the **Entities** page.
+machine-learning entities can be created from the example utterances or created from the **Entities** page.
 
-In general, a best practice is to spend time planning the entities before creating a machine-learned entity in the portal. Then create the machine-learned entity from the example utterance with as much detail in the subentities and features you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method.
+In general, a best practice is to spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from the example utterance with as much detail in the subentities and features you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method.
 
 As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the **Entities** page before they are labeled in example utterances.
 
-When labeling, you can either label individual entities then build up to a parent machine-learned entity. Or you can start with a parent machine-learned entity and decompose into child entities.
+When labeling, you can either label individual entities then build up to a parent machine-learning entity. Or you can start with a parent machine-learning entity and decompose into child entities.
 
 > [!TIP]
 >Label all words that may indicate an entity, even if the words are not used when extracted in the client application.
 
 ## When to create an entity
 
-After planning your entities, you should create your machine-learned entities and subentities. This may require adding prebuilt entities or text-matching entities to provide features for your machine-learned entities. These should all be done before labeling.
+After planning your entities, you should create your machine-learning entities and subentities. This may require adding prebuilt entities or text-matching entities to provide features for your machine-learning entities. These should all be done before labeling.
 
 Once you begin labeling example utterances, you can create machine learned entities or extend list entities.
 
@@ -41,7 +41,7 @@ Use the following table to understand where to create or add each entity type to
 
 |Entity type|Where to create entity in the LUIS portal|
 |--|--|
-|Machine-learned entity|Entities or Intent detail|
+|machine-learning entity|Entities or Intent detail|
 |List entity|Entities or Intent detail|
 |Regular expression entity|Entities|
 |Pattern.any entity|Entities|
@@ -166,7 +166,7 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 ### Label text with a role in an example utterance
 
 > [!TIP]
-> Roles can be replaced by labeling with subentities of a machine-learned entities.
+> Roles can be replaced by labeling with subentities of a machine-learning entities.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Open your app by selecting its name on **My Apps** page.
