@@ -64,40 +64,6 @@ You will also need to update your application to use the [entity categories](nam
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-## NER v2.1 entity categories
-
-NER v2.1 is limited to the entity categories below.
-
-> [!NOTE] 
-> The full set of supported NER entities listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages. Only the "Person", "Location" and "Organization" entities are returned for the other languages.
-
-| Type  | Subcategories | Example |
-|:-----------   |:------------- |:---------|
-| Person        | N/A\*         | "Jeff", "Bill Gates"     |
-| Location      | N/A\*         | "Redmond, Washington", "Paris"  |
-| Organization  | N/A\*         | "Microsoft"   |
-| Quantity      | Number        | "6", "six"     |
-| Quantity      | Percentage    | "50%", "fifty percent"|
-| Quantity      | Ordinal       | "2nd", "second"     |
-| Quantity      | Age           | "90 day old", "30 years old"    |
-| Quantity      | Currency      | "$10.99"     |
-| Quantity      | Dimension     | "10 miles", "40 cm"     |
-| Quantity      | Temperature   | "32 degrees"    |
-| DateTime      | N/A\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | Time          | "8am", "8:00"  |
-| DateTime      | DateRange     | "May 2nd to May 5th"    |
-| DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
-| DateTime      | Set           | "every Tuesday"     |
-| URL           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
-| US Phone Number  | N/A\*         | (US phone numbers only) "(312) 555-0176" |
-| IP Address    | N/A\*         | "10.0.0.100" |
-
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  
-
-
 #### [Language detection](#tab/language-detection)
 
 ## Feature changes 
