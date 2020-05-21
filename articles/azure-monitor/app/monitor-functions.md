@@ -16,7 +16,7 @@ Application Insights collects log, performance, and error data, and automaticall
 
 The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## Azure Functions and distributed tracing for Java applications (public preview)
+## Distributed tracing for Java applications (public preview)
 
 
 > [!IMPORTANT]
