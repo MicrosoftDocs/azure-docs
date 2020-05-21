@@ -64,7 +64,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
    --boundary_1234-abcd--
    ```
 
-2. Create a new **FormData** object with `FormData()`, and append your image path to it by using `fs.createReadStream()`:
+2. Create a new `FormData` object with `FormData()`, and append your image path to it by using `fs.createReadStream()`:
     
     ```javascript
     var form = new FormData();

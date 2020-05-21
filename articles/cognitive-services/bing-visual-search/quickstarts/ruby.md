@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
 
-This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+Use this quickstart to make your first call to the Bing Visual Search API using the Ruby programming language. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 
@@ -282,5 +282,5 @@ JSON Response:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search overview](../overview.md)
+> [What is the Bing Visual Search API?](../overview.md)
 > [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

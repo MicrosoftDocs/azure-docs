@@ -65,7 +65,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
 
 ## Parse the JSON response
 
-Create a method called `print_json()` to take in the API response, and print the JSON:
+Create a method called `print_json()` to accept the API response, and print the JSON:
 
 ```python
 def print_json(obj):

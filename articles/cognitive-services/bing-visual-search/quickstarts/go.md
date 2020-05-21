@@ -15,12 +15,12 @@ ms.author: aahi
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-This quickstart uses the Go programming language to call the Bing Visual Search API and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+Use this quickstart to make your first call to the Bing Visual Search API using the Go programming language. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 
 * Install the [Go binaries](https://golang.org/dl/).
-* The go-spew deep pretty printer, which is used to display results. Install go-spew with the `$ go get -u https://github.com/davecgh/go-spew` command.
+* Install the go-spew deep pretty printer, which is used to display results. To install go-spew, use the `$ go get -u https://github.com/davecgh/go-spew` command.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
