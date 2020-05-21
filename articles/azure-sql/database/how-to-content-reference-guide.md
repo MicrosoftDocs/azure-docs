@@ -129,4 +129,4 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Next steps
 
-- Learn more about [How-to guides for SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)
+- Learn more about [How-to guides for Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

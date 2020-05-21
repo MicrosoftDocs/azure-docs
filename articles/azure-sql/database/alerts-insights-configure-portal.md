@@ -1,5 +1,5 @@
 ---
-title: Setup alerts and notifications (Azure portal)
+title: Setup alerts and notifications (the Azure portal)
 description: Use the Azure portal to create alerts, which can trigger notifications or automation when the conditions you specify are met.
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
 ---
-# Create alerts for Azure SQL Database and Azure Synapse Analytics using Azure portal
+# Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 

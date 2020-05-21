@@ -43,13 +43,13 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - A [server](logical-servers.md) and a single database
-  - Create them with [Azure portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](powershell-script-content-guide.md)
+  - Create them with the [Azure portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](powershell-script-content-guide.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 
-For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.com/)
+For all steps in the tutorial, sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create firewall rules
 
@@ -66,7 +66,7 @@ Server-level IP firewall rules apply to all databases within the same server.
 
 To set up a server-level firewall rule:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
     ![server firewall rule](./media/secure-database-tutorial/server-name.png)
 
@@ -112,7 +112,7 @@ Make sure you're using the appropriate Azure Active Directory (AD) managed domai
 
 To set the Azure AD administrator:
 
-1. In Azure portal, on the **SQL server** page, select **Active Directory admin**. Next select **Set admin**.
+1. In the Azure portal, on the **SQL server** page, select **Active Directory admin**. Next select **Set admin**.
 
     ![select active directory](./media/secure-database-tutorial/admin-settings.png)  
 
@@ -216,7 +216,7 @@ The connection is established using Transport Layer Security (TLS) and reduces t
 
 To copy a secure connection string:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select **Show database connection strings**.
 
@@ -237,7 +237,7 @@ The advanced data security feature detects potential threats as they occur and p
 
 To enable advanced data security:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select the **Server name** link. The server page will open.
 
@@ -263,7 +263,7 @@ The auditing feature tracks database events and writes events to an audit log in
 
 To enable auditing:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Auditing**.
 
@@ -302,7 +302,7 @@ The data masking feature will automatically hide sensitive data in your database
 
 To enable data masking:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Dynamic Data Masking**.
 
@@ -320,7 +320,7 @@ The encryption feature automatically encrypts your data at rest, and requires no
 
 To enable or verify encryption:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Transparent data encryption**.
 

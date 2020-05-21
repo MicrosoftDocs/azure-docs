@@ -35,8 +35,8 @@ To complete the tutorial, make sure you've installed the following items:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - A single database in Azure SQL Database. To create one use,
-  - [Portal](single-database-create-quickstart.md)
-  - [CLI](az-cli-script-samples-content-guide.md)
+  - [The Azure Portal](single-database-create-quickstart.md)
+  - [The Azure CLI](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -85,7 +85,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Run `az login` to sign in to Azure.
@@ -337,7 +337,7 @@ To test a failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 You can check the role of the disaster recovery server during the test with the following command:
 
