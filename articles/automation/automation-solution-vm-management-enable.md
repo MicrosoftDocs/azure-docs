@@ -70,8 +70,8 @@ After you click **OK**, the configuration options are validated and the Automati
 
 2. Specify a value for the **Target ResourceGroup Names** field. The field defines group names that contain VMs for the feature to manage. You can enter more than one name and separate the names using commas (values are not case-sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. The values are stored in the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` variables.
 
-  > [!IMPORTANT]
-   > The default value for **Target ResourceGroup Names** is a **&ast;**. This setting targets all VMs in a subscription. If you don't want the feature to target all the VMs in your subscription, you must provide a list of resource group names before selecting a schedule.
+    > [!IMPORTANT]
+    > The default value for **Target ResourceGroup Names** is a **&ast;**. This setting targets all VMs in a subscription. If you don't want the feature to target all the VMs in your subscription, you must provide a list of resource group names before selecting a schedule.
   
 3. Specify a value for the **VM Exclude List (string)** field. This value is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate the names using commas (values are not case-sensitive). Using a wildcard is supported. This value is stored in the `External_ExcludeVMNames` variable.
   
@@ -95,10 +95,10 @@ Start/Stop VMs during off-hours doesn't include a predefined set of alerts. Revi
 
 2. Click **Create**. After all settings are validated, the feature deploys to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
-> [!NOTE]
-> If you have an Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation account, go to **Variables** under **Shared Resources** and set the [External_EnableClassicVMs](automation-solution-vm-management.md#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
+    > [!NOTE]
+    > If you have an Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation account, go to **Variables** under **Shared Resources** and set the [External_EnableClassicVMs](automation-solution-vm-management.md#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
 
 ## Next steps
 
-* [Configure Stop/Start VMs during off-hours](automation-solution-vm-management-config.md)
-* [Troubleshoot Start/Stop VMs during off-hours issues](troubleshoot/start-stop-vm.md)
+* To set up the feature, see [Configure Stop/Start VMs during off-hours](automation-solution-vm-management-config.md).
+* To resolve feature errors, see [Troubleshoot Start/Stop VMs during off-hours issues](troubleshoot/start-stop-vm.md).

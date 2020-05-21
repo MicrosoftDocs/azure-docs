@@ -73,10 +73,10 @@ Manually installed machines or machines already reporting to your workspace must
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
-* [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md)
-* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md)
-* [Remove VMs from Update Management](automation-remove-vms-from-update-management.md)
-* [Troubleshoot Update Management issues](troubleshoot/update-management.md)
-* [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md)
-* [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md)
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* For scope configurations, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
+* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

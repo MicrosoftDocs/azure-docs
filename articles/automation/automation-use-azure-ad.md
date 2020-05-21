@@ -73,7 +73,7 @@ To change the Azure AD user's password:
 
 3. Ask the administrator to change the password when prompted.
 
-## Configure Azure Automation to use the Azure AD user to manage the Azure subscription
+## Configure Azure Automation to manage the Azure subscription
 
 For Azure Automation to communicate with Azure AD, you must retrieve the credentials associated with the Azure connection to Azure AD. Examples of these credentials are tenant ID, subscription ID, and the like. For more about the connection between Azure and Azure AD, see [Connect your organization to Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
 

@@ -82,7 +82,7 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
 
 ### Test the AWS VM runbook
 
-1. Verify that the runbook creates an asset called `AWScred` for authenticating against AWS, or update the scriptto reference your credential asset name.    
+1. Verify that the runbook creates an asset called `AWScred` for authenticating against AWS, or update the script to reference your credential asset name.    
 2. Verify your new runbook and make sure that all parameter values have been updated has necessary.
 Ensure that the AWS PowerShell module has been imported into Azure Automation.  
 3. In Azure Automation, set **Log verbose records** and optionally **Log progress records** under the runbook operation **Logging and tracing** to **On**.<br><br> ![Runbook Logging and Tracing](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png).  

@@ -31,12 +31,12 @@ Sign in to Azure at https://portal.azure.com.
 
 2. Use the checkboxes to choose the VMs to add to Update Management. You can add machines for up to three different resource groups at a time. Azure VMs can exist in any region, no matter the location of your Automation account.
 
-![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
+    ![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 
-> [!TIP]
-> Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
+    > [!TIP]
+    > Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
 
-![Enable Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
+    ![Enable Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
 3. Click **Services** and select **Update Management** for the Update Management feature. 
 
@@ -44,11 +44,11 @@ Sign in to Azure at https://portal.azure.com.
 
 5. An existing Log Analytics workspace and Automation account are selected by default. If you want to use a different Log Analytics workspace and Automation account, click **CUSTOM** to select them from the Custom Configuration page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation account. If a linked Automation account is found, you see the following screen. When done, click **OK**.
 
-![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+    ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
 6. If the workspace selected is not linked to an Automation account, you see the following screen. Select an Automation account and click **OK** when finished.
 
-![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
+    ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 7. Deselect the checkbox next to any virtual machine that you don't want to enable. VMs that can't be enabled are already deselected.
 
@@ -56,10 +56,10 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
-* [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md)
-* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md)
-* [Remove VMs from Update Management](automation-remove-vms-from-update-management.md)
-* [Troubleshoot Update Management issues](troubleshoot/update-management.md)
-* [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md)
-* [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md)
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* For scope configurations, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
+* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

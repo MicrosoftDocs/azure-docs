@@ -226,4 +226,4 @@ To delete Start/Stop VMs during off-hours:
 
 ## Next steps
 
-[Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md)
+To enable the feature on VMs in your environment, see [Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).

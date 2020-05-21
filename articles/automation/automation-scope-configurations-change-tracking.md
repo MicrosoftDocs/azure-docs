@@ -37,9 +37,9 @@ When a computer is added to Change Tracking and Inventory, it's also added to a 
 
 1. Navigate to your Log Analytics workspace and select **Saved searches** under **General**. The saved search used by Update Management is:
 
-|Name     |Category  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
+    |Name     |Category  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 
 2. Select the saved search to view the query used to populate the group. The following image shows the query and its results:
 
@@ -47,11 +47,11 @@ When a computer is added to Change Tracking and Inventory, it's also added to a 
 
 ## Next steps
 
-* [Change Tracking and Inventory overview](change-tracking.md)
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md)
-* [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md)
-* [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
-* [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
+* For general information about the feature, see [Change Tracking and Inventory overview](change-tracking.md).
+* To work with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To use an Automation account to enable the feature, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+* To use the Azure portal to enable the feature, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
+* To use a runbook to enable the feature, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
+* To use an Azure VM to enable the feature, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
+* To troubleshoot issues with change tracking and inventory on a VM, see [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md).
+* To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
