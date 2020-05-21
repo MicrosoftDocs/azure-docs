@@ -17553,16 +17553,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
-      "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-code.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-develop",
       "redirect_document_id": false
@@ -17825,26 +17815,6 @@
     {
       "source_path": "articles/synapse-analytics/quickstart-create-sql-pool.md",
       "redirect_url": "/azure/synapse-analytics/quickstart-create-sql-pool-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-auditing-portal.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-auditing-powershell.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-auditing-rest.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
     },
     {
@@ -18555,16 +18525,6 @@
     {
       "source_path": "articles/sql-database/sql-threat-protection.md",
       "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-threat-detection-get-started.md",
-      "redirect_url": "/azure/sql-database/sql-database-threat-detection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-threat-detection-portal.md",
-      "redirect_url": "/azure/sql-database/sql-database-threat-detection",
       "redirect_document_id": false
     },
     {
@@ -19300,11 +19260,6 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
       "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
-      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
       "redirect_document_id": false
     },
     {
@@ -29648,11 +29603,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
-      "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/data-factory/how-to-read-write-partitioned-data.md",
       "redirect_url": "/azure/data-factory/tutorial-incremental-copy-overview",
       "redirect_document_id": false
@@ -32855,11 +32805,6 @@
     {
       "source_path": "articles/service-fabric/service-fabric-security-attributes.md",
       "redirect_url": "/azure/service-fabric/service-fabric-security-controls",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-security-attributes.md",
-      "redirect_url": "/azure/sql-database/sql-database-security-controls",
       "redirect_document_id": false
     },
     {
@@ -52300,11 +52245,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
-      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/media-services/azure-media-player/azure-media-player-license.md",
       "redirect_url": "/legal/azure-media-player/azure-media-player-license",
       "redirect_document_id": false
@@ -52428,6 +52368,72 @@
       "source_path":"articles/azure-monitor/app/alerts.md",
       "redirect_url":"/azure/azure-monitor/platform/alerts-log",
       "redirect_document_id": false 		
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
+      "redirect_document_id": false
+    },    
+    {   
+      "source_path": "articles/sql-database/sql-database-security-attributes.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-controls",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
+      "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },          
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-threat-detection-get-started.md",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-threat-detection-portal.md",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
+        "redirect_url": "/azure/sql-database/sql-database-auditing",
+        "redirect_document_id": false
+    },  
+    {
+        "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
+        "redirect_url": "/azure/sql-database/sql-database-auditing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-database/sql-database-auditing-portal.md",
+        "redirect_url": "/azure/sql-database/sql-database-auditing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-database/sql-database-auditing-powershell.md",
+        "redirect_url": "/azure/sql-database/sql-database-auditing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-database/sql-database-auditing-rest.md",
+        "redirect_url": "/azure/sql-database/sql-database-auditing",
+        "redirect_document_id": false
+    },    
+    {
+        "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
+        "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "articles/cdn/endpoint-multiorigin.md",
+        "redirect_url": "/azure/cdn/cdn-overview",
+        "redirect_document_id": false
     }
-  ]
+
+]
 }
