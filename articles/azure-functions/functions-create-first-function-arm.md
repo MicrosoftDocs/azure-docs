@@ -4,7 +4,6 @@ description: Create and deploy to Azure a simple HTTP triggered serverless funct
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-zone_pivot_groups: programming-languages-set-functions
 ms.custom: subject-armqs
 ---
 
@@ -83,6 +82,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
+---
 
 ## Validate the deployment
 
