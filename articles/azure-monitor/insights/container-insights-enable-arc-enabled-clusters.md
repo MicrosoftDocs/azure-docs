@@ -118,6 +118,22 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace
     ```
 
+### Integrate with default workspace
+
+The following step enables monitoring of your Arc enabled Kubernetes cluster using the PowerShell script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
+
+```powershell
+.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
+```
+
+For example:
+
+```powershell
+.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
+```
+
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+
 ## Enable using bash script
 
 Perform the following steps to enable monitoring using the provided bash script.
@@ -146,24 +162,17 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ### Integrate with default workspace
 
-The following step enables monitoring of your Arc enabled Kubernetes cluster using the PowerShell or bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
+The following step enables monitoring of your Arc enabled Kubernetes cluster using the bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
+```bash
+bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context>
+```
 
-    From PowerShell
+For example:
 
-    ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> 
-    ```
-
-    From bash
-
-    ```bash
-    bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context>
-    ```
-
-    For example:
-
-    `bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1MyK8sTestCluster`
+```bash
+bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1MyK8sTestCluster
+```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
