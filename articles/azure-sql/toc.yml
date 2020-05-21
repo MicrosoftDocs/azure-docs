@@ -13,10 +13,11 @@
       href: multi-model-features.md
     - name: Accelerated database recovery
       href: accelerated-database-recovery.md
-    - name: Temporal tables
-      href: temporal-tables.md
-    - name: In-memory OLTP
-      href: in-memory-oltp-overview.md
+    - name: Application and database tuning guidance
+      href: database/performance-guidance.md
+    - name: Use DMVs to monitor performance
+      href: database/monitoring-with-dmvs.md
+
   - name: How to guides
     items:
     - name: Identify query performance issues
@@ -32,6 +33,10 @@
     itemS: 
     - name: Feature comparison
       href: database/features-comparison.md
+    - name: Temporal tables
+      href: temporal-tables.md
+    - name: In-memory OLTP
+      href: in-memory-oltp-overview.md      
 
     - name: Purchasing models
       items:
@@ -117,6 +122,8 @@
         href: database/monitoring-tuning-index.yml
       - name: Overview
         href: database/monitor-tune-overview.md
+      - name: Query Performance Insights
+        href: database/query-performance-insight.md 
       - name: Intelligent Insights
         href: intelligent-insights.md
       - name: SQL Analytics
@@ -156,6 +163,8 @@
       href: database/transparent-data-encryption-byok-configure.md
     - name: Configure temporal retention policy
       href: database/temporal-tables-retention-policy.md
+    - name: Configure backup retention using Azure Blob storage
+      href: database/long-term-backup-retention-configure.md
   
     - name: Load and move data
       items:
@@ -274,6 +283,7 @@
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
       href: database/automation-manage.md      
+
     - name: Service Tiers
       items: 
       - name: Serverless
@@ -295,27 +305,31 @@
           href: database/resource-limits-vcore-single-databases.md
         - name: DTU resource limits
           href: database/resource-limits-dtu-single-databases.md
-        - name: Scale resources
-          href: database/single-database-scale.md
+
       - name: Elastic pool resources
         items:
         - name: vCore resource limits
           href: database/resource-limits-vcore-elastic-pools.md
         - name: DTU resource limits
           href: database/resource-limits-dtu-elastic-pools.md
-        - name: Scale resources
-          href: database/elastic-pool-scale.md
-        - name: Manage pool resources
-          href: database/elastic-pool-manage.md
       - name: Logical SQL server resources
         items:
         - name: Database resource limits
           href: database/resource-limits-logical-server.md
 
+    - name: Business continuity
+      items: 
+      - name: Active geo-replication
+        href: database/active-geo-replication-overview.md  
+      - name: Outage recovery guidance
+        href: database/disaster-recovery-guidance.md
+      - name: Recovery drills
+        href: database/disaster-recovery-drills.md
+
     - name: SQL Data sync
       items:
       - name: Overview
-        items: database/sql-data-sync-data-sql-server-sql-database.md
+        href: database/sql-data-sync-data-sql-server-sql-database.md
       - name: Data Sync Agent
         href: database/sql-data-sync-agent-overview.md
       - name: Best practices for Data Sync
@@ -326,12 +340,16 @@
 
     - name: Security
       items: 
+        - name: Azure SQL Auditing
+          href: database/auditing-overview.md
+        - name: Audit log format
+          href: database/audit-log-format.md          
         - name: Network access controls
           href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
         - name: vNet endpoints
-          href: database/vnet-service-endpoint-rule-overview.md          
+          href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
 
@@ -437,8 +455,8 @@
         - name: R
           href: database/connect-query-r.md
 
-    - name: Managem
-      items: 
+    - name: Manage
+      items:         
       - name: Management API reference
         href: database/single-database-manage.md
       - name: DNS alias PowerShell
@@ -447,9 +465,23 @@
         href: database/file-space-manage.md
       - name: Use Resource Health for connectivity issues
         href: database/resource-health-to-troubleshoot-connectivity.md
+      - name: Migrate DTU to vCore
+        href: database/resource-health-to-troubleshoot-connectivity.md        
+      - name: Scale database resources
+        href: database/single-database-scale.md
+      - name: Scale pool resources
+        href: database/elastic-pool-scale.md
+      - name: Manage pool resources
+        href: database/elastic-pool-manage.md
+      - name: Resource management in dense elastic pools
+        href: database/elastic-pool-resource-management.md        
+      - name: Hyperscale performance diagnostics
+        href: database/hyperscale-performance-diagnostics.md
 
     - name: Secure 
       items: 
+      - name: Audit to storage account behind VNet or firewall
+        href: database/audit-write-storage-account-behind-vnet-firewall.md
       - name: Configure threat detection
         href: database/threat-detection-configure.md      
       - name: Configure dynamic data masking
@@ -457,7 +489,13 @@
       - name: IP-based firewall
         href: database/firewall-configure.md
       - name: vNet endpoints - PowerShell
-        href: database/scripts/vnet-service-endpoint-rule-powershell-create.md 
+        href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
+      - name: Always Encrypted
+        items: 
+        - name: Use the certificate store
+          href: database/always-encrypted-certificate-store-configure.md
+        - name: Use the Azure key vault
+          href: database/always-encrypted-azure-key-vault-configure.md
 
     - name: Business continuity
       items: 
@@ -482,7 +520,10 @@
         href: database/database-advisor-implement-performance-recommendations.md
       - name: Configure Query Performance Insights
         href: database/query-performance-insight-configure.md
- 
+      - name: Stream data with Stream Analytics
+        href: database/stream-data-stream-analytics-integration.md 
+
+
     - name: Load and move data 
       items: 
       - name: Migrate to SQL Database
@@ -540,6 +581,8 @@
         href: database/elastic-query-vertical-partitioning.md
     - name: Elastic jobs
       items:
+      - name: Configure jobs
+        href: database/elastic-jobs-overview.md 
       - name: Create and manage (PowerShell)
         href: database/elastic-jobs-powershell-create.md
       - name: Create and manage (T-SQL)
