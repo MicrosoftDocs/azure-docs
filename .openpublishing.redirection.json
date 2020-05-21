@@ -52437,8 +52437,17 @@
 	{
       "source_path": "articles/azure-monitor/app/usage-workbook.md",
       "redirect_url": "/azure/azure-monitor/platform/workbooks-overview",
+	  "redirect_document_id": false
+	},
+    {
+      "source_path": "articles/batch/batch-api-basics.md",
+      "redirect_url": "/azure/batch/batch-service-workflow-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-retry-after-errors.md",
+      "redirect_url": "/azure/batch/error-handling",
       "redirect_document_id": false
     }
-
 ]
 }
