@@ -5,7 +5,7 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 
 ms.author: iainfou
@@ -33,7 +33,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
 | [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
@@ -95,11 +95,11 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 ### View fraud reports
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
-
+2. Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
+ 
 ## Notifications
 
-Configure email addresses here for users who will receive fraud alert emails.
+Configure email addresses here for users who will receive fraud alert emails in **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
 
 ![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
@@ -159,7 +159,7 @@ Sample scripts for creating custom messages.
 | Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
 | Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
 | Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
-| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Fraud reported    A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
 | Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
 | Authentication denied retry | Verification denied. |
 | Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |

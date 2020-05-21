@@ -1,18 +1,14 @@
 ---
-title: Azure Single Sign On SAML Protocol | Microsoft Docs
+title: Azure Single Sign On SAML Protocol
 description: This article describes the Single Sign On SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
@@ -93,10 +89,10 @@ The `Scoping` element, which includes a list of identity providers, is optional 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
-Don't include a `Signature` element in `AuthnRequest` elements, as Azure AD does not support signed authentication requests.
+Don't include a `Signature` element in `AuthnRequest` elements. Azure AD does not validate signed authentication requests. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
-Azure AD ignores the `Subject` element of `AuthnRequest` elements.
+Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
 
 ## Response
 When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
@@ -153,12 +149,12 @@ The `Response` element includes the result of the authorization request. Azure A
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### Status
@@ -191,7 +187,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### Signature

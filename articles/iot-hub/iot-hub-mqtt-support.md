@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
+ms.custom: [amqp, mqtt]
 ---
 # Communicate with your IoT hub using the MQTT protocol
 
@@ -19,7 +20,7 @@ IoT Hub is not a full-featured MQTT broker and does not support all the behavior
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn’t support non-secure connections over port 1883.
+All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support non-secure connections over port 1883.
 
 ## Connecting to IoT Hub
 
@@ -112,7 +113,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code:
 
 ### For Azure IoT Tools
 
@@ -123,16 +124,6 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 3. Set **expiration time** and press 'Enter'.
   
 4. The SAS token is created and copied to clipboard.
-
-### For Device Explorer
-
-1. Go to the **Management** tab in **Device Explorer**.
-
-2. Click **SAS Token** (top right).
-
-3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
-
-4. Click **Generate** to create your token.
 
    The SAS token that's generated has the following structure:
 
@@ -155,28 +146,27 @@ This repository contains:
 
 **For Windows:**
 
-•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
+* TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
 
-•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
+* SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
 
-•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
+* DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-•	PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **For Linux:**
 
-•	MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
+* MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu, and Raspbian have been tested so far).
 
-•	LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
+* LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
 
 **For mosquitto_pub:**
 
-•	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
+This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
-Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
+* Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
 
-Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
-
+* Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
 
 ## Using the MQTT protocol directly (as a module)
 
@@ -336,7 +326,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 204 | Success (no content is returned) |
+| 200 | Success |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
@@ -354,7 +344,7 @@ The following sequence describes how a device updates the reported properties in
 
 3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
 
-The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
+The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin's document. A member set to `null`, deletes the member from the containing object. For example:
 
 ```json
 {
@@ -367,7 +357,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Success (no content is returned) |
 | 400 | Bad Request. Malformed JSON |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
@@ -402,7 +392,7 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 }
 ```
 
-As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
+As for property updates, `null` values mean that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.

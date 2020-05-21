@@ -1,7 +1,6 @@
 ---
-title: Management solution in Azure best practices | Microsoft Docs
-description: 
-ms.service:  azure-monitor
+title: Management solution in Azure best practices
+description: In this article, learn tips for creating a management solution file. See how to work with data sources, runbooks, views, and alerts.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

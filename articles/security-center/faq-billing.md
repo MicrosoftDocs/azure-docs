@@ -16,14 +16,14 @@ ms.author: memildin
 
 ---
 
-# Billing
+# Billing questions
 
 ## How does billing work for Azure Security Center?
 Security Center is offered in two tiers:
 
-The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
+- The **free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+- The **standard tier** adds threat protection capabilities that includes security alerts, threat intelligence, behavioral analysis, anomaly detection, and threat attribution reports. You can start a standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## How can I track who in my organization performed pricing tier changes in Azure Security Center
 Azure Subscriptions may have multiple administrators with permissions to change the pricing tier. To find out which user performed a pricing tier change, use the Azure Activity Log. For more information, see [here](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).

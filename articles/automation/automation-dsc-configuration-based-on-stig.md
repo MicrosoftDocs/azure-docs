@@ -1,6 +1,6 @@
 ---
-title: Configuration based on STIG to use in state configuration - Azure Automation
-description: Learn about configurations based on STIG for state configuration in Azure Automation.
+title: Configure data based on STIG for Azure Automation State Configuration
+description: This article tells how to configure data based on STIG for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Configuration based on STIG
+# Configure data based on STIG for Azure Automation State Configuration
 
 > Applies To: Windows PowerShell 5.1
 
@@ -49,8 +49,8 @@ to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
+or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
 to pull configurations.
 
 To try out PowerSTIG, visit the

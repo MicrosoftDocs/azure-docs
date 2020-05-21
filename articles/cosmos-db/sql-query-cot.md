@@ -4,7 +4,7 @@ description: Learn about how the Cotangent(COT) SQL system function in Azure Cos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -39,7 +39,10 @@ SELECT COT(124.1332) AS cot
 ```json
 [{"cot": -0.040311998371148884}]  
 ```  
-  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

@@ -9,6 +9,8 @@
       href: review-customer-agreement-bill.md
     - name: Review your Microsoft Partner Agreement bill
       href: review-partner-agreement-bill.md
+    - name: Review your Enterprise Agreement bill
+      href: review-enterprise-agreement-bill.md
   - name: Concepts
     items:
     - name: Individual subscription usage terms

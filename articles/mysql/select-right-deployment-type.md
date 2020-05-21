@@ -97,4 +97,4 @@ The following list describes administrative considerations for each option:
 ## Next steps
 
 * See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/MySQL/).
-* Get started by [creating your first server](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Get started by [creating your first server](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

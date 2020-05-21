@@ -1,8 +1,8 @@
 ---
 title: Supported map styles | Microsoft Azure Maps
 description: In this article, you'll learn about different map rendering styles supported by Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -47,7 +47,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 ## satellite_road_labels
 This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
 
-![satellite_road_labels map style](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels map style](./media/supported-map-styles/satellite-road-labels.png)
 
 **Applicable APIs:**
 * Web SDK map control
@@ -56,7 +56,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ## grayscale_dark
 **grayscale dark** is a dark version of the road map style.
 
-![gray_scale map style](./media/supported-map-styles/grayscale_dark.png)
+![gray_scale map style](./media/supported-map-styles/grayscale-dark.png)
 
 **Applicable APIs:**
 * [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -68,7 +68,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ## grayscale_light
 **grayscale light** is a light version of the road map style.
 
-![grayscale light map style](./media/supported-map-styles/grayscale_light.png)
+![grayscale light map style](./media/supported-map-styles/grayscale-light.png)
 
 **Applicable APIs:**
 * Web SDK map control
@@ -94,6 +94,14 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * Web SDK map control
 * Android map control
 
+## high_contrast_dark
+
+**high_contrast_dark** is a dark map style with a higher contrast than the other styles.
+
+![high contrast dark map style](./media/supported-map-styles/high-contrast-dark.png)
+
+**Applicable APIs:**
+* Web SDK map control
 
 ## Next steps
 

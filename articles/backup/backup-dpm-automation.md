@@ -97,7 +97,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## Installing the Azure Backup agent on a DPM Server
 
-Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like `C:\Downloads\*`.
 
 To install the agent, run the following command in an elevated PowerShell console **on the DPM server**:
 
@@ -228,7 +228,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 In this section, you will add a production server to DPM and then protect the data to local DPM storage and then to Azure Backup. In the examples, we will demonstrate how to back up files and folders. The logic can easily be extended to backup any DPM-supported data source. All your DPM backups are governed by a Protection Group (PG) with four parts:
 
-1. **Group members** is a list of all the protectable objects (also known as *Datasources* in DPM) that you want to protect in the same protection group. For example, you may want to protect production VMs in one protection group and SQL Server databases in another protection group as they may have different backup requirements. Before you can back up any datasource on a production server you need to make sure the DPM Agent is installed on the server and is managed by DPM. Follow the steps for [installing the DPM Agent](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2007/bb870935(v=technet.10)) and linking it to the appropriate DPM Server.
+1. **Group members** is a list of all the protectable objects (also known as *Datasources* in DPM) that you want to protect in the same protection group. For example, you may want to protect production VMs in one protection group and SQL Server databases in another protection group as they may have different backup requirements. Before you can back up any datasource on a production server you need to make sure the DPM Agent is installed on the server and is managed by DPM. Follow the steps for [installing the DPM Agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) and linking it to the appropriate DPM Server.
 2. **Data protection method** specifies the target backup locations - tape, disk, and cloud. In our example we will protect data to the local disk and to the cloud.
 3. A **backup schedule** that specifies when backups need to be taken and how often the data should be synchronized between the DPM Server and the production server.
 4. A **retention schedule** that specifies how long to retain the recovery points in Azure.
@@ -262,7 +262,7 @@ The list of servers on which the DPM Agent is installed and is being managed by 
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-Now fetch the list of datasources on ```$server``` using the [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) cmdlet. In this example we are filtering for the volume *D:\\* that we want to configure for backup. This datasource is then added to the Protection Group using the [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) cmdlet. Remember to use the *modifiable* protection group object ```$MPG``` to make the additions.
+Now fetch the list of datasources on ```$server``` using the [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) cmdlet. In this example we are filtering for the volume `D:\` that we want to configure for backup. This datasource is then added to the Protection Group using the [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) cmdlet. Remember to use the *modifiable* protection group object ```$MPG``` to make the additions.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }

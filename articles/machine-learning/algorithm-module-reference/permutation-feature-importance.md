@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 02/24/2020
 ---
 # Permutation Feature Importance
 
@@ -41,7 +41,7 @@ Generating a set of feature scores requires that you have an already trained mod
 
     -   **Classification**
 
-        Accuracy, Precision, Recall, Average Log Loss  
+        Accuracy, Precision, Recall  
 
     -   **Regression**
 
@@ -49,7 +49,7 @@ Generating a set of feature scores requires that you have an already trained mod
 
      For a more detailed description of these evaluation metrics and how they're calculated, see [Evaluate Model](evaluate-model.md).  
 
-6.  Run the pipeline.  
+6.  Submit the pipeline.  
 
 7.  The module outputs a list of feature columns and the scores associated with them. The list is ranked in descending order of the scores.  
 

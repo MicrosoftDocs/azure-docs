@@ -5,7 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
+
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual

@@ -386,13 +386,13 @@ Azure Functions stores blob receipts in a container named *azure-webjobs-hosts* 
 * The blob name
 * The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time.
+To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time. To reprocess immediately, the *scaninfo* blob in *azure-webjobs-hosts/blobscaninfo* can be updated. Any blobs with a last modified timestamp after the `LatestScan` property will be scanned again.
 
 ## Poison blobs
 
 When a blob trigger function fails for a given blob, Azure Functions retries that function a total of 5 times by default.
 
-If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The queue message for poison blobs is a JSON object that contains the following properties:
+If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The maximum number of retries is configurable. The same MaxDequeueCount setting is used for poison blob handling and poison queue message handling. The queue message for poison blobs is a JSON object that contains the following properties:
 
 * FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
 * BlobType ("BlockBlob" or "PageBlob")

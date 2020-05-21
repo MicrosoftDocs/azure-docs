@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ---
@@ -48,7 +48,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 ## Define geo-filtering match condition
 
 Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) on parameters when creating a match condition. 
-Two letter country codes to country mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md).
+Two letter country/region codes to country/region mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

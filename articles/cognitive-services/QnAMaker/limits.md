@@ -1,7 +1,7 @@
 ---
 title: Limits and boundaries - QnA Maker
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
-ms.topic: article
+ms.topic: reference
 ms.date: 02/14/2020
 ---
 
@@ -50,7 +50,7 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
-Metadata is stored and compared in lower case.
+Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case.
 
 ### By Azure Cognitive Search pricing tier
 
@@ -66,8 +66,8 @@ The length and acceptable characters for metadata name and value are listed in t
 
 |Item|Allowed chars|Regex pattern match|Max chars|
 |--|--|--|--|
-|Name|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
-|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
+|Name (key)|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)<br> Must not contain spaces.|`^[a-zA-Z0-9_]+$`|100|
+|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)<br>Only one value allowed.|`^[^:|]+$`|500|
 |||||
 
 ## Knowledge Base content limits
@@ -98,4 +98,4 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 ## Next steps
 
-Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

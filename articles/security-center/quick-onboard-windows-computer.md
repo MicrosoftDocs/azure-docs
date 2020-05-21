@@ -1,6 +1,6 @@
 ---
 title: Onboard Windows computers to Azure Security Center
-description: This quickstart shows you how to provision the Microsoft Monitoring Agent on a Windows computer.
+description: This quickstart shows you how to provision the Log Analytics agent on a Windows computer.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -18,9 +18,9 @@ ms.author: memildin
 
 ---
 # Quickstart: Onboard Windows computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Microsoft Monitoring Agent.
+After you onboard your Azure subscriptions, you can enable Security Center for resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Log Analytics agent.
 
-This quickstart shows you how to install the Microsoft Monitoring Agent on a Windows computer.
+This quickstart shows you how to install the Log Analytics agent on a Windows computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -68,7 +68,7 @@ You must now install the downloaded file on the target computer.
 9. On the **Ready to Install** page, review your choices and then select **Install**.
 10. On the **Configuration completed successfully** page, select **Finish**
 
-When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
+When complete, the **Log Analytics agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
 For further information on installing and configuring the agent, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -89,10 +89,10 @@ To remove the agent:
 
 1. Open **Control Panel**.
 2. Open **Programs and Features**.
-3. In **Programs and Features**, select **Microsoft Monitoring Agent** and click **Uninstall**.
+3. In **Programs and Features**, select **Log Analytics agent** and click **Uninstall**.
 
 ## Next steps
-In this quickstart, you provisioned the Microsoft Monitoring Agent on a Windows computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the Log Analytics agent on a Windows computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

@@ -1,19 +1,14 @@
 ---
 title: What is Personalizer?
-titleSuffix: Azure Cognitive Services
 description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: overview
-ms.date: 01/21/2020
-ms.author: diberry
+ms.date: 04/20/2020
 #Customer intent:
 ---
 
 # What is Personalizer?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Personalizer is a cloud-based API service that helps your client application choose the best, single _content_ item to show each user. The service selects the best item, from content items, based on collective real-time information you provide about content and context.
 
@@ -53,13 +48,13 @@ Personalizer used reinforcement learning to select the single best action, known
 
 Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
+Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
 
 ## Personalizer content requirements
 
 Use Personalizer when your content:
 
-* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 50 items.
+* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items.
 * Has information describing the content you want ranked: _actions with features_ and _context features_.
 * Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
 
@@ -71,17 +66,24 @@ Since Personalizer uses collective information in near real-time to return the s
 ## How to design and implement Personalizer for your client application
 
 1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
-1. Each [Personalizer Resource](how-to-settings.md) you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
-1. Add Personalizer to your website or content system:
+1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
+
+    |Resource type| Purpose|
+    |--|--|
+    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the Personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
+    |Standard, `S0`|Online learning behavior in a production environment|
+    |Free, `F0`| Try Online learning behavior in a non-production environment|
+
+1. Add Personalizer to your application, website, or system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
-    1. Apply _algorithm_ to collected information about how the user behaved, to determine the **reward** score, such as:
+    1. Apply _business logic_ to collected information about how the user behaved, to determine the **reward** score, such as:
 
-        |Behavior|Calculated reward score|
-        |--|--|
-        |User selected best, single _content_ item (reward action ID)|**1**|
-        |User selected other content|**0**|
-        |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
+    |Behavior|Calculated reward score|
+    |--|--|
+    |User selected best, single _content_ item (reward action ID)|**1**|
+    |User selected other content|**0**|
+    |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
 
     1. Add a **Reward** call sending a reward score between 0 and 1
         * Immediately after showing your content

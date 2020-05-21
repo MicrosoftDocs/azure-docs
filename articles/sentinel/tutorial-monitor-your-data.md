@@ -1,6 +1,6 @@
 ---
-title: Visualize your data using dashboards based on Azure Monitor Workbooks in Azure Sentinel | Microsoft Docs
-description: Use this tutorial to learn how to visualize your data using dashboards based on workbooks in Azure Sentinel.
+title: Visualize your data using Azure Monitor Workbooks in Azure Sentinel | Microsoft Docs
+description: Use this tutorial to learn how to visualize your data using workbooks in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
 
 ---
@@ -21,7 +21,7 @@ ms.author: yelevin
 
 
 
-After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
 
 This tutorial helps you visualize your data in Azure Sentinel.
@@ -34,7 +34,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 - You must have at least Workbook reader or Workbook contributor permissions on the resource group of the Azure Sentinel workspace.
 
 > [!NOTE]
-> The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel workspace resource group and are tagged by the workspace in which they were created.
+> The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel workspace's resource group and are tagged by the workspace in which they were created.
 
 ## Use built-in workbooks
 

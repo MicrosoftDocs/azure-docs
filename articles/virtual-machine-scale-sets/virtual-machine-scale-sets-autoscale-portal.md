@@ -1,13 +1,14 @@
 ---
 title: Autoscale virtual machine scale sets in the Azure portal
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
-author: cynthn
-tags: azure-resource-manager
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Automatically scale a virtual machine scale set in the Azure portal

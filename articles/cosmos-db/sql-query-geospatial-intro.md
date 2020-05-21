@@ -20,7 +20,10 @@ This article is an introduction to the geospatial functionality in Azure Cosmos 
 
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for example, "find all coffee shops near my current location."
 
-Azure Cosmos DB's SQL API supports the **geography** data type. The **geography** type represents data in a round-earth coordinate system.
+Azure Cosmos DB's SQL API supports two spatial data types: the **geometry** data type and the **geography** data type.
+
+- The **geometry** type represents data in a Euclidean (flat) coordinate system
+- The **geography** type represents data in a round-earth coordinate system.
 
 ## Supported data types
 
@@ -65,7 +68,11 @@ Spatial data types can be embedded in an Azure Cosmos DB document as shown in th
 }
 ```
 
-### Points in geography coordinate system
+### Points in a geometry coordinate system
+
+For the **geometry** data type, GeoJSON specification specifies the horizontal axis first and the vertical axis second.
+
+### Points in a geography coordinate system
 
 For the **geography** data type, GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude and latitude are angles and represented in terms of degrees. Longitude values are measured from the Prime Meridian and are between -180 degrees and 180.0 degrees, and latitude values are measured from the equator and are between -90.0 degrees and 90.0 degrees.
 
@@ -120,20 +127,20 @@ A **MultiPolygon** is an array of zero or more Polygons. **MultiPolygons** canno
 ```json
 {
     "type":"MultiPolygon",
-    "coordinates":[ [
+    "coordinates":[[[
         [52.0, 12.0],
         [53.0, 12.0],
         [53.0, 13.0],
         [52.0, 13.0],
         [52.0, 12.0]
-    ],
-    [
+        ]],
+        [[
         [50.0, 0.0],
         [51.0, 0.0],
         [51.0, 5.0],
         [50.0, 5.0],
         [50.0, 0.0]
-    ] ]
+        ]]]
 }
 ```
 

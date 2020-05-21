@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 01/27/2020
+ms.date: 02/27/2020
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 
 
@@ -354,8 +354,8 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Click **New registration**
  5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
- 6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL
- 7. Select **Certificates and secrets**, then click **New client secret**
+ 6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL. Once done, Click **Register**
+ 7. Select **Certificates and secrets** for your new App registration, then click **New client secret**
  8. Enter a description for a new key (client secret), select **Never expires** and click **Add**
  9. Write down the value of the secret. It is used as the password for the Service Principal
 10. Select **Overview**. Write down the Application ID. It is used as the username (login ID in the steps below) of the Service Principal
@@ -563,12 +563,14 @@ We currently don't support AD authentication to the AG endpoint. Therefore, we m
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
 GO
+
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
            FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
            ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
        );
+GO
 ```
 
 Exit the SQL CMD session by running the `exit` command, and return back to your SSH session.
@@ -617,6 +619,7 @@ Exit the SQL CMD session by running the `exit` command, and return back to your 
         FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
         DECRYPTION BY PASSWORD = '<Private_Key_Password>'
                 );
+    GO
     ```
 
 ### Create the database mirroring endpoints on all replicas
@@ -634,6 +637,7 @@ ENCRYPTION = REQUIRED ALGORITHM AES
 GO
 
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
+GO
 ```
 
 ### Create the Availability Group
@@ -671,6 +675,7 @@ CREATE AVAILABILITY GROUP [ag1]
 GO
 
 ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+GO
 ```
 
 ### Create a SQL Server login for Pacemaker
@@ -682,9 +687,12 @@ On all SQL Servers, create a SQL login for Pacemaker. The following Transact-SQL
 ```sql
 USE [master]
 GO
+
 CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>';
 GO
+
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
+GO
 ```
 
 On all SQL Servers, save the credentials used for the SQL Server login. 
@@ -727,6 +735,7 @@ On all SQL Servers, save the credentials used for the SQL Server login.
     GO
 
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    GO
     ```
 
 1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
@@ -736,6 +745,7 @@ On all SQL Servers, save the credentials used for the SQL Server login.
     GO
     
     GRANT VIEW SERVER STATE TO pacemakerLogin;
+    GO
     ```
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
@@ -760,6 +770,7 @@ BACKUP DATABASE [db1] -- backs up the database to disk
 GO
 
 ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
+GO
 ```
 
 ### Verify that the database is created on the secondary servers
@@ -799,7 +810,6 @@ We will be following the guide to [create the availability group resources in th
     Master/Slave Set: ag_cluster-master [ag_cluster]
     Masters: [ <VM1> ]
     Slaves: [ <VM2> <VM3> ]
-    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
     ```
 
 ### Create a virtual IP resource
@@ -940,7 +950,6 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
          Masters: [ <VM2> ]
          Slaves: [ <VM1> <VM3> ]
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
-     
     ```
 
 ## Test Fencing
@@ -969,7 +978,7 @@ For more information on testing a fence device, see the following [Red Hat](http
 
 ## Next steps
 
-In order to utilize an Availability Group Listener for your SQL Servers that you created in Azure, you will first need to create and configure a load balancer.
+In order to utilize an Availability Group Listener for your SQL Servers, you will need to create and configure a load balancer.
 
 > [!div class="nextstepaction"]
-> [Create and configure the load balancer in the Azure portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal)
+> [Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure](sql-server-linux-rhel-ha-listener-tutorial.md)

@@ -78,7 +78,7 @@ The **Preprocess Text** module currently only supports English.
 
     For example, the string `MS---WORD` would be separated into three tokens, `MS`, `-`, and `WORD`.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Next steps
 

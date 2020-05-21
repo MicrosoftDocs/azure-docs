@@ -67,4 +67,4 @@ The following example steps will create an alert on a gateway for:
 
 ## Next steps
 
-To configure alerts on tunnel diagnostic logs, see [Set up alerts on VPN Gateway diagnostic logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+To configure alerts on tunnel resource logs, see [Set up alerts on VPN Gateway resource logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

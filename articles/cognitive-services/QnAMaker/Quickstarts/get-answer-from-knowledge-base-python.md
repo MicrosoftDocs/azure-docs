@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Python - QnA Maker"
 description: This Python REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
-ms.topic: quickstart
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCHANGE-20200128
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Python.
 ---
 

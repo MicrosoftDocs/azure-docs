@@ -3,7 +3,7 @@ title: Azure Monitor view designer to workbooks conversion common tasks
 description: 
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
+
 ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/07/2020

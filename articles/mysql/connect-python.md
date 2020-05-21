@@ -4,11 +4,10 @@ description: This quickstart provides several Python code samples you can use to
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: [mvc, seo-python-october2019]
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/09/2020
-ms.custom: seo-python-october2019
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL

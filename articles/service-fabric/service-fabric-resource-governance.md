@@ -27,7 +27,8 @@ For these two metrics, [Cluster Resource Manager](service-fabric-cluster-resourc
 * The cluster can be [defragmented](service-fabric-cluster-resource-manager-defragmentation-metrics.md) according to these two metrics.
 * When [describing a cluster](service-fabric-cluster-resource-manager-cluster-description.md), buffered capacity can be set for these two metrics.
 
-[Dynamic load reporting](service-fabric-cluster-resource-manager-metrics.md) is not supported for these metrics, and loads for these metrics are defined at creation time.
+> [!NOTE]
+> [Dynamic load reporting](service-fabric-cluster-resource-manager-metrics.md) is not supported for these metrics; loads for these metrics are defined at creation time.
 
 ## Resource governance mechanism
 
@@ -195,7 +196,7 @@ To prevent these situations from occurring, Service Fabric allows you to *enfo
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
-	<ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+    <ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
 </Section>
 ```
 

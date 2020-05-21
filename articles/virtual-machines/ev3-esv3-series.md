@@ -2,7 +2,7 @@
  title: Ev3-series and Esv3-series - Azure Virtual Machines
  description: Specifications for the Ev3 and Esv3-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: joelpelley
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -26,6 +26,10 @@ ACU: 160 - 190
 Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
 |---|---|---|---|---|---|---|
@@ -54,6 +58,10 @@ ACU: 160-190
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

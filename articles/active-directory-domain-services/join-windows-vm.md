@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
@@ -24,19 +24,19 @@ In this tutorial, you learn how to:
 > * Connect the Windows Server VM to an Azure virtual network
 > * Join the VM to the Azure AD DS managed domain
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a part of the Azure AD DS managed domain.
     * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to Azure AD DS managed domain.
 * An Azure Bastion host deployed in your Azure AD DS virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
@@ -71,9 +71,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
 1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts.
 
-    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over SSL. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
-
-    For now, disable direct RDP connections to the VM.
+    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
     Under **Public inbound ports**, select *None*.
 
@@ -93,22 +91,23 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
     ![Choose to manage the subnet configuration in the Azure portal](./media/join-windows-vm/manage-subnet.png)
 
-1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.1.0/24*, which is used by the default subnet.
+1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.2.0/24*, which is used by the default subnet. Other subnets, such as for *workloads* or Azure Bastion may also already exist.
 
     Add an additional IP address range to the virtual network. The size of this address range and the actual IP address range to use depends on other network resources already deployed. The IP address range shouldn't overlap with any existing address ranges in your Azure or on-premises environment. Make sure that you size the IP address range large enough for the number of VMs you expect to deploy into the subnet.
 
-    In the following example, an additional IP address range of *10.0.2.0/24* is added. When ready, select **Save**.
+    In the following example, an additional IP address range of *10.0.5.0/24* is added. When ready, select **Save**.
 
-    ![Add an additional virtual network IP address range in the Azure portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Add an additional virtual network IP address range in the Azure portal](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Next, in the left-hand menu of the virtual network window, select **Subnets**, then choose **+ Subnet** to add a subnet.
 
-1. Select **+ Subnet**, then enter a name for the subnet, such as *management*. Provide an **Address range (CIDR block)**, such as *10.0.2.0/24*. Make sure that this IP address range doesn't overlap with any other existing Azure or on-premises address ranges. Leave the other options as their default values, then select **OK**.
+1. Select **+ Subnet**, then enter a name for the subnet, such as *management*. Provide an **Address range (CIDR block)**, such as *10.0.5.0/24*. Make sure that this IP address range doesn't overlap with any other existing Azure or on-premises address ranges. Leave the other options as their default values, then select **OK**.
 
     ![Create a subnet configuration in the Azure portal](./media/join-windows-vm/create-subnet.png)
 
 1. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
 1. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *management*. Again, make sure you choose the correct subnet and don't deploy your VM in the same subnet as your Azure AD DS managed domain.
+1. For **Public IP**, select *None* from the drop-down menu, as you use Azure Bastion to connect to the management and don't need a public IP address assigned.
 1. Leave the other options as their default values, then select **Management**.
 1. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
 1. Review the VM settings, then select **Create**.
@@ -146,16 +145,16 @@ With the VM created and a web-based RDP connection established using Azure Basti
 
     ![Choose to change the workgroup or domain properties](./media/join-windows-vm/change-domain.png)
 
-1. In the **Domain** box, specify the name of your Azure AD DS managed domain, such as *contoso.com*, then select **OK**.
+1. In the **Domain** box, specify the name of your Azure AD DS managed domain, such as *aaddscontoso.com*, then select **OK**.
 
     ![Specify the Azure AD DS managed domain to join](./media/join-windows-vm/join-domain.png)
 
-1. Enter domain credentials to join the domain. Use the credentials for a user that belongs to the *Azure AD DC administrators* group. Only members of this group have privileges to join machines to the Azure AD DS managed domain. The account must be part of the Azure AD DS managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process. Account credentials can be specified in one of the following ways:
+1. Enter domain credentials to join the domain. Use the credentials for a user that's a part of the Azure AD DS managed domain. The account must be part of the Azure AD DS managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process. Account credentials can be specified in one of the following ways:
 
-    * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Azure AD. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@contoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
+    * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Azure AD. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@aaddscontoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
         * If a user's UPN prefix is long, such as *deehasareallylongname*, the *SAMAccountName* may be autogenerated.
         * If multiple users have the same UPN prefix in your Azure AD tenant, such as *dee*, their *SAMAccountName* format might be autogenerated.
-    * **SAMAccountName format** - Enter the account name in the *SAMAccountName* format. For example, the *SAMAccountName* of user *contosoadmin* would be `CONTOSO\contosoadmin`.
+    * **SAMAccountName format** - Enter the account name in the *SAMAccountName* format. For example, the *SAMAccountName* of user *contosoadmin* would be `AADDSCONTOSO\contosoadmin`.
 
 1. It takes a few seconds to join to the Azure AD DS managed domain. When complete, the following message welcomes you to the domain:
 
@@ -166,9 +165,9 @@ With the VM created and a web-based RDP connection established using Azure Basti
 1. To complete the process to join to the Azure AD DS managed domain, restart the VM.
 
 > [!TIP]
-> You can domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *CONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that belongs to the *Azure AD DC administrators* group:
+> You can domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *AADDSCONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that's a part of the Azure AD DS managed domain:
 >
-> `Add-Computer -DomainName CONTOSO -Restart`
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
 > To domain-join a VM without connecting to it and manually configuring the connection, you can use the [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet.
 
@@ -204,7 +203,7 @@ If you don't receive a prompt that asks for credentials to join the domain, ther
 After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
 * Verify the VM is connected to the same virtual network that Azure AD DS is enabled in, or has a peered network connection.
-* Try to ping the DNS domain name of the managed domain, such as `ping contoso.com`.
+* Try to ping the DNS domain name of the managed domain, such as `ping aaddscontoso.com`.
     * If the ping request fails, try to ping the IP addresses for the managed domain, such as `ping 10.0.0.4`. The IP address for your environment is displayed on the *Properties* page when you select the Azure AD DS managed domain from your list of Azure resources.
     * If you can ping the IP address but not the domain, DNS may be incorrectly configured. Confirm that the IP addresses of the managed domain are configured as DNS servers for the virtual network.
 * Try to flush the DNS resolver cache on the virtual machine using the `ipconfig /flushdns` command.
@@ -215,9 +214,9 @@ If you receive a prompt that asks for credentials to join the domain, but then a
 
 After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
-* Make sure that the user account you specify belongs to the *AAD DC Administrators* group.
+* Make sure that the user account you specify belongs to the Azure AD DS managed domain.
 * Confirm that the account is part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
-* Try using the UPN format to specify credentials, such as `contosoadmin@contoso.onmicrosoft.com`. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the *SAMAccountName* for your account may be autogenerated. In these cases, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
+* Try using the UPN format to specify credentials, such as `contosoadmin@aaddscontoso.onmicrosoft.com`. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the *SAMAccountName* for your account may be autogenerated. In these cases, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
 * Check that you have [enabled password synchronization][password-sync] to your managed domain. Without this configuration step, the required password hashes won't be present in the Azure AD DS managed domain to correctly authenticate your sign in attempt.
 * Wait for password synchronization to be completed. When a user account's password is changed, an automatic background synchronization from Azure AD updates the password in Azure AD DS. It takes some time for the password to be available for domain-join use.
 

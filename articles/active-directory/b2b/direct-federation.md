@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -44,12 +44,16 @@ With direct federation, guest users sign into your Azure AD tenant using their o
 
 ### DNS-verified domains in Azure AD
 The domain you want to federate with must ***not*** be DNS-verified in Azure AD. You're allowed to set up direct federation with unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
+
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
+
 -	accounts.google.com
 -	pingidentity.com
 -	login.pingone.com
 -	okta.com
+-	oktapreview.com
+-	okta-emea.com
 -	my.salesforce.com
 -	federation.exostar.com
 -	federation.exostartest.com
@@ -61,6 +65,10 @@ If you specify the metadata URL in the identity provider settings, Azure AD will
 
 ### Limit on federation relationships
 Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
+
+### Limit on multiple domains
+We don’t currently support direct federation with multiple domains from the same tenant.
+
 ## Frequently asked questions
 ### Can I set up direct federation with a domain for which an unmanaged (email-verified) tenant exists? 
 Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
@@ -135,8 +143,8 @@ Next, you'll configure federation with the identity provider configured in step 
 ### To configure direct federation in the Azure AD portal
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then select **New SAML/WS-Fed IdP**.
+2. Select **External Identities** > **All identity providers**.
+3. Select , and then select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -183,8 +191,8 @@ Now test your direct federation setup by inviting a new B2B guest user. For deta
 ## How do I edit a direct federation relationship?
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**
+2. Select **External Identities**.
+3. Select **All identity providers**
 4. Under **SAML/WS-Fed identity providers**, select the provider.
 5. In the identity provider details pane, update the values.
 6. Select **Save**.
@@ -195,8 +203,8 @@ You can remove your direct federation setup. If you do, direct federation guest 
 To remove direct federation with an identity provider in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**.
+2. Select **External Identities**.
+3. Select **All identity providers**.
 4. Select the identity provider, and then select **Delete**. 
 5. Select **Yes** to confirm deletion. 
 

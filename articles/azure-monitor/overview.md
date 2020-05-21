@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor overview | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: overview
 author: bwren
@@ -21,6 +20,9 @@ Just a few examples of what you can do with Azure Monitor include:
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](platform/alerts-smartgroups-overview.md) and [automated actions](platform/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](app/usage-workbooks.md).
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
+
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Diagnostics extension overview
 description: Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric
-ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
@@ -15,6 +14,14 @@ Azure Diagnostics extension is an [agent in Azure Monitor](agents-overview.md) t
 
 > [!NOTE]
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
+
+## Primary scenarios
+The primary scenarios addressed by the diagnostics extension are:
+
+- Collect guest metrics into Azure Monitor Metrics.
+- Send guest logs and metrics to Azure storage for archiving.
+- Send guest logs and metrics to Azure event hubs to send outside of Azure.
+
 
 ## Comparison to Log Analytics agent
 The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
@@ -82,7 +89,7 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 
 
 ## Installation and configuration
-The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) and [Virtual machine extensions and features for Linux](/virtual-machines/extensions/features-linux) for general details on installing and maintaining virtual machine extensions.
+The Diagnostic extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md) for general details on installing and maintaining virtual machine extensions.
 
 You can also install and configure both the Windows and Linux diagnostic extension in the Azure portal under **Diagnostic settings** in the **Monitoring** section of the virtual machine's menu.
 

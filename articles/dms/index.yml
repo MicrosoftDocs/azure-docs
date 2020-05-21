@@ -103,6 +103,8 @@ landingContent:
             url: known-issues-azure-postgresql-online.md
           - text: Known issues - Online migration to Azure DB for MySQL
             url: known-issues-azure-mysql-online.md
+          - text: Known issues - Migration from MongoDB to Azure Cosmos DB
+            url: known-issues-mongo-cosmos-db.md
       - linkListType: video
         links:
           - text: Migrate PostgreSQL to Azure DB for PostgreSQL - Single server

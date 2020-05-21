@@ -88,13 +88,17 @@ If the pipeline was constructed with a [DataPath](https://docs.microsoft.com/pyt
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
 
-reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on time",
+reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on input file change.",
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
 ### Optional arguments when creating a schedule
 
 In addition to the arguments discussed previously, you may set the `status` argument to `"Disabled"` to create an inactive schedule. Finally, the `continue_on_step_failure` allows you to pass a Boolean that will override the pipeline's default failure behavior.
+
+### Use Azure Logic Apps for more complex workflows
+
+Azure Logic Apps supports more complex workflows and is far more broadly integrated than Azure Machine Learning pipelines. See [Trigger a run of a Machine Learning pipeline from a Logic App](how-to-trigger-published-pipeline.md) for more information.
 
 ## View your scheduled pipelines
 

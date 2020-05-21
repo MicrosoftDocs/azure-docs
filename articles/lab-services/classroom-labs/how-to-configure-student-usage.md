@@ -1,6 +1,6 @@
 ---
 title: Configure usage settings in classroom labs of Azure Lab Services
-description: Learn how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
+description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -17,163 +17,206 @@ ms.author: spelluru
 
 ---
 # Add and manage lab users
-This article describes how to add users to the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 
+This article describes how to add student users to a lab, register them with the lab, control the number of additional hours they can use the virtual machine (VM), and more. 
 
-## Add users to the lab
+## Add users to a lab
 
-1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
-2. Select **Add users** on the toolbar, and then select **Add by email addresses**. 
+In this section, you add students to a lab manually or by uploading a CSV file. Do the following:
 
-    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
-1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+1. In the left pane, select **Users**. 
 
-    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+    By default, the **Restrict access** option is turned on and, unless they're in the list of users, students can't register with the lab even if they have a registration link. Only listed users can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows students to register with the lab as long as they have the registration link. 
+
+1. At the top of the **Users** pane, select **Add users**, and then select **Add by email address**. 
+
+    ![The "Add users" button](../media/how-to-configure-student-usage/add-users-button.png)
+
+1. In the **Add users** pane, enter the students' email addresses on separate lines or on a single line separated by semicolons. 
+
+    ![Add users' email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+
+1. Select **Save**. 
+
+    The list displays the email addresses and statuses of the current users, whether they're registered with the lab or not. 
 
     ![Users list](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
-    > You will see names of users in the list after they are registered to the lab. The name shown in the list is constructed by using first and last names of the user in the Azure Active Directory. 
+    > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
 
 ### Add users by uploading a CSV file
-You can also add users by uploading a CSV file with email addresses of users.
 
-1. Create a CSV file with email addresses of users in one column.
+You can also add users by uploading a CSV file that contains their email addresses.
 
-    ![CSV file with users](../media/how-to-configure-student-usage/csv-file-with-users.png)
-2. On the **Users** page of the lab, select **Add users** on the toolbar, and then select **Upload CSV**.
+1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
 
-    ![Upload CSV button](../media/how-to-configure-student-usage/upload-csv-button.png)
-3. Select the CSV file with user email addresses. When you select **Open** after selecting the CSV file, you see the following **Add users** window. The email address list is filled with email addresses from the CSV file. 
+    ![List of users in a CSV file](../media/how-to-configure-student-usage/csv-file-with-users.png)
 
-    ![Add users window populated with email addresses from CSV file](../media/how-to-configure-student-usage/add-users-window.png)
-4. Select **Save** in the **Add users** window. 
-5. Confirm that you see users in the list of users. 
+1. At the top of the **Users** pane, select **Add users**, and then select **Upload CSV**.
 
-    ![List of added users](../media/how-to-configure-student-usage/list-of-added-users.png)
+    ![The "Upload CSV" button](../media/how-to-configure-student-usage/upload-csv-button.png)
+
+1. Select the CSV file that contains the students' email addresses, and then select **Open**.
+
+    The **Add users** window displays the email address list from the CSV file. 
+
+    ![The "Add users" window with email addresses from CSV file](../media/how-to-configure-student-usage/add-users-window.png)
+
+1. Select **Save**. 
+
+1. In the **Users** pane, view the list of added students. 
+
+    ![List of added users in the "Users" pane](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## Send invitations to users
-To send the registration link to students, use one of the following methods. The first method shows you how to send emails to students with the registration link and an optional message. The second method shows you how to get the registration link that you can share with others any way you want. 
 
-If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. This option is enabled by default. 
+To send a registration link to new users, use one of the following methods. 
+
+If the **Restrict access** option is enabled for the lab, only listed users can use the registration link to register to the lab. This option is enabled by default. 
 
 ### Invite all users
-1. Switch to the **Users** view if you are not on the page already, and select **Invite all** on the toolbar. 
 
-    ![Select students](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+This method shows you how to send email with a registration link and an optional message to all listed students.
 
-1. On the **Send invitation by email** page, enter an optional message, and then select **Send**. The email automatically includes the registration link. You can get this registration link by selecting **... (ellipsis)** on the toolbar, and **Registration link**. 
+1. In the **Users** pane, select **Invite all**. 
 
-    ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
-4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on \<date>**. 
+    ![The "Invite all" button](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-    For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
+1. In the **Send invitation by email** window, enter an optional message, and then select **Send**. 
+
+    The email automatically includes the registration link. To get and save the registration link separately, select the ellipsis (**...**) at the top of the **Users** pane, and then select **Registration link**. 
+
+    ![The "Send registration link by email" window](../media/tutorial-setup-classroom-lab/send-email.png)
+
+    The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**. 
 
 ### Invite selected users
 
-1. Select a user or multiple users in the list. 
-2. Then, select **envelope** icon you see in the selected row (or) select **Invite** on the toolbar. 
+This method shows you how to invite only certain students and get a registration link that you can share with other people.
+
+1. In the **Users** pane, select a student or multiple students in the list. 
+
+1. In the row for the student you've selected, select the **envelope** icon or, on the toolbar, select **Invite**. 
 
     ![Invite selected users](../media/how-to-configure-student-usage/invite-selected-users.png)
-3. In the **Send invitation by email** window, enter an optional **message**, and then select **Send**. 
+
+1. In the **Send invitation by email** window, enter an optional **message**, and then select **Send**. 
 
     ![Send email to selected users](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
-    You see the status of this operation in the **Invitation** column of the **Users** list. The invitation email includes the registration link that users can use to register with the lab.
+    The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that students can use to register with the lab.
 
-1. Switch to the **Users** view if you aren't on the page already. 
+## Get the registration link
 
-## Get registration link
-You can also get the registration link from the portal and send it using your own email client application. 
+In this section, you can get the registration link from the portal and send it by using your own email application. 
 
-1. Switch to the **Users** view by selecting **Users** on the left menu. 
-2. Select **...(ellipsis)** on the toolbar, and then select **Registration link**.
+1. In the **Users** pane, select **Registration link**.
 
     ![Student registration link](../media/how-to-configure-student-usage/registration-link-button.png)
-1. On the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
 
-    ![Student registration link](../media/how-to-configure-student-usage/registration-link.png)
-2. On the **User registration** dialog box, select **Done**. 
-4. Send the **registration link** to a student so that the student can register for the class. 
+1. In the **User registration** window, select **Copy**, and then select **Done**. 
+
+    ![The "User registration" window](../media/how-to-configure-student-usage/registration-link.png)
+
+    The link is copied to the clipboard. 
+    
+1. In your email application, paste the registration link, and then send the email to a student so that the student can register for the class. 
 
 ## View registered users
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
-2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
-3. On the **My labs** page, select the lab for which you want to track the usage. 
-4. Select **Users** on the left menu or **Users** tile. You see students who have registered with your lab.  
+1. Go to the [Azure Lab Services](https://labs.azure.com) website. 
+1. Select **Sign in**, and then enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
+1. On the **My labs** page, select the lab whose usage you want to track. 
+1. In the left pane, select **Users**, or select the **Users** tile. 
 
-    ![Registered users](../media/tutorial-track-usage/registered-users.png)
+    The **Users** pane displays a list of students who have registered with your lab.  
+
+    ![List of registered users](../media/tutorial-track-usage/registered-users.png)
 
 ## Set quotas for users
-You can set quotas per user by using the following steps: 
 
-1. Select **Users** on the left menu if the page isn't already active. 
-2. Select **Quota per user: \<number> hours** on the toolbar. 
-3. On the **Quota per user** page, specify the number of hours you want to give to each user (student) outside the scheduled class time, and then select **Save**.
+You can set an hour quota for each student by doing the following: 
 
-    ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>** and also in the users list.
+1. In the **Users** pane, select **Quota per user: \<number> hour(s)** on the toolbar. 
+1. In the **Quota per user** window, specify the number of hours you want to give to each student outside the scheduled class time, and then select **Save**.
 
-    ![Quota per user — after](../media/how-to-configure-student-usage/quot-per-user-after.png)
+    ![The "Quota per user" window](../media/how-to-configure-student-usage/quota-per-user.png)    
+
+    The changed values are now displayed on the **Quota per user: \<number of hours>** button on the toolbar and in the users list, as shown here:
+
+    ![Quota hours per user](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
-    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
+    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a student. The quota is for the time outside of scheduled hours that a student spends on VMs. 
 
-## Set additional quota for a specific user
-You can specify additional quota for a user. This quota is in addition to the common quota set for all users in the previous section. For example, if you (as an instructor) set the quota for all users to 10 hours and set additional quota of 5 hours for a specific users, that users gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, then the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is in outside the scheduled time. The time that student spends on a lab VM during the schedule time does not count against this quota. 
+## Set additional quotas for specific users
 
-To do so, follow these steps:
+You can specify quotas for certain students beyond the common quotas that were set for all users in the preceding section. For example, if you, as an instructor, set the quota for all students to 10 hours and set an additional quota of 5 hours for a specific student, that student gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the student gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a student spends on a lab VM during the scheduled time does not count against this quota. 
 
-1. Select a user(student) from the list of users on the **Users** page.
-2. Then, select **Adjust quota** from the toolbar. 
+To set additional quotas, do the following:
 
-    ![Adjust quota button](../media/how-to-configure-student-usage/adjust-quota-button.png)
-3. Enter the number of **additional hours** for the selected user or users, and then select **Apply**. 
+1. In the **Users** pane, select a student from the list, and then select **Adjust quota** on the toolbar. 
 
-    ![Additional quota for a user](../media/how-to-configure-student-usage/additional-quota.png)
-4. You see the updated usage for the user in the **Usage** column. 
+    ![The "Adjust quota" button](../media/how-to-configure-student-usage/adjust-quota-button.png)
+
+1. In the **Adjust quota for \<selected user or users email address>**, enter the number of additional lab hours you want to grant to the selected student or students, and then select **Apply**. 
+
+    ![The "Adjust quota ..." window](../media/how-to-configure-student-usage/additional-quota.png)
+
+    The **Usage** column displays the updated quota for the selected students. 
 
     ![New usage for the user](../media/how-to-configure-student-usage/new-usage-hours.png)
 
 ## Student accounts
-To add students to a classroom lab, you use their email accounts. The following types of email accounts might be used:
 
-- A student email account that's provided by your university’s Office 365 Azure Active Directory (AAD). 
-- A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
-- A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
+To add students to a classroom lab, you use their email accounts. Students might have the following types of email accounts:
+
+- A student email account that's provided by your university's Azure Active Directory instance for Office 365. 
+- A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
+- A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
 
-### Using a non-Microsoft email account
-Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that students first create a Microsoft account that's linked to their non-Microsoft email address.
+### Use a non-Microsoft email account
+Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
 
-Many students might already have a Microsoft account linked to their non-Microsoft email addresses. For example, students already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
+Many students might already have a Microsoft account that's linked to their non-Microsoft email address. For example, students already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
 
-When a student clicks on the registration URL to sign in to a classroom, they are prompted for their email address and password. If the student attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the student will receive the following error message: 
+When students use the registration link to sign in to a classroom, they're prompted for their email address and password. Students who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account will receive the following error message: 
 
-![Error message](../media/how-to-configure-student-usage/cant-find-account.png)
+![Error message at sign-in](../media/how-to-configure-student-usage/cant-find-account.png)
 
-To sign up for a Microsoft account, students should go to [http://signup.live.com](http://signup.live.com).  
+Here's a link for students to [sign up for a Microsoft account](http://signup.live.com).  
 
 > [!IMPORTANT]
-> When students sign in to a classroom lab, they are not given the option to create a Microsoft account. So, we recommend that you include this sign-up link in the classroom lab registration email that you send to students who are using non-Microsoft accounts.
+> When students sign in to a classroom lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, http://signup.live.com, in the classroom lab registration email that you send to students who are using non-Microsoft accounts.
 
-### Using a GitHub account
-Students can also use an existing GitHub account to register and sign in to a classroom lab. If the student already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
+### Use a GitHub account
+Students can also use an existing GitHub account to register and sign in to a classroom lab. If they already have a Microsoft account linked to their GitHub account, students can sign in and provide their password as shown in the preceding section. 
 
-![Sign-in options link](../media/how-to-configure-student-usage/signin-options.png)
+If they haven't yet linked their GitHub account to a Microsoft account, they can do the following:
 
-On the **Sign-in options** page, select **Sign in with GitHub**.
+1. Select the **Sign-in options** link, as shown here:
 
-![Sign in with GitHub link](../media/how-to-configure-student-usage/signin-github.png)
+    ![The "Sign-in options" link](../media/how-to-configure-student-usage/signin-options.png)
 
-Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the student selects **Next**.  The student is then immediately signed in and connected to the classroom lab.
+1. In the **Sign-in options** window, select **Sign in with GitHub**.
+
+    ![The "Sign in with GitHub" link](../media/how-to-configure-student-usage/signin-github.png)
+
+    At the prompt, students then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the classroom lab.
+
+## Export a list of users to a CSV file
+
+1. Go to the **Users** pane.
+1. On the toolbar, select the ellipsis (**...**), and then select **Export CSV**. 
+
+    ![The "Export CSV" button](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## Next steps
 See the following articles:
 
-- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+- For administrators: [Create and manage lab accounts](how-to-manage-lab-accounts.md)
+- For lab owners: [Create and manage labs](how-to-manage-classroom-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
+- For lab users: [Access classroom labs](how-to-use-classroom-lab.md)

@@ -86,9 +86,9 @@ Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
 * [Upload data to HDInsight](hdinsight-upload-data.md)
-* [Use Apache Hive with HDInsight](/hadoop/hdinsight-use-hive.md)
+* [Use Apache Hive with HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Use Apache Sqoop with HDInsight](hdinsight-use-sqoop.md)
-* [Use MapReduce jobs with HDInsight](/hadoop/hdinsight-use-mapreduce.md)
+* [Use MapReduce jobs with HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
