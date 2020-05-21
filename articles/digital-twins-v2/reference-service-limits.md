@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Service limits in public preview
 
+## Functional limits
+
 The table below lists the functional limits of Azure Digital Twins in the current preview.
 
 | Area | Capability | Limit |
@@ -35,6 +37,16 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 
 > [!NOTE]
 > If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can  request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Rate limits
+
+This table reflects the rate limits of different APIs.
+
+| API | Capability | Limit |
+| --- | --- | --- |
+| Models API | Number of requests per second | 100 |
+| Digital Twins API | Number of requests per second | 1,000 |
+| Query API | Number of requests per second | 500 |
 
 ## Next steps
 
