@@ -253,7 +253,7 @@ A new syntax is introduced to create Azure AD server principals (logins), **FROM
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Managed Instance enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../database/authentication-aad-overview.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL Managed Instance enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../database/authentication-aad-overview.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](../database/authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
 
 ### Authentication
 

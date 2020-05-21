@@ -455,7 +455,7 @@ Use this method to authenticate to SQL Database or SQL Managed Instance with Azu
 
 Use this method for interactive authentication with or without multi-factor authentication (MFA), with password being requested interactively. This method can be used to authenticate to SQL Database, SQL Managed Instance, and Azure Synapse for Azure AD cloud-only identity users, or those who use Azure AD hybrid identities.
 
-For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](../mfa-authentication-ssms-overview.md).
+For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](authentication-mfa-ssms-overview.md).
 
 ## Using an Azure AD identity to connect from a client application
 

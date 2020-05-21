@@ -17,14 +17,14 @@
     - name: Reserved capacity
       href: database/reserved-capacity-overview.md
   - name: Compute & storage
-      items:
-      - name: Overview
-        href: database/service-tiers-general-purpose-business-critical.md
-        displayName: provisioned compute tier
-      - name: General purpose / Standard
-        href: database/service-tier-general-purpose.md
-      - name: Business critical / Premium
-        href: database/service-tier-business-critical.md        
+    items:
+    - name: Overview
+      href: database/service-tiers-general-purpose-business-critical.md
+      displayName: provisioned compute tier
+    - name: General purpose / Standard
+      href: database/service-tier-general-purpose.md
+    - name: Business critical / Premium
+      href: database/service-tier-business-critical.md        
 
   - name: Shared concepts 
     itemS: 
@@ -67,9 +67,9 @@
         - name: Configure Azure AD auth
           href: database/authentication-aad-configure.md
         - name: Multi-factor AAD auth
-          href: mfa-authentication-ssms-overview.md
+          href: database/authentication-mfa-ssms-overview.md
         - name: Configure multi-factor auth
-          href: mfa-authentication-ssms-configure.md
+          href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
       - name: Transparent Data Encryption (TDE)
@@ -222,6 +222,18 @@
       href: database/logical-servers.md
     - name: Release notes
       href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+    - name: Service Tiers
+      items: 
+      - name: Serverless
+        href: database/serverless-tier-overview.md
+      - name: DTU model overview
+        href: database/service-tiers-dtu.md
+      - name: Hyperscale
+        href: database/service-tier-hyperscale.md
+      - name: Hyperscale FAQ
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+      - name: Migrate from Premium RS
+        href: database/service-tiers-prs.md     
 
   - name: Quickstarts
     items:
@@ -290,20 +302,6 @@
       href: database/elastic-query-overview.md
     - name: Elastic transactions
       href: database/elastic-transactions-overview.md
-              
-
-    - name: Service Tiers
-      items: 
-      - name: Serverless
-        href: database/serverless-tier-overview.md
-      - name: DTU model overview
-        href: database/service-tiers-dtu.md
-      - name: Hyperscale
-        href: database/service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md
 
     - name: Resource management 
       items: 
