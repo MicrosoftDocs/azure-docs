@@ -47,6 +47,7 @@ This table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 |
 | Digital Twins API | Number of requests per second | 1,000 |
 | Query API | Number of requests per second | 500 |
+| Event Routes API | Number of requests per second | 100 |
 
 ## Next steps
 
