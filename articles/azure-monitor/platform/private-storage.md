@@ -10,13 +10,15 @@ ms.date: 05/20/2020
 ---
 
 # Customer-owned storage accounts for log ingestion in Azure Monitor
-Storage accounts are used by Azure Monitor in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. Customers that want control over their data during ingestion can use their own storage accounts instead of the service-managed storage. The use of customer storage account provides customers control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as  Bring Your Own Storage, or BYOS. 
 
-One scenario that requires this feature is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it. 
+Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account give you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
 
-Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Customers can encrypt logged data by using CMK on the clusters that store the logs. The same key can also be used to encrypt logs during the ingestion process. 
+One scenario that requires BYOS is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it.
+
+Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Customers can encrypt logged data by using CMK on the clusters that store the logs. The same key can also be used to encrypt logs during the ingestion process.
 
 ## Data types supported
+
 Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](azure-storage-iis-table.md) for more information about the ingestion of these types.
 
 | Type | Table information |
@@ -143,6 +145,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 ## Create or modify a link
+
 Once you link a storage account to a workspace, Log Analytics will start using it instead of the storage account owned by the service. You can register a list of storage accounts at the same time, and you can use the same storage account for multiple workspaces.
 
 If your workspace handles both VNet resources and resources outside a VNet, you should make sure it’s not rejecting traffic coming from the internet. Your storage should have the same settings as your workspace and be made available to resources outside your VNet. 
@@ -202,19 +205,21 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 ```
 
 ## Replace a storage account
+
 To replace a storage account used for ingestion, first create a link for a new storage account. The logging  agents will get the updated configuration and start sending data to the new storage as well.
 
 Next unlink the old storage account so agents will stop writing to the removed account. The ingestion process keeps reading data from this account until it’s all ingested. Don’t delete the storage account until you see all logs were ingested.
 
 Agent configuration will be refreshed after a few minutes, and they will switch to the new storage.
 
-
 ## Manage storage account
 
 ### Load
+
 Storage accounts can handle a certain load of read and write requests before they start throttling requests. Throttling affects the time it takes to ingest logs and may result in lost data. If your storage is overloaded, register additional storage accounts and spread the load between them. 
 
 ### Related charges
+
 Storage accounts are charged by the volume of stored data, types of storage, and type of redundancy. For details see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 If the registered storage account of your workspace is on another region, you will be charged for egress according to these [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -222,4 +227,5 @@ If the registered storage account of your workspace is on another region, you wi
 
 
 ## Next steps
-- <Rob, need a link here for private link article>
+
+- For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor}(private-link-security.md)
