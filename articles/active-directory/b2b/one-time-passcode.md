@@ -70,7 +70,7 @@ It might take a few minutes for the opt-in action to take effect. After that, on
 ### To opt in using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
-3.	Select **Organizational Relationships** > **Settings** (or select **External Identities** > **External collaboration settings**).
+3.	Select **External Identities** > **External collaboration settings**.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **Yes**.
  
 ### To opt in using PowerShell
@@ -136,7 +136,7 @@ It may take a few minutes for the opt-out action to take effect. If you turn off
 ### To turn off the preview using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
-3.	Select **Organizational Relationships** > **Settings** (or select **External Identities** > **External collaboration settings**).
+3.	Select **External Identities** > **External collaboration settings**.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **No**.
 
 ### To turn off the preview using PowerShell
