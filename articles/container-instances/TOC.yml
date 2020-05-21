@@ -82,6 +82,7 @@
       href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
+    - name: Run setup containers (init)
     - name: Use a managed identity (preview)
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
