@@ -60,6 +60,9 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Support for more than 50,000 objects per AD domain |● | |
 
+>[!IMPORTANT]
+> Installing AAD connect cloud provisioning agent on server core is not supported
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
