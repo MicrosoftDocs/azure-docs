@@ -33,7 +33,7 @@ We'll usually send any payment that's due in a given month by the 15th day of th
 
 These are the countries and regions in which the above payment methods are used for each marketplace. The payment threshold in all cases is $50 USD.
 
-| Country | Azure Marketplace | Store, Advertising, Mixer, and Minecraft | Office | PayPal Payments  |
+| Country/Region | Azure Marketplace | Store, Advertising, Mixer, and Minecraft | Office | PayPal Payments  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Yes | Yes | No | No |
 | Albania | Yes | Yes | Yes | Yes |

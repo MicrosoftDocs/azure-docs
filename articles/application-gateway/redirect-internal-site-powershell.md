@@ -287,11 +287,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, [https://www.contoso.com](https://www.contoso.com).
+Enter your domain name into the address bar of your browser. Such as, `https://www.contoso.com`.
 
 ![Test contoso site in application gateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Change the address to your other domain, for example https://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
+Change the address to your other domain, for example `https://www.contoso.org` and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
 
 ## Next steps
 
