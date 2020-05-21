@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/24/2020
+ms.date: 04/17/2020
 ---
 
 # Mapping data flow video tutorials
@@ -108,6 +108,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
+[Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
 ## Mapping data flow scenarios
 
 [Fuzzy lookups](http://youtu.be/7gdwExjHBbw)
@@ -142,6 +144,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
 
+[Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
@@ -151,3 +155,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)
 
 [Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+
+[Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+
+[Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)

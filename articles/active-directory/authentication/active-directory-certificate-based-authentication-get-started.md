@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Get started with certificate-based authentication in Azure Active Directory
 
@@ -42,7 +43,7 @@ To configure certificate-based authentication, the following statements must be 
 - A client certificate for client authentication must have been issued to your client.
 
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds.  If Azure Active Directory can't download a CRL, certificate based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. 
+>The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds.  If Azure Active Directory can't download a CRL, certificate based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates.
 
 ## Step 1: Select your device platform
 

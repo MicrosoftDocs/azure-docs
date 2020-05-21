@@ -1,20 +1,11 @@
 ---
-title: Copying applications and data to pool nodes
+title: Copy applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.author: labrenne
 ---
 
-# Copying applications and data to pool nodes
+# Copy applications and data to pool nodes
 
 Azure Batch supports several ways for getting data and applications onto compute nodes so that the data and applications are available for use by tasks. Data and applications may be required to run the entire job and so need to be installed on every node. Some may be required only for a specific task, or need to be installed for the job but don't need to be on every node. Batch has tools for each of these scenarios.
 

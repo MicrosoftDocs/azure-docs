@@ -312,13 +312,13 @@ Read-access geo-redundant storage is required to access redundant storage. Howev
 
 **For a replicated storage account (such as zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
--   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+-   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 -   If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
 
     - **AzCopy**: Append **-secondary** to the storage account name in the URL to access the secondary endpoint. For example:  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).
 

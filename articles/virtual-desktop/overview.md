@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -62,8 +62,8 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
@@ -93,9 +93,12 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |prod.warmpath.msftcloudes.com|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 
 >[!IMPORTANT]
->We recommend you use the service tags instead of URLs in most cases to prevent service issues. Unblocking these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
+>Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
+>
+>We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Windows Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
@@ -175,20 +178,22 @@ Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, 
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
-|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
-|Windows Server 2019|Yes|Yes|No|No|Automatic|
-|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
-|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|No|
 
 ## Next steps
 
-To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
+If you're using the Windows Virtual Desktop Fall 2019 release, you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+If you're using the Windows Virtual Desktop Spring 2020 release, you'll need to create a host pool instead. Head to the following tutorial to get started.
 
 > [!div class="nextstepaction"]
-> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)

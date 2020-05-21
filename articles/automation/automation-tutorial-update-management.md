@@ -1,32 +1,22 @@
 ---
-title: Manage updates and patches for your Azure VMs
-description: This article provides an overview of how to use Azure Automation Update Management to manage updates and patches for your Azure and non-Azure VMs.
+title: Manage updates and patches for your Azure VMs in Azure Automation
+description: This article tells how to use Update Management to manage updates and patches for your Azure VMs.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
 
-You can use the Update Management solution to manage updates and patches for your virtual machines. In this tutorial, you learn how to quickly assess the status of available updates, schedule installation of required updates, review deployment results, and create an alert to verify that updates apply successfully.
+This article describes how you can use the Azure Automation [Update Management](automation-update-management.md) feature to manage updates and patches for your Azure VMs. 
 
 For pricing information, see [Automation pricing for Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * View an update assessment
-> * Configure alerting
-> * Schedule an update deployment
-> * View the results of a deployment
-
 ## Prerequisites
 
-To complete this tutorial, you need:
-
-* The [Update Management](automation-update-management.md) solution enabled for one or more of your VMs.
-* A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
+* The [Update Management](automation-update-management.md) feature enabled for one or more of your VMs. 
+* A [virtual machine](../virtual-machines/windows/quick-create-portal.md) enabled for Update Management.
 
 ## Sign in to Azure
 
@@ -34,13 +24,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## View update assessment
 
-After you enable Update Management, the **Update management** page opens. If any updates are identified as missing, a list of missing updates is shown on the **Missing updates** tab.
+After you enable Update Management, the Update management page opens. If any updates are identified as missing, a list of missing updates is shown on the **Missing updates** tab.
 
 Under **Information link**, select the update link to open the support article for the update. You can learn important information about the update.
 
 ![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Click anywhere else on the update to open the **Log search** pane for the selected update. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information about updates deployed or missing in your environment.
+Click anywhere else on the update to open the Log search pane for the selected update. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information about updates deployed or missing in your environment.
 
 ![View update status](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -52,7 +42,7 @@ In this step, you learn to set up an alert to let you know the status of an upda
 
 In your Automation account, go to **Alerts** under **Monitoring**, then click **New alert rule**.
 
-Your Automation account is already selected as the resource. If you want to change it, click **Select**. On the **Select a resource** page, choose **Automation Accounts** from the **Filter by resource type** dropdown menu. Select your Automation account, and then click **Done**.
+Your Automation account is already selected as the resource. If you want to change it, click **Select**. On the Select a resource page, choose **Automation Accounts** from the **Filter by resource type** dropdown menu. Select your Automation account, and then click **Done**.
 
 Click **Add condition** to select the signal that is appropriate for your update deployment. The following table shows the details of the two available signals.
 
@@ -79,17 +69,17 @@ In the **Action group name** field, enter a name for the alert and a short name.
 
 Under **Actions**, enter a name for the action, like **Email Notification**. For **Action Type**, select **Email/SMS/Push/Voice**. For **Details**, select **Edit details**.
 
-In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check box, and then enter a valid email address.
+In the Email/SMS/Push/Voice pane, enter a name. Select the **Email** checkbox, and then enter a valid email address.
 
 ![Configure an email action group](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-In the **Email/SMS/Push/Voice** pane, click **OK**. In the **Add action group** pane, click **OK**.
+In the Email/SMS/Push/Voice pane, click **OK**. In the Add action group pane, click **OK**.
 
 To customize the subject of the alert email, under **Create rule**, under **Customize actions**, select **Email subject**. When you're finished, select **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of the update deployment run.
 
 ## Schedule an update deployment
 
-Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+Schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
 >[!NOTE]
 >Scheduling an update deployment creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
@@ -106,18 +96,9 @@ Under **New update deployment**, specify the following information:
 
 * **Machines to update**: Select a Saved search, Imported group, or pick **Machines** from the dropdown menu and select individual machines. If you choose **Machines**, the readiness of each machine is shown in the **Update agent readiness** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
-* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For this tutorial, leave all types selected for all products.
+* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#work-with-update-classifications).
 
-  The classification types are:
-
-   |OS  |Type  |
-   |---------|---------|
-   |Windows     | Critical updates</br>Security updates</br>Update rollups</br>Feature packs</br>Service packs</br>Definition updates</br>Tools</br>Updates<br>Driver        |
-   |Linux     | Critical and security updates</br>Other updates       |
-
-   For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications).
-
-* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or un-check all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
+* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
 
 > [!NOTE]
 > It's important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management installs no patches or packages, as they're all excluded. Excluded patches still show as missing from the machine. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
@@ -125,8 +106,7 @@ Under **New update deployment**, specify the following information:
 > [!NOTE]
 > You can't specify updates that have been superseded for inclusion with the update deployment.
 >
-
-* **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
+* **Schedule settings**: The Schedule Settings pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and click **OK**. These entries set up a recurring schedule.
 
@@ -190,16 +170,4 @@ When your update deployment succeeds, you receive a confirming email similar to 
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Onboard a VM for Update Management
-> * View an update assessment
-> * Configure alerting
-> * Schedule an update deployment
-> * View the results of a deployment
-
-Continue to the overview for the Update Management solution.
-
-> [!div class="nextstepaction"]
-> [Update Management solution](automation-update-management.md)
+* [Update Management overview](automation-update-management.md)

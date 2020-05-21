@@ -127,11 +127,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Apptio SSO
 
-To configure single sign-on on **Apptio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Apptio support team](https://www.apptio.com/about/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Apptio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Apptio support team](https://www.apptio.com/resources/customer-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Apptio test user
 
-In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/about/contact) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/resources/customer-support/) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

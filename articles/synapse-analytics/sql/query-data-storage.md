@@ -68,9 +68,6 @@ You must create credentials before you can run queries. This credential will be 
 
 For more information on how to manage storage access control, check this [link](develop-storage-files-storage-access-control.md).
 
-> [!WARNING]
-> You need to create credentials for a storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in the same region will provide a better performance experience.
-
 To create credentials for CSV, JSON, and Parquet containers, run the code below:
 
 ```sql

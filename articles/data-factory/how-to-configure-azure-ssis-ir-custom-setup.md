@@ -16,7 +16,7 @@ ms.date: 04/15/2020
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The custom setup for an Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) provides an interface for adding your own steps during the setup or reconfiguration of your Azure-SSIS IR. 
 
@@ -118,7 +118,7 @@ To customize your Azure-SSIS IR, you need the following items:
 
      * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://hedda.io/ssis-component/) data quality/cleansing component from oh22 on your Azure-SSIS IR after purchasing their service. The current integrated version is **1.0.13**.
 
-     * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **1.0.43**.
+     * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **1.0.43**.
 
      * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2019.2**.
 

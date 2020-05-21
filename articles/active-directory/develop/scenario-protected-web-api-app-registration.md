@@ -105,7 +105,7 @@ To expose application permissions, you need to edit the manifest.
 
 The following sample shows the contents of `appRoles`, where the value of `id` can be any unique GUID.
 
-```JSon
+```json
 "appRoles": [
 	{
 	"allowedMemberTypes": [ "Application" ],

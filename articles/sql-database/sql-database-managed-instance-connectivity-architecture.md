@@ -3,7 +3,7 @@ title: Connectivity architecture for a managed instance
 description: Learn about Azure SQL Database managed instance communication and connectivity architecture as well as how the components direct traffic to the managed instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
@@ -301,6 +301,7 @@ Following virtual network features are currently not supported with Managed Inst
 - **Microsoft peering**: Enabling [Microsoft peering](../expressroute/expressroute-faqs.md#microsoft-peering) on express route circuits peered directly or transitively with virtual network where Managed Instance resides affect traffic flow between Managed Instance components inside virtual network and services it depends on causing availability issues. Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
 - **Global virtual network peering**: [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for Managed Instance due to [documented load balancer constraints](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: Using AzurePlatformDNS [service tag](../virtual-network/service-tags-overview.md) to block platform DNS resolution would render Managed Instance unavailable. Although Managed Instance supports customer defined DNS for DNS resolution inside the engine there is a dependency on platform DNS for platform operations.
+- **NAT gateway**: Using  [Virtual Network NAT](../virtual-network/nat-overview.md) to control outbound connectivity with specific public IP address would render Managed Instance unavailable. Managed Instance service is currently limited to use of basic load balancer that doesn't provide coexistance of inbound and outbound flows with Virtual Network NAT.
 
 ### [Deprecated] Network requirements without service-aided subnet configuration
 

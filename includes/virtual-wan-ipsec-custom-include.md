@@ -23,9 +23,9 @@ When working with custom IPsec policies, keep in mind the following requirements
 
 | Setting | Parameters |
 |--- |--- |
-| IKE Encryption | AES256, AES192, AES128 |
-| IKE Integrity | SHA384, SHA256, SHA1 |
-| DH Group | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2 |
-| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128 |
-| IPsec Integrity | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1 |
-| PFS Group | PFS24, ECP384, ECP256, PFS2048, PFS2 |
+| IKE Encryption | GCMAES256, GCMAES128, AES256, AES128 |
+| IKE Integrity | SHA384, SHA256 |
+| DH Group | ECP384, ECP256, DHGroup24, DHGroup14 |
+| IPsec Encryption | GCMAES256, GCMAES128, AES256, AES128, None |
+| IPsec Integrity | GCMAES256, GCMAES128, SHA256 |
+| PFS Group | ECP384, ECP256, PFS24, PFS14, None |

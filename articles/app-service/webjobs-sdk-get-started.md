@@ -86,14 +86,13 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
+   In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
 
 1. In *Program.cs*, add a `using` statement:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
-
-    In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
 
 1. Call the [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) method on [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). The [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) method adds console logging to the configuration.
 
@@ -131,7 +130,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
     * Disables [dashboard logging](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). The dashboard is a legacy monitoring tool, and dashboard logging is not recommended for high-throughput production scenarios.
     * Adds the console provider with default [filtering](webjobs-sdk-how-to.md#log-filtering).
 
-Now, you can add a function that is triggered by messages arriving in an [Azure Storage queue](../azure-functions/functions-bindings-storage-queue.md).
+Now, you can add a function that is triggered by messages arriving in an Azure Storage queue.
 
 ## Install the Storage binding extension
 
@@ -181,7 +180,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
    The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
-   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ## Create a storage account
 
@@ -277,7 +276,7 @@ In this section, you build and run the project locally and trigger the function 
 
    Because you used the `QueueTrigger` attribute in the `ProcessQueueMessage` function, the WeJobs SDK runtime listens for queue messages when it starts up. It finds a new queue message in the queue named *queue* and calls the function.
 
-   Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
+   Due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
    The console output looks like this:
 
@@ -441,7 +440,7 @@ During deployment, you create an app service instance in which to run your funct
 1. Refresh the **Queue** page, and the new message disappears because it has been processed by the function running in Azure.
 
    > [!TIP]
-   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm).
+   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
 
 ### View logs in Application Insights
 

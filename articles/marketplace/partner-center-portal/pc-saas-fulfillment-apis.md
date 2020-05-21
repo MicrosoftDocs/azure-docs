@@ -1,6 +1,6 @@
 ---
-title: SaaS Fulfillment APIs | Azure Marketplace 
-description: Introduces the versions of the fulfillment APIs that enable you to integrate your SaaS offers with the Azure Marketplace.
+title: SaaS fulfillment APIs in Microsoft commercial marketplace 
+description: An introduction to the fulfillment APIs that enable you to integrate your SaaS offers in Microsoft AppSource and Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,13 +9,12 @@ ms.date: 05/23/2019
 ms.author: dsindona
 ---
 
-# SaaS Fulfillment APIs
+# SaaS fulfillment APIs in Microsoft commercial marketplace
 
-The SaaS Fulfillment APIs enable independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  They are a requirement for listing transactable SaaS offers on the Azure Marketplace.
+The SaaS fulfillment APIs enable independent software vendors (ISVs) to integrate their SaaS applications in Microsoft AppSource and Azure Marketplace. These APIs enable ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller), and field-led. They are required to list transactable SaaS offers in Microsoft AppSource and Azure Marketplace.
 
 > [!WARNING]
 > The current version of this API is version 2, which should be used for all new SaaS offers.  Version 1 of the API is deprecated and is being maintained to support existing offers.
-
 
 ## Business model support
 

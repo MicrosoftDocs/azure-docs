@@ -73,6 +73,9 @@ SELECT <select_criteria>
 
 Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> ORDER BY clause in SELECT part of CETAS is not supported.
+
 ## Permissions
 
 You need to have permissions to list folder content and write to LOCATION folder for CETAS to work.
@@ -81,7 +84,9 @@ You need to have permissions to list folder content and write to LOCATION folder
 
 These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource.
 
-This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](develop-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
+This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](develop-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. 
+
+To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
 
 > [!NOTE]
 > The samples that follow  use a public Azure Open Data storage account. It is read-only. To execute these queries, you need to provide the data source for which you have write permissions.
@@ -106,7 +111,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document.
+The following sample uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document.
 
 ```sql
 -- use CETAS with select from external table
@@ -147,9 +152,10 @@ CETAS can be used to store result sets with following SQL data types:
 - tinyint
 - bit
 
-LOBs cannot be used with CETAS.
+> [!NOTE]
+> LOBs cannot be used with CETAS.
 
-Following data types cannot be used in SELECT part of CETAS:
+The following data types cannot be used in SELECT part of CETAS:
 
 - nchar
 - nvarchar
@@ -162,4 +168,4 @@ Following data types cannot be used in SELECT part of CETAS:
 
 ## Next steps
 
-You can try querying [Spark tables](develop-storage-files-spark-tables.md).
+You can try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).

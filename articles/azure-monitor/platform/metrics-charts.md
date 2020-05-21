@@ -44,6 +44,25 @@ Click the **Add chart** and create another chart with a different metric.
 
 To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
 
+## Changing aggregation
+
+When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use a different aggregation to gain additional insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them. 
+
+Metrics are the series of measurements (or "metric values") captured over the time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. You select the size of the time grain [using the Metrics Explorer time picker panel](metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection of the time grain, the time granularity is automatically selected based on the currently selected time range. Once the time grain is determined, the metric values that were captured during each time grain interval are aggregated and placed onto the chart - one datapoint per time grain.
+
+For example, suppose the chart is showing the **Server Response Time** metric using the **Average** aggregation over the **last 24 hours** time span:
+
+- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated datapoints (e.g. the line chart connects 48 dots in the chart plot area). That is, 24 hours x 2 datapoints per hour. Each datapoint represents the *average* of all captured response times for server requests that occurred during each of the relevant 30 min time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated datapoints.  That is, 24 hours x 4 datapoints per hour.
+
+There are five basic stats aggregation types available in the metrics explorer: **Sum**, **Count**, **Min**, **Max**, and **Average**. The **Sum** aggregation is sometimes referred as **Total** aggregation. For many metrics, Metrics Explorer will hide the aggregations that are totally irrelevant and cannot be used.
+
+- **Sum** – the sum of all values captured over the aggregation interval
+- **Count** – the number of measurements captured over the aggregation interval. Note that **Count** will be equal to **Sum** in the case where the metric is always captured with the value of 1. This is common when the metric tracks the count of distinct events, and each measurement represents one event (i.e. the code fires off a metric record every time a new request comes in)
+- **Average** – the average of the metric values captured over the aggregation interval
+- **Min** – the smallest value captured over the aggregation interval
+- **Max** – the largest value captured over the aggregation interval
+
 ## Apply filters to charts
 
 You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
@@ -114,9 +133,6 @@ After you configure the charts, the chart lines are automatically assigned a col
 To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
 
 After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
-
-> [!NOTE]
-> Due to constraints of our release and publishing schedule, changing colors of the chart lines temporarily requires passing a special parameter **?feature.colorpicker=true** when starting Azure portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). This limitation will be removed soon. 
 
 ![metric image](./media/metrics-charts/018.png)
 

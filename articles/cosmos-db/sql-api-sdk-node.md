@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 
 ---
@@ -17,8 +17,9 @@ ms.author: dech
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -355,7 +356,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib's requests.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
+* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media IDs.
 
 ### <a name="1.5.2"/>1.5.2</a>
 * Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
@@ -382,7 +383,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Added support for GeoSpatial index.
-* Validates id property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
+* Validates ID property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>

@@ -1,0 +1,52 @@
+- name: Overview
+  items:
+  - name: Azure Media Player overview
+    href: azure-media-player-overview.md
+  - name: Release notes
+    href: azure-media-player-release-notes.md
+  - name: Changelog
+    href: azure-media-player-changelog.md
+- name: Quickstarts
+  items:
+  - name: Azure Media Player quickstart
+    href: azure-media-player-quickstart.md
+- name: Tutorials
+  items:
+  - name: Azure Media Player full setup
+    href: azure-media-player-full-setup.md
+- name: Concepts
+  items:
+  - name: Playback technology
+    href: azure-media-player-playback-technology.md
+  - name: Protected content
+    href: azure-media-player-protected-content.md
+  - name: Feature list
+    href: azure-media-player-feature-list.md
+  - name: URL rewriter
+    href: azure-media-player-url-rewriter.md
+  - name: Accessibility
+    href: azure-media-player-accessibility.md
+  - name: Writing plugins
+    href: azure-media-player-writing-plugins.md
+  - name: Plugin gallery
+    href: azure-media-player-plugin-gallery.md
+  - name: Localization
+    href: azure-media-player-localization.md
+- name: Samples
+  items:
+    - name: Azure Media Player demos
+      href: demos.md
+    - name: Azure Media Player samples
+      href: https://github.com/Azure-Samples/azure-media-player-samples
+- name: Reference
+  items:
+  - name: API
+    href: https://docs.microsoft.com/en-us/javascript/api/azuremediaplayer/?view=azure-node-latest
+  - name: API methods
+    href: azure-media-player-api-methods.md
+  - name: Options
+    href: azure-media-player-options.md
+  - name: Error codes
+    href: azure-media-player-error-codes.md
+  - name: Known issues
+    href: azure-media-player-known-issues.md

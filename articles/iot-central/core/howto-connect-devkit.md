@@ -12,6 +12,8 @@ manager: jeffya
 
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application
 
+*This article applies to device developers.*
+
 This article shows you how to connect an MXChip IoT DevKit (DevKit) device to an Azure IoT Central application. The device uses the certified IoT Plug and Play (preview) model for the DevKit device to configure its connection to IoT Central.
 
 In this how-to article, you:
@@ -99,4 +101,7 @@ To review the code or modify and compile it, go to the [Code Samples](https://do
 
 ## Next steps
 
-Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](./howto-set-up-template.md) for your own IoT device.
+If you're a device developer, some suggested next steps are to:
+
+- Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

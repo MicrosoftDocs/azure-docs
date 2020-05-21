@@ -4,8 +4,8 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
+ms.date: 04/23/2020
+ms.author: v-erkel
 ---
 
 # Add storage targets
@@ -112,8 +112,6 @@ You can [add and edit namespace paths](hpc-cache-edit-storage.md) on a storage t
 Fill in these values for each namespace path:
 
 * **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
-<!--  The virtual path should start with a slash ``/``. -->
 
 * **NFS export path** - Enter the path to the NFS export.
 

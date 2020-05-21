@@ -43,6 +43,8 @@ Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-dir
 
 1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with a minimum of 4-GB RAM and .NET 4.7.1+ runtime.
 
+1. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
+
 1. If there's a firewall between your servers and Azure AD, configure the following items:
    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 

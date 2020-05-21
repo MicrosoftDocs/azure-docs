@@ -1,11 +1,10 @@
 ---
 title: IP firewall rules
-description: Configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
+description: Configure server-level IP firewall rules for a SQL database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: 
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
@@ -13,10 +12,10 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
 ---
-# Azure SQL Database and Azure SQL Data Warehouse IP firewall rules
+# Azure SQL Database and Azure Synapse Analytics IP firewall rules
 
 > [!NOTE]
-> This article applies to Azure SQL servers, and to both Azure SQL Database and Azure SQL Data Warehouse databases on an Azure SQL server. For simplicity, *SQL Database* is used to refer to both SQL Database and SQL Data Warehouse.
+> This article applies to Azure SQL servers, and to both Azure SQL Database and Azure Synapse Analytics databases on an Azure SQL server. For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse.
 
 > [!IMPORTANT]
 > This article does *not* apply to *Azure SQL Database Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
@@ -24,7 +23,7 @@ ms.date: 03/18/2019
 When you create a new Azure SQL server named *mysqlserver*, for example, the SQL Database firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*).
 
 > [!IMPORTANT]
-> SQL Data Warehouse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+> Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 ## How the firewall works
 Connection attempts from the internet and Azure must pass through the firewall before they reach your SQL server or SQL database, as the following diagram shows.
@@ -95,7 +94,7 @@ When a computer tries to connect to your database server from the internet, the 
 
 ### Connections from inside Azure
 
-To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting that has starting and ending IP addresses equal to *0.0.0.0* indicates that Azure connections are allowed. This can be turned on directly from the Azure Portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the SQL Database server.
+To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure Portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the SQL Database server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.
@@ -247,7 +246,7 @@ Consider the following points when access to the SQL Database service doesn't be
 
 - **The login isn't authorized, or an incorrect password was used:**
 
-  If a login doesn't have permissions on the SQL Database server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
+  If a login doesn't have permissions on the SQL Database server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access to SQL Database and Azure Synapse](sql-database-manage-logins.md).
 
 - **Dynamic IP address:**
 

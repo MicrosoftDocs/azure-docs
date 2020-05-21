@@ -1,12 +1,12 @@
 ---
-title: Marketplace metering service APIs | Azure Marketplace
-description: Usage event for SaaS offers in the Azure Marketplace. 
+title: Metering service APIs - Microsoft commercial marketplace
+description: The usage event API allows you to emit usage events for SaaS offers in Microsoft AppSource and Azure Marketplace.
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 05/18/2020
 ---
 
 # Marketplace metering service APIs
@@ -30,6 +30,9 @@ The usage event API allows you to emit usage events for a specific purchased ent
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | `authorization`   | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Note: When making the HTTP request, prefix `Bearer` to the token obtained from the referenced link. |
+
+>[!Note]
+>For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object.  An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  For SaaS offers, the `resourceId` is the SaaS subscription ID.  For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
 
 *Request:*
 
