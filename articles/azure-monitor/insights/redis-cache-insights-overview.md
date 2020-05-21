@@ -120,7 +120,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
 
-## View from a Azure Cache for Redis resource
+## View from an Azure Cache for Redis resource
 
 To access Azure Monitor for Azure Cache for Redis directly from an individual resource:
 
@@ -130,7 +130,7 @@ To access Azure Monitor for Azure Cache for Redis directly from an individual re
 
 ![Screenshot of Menu options with the words "Insights(preview)" highlighted in a red box](./media/redis-cache-insights-overview/insights.png)
 
-These views are also accessible by selecting the resource name of a Azure Cache for Redis resource from the Azure Monitor level workbook.
+These views are also accessible by selecting the resource name of an Azure Cache for Redis resource from the Azure Monitor level workbook.
 
 ### Resource-level overview
 
