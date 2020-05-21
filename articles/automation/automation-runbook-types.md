@@ -1,6 +1,6 @@
 ---
 title: Azure Automation runbook types
-description: Describes the different types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
+description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Azure Automation runbook types
 
-The Azure Automation process automation service supports several types of runbooks, as defined in the following table. To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+The Azure Automation Process Automation feature supports several types of runbooks, as defined in the following table. To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 
 | Type | Description |
 |:--- |:--- |
@@ -22,9 +22,6 @@ Take into account the following considerations when determining which type to us
 
 * You can't convert runbooks from graphical to text type, or the other way around.
 * There are limitations when using runbooks of different types as child runbooks. For more information, see [Child runbooks in Azure Automation](automation-child-runbooks.md).
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Graphical runbooks
 
@@ -112,7 +109,7 @@ Python runbooks compile under Python 2. You can directly edit the code of the ru
 
 ## Next steps
 
-* To learn more about graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
-* To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md).
-* For more information on how to create or import a runbook, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* To find out more about PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* [Manage runbooks in Azure Automation](manage-runbooks.md)
+* [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md)
+* [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
+* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
