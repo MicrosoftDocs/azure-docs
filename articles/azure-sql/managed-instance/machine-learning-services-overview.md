@@ -47,19 +47,7 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/).
-
-1. Click **Create an incident**.
-1. Click **New support request**.
-1. Enter the following information:
-
-|                     |                               |
-|---------------------|-------------------------------|
-| **Issue type**      | Technical                     |
-| **Service**         | SQL Database Managed Instance |
-| **Summary**         | state that you would like to be enrolled into the limited public preview of Machine Learning for SQL Managed Instance  |
-| **Problem type**    |                               |
-| **Problem subtype** |                               |
+If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). For "Issue type" select "Technical", for "Service" select "SQL Database Managed Instance", and for "Problem type" select "Other". In your request, state that you would like to be enrolled into limited public preview of Machine Learning for SQL Managed Instance with these details: logical server name, region, and subscription id.
 
 Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
 
