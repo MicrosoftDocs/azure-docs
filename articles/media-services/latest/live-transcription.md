@@ -88,7 +88,7 @@ Poll the status of the Live Event until it goes into the "Running" state, which 
 
 ## Start transcription after live event has started
 
-Live transcription can be started after a live event has begun. To turn on live transcriptions, patch the live event to include the ```json
+Live transcription can be started after a live event has begun. To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
 
 > [!NOTE]
 > Turning the transcription on or off more than once during the live event is not a supported scenario.
