@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft Graph APIs to configure SAML-based gallery apps
+title: Use Microsoft Graph APIs to configure SAML-based single sign-on
 titleSuffix: Azure Active Directory
 description: Need to set up SAML-based single sign-on for multiple instances of an application? Learn how to save time by using the Microsoft Graph APIs to automate the configuration of SAML-based single sign-on.
 services: active-directory
@@ -14,7 +14,7 @@ ms.author: mimart
 ms.reviewer: luleon
 ---
 
-# Configure SAML-based single sign-on for an Azure AD Gallery app using Microsoft Graph API (Beta)
+# Automate SAML-based SSO app configuration with Microsoft Graph API
 
 In this article, you'll learn how to create and configure an application from the Azure Active Directory (Azure AD) Gallery. This article uses AWS as an example but you can use the steps in this article for any SAML-based app in the Azure AD Gallery.
 
