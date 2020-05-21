@@ -326,7 +326,7 @@ Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
 | [1.2.0](#120) |August 06, 2015 |August 30, 2020 |
 | [1.1.0](#110) |July 09, 2015 |August 30, 2020 |
 | [1.0.1](#101) |May 25, 2015 |August 30, 2020 |
-| [1.0.0](#100) |April 07, 2015 |August 30, 2020 |
+| 1.0.0 |April 07, 2015 |August 30, 2020 |
 | 0.9.4-prelease |January 14, 2015 |February 29, 2016 |
 | 0.9.3-prelease |December 09, 2014 |February 29, 2016 |
 | 0.9.2-prelease |November 25, 2014 |February 29, 2016 |
