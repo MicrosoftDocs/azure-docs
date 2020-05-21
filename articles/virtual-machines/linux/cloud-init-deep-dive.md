@@ -5,7 +5,7 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 05/21/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---

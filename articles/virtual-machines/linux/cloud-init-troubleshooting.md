@@ -5,10 +5,9 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 05/06/2020
+ms.date: 05/21/2020
 ms.author: danis
 ms.reviewer: cynthn
-
 ---
 
 
@@ -122,11 +121,8 @@ You can get information from the `stdout` and `stderr` during the [stages of clo
 
 Cloud-init has multiple dependencies, these are documented in required prerequisites for images on Azure, such as networking, storage, ability to mount an ISO, mount and format the ephemeral/temporary disk etc. Any of these may throw errors and cause cloud-init to fail. For example, if the VM cannot get a DHCP lease, cloud-init will fail.
 
-If you still cannot isolate why cloud-init failed to provision then you need to understand what cloud-init stages, and when modules run. See [Diving deeper into cloud-init]() for more details.
+If you still cannot isolate why cloud-init failed to provision then you need to understand what cloud-init stages, and when modules run. See [Diving deeper into cloud-init](cloud-init-deep-dive.md) for more details.
 
-## Step X: Review known issues
-<Create Master KB - > <DS>
-<Send link to Saim to create KB's>
 
 ## Step 4: Investigate why the cloud-init configuration is not being applied
 Not every failure in cloud-init results in a fatal provisioning failure. For example, if you are using the `runcmd` module in a cloud-init config, a non zero exit code from the command it is running will not fail the the VM provisioning. This is because it runs after core provisioning functionality that happens in the first 3 stages of cloud-init. To troubleshoot why the configuration did not apply, review the logs in Step 3, and cloud-init modules manually. For example:
