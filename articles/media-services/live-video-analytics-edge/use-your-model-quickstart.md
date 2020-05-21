@@ -26,14 +26,14 @@ The video you will use for this quickstart has been built into the rtspsim-live5
 
 In this quickstart, you will:
 
-1. Set up Azure resources
-1. Create and deploy the media graph
-1. Interpret the results
-1. Clean up resources
+1. Set up Azure resources.
+1. Create and deploy the media graph.
+1. Interpret the results.
+1. Clean up resources.
 
 ## Set up Azure resources
 
-The following Azure resources are required for this tutorial
+The following Azure resources are required for this tutorial:
 
 * IoT Hub
 * Storage Account
@@ -47,7 +47,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
 
     ![Environment selector](./media/quickstarts/env-selector.png)
-1. Run the following command
+1. Run the following command.
 
     `bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"`
 
@@ -184,8 +184,8 @@ When the Media Graph is instantiated, the RTSP Source node attempts to connect t
 
 Note the following in the above message:
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph/
-* "eventType" in applicationProperties indicates that this is a Diagnostic event/
+* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
+* "eventType" in applicationProperties indicates that this is a Diagnostic event.
 * "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body contains the SDP information.
 
 ### Inference event
@@ -250,7 +250,7 @@ Note the following in the above messages:
 
 If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
 
-## Next Steps
+## Next steps
 <!--add a link to a how to once added-->
 Review additional challenges for advanced users:
 
