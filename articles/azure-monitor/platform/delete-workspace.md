@@ -45,11 +45,9 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
-
-   ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png)
 4. A confirmation page appears that shows the data ingestion to the workspace over the past week. Type in the name of the workspace to confirm and then click **Delete**.
 
-   ![Confirm deletion of workspace](media/delete-workspace/delete-workspace.png)
+   ![Confirm deletion of workspace](media/delete-workspace/workspace-delete.png)
 
 ### PowerShell
 ```PowerShell
