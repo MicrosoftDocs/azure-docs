@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: tsikiksr
+author: anumamah
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020

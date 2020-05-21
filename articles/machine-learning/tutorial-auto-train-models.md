@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: anumamah
+ms.author: aniththa
+ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ---
 
