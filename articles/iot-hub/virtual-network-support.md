@@ -46,7 +46,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
 
-    :::image type="content" source="media/virtual-network-support/privateLink.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
 
 1. Provide the subscription, resource group, name, and region to create the new private endpoint in. Ideally, private endpoint should be created in the same region as your hub.
 
