@@ -53,7 +53,7 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |**Region**|Match the region of the storage account||
     |||
 
-* Under **Select Data Lake Storage Gen 2** select the account and container you previously created
+* Under **Select Data Lake Storage Gen 2**, select the account and container you previously created
 
 > [!NOTE]
 > We refer to the storage account chosen hereas the "primary" storage account of the Synapse workspace. This account
@@ -66,7 +66,7 @@ This tutorial will guide you through all the basic steps needed to setup and use
 
 This may have already been done for you. In any case, you should verify.
 
-* Open the [Azure portal](https://portal.azure.com) open the primary storage account chosen for your workspace.
+* Open the [Azure portal](https://portal.azure.com) and open the primary storage account chosen for your workspace.
 * Select **Access control (IAM)** from the left navigation. Then assign the following roles or ensure they are already assigned. 
     * Assign the workspace identity to the **Storage Blob Data Contributor** role on the storage account. The workspace identity has the same name as the workspace. In this document, the workspace name is `myworkspace` so the workspace identity is `myworkspaced`
 * Select **Save**.
@@ -75,7 +75,7 @@ This may have already been done for you. In any case, you should verify.
 
 Once your Synapse workspace is created, you have two ways to open Synapse Studio:
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com) and at the top of the **Overview** section select **Launch Synapse Studio**
-* Directly go to https://web.azuresynapse.net and login to your workspace.
+* Directly go to https://web.azuresynapse.net and sign in to your workspace.
 
 ## Create a SQL pool
 
@@ -212,7 +212,7 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
 
 With notebooks you can control how render charts. The following
 code shows a simple example using the popular libraries `matplotlib` and `seaborn`. It will 
-render the same kind od line chart you saw when running the SQL queries earlier.
+render the same kind of line chart you saw when running the SQL queries earlier.
 
 ```py
 %%pyspark
@@ -230,10 +230,10 @@ matplotlib.pyplot.show()
 ## Load data from a Spark table into a SQL pool table
 
 Earlier we copied data from a SQL pool table `SQLDB1.dbo.Trip` into a Spark table `nyctaxi.trip`. Then, using
-Spark, we aggregated the data into the the Spark table `nyctaxi.passengercountstats`. Now we will copy the data 
+Spark, we aggregated the data into the Spark table `nyctaxi.passengercountstats`. Now we will copy the data 
 from `nyctaxi.passengercountstats` into a SQL pool table called `SQLDB1.dbo.PassengerCountStats`. 
 
-Run  the cell below in your notebook. It will copy the aggregated Spark table back into
+Run the cell below in your notebook. It will copy the aggregated Spark table back into
 the SQL pool table.
 
 ```scala
@@ -263,11 +263,11 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 * Select **+** then select **Pipeline**. A new pipeline will be created.
 * Navigate to the Develop hub and find the notebook you previously created.
 * Drag that notebook into the pipeline.
-* In the pipeline select **Add trigger > New/edit**.
+* In the pipeline, select **Add trigger > New/edit**.
 * In **Choose trigger** select **New**, and then in recurrence set the trigger to run every 1 hour.
 * Select **OK**.
 * Select **Publish All** and the pipeline will run every hour.
-* If you want to make the pipeline run now without waiting for the next hour select **Add trigger > New/edit**.
+* If you want to make the pipeline run now without waiting for the next hour, select **Add trigger > New/edit**.
 
 ## Working with data in a storage account
 
@@ -278,7 +278,7 @@ So far, we've covered scenarios were data resided in databases in the workspace.
 
 ### Creating CSV and Parquet files in your Storage account
 
-Run the the following code in a notebook. It creates a CSV file and a parquet file in the storage account
+Run the following code in a notebook. It creates a CSV file and a parquet file in the storage account
 
 ```py
 %%pyspark
@@ -294,7 +294,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 * Select **Linked**
 * Navigate to **Storage accounts > myworkspace (Primary - contosolake)**
 * Select **users (Primary)"**
-* You should see a folder called `NYCTaxi' and inside . Inside you should see two folders 'PassengerCountStats.csv' and 'PassengerCountStats.parquet'.
+* You should see a folder called `NYCTaxi'. Inside you should see two folders 'PassengerCountStats.csv' and 'PassengerCountStats.parquet'.
 * Navigate into the `PassengerCountStats.parquet' folder.
 * Right-click on the parquet file inside, and select **new notebook**, it will create a notebook with a cell like this:
 
@@ -315,23 +315,23 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
     
-* In the script the **Attach to** field will be set to **SQL on-demand**.
+* In the script, the **Attach to** field will be set to **SQL on-demand**.
 * Run the script.
 
 ## Visualize data with Power BI
 
-From the NYX taxi data, we created arregated datasets in two tables:
+From the NYX taxi data, we created aggregated datasets in two tables:
 * `nyctaxi.passengercountstats`
 * `SQLDB1.dbo.PassengerCountStats`
 
-You can link a Power BI workspace to you Synapse workspace. This allows you to easily get data into your PowerBI worksapce and you can edit your PowerBI reports directly in your Synapse workspace.
+You can link a Power BI workspace to your Synapse workspace. This allows you to easily get data into your Power BI workspace and you can edit your Power BI reports directly in your Synapse workspace.
 
 ### Create a Power BI Workspace
 
 * Log into [powerbi.microsoft.com](https://powerbi.microsoft.com/).
 * Create a new Power BI workspace called `NYCTaxiWorkspace1`.
 
-### Link your Synapse Workspace to your new PowerBI workspace
+### Link your Synapse Workspace to your new Power BI workspace
 
 * In Synapse Studio, navigate to the **Manage > Linked Services**.
 * Select **+ New** and select **Connect to Power BI** and set these fields:
@@ -370,16 +370,16 @@ You can link a Power BI workspace to you Synapse workspace. This allows you to e
 ### Configure authentication for your dataset
 
 * Open [powerbi.microsoft.com](https://powerbi.microsoft.com/) and **Sign in**
-* At the left, under **Workspaces** select the the `NYCTaxiWorkspace1` workspace.
+* At the left, under **Workspaces** select the `NYCTaxiWorkspace1` workspace.
 * Inside that workspace you should see a dataset called `Passenger Analysis` and a report called `Passenger Analysis`.
 * Hover over the `PassengerAnalysis` dataset and select the icon with the three dots and select **Settings**.
 * In **Data source credentials** set the **Authentication method** to **OAuth2** and select **Sign in**.
 
-### Edit a report report in Synapse Studio
+### Edit a report in Synapse Studio
 
 * Go back to Synapse Studio and select **Close and refresh** 
-* Navigate to the **Devlop** hub 
-* Hover over **power BI** and click on the three Refresh the **Power BI reports** node.
+* Navigate to the **Develop** hub 
+* Hover over **Power BI** and click on the refresh the **Power BI reports** node.
 * Now under the **Power BI** you should see:
     * Under **NYCTaxiWorkspace1 > Power BI datasets**, a new dataset called **PassengerAnalysis**.
     * Under **NYCTaxiWorkspace1 > Power BI reports**, a new report called **PassengerAnalysis**.
@@ -388,7 +388,7 @@ You can link a Power BI workspace to you Synapse workspace. This allows you to e
 
 ## Monitor activities
 
-* In Synapse Studio, Navigate to the monitor hub.
+* In Synapse Studio, navigate to the monitor hub.
 * In this location you can see a history of all the activities taking place in the workspace and which ones are active now.
 * Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
 
