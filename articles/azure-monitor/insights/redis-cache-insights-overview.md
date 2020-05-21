@@ -128,7 +128,7 @@ To access Azure Monitor for Azure Cache for Redis directly from an individual re
 
 2. From the list, choose an individual Azure Cache for Redis resource. In the monitoring section, choose Insights (preview).
 
-![Screenshot of Menu options with the words "Insights(preview)" highlighted in a red box](./media/redis-cache-insights-overview/insights.png)
+    ![Screenshot of Menu options with the words "Insights(preview)" highlighted in a red box](./media/redis-cache-insights-overview/insights.png)
 
 These views are also accessible by selecting the resource name of an Azure Cache for Redis resource from the Azure Monitor level workbook.
 
