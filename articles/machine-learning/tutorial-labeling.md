@@ -75,7 +75,7 @@ Azure Machine Learning datastores are used to store connection information, like
 
 ### Create a labeling project
 
-Now that you have your list of labelers and access to the data you want to have labeled, create your labeling project.
+Now that you have access to the data you want to have labeled, create your labeling project.
 
 1. At the top of the page, select **Projects**.
 

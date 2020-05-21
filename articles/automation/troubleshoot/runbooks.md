@@ -40,7 +40,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
     * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
-    * [Add additional output](../automation-runbook-output-and-messages.md#message-streams) to the runbook to identify what happens before the runbook is suspended.
+    * [Add additional output](../automation-runbook-output-and-messages.md#monitor-message-streams) to the runbook to identify what happens before the runbook is suspended.
     * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
 
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
@@ -460,7 +460,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 ### Resolution
 
-If the webhook is disabled, you can reenable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
+If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
 
 ## <a name="429"></a>Scenario: 429: The request rate is currently too large
 
@@ -474,7 +474,7 @@ You receive the following error message when running the `Get-AzAutomationJobOut
 
 ### Cause
 
-This error can occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#verbose-stream).
+This error can occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
 
 ### Resolution
 
