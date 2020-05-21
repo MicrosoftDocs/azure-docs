@@ -11,13 +11,13 @@ ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
 ms.date: 04/15/2020
-ms.custom: Build2019
+ms.custom: Build2020
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to run batch inference on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep is a high-performance and high-throughput way to generate inferences and processing data. It provides parallelism capabilities out of the box.
+Learn how to run batch inference on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep provides parallelism capabilities out of the box.
 
 With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data with improved productivity and optimized cost.
 
@@ -55,6 +55,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
+> [!IMPORTANT]
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+
 ### Create a compute target
 
 In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create a CPU based [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
@@ -64,7 +67,7 @@ from azureml.core.compute import AmlCompute, ComputeTarget
 from azureml.core.compute_target import ComputeTargetException
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "e2ecpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -125,7 +128,7 @@ def_data_store = ws.get_default_datastore()
 
 ### Create the data inputs
 
-The inputs for batch inference is the data that you want to partition for parallel processing. A batch inference pipeline accepts data inputs through [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
+The inputs for batch inference are the data that you want to partition for parallel processing. A batch inference pipeline accepts data inputs through [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
 
 `Dataset` is for exploring, transforming, and managing data in Azure Machine Learning. There are two types: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In this example, you'll use `FileDataset` as the inputs. `FileDataset` provides you with the ability to download or mount the files to your compute. By creating a dataset, you create a reference to the data source location. If you applied any subsetting transformations to the dataset, they will be stored in the dataset as well. The data remains in its existing location, so no extra storage cost is incurred.
 
@@ -140,7 +143,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-In order to use dynamic data inputs when run the batch inference pipeline, you can define the inputs `Dataset` as a [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). You can specify the inputs dataset each time when you resubmit a batch inference pipeline run.
+In order to use dynamic data inputs when running the batch inference pipeline, you can define the inputs `Dataset` as a [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). You can specify the inputs dataset each time you resubmit a batch inference pipeline run.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
