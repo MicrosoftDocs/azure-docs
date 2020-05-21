@@ -35,8 +35,14 @@ To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or 
 The following example shows how to create an event grid topic using the Azure CLI:
 
 ```azurecli
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l "westcentralus"
+az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
+
+> [!TIP]
+> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
+> ```azurecli
+> az account list-locations -o table
+> ```
 
 Once you have created the topic, you can link it to Azure Digital Twins with the following command:
 
