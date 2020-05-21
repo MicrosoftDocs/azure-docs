@@ -55,12 +55,11 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 |Vendor name|Vendor Type|Supported HSM models|More information|
 |---|---|---|---|
-|Thales|Manufacturer|SafeNet Luna HSM 7 family with firmware version 7.3 or later| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Fortanix|HSM as a Service|Self-Defending Key Management Service (SDKMS)|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|nCipher|Manufacturer, HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
+|Thales|Manufacturer|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|Marvell|Manufacturer|<ul><li>Firmware version 2.x</li><li>Firmware version 3.2 or newer</li></ul>|[Marvell BYOK tool and documentation]()|
 
-
-> [!NOTE]
-> To import HSM-protected keys from the nCipher nShield family of HSMs, use the [nCipher BYOK procedure](hsm-protected-keys-ncipher.md).
 
 ## Supported key types
 
