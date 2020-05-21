@@ -27,6 +27,26 @@ For more information, see [Event Grid trigger for Azure Functions](../azure-func
 | [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to a function app and a logic app. |
 
+## REST example (for PUT)
+
+```json
+{
+	"properties": 
+	{
+		"destination": 
+		{
+			"endpointType": "AzureFunction",
+			"properties": 
+			{
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
+				"maxEventsPerBatch": 1,
+				"preferredBatchSizeInKilobytes": 64
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 
