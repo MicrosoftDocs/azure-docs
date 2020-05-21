@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 05/21/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -84,10 +84,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | Region  |  Value | 
 	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/sso/<accountcode>`|
-	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|    
+	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|
 	| South Africa    | `https://za-api.mimecast.com/sso/<accountcode>`|
 	| Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
 	| Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+	> [!NOTE]
+	> You will find the `accountcode` value in the Mimecast Admin Console under **Account** > **Settings** > **Account Code**. Append the `accountcode` to the Identifier.
 
 	b. In the **Reply URL** textbox, type a URL: 
 
@@ -98,9 +101,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| South Africa    | `https://za-api.mimecast.com/login/saml`|
 	| Australia       | `https://au-api.mimecast.com/login/saml`|
 	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
-
-	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](https://www.mimecast.com/customer-success/technical-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. If you wish to configure the application in **SP** initiated mode:
 
@@ -237,4 +237,3 @@ When you click the Mimecast Admin Console tile in the Access Panel, you should b
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Mimecast Admin Console with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
