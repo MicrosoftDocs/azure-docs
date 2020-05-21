@@ -21,11 +21,11 @@ The simplest way to authenticate a cloud-based application to Key Vault is with 
 
 Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a "principal":   For example, this is how the console app in the [Azure Key Vault client library for .NET quickstart](../secrets/quick-create-net.md) accesses the key vault.
 
-For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on access control, see: 
+For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). Access control permissions can be set on Keys, Secrets and Certificates using: 
 
-- [Keys](../keys/index.yml)
-- [Secrets access control](../secrets/index.yml)
-- [Certificates access control](../certificates/index.yml)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
+- [PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-4.1.0)
+- Azure portal
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
