@@ -14,9 +14,9 @@ ms.date: 03/10/2020
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (Preview)
 
-Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance  lets you know what is happening with your database performance.
+Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance lets you know what is happening with your database performance.
 
-Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights resource log (called  SQLInsights) with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
+Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights resource log (called SQLInsights) with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
 
 ## What can Intelligent Insights do for you
 
@@ -68,7 +68,7 @@ Intelligent Insights options available are:
 | :----------------------------- | ----- | ----- |
 | **Configure Intelligent Insights** - Configure Intelligent Insights analysis for your databases. | Yes | Yes |
 | **Stream insights to Azure SQL Analytics** -- Stream insights to Azure SQL Analytics. | Yes | Yes |
-| **Stream insights to Event Hub** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes |
+| **Stream insights to Azure Event Hubs** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes |
 | **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long term archival. | Yes | Yes |
 
 ## Configure the export of the Intelligent Insights log
@@ -79,7 +79,7 @@ Output of the Intelligent Insights can be streamed to one of several destination
 - Output streamed to Azure Event Hubs can be used for development of custom monitoring and alerting scenarios
 - Output streamed to Azure Storage can be used for custom application development, such are for example custom reporting, long-term data archival and so forth.
 
-Integration of Azure SQL Analytics, Azure Event Hub, Azure Storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a database, and then configuring Intelligent Insights log data to be streamed into one of these destinations.
+Integration of Azure SQL Analytics, Azure Event Hubs, Azure Storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a database, and then configuring Intelligent Insights log data to be streamed into one of these destinations.
 
 For more information on how to enable Intelligent Insights logging and to configure metric and resource log data to be streamed to a consuming product, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -99,7 +99,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+To use Event Hubs to set up custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
 ### Set up with Azure Storage
 
@@ -126,7 +126,7 @@ All of the metrics are considered together in various relationships through a sc
 
 - Details of the performance issue detected.
 - A root cause analysis of the issue detected.
-- Recommendations on how to improve the performance of the monitored SQL database, where possible.
+- Recommendations on how to improve the performance of the monitored database, where possible.
 
 ## Query duration
 
