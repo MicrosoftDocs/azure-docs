@@ -561,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Tools
   items:
-  - name: SPX
+  - name: Speech CLI
+    displayName: SPX
     items:
-      - name: What is SPX?
+      - name: What is Speech CLI?
+        displayName: What is SPX?
         href: spx-overview.md
-      - name: SPX basics
+      - name: Speech CLI 
+        displayName: SPX basics
         href: spx-basics.md
   - name: Speech Studio
     items:
