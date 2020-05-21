@@ -142,7 +142,7 @@ In the Azure portal in your Azure Monitor Application Insights Component resourc
 
 **---------- TODO ------------- get screenshot----**
 
-![AI Network Isolation](./media/private-link-security/6-ampls-ai-network-isolation.png)
+<!-- ![AI Network Isolation](./media/private-link-security/6-ampls-ai-network-isolation.png) -->
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connecting-azure-monitor-resources).  
 
@@ -171,11 +171,11 @@ For more information on bringing your own storage account, see [Customer-owned s
 
 ### Log Analytics Windows Agent
 
-Use Agent version >= 18.20.18038.0
+Your must use the Log Analytics agent version 18.20.18038.0 or later. 
 
 ### Log Analytics Linux Agent
 
-Use Agent version >= 1.12.25. If you cannot, run the following commands on your VM.
+Your must use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
 
 ```cmd
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
@@ -184,7 +184,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### Azure Resource Manager queries
 
-Querying the Azure Resource Manager API does not work unless you add the Service Tag **AzureResourceManager** to your firewall. 
+Querying the Azure Resource Manager API does not work unless you add the Service Tag **AzureResourceManager** to your firewall.
 
 ### AI SDK Downloads from CDN
 
@@ -193,4 +193,5 @@ An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsig
 
 ### LA Solution download
 
+-------------TODO -------------
 Please put xxx in your allow list. FQD?

@@ -101,7 +101,7 @@
     - name: Private Link networking
       href: platform/private-link-security.md
     - name: Private storage 
-      href: platform/private-stroage.md
+      href: platform/private-storage.md
     - name: Personal log data handling
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
