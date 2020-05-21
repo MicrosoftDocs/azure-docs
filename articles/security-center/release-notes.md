@@ -118,6 +118,17 @@ Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
+### Custom policies with custom metadata are now generally available
+
+Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
+
+Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
+
+We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
+
+[Learn more about enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+
+
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
 We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
@@ -131,23 +142,6 @@ Some of the benefits of this transition:
 - **Alert aggregation** - All the attack patterns detected within the memory of an infected process are now aggregated into a single alert. This means that analysts no longer need to correlate multiple alerts for the same infected process.
 
 - **Reduced requirements on your Log Analytics workspace** - Crash dumps containing potentially sensitive data will no longer be uploaded to your Log Analytics workspace.
-
-
-
-
-
-
-
-
-### Custom policies with custom metadata are now generally available
-
-Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
-
-Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
-
-We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
-
-[Learn more about enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
 
 
 ## April 2020
