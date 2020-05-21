@@ -91,7 +91,7 @@ If your account has the necessary permissions, you can set up Azure Pipelines to
 
 For Azure App Service to create continuous delivery using Azure Pipelines, your Azure DevOps organization should have the following permissions: 
 
-- Your Azure account must have permissions to write to Azure Active Directory and create a service. 
+- Your Azure account must have permissions to write to Azure Active Directory and create an application. 
   
 - Your Azure account must have the **Owner** role in your Azure subscription.
 
