@@ -1,5 +1,5 @@
 ---
-title: Use Service Bus Explorer to perform data operations on Service Bus (Preview)
+title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 services: service-bus-messaging
 ms.service: service-bus
@@ -25,7 +25,7 @@ Operations performed on an Azure Service Bus namespace are of two kinds
 The Azure Service Bus Explorer expands the portal functionality beyond the management operations to support data operations (Send, Receive, Peek) on the Queues, Topics, and Subscriptions (and their dead letter subentities) - right from the Azure portal itself.
 
 > [!NOTE]
-> This article highlights the functionality of the Azure Service Bus Explorer that lives on the Azure Portal.
+> This article highlights the functionality of the Azure Service Bus Explorer that lives on the Azure portal.
 >
 > The Azure Service Bus explorer tool is ***not*** the community owned OSS tool [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 >
@@ -43,7 +43,7 @@ To know more about how to create Queues, Topics and Subscriptions, refer to the 
 
 ## Using the Service Bus Explorer
 
-To use the Azure Service Bus explorer, you need to navigate to the Service Bus namespace on which you want to perform send, peek and receive operations.
+To use the Azure Service Bus explorer, you need to navigate to the Service Bus namespace on which you want to perform send, peek, and receive operations.
 
 If you are looking to perform operations against a Queue, pick **'Queues'** from the navigation menu. If you are looking to perform operations against a Topic (and it's related subscriptions), pick **Topics**. 
 
@@ -73,10 +73,10 @@ Once the message has been composed, hit send.
 
 When the send operation is completed successfully, 
 
-1. If sending to the Queue, **Active Messages** metrics counter will increment.
+* If sending to the Queue, **Active Messages** metrics counter will increment.
 
     ![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
-2. If sending to the Topic, **Active Messages** metrics counter will increment on the Subscription where the message was routed to.
+* If sending to the Topic, **Active Messages** metrics counter will increment on the Subscription where the message was routed to.
 
     ![TopicAfterSendMetrics](./media/service-bus-explorer/topic-after-send-metrics.png)
 
@@ -103,7 +103,7 @@ To receive a message from a Queue (or its deadletter subqueue)
 4. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
 
-When the receive operation is successful, the message details will display on the grid as below. You can select the message from the grid to display it's details.
+When the receive operation is successful, the message details will display on the grid as below. You can select the message from the grid to display its details.
 
 ![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-queue-2.png)
 
@@ -186,5 +186,5 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 ## Next Steps
 
    * Learn more about Service Bus [Queues](service-bus-queues-topics-subscriptions.md#queues) and [Topics](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)
-   * Learn more about creating [Service Bus Queues via the Azure Portal](service-bus-quickstart-portal.md)
-   * Learn more about creating [Service Bus Topics and Subscriptions via the Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md)
+   * Learn more about creating [Service Bus Queues via the Azure portal](service-bus-quickstart-portal.md)
+   * Learn more about creating [Service Bus Topics and Subscriptions via the Azure portal](service-bus-quickstart-topics-subscriptions-portal.md)
