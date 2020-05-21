@@ -1,5 +1,5 @@
 ---
-title: Email address user sign in for Azure Active Directory
+title: Email address user sign-in for Azure Active Directory
 description: Learn how to configure and enable users to sign in to Azure Active Directory using their email address (preview)
 
 services: active-directory
@@ -16,37 +16,36 @@ ms.reviewer: scottsta
 ---
 # Sign-in to Azure with an email address instead of the UPN (preview)
 
-Many organizations want to move to hybrid authentication to allow their users to sign in directly to Azure Active Directory (Azure AD). With hybrid authentication, users have the same sign-in credentials in an on-premises environment and in the cloud. However, some organizations haven’t moved to hybrid authentication because of the following reasons:
+Many organizations want to let their users sign in to Azure Active Directory (Azure AD) using the same sign-in credentials as their on-premises directory environment. With this approach, hybrid authentication, users only need to remember one set of credentials - their user principle name (UPN). Some organizations haven't moved to hybrid authentication for the following reasons:
 
-* To get the best compatibility across all workflows, you want to synchronize the Azure AD user principle name (UPN) to the same UPN value used in your on-premises directory.
-* Your organization doesn't use your on-premises UPN to sign in.
-* Azure AD requires users to sign in with their Azure AD UPN
+* For the best compatibility across applications and services, the Azure AD UPN is set to the same UPN value used in your on-premises directory.
+* Due to business or compliance reasons, your organization doesn't use the on-premises UPN to sign in.
 
-Azure now allows you to configure sign in with email or UPN values. With this approach, you enable your users to sign in with any email address set in their *ProxyAddresses*. Users only need to know their email address, not their UPN.
+Azure AD previously required all users to sign in with their UPN. To help customers simplify their approach to hybrid authentication, you to configure Azure AD to allow users to sign in with their email address. With this approach, you enable your users to sign in with any email address set in their *ProxyAddresses* attribute. To sign in, users only need to know their email address, not their UPN.
 
 |     |
 | --- |
-| Sign in to Azure with your email address is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Sign in to Azure AD with an email address is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-## Overview of User Principal Names (UPNs)
+## Overview of Azure AD sign-in approaches
 
-User Principal Names (UPNs) act as a unique identifier for a user account in both your on-premises directory, and in Azure Active Directory. Each user account in a directory is represented by a UPN.
+User Principal Names (UPNs) are unique identifiers for a user account in both your on-premises directory, and in Azure AD. Each user account in a directory is represented by a UPN, such as `contoso\balas`.
 
-Many organizations have users sign in to Azure AD applications and services with their UPN. However, some organizations can't use the UPN for sign-in due to business policies or user experience issues.
+In many organizations, users sign in to Azure AD applications and services with their UPN. However, some organizations can't use the UPN for sign-in due to business policies or user experience issues.
 
 Organizations that can't use the UPN for user sign-in with Azure AD have a few options:
 
-* One approach is to set the Azure AD UPN to the value of the user's email. This approach lets users  sign in to Azure using their email address.
-    * Not all workflows are compatible with using a different value for the on-premises UPN and the Azure AD UPN.
-* A better approach is to ensure the cloud and on-premises UPNs are set to the same value, and configure Azure to accept the user's email as an alternate login ID.
-    * In this configuration, users can still sign in by entering their UPN, but can also sign in by entering any email defined in their *ProxyAddresses* that supports one or more emails.
+* One approach is to set the Azure AD UPN to the value of the user's email address, such as `balas@contoso.com`. For the user, it looks like they sign in to Azure using their email address.
+    * However, not all applications and services are compatible with using a different value for the on-premises UPN and the Azure AD UPN.
+* A better approach is to ensure the cloud and on-premises UPNs are set to the same value, and configure Azure to accept the user's email as a sign-in ID.
+    * In this configuration, users can still sign in by entering their UPN, but can also sign in by entering any email defined in their *ProxyAddresses* attribute. This *ProxyAddress* attribute supports one or more email addresses.
 
-## Synchronize users sign-in email to Azure AD
+## Synchronize sign-in email addresses to Azure AD
 
-Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users to sign in directly to Azure AD.
+Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users can instead sign in directly to Azure AD.
 
-You can synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use Password Hash Sync or Pass-Through Authentication. In both cases, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. Having users sign in directly to Azure AD removes the need for your organization to host and manage an AD FS infrastructure.
+To support this hybrid authentication approach, you synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use Password Hash Sync (PHS) or Pass-Through Authentication (PTA). In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in directly to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
 
 ![Diagram of Azure AD hybrid identity with password hash synchronization](media/howto-authentication-use-email-signin/hybrid-password-hash-sync.png)
 
@@ -54,7 +53,7 @@ You can synchronize your on-premises AD DS environment to Azure AD using [Azure 
 
 For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution][hybrid-auth-methods].
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If your users have their preferred sign-in email address set in AD DS as part of the *ProxyAddresses* attribute, it's automatically synchronized to the cloud.
+One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have a sign-in email address set in the on-prem AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process.
 
 > [!IMPORTANT]
 > Only emails in verified domains for the tenant are synchronized to the cloud. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to you tenant.
@@ -63,7 +62,7 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 
 ## Enable user sign-in with an email address
 
-Once your users with the *ProxyAddresses* attribute set are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with an email address for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against your UPN values, but also against your *ProxyAddresses* values for the email address.
+Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with an email address for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against UPN values, but also against *ProxyAddresses* values for the email address.
 
 During preview, you can currently only enable the email address user sign-in feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
 
@@ -144,11 +143,11 @@ During preview, you can currently only enable the email address user sign-in fea
 
 ## Test user sign-in with email
 
-To test email address sign-in works for a user, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, not their UPN. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
+To test email address sign-in works for a user, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, such as `balas@contoso.com`, not their UPN, such as `contoso\balas`. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
 
 ## Troubleshoot
 
-If users have trouble with sign-in using their email address, review the following troubleshooting steps:
+If users have trouble with sign-in events using their email address, review the following troubleshooting steps:
 
 1. Make sure the user account has their email address set for the *ProxyAddresses* attribute in the on-prem AD DS environment.
 1. Verify that Azure AD Connect is configured and successfully synchronizes user accounts frm the on-prem AD DS environment into Azure AD.
