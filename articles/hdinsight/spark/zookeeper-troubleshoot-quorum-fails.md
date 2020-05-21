@@ -6,20 +6,19 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/20/2019
+ms.date: 05/20/2020
 ---
-
 # Apache ZooKeeper server fails to form a quorum in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues related to zookeepers in Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues related to Zookeepers in Azure HDInsight clusters.
 
 ## Symptoms
 
- * Both the resource managers go to standby mode
- * Namenodes are both in standby mode
- * Spark / hive / yarn jobs or hive queries fail because of zookeeper connection failures
- * LLAP daemons fail to start on secure spark or secure interactive hive clusters
- 
+* Both the resource managers go to standby mode
+* Namenodes are both in standby mode
+* Spark / Hive / Yarn jobs or Hive queries fail because of Zookeeper connection failures
+* LLAP daemons fail to start on secure Spark or secure interactive Hive clusters
+
 ## Sample log
 
 You may see an error message similar to:
@@ -33,58 +32,74 @@ Message
 2020-05-05 03:17:08.3890350|Transitioning to standby state
 ```
 
-## Contra indicators
+## Related issues
 
-  * HA services like Yarn / NameNode / Livy can go down due to many reasons. 
-    * Please confirm from the logs that it is related to zookeeper connections
-    * Please make sure that the issue happens repeatedly (do not do these mitigations for one off cases)
-  * Jobs can fail temporarily due to zookeeper connection issues
+* High availability services like Yarn, NameNode, and Livy can go down for many reasons.
+* Confirm from the logs that it is related to Zookeeper connections
+* Make sure that the issue happens repeatedly (do not use these solutions for one off cases)
+* Jobs can fail temporarily due to Zookeeper connection issues
   
-## Further reading
 
-[ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin.html#sc_strengthsAndLimitations).
-
-## Common causes
+## Common causes for Zookeeper failure
 
 * High CPU usage on the zookeeper servers
   * In the Ambari UI, if you see near 100% sustained CPU usage on the zookeeper servers, then the zookeeper sessions open during that time can expire and timeout
 * Zookeeper clients are reporting frequent timeouts
-  * The transaction logs and the snapshots are being written to the same disk. This can cause I/O bottlenecks
+  * The transaction logs and the snapshots are being written to the same disk. This can cause I/O bottlenecks.
 
 ## Check for zookeeper status
-  * Find the zookeeper servers from the /etc/hosts file or from Ambari UI
-  * Run the following command
-    * echo stat | nc {zk_host_ip} 2181 (or 2182)  
-  * Port 2181 is the apache zookeeper instance
-  * Port 2182 is used by the HDI zookeeper (to provide HA for services that are not natively HA)
+
+* Find the zookeeper servers from the /etc/hosts file or from Ambari UI
+* Run the following command `echo stat | nc {zk_host_ip} 2181 (or 2182)`
+* Port 2181 is the apache zookeeper instance
+* Port 2182 is used by the HDInsight zookeeper (to provide HA for services that are not natively HA)
 
 ## CPU load peaks up every hour
-  * Login to the zookeeper server and check the /etc/crontab
-  * Are there any hourly jobs running at this time?
-  * If so, randomize the start time across different zookeeper servers
+
+* Log in to the zookeeper server and check the /etc/crontab
+* If there are any hourly jobs running at this time, randomize the start time across different zookeeper servers.
   
 ## Purging old snapshots
-  * HDI Zookeepers are configured to auto purge old snapshots
-  * By default, last 30 snapshots are retained
-  * This controlled by the configuration key autopurge.snapRetainCount
-    * /etc/zookeeper/conf/zoo.cfg for hadoop zookeeper
-    * /etc/hdinsight-zookeeper/conf/zoo.cfg for HDI zookeeper
-  * Set this to a value =3 and restart the zookeeper servers
-    * Hadoop zookeeper can be restarted through Ambari
-    * HDI zookeeper has to be stopped manually and restarted manually
-      * sudo lsof -i :2182 will give you the process id to kill
-      * sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py
-  * Manually purging snapshots
-    * **DO NOT delete the snapshot files directly as this could result in data loss**
-      * zookeeper
-        * sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/zookeeper/ /hadoop/zookeeper/ 3
-      * hdinsight-zookeeper
-        * sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/hdinsight-zookeeper/ /hadoop/hdinsight-zookeeper/ 3
-        
-## CancelledKeyException in the zookeeper server log
-  * This exception usually means that the client is no longer active and the server is unable to send a message
-  * This is indication of a symptom that the zookeeper client is terminating sessions prematurely
-  * Look for the other symptoms outlined in this document
+
+### Auto purging configuration
+
+* HDInsight Zookeepers are configured to auto purge old snapshots
+* By default, the last 30 snapshots are retained
+* This controlled by the configuration key `autopurge.snapRetainCount`
+  * `/etc/zookeeper/conf/zoo.cfg` for hadoop zookeeper
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg` for HDInsight zookeeper
+* Set this to a value =3 and restart the zookeeper servers
+  * Hadoop zookeeper can be restarted through Ambari
+  * HDInsight zookeeper has to be stopped manually and restarted manually
+    * `sudo lsof -i :2182` will give you the process ID to kill
+    * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
+
+> [!Note]
+> Don't delete the snapshot files directly as this could result in data loss.
+
+### Manually purging snapshots
+
+Use the following command to manually purge zookeeper snapshots.
+
+```
+sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/zookeeper/ /hadoop/zookeeper/ 3
+```
+
+Use the following command to manually purge hdinsight-zookeeper snapshots.
+
+```
+sudo java -cp /usr/hdp/current/zookeeper-server/zookeeper.jar:/usr/hdp/current/zookeeper-server/lib/* org.apache.zookeeper.server.PurgeTxnLog /hadoop/hdinsight-zookeeper/ /hadoop/hdinsight-zookeeper/ 3
+```
+
+## CancelledKeyException in the Zookeeper server log
+
+* This exception usually means that the client is no longer active and the server is unable to send a message
+* This is indication of a symptom that the zookeeper client is terminating sessions prematurely
+* Look for the other symptoms outlined in this document
+
+## Further reading
+
+[ZooKeeper Strengths and Limitations](https://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
 ## Next steps
 
