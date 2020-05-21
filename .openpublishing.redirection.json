@@ -52605,7 +52605,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-query-performance.md",
-        "redirect_url": "/azure/azure-sql/database/query-performance-insight-configure",
+        "redirect_url": "/azure/azure-sql/database/query-performance-insight-use",
         "redirect_document_id": true
     },
     {
@@ -53330,7 +53330,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-in-memory-oltp-monitoring.md",
-        "redirect_url": "/azure/azure-sql/in-memory-oltp-monitoring",
+        "redirect_url": "/azure/azure-sql/in-memory-oltp-monitor-space",
         "redirect_document_id": true
     },
     {

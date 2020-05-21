@@ -13,7 +13,7 @@ ms.reviewer:
 ms.date: 03/19/2019
 ---
 # Optimize performance by using In-Memory technologies in Azure SQL Database and Azure SQL Managed Instance
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 In-Memory technologies enable you to improve performance of your application, and potentially reduce cost of your database.
 
@@ -123,7 +123,7 @@ The following items count toward your In-Memory OLTP storage cap:
 
 If you hit the cap, you receive an out-of-quota error, and you are no longer able to insert or update data. To mitigate this error, delete data or increase the pricing tier of the database or pool.
 
-For details about monitoring In-Memory OLTP storage utilization and configuring alerts when you almost hit the cap, see [Monitor In-Memory storage](in-memory-oltp-monitoring.md).
+For details about monitoring In-Memory OLTP storage utilization and configuring alerts when you almost hit the cap, see [Monitor In-Memory storage](in-memory-oltp-monitor-space.md).
 
 #### About elastic pools
 
@@ -185,7 +185,7 @@ If you have a **clustered** columnstore index, the whole table becomes unavailab
 
 - [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
-- [Monitor In-Memory OLTP storage](in-memory-oltp-monitoring.md) for In-Memory OLTP
+- [Monitor In-Memory OLTP storage](in-memory-oltp-monitor-space.md) for In-Memory OLTP
 - [Try In-memory features](in-memory-sample.md)
 
 ## Additional resources

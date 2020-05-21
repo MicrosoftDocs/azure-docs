@@ -13,7 +13,7 @@ ms.reviewer: genemi
 ms.date: 01/25/2019
 ---
 # How to use batching to improve Azure SQL Database and Azure SQL Managed Instance application performance
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Batching operations to Azure SQL Database and Azure SQL Managed Instance significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a database in Azure SQL Database or Azure SQL Managed Instance. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
 

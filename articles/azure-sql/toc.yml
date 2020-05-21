@@ -60,8 +60,10 @@
         href: database/threat-detection-overview.md
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
+      - name: Vulnerability assessment
+        href: database/sql-vulnerability-assessment.md        
       - name: Logins, user accounts, roles, and permissions
-        href: database/logins-create-manage.md        
+        href: database/logins-create-manage.md
       - name: Azure AD Authentication
         href: database/aad-authentication-overview.md
         items:
@@ -73,8 +75,6 @@
           href: mfa-authentication-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
-      - name: Vulnerability assessment
-        href: database/sql-vulnerability-assessment.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -108,22 +108,14 @@
         href: database/monitoring-tuning-index.yml
       - name: Overview
         href: database/monitor-tune-overview.md
-      - name: Query Performance Insights
-        href: database/query-performance-insight-configure.md 
       - name: Intelligent Insights
         href: intelligent-insights.md
       - name: SQL Analytics
-        href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
+        href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
       - name: Automatic tuning
         href: database/automatic-tuning-overview.md
       - name: In-memory OLTP
-        items:
-          - name: Configure In-Memory OLTP
-            href: in-memory-oltp-configure.md
-          - name: Try in-memory features
-            href: in-memory-sample.md
-          - name: Monitor In-memory OLTP space
-            href: in-memory-oltp-monitoring.md
+        href: in-memory-oltp-overview.md
       - name: Extended events
         items:
         - name: Extended events
@@ -171,6 +163,14 @@
         href: database/monitoring-with-dmvs.md 
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+      - name: In-memory OLTP
+        items:
+        - name: Configure In-Memory OLTP
+          href: in-memory-oltp-configure.md
+        - name: Try in-memory features
+          href: in-memory-sample.md
+        - name: Monitor In-memory OLTP space
+          href: in-memory-oltp-monitor-space.md
 
     - name: Load and move data
       items:
@@ -514,6 +514,8 @@
 
     - name: Performance
       items:
+      - name: Use Query Performance Insights
+        href: database/query-performance-insight-use.md
       - name: Enable automatic tuning
         href: database/automatic-tuning-enable.md
       - name: Enable e-mail notifications for automatic tuning
@@ -524,8 +526,6 @@
         href: database/alerts-insights-configure-portal.md
       - name: Implement database advisor recommendations
         href: database/database-advisor-implement-performance-recommendations.md
-      - name: Configure Query Performance Insights
-        href: database/query-performance-insight-configure.md
       - name: Stream data with Stream Analytics
         href: database/stream-data-stream-analytics-integration.md 
 

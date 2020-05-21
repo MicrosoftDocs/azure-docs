@@ -13,7 +13,7 @@ ms.reviewer:
 ms.date: 12/18/2018
 ---
 # In-Memory sample
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads.
 
@@ -333,7 +333,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
-- [Monitor In-Memory OLTP storage](in-memory-oltp-monitoring.md) for In-Memory OLTP
+- [Monitor In-Memory OLTP storage](in-memory-oltp-monitor-space.md) for In-Memory OLTP
 
 ## Additional resources
 

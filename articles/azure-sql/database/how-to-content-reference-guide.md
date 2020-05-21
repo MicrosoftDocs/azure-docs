@@ -58,7 +58,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
 - [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
-- [Monitor In-memory OLTP space](../in-memory-oltp-monitoring.md)
+- [Monitor In-memory OLTP space](../in-memory-oltp-monitor-space.md)
 
 ### Extended events
 
