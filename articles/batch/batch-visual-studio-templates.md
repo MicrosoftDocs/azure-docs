@@ -181,7 +181,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-retry-afer-errors.md).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](error-handling.md).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.

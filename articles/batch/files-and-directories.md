@@ -38,4 +38,4 @@ The root directory contains the following directory structure:
 
 ## Next steps
 
-- Learn about [error handling](batch-retry-after-errors.md).
+- Learn about [error handling and detection](error-handling.md) in Azure Batch.

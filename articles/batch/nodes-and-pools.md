@@ -21,7 +21,7 @@ All compute nodes in Batch also include:
 
 - A standard [folder structure](files-and-directories.md) and associated [environment variables](jobs-and-tasks.md) that are available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- [Remote access](batch-retry-after-errors.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
+- [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
 
 ## Pools
 

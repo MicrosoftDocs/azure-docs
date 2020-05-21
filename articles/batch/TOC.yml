@@ -72,7 +72,7 @@
   - name: APIs and tools
     href: batch-apis-tools.md
   - name: Error handling and detection
-    href: batch-retry-after-errors.md
+    href: error-handling.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
