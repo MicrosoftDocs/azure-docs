@@ -17,7 +17,7 @@ ms.author: iainfou
 
 Azure Active Directory Domain Services (AD DS) lets you migrate an existing managed domain that uses the Classic deployment model to the Resource Manager deployment model. Azure AD DS managed domains that use the Resource Manager deployment model provide additional features such as fine-grained password policy, audit logs, and account lockout protection.
 
-This article outlines the benefits for migration. To get started, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager[howto-migrate].
+This article outlines the benefits for migration. To get started, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager][howto-migrate].
 
 > [!NOTE]
 > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
@@ -32,7 +32,7 @@ After migration, Azure AD DS provides many features that are only available for 
 
 * [Fine-grained password policy support][password-policy]
 * Faster synchronization speeds between Azure AD and Azure AD Domain Services
-* Two new attributes - *manager* and *employeeID*
+* Two new [attributes that synchronize from Azure AD][attributes]- *manager* and *employeeID*
 * Access to higher-powered domain controllers when you [upgrade the SKU][skus]
 * AD account lockout protection
 * [Email notifications alerts][email-alerts]
@@ -57,3 +57,4 @@ To get started, see [Migrate Azure AD Domain Services from the Classic virtual n
 [wvd]: ../virtual-desktop/overview.md
 [availability-zones]: ../availability-zones/az-overview.md
 [howto-migrate]: migrate-from-classic-vnet.md
+[attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds
