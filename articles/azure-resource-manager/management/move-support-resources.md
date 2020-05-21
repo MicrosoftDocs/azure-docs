@@ -2,8 +2,6 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 05/21/2020
 ---
 
