@@ -211,7 +211,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ManCom Inc](https://www.mancominc.com/)|
 |[ManTech](https://www.mantech.com/Pages/Home.aspx)|
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
-|[Mibura Inc.](https://www.mibura.com)|
+|Mibura Inc.|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
