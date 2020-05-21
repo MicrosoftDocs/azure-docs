@@ -318,7 +318,7 @@ Read-access geo-redundant storage is required to access redundant storage. Howev
 
     - **AzCopy**: Append **-secondary** to the storage account name in the URL to access the secondary endpoint. For example:  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).
 
