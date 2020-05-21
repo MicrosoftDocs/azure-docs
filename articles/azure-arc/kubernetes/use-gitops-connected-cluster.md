@@ -27,7 +27,7 @@ This getting started guide will walk you through applying a set of configuration
 
 ## Create a configuration
 
-- Example repository: <https://github.com/slack/cluster-config>
+- Example repository: <https://github.com/Azure/arc-k8s-demo>
 
 The example repository is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
 
@@ -36,7 +36,7 @@ The example repository is structured around the persona of a cluster operator wh
 **ConfigMap:** `team-a/endpoints`
 
 The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up a new or updated configuration.
-If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository)
+If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](#apply-configuration-from-a-private-git-repository)
 
 ### Using Azure CLI
 
