@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Link tenant breadcrumb link highlighted in Azure portal](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
 
-1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
+1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**. You need to be logged in as owner role to perform this step.
 
    ![Link an existing subscription selection in Azure portal](media/tutorial-create-tenant/portal-05-link-subscription.png)
 
