@@ -21,9 +21,9 @@ Object replication (preview) asynchronously copies block blobs between a source 
 - **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
 - **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
 
-The following diagram shows how you can use object replication to replicate block blobs from a source storage account in one region to destination accounts in two different regions.
+The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
 
-:::image type="content" source="media/object-replication-overview/object-replication-diagram.png" alt-text="Diagram showing how object replication works":::
+:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
 
 To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
 
