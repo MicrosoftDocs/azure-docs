@@ -55,7 +55,7 @@ Select the **'Service Bus Explorer (preview)'** from the left navigation menu
 
 ![SB Explorer Left nav menu](./media/service-bus-explorer/left-navigation-menu-selected.png)
 
-### Sending a Message to a Queue or Topic
+### Sending a message to a Queue or Topic
 
 To send a message to a **Queue** or a **Topic**, click on the ***Send*** tab on the Service Bus Explorer.
 
@@ -79,7 +79,7 @@ When the send operation is completed successfully,
 
     ![TopicAfterSendMetrics](./media/service-bus-explorer/topic-after-send-metrics.png)
 
-### Receiving a Message from a Queue
+### Receiving a message from a Queue
 
 The receive function on the Service Bus Explorer permits receiving a single message at a time. The receive operation is performed using the ***ReceiveAndDelete** mode.
 
@@ -91,11 +91,11 @@ The receive function on the Service Bus Explorer permits receiving a single mess
 
 To receive a message from a Queue (or its deadletter subqueue) 
 
-1. click on the ***Receive*** tab on the Service Bus Explorer.
+1. Click on the ***Receive*** tab on the Service Bus Explorer.
 2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to receive.
     ![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
 
-3. pick between the ***Queue*** or the ***Deadletter*** subqueue.
+3. Pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
     ![QueueOrDeadletter](./media/service-bus-explorer/queue-or-deadletter.png)
 
@@ -107,7 +107,7 @@ When the receive operation is successful, the message details will display on th
 ![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-queue-2.png)
 
 
-### Peeking a Message from a Queue
+### Peeking a message from a Queue
 
 With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the deadletter queue.
 
@@ -134,7 +134,7 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 > Since peek is not a destructive operation the message **will not** be removed from the queue.
 >
 
-### Receiving a Message from a Subscription
+### Receiving a message from a Subscription
 
 Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its deadletter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
 
@@ -159,7 +159,7 @@ When the receive operation is successful, the received message will display on t
 ![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-subscription.png)
 
 
-### Peeking a Message from a Subscription
+### Peeking a message from a Subscription
 
 To simply browse the messages on a Subscription or its deadletter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
 
