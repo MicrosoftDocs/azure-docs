@@ -232,8 +232,6 @@ Users in this role can read settings and administrative information across Micro
 > [!NOTE]
 > Global reader role has a few limitations right now -
 >
->- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global reader role.
->- [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >- [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs, do content search, or see Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
