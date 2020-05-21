@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
+ms.date: 04/27/2020
 ---
 
 # Execute R Script
@@ -38,6 +38,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> If your pipeline contains multiple Execute R Script modules and need same packages which are not in the pre-installed list, please install the packages in each module respectively. 
 
 ## Installing R packages
 To install additional R packages, use the `install.packages()` method. Packages are installed for each **Execute R Script** module, and aren't shared across other **Execute R Script** modules.
@@ -136,8 +138,8 @@ Datasets stored in the designer are automatically converted to an R data frame w
 1. In the **R script** text box, type or paste valid R script.
 
     > [!NOTE]
-    > Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared variable or a un-imported module or function. Also pay extra attentions to the pre-installed package list in the end of this document. To use packages that are not listed, please install them in your script such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`
-	
+    > Please be very careful when writing your script and makes sure there is no syntax error, such as using un-declared variables or un-imported modules or functions. Also pay extra attention to the pre-installed package list in the end of this document. To use packages that are not listed, please install them in your script such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    
     > [!NOTE]
     > Functions dependant on X11 library such as "View" are not supported because X11 library is not pre-installed.
     

@@ -1,21 +1,21 @@
 ---
-title: Monitor Azure Storage services with Azure Monitor for Storage (preview)| Microsoft Docs
+title: Monitor Azure Storage services with Azure Monitor for Storage | Microsoft Docs
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
+ms.date: 05/11/2020
 
 ---
 
-# Monitoring your storage service with Azure Monitor for Storage (preview)
+# Monitoring your storage service with Azure Monitor for Storage
 
-Azure Monitor for Storage (preview) provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
+Azure Monitor for Storage provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
 
-This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale, with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
+This article will help you understand the experience Azure Monitor for Storage delivers to derive actionable knowledge on the health and performance of Storage accounts at scale, with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
 
-## Introduction to Azure Monitor for Storage (preview)
+## Introduction to Azure Monitor for Storage
 
 Before diving into the experience, you should understand how it presents and visualizes information. Whether you select the Storage feature directly from a storage account or from Azure Monitor, Azure Monitor for Storage presents a consistent experience. 
 
@@ -44,7 +44,7 @@ To view the utilization and availability of your storage accounts across all of 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the **Insights** section, select **Storage Accounts (preview)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the **Insights** section, select **Storage Accounts**.
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -88,7 +88,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 1. In the Azure portal, select Storage accounts.
 
-2. From the list, choose a storage account. In the Monitoring section, choose Insights (preview).
+2. From the list, choose a storage account. In the Monitoring section, choose Insights.
 
     ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -134,7 +134,7 @@ The multi-subscription and storage account **Overview** or **Capacity** workbook
 
 ![Export workbook grid results example](./media/storage-insights-overview/workbook-export-example.png)
 
-## Customize Azure Monitor for Storage (preview)
+## Customize Azure Monitor for Storage
 
 This section highlights common scenarios for editing the workbook to customize in support of your data analytics needs:
 
@@ -151,7 +151,7 @@ The customizations are saved to a custom workbook to prevent overwriting the def
 
 You can configure the multi-subscription and storage account **Overview** or **Capacity** workbooks to scope to a particular subscription(s) or storage account(s) on every run, perform the following steps.
 
-1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left-hand pane.
+1. Select **Monitor** from the portal and then select **Storage Accounts** from the left-hand pane.
 
 2. On the **Overview** workbook, from the command bar select **Edit**.
 
@@ -172,7 +172,7 @@ In our example, we are working with the multi-subscription and storage account c
 
 You can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks.
 
-1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left-hand pane.
+1. Select **Monitor** from the portal and then select **Storage Accounts** from the left-hand pane.
 
 2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit** from the command bar.
 
@@ -206,7 +206,7 @@ In this example, we are working with the storage account capacity workbook and d
 
 1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
-2. Select **Insights (preview)** from the left-hand pane.
+2. Select **Insights** from the left-hand pane.
 
 3. In the workbook, select **Availability** to switch to the availability workbook, and then select **Edit** from the command bar. 
 
@@ -224,11 +224,11 @@ In this example, we are working with the storage account capacity workbook and d
 
 ## Troubleshooting
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Storage (preview). Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Storage. Use the list below to locate the information relevant to your specific issue.
 
 ### Resolving performance, capacity, or availability issues
 
-To help troubleshoot any storage-related issues you identify with Azure Monitor for Storage (preview), see the Azure Storage [troubleshooting guidance](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
+To help troubleshoot any storage-related issues you identify with Azure Monitor for Storage, see the Azure Storage [troubleshooting guidance](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
 
 ### Why can I only see 200 storage accounts?
 

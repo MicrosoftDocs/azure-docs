@@ -104,8 +104,6 @@ landingContent:
 
           - text: "Portal: Create a QnA Bot"
             url: tutorials/create-qna-bot.md
-          - text: ".Net: Create a bot with QnA Maker and Language Understanding"
-            url: tutorials/integrate-qnamaker-luis.md
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 

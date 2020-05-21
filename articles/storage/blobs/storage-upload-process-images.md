@@ -15,10 +15,10 @@ ms.reviewer: dineshm
 
 This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Blob storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
-# [\.NET v12 SDK](#tab/dotnet)
+# [\.NET v12](#tab/dotnet)
 ![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v10 SDK](#tab/nodejsv10)
+# [Node.js v10](#tab/nodejsv10)
 ![Image resizer app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -117,7 +117,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## Deploy the sample app from the GitHub repository
 
-# [\.NET v12 SDK](#tab/dotnet)
+# [\.NET v12](#tab/dotnet)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
@@ -129,7 +129,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# [Node.js v10 SDK](#tab/nodejsv10)
+# [Node.js v10](#tab/nodejsv10)
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
 ```azurecli-interactive
@@ -142,7 +142,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## Configure web app settings
 
-# [\.NET v12 SDK](#tab/dotnet)
+# [\.NET v12](#tab/dotnet)
 
 The sample web app uses the [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage) to upload images. Storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -154,7 +154,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# [Node.js v10 SDK](#tab/nodejsv10)
+# [Node.js v10](#tab/nodejsv10)
 
 The sample web app uses the [Azure Storage Client Library](https://github.com/Azure/azure-storage-js) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -172,7 +172,7 @@ After you deploy and configure the web app, you can test the image upload functi
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
 
-# [\.NET v12 SDK](#tab/dotnet)
+# [\.NET v12](#tab/dotnet)
 
 Select the **Upload photos** region to specify and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section will remain empty until we test it later in this topic.
 
@@ -214,7 +214,7 @@ The following classes and methods are used in the preceding task:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# [Node.js v10 SDK](#tab/nodejsv10)
+# [Node.js v10](#tab/nodejsv10)
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
@@ -300,7 +300,7 @@ Sign in to the [Azure portal](https://portal.azure.com). From the left menu, sel
 
 Verify the image is shown in the container.
 
-![Azure Portal listing of images container](media/storage-upload-process-images/figure13.png)
+![Azure portal listing of images container](media/storage-upload-process-images/figure13.png)
 
 ## Test thumbnail viewing
 
@@ -312,10 +312,10 @@ Choose a file with the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
-# [\.NET v12 SDK](#tab/dotnet)
+# [\.NET v12](#tab/dotnet)
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v10 SDK](#tab/nodejsv10)
+# [Node.js v10](#tab/nodejsv10)
 ![Node.js V10 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
