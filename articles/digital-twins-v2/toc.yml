@@ -66,13 +66,13 @@
     href: reference-service-limits.md
   - name: Azure CLI
     href: /cli/azure/iot
-  - name: Azure IoT CLI Extension
+  - name: Azure IoT CLI extension
     href: https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest
   - name: Azure Cloud Shell
     href: https://shell.azure.com
   - name: Azure PowerShell
     href: /powershell/module/az.iothub#iot
-  - name: Azure Portal
+  - name: Azure portal
     href: https://portal.azure.com
   - name: Azure RBAC documentation
     href: ../role-based-access-control/overview.md
