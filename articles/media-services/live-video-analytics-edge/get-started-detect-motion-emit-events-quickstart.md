@@ -35,7 +35,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     ![Environment Selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command
-<!-- TODO - Would be nice to have some screen shots from https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart copied over here -->
+<!-- TODO - Would be nice to have some screen shots from https://docs.microsoft.com/azure/cloud-shell/quickstart copied over here -->
     ```bash
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
