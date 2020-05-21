@@ -31,8 +31,7 @@ The key components in transactional replication are shown in the following pictu
 
 The **Publisher** is an instance or server that publishes changes made on some tables (articles) by sending the updates to the Distributor. Publishing to any Azure SQL database from an on-premises SQL Server is supported by the following versions of SQL Server:
 
-- SQL Server 2019 (preview)
-- SQL Server 2016 to SQL 2017
+- SQL Server 2016 to SQL 2019
 - SQL Server 2014 SP1 CU3 or greater (12.00.4427)
 - SQL Server 2014 RTM CU10 (12.00.2556)
 - SQL Server 2012 SP3 or greater (11.0.6020)
