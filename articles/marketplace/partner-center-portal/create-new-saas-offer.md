@@ -72,7 +72,6 @@ In order to list Software as a Service (SaaS) offers with Commercial Marketplace
 
 - Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
 - Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
-- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### SaaS pricing and billing options
 
@@ -223,28 +222,13 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 - **Search keywords** – Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required) – Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field.
 
-#### **Description**
+#### Description
 
-This field is a required. Items to include in **Description**:
+This field is required.
 
-* Clearly describe your offer's value proposition in the first few sentences of your description.  
-* Keep in mind that the first few sentences might be displayed in search engine results.  
-* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-* Use industry-specific vocabulary or benefit-based wording as much as possible.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Core components of your value proposition should include:
-
-* Description of the product
-* Type of user that benefits from the product
-* Customer needs or pain that the product addresses
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### Links
 
@@ -351,7 +335,7 @@ This page lets you configure the markets this plan will be available in, the des
 
 #### Markets (optional)
 
-Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
+Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries/regions, in which Microsoft remits sales and use tax on your behalf.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. Review the price for each market before publishing. View pricing using the "Export prices (xlsx)" link after saving your changes.
 

@@ -37,6 +37,8 @@
     items: 
     - name: COPY statement
       href: quickstart-bulk-load-copy-tsql.md
+    - name: COPY statement examples
+      href: quickstart-bulk-load-copy-tsql-examples.md
   - name: Scale
     items:
     - name: Portal
@@ -364,7 +366,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
   - name: Troubleshoot
     items:
     - name: Connectivity
@@ -415,3 +417,5 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Public Preview partners
+      href: sql-data-warehouse-partner-launch.md

@@ -1,6 +1,6 @@
 ---
-title: Configuration based on STIG to use in state configuration - Azure Automation
-description: Learn about configurations based on STIG for state configuration in Azure Automation.
+title: Configure data based on STIG for Azure Automation State Configuration
+description: This article tells how to configure data based on STIG for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Configuration based on STIG
+# Configure data based on STIG for Azure Automation State Configuration
 
 > Applies To: Windows PowerShell 5.1
 

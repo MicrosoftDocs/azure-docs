@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot shared resources in Azure Automation
-description: Learn how to troubleshoot and resolve issues with Azure Automation shared resources. 
+title: Troubleshoot Azure Automation shared resource issues
+description: This article tells how to troubleshoot and resolve issues with Azure Automation shared resources.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,12 +9,9 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshoot shared resources in Azure Automation
+# Troubleshoot shared resource issues
 
-This article discusses solutions for problems you might have when you're using [shared resources](../automation-intro.md#shared-resources) in Azure Automation.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module at the present time. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article discusses issues that might arise when you're using [shared resources](../automation-intro.md#shared-resources) in Azure Automation.
 
 ## Modules
 

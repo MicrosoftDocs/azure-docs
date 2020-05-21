@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: cartacioS
 ms.author: sacartac
-ms.reviewer: sgilley
+ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -108,7 +108,7 @@ For remote executions, training data must be accessible from the remote compute.
 * easily transfer data from static files or URL sources into your workspace
 * make your data available to training scripts when running on cloud compute resources
 
-See the [how-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) for an example of using the `Dataset` class to mount data to your compute target.
+See the [how-to](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your compute target.
 
 ## Train and validation data
 
@@ -118,6 +118,7 @@ You can specify separate train and validation sets directly in the `AutoMLConfig
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
+Learn more about how autoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 ### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
 Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. Monte Carlo is not supported for time series forecasting.
@@ -130,7 +131,7 @@ Use custom validation dataset if random split is not acceptable, usually time se
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 * Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-* A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+* A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. 
 
   See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for examples of notebooks with local and remote compute targets.
 
@@ -248,16 +249,26 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 Ensemble models are enabled by default, and appear as the final run iterations in an automated machine learning run. Currently supported ensemble methods are voting and stacking. Voting is implemented as soft-voting using weighted averages, and the stacking implementation is using a two layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. If you are using ONNX models, **or** have model-explainability enabled, stacking will be disabled and only voting will be utilized.
 
-There are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object to alter the default stack ensemble behavior.
+There are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object to alter the default ensemble behavior.
+
+* `ensemble_download_models_timeout_sec`: During **VotingEnsemble** and **StackEnsemble** model generation, multiple fitted models from the previous child runs are downloaded. If you encounter this error: `AutoMLEnsembleException: Could not find any models for running ensembling`, then you may need to provide more time for the models to be downloaded. The default value is 300 seconds for downloading these models in parallel and there is no maximum timeout limit. Configure this parameter with a higher value than 300 secs, if more time is needed. 
+
+  > [!NOTE]
+  >  If the timeout is reached and there are models downloaded, then the ensembling proceeds with as many models it has downloaded. It's not required that all the models need to be downloaded to finish within that timeout.
+
+The following parameters only apply to **StackEnsemble** models: 
 
 * `stack_meta_learner_type`: the meta-learner is a model trained on the output of the individual heterogeneous models. Default meta-learners are `LogisticRegression` for classification tasks (or `LogisticRegressionCV` if cross-validation is enabled) and `ElasticNet` for regression/forecasting tasks (or `ElasticNetCV` if cross-validation is enabled). This parameter can be one of the following strings: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`, or `LinearRegression`.
-* `stack_meta_learner_train_percentage`: specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is `0.2`.
+
+* `stack_meta_learner_train_percentage`: specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is `0.2`. 
+
 * `stack_meta_learner_kwargs`: optional parameters to pass to the initializer of the meta-learner. These parameters and parameter types mirror the parameters and parameter types from the corresponding model constructor, and are forwarded to the model constructor.
 
 The following code shows an example of specifying custom ensemble behavior in an `AutoMLConfig` object.
 
 ```python
 ensemble_settings = {
+    "ensemble_download_models_timeout_sec": 600
     "stack_meta_learner_type": "LogisticRegressionCV",
     "stack_meta_learner_train_percentage": 0.3,
     "stack_meta_learner_kwargs": {
@@ -499,6 +510,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn how to train multiple models with autoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).

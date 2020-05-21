@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.custom: contperfq4 
 
 ---
@@ -21,7 +21,14 @@ ms.custom: contperfq4
 In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
 
 > [!WARNING]
-> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience for drag-n-drop designer, the UI for automated machine learning, and data labeling. 
+> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience, including:
+> - drag-n-drop designer
+> - UI for automated machine learning
+> - UI for data labeling
+> - UI for data sets
+> - Notebooks
+> 
+> If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## What is a VNET?
 
@@ -244,11 +251,6 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Use a storage account for your workspace
 
-> [!WARNING]
-> If you have data scientists that use the Azure Machine Learning designer, they will receive an error when visualizing data from a storage account inside a virtual network. The following text is the error that they receive:
->
-> __Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__
-
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
 1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
@@ -400,7 +402,7 @@ except:
 __Azure CLI__
 
 ```azurecli-interactive
-az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
 ```
 
 The contents of the `body.json` file referenced by the command are similar to the following JSON document:
@@ -409,7 +411,7 @@ The contents of the `body.json` file referenced by the command are similar to th
 { 
     "location": "<region>", 
     "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
         "computeType": "AKS", 
         "provisioningState": "Succeeded", 
         "properties": { 

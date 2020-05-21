@@ -24,8 +24,14 @@
     href: hsm-protected-keys.md
   - name: Import HSM-protected keys (preview)
     href: hsm-protected-keys-vendor-agnostic-byok.md
-  - name: Import HSM-protected keys(legacy)
+  - name: Import HSM-protected keys (legacy)
     href: hsm-protected-keys-legacy.md
+
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Reference
   items:
