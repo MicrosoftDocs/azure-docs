@@ -17,7 +17,7 @@ ms.author: sstein
 
 This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
-# What's new?
+## What's new?
 
 Documentation for Azure SQL Database and Azure SQL Managed Instance has been split into separate sections. We've also updated how we refer to a managed instance from *Azure SQL Database managed instance* to *Azure SQL Managed Instance*.
 
