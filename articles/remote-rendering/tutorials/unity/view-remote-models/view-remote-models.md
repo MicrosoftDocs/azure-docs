@@ -31,6 +31,7 @@ For this tutorial you need:
   * Install these modules in Unity:
     * **UWP** - Universal Windows Platform Build Support
     * **IL2CPP** - Windows Build Support (IL2CPP)
+* Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
 ## Provision an Azure Remote Rendering instance
 
@@ -529,7 +530,7 @@ Now that we have the framework for our coordinator, we will implement each of th
 
 **Initialize** tells Azure Remote Rendering which camera object to use for rendering and progresses the state machine into **NotAuthorized**. This means it's initialized but not yet authorized to connect to a session. Since starting an ARR session incurs a cost, we need to confirm the user wants to proceed.
 
-When entering the **NotAuthorized** state, **CheckAuthorization** is called, which invokes the **RequestingAuthorization** event and determines which account credentials to use (**AccountInfo** is defined near the top of the class and uses the credentials you defined via the Unity Inspector in the step above). When managing remote sessions, listen for state change events.
+When entering the **NotAuthorized** state, **CheckAuthorization** is called, which invokes the **RequestingAuthorization** event and determines which account credentials to use (**AccountInfo** is defined near the top of the class and uses the credentials you defined via the Unity Inspector in the step above).
 
 1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
 
@@ -572,10 +573,9 @@ In order to progress from **NotAuthorized** to **NoSession**, we'd typically pre
 1. Select the **RemoteRenderingCoordinator** GameObject and find the **OnRequestingAuthorization** Unity Event exposed in the Inspector of the **RemoteRenderingCoordinator** component.
 
 1. Add a new event by pressing the '+' in the lower right.
-
-1. Target the **RemoteRenderingCoordinator** GameObject and the **RemoteRenderingCoordinator** script, calling the **BypassAuthorization** method.
-
-![Bypass Authentication](./media/bypass-authorization-add-event.png)
+1. Drag the component on to its own event, to reference itself.\
+![Bypass Authentication](./media/bypass-authorization-add-event.png)\
+1. In the drop down select **RemoteRenderingCoordinator -> BypassAuthorization**.\
 ![Bypass Authentication](./media/bypass-authorization-event.png)
 
 ## Create or join a remote session

@@ -557,12 +557,32 @@ public class RemoteLight : BaseRemoteLight
     private Entity lightEntity;
     private LightComponentBase remoteLightComponent; //Remote Rendering Light
 
+    private void Awake()
+    {
+        localLight = GetComponent<Light>();
+        switch (localLight.type)
+        {
+            case LightType.Directional:
+                remoteLightType = ObjectType.DirectionalLightComponent;
+                break;
+            case LightType.Point:
+                remoteLightType = ObjectType.PointLightComponent;
+                break;
+            case LightType.Spot:
+            case LightType.Area:
+                //Not supported in tutorial
+            case LightType.Disc:
+                // No direct analog in remote rendering
+                remoteLightType = ObjectType.Invalid;
+                break;
+        }
+    }
+
     public void Start()
     {
         // Hook up the event to the Unity event
         LightReadyChanged += (ready) => OnLightReadyChanged?.Invoke(ready);
 
-        localLight = GetComponent<Light>();
         RemoteRenderingCoordinator.CoordinatorStateChange += RemoteRenderingCoordinator_CoordinatorStateChange;
         RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
     }
@@ -603,18 +623,16 @@ public class RemoteLight : BaseRemoteLight
         syncComponent.SyncEveryFrame = true;
 
         //Add a light to the entity
-        switch (localLight.type)
+        switch (RemoteLightType)
         {
-            case LightType.Directional:
+            case ObjectType.DirectionalLightComponent:
                 var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
-                remoteLightType = ObjectType.DirectionalLightComponent;
                 //No additional properties
                 remoteLightComponent = remoteDirectional;
                 break;
 
-            case LightType.Point:
+            case ObjectType.PointLightComponent:
                 var remotePoint = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
-                remoteLightType = ObjectType.PointLightComponent;
                 remotePoint.Radius = 0;
                 remotePoint.Length = localLight.range;
                 //remotePoint.AttenuationCutoff = //No direct analog in Unity legacy lights
@@ -622,11 +640,7 @@ public class RemoteLight : BaseRemoteLight
 
                 remoteLightComponent = remotePoint;
                 break;
-            case LightType.Spot:
-                //Not supported in tutorial
-            case LightType.Area:
-            case LightType.Disc:
-                // No direct analog in remote rendering
+            default:
                 LightReady = false;
                 return;
         }
@@ -714,7 +728,7 @@ using ARRMaterial = Microsoft.Azure.RemoteRendering.Material;
 
 public class EntityMaterialController : BaseEntityMaterialController
 {
-    public bool RevertOnEntityChange = true;
+    public override bool RevertOnEntityChange { get; set; } = true;
 
     public override OverrideMaterialProperty<Color> ColorOverride { get; set; }
     public override OverrideMaterialProperty<float> RoughnessOverride { get; set; }
