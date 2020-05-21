@@ -52433,7 +52433,16 @@
         "source_path": "articles/cdn/endpoint-multiorigin.md",
         "redirect_url": "/azure/cdn/cdn-overview",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-api-basics.md",
+      "redirect_url": "/azure/batch/batch-service-workflow-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-retry-after-errors.md",
+      "redirect_url": "/azure/batch/error-handling",
+      "redirect_document_id": false
     }
-
 ]
 }
