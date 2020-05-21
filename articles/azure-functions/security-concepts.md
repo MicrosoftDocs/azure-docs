@@ -178,7 +178,7 @@ By having a separate scm endpoint, you can control deployments and other advance
 
 ### Continuous security validation
 
-Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/devops/migrate/security-validation-cicd-pipeline).  
+Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## Network security
 
