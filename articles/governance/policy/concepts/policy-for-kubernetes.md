@@ -243,13 +243,13 @@ cluster service principal.
    - Azure CLI
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+     az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
      ```
 
    - Azure PowerShell
 
      ```azure powershell-interactive
-     $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+     $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
 
      @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
      ```
@@ -277,7 +277,7 @@ enabled Kubernetes cluster:
 
    ```bash
    # In below command, replace the following values with those gathered above.
-   #    <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>
+   #    <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
    #    <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
    #    <ServicePrincipalPassword> with password of the service principal created during prerequisites.
    #    <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.
