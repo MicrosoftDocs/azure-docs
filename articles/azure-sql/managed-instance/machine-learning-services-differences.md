@@ -16,7 +16,7 @@ ms.date: 05/27/2020
 
 # Key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server
 
-The functionality of [Machine Learning Services in Azure SQL Managed Instance (preview)](sql-database-managed-instance-machine-learning-services-overview.md) is nearly identical to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Following are some key differences.
+The functionality of [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md) is nearly identical to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Following are some key differences.
 
 > [!IMPORTANT]
 > Machine Learning Services in Azure SQL Managed Instance is currently in public preview. To sign up, see [Sign up for the preview](machine-learning-services-overview.md#signup).
