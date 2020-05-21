@@ -36,13 +36,7 @@ You must create the web application in Azure AD for users to sign in. This web a
 
 5. Enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to `true`.
 
-6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK.
-
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
-
-## User sign-in with Azure Maps Web SDK
-
-Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
+6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK. Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
 ```javascript
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -62,6 +56,10 @@ Add the Azure AD app registration details and the `x-ms-client-id` from the Azur
     });
 </script>
 ```
+
+8. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
+   
+[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
 
