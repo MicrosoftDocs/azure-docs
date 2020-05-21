@@ -10,7 +10,7 @@ ms.author: mblythe
 ms.date: 05/19/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL server
+# Quickstart: Use a Resource Manager template to create an Azure Database for MySQL server
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use an ARM template to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
