@@ -43,11 +43,11 @@ The following entity categories are returned when sending requests to the `/enti
 | DateTime | TimeRange | Time ranges. | `2019-10-01` | Also returned by NER v2.1 |
 | DateTime | Duration | Durations. | `2019-10-01` | Also returned by NER v2.1 |
 | DateTime | Set | Set, repeated times. |  `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
+| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` | Also returned by NER v2.1  |
 | Quantity | Number | Numbers. | `2019-10-01` | Also returned by NER v2.1 |
 | Quantity | Percentage | Percentages.| `2019-10-01` | Also returned by NER v2.1 |
 | Quantity | Ordinal | Ordinal numbers. | `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Age | Ages. | `2019-10-01` |  | Also returned by NER v2.1 |
+| Quantity | Age | Ages. | `2019-10-01` |  Also returned by NER v2.1 |
 | Quantity | Currency | Currencies. | `2019-10-01` | Also returned by NER v2.1 |
 | Quantity | Dimension | Dimensions and measurements. | `2019-10-01` | Also returned by NER v2.1 |
 | Quantity | Temperature | Temperatures. | `2019-10-01` | Also returned by NER v2.1 |
