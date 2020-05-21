@@ -123,7 +123,7 @@
       - name: Overview
         href: database/monitor-tune-overview.md
       - name: Query Performance Insights
-        href: database/query-performance-insight.md 
+        href: database/query-performance-insight-configure.md 
       - name: Intelligent Insights
         href: intelligent-insights.md
       - name: SQL Analytics
@@ -500,7 +500,7 @@
     - name: Business continuity
       items: 
       - name: Configure backup retention using Azure Blob storage
-        href: databas/long-term-backup-retention-configure.md
+        href: database/long-term-backup-retention-configure.md
       - name: Configure geo-replication - Portal
         href: database/active-geo-replication-configure-portal.md
       - name: Configure security for geo-replicas
@@ -539,7 +539,7 @@
       - name: Replicate to SQL Database
         href: database/replication-to-sql-database.md
       - name: SQL Data Sync
-        href: 
+        items: 
         - name: Replicate schema changes
           href: database/sql-data-sync-update-sync-schema.md
         - name: Monitor with OMS
