@@ -19,9 +19,9 @@ ms.service: digital-twins
 
 The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual digital twins connected via **relationships**.
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-The samples in this article use the C# SDK, which can be found here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
 
 ## Create relationships
 
@@ -326,6 +326,9 @@ public class RelationshipRecord
     public string relName;
 }
 ```
+## Manage relationships with CLI
+
+Twins and their relationships can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Next steps
 

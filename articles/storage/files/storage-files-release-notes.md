@@ -43,6 +43,9 @@ The following release notes are for version 10.0.2.0 of the Azure File Sync agen
 Issue fixed in this release:  
 - Storage Sync Agent (FileSyncSvc) crashes frequently after installing the Azure File Sync v10 agent.
 
+> [!Note]  
+>This release was not flighted to servers that are configured to automatically update when a new version becomes available. To install this update, use Microsoft Update or Microsoft Update Catalog (see [KB4522412](https://support.microsoft.com/help/4522412) for installation instructions).
+
 ## Agent version 10.0.0.0
 The following release notes are for version 10.0.0.0 of the Azure File Sync agent (released April 9, 2020).
 

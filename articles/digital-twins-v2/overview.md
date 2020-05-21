@@ -31,8 +31,6 @@ With Azure Digital Twins next generation IoT solutions, customers are better abl
 
 Here is a summary of what you can do with Azure Digital Twins.
 
-Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
-
 ### Represent your real-world business environment
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called [**models**](concepts-models.md). You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
