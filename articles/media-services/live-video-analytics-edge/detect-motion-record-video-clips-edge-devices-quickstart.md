@@ -194,7 +194,7 @@ Note the following in the above message
     ![Resource group](./media/quickstarts/resource-group.png)
  
     ![VM](./media/quickstarts/virtual-machine.png)
-1. Once signed in, on the command prompt, go to the relevant folder (default: /home/lvaadmin/samples/output) and you should see the mp4 files clips there. You can [scp the files](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) over to your local machine and play them back via VLC player or any other mp4 player.
+1. Once signed in, on the command prompt, go to the relevant folder (default: /home/lvaadmin/samples/output) and you should see the mp4 files clips there. You can [scp the files](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) over to your local machine and play them back via [VLC player](https://www.videolan.org/vlc/) or any other mp4 player.
 
     ![Output](./media/quickstarts/samples-output.png)
 
