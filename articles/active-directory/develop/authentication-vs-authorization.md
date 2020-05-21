@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -33,9 +33,9 @@ This article defines authentication and authorization and briefly covers how you
 
 Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you need to add or remove users across multiple apps, apps can delegate that responsibility to a centralized identity provider.
 
-Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as Conditional Access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as **Single Sign On (SSO)**.
+Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as Conditional Access policies that require a user to be in a specific location, the use of [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (sometimes referred to as two-factor authentication or 2FA), as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as **Single Sign On (SSO)**.
 
-Microsoft identity platform simplifies authentication and authorization for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call [Microsoft Graph](https://developer.microsoft.com/graph/), other Microsoft APIs, or APIs that developers have built. For more information, see [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
+Microsoft identity platform simplifies authorization and authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call [Microsoft Graph](https://developer.microsoft.com/graph/), other Microsoft APIs, or APIs that developers have built. For more information, see [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
 
 Following is a brief comparison of the various protocols used by Microsoft identity platform:
 
@@ -47,11 +47,10 @@ Following is a brief comparison of the various protocols used by Microsoft ident
 
 For other topics covering authentication and authorization basics:
 
-* See [Security tokens](security-tokens.md) to learn how access tokens, refresh tokens, and ID tokens are used in authentication and authorization.
+* See [Security tokens](security-tokens.md) to learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication.
 * See [Application model](application-model.md) to learn about the process of registering your application so it can integrate with Microsoft identity platform.
 * See [App sign-in flow](app-sign-in-flow.md) to learn about the sign-in flow of web, desktop, and mobile apps in Microsoft identity platform.
 
-To learn more about the protocols that Microsoft identity platform implements:
-
-* See [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md) for more information on the OpenID Connect and OAuth 2.0 standards.
+* To learn more about the protocols that Microsoft identity platform implements, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
 * See [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md) for more information on how Microsoft identity platform supports Single Sign-On.
+* See [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md) for more information on the different ways you can implement single sign-on in your app.

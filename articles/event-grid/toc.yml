@@ -134,12 +134,12 @@
         href: event-schema-subscriptions.md
   - name: Partner topics
     items:
-    - name: Overview of Partner topics
+    - name: Overview of partner topics
       href: partner-topics-overview.md
     - name: Auth0
       href: auth0-overview.md
-    - name: Become and Event Grid Partner
-    href: partner-onboarding-overview.md
+    - name: Become an Event Grid Partner
+      href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
   - name: Event schema formats

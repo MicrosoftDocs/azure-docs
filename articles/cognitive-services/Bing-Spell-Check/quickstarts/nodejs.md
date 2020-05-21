@@ -37,7 +37,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Create variables for your search parameters and the text you want to check. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
+2. Create variables for your search parameters and the text you want to check. Append your market code after `mkt=`. The market code is the country/region you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
 
     ```javascript
     let mkt = "en-US";

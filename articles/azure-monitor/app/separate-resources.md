@@ -134,7 +134,7 @@ When it has the build info, the Application Insights web module automatically ad
 However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 
 ### Release annotations
-If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
+If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. 
 
 ## Next steps
 
