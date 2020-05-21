@@ -29,7 +29,7 @@ Although this application is written in C#, the API is a RESTful Web service com
      1. Select **Manage NuGet Packages for Solution**.
      1. Search for *Newtonsoft.Json* and install the package.
 
-* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* If you're using Linux/MacOS, you can run this application by using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 

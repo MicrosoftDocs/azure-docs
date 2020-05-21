@@ -26,7 +26,7 @@ Although this application is written in Python, the API is a RESTful Web service
 
 ## Initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following import statement:
+1. Create a new Python file in your favorite IDE or editor, and add the following import statements:
 
    ```python
    import requests
@@ -73,13 +73,13 @@ Although this application is written in Python, the API is a RESTful Web service
 
 ## Send the request and read the response
 
-1. Send the POST request using the requests library.
+1. Send the POST request by using the requests library.
 
     ```python
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Get the JSON response, and print it.
+2. Get the JSON response and print it.
 
     ```python
     json_response = response.json()

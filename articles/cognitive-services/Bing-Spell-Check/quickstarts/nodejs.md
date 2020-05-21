@@ -54,7 +54,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
 ## Create the request parameters
 
-1. Create your request parameters by creating a new object with a `POST` method. Add your path by appending your endpoint path, and query string. Then, add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+Create your request parameters by creating a new object with a `POST` method. Add your path by appending your endpoint path, and query string. Then, add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
 ```javascript
 let request_params = {
@@ -71,7 +71,7 @@ let request_params = {
 
 ## Create a response handler
 
-Create a function called `response_handler` to take the JSON response from the API, and print it. Create a variable for the response body. Append the response when a `data` flag is received, using `response.on()`. When a `end` flag is received, print the JSON body to the console.
+Create a function called `response_handler` to take the JSON response from the API, and print it. Create a variable for the response body. Append the response when a `data` flag is received by using `response.on()`. After an `end` flag is received, print the JSON body to the console.
 
 ```javascript
 let response_handler = function (response) {
@@ -91,7 +91,7 @@ let response_handler = function (response) {
 
 ## Send the request
 
-Call the API using `https.request()` with your request parameters and response handler. Write your text to the API, and end the request afterwards.
+Call the API using `https.request()` with your request parameters and response handler. Write your text to the API, and then  end the request.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -104,7 +104,7 @@ req.end ();
 
 1. Build and run your project.
 
-1. If you're using the command line, use the following commands to build and run the application:
+1. If you're using the command line, use the following command to build and run the application:
 
    ```bash
    node <FILE_NAME>.js
