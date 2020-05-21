@@ -41,11 +41,13 @@ In Unity, open the `quickstarts/apps/unity/ou-basic` project.
 
 ### Run the sample app
 
-Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you'll see a message indicating that the Object Watcher has been initialized. However, you'll need to add your model to the app.
+Turn on the device, click **All Apps**, and open the app. After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized. However, you'll need to add your model to the app.
 
 [!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-understanding-quickstart-unity-setup-device-portal.md)]
 
 [!INCLUDE [Unity upload your model](../../../includes/object-understanding-quickstart-unity-upload-model.md)]
+
+Note that by default the app looks for object in the current field of view, then tracks them once detected. An instance will be removed when it's 6 meters away from current user location. The debug text shows details about an instance, like id, updated timestamp and surface coverage ratio.
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-understanding-quickstart-unity-troubleshooting.md)]
 
