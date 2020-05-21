@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/08/2020
+ms.date: 05/20/2020
 ---
 
 # Apache components and versions available for Azure HDInsight
@@ -38,7 +38,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.4, 2.3.1*   | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (See Note below) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
@@ -75,7 +75,9 @@ The following table lists the versions of HDInsight that are available in the Az
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | December 31, 2020 |December 31, 2020 |Yes |Yes |
 
-Spark 2.1, 2.2 & Kafka 1.0 support will expire on June 30, 2020.
+Support for following Kafka & Spark versions will expire on June 30, 2020.
+- HDInsight 3.6: Spark 2.1, 2.2 & Kafka 1.0 
+- HDInsight 4.0: Spark 2.3.1 & Kafka 1.1 
 
 > [!NOTE]  
 > After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
