@@ -103,6 +103,9 @@ Configure a backup policy for the vault.
 
      !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
+    >[!NOTE]
+    > Only VMs in the same region and subscription as that of the vault will be available to configure backup.
+
 5. In **Backup**, click **Enable backup**. This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
 
      !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)

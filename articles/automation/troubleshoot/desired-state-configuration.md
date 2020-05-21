@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Automation State Configuration
-description: This article provides information on troubleshooting Azure Automation State Configuration.
+title: Troubleshoot Azure Automation State Configuration issues
+description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Troubleshoot Azure Automation State Configuration issues
 
-This article provides information on troubleshooting issues that arise while you compile or deploy configurations in Azure Automation State Configuration.
+This article provides information on troubleshooting and resolving issues that arise while you compile or deploy configurations in Azure Automation State Configuration. For general information about the State Configuration feature, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
 
 ## Diagnose an issue
 
@@ -287,7 +287,7 @@ This message occurs when there's an issue with connectivity between the node and
 
 ### Resolution
 
-Determine if your node is in a virtual private network (VPN) or has other issues connecting to Azure. See [Troubleshoot errors when onboarding solutions](onboarding.md).
+Determine if your node is in a virtual private network (VPN) or has other issues connecting to Azure. See [Troubleshoot feature deployment issues](onboarding.md).
 
 ## <a name="failure-linux-temp-noexec"></a>Scenario: Failure with a general error when applying a configuration in Linux
 
