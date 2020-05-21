@@ -245,14 +245,14 @@
           href: database/geo-distributed-application-configure-tutorial.md
         - name: Active geo-replication
           href: database/active-geo-replication-configure-portal.md         
-     - name: Security
-       items:       
-        - name: Configure security
-          href: database/secure-database-tutorial.md
-        - name: Rotate TDE BYOK keys
-          href: database/transparent-data-encryption-byok-key-rotation.md
-        - name: Remove TDE protector
-          href: database/transparent-data-encryption-byok-remove-tde-protector.md
+    - name: Security
+      items:
+      - name: Configure security
+        href: database/secure-database-tutorial.md
+      - name: Rotate TDE BYOK keys
+        href: database/transparent-data-encryption-byok-key-rotation.md
+      - name: Remove TDE protector
+        href: database/transparent-data-encryption-byok-remove-tde-protector.md
      - name: Move data
         items: 
         - name: Migrate using DMS
