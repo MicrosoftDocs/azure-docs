@@ -6,7 +6,7 @@ localization_priority: Priority
 
 # Make your solutions available in Microsoft AppSource and within Office
 
-Microsoft AppSource provides a convenient location for you to upload new Office and SharePoint Add-ins, Microsoft Teams apps, and Power BI visuals that provide solutions for both consumers and businesses. When you add your add-in solution to Microsoft AppSource, you also make it available in the in-product experience within Office. To include your solution in Microsoft AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see:
+Microsoft AppSource provides a convenient location for you to upload new Office and SharePoint Add-ins, Microsoft Teams apps, and Power BI visuals that provide solutions for both consumers and businesses. When you add your add-in solution to Microsoft AppSource, you also make it available in the in-product experience within Office. To include your solution in Microsoft AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see: 
 
 - [Create a developer account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/office). After you create your account, it goes through an approval process. 
   - For details about the registration process, see [Opening a developer account](open-a-developer-account.md).
@@ -24,7 +24,7 @@ For information about how to submit Power BI custom visuals to Microsoft AppSour
 After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit your solution for approval. During the approval process, you can make changes to your submission, but you can’t submit them for publishing until your current submission is complete.
 
 > [!NOTE] 
-> You must submit Microsoft Teams apps for pre-approval before you submit them to Microsoft AppSource via Partner Center. For details, see [Microsoft Teams app pre-approval](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-approval).
+> If you're submitting a Microsoft Teams app, see [Tips for a successful app submission](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-approval). This will help to ensure timely approval of your submission.
 
 In order for your submission to be approved:
 
