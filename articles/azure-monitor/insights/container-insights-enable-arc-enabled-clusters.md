@@ -16,9 +16,12 @@ Azure Monitor for containers can be enabled for one or more existing deployments
 Azure Monitor for containers supports monitoring Kubernetes as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
+
 - [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
+
+- Container Runtime: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
 
 - Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS).
 
@@ -105,7 +108,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1`
 
-3. To identify the **kube-context** of your cluster, after successful `oc login` on to your cluster, run the command `kubectl config current-context` and copy the value.
+3. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
 
 4. Run the following command to enable monitoring, replacing the value for the `resourceIdOfAzureArcCluster` and `workspaceResourceId` parameter:
 
@@ -120,7 +123,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 
 ### Integrate with default workspace
 
-The following step enables monitoring of your Arc enabled Kubernetes cluster using the PowerShell script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
+The following step enables monitoring of your Arc enabled Kubernetes cluster using the PowerShell script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
 
 ```powershell
 .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
@@ -148,7 +151,7 @@ Perform the following steps to enable monitoring using the provided bash script.
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh`
 
-3. To identify the **kube-context** of your cluster, after successful `oc login` on to your cluster, run the command `kubectl config current-context` and copy the value.
+3. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
 
 Run the following command to enable monitoring, replacing the value for the `resourcedIdOfAzureArcCluster` and `workspaceResourceId` parameters:
 
@@ -162,7 +165,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ### Integrate with default workspace
 
-The following step enables monitoring of your Arc enabled Kubernetes cluster using the bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
+The following step enables monitoring of your Arc enabled Kubernetes cluster using the bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
 
 ```bash
 bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context>
