@@ -106,6 +106,10 @@ When you no longer need a budget, delete it by using one the following methods:
 
 Navigate to **Cost Management + Billing** > select a billing scope > **Budgets** > select a budget > then select **Delete budget**.
 
+### Command line
+
+You can remove the budget using Azure CLI or Azure PowerShell.
+
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
