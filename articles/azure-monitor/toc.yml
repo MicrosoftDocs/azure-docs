@@ -118,7 +118,7 @@
   items:
   - name: Scenarios
     items:
-    - name: Monitor Azure service
+    - name: Monitor Azure resource
       href: insights/monitor-azure-resource.md
     - name: Monitor Azure virtual machines
       href: insights/monitor-vm-azure.md
