@@ -83,5 +83,5 @@ If you don't want to enable Azure Multi-Factor Authentication for all users and 
 ## Next steps
 
 * For more information on costs, see [Azure Multi-Factor Authentication pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
-* [What is Conditional Access]((../conditional-access/overview.md))
+* [What is Conditional Access](../conditional-access/overview.md)
 
