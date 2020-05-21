@@ -82,7 +82,7 @@ When the send operation is completed successfully,
 
 ### Receiving a message from a Queue
 
-The receive function on the Service Bus Explorer permits receiving a single message at a time. The receive operation is performed using the ***ReceiveAndDelete** mode.
+The receive function on the Service Bus Explorer permits receiving a single message at a time. The receive operation is performed using the **ReceiveAndDelete** mode.
 
 > [!IMPORTANT]
 > Please note that the Receive operation performed by the Service Bus explorer is a ***destructive receive***, i.e. the message is removed from the queue when it is displayed on the Service Bus Explorer tool.
