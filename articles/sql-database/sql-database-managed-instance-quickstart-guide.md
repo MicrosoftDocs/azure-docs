@@ -7,9 +7,9 @@ ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlr
+author: davidtrigano
+ms.author: datrigan
+ms.reviewer: vanto
 ms.date: 07/11/2019
 ---
 # Getting started with Azure SQL Database managed instance
