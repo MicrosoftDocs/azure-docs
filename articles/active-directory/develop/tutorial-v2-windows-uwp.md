@@ -41,6 +41,7 @@ This guide uses the following NuGet package:
 |Library|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
+|[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph Client Library|
 
 ## Set up your project
 
@@ -63,14 +64,15 @@ This guide creates an application that displays a button that queries Graph API 
 ### Add Microsoft Authentication Library to your project
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-1. Copy and paste the following command in the **Package Manager Console** window:
+1. Copy and paste the following commands in the **Package Manager Console** window:
 
     ```powershell
     Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Graph
     ```
 
    > [!NOTE]
-   > This command installs [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Microsoft identity platform.
+   > The first command installs [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Microsoft identity platform. The second command installs [Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-dotnet) that authenticate requests to Microsoft Graph and make calls to the service.   
 
 ### Create your application’s UI
 
@@ -99,6 +101,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
 
     ```csharp
     using Microsoft.Identity.Client;
+    using Microsoft.Graph;
     using System.Diagnostics;
     using System.Threading.Tasks;
     ```
@@ -108,13 +111,11 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
     ```csharp
     public sealed partial class MainPage : Page
     {
-        //Set the API Endpoint to Graph 'me' endpoint
-        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
-
+       
         //Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information.
+        // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant with the information about the accounts allowed to sign in in your application:
@@ -122,22 +123,23 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         //   - for any Work or School accounts, use organizations
         //   - for any Work or School accounts, or Microsoft personal account, use common
         //   - for Microsoft Personal account, use consumers
-        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
+        private const string ClientId = "[Enter client ID of the app as obtained from Azure Portal, e.g. 4a1aa1d5-c567-49d0-ad0b-cd957a47f842]";        
 
-        public IPublicClientApplication PublicClientApp { get; }
+        public IPublicClientApplication PublicClientApp { get; } 
 
         public MainPage()
         {
-          this.InitializeComponent();
+            this.InitializeComponent();
 
-          PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
+            PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(AadAuthorityAudience.AzureAdAndPersonalMicrosoftAccount)
                 .WithLogging((level, message, containsPii) =>
                 {
                     Debug.WriteLine($"MSAL: {level} {message} ");
                 }, LogLevel.Warning, enablePiiLogging:false,enableDefaultPlatformLogging:true)
-                .WithUseCorporateNetwork(true)
-                .Build();
+                .WithUseCorporateNetwork(false)
+                .WithRedirectUri(Constant.PublicClientRedirectUri)
+                .Build();                
         }
 
         /// <summary>
@@ -145,55 +147,59 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-         AuthenticationResult authResult = null;
-         ResultText.Text = string.Empty;
-         TokenInfoText.Text = string.Empty;
+            AuthenticationResult authResult = null;
+            ResultText.Text = string.Empty;
+            TokenInfoText.Text = string.Empty;
 
-         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.
-         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
-         IAccount firstAccount = accounts.FirstOrDefault();
+            // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.            
+            IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false); 
+            IAccount firstAccount = accounts.FirstOrDefault();
 
-         try
-         {
-          authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+            try
+            {
+                authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                                   .ExecuteAsync();
-         }
-         catch (MsalUiRequiredException ex)
-         {
-          // A MsalUiRequiredException happened on AcquireTokenSilent.
-          // This indicates you need to call AcquireTokenInteractive to acquire a token
-          System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+            }
+            catch (MsalUiRequiredException ex)
+            {
+                // A MsalUiRequiredException happened on AcquireTokenSilent. 
+                // This indicates you need to call AcquireTokenInteractive to acquire a token
+                System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
-          try
-          {
-           authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
+                try
+                {
+                    authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
                                                       .ExecuteAsync()
                                                       .ConfigureAwait(false);
-           }
-           catch (MsalException msalex)
-           {
-            await DisplayMessageAsync($"Error Acquiring Token:{System.Environment.NewLine}{msalex}");
-           }
-          }
-          catch (Exception ex)
-          {
-           await DisplayMessageAsync($"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}");
-           return;
-          }
+                }
+                catch (MsalException msalex)
+                {
+                    await DisplayMessageAsync($"Error Acquiring Token:{System.Environment.NewLine}{msalex}");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayMessageAsync($"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}");
+                return;
+            }
 
-          if (authResult != null)
-          {
-           var content = await GetHttpContentWithToken(graphAPIEndpoint,
-                                                       authResult.AccessToken).ConfigureAwait(false);
+            if (authResult != null)
+            {
+                var graphServiceClient = GetGraphServiceClient(authResult.AccessToken);
+                
+                User graphUser = await graphServiceClient.Me.Request().GetAsync();
 
-           // Go back to the UI thread to make changes to the UI
-           await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-           {
-            ResultText.Text = content;
-            DisplayBasicTokenInfo(authResult);
-            this.SignOutButton.Visibility = Visibility.Visible;
-           });
-          }
+                // Go back to the UI thread to make changes to the UI
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    ResultText.Text = "@odata.context: " + graphUser.AdditionalData["@odata.context"] + "\nBusiness Phone: " 
+                                      + graphUser.BusinessPhones.FirstOrDefault()+ "\nDisplay Name: " + graphUser.DisplayName 
+                                      + "\nGiven Name: " + graphUser.GivenName + "\nid: " + graphUser.Id
+                                      + "\nUser Principal Name: " + graphUser.UserPrincipalName;
+                    DisplayBasicTokenInfo(authResult);
+                    this.SignOutButton.Visibility = Visibility.Visible;
+                });
+            }
         }
     }
     ```
@@ -216,43 +222,31 @@ Eventually, the `AcquireTokenSilent` method fails. Reasons for failure include a
 
 * Your application presents a visual indication to users that they need to sign in. Then they can select the right time to sign in. The application can retry `AcquireTokenSilent` later. Use this approach when users can use other application functionality without disruption. An example is when offline content is available in the application. In this case, users can decide when they want to sign in. The application can retry `AcquireTokenSilent` after the network was temporarily unavailable.
 
-### Call Microsoft Graph API by using the token you just obtained
+### Instantiate Microsoft Graph Service Client by using the token you just obtained
 
 Add the following new method to *MainPage.xaml.cs*:
 
    ```csharp
-   /// <summary>
-   /// Perform an HTTP GET request to a URL using an HTTP Authorization header
-   /// </summary>
-   /// <param name="url">The URL</param>
-   /// <param name="token">The token</param>
-   /// <returns>String containing the results of the GET operation</returns>
-   public async Task<string> GetHttpContentWithToken(string url, string token)
-   {
-       var httpClient = new System.Net.Http.HttpClient();
-       System.Net.Http.HttpResponseMessage response;
-       try
-       {
-           var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-           // Add the token in Authorization header
-           request.Headers.Authorization =
-             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-           response = await httpClient.SendAsync(request);
-           var content = await response.Content.ReadAsStringAsync();
-           return content;
-       }
-       catch (Exception ex)
+         /// <summary>
+        /// Instantiating GraphServiceClient using the access token.
+        /// </summary>
+        /// <param name="token">The token</param>
+        /// <returns>GraphServiceClient</returns>
+        private GraphServiceClient GetGraphServiceClient(string token)
         {
-           return ex.ToString();
-       }
-    }
+            GraphServiceClient graphServiceClient = new GraphServiceClient(new DelegateAuthenticationProvider((requestMessage) =>
+            {
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                return Task.FromResult(0);
+            }));
+            return graphServiceClient;
+        }
    ```
 
- This method makes a `GET` request from Graph API by using an `Authorization` header.
 
 #### More information on making a REST call against a protected API
 
-In this sample application, the `GetHttpContentWithToken` method make an HTTP `GET` request against a protected resource that requires a token. Then the method returns the content to the caller. This method adds the acquired token in the **HTTP Authorization** header. For this sample, the resource is the Microsoft Graph API **me** endpoint, which displays the user's profile information.
+In this sample application, the `GetGraphServiceClient` method instantiates GraphServiceClient using access token. Then the GraphServiceClient is used to get user's profile information from **me** endpoint.
 
 ### Add a method to sign out the user
 
