@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -65,15 +65,15 @@ Next, get the well-known config URL for one of your Azure AD B2C user flows. You
 1. Select the hyperlink to browse to the OpenID Connect well-known configuration page.
 1. In the page that opens in your browser, record the `issuer` value, for example:
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     You use this value in the next section when you configure your API in Azure API Management.
 
 You should now have two URLs recorded for use in the next section: the OpenID Connect well-known configuration endpoint URL and the issuer URI. For example:
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## Configure inbound policy in Azure API Management
@@ -95,12 +95,12 @@ You're now ready to add the inbound policy in Azure API Management that validate
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -228,7 +228,7 @@ Similarly, to support multiple token issuers, add their endpoint URIs to the `<i
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
@@ -249,14 +249,14 @@ The following example APIM inbound policy illustrates how to accept tokens issue
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

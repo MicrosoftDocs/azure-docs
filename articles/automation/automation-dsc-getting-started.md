@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Automation State Configuration
-description: Explanation and examples of the most common tasks in Azure Automation State Configuration
+description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice: dsc

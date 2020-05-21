@@ -20,6 +20,7 @@ The Autoscale feature uses two types of conditions to trigger scaling events: th
 
 The following video provides an overview of the challenges which Autoscale solves and how it can help you to control costs with HDInsight.
 
+
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
 ### Choosing load-based or schedule-based scaling
