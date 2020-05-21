@@ -24,7 +24,7 @@ For information about how to submit Power BI custom visuals to Microsoft AppSour
 After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit your solution for approval. During the approval process, you can make changes to your submission, but you can’t submit them for publishing until your current submission is complete.
 
 > [!NOTE] 
-> If you are submitting a Teams app, see [these tips for a rapid approval](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-approval).
+> If you're submitting a Microsoft Teams app, see [Tips for a successful app submission](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-approval). This will help to ensure timely approval of your submission.
 
 In order for your submission to be approved:
 
