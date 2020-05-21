@@ -19,9 +19,7 @@ ms.custom: aaddev
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
-The introduction of the Microsoft Authentication Library for JavaScript (MSAL.js) 2.0 brings support for the authorization code flow with PKCE and CORS to single-page applications on the Microsoft identity platform.
-
-Follow the steps in the sections below the steps to migrate your MSAL.js 1.x application using the implicit grant to MSAL.js 2.x and the auth code flow.
+The introduction of the Microsoft Authentication Library for JavaScript (MSAL.js) 2.0 brings support for the authorization code flow with PKCE and CORS to single-page applications on the Microsoft identity platform. Follow the steps in the sections below to migrate your MSAL.js 1.x application using the implicit grant to MSAL.js 2.x and the auth code flow.
 
 MSAL.js 2.0 improves on MSAL.js 1.x by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
