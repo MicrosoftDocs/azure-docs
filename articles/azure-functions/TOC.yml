@@ -352,12 +352,16 @@
     - name: Blob storage
       items:
         - name: Overview
+          displayName: Blob storage
           href: functions-bindings-storage-blob.md
         - name: Trigger
+          displayName: Blob storage
           href: functions-bindings-storage-blob-trigger.md
         - name: Input
+          displayName: Blob storage
           href: functions-bindings-storage-blob-input.md
         - name: Output
+          displayName: Blob storage
           href: functions-bindings-storage-blob-output.md
     - name: Azure Cosmos DB
       items:
@@ -383,10 +387,13 @@
       items:
         - name: Overview
           href: functions-bindings-event-grid.md
+          displayName: Event Grid
         - name: Trigger
           href: functions-bindings-event-grid-trigger.md
+          displayName: Event Grid
         - name: Output
           href: functions-bindings-event-grid-output.md
+          displayName: Event Grid
     - name: Event Hubs
       items:
       - name: Overview
@@ -413,10 +420,13 @@
       items:
         - name: Overview
           href: functions-bindings-http-webhook.md
+          displayName: HTTP
         - name: Trigger
           href: functions-bindings-http-webhook-trigger.md
+          displayName: HTTP
         - name: Output
           href: functions-bindings-http-webhook-output.md
+          displayName: HTTP
     - name: Microsoft Graph
       href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
@@ -427,20 +437,26 @@
       items:
         - name: Overview
           href: functions-bindings-storage-queue.md
+          displayName: Queue storage
         - name: Trigger
           href: functions-bindings-storage-queue-trigger.md
+          displayName: Queue storage
         - name: Output
           href: functions-bindings-storage-queue-output.md
+          displayName: Queue storage
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
       items:
       - name: Overview
         href: functions-bindings-service-bus.md
+        displayName: Service Bus
       - name: Trigger
         href: functions-bindings-service-bus-trigger.md
+        displayName: Service Bus
       - name: Output
         href: functions-bindings-service-bus-output.md
+        displayName: Service Bus
     - name: SignalR Service
       items:
       - name: Overview

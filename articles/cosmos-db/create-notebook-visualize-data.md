@@ -136,7 +136,7 @@ df_cosmos.head(10)
 
 In this section, you will run some queries on the data retrieved.
 
-* **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country and display 5 items from the results. In a new notebook cell, run the following code:
+* **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country/region and display 5 items from the results. In a new notebook cell, run the following code:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -165,16 +165,16 @@ In this section, you will run some queries on the data retrieved.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
+1. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country/region information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -182,7 +182,7 @@ In this section, you will run some queries on the data retrieved.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualize the sales revenue of different countries on a world map by running the following code in a new notebook cell:
+1. Visualize the sales revenue of different countries/regions on a world map by running the following code in a new notebook cell:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -228,9 +228,9 @@ In this section, you will run some queries on the data retrieved.
    show(p)
    ```
 
-   The output displays the world map with different colors. The colors darker to lighter represent the countries with highest revenue to lowest revenue.
+   The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   ![Countries revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Countries/regions revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
