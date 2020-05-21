@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Sign-on URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
-    1. In the **Issuer** textbox, paste **Login URL** value, which you have copied from the Azure portal.
+    1. In the **Issuer** textbox, paste **Azure AD Identifier** value, which you have copied from the Azure portal.
 
     1. Open the downloaded **Certificate(Base64)** file from the Azure portal into Notepad and copy content of certificate file and paste it into the **Public certificate** textbox.
 
