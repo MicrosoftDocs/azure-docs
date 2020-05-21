@@ -31,7 +31,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
-We are integrating the crash dump analysis (CDA) detection capabilities into the [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless) feature. 
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into the [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless) feature. 
 
 Some of the benefits of this transition:
 
@@ -43,7 +43,7 @@ Some of the benefits of this transition:
 
 - **Reduces requirements on your Log Analytics workspace** - Crash dumps and associated potentially sensitive data will no longer be uploaded to your log analytics workspace.
 
-Fileless attack detection analytics brings improved versions of the following security alerts: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
+Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
 
 
 
