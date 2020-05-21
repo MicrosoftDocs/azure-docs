@@ -1,29 +1,32 @@
 ---
-title: 'How To: Create a Custom Commands application - Speech service'
+title: 'Quickstart: Create an end to end voice assistant using Custom Commands'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create and test a hosted Custom Commands application.
+description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
 author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/20/2020
 ms.author: sausin
 ---
 
-# Create a Custom Commands app
-
-In this article, you will learn how to create and test a basic Custom Commands application.
-The created application will have a default **Fallback command** and will process utterances like "Hi" and reply with a simple message "Hi back". You will also learn how to configure Luis resources for the application.
+# Create an end to end voice assistant using Custom Commands
+In this article you will create a Custom Commands application and integrate it to a UWP to have an end to end voice assistant.
 
 ## Prerequisites
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * Download the sample
+[HospitalityDemo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands/hospitality/skill).
+
 
   > [!NOTE]
   > At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and neur regions.
+
+
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -39,8 +42,7 @@ The created application will have a default **Fallback command** and will proces
 
    The default view is a list of the Custom Commands applications you have under your selected subscription.
 
-## Create a Custom Commands project
-
+## Import an existing application as a new Custom Commands project
 1. Select **New project** to create a project.
 
    > [!div class="mx-imgBorder"]
@@ -48,6 +50,7 @@ The created application will have a default **Fallback command** and will proces
 
 1. In the **Name** box, enter a project name.
 1. In the **Language** list, select a language.
+1. Select **Browse files** and in the browse window, select the HospitalityDemo.json file.
 1.  In the **LUIS authoring resource** list, select an authoring resource. If there are no valid authoring resources,    create one by selecting  **Create new LUIS authoring resource**.
 
        > [!div class="mx-imgBorder"]
@@ -63,35 +66,25 @@ The created application will have a default **Fallback command** and will proces
       > [!NOTE]
       > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
 
+
 1. Next, select **Create** to create your project.
 1. After the project is created, select your project.
 You should now see overview of your new Custom Commands application.
 
-## Update LUIS resources (optional)
+## Try out some voice commands
+1. Select **Train** present at the top of the right pane.
+1. Once training is completed, select **Test**.
+    1. Turn on the tv
+    1. Set the temperature to 80 degrees
+    1. Turn it off
+    1. Set an alarm
 
-You can update the authoring resource that you selected in the **New project** window, and set a prediction resource. Prediction resource is used for recognition when your Custom Commands application is published. You don't need a prediction resource during the development and testing phases.
+## Integrate Custom Commands application in an assistant
 
-1. Select **Settings** in the left pane and select  **LUIS resources** in the middle pane.
-1. Select a prediction resource, or create one by selecting **Create new resource**.
-1. Select **Save**.
-    
-    > [!div class="mx-imgBorder"]
-    > ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+TODO - Refer to How-To speech sdk
+In the section above, you used the existing chat panel in the browser window. Next, let's access the Custom Commands application from a custom client.
 
-
-> [!NOTE]
-> Because the authoring resource supports only 1,000 prediction endpoint requests per month, you will mandatorily need to set a LUIS prediction resource before publishing your Custom Commands application.
-
-## Test Fallback command
-The created application has a default command added by name of **Fallback Command**. This handles utterances like "Hi", "Help me".
-
-1. Select **Train** at the top of the right pane.
-
-1. Once training completes, select **Test**.
-    - Input: Hi
-    - Output: Add your fallback response here
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How To: Add simple commands to Custom Command application](./how-to-custom-commands-add-basic-commands.md)
+1. For the application to be accessible outside the Custom Commands portal, it first needs to be published. Select **Publish** present on top of the right pane.
+1. Once publish completes, a new window will appear with the 
+1. If you are developing on windows, we recommend you first use the Windows Voice Assistant Client. Download it [here](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/releases/download/20200519.7/WindowsVoiceAssistantClient-20200519.7.zip).
+1. Next extract the files, and launch **VoiceAssistantClient.exe**

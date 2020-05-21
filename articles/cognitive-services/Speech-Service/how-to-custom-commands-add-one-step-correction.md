@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.author: sausin
 ---
 

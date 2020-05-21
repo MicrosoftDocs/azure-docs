@@ -1,7 +1,7 @@
 ---
 title: 'How To: Add simple commands to Custom Commands application - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create and test a hosted Custom Commands application.
+description: In this article, you will add parameter to an existing custom commands application.
 services: cognitive-services
 author: singhsaumya
 manager: yetian
@@ -17,7 +17,7 @@ In this article, you will be adding parameters to the commands.
 
 ## Prerequisites
 > [!div class="checklist"]
-> * 
+> * [How To: Create an empty application](./how-to-custom-commands-create-basic-application.md)
 
 ## Configure parameters for TurnOn command
 Let's edit the existing **TurnOn** command to turn on and turn off multiple devices.

@@ -3,13 +3,13 @@ title: 'How To: Configure parameter as external catalog entries'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to configure a string parameter to refer to catalog exposed over a web endpoint.
 services: cognitive-services
-author: sausin
+author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: singhsaumya
+ms.author: sausin
 ---
 
 # Configure parameter as external catalog entries
