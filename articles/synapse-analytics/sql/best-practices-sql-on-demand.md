@@ -18,9 +18,9 @@ In this article, you'll find a collection of best practices for using SQL on-dem
 
 ## General considerations
 
-SQL on-demand allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. As such, all files that the query targets are external to SQL on-demand. Everything related to reading files from storage might have an impact on query performance.
+SQL on-demand allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to SQL on-demand. Everything related to reading files from storage might have an impact on query performance.
 
-## Colocate Azure storage account and SQL on-demand
+## Colocate your Azure storage account and SQL on-demand
 
 To minimize latency, colocate your Azure storage account and your SQL on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
@@ -41,7 +41,7 @@ If possible, you can prepare files for better performance:
 
 - Convert CSV and JSON to Parquet. Parquet is a columnar format. Because it's compressed, its file sizes are smaller than CSV or JSON files that contain the same data. SQL on-demand will need less time and fewer storage requests to read it.
 - If a query targets a single large file, you'll benefit from splitting it into multiple smaller files.
-- Try keeping your CSV file size below 10 GB.
+- Try to keep your CSV file size below 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names. See [Use filename and filepath functions to target specific partitions](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
@@ -51,7 +51,7 @@ You can use wildcards in your path to [query multiple files and folders](develop
 
 ## Use appropriate data types
 
-The data types you use in your query affect performance. You can get better performance if you: 
+The data types you use in your query affect performance. You can get better performance if you follow these guidelines: 
 
 - Use the smallest data size that will accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
@@ -116,7 +116,7 @@ For more information, read about the [filename](develop-storage-files-overview.m
 > [!NOTE]
 > Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
 
-If your stored data isn't partitioned, consider partitioning. That way you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the necessary files.
+If your stored data isn't partitioned, consider partitioning it. That way you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the necessary files.
 
 ## Use PARSER_VERSION 2.0 to query CSV files
 
