@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 05/21/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -84,30 +84,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | Region  |  Value | 
 	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/sso/<accountcode>`|
-	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|    
+	| United States   | `https://us-api.mimecast.com/sso/<accountcode>`|
 	| South Africa    | `https://za-api.mimecast.com/sso/<accountcode>`|
 	| Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
 	| Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
 
-	b. In the **Reply URL** textbox, type a URL: 
+	> [!NOTE]
+	> You will find the `accountcode` value in the Mimecast Personal Portal under **Account** > **Settings** > **Account Code**. Append the `accountcode` to the Identifier.
 
-	| Region  |  Value | 
-	| --------------- | --------------- | 
+	b. In the **Reply URL** textbox, type a URL:
+
+	| Region  |  Value |
+	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/login/saml`|
 	| United States   | `https://us-api.mimecast.com/login/saml`|
 	| South Africa    | `https://za-api.mimecast.com/login/saml`|
 	| Australia       | `https://au-api.mimecast.com/login/saml`|
 	| Offshore        | `https://jer-api.mimecast.com/login/saml`|
 
-	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](https://www.mimecast.com/customer-success/technical-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. If you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** textbox, type a URL: 
+    In the **Sign-on URL** textbox, type a URL:
 
-	| Region  |  Value | 
-	| --------------- | --------------- | 
+	| Region  |  Value |
+	| --------------- | --------------- |
 	| Europe          | `https://eu-api.mimecast.com/login/saml`|
 	| United States   | `https://us-api.mimecast.com/login/saml`|
 	| South Africa    | `https://za-api.mimecast.com/login/saml`|
@@ -238,4 +238,3 @@ When you click the Mimecast Personal Portal tile in the Access Panel, you should
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Mimecast Personal Portal with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
