@@ -801,4 +801,4 @@ You can test a manual failover by stopping the cluster on the hn1-db-0 node:
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
+* [SAP HANA VM storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
