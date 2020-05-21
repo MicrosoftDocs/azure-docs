@@ -1,20 +1,17 @@
 ---
-title: Create an Azure virtual machine offer in the Azure Marketplace
-description: Learn how to create a virtual machine offer in the Azure Marketplace with the required SKU.
+title: Create an Azure Virtual Machine offer in Azure Marketplace
+description: Learn how to create a virtual machine offer in Azure Marketplace with the required SKU.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ---
 
-# Create an Azure virtual machine offer in the Azure Marketplace
+# Create an Azure Virtual Machine offer in Azure Marketplace
 
-> [!IMPORTANT]
-> We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Create Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) in Cloud Partner Portal to manage your offers.
-
-This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows- and Linux-based virtual machines that contain an operating system, virtual hard disk (VHD), and up to 16 data disks. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish an Azure Virtual Machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows- and Linux-based virtual machines that contain an operating system, virtual hard disk (VHD), and up to 16 data disks. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
@@ -29,7 +26,7 @@ Publishing to Azure Marketplace has the following benefits:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure Virtual Machine material:
 
 - Quickstart guides
   - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
@@ -192,32 +189,11 @@ Provide a longer description of your offer. This can be up to 256 characters lon
 
 #### Description
 
-Provide a detailed description of your offer, up to 3,000 characters. This is displayed to customers in the commercial marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits of your offer
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value proposition of your offer in the first few sentences of your description. Include the following items:
-  - Description of your offer.
-  - The type of user that benefits from your offer.
-  - Customer needs or issues that the offer addresses.
-- Remember that the first few sentences might be displayed in search engine results.
-- Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
-- Use industry-specific or benefit-based words.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy link
 
@@ -389,7 +365,7 @@ On this tab, you'll configure the following:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
 
 If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
 
@@ -527,7 +503,7 @@ This page includes links to perform operations on this offer based on the select
 - If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
 - If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven't completed publisher sign-off - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If you haven't completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## Marketplace examples
 
