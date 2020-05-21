@@ -114,7 +114,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 >[!NOTE]
->The [Azure Monitor data refence](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/) includes details on all tables stored in Azure Monitor Logs. Filter the TOC for WVD to find all tables related to Windows Virtual Desktop.
+>For more detailed information about the tables stored in Azure Monitor Logs, see the[Azure Monitor data refence](https://docs.microsoft.com/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
 
 ## Cadence for sending diagnostic events
 
