@@ -297,7 +297,7 @@
       href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-  - name: Log queries
+  - name: Log Analytics
     items:
     - name: Log query overview
       displayname: log query, log queries, query, queries
@@ -418,8 +418,6 @@
       href: platform/autoscale-resource-log-schema.md 
   - name: Alerts
     items:
-    - name: Troubleshoot alerts
-      href: platform/alerts-troubleshoot.md
     - name: Application alert rules
       items:
       - name: Availability
@@ -454,7 +452,7 @@
         href: platform/migrate-management-alerts.md
       - name: Webhook schema
         href: platform/activity-log-alerts-webhook.md
-    - name: Service health alerts in activity log
+    - name: Service health alerts
       items:
       - name: View notifications
         href: platform/service-notifications.md
@@ -480,8 +478,6 @@
         href: platform/action-groups-create-resource-manager-template.md
       - name: Implement a Logic App action
         href: platform/action-groups-logic-app.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
     - name: Alert user interface
       items:
       - name: About smart groups
@@ -494,6 +490,22 @@
         href: platform/alerts-managing-alert-states.md  
       - name: Manage alerts from other monitoring services
         href: platform/alerts-managing-nagios-zabbix-scom.md   
+    - name: Alert API
+      href: platform/api-alerts.md
+    - name: Troubleshoot alerts
+      href: platform/alerts-troubleshoot.md
+    - name: IT Service Management
+      items:
+      - name: IT Service Management Connector
+        href: platform/itsmc-overview.md
+      - name: IT Service Management connections
+        href: platform/itsmc-connections.md
+      - name: Create Service Manager web app
+        href: platform/itsmc-service-manager-script.md
+      - name: Fix ServiceNow ITSM sync problems
+        href: platform/itsmc-resync-servicenow.md
+    - name: Alert Management solution
+      href: platform/alert-management-solution.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -512,18 +524,6 @@
         href: platform/alerts-enable-template.md    
       - name: Classic metric alert calling a webhook
         href: platform/alerts-webhooks.md
-    - name: Alert API
-      href: platform/api-alerts.md
-    - name: IT Service Management
-      items:
-      - name: IT Service Management Connector
-        href: platform/itsmc-overview.md
-      - name: IT Service Management connections
-        href: platform/itsmc-connections.md
-      - name: Create Service Manager web app
-        href: platform/itsmc-service-manager-script.md
-      - name: Fix ServiceNow ITSM sync problems
-        href: platform/itsmc-resync-servicenow.md
   - name: Application Insights
     items:
     - name: Application Insights overview
@@ -1253,10 +1253,4 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
-    items:
-    - name: Application Insights service updates
-      href: https://azure.microsoft.com/updates/?product=application-insights
-    - name: Log Analytics service updates
-      href: https://azure.microsoft.com/updates/?product=log-analytics
-    - name: Application Insights SDK release notes
-      href: app/release-notes.md
+    href: https://azure.microsoft.com/updates/?product=monitor
