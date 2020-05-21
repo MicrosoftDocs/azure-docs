@@ -128,18 +128,18 @@ guard let account = try? application.account(forIdentifier: accountIdentifier) e
 let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
 application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
-	guard let authResult = result, error == nil else {
+    guard let authResult = result, error == nil else {
 
-	let nsError = error! as NSError
+    let nsError = error! as NSError
 
-		if (nsError.domain == MSALErrorDomain &&
-			nsError.code == MSALError.interactionRequired.rawValue) {
+        if (nsError.domain == MSALErrorDomain &&
+            nsError.code == MSALError.interactionRequired.rawValue) {
 
-			// Interactive auth will be required, call acquireToken()
-			return
-		}
-		return
-	}
+            // Interactive auth will be required, call acquireToken()
+            return
+        }
+        return
+    }
 }
 ```
 ---
@@ -380,14 +380,14 @@ Objective-C:
 ```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)
-	{
-		// You'll want to get the account identifier to retrieve and reuse the account
-		// for later acquireToken calls
-		NSString *accountIdentifier = result.account.identifier;
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
 
-		NSString *accessToken = result.accessToken;
-	}
+        NSString *accessToken = result.accessToken;
+    }
 }];
 ```
 
@@ -397,13 +397,13 @@ Swift:
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
 
-	guard let authResult = result, error == nil else {
-		print(error!.localizedDescription)
-		return
-	}
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
 
-	// Get access token from result
-	let accessToken = authResult.accessToken
+    // Get access token from result
+    let accessToken = authResult.accessToken
 })
 ```
 ---
@@ -418,7 +418,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 - IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform (UWP) platforms.
 - IWA doesn't bypass multifactor authentication (MFA). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
   > [!NOTE]
-  > This one is tricky. IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
+  > This one is tricky. IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
