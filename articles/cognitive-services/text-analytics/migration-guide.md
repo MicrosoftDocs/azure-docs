@@ -43,7 +43,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 > [!NOTE] 
 > Currently, [v3 entity categories](named-entity-types.md) are only returned on English text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
 
-In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses a separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
+In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
 ## Steps to migrate
 
@@ -133,98 +133,6 @@ If your application uses the REST API, update its request endpoint to the v3 end
 
 ---
 
-## Version 2.1 language support
-
-#### [Sentiment analysis](#tab/sentiment-analysis)
-
-| Language              | Language code |              Notes |
-|:----------------------|:-------------:|:-------------------:|
-| Chinese-Simplified*    |   `zh-hans`   | `zh` also accepted |
-| Danish*                |     `da`      |                    |
-| Dutch                 |     `nl`      |                    |
-| English               |     `en`      |                    |
-| Finnish*               |     `fi`      |                    |
-| French*                |     `fr`      |                    |
-| German*                |     `de`      |                   |
-| Greek*                 |     `el`      |                    |
-| Italian*               |     `it`      |                    |
-| Japanese*              |     `ja`      |                    |
-| Norwegian  (Bokmål)*   |     `no`      | `nb` also accepted |
-| Polish*                |     `pl`      |                    |
-| Portuguese (Portugal)* |    `pt-PT`    | `pt` also accepted |
-| Russian*               |     `ru`      |                    |
-| Spanish*               |     `es`      |                    |
-| Swedish*               |     `sv`      |                    |
-| Turkish*               |     `tr`      |                    |
-
-\* Language is available in v2 as a public preview. 
-
-#### [NER and entity linking](#tab/named-entity-recognition)
-
-| Language              | Language code |       Notes        |
-|:----------------------|:-------------:|:------------------:|
-| Arabic*                |     `ar`      |                    |
-| Czech*                 |     `cs`      |                    |
-| Chinese-Simplified    |   `zh-hans`   | `zh` also accepted |
-| Chinese-Traditional*   |   `zh-hant`   |                    |
-| Danish*                |     `da`      |                    |
-| Dutch*                 |     `nl`      |                    |
-| English               |     `en`      |                    |
-| Finnish*               |     `fi`      |                   |
-| French                |     `fr`      |                    |
-| German                |     `de`      |                    |
-| Hebrew*                |     `he`      |                     |
-| Hungarian*             |     `hu`      |                     |
-| Italian*              |     `it`      |                     |
-| Japanese*              |     `ja`      |                     |
-| Korean*                |     `ko`      |                     |
-| Norwegian  (Bokmål)*   |     `no`      |  `nb` also accepted |
-| Polish*                |     `pl`      |                     |
-| Portuguese (Portugal)* |    `pt-PT`    |  `pt` also accepted |
-| Portuguese (Brazil)*   |    `pt-BR`    |                     |
-| Russian*               |     `ru`      |                     |
-| Spanish*               |     `es`      |                     |
-| Swedish*               |     `sv`      |                     |
-| Turkish*               |     `tr`      |                     |
-
-\* Language is available in v2 as a public preview. 
-
-### Entity linking v2 language support
-
-| Language              | Language code |       Notes        |
-|:----------------------|:-------------:|:------------------:|
-| English               |     `en`      |                    |
-| Spanish               |     `es`      |                    |
-
-#### [Language detection](#tab/language-detection)
-
-The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages.  Language Detection returns the "script" of a language. For instance, for the phrase "I have a dog" it will return  `en` instead of  `en-US`. The only special case is Chinese, where the language detection capability will return `zh_CHS` or `zh_CHT` if it can determine the script given the text provided. In situations where a specific script cannot be identified for a Chinese document, it will return simply `zh`.
-
-We don't publish the exact list of languages for this feature, but it can detect a wide range of languages, variants, dialects, and some regional/cultural languages. 
-
-If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is "unknown".
-
-#### [Key phrase extraction](#tab/key-phrase-extraction)
-
-| Language              | Language code |       Notes        |
-|:----------------------|:-------------:|:------------------:|
-| Dutch                 |     `nl`      |                    |
-| English               |     `en`      |                    |
-| Finnish               |     `fi`      |                    |
-| French                |     `fr`      |                    |
-| German                |     `de`      |                    |
-| Italian               |     `it`      |                    |
-| Japanese              |     `ja`      |                    |
-| Korean                |     `ko`      |                    |
-| Norwegian  (Bokmål)   |     `no`      | `nb` also accepted |
-| Polish                |     `pl`      |                    |
-| Portuguese (Portugal) |    `pt-PT`    | `pt` also accepted |
-| Portuguese (Brazil)   |    `pt-BR`    |                    |
-| Russian               |     `ru`      |                    |
-| Spanish               |     `es`      |                    |
-| Swedish               |     `sv`      |                    |
-
----
 
 ## See also
 
