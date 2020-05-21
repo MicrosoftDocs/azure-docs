@@ -53,7 +53,7 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
+Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core
