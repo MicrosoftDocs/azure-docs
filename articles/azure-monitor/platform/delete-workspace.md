@@ -47,7 +47,7 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
 
    ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png)
-4. A confirmation page appears that shows the data ingestion to the workspace over the pas week. Type in the name of the workspace to confirm and then click **Delete**.
+4. A confirmation page appears that shows the data ingestion to the workspace over the past week. Type in the name of the workspace to confirm and then click **Delete**.
 
    ![Confirm deletion of workspace](media/delete-workspace/delete-workspace.png)
 
@@ -91,7 +91,7 @@ To permanently delete your workspace, use the [Workspaces - Delete REST]( https:
 Where 'eyJ0eXAiOiJKV1Qi…' represents the full authorization token.
 
 ## Recover workspace
-When you delete a Log Analytics workspace accidently or intentionally, the service places the workspace in a soft-delete state making it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period and can't be used for creating a new workspace. After the soft-delete period, the workspace is non-recoverable, it is scheduled for permanent deletion and its name it released and can be used for creating a new workspace.
+When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state making it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period and can't be used for creating a new workspace. After the soft-delete period, the workspace is non-recoverable, it is scheduled for permanent deletion and its name it released and can be used for creating a new workspace.
 
 You can recover your workspace during the soft-delete period including its data, configuration and connected agents. You need to have Contributor permissions to the subscription and resource group where the workspace was located before the soft-delete operation. The workspace recover is performed by creating a Log Analytics workspace with the details of the deleted workspace including:
 
