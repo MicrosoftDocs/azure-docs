@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks. 
 
-Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account. Ensure that your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
@@ -364,7 +364,7 @@ On this pane, you configure:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase. (Users in these markets can still deploy the offer to all Azure regions selected in ["Plan setup"](#plan-setup).) The **Tax Remitted** button shows countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase. (Users in these markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](#plan-setup) section.) The **Tax Remitted** button shows countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
 If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting **Export prices (xlsx)** after you save your changes.
 
