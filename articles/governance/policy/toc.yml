@@ -77,7 +77,7 @@
   - name: Design Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
-  - name: Azure Policy for Kubernetes
+  - name: Azure Policy for Kubernetes (preview)
     displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
     href: ./concepts/policy-for-kubernetes.md
   - name: Audit VMs with Guest Configuration
