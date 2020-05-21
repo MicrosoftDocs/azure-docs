@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: anumamah
-ms.author: aniththa
+author: aniththa
+ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ---

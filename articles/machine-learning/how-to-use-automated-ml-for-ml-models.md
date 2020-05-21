@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: anumamah
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
@@ -116,7 +116,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization| Select to enable or disable the featurization done by automated machine learning. Automatic featurization includes automatic data cleansing, preparing, and transformation to generate synthetic features. Not supported for the time series forecasting task type. [Learn more about featurization](how-to-configure-auto-features#featurization). 
+    Automatic featurization| Select to enable or disable the featurization done by automated machine learning. Automatic featurization includes automatic data cleansing, preparing, and transformation to generate synthetic features. Not supported for the time series forecasting task type. [Learn more about featurization](how-to-configure-auto-features.md#featurization). 
     Explain best model | Select to enable or disable to show explainability of the recommended best model
     Blocked algorithm| Select algorithms you want to exclude from the training job.
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
