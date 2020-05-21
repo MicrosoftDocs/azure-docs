@@ -52429,6 +52429,11 @@
         "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
         "redirect_document_id": true
       },
+      {
+        "source_path": "articles/cdn/endpoint-multiorigin.md",
+        "redirect_url": "/azure/cdn/cdn-overview",
+        "redirect_document_id": false
+    }
 
 ]
 }
