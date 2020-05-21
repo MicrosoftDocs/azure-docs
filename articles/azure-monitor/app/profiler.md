@@ -59,7 +59,7 @@ If you want to enable the profiler for other clouds, you can use the below app s
 
 ## Disable Profiler
 
-To stop or restart Profiler for an individual app's instance, under **Web Jobs**, go to the app resource. To delete Profiler, go to **Extensions**.
+To stop or restart Profiler for an individual app's instance, under **Web Jobs**, go to the app resource. To delete Profiler, go to **WebJobs**.
 
 ![Disable Profiler for a web job][disable-profiler-webjob]
 
