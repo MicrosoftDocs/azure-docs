@@ -20,10 +20,9 @@ The required Application Insights instrumentation is built into Azure Functions.
 
 
 > [!IMPORTANT]
-> This feature is currently in public preview for Java Azure Functions.
-> For Consumption plan it has a cold start implication of 8-9 seconds.
+> This feature is currently in public preview for Java Azure Functions. For Consumption plan it has a cold start implication of 8-9 seconds.
 
-If your applications are written in Java you can view richer data from your function applications, including, requests, dependencies, logs, and metrics. The additional data also lets you see and diagnose end-to-end transactions and see the application map, which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are.
+If your applications are written in Java you can view richer data from your functions applications, including, requests, dependencies, logs, and metrics. The additional data also lets you see and diagnose end-to-end transactions and see the application map, which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are.
 
 The end-to-end diagnostics and the application map provide visibility into one single transaction/request. Together these two features are very helpful for finding the root cause of reliability issues and performance bottlenecks on a per request basis.
 
