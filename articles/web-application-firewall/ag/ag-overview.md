@@ -67,7 +67,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
-- Geo-filter traffic to allow or block certain countries from gaining access to your applications. (preview)
+- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
 
 ## WAF Policy

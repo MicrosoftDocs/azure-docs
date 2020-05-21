@@ -34,7 +34,7 @@
     items:
     - name: Connect service-to-service
       items:
-      - name: AWS
+      - name: AWS CloudTrail
         href: connect-aws.md
       - name: Azure AD
         href: connect-azure-active-directory.md
@@ -66,7 +66,7 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
-      - name: Barracuda
+      - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
@@ -94,13 +94,13 @@
           items:  
           - name: Check Point
             href: connect-checkpoint.md
-          - name: Cisco
+          - name: Cisco ASA
             href: connect-cisco.md
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
-          - name: F5 
+          - name: F5 ASM
             href: connect-f5.md  
-          - name: Forcepoint products
+          - name: Forcepoint CASB, NGFW
             href: connect-forcepoint-casb-ngfw.md
           - name: Fortinet
             href: connect-fortinet.md
@@ -118,8 +118,10 @@
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md  
-  - name: Multiple tenants (MSSP)
+  - name: Work with multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
+  - name: Work with incidents in multiple workspaces
+    href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
   - name: Create incidents from alerts
@@ -145,3 +147,9 @@
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/
+  
+
+    
+   

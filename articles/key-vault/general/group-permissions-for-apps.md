@@ -219,6 +219,9 @@ Lastly, give the AD group permissions to your key vault using the Azure CLI [az 
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription.
 
+> [!WARNING]
+> Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
+
 ## Next steps
 
 - [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
