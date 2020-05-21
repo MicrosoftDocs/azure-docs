@@ -38,7 +38,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 **DCsv2 virtual machines don't show up when I try to search for them in the portal size selector**
 
-   Make sure you've selected an available region. Also make sure you select “clear all filters” in the size selector. 
+   Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector. 
 
 **I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DcsV2 Family Cores Quota"**
 
