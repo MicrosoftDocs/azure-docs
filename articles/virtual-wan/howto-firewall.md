@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/21/2020
 ms.author: cherylmc
 
 ---
