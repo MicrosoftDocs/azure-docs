@@ -10,7 +10,7 @@ services: azure-maps
 manager: timlt
 ---
 
-# Secure a mobile applications with user sign-in
+# Secure a mobile application with user sign-in
 
 Depending on the application requirements, a mobile application may require a user sign-in experience to access protected application data with Azure AD. The application may call additional web services as well as Azure Maps REST APIs. The device may be hosted on an unsecured environment such that they cannot store an application secret.
 
