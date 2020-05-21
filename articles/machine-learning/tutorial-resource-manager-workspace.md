@@ -5,7 +5,7 @@ services: machine-learning
 author: lobrien
 ms.author: laobri
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
@@ -22,31 +22,69 @@ Azure machine learning workspaces organize all your machine learning assets from
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
 
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+
 ## Create a workspace
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](tk).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
-[!code-json[<Azure Resource Manager template create machine learning workspace](tk)]
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
 
 The following resources are defined in the template:
 
-* tk
+* [Microsoft.MachineLearningServices/workspaces](/azure/templates/microsoft.machinelearningservices/workspaces): Create an Azure ML workspace. In this template, the location and name are parameters that the user can pass in or interactively enter.
 
 ### Deploy the template 
 
-cli deployment 
+To use the template from the Azure CLI, login and choose your subscription (See [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Then, run:
+
+```azurecli-interactive
+read -p "Enter a project name that is used for generating resource names:" projectName &&
+read -p "Enter the location (i.e. centralus):" location &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-machine-learning-create/azuredeploy.json" &&
+resourceGroupName="${projectName}rg" &&
+workspaceName="${projectName}ws" &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters workspaceName=$workspaceName location=$location && 
+echo "Press [ENTER] to continue ..." &&
+read
+```
+
+When you run this, you will be prompted for:
+
+1. A project name that will form the basis of the names of the created resource group and Azure ML workspace
+1. The Azure location in which you wish to make the deployment
 
 ## Review deployed resources
 
-tk
+To see your Azure ML workspace:
+
+1. Go to https://portal.azure.com 
+1. Sign in 
+1. Choose the workspace you just created
+
+You will see the Azure Machine Learning homepage: 
+
+:::image type="content" source="media/tutorial-resource-manager-workspace/workspace-home.png" alt-text="Screenshot of the Azure ML workspace":::
+
+To see all the resources associated with the deployment, click the link in the upper left with the workspace name (in the screenshot, **my_templated_ws**). This will take you to the resource group in the Azure portal. Note that the resource group name is `{projectName}rg` and the workspace is named `{projectName}ws`.
 
 ## Clean up resources
 
-tk
+If you do not wish to use this workspace going forward, you can either delete it in the portal by clicking on the "Delete" button or from the CLI with: 
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
 
-tk tutorial-1st-experiment-sdk-setup.md tk 
-tk point users to Tutorial: Create and deploy your first Azure Resource Manager template to go through the process of creating a template. tk 
+In this tutorial, you created an Azure Machine Learning workspace from an Azure Resource Manager template. If you'd like to explore Azure Machine Learning, continue with the tutorial. 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
