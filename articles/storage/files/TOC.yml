@@ -48,6 +48,8 @@
     items:
     - name: Customer-managed keys with Azure Key Vault
       href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Configure network routing preference
+    href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json      
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Development
@@ -188,6 +190,14 @@
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
+  - name: Transfer
+    items: 
+    - name: Get started - AzCopy
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Use with Files
+      href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Configure, optimize, troubleshoot - AzCopy
+      href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files on Windows
@@ -200,8 +210,6 @@
       href: storage-sync-files-troubleshoot.md
     - name: Troubleshoot Deleting Azure Files
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
-    - name: Recover a deleted storage account
-      href: storage-how-to-recover-deleted-account.md
 - name: Reference
   items:
   - name: Azure PowerShell (Storage)

@@ -65,6 +65,7 @@
       href: troubleshoot-vm-boot-error.md
   - name: Windows
     href: boot-error-troubleshoot.md
+
     items:
     - name: Boot diagnostics
       href: boot-diagnostics.md
@@ -78,6 +79,10 @@
       href: troubleshoot-guide-critical-process-died.md
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Troubleshoot boot error - Status not found
+      href: boot-error-status-not-found.md
+    - name: Troubleshoot Windows Update installation capacity
+      href: windows-update-installation-capacity.md
     - name: VM is unresponsive when applying local users and groups policy
       href: troubleshoot-vm-unresponsive-group-policy-local-users.md
     - name: Not a bootable disk
@@ -143,14 +148,14 @@
     items:
     - name: SSH troubleshooting
       href: troubleshoot-ssh-connection.md
-    - name: Chroot in Linux Rescue VM
-      href: chroot-environment-linux.md
     - name: Troubleshoot file system errors
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Troubleshoot kernel-related boot problems
       href: https://support.microsoft.com/help/4091524
     - name: Recover LVM configured VMs and no boot 
       href: chroot-logical-volume-manager.md
+    - name: Troubleshoot fstab errors 
+      href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Detailed SSH troubleshooting
       href: detailed-troubleshoot-ssh-connection.md
   - name: Application access issues

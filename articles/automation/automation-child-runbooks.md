@@ -1,19 +1,27 @@
 ---
-title: Child runbooks in Azure Automation
-description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
+title: Create modular runbooks in Azure Automation
+description: This article tells how to create a runbook that is called by another runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
 ---
-# Child runbooks in Azure Automation
+# Create modular runbooks
 
-It is a recommended practice in Azure Automation to write reusable, modular runbooks with a discrete function that is called by other runbooks. A parent runbook often calls one or more child runbooks to perform required functionality. There are two ways to call a child runbook, and there are distinct differences that you should understand to be able to determine which is best for your scenarios.
+It is a recommended practice in Azure Automation to write reusable, modular runbooks with a discrete function that is called by other runbooks. A parent runbook often calls one or more child runbooks to perform required functionality. 
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+There are two ways to call a child runbook, and there are distinct differences that you should understand to be able to determine which is best for your scenarios. The following table summarizes the differences between the two ways to call one runbook from another.
 
-## Invoking a child runbook using inline execution
+|  | Inline | Cmdlet |
+|:--- |:--- |:--- |
+| Job |Child runbooks run in the same job as the parent. |A separate job is created for the child runbook. |
+| Execution |Parent runbook waits for the child runbook to complete before continuing. |Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish. |
+| Output |Parent runbook can directly get output from child runbook. |Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook. |
+| Parameters |Values for the child runbook parameters are specified separately and can use any data type. |Values for the child runbook parameters have to be combined into a single hashtable. This hashtable can only include simple, array, and object data types that use JSON serialization. |
+| Automation Account |Parent runbook can only use child runbook in the same Automation account. |Parent runbooks can use a child runbook from any Automation account, from the same Azure subscription, and even from a different subscription to which you have a connection. |
+| Publishing |Child runbook must be published before parent runbook is published. |Child runbook is published any time before parent runbook is started. |
+
+## Invoke a child runbook using inline execution
 
 To invoke a runbook inline from another runbook, use the name of the runbook and provide values for its parameters, just like you would use an activity or a cmdlet. All runbooks in the same Automation account are available to all others to be used in this manner. The parent runbook waits for the child runbook to complete before moving to the next line, and any output returns directly to the parent.
 
@@ -53,14 +61,14 @@ $vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
 $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ```
 
-## Starting a child runbook using a cmdlet
+## Start a child runbook using a cmdlet
 
 > [!IMPORTANT]
 > If your runbook invokes a child runbook with the `Start-AzAutomationRunbook` cmdlet with the `Wait` parameter and the child runbook produces an object result, the operation might encounter an error. To work around the error, see [Child runbooks with object output](troubleshoot/runbooks.md#child-runbook-object) to learn how to implement the logic to poll for the results using the [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) cmdlet.
 
 You can use `Start-AzAutomationRunbook` to start a runbook as described in [To start a runbook with Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). There are two modes of use for this cmdlet. In one mode, the cmdlet returns the job ID when the job is created for the child runbook. In the other mode, which your script enables by specifying the *Wait* parameter, the cmdlet waits until the child job finishes and returns the output from the child runbook.
 
-The job from a child runbook started with a cmdlet runs separately from the parent runbook job. This behavior results in more jobs than starting the runbook inline, and makes the jobs more difficult to track. The parent can start more than one child runbook asynchronously without waiting for each to complete. For this parallel execution calling the child runbooks inline, the parent runbook must use the [parallel keyword](automation-powershell-workflow.md#parallel-processing).
+The job from a child runbook started with a cmdlet runs separately from the parent runbook job. This behavior results in more jobs than starting the runbook inline, and makes the jobs more difficult to track. The parent can start more than one child runbook asynchronously without waiting for each to complete. For this parallel execution calling the child runbooks inline, the parent runbook must use the [parallel keyword](automation-powershell-workflow.md#use-parallel-processing).
 
 Child runbook output does not return to the parent runbook reliably because of timing. In addition, variables such as `$VerbosePreference`, `$WarningPreference`, and others might not be propagated to the child runbooks. To avoid these issues, you can start the child runbooks as separate Automation jobs using `Start-AzAutomationRunbook` with the `Wait` parameter. This technique blocks the parent runbook until the child runbook is complete.
 
@@ -100,19 +108,6 @@ Start-AzAutomationRunbook `
     -AzContext $AzureContext `
     –Parameters $params –Wait
 ```
-
-## Comparison of methods for calling a child runbook
-
-The following table summarizes the differences between the two ways to call a runbook from another runbook.
-
-|  | Inline | Cmdlet |
-|:--- |:--- |:--- |
-| Job |Child runbooks run in the same job as the parent. |A separate job is created for the child runbook. |
-| Execution |Parent runbook waits for the child runbook to complete before continuing. |Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish. |
-| Output |Parent runbook can directly get output from child runbook. |Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook. |
-| Parameters |Values for the child runbook parameters are specified separately and can use any data type. |Values for the child runbook parameters have to be combined into a single hashtable. This hashtable can only include simple, array, and object data types that use JSON serialization. |
-| Automation Account |Parent runbook can only use child runbook in the same Automation account. |Parent runbooks can use a child runbook from any Automation account, from the same Azure subscription, and even from a different subscription to which you have a connection. |
-| Publishing |Child runbook must be published before parent runbook is published. |Child runbook is published any time before parent runbook is started. |
 
 ## Next steps
 

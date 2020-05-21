@@ -102,16 +102,16 @@ Login to the Azure portal.
 
 ## FAQs
 
-1. How does pricing work for Zone to Zone Disaster Recovery?
+**1. How does pricing work for Zone to Zone Disaster Recovery?**
 Pricing for Zone to Zone Disaster Recovery is identical to the pricing of Azure to Azure Disaster Recovery. You can find more details on the pricing page [here](https://azure.microsoft.com/pricing/details/site-recovery/) and [here](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Note that the egress charges that you would see in zone to zone disaster recovery would be lower than region to region disaster recovery.
 
-2. What is the SLA for RTO and RPO?
-The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 hours. There is no defined SLA for RPO.
+**2. What is the SLA for RTO and RPO?**
+The RTO SLA is the same as that for Site Recovery overall. We promise RTO of up to 2 hours. There is no defined SLA for RPO.
 
-3. Is capacity guaranteed in the secondary zone?
+**3. Is capacity guaranteed in the secondary zone?**
 The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone.
 
-4. Which operating systems are supported?
+**4. Which operating systems are supported?**
 Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
 ## Next steps

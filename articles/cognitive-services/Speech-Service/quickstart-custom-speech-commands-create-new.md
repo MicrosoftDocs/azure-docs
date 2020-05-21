@@ -120,6 +120,8 @@ For now, we have no parameters so we can move on to **Completion rules** section
 ### Add a Completion rule
 
 Now add a Completion rule with the following configuration. This rule indicates user that a fulfillment action is being taken.
+
+
 | Setting    | Suggested value                          | Description                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
 | Rule Name  | ConfirmationResponse                  | A name describing the purpose of the rule          |

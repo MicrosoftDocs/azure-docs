@@ -149,11 +149,6 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Cognitive Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
-In this 9-minute video from program manager Liam Cavanagh, learn how integrating a search engine can benefit your app. Short demos cover key features in Azure Cognitive Search, and what a typical workflow looks like. 
+In this 15-minute video, program manager Luis Cabrera introduces Azure Cognitive Search. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-+ 6-9 minutes covers Search explorer and various queries.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

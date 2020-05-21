@@ -1,5 +1,5 @@
 ---
-title: Create a Managed Service offer in the Microsoft commercial marketplace 
+title: Create a Managed Service offer in Microsoft commercial marketplace 
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 author: JnHs 
 ms.author: jenhayes
@@ -7,7 +7,7 @@ manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ---
 
 # Create a Managed Service offer
@@ -89,25 +89,11 @@ Provide a longer description of your offer (up to 256 characters). This long sum
 
 ### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Some tips for writing your description:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Clearly describe your offer's value proposition in the first few sentences of your description. Include the following items in your value proposition:
-  - Description of the offer
-  - The type of user that benefits from the offer
-  - Customer needs or pain that the offer addresses
-- Keep in mind that the first few sentences might be displayed in search engine results.  
-- Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### Privacy policy link
 

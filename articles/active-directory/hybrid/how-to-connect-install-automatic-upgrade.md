@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -88,14 +88,13 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |You have enabled the [device writeback](how-to-connect-device-writeback.md) feature. |
-| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](how-to-connect-preview.md#group-writeback) feature. |
+| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the group writeback feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. |
-| UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
 

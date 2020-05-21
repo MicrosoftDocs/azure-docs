@@ -24,7 +24,7 @@ The Conditional Access feature in Azure Active Directory (Azure AD) offers one o
 * Allowing only Intune enrolled devices to access specific services
 * Restricting user locations and IP ranges
 
-For more information on the full capabilities of Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+For more information on the full capabilities of Conditional Access, see the article [What is Conditional Access](../conditional-access/overview.md).
 
 For developers building apps for Azure AD, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
@@ -122,7 +122,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 In Web API 1, we catch the error `error=interaction_required`, and send back the `claims` challenge to the desktop app. At that point, the desktop app can make a new `acquireToken()` call and append the `claims`challenge as an extra query string parameter. This new request requires the user to do multi-factor authentication and then send this new token back to Web API 1 and complete the on-behalf-of flow.
 
-To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
+To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph#handling-required-interactions-with-the-user-dynamic-consent-mfa-etc-). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
 
 ## Scenario: App accessing multiple services
 

@@ -6,17 +6,14 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
 
-> [!IMPORTANT]
-> We're moving the management of all Azure virtual machine (VM) offers from the Cloud Partner Portal to Partner Center. Until your offers are migrated, continue to manage them by following the instructions in [Create a virtual machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) in the Cloud Partner Portal.
-
 This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks. 
 
-If you haven't done so yet, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Ensure that your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account. Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
@@ -31,7 +28,7 @@ When you publish your offers on Azure Marketplace, you can:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure Virtual Machine material:
 
 - Quickstart guides
   - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
@@ -191,32 +188,11 @@ Provide a longer description of your offer, to be displayed in Azure Marketplace
 
 #### Description
 
-Provide a detailed description of your offer, to be displayed to customers in the commercial marketplace listing overview. It can contain up to 3,000 characters.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-The description includes one or more of the following elements:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits of your offer.
-- Category or industry associations, or both.
-- In-app purchase opportunities.
-- Any required disclosures.
-
-Here are some tips for writing your description:
-
-- Clearly describe the value proposition of your offer in the first few sentences, including:
-  - A description of your offer.
-  - The type of user that benefits from your offer.
-  - The customer needs or issues that the offer addresses.
-- Remember that the first few sentences might be displayed in search engine results.
-- Don't rely on features and functionality to sell your offer. Instead, focus on the value that your offer provides.
-- Use industry-specific or benefit-based words.
-
-To make your offer description more engaging, apply formatting by using the rich text editor.
-
-![Screenshot showing the rich text editor.](./media/rich-text-editor.png)
-
-| Text formatting | Bullets and numbering | Indenting text |
-| --- | --- | --- |
-| ![Using the rich text editor to change text formatting](./media/text-editor3.png) | ![Using the rich text editor to add bulleted or numbered lists](./media/text-editor4.png) | ![Using the rich text editor to indent text](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy link
 
@@ -388,7 +364,7 @@ On this pane, you configure:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase. (Users in these markets can still deploy the offer to all the Azure regions they've selected in the ["Plan setup"](#plan-setup) section.) The **Tax Remitted** button shows countries in which Microsoft remits sales and use taxes on your behalf. Publishing to China is limited to either *Free* or *Bring-your-own-license* (BYOL) plans.
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase. (Users in these markets can still deploy the offer to all Azure regions selected in ["Plan setup"](#plan-setup).) The **Tax Remitted** button shows countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
 If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting **Export prices (xlsx)** after you save your changes.
 
@@ -529,7 +505,7 @@ This page also includes links to help you work with the offer, depending on its 
 - If the offer is a draft: [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - If the offer is live: [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
 - If the offer is in preview: [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven't completed publisher sign-off: [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If you haven't completed publisher sign-out: [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## Marketplace examples
 

@@ -37,8 +37,10 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
-    - name: Apache Hadoop components on HDInsight
+    - name: Apache components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: Enterprise Security Package
+      href: ./enterprise-security-package.md
     - name: Hortonworks release notes
       href: ./hortonworks-release-notes.md
     - name: High availability components
@@ -57,6 +59,8 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Request increase for CPU core quota
+      href: ./quota-increase-request.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
@@ -241,6 +245,8 @@
         href: ./troubleshoot-resource-creation-fails.md
       - name: Troubleshoot Apache Oozie
         href: ./troubleshoot-oozie.md
+      - name: Understand and resolve WebHCat errors
+        href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -283,8 +289,6 @@
       href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-    - name: Understand and resolve WebHCat errors
-      href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Get help on the forum
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
     - name: Pricing calculator
@@ -328,6 +332,8 @@
         href: ./spark/apache-spark-settings.md
       - name: Optimize Apache Spark jobs
         href: ./spark/apache-spark-perf.md
+      - name: Migrate to Spark 2.3 or 2.4
+        href: ./spark/migrate-versions.md
   - name: How to
     items:
     - name: Use tools
@@ -734,6 +740,8 @@
     items: 
     - name: Gateway best practices
       href: ./interactive-query/gateway-best-practices.md
+    - name: Sizing guidelines
+      href: ./interactive-query/sizing-guidelines.md
   - name: How to
     items:
     - name: Develop
@@ -778,6 +786,8 @@
         href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
       - name: Apache Tez application hangs
         href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+      - name: Apache Hive LLAP sizing guidelines
+        href: ./interactive-query/hive-llap-sizing-guide.md
       - name: Apache Hive LLAP query performance
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
