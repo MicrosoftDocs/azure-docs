@@ -315,4 +315,4 @@ You can clean up your Azure resources by [deleting the SQL Managed Instance reso
 ## Next steps
 
 You can also learn more information about [transactional replication with Azure SQL Managed Instance](replication-transactional-overview.md) or learn to 
-configure replication between a [SQL Managed Instance Publisher/Distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 
+configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 
