@@ -537,7 +537,7 @@ Content-type: servicePrincipals/json
     "passwordCredentials": [
         {
             "customKeyIdentifier": "lY85bR8r6yWTW6jnciNEONwlVhDyiQjdVLgPDnkI5mA=",
-            "keyId": "d22be676-efe6-4661-a7a5-61891f4ee44d",
+            "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
             "endDateTime": "2022-01-27T19:40:33Z",
             "startDateTime": "2020-04-20T19:40:33Z",
             "secretText": "61891f4ee44d"
