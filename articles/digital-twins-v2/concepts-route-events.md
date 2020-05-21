@@ -60,7 +60,7 @@ Endpoints are set up using control plane APIs (supported by the [Azure Digital T
 * The endpoint's ID (or friendly name)
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
-* The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
+* The topic path of the endpoint, such as *your-topic.westus2.eventgrid.azure.net*
 
 The endpoint APIs that are available in control plane are:
 * Create endpoint

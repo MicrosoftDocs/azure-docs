@@ -39,9 +39,16 @@ az provider register --namespace 'Microsoft.DigitalTwins'
 Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
 
 ```azurecli
-az group create --location "westcentralus" --name <name-for-your-resource-group>
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l "westcentralus"
+az group create --location <region> --name <name-for-your-resource-group>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
+
+> [!TIP]
+> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
+> ```azurecli
+> az account list-locations -o table
+> ```
+> To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 The result of these commands looks something like this, outputting information about the resources you've created:
 

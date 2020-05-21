@@ -302,8 +302,14 @@ In this section, you create an event grid topic, and then create an endpoint wit
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
 ```azurecli-interactive
-az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l westcentralus
+az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
+
+> [!TIP]
+> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
+> ```azurecli
+> az account list-locations -o table
+> ```
 
 The output from this command is information about the event grid topic you've created.
 
