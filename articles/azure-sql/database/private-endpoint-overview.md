@@ -43,8 +43,8 @@ With Private Link, customers can enable cross-premises access to the private end
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
-Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
-- [Portal](../../private-link/create-private-endpoint-portal.md)
+Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
+- [The portal](../../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [CLI](../../private-link/create-private-endpoint-cli.md)
 
