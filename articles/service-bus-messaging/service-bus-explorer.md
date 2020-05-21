@@ -90,27 +90,23 @@ The receive function on the Service Bus Explorer permits receiving a single mess
 > To browse messages without removing them from the queue, consider using the ***Peek*** functionality.
 >
 
-To receive a message from a Queue (or its deadletter subqueue), click on the ***Receive*** tab on the Service Bus Explorer.
+To receive a message from a Queue (or its deadletter subqueue) 
 
-![ReceiveTab](./media/service-bus-explorer/receive-tab-selected.png)
+1. click on the ***Receive*** tab on the Service Bus Explorer.
+2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to receive.
+    ![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
 
-Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to receive.
+3. pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-![QueueAfterSendMetrics](./media/service-bus-explorer/queue-after-send-metrics.png)
+    ![QueueOrDeadletter](./media/service-bus-explorer/queue-or-deadletter.png)
 
-Then pick between the ***Queue*** or the ***Deadletter*** subqueue.
+4. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
-![QueueOrDeadletter](./media/service-bus-explorer/queue-or-deadletter.png)
 
-Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
+When the receive operation is successful, the message details will display on the grid as below. You can select the message from the grid to display it's details.
 
-When the receive operation is successful, the message details will display on the grid as below.
+![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-queue-2.png)
 
-![ReceiveMessageFromQueue](./media/service-bus-explorer/receive-message-from-queue.png)
-
-To view the message details and the content, click on the message.
-
-![ReceivedMessageDetails](./media/service-bus-explorer/received-message-details.png)
 
 ### Peeking a Message from a Queue
 
