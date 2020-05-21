@@ -15,8 +15,8 @@ ms.custom: include file
 |-----|-----|-----|
 |Transient|A transient error has occurred and IoT Hub will retry the operation.|Observe routes [diagnostic logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes).|
 |InternalError|An error occurred while delivering a message to an endpoint.|This is an internal exception but also observe the routes [diagnostic logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes).|
-|Unauthorized|IoT Hub is not authorized to send messages to the specified endpoint.|Validate that the connection string is up to date for the endpoint. If it has changed, consider an update on your IoT Hub.|
-|Throttled|IoT Hub is being throttled while writing messages into the endpoint.|Review the throttle limits for the affected endpoint. If the endpoint uses managed identity, check that the IoT Hub principal has the required permissions on the target|
+|Unauthorized|IoT Hub is not authorized to send messages to the specified endpoint.|Validate that the connection string is up to date for the endpoint. If it has changed, consider an update on your IoT Hub. If the endpoint uses managed identity, check that the IoT Hub principal has the required permissions on the target.|
+|Throttled|IoT Hub is being throttled while writing messages into the endpoint.|Review the throttle limits for the affected endpoint. Modify configurations for the endpoint to scale up if needed.|
 |Timeout|Operation timeout.|Retry the operation.|
 |Not Found|Target resource does not exist.|Ensure that the target resource exists.|
 |Container Not Found|Storage container does not exist.|Ensure the storage container exists.|
