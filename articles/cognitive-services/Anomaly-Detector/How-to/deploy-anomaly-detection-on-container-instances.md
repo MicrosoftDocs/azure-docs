@@ -18,12 +18,6 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## Request access to the private container registry
-
-You must first complete and submit the [Anomaly Detector Container request form](https://aka.ms/adcontainer) to request access to the container.
-
-[!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
-
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
 [!INCLUDE [Create an Anomaly Detector container on Azure Container Instances](../../containers/includes/create-container-instances-resource-from-azure-cli.md)]

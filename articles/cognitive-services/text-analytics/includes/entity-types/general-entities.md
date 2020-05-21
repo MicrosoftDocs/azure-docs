@@ -17,7 +17,7 @@ The following entity categories are returned when sending requests to the `/enti
 | Person     | N/A         | Names of people.  | `2019-10-01`  | |
 | PersonType | N/A         | Job types or roles held by a person. | `2020-02-01` | |
 |Location    | N/A         | Natural and human-made landmarks, structures, geographical features, and geopolitical entities     |  `2019-10-01` | |
-|Location     | Geopolitical Entity (GPE)        | Cities, countries, states.      | `2020-02-01` | |
+|Location     | Geopolitical Entity (GPE)        | Cities, countries/regions, states.      | `2020-02-01` | |
 |Location     | Structural                       | Manmade structures. | `2020-04-01` | |
 |Location     | Geographical       | Geographic and natural features such as rivers, oceans, and deserts. |  `2020-04-01` | |
 |Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type. |

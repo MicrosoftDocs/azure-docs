@@ -22,7 +22,7 @@ This entity category includes financial information and official forms of identi
 | International Banking Account Number (IBAN)                  | IBAN codes for payment instruction information.                            |
 
 
-### Government and country-specific Identification
+### Government and country/region specific identification
 
 > [!NOTE]
 > The following financial and country-specific entities are not returned with the `domain=phi` parameter:

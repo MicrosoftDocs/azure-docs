@@ -198,7 +198,7 @@ If you have more than one verified domain name, you need to provide the followin
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-If you're already issuing an ImmutableID claim (for example, alternate login ID), you need to provide one corresponding claim for computers:
+If you're already issuing an ImmutableID claim (for example, using `mS-DS-ConsistencyGuid` or another attribute as the source value for the ImmutableID), you need to provide one corresponding claim for computers:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -327,7 +327,7 @@ To get a list of your verified company domains, you can use the [Get-MsolDomain]
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
-### Issue ImmutableID for the computer when one for users exists (for example, an alternate login ID is set)
+### Issue ImmutableID for the computer when one for users exists (for example, using mS-DS-ConsistencyGuid as the source for ImmutableID)
 
 The `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` claim must contain a valid value for computers. In AD FS, you can create an issuance transform rule as follows:
 
