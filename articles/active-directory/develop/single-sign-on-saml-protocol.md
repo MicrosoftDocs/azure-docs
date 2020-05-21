@@ -89,10 +89,10 @@ The `Scoping` element, which includes a list of identity providers, is optional 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
-Don't include a `Signature` element in `AuthnRequest` elements, as Azure AD does not support signed authentication requests.
+Don't include a `Signature` element in `AuthnRequest` elements. Azure AD does not validate signed authentication requests. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
-Azure AD ignores the `Subject` element of `AuthnRequest` elements.
+Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
 
 ## Response
 When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:

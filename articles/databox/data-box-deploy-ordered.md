@@ -54,8 +54,8 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
-    |Source country     |	Select the country/region where your data currently resides.         |
-    |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
+    |Source country/region    |    Select the country/region where your data currently resides.         |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data.        |
 
 5. Select Data **Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
@@ -66,7 +66,7 @@ Perform the following steps in the Azure portal to order a device.
     |Setting  |Value  |
     |---------|---------|
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
-    |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
+    |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
     |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).|
 
