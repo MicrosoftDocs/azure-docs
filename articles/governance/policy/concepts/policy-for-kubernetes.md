@@ -1,10 +1,10 @@
 ---
-title: Learn Azure Policy for Kubernetes
-description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
+title: Preview - Learn Azure Policy for Kubernetes
+description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises. This is a preview feature.
 ms.date: 05/20/2020
 ms.topic: conceptual
 ---
-# Understand Azure Policy for Kubernetes clusters
+# Understand Azure Policy for Kubernetes clusters (preview)
 
 Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
@@ -55,6 +55,12 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
    find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Register the resource providers and preview features.
+
+   > [!CAUTION]
+   > When you register a feature on a subscription, you can't un-register that feature. After you
+   > enable some preview features, defaults may be used for all AKS clusters then created in the
+   > subscription. Don't enable preview features on production subscriptions. Use a separate
+   > subscription to test preview features and gather feedback.
 
    - Azure portal:
 
