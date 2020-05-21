@@ -20,10 +20,10 @@ This article contains troubleshooting steps for common Internet Analyzer issues.
 ## Azure portal
 **"A scorecard hasn't been generated for the selected filter combination" in the Scorecards section**
 - Scorecards are generated on a daily basis (at the end of every day, UTC time).
-- Scorecards are only generated if more than 100 measurements were collected for the selected filter combination (Test, Time Period, Country, etc.).
+- Scorecards are only generated if more than 100 measurements were collected for the selected filter combination (Test, Time Period, Country/Region, etc.).
 
 **"Total Measurement Count" is zero for one or both endpoints in a test**
-- Time series and measurement counts are computed once an hour, so you’ll need to wait at least that amount of time for new measurement data to show up.
+- Time series and measurement counts are computed once an hour, so you'll need to wait at least that amount of time for new measurement data to show up.
 - Internet Analyzer only counts successful measurements (i.e., HTTP 200 responses) for its analysis. If one or both endpoints in a test are unreachable or returning a non-200 HTTP code, they will show up with zero total measurements.
 
 ## Next steps

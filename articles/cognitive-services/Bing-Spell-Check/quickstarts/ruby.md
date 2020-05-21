@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
@@ -35,7 +35,13 @@ Although this application is written in Ruby, the API is a RESTful Web service c
     require 'json'
     ```
 
-2. Create variables for your subscription key, endpoint URI, and path. Create your request parameters by appending your market code to the `mkt=` parameter, and append the `proof` setting to the `&mode=` parameter. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, endpoint URI, and path. Create your request parameters:
+
+   a. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+
+   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors). 
+
+    You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -85,9 +91,9 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 
 1. If you're using the command line, use the following command to run the application:
 
-```bash
-ruby <FILE_NAME>.rb
-```
+   ```bash
+   ruby <FILE_NAME>.rb
+   ```
 
 ## Example JSON response
 
@@ -137,4 +143,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

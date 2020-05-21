@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 
@@ -53,7 +53,13 @@ Although this application is written in Java, the API is a RESTful web service c
 
 ## Create and send an API request
 
-1. Create a function called `check()` to create and send the API request. Within it, follow the next steps. Create a string for the request parameters. Append your market string to the `?mkt=` parameter, and the spell-check mode to the `&mode=` parameter.  
+1. Create a function called `check()` to create and send the API request. Within this function, add the code specified in the next steps. 
+
+   Create a string for the request parameters:
+
+   a. Assign your market code to the `mkt` parameter with the `=` operator. 
+
+   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. 
 
    ```java
    public static void check () throws Exception {
@@ -89,7 +95,7 @@ Although this application is written in Java, the API is a RESTful web service c
 
 ## Format and read the API response
 
-1. Add the `prettify()` method to your class. It formats the JSON for a more readable output.
+1. Add the `prettify()` method to your class, which formats the JSON for a more readable output.
 
     ``` java
     // This function prettifies the json response.
@@ -115,7 +121,7 @@ Although this application is written in Java, the API is a RESTful web service c
 
 ## Call the API
 
-In the main function of your application, call your check() method created previously.
+In the main function of your application, call your `check()` method created previously.
 ```java
     	public static void main(String[] args) {
     		try {
@@ -129,19 +135,19 @@ In the main function of your application, call your check() method created previ
 
 ## Run the application
 
-Build and run your project.
+Build and run your project. If you're using the command line, use the following commands to build and run the application:
 
-If you're using the command line, use the following commands to build and run the application:
+1. Build the application:
 
-**Build:**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**Run:**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. Run the application:
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## Example JSON response
 

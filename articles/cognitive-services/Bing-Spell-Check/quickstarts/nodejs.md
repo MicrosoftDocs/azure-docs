@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/21/2020
 ms.author: aahi
 ---
 
@@ -39,7 +39,11 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Create variables for your search parameters and the text you want to check. Append your market code to the `mkt=` parameter. The market code is code for the country you make the request from. Append your spell-check mode to the `&mode=` parameter. The mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors but not as many grammar errors).
+2. Create variables for your search parameters and the text you want to check: 
+
+   a. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+
+   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors).
 
     ```javascript
     let mkt = "en-US";
@@ -155,4 +159,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

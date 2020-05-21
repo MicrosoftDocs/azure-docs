@@ -104,9 +104,6 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
 
-> [!WARNING]
-> Azure AD Groups with Managed Identities require up to 8hr to refresh token and become effective.
-
 #### Users
 
 You can also add an individual user to an key vault's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
@@ -221,6 +218,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-principal-access-to-your-key-vault) section, above.
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription.
+
+> [!WARNING]
+> Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
 
 ## Next steps
 

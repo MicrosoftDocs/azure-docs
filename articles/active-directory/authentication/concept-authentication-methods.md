@@ -72,7 +72,7 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country. Alternate authentication methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region. Alternate authentication methods should be made available for those users.
 
 ### Verification code from mobile app
 
@@ -132,7 +132,7 @@ Users can also verify themselves using a mobile phone or office phone as seconda
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
 > [!NOTE]
-> There needs to be a space between the country code and the phone number.
+> There needs to be a space between the country/region code and the phone number.
 >
 > Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
@@ -166,7 +166,7 @@ If you have problems with phone authentication for Azure AD, review the followin
 
 * Blocked caller ID on a single device.
    * Review any blocked numbers configured on the device.
-* Wrong phone number or incorrect country code, or confusion between personal phone number versus work phone number.
+* Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.
    * Troubleshoot the user object and configured authentication methods. Make sure that the correct phone numbers are registered.
 * Wrong PIN entered.
    * Confirm the user has used the correct PIN as registered for their account.

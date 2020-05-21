@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 05/18/2020
 ms.author: jispar
 ms.reviewer: kumud
 ---
@@ -95,7 +95,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
 | **StorageSyncService** | Storage Sync Service. | Both | No | No |
-| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | No |
+| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | Yes |
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
 >[!NOTE]
