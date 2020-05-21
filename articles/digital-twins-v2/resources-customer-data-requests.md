@@ -16,6 +16,8 @@ Azure Digital Twins is a developer platform for creating secure digital represen
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
+The digital representations called Digital Twins in Azure Digital Twins are associated with identifiers. Microsoft maintains no information and has no access to data that would allow identifiers to user correlation. Many of the Digital Twins in Azure Digital Twins are not of personal entities, for example an office meeting room or factory floor. Users may, however, consider some entities to be personally identifiable and at their discretion may maintain their own asset or inventory tracking methods that tie Digital Twins to individuals. Azure Digital Twins manages and stores all data associated with Digital Twins as if it were personal data.
+
 To view, export, and delete personal data that may be referenced in a data subject request, an Azure Digital Twins administrator can use either the **Azure portal** or the **Azure Digital Twins REST APIs**. The Azure portal and REST APIs both provide a method for users to service such data subject requests.
 
 ## Identifying customer data
@@ -26,11 +28,11 @@ Azure Digital Twins stores the [Azure Active Directory](../active-directory/fund
 
 ## Deleting customer data
 
-Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/azure-digitaltwins-rest-api).
+Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations on Digital Twins using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/azure-digitaltwins-rest-api).
 
 ## Exporting customer data
 
-The ability to export data is also provided through the Azure portal and REST APIs. Customer data, including assigned roles, can be selected, copied, and pasted by an administrator.
+The ability to export data is also provided through the Azure portal and REST APIs. Customer data, including assigned roles, can be selected, copied, and pasted by an administrator. It is also possible to perform export operations for Digital Twins using REST APIs.
 
 ## Links to additional documentation
 
