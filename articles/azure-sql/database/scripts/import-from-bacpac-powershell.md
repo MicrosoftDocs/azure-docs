@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 05/24/2019
 ---
 # Use PowerShell to import a BACPAC file into a database in SQL Database
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example imports a database from a BACPAC file into a database in SQL Database.  
 

@@ -13,6 +13,7 @@ ms.reviewer: carlr
 ms.date: 01/14/2020
 ---
 # Configure & manage content reference - Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article you can find a content reference of various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. 
 
@@ -28,15 +29,15 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Configure features
 
-- [Configure Azure AD auth](aad-authentication-configure.md)
+- [Configure Azure AD auth](authentication-aad-configure.md)
 - [Configure Conditional Access](conditional-access-configure.md)
-- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
-- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
+- [Multi-factor AAD auth](authentication-mfa-ssms-overview.md)
+- [Configure multi-factor auth](authentication-mfa-ssms-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-configure.md)
 - [Configure Azure Automation](automation-manage.md)
 - [Configure transactional replication](replication-to-sql-database.md) to replicate your date between databases.
 - [Configure threat detection](threat-detection-configure.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
@@ -58,7 +59,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
 - [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
-- [Monitor In-memory OLTP space](../in-memory-oltp-monitoring.md)
+- [Monitor In-memory OLTP space](../in-memory-oltp-monitor-space.md)
 
 ### Extended events
 
