@@ -29,7 +29,7 @@ The following Azure resources are required for this tutorial.
 You can use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
 
 1. Browse to https://shell.azure.com
-1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
+1. If this is the first time you are using Cloud Shell, you will prompted be to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
 1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
 
     ![Environment selector](./media/quickstarts/env-selector.png)
@@ -49,7 +49,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
 
 1. Clone the repo from here https://github.com/Azure-Samples/lva-edge-rc4.
 2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
-3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "apsettings.json". This file will contain the settings needed to run the program.
+3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 3. Copy the contents from clouddrive/lva-sample/appsettings.json file. See step 5 in the previous section.
 
     The text should look like:
