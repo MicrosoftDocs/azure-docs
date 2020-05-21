@@ -1,6 +1,6 @@
 ---
 title: Create a PowerShell runbook in Azure Automation
-description: Tutorial showing how to create, test, and publish a simple PowerShell runbook.
+description: This article teaches you to create, test, and publish a simple PowerShell runbook.
 keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
 ms.subservice: process-automation
@@ -16,9 +16,6 @@ This tutorial walks you through the creation of a [PowerShell runbook](../automa
 > * Test and publish the runbook
 > * Run and track the status of the runbook job
 > * Update the runbook to start an Azure virtual machine with runbook parameters
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Prerequisites
 
@@ -271,10 +268,9 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
 
 ## Next steps
 
-* For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* To get started with graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
-* To get started with PowerShell Workflow runbooks, see [Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md).
-* To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
-* For more information on the PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [PowerShell Docs](/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Create a graphical runbook](automation-tutorial-runbook-graphical.md)
+* [Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
+* [Azure Automation runbook types](../automation-runbook-types.md)
+* [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
