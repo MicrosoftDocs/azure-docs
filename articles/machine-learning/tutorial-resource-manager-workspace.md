@@ -14,13 +14,13 @@ ms.topic: tutorial
 # Tutorial: Deploy an Azure machine learning workspace using a Resource Manager template
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure machine learning workspaces organize all your machine learning assets from baseline datasets to deployed models. Workspaces are a single location to collaborate with colleagues on creating, running, and reviewing experiments, manage your training and inferencing compute resources, and monitor and version deployed models. In this tutorial, you'll use an Azure Resource Manager template to specify and deploy an Azure ML workspace. 
+This tutorial will show you how to create an Azure machine learning workspace using an Azure Resource Manager template. Azure machine learning workspaces organize all your machine learning assets from baseline datasets to deployed models. Workspaces are a single location to collaborate with colleagues on creating, running, and reviewing experiments, manage your training and inferencing compute resources, and monitor and version deployed models.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin
 
 * To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
@@ -38,7 +38,7 @@ The following resources are defined in the template:
 
 ### Deploy the template 
 
-To use the template from the Azure CLI, login and choose your subscription (See [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Then, run:
+To use the template from the Azure CLI, login and choose your subscription (See [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Then run:
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -69,7 +69,7 @@ You'll see the Azure Machine Learning homepage:
 
 :::image type="content" source="media/tutorial-resource-manager-workspace/workspace-home.png" alt-text="Screenshot of the Azure ML workspace":::
 
-To see all the resources associated with the deployment, click the link in the upper left with the workspace name (in the screenshot, **my_templated_ws**). That link takes you to the resource group in the Azure portal. The resource group name is `{projectName}rg` and the workspace is named `{projectName}ws`.
+To see all the resources associated with the deployment, click the link in the upper left with the workspace name (in the screenshot, `my_templated_ws`). That link takes you to the resource group in the Azure portal. The resource group name is `{projectName}rg` and the workspace is named `{projectName}ws`.
 
 ## Clean up resources
 
