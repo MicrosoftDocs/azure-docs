@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting
-description: Troubleshooting Azure Synapse Analytics.
+title: Troubleshooting Synapse SQL
+description: Troubleshooting Synapse SQL in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Troubleshooting SQL Analytics in Azure Synapse
+# Troubleshooting Synapse SQL in Azure Synapse Analytics
 
-This article lists common troubleshooting question.
+This article lists common troubleshooting issues in Synapse SQL.
 
 ## Connecting
 

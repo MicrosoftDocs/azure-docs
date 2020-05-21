@@ -1,7 +1,7 @@
 ---
 title: Create an account in the Azure portal
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
 

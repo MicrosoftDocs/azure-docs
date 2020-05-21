@@ -35,8 +35,7 @@ Backup of Azure VMs requires movement of data from your virtual machine's disk t
 
 You can now use [Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to back up your data securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault, so you do not need to expose your virtual networks to any public IPs. Private Endpoints can be used for backing up and restoring your SQL and SAP HANA databases that run inside your Azure VMs. It can also be used for your on-premises servers using the MARS agent.
 
->[!NOTE]
-> This feature is currently in limited availability. Please fill out [this survey](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) and [email us](mailto:azbackupnetsec@microsoft.com) if you are interested in using Private Endpoints for Azure Backup. The ability to use this feature is subject to approval from the Azure Backup service.
+Read more on private endpoints for Azure Backup [here](https://docs.microsoft.com/azure/backup/private-endpoints).
 
 ## Encryption of data in transit and at rest
 
