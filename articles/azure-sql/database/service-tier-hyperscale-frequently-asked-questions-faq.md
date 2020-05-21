@@ -20,7 +20,7 @@ This article provides answers to frequently asked questions for customers consid
 - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier and are looking to have their specific questions and concerns answered.
 - This FAQ isn’t meant to be a guidebook or answer questions on how to use a Hyperscale database. For an introduction to Hyperscale, we recommend you refer to the [Azure SQL Database Hyperscale](service-tier-hyperscale.md) documentation.
 
-## General Questions
+## General questions
 
 ### What is a Hyperscale database
 
@@ -206,7 +206,7 @@ No. At this time, you can’t move a Hyperscale database to another service tier
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
+Yes. Some Azure SQL Database features are not supported in Hyperscale yet, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
 
 ### Can I move my on-premises SQL Server database, or my SQL Server database in a cloud virtual machine to Hyperscale
 
@@ -241,13 +241,13 @@ SQL Server 2005. For more information, see [Migrate to a single database or a po
 
 Yes. [Azure Database Migration Service](../../dms/dms-overview.md) supports many migration scenarios.
 
-## Business Continuity and Disaster Recovery Questions
+## Business continuity and disaster recovery questions
 
 ### What SLAs are provided for a Hyperscale database
 
 See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/). Additional secondary compute replicas increase availability, up to 99.99% for a database with two or more secondary compute replicas.
 
-### Are the database backups managed for me by the Azure SQL Database service
+### Are the database backups managed for me by Azure SQL Database
 
 Yes.
 
@@ -255,7 +255,7 @@ Yes.
 
 There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is simply retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
 
-### Does Hyperscale support point in time restore
+### Does Hyperscale support point-in-time restore
 
 Yes.
 
@@ -283,7 +283,7 @@ No. The storage format for Hyperscale databases is different from any released v
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Some Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.
 
 ### Will Polybase work with Hyperscale
 
@@ -295,9 +295,9 @@ Not at this time.
 
 ### Are compute nodes containerized
 
-No. Hyperscale processes run on a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) nodes (VMs),  not in containers.
+No. Hyperscale processes run on [Service Fabric](https://azure.microsoft.com/services/service-fabric/) nodes (VMs), not in containers.
 
-## Performance Questions
+## Performance questions
 
 ### How much write throughput can I push in a Hyperscale database
 

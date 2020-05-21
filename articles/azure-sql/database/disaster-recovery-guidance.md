@@ -12,7 +12,7 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ---
-# Restore an Azure SQL Database or failover to a secondary
+# Restore an Azure SQL database or failover to a secondary
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database offers the following capabilities for recovering from an outage:
@@ -88,7 +88,7 @@ Because your recovered database resides in a different server, you need to updat
 
 For more information about changing connection strings, see the appropriate development language for your [connection library](connect-query-content-reference-guide.md#libraries).
 
-### Configure Firewall Rules
+### Configure firewall rules
 
 You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](firewall-configure.md).
 
