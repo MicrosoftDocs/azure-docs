@@ -34,17 +34,17 @@ You must create the public native application in Azure AD for users to sign in. 
 
 2. Select **Authentication** > **Add platform** > **Android** to start configuring authentication for an Android application. There are other options which are available to configure for platforms such as iOS, macOS, Windows, and more. 
 
-    ![App registration Add Platform](./media/azure-maps-authentication/android-app-step-1.png)
+    ![App registration Add Platform](./media/azure-maps-authentication/android-step-1.png)
 
 3. Add the Android package name which is found in the Android Manifest. Secondly, generate a development signature hash using the provided tooling listed in the Azure AD Portal.
 
     > [!IMPORTANT]
     > Be sure to revisit signature hash generation, step to create a production hash when the application is ready to be released to production.
     
-    ![App registration Add Android Metadata](./media/azure-maps-authentication/android-app-step-2.png)
+    ![App registration Add Android Metadata](./media/azure-maps-authentication/android-step-2.png)
 4. Insert the configuration into your Android application, by following the provided [Android Azure AD tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android). **Calling Microsoft Graph API is not a necessary step** in the Azure AD tutorial because the application will call Azure Maps REST APIs. 
 
-    ![App registration Add Android Metadata](./media/azure-maps-authentication/android-app-step-3.png)
+    ![App registration Add Android Metadata](./media/azure-maps-authentication/android-step-3.png)
 
 5.  To assign delegated API permissions to Azure Maps, go to the application. Then select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
