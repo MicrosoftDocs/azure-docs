@@ -26,7 +26,7 @@ Supported endpoint types include:
 
 For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
-Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), available through the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core), or with the [Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Create an endpoint for Azure Digital Twins
 

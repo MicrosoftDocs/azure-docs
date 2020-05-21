@@ -182,7 +182,7 @@ In a graphical runbook, you can add activities for the internal cmdlets `Get-Aut
 
 ![Add variable to canvas](../media/variables/runbook-variable-add-canvas.png)
 
-The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#links-and-workflow) since the code only expects a single object in the output.
+The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#use-links-for-workflow) since the code only expects a single object in the output.
 
 ![Set simple variable](../media/variables/runbook-set-simple-variable.png)
 
@@ -190,4 +190,4 @@ The following image shows example activities to update a variable with a simple 
 
 * To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).

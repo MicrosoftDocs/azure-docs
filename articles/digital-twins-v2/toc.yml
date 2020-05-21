@@ -62,7 +62,7 @@
     href: https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master
   - name: Digital Twins C# SDK
     href: https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core
-  - name: Digital Twins Service limits
+  - name: Digital Twins service limits
     href: reference-service-limits.md
   - name: Azure CLI
     href: /cli/azure/iot
