@@ -268,6 +268,8 @@ VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRout
 VNET to VNET connection    | Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated networking | Supported | Accelerated networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Palo Alto Network Appliance | Not supported | With third party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions and outbound connectivity to be available. But the appliance does not let any outbound activity to be configured inside the Virtual Machine.
+IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are also not supported. Please free up the subnet of the IPv6 range before any Site Recovery operation.
 
 
 

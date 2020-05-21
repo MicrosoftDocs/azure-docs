@@ -75,9 +75,80 @@ All snapshots taken by Azure Backup can be accessed by viewing snapshots in the 
 
 Refer to the [support matrix](azure-file-share-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
 
-### What happens when I change the Backup policy for an Azure file share?
+### What is the impact on existing recovery points and snapshots when I modify the Backup policy for an Azure file share to switch from “Daily Policy" to "GFS Policy”?
 
-When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.
+When you modify a Daily backup policy to GFS policy (adding weekly/monthly/yearly retention), the behavior is as follows:
+
+- **Retention**: If you're adding weekly/monthly/yearly retention as part of modifying the policy, all the future recovery points created as part of the scheduled backup will be tagged according to the new policy. All the existing recovery points will still be considered as daily recovery points and so won’t be tagged as weekly/monthly/yearly.
+
+- **Snapshots and recovery points cleanup**:
+
+  - If daily retention is extended, the expiration date of the existing recovery points is updated according to the daily retention value configured in the new policy.
+  - If daily retention is reduced, the existing recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy, and then deleted.
+
+Here's an example of how this works:
+
+#### Existing Policy [P1]
+
+|Retention Type |Schedule |Retention  |
+|---------|---------|---------|
+|Daily    |    Every day at 8 PM    |  100 days       |
+
+#### New Policy [Modified P1]
+
+| Retention Type | Schedule                       | Retention |
+| -------------- | ------------------------------ | --------- |
+| Daily          | Every day at 9 PM              | 50 days   |
+| Weekly         | On Sunday at 9 PM              | 3 weeks   |
+| Monthly        | On Last Monday at 9 PM         | 1 month   |
+| Yearly         | In Jan on Third Sunday at 9 PM | 4 years   |
+
+#### Impact
+
+1. The expiration date of existing recovery points will be adjusted according to the daily retention value of the new policy:  that is, 50 days. So any recovery point that’s older than 50 days will be marked for deletion.
+
+2. The existing recovery points won’t be tagged as weekly/monthly/yearly based on new policy.
+
+3. All the future backups will be triggered according to the new schedule: that is, at 9 PM.
+
+4. The expiration date of all future recovery points will be aligned with the new policy.
+
+>[!NOTE]
+>The policy changes will affect only the recovery points created as part of the scheduled backup job run. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking backup.
+
+### What is the impact on existing recovery points when I modify an existing GFS Policy?
+
+When a new policy is applied on file shares, all the future scheduled backups will be taken according to the schedule configured in the modified policy.  The retention of all existing recovery points is aligned according to the new retention values configured. So if the retention is extended, existing recovery points are marked to be retained according to the new policy. If the retention is reduced, they're marked for clean-up in the next cleanup job and then deleted.
+
+Here's an example of how this works:
+
+#### Existing Policy [P2]
+
+| Retention Type | Schedule           | Retention |
+| -------------- | ------------------ | --------- |
+| Daily          | Every day at 8 PM | 50 days   |
+| Weekly         | On Monday at 8 PM  | 3 weeks   |
+
+#### New Policy [Modified P2]
+
+| Retention Type | Schedule               | Retention |
+| -------------- | ---------------------- | --------- |
+| Daily          | Every day at 9 PM     | 10 days   |
+| Weekly         | On Monday at 9 PM      | 2 weeks   |
+| Monthly        | On Last Monday at 9 PM | 2 months  |
+
+#### Impact of change
+
+1. The expiration date of existing daily recovery points will be aligned according to the new daily retention value, that is 10 days. So any daily recovery point older than 10 days will be deleted.
+
+2. The expiration date of existing weekly recovery points will be aligned according to the new weekly retention value, that is two weeks. So any weekly recovery point older than two weeks will be deleted.
+
+3. The monthly recovery points will only be created as part of future backups based on the new policy configuration.
+
+4. The expiration date of all future recovery points will be aligned with the new policy.
+
+>[!NOTE]
+>The policy changes will affect only the recovery points created as part of the scheduled backup. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking the backup.
 
 ## Next steps
 
