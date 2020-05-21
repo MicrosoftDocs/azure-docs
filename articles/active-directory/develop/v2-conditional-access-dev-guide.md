@@ -171,7 +171,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
-To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) for guidance on an Angular SPA
+To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) for guidance on an Angular SPA
 
 ## See also
 
