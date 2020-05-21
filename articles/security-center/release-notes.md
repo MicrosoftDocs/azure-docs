@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2020
+ms.date: 05/21/2020
 ms.author: memildin
 
 ---
@@ -29,8 +29,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 ## May 2020
 
 
-
-## Crash dump analysis capabilities migrating to fileless attack detection 
+### Crash dump analysis capabilities migrating to fileless attack detection 
 
 We are integrating the crash dump analysis (CDA) detection capabilities into the [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless) feature. 
 
