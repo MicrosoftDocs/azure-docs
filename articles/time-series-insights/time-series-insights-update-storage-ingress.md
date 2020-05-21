@@ -80,8 +80,10 @@ We recommend that you employ the following best practices:
 
 Using the streaming pipeline to import historical data is not currently supported in Azure Time Series Insights Preview. If you need to import past data into your environment, follow the guidelines below:
 
-* Do not stream live and historical data in parallel. Ingesting highly out of order data could result in degraded query performance.
-* Ingest historical data in time-ordered fashion for best performance. Once the import has completed you may switch to live streaming. 
+* Do not stream live and historical data in parallel. Ingesting out of order data will result in degraded query performance.
+* Ingest historical data in time-ordered fashion for best performance.
+* Stay within the ingestion throughput rate limits below.
+* Disable Warm Store if the data is older than your Warm Store retention period.
 
 ### Ingress scale and Preview limitations
 
