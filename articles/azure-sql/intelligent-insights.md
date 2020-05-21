@@ -13,6 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (Preview)
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance  lets you know what is happening with your database performance.
 

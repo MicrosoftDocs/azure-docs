@@ -13,7 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
-
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
@@ -194,7 +194,7 @@ Writing a good-performing query sometimes can be a challenging task. For more in
 
 The diagnostics log outputs information up to two new most CPU-consuming queries, including their query hashes. Because the detected query affects the workload performance, you can optimize your query. Good practice is to retrieve only data you need to use. We also recommend using queries with a WHERE clause. We also recommend that you simplify complex queries and break them up into smaller queries. Another good practice is to break down large batch queries into smaller batch queries. Introducing indexes for new queries is typically a good practice to mitigate this performance issue.
 
-In Azure SQL Database, consider using [Query Performance Insight](database/query-performance-insight.md).
+In Azure SQL Database, consider using [Query Performance Insight](database/query-performance-insight-use.md).
 
 ## Increased Wait Statistic
 

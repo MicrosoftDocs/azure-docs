@@ -14,6 +14,7 @@ ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create an Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance can be created using Azure PowerShell library and Azure Resource Manager templates.
 

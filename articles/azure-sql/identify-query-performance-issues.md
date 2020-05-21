@@ -14,7 +14,7 @@ ms.date: 03/10/2020
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 When trying to resolve a performance bottleneck, start by determining whether the bottleneck is occurring while the query is in a running state or a waiting state. Different resolutions apply depending upon this determination. Use the following diagram to help understand the factors that can cause either a running-related problem or a waiting-related problem. Problems and resolutions relating to each type of problem are discussed in this article.
 
@@ -144,7 +144,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 Slow query performance not related to suboptimal query plans and missing indexes are generally related to insufficient or overused resources. If the query plan is optimal, the query (and the database) might be hitting the resource limits for the database, elastic pool, or managed instance. An example might be excess log write throughput for the service level.
 
-- Detecting resource issues using the Azure portal: To see if resource limits are the problem, see [SQL Database resource monitoring](database/monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring). For single databases and elastic pools, see [Database Advisor performance recommendations](database/database-advisor-implement-performance-recommendations.md) and [Query Performance Insights](database/query-performance-insight.md).
+- Detecting resource issues using the Azure portal: To see if resource limits are the problem, see [SQL Database resource monitoring](database/monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring). For single databases and elastic pools, see [Database Advisor performance recommendations](database/database-advisor-implement-performance-recommendations.md) and [Query Performance Insights](database/query-performance-insight-use.md).
 - Detecting resource limits using [Intelligent Insights](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Detecting resource issues using [DMVs](database/monitoring-with-dmvs.md):
 
