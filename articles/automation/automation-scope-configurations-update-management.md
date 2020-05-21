@@ -54,5 +54,5 @@ When a computer is added to Update Management, it's also added to a saved search
 * To use a runbook to enable the feature, see [Enable Update Management from a runbook](automation-onboard-solutions.md).
 * To use an Azure VM to enable the feature, see [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md).
 * To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
-* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues-windows.md).
+* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
 * To troubleshoot Windows update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
