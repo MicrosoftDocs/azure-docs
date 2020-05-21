@@ -112,13 +112,13 @@ The following code shows how to set preferred locations by using the Java SDK:
 ### <a id="java4-preferred-locations"></a>
 #### [Async](#tab/api-async)
 
-   [!INCLUDE [cosmos-db-sdk-heading-java-v4-async](../../includes/cosmos-db-sdk-heading-java-v4-async.md)]
+   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
 
 #### [Sync](#tab/api-sync)
 
-   [!INCLUDE [cosmos-db-sdk-heading-java-v4-sync](../../includes/cosmos-db-sdk-heading-java-v4-sync.md)]
+   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=TutorialGlobalDistributionPreferredLocationSync)]
 
