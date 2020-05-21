@@ -20,14 +20,14 @@ Some examples, of issues with provisioning:
 - CustomData does not get processed
 - The ephemeral disk fails to mount
 - Users do not get created, or there are user access issues
-- Networking is not setup correctly
+- Networking is not set up correctly
 - Swap file or partition failures
 
-This article steps you through how to troubleshoot cloud-init. For a more in depth details, see [How cloud-init works](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+This article steps you through how to troubleshoot cloud-init. For a more in-depth details, see [How cloud-init works](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
 
 ## Step 1: Test the deployment without customData
 
-Cloud-init can accept customData, that is passed to it, when the VM is created. First you should ensure this is not causing any issues with deployments. Try to provisioning the VM without passing in any confifguration. If you find the VM fails to provision, continue with the steps below, if you find the configuration you are passing is not being applied go [step 4](). 
+Cloud-init can accept customData, that is passed to it, when the VM is created. First you should ensure this is not causing any issues with deployments. Try to provisioning the VM without passing in any configuration. If you find the VM fails to provision, continue with the steps below, if you find the configuration you are passing is not being applied go [step 4](). 
 
 ## Step 2: Review image requirements are satisfied
 The primary cause of VM provisioning failure is the OS image doesn't satisfy the prerequisites for running on Azure. Make sure your images are properly prepared before attempting to provision them in Azure. 
@@ -115,7 +115,7 @@ The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/c
 
 ### /var/log/cloud-init-output.log
 
-You can get information from the `stdout` and `stderr` during the [stages of cloud-init](cloud-init-deep-dive.md). This normally involves routing table information, networking information, ssh host key verification information, `stdout` and `stderr` for each stage of cloud-init, along with the timestamp for each stages. If desired, `stderr` and `stdout` logging can be reconfigured from `/etc/cloud/cloud.cfg.d/05_logging.cfg`.
+You can get information from the `stdout` and `stderr` during the [stages of cloud-init](cloud-init-deep-dive.md). This normally involves routing table information, networking information, ssh host key verification information, `stdout` and `stderr` for each stage of cloud-init, along with the timestamp for each stage. If desired, `stderr` and `stdout` logging can be reconfigured from `/etc/cloud/cloud.cfg.d/05_logging.cfg`.
 
 ### Serial/boot logs 
 
@@ -125,13 +125,13 @@ If you still cannot isolate why cloud-init failed to provision then you need to 
 
 
 ## Step 4: Investigate why the cloud-init configuration is not being applied
-Not every failure in cloud-init results in a fatal provisioning failure. For example, if you are using the `runcmd` module in a cloud-init config, a non zero exit code from the command it is running will not fail the the VM provisioning. This is because it runs after core provisioning functionality that happens in the first 3 stages of cloud-init. To troubleshoot why the configuration did not apply, review the logs in Step 3, and cloud-init modules manually. For example:
+Not every failure in cloud-init results in a fatal provisioning failure. For example, if you are using the `runcmd` module in a cloud-init config, a non-zero exit code from the command it is running will cause the VM provisioning to fail. This is because it runs after core provisioning functionality that happens in the first 3 stages of cloud-init. To troubleshoot why the configuration did not apply, review the logs in Step 3, and cloud-init modules manually. For example:
 
 - `runcmd` - do the scripts run without errors? Run the configuration manually from the terminal to ensure they run as expected.
 - Installing packages - does the VM have access to package repositories?
-- You should also check the the `customData` data configuration that was provided to the VM, this is located in `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt`.
+- You should also check the `customData` data configuration that was provided to the VM, this is located in `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt`.
 
 
 ## Next steps
 
-If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happes in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) for more information. 
+If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) for more information. 

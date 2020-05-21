@@ -12,9 +12,9 @@ ms.reviewer: cynthn
 
 
 # Diving deeper into cloud-init
-To learn more about [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) or troubleshoot cloud-init at a deeper level, you need to understand how it works. This document highlights the important parts, and explains the Azure specifics.
+To learn more about [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) or troubleshoot it at a deeper level, you need to understand how it works. This document highlights the important parts, and explains the Azure specifics.
 
-When cloud-init is included in a generalized image, and a VM is created from that image, it will run through 5 stages during the intial boot. These stages matter, as it shows you at what point cloud-init will applies configurations. 
+When cloud-init is included in a generalized image, and a VM is created from that image, it will run through 5 stages during the initial boot. These stages matter, as it shows you at what point cloud-init will apply configurations. 
 
 ## Cloud-init boot stages
 
@@ -26,20 +26,20 @@ If you wish to disable cloud-init, you have the option here. For example, create
 
 2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here cloud-init will look for the local "Azure" datasource, which will enable cloud-init to interface with Azure, and apply a networking configuration, including fallback.
 
-3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online and the nic and route table information should be generated. At this stage, the modules in `cloud_init_modules` will be executed in /etc/cloud/cloud.cfg, so a VM in Azure will mount and format the ephermal disk, set the hostname etc.
+3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online and the nic and route table information should be generated. At this stage, the modules in `cloud_init_modules` will be executed in /etc/cloud/cloud.cfg, so a VM in Azure will mount and format the ephemeral disk, set the hostname an do other tasks.
 
 These are some of the cloud_init_modules:
-- migrator
-- seed_random
-- bootcmd
-- write-files
-- growpart
-- resizefs
-- disk_setup
-- mounts
-- set_hostname
-- update_hostname
-- ssh
+- `migrator`
+- `seed_random`
+- `bootcmd`
+- `write-files`
+- `growpart`
+- `resizefs`
+- `disk_setup`
+- `mounts`
+- `set_hostname`
+- `update_hostname`
+- `ssh`
 
 
 After this stage, cloud-init will signal to the Azure platform that the VM has provisioned successfully.But, not all module failures result in a fatal provisioning failure.
@@ -74,12 +74,12 @@ Configuring a VM to run on a platform, means cloud-init needs to apply multiple 
 - Enable and disable root login (ssh)
 - Enable passwordless login
 - Hostname configuration
-- Define modules that runs in various stages of cloud-init.
+- Define modules that run in various stages of cloud-init.
 
 
 `/etc/cloud/cloud.cfg.d/*.cfg` - cloud-init supports additional configurations, these reside within: <!-- is there more here? -->
 
-An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have a Azure datasource directive, that instructs cloud-init what datasource it should use, this saves cloud-init time.
+An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have an Azure datasource directive, that tells cloud-init what datasource it should use, this saves cloud-init time.
 
 ```bash
 /etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
