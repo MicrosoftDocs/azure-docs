@@ -146,7 +146,7 @@ If you used the performance recommendations to apply the recommendation (meaning
 
 ## Monitoring performance impact of index recommendations
 
-After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only), you can click **Query Insights** on the recommendation details page to open [Query Performance Insights](query-performance-use.md) and see the performance impact of your top queries.
+After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only), you can click **Query Insights** on the recommendation details page to open [Query Performance Insights](query-performance-insight-use.md) and see the performance impact of your top queries.
 
 ![Monitor performance impact](./media/database-advisor-find-recommendations-portal/query-insights.png)
 
@@ -160,7 +160,7 @@ Monitor your recommendations and continue to apply them to refine performance. D
 
 * See [Automatic tuning](automatic-tuning-overview.md) to learn more about the automatic tuning in Azure SQL Database.
 * See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
-* See [Query Performance Insights](query-performance-use.md) to learn about viewing the performance impact of your top queries.
+* See [Query Performance Insights](query-performance-insight-use.md) to learn about viewing the performance impact of your top queries.
 
 ## Additional resources
 
