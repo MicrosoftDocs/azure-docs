@@ -10,6 +10,10 @@ ms.date: 05/21/2020
 ---
 # Optimize Apache Spark jobs in HDInsight
 
+This article provides an overview of strategies to optimize Apache Spark jobs on Azure HDInsight.
+
+## Overview
+
 The performance of your Apache Spark jobs depends on multiple factors. These performance factors include: how your data is stored, how the cluster is configured, and the operations that are used when processing the data.
 
 Common challenges you might face include memory constraints due to improperly sized executors, long-running operations, and tasks that result in Cartesian operations.
