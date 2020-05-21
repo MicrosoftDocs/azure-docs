@@ -1079,7 +1079,7 @@
     displayName: ARM
 - name: Resources
   items:
-  - name: Q & A
+  - name: Q&A
     href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager, ARM
