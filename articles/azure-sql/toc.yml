@@ -1,39 +1,22 @@
 - name: Azure SQL Documentation
   href: index.yml
 
-- name: Azure SQL
-  items: 
-  - name: What is Azure SQL? 
-    href: azure-sql-iaas-vs-paas-what-is-overview.md
-  - name: Multi-model features
-    href: multi-model-features.md
-
+- name: What is Azure SQL? 
+  href: azure-sql-iaas-vs-paas-what-is-overview.md
 
 - name: Shared SQL DB & SQL MI docs 
   items:
-  - name: Shared concepts 
-    itemS: 
-    - name: Feature comparison
-      href: database/features-comparison.md    
-    - name: Azure Hybrid Benefit
-      href: azure-hybrid-benefit.md
-    - name: Accelerated database recovery
-      href: accelerated-database-recovery.md
-    - name: In-memory OLTP
-      href: in-memory-oltp-overview.md
-    - name: Temporal tables
-      href: temporal-tables.md
-
-    - name: Purchasing models
-      items:
-      - name: Overview
-        href: database/purchasing-models.md
-      - name: vCore model overview
-        href: database/service-tiers-vcore.md
-      - name: Reserved capacity
-        href: database/reserved-capacity-overview.md
-
-    - name: Compute & storage
+  - name: Azure Hybrid Benefit
+    href: azure-hybrid-benefit.md
+  - name: Purchasing models
+    items:
+    - name: Overview
+      href: database/purchasing-models.md
+    - name: vCore model overview
+      href: database/service-tiers-vcore.md
+    - name: Reserved capacity
+      href: database/reserved-capacity-overview.md
+  - name: Compute & storage
       items:
       - name: Overview
         href: database/service-tiers-general-purpose-business-critical.md
@@ -41,9 +24,21 @@
       - name: General purpose / Standard
         href: database/service-tier-general-purpose.md
       - name: Business critical / Premium
-        href: database/service-tier-business-critical.md
-      - name: Scale Up/Down
-        href: database/scale-resources.md
+        href: database/service-tier-business-critical.md        
+
+  - name: Shared concepts 
+    itemS: 
+    - name: Feature comparison
+      href: database/features-comparison.md
+    - name: Multi-model features
+      href: multi-model-features.md      
+
+    - name: In-memory OLTP
+      href: in-memory-oltp-overview.md
+    - name: Temporal tables
+      href: temporal-tables.md
+    - name: Scale up / down
+      href: database/scale-resources.md
 
     - name: Security
       items:
@@ -87,7 +82,7 @@
           href: database/data-discovery-and-classification-overview.md
         
     - name: Business continuity
-      displayName: Backup, back up, restore
+      displayName: Backup, back up, restore, recovery
       items:
         - name: Overview
           href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
@@ -95,10 +90,12 @@
           href: database/high-availability-sla.md
         - name: Auto-failover groups
           href: database/auto-failover-group-overview.md
-        - name: Backups
+        - name: Backup and recovery 
           items:
           - name: Automated backups
             href: database/automated-backups-overview.md
+          - name: Accelerated database recovery
+            href: accelerated-database-recovery.md 
           - name: Recovery using backups
             href: database/recovery-using-backups.md
           - name: Long-term backup retention
