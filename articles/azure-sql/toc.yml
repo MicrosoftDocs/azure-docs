@@ -764,9 +764,9 @@
     - name: Machine Learning Services
       items:
       - name: Overview
-        href: machine-learning-services-overview.md
+        href: managed-instance/machine-learning-services-overview.md
       - name: Key differences
-        href: machine-learning-services-differences.md
+        href: managed-instance/machine-learning-services-differences.md
       - name: Quickstarts
         items:
         - name: Python
