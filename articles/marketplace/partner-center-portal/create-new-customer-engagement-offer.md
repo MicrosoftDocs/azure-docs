@@ -253,9 +253,14 @@ Provide the URL for the configuration web page that enables the customer to conf
 
 ### CRM package
 
-In the **URL of your package location** field, enter the URL of an Azure Storage account that contains the uploaded CRM package .zip file. This URL should include a read-only SAS key to allow Microsoft to pick up your package for verification.
+In the **URL of your package location** field, enter the URL of an Azure Blob Storage account that contains the uploaded CRM package .zip file. Include a read-only SAS key in the URL so Microsoft can pick up your package for verification.
 
-Check the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+> [!IMPORTANT]
+> To avoid a publishing block, make sure that the expiration date in the URL of your Blob storage hasn’t expired. You can revise the date by accessing your policy. We recommend the **Expiry time** be at least one month in the future.
+
+Select the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+
+For detailed information on how to build your package and update its structure, see [Step 3: Create an AppSource package for your app](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### CRM package availability
 

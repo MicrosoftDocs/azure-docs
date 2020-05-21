@@ -326,8 +326,7 @@ A managed instance can't access file shares and Windows folders, so the files mu
 
 A managed instance can't access file shares and Windows folders, so the following constraints apply:
 
-- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEM
-BLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
+- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](/sql/t-sql/statements/alter-assembly-transact-sql).
 
