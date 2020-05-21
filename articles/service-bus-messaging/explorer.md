@@ -47,7 +47,6 @@ To use the Azure Service Bus explorer, you need to navigate to the Service Bus n
 
 If you are looking to perform operations against a Queue, pick **'Queues'** from the navigation menu. If you are looking to perform operations against a Topic (and it's related subscriptions), pick **Topics**. 
 
-[!div class="mx-imgBorder"]
 ![Entity select](./media/service-bus-explorer/queue-topics-left-navigation.png)
 
 After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic.
