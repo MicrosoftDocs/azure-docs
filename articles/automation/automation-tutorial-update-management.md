@@ -1,32 +1,22 @@
 ---
-title: Manage updates and patches for your Azure VMs
-description: This article provides an overview of how to use Azure Automation Update Management to manage updates and patches for your Azure and non-Azure VMs.
+title: Manage updates and patches for your Azure VMs in Azure Automation
+description: This article tells how to use Update Management to manage updates and patches for your Azure VMs.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
 
-You can use the Update Management solution to manage updates and patches for your virtual machines. In this tutorial, you learn how to quickly assess the status of available updates, schedule installation of required updates, review deployment results, and create an alert to verify that updates apply successfully.
+This article describes how you can use the Azure Automation [Update Management](automation-update-management.md) feature to manage updates and patches for your Azure VMs. 
 
 For pricing information, see [Automation pricing for Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * View an update assessment
-> * Configure alerting
-> * Schedule an update deployment
-> * View the results of a deployment
-
 ## Prerequisites
 
-To complete this tutorial, you need:
-
-* The [Update Management](automation-update-management.md) solution enabled for one or more of your VMs.
-* A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
+* The [Update Management](automation-update-management.md) feature enabled for one or more of your VMs. 
+* A [virtual machine](../virtual-machines/windows/quick-create-portal.md) enabled for Update Management.
 
 ## Sign in to Azure
 
@@ -89,7 +79,7 @@ To customize the subject of the alert email, under **Create rule**, under **Cust
 
 ## Schedule an update deployment
 
-Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+Schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
 >[!NOTE]
 >Scheduling an update deployment creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
@@ -106,18 +96,9 @@ Under **New update deployment**, specify the following information:
 
 * **Machines to update**: Select a Saved search, Imported group, or pick **Machines** from the dropdown menu and select individual machines. If you choose **Machines**, the readiness of each machine is shown in the **Update agent readiness** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
-* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For this tutorial, leave all types selected for all products.
+* **Update classification**: For each product, deselect all supported update classifications but the ones to include in your update deployment. For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#work-with-update-classifications).
 
-  The classification types are:
-
-   |OS  |Type  |
-   |---------|---------|
-   |Windows     | Critical updates</br>Security updates</br>Update rollups</br>Feature packs</br>Service packs</br>Definition updates</br>Tools</br>Updates<br>Driver        |
-   |Linux     | Critical and security updates</br>Other updates       |
-
-   For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications).
-
-* **Include/exclude updates** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
+* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or uncheck all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
 
 > [!NOTE]
 > It's important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management installs no patches or packages, as they're all excluded. Excluded patches still show as missing from the machine. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
@@ -125,7 +106,6 @@ Under **New update deployment**, specify the following information:
 > [!NOTE]
 > You can't specify updates that have been superseded for inclusion with the update deployment.
 >
-
 * **Schedule settings**: The Schedule Settings pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and click **OK**. These entries set up a recurring schedule.
@@ -143,7 +123,7 @@ Under **New update deployment**, specify the following information:
   > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Reboot options**: Use to specify options for handling reboots. The following options are available:
-  * Reboot if required (default)
+  * Reboot if necessary (default)
   * Always reboot
   * Never reboot
   * Only reboot - doesn't install updates
@@ -190,16 +170,4 @@ When your update deployment succeeds, you receive a confirming email similar to 
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Onboard a VM for Update Management
-> * View an update assessment
-> * Configure alerting
-> * Schedule an update deployment
-> * View the results of a deployment
-
-Continue to the overview for the Update Management solution.
-
-> [!div class="nextstepaction"]
-> [Update Management solution](automation-update-management.md)
+* [Update Management overview](automation-update-management.md)
