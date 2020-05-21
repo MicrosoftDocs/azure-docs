@@ -50,7 +50,7 @@ In Azure, you can prepare a managed image from:
 > [!NOTE]
 > Currently, Batch only supports managed images. You can't create a custom image pool from a specialized image at this time.
 
-To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot.
+The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 
 ### Prepare a VM
 

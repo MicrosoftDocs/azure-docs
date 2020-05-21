@@ -29,7 +29,7 @@ In Azure, you can prepare a managed image from:
 - A generalized Azure VM with managed disks
 - A generalized on-premises VHD uploaded to the cloud
 
-To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot.
+To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. The following steps show how to prepare a VM, take a snapshot, and create a managed image from the snapshot.
 
 ### Prepare a VM
 
