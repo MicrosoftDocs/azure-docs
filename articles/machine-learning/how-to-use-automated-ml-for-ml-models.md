@@ -116,14 +116,14 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization| Select to enable or disable the featurization done by automated machine learning. Automatic featurization includes automatic data cleansing, preparing, and transformation to generate synthetic features. Not supported for the time series forecasting task type. [Learn more about featurization](#featurization). 
+    Automatic featurization| Select to enable or disable the featurization done by automated machine learning. Automatic featurization includes automatic data cleansing, preparing, and transformation to generate synthetic features. Not supported for the time series forecasting task type. [Learn more about featurization](how-to-configure-auto-features#featurization). 
     Explain best model | Select to enable or disable to show explainability of the recommended best model
     Blocked algorithm| Select algorithms you want to exclude from the training job.
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
 
-1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurizations). 
+1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
     ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
@@ -163,7 +163,7 @@ Column| Customization
 ---|---
 Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
-Impute with| Select what to impute missing values with in your data.
+Impute with| Select what value to impute missing values with in your data.
 
 ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 

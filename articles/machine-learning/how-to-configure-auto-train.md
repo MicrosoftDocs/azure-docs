@@ -190,7 +190,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 ### Data featurization
 
-In every automated machine learning experiment, your data is [automatically scaled and normalized](how-to-train-auto-features.md#) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional featurization, such as missing values imputation, encoding, and transforms.
+In every automated machine learning experiment, your data is [automatically scaled and normalized](how-to-configure-auto-features.md#) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional featurization, such as missing values imputation, encoding, and transforms.
 
 When configuring your experiments in your `AutoMLConfig` object, you can enable/disable the setting `featurization`. The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 

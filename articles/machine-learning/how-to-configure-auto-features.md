@@ -25,7 +25,7 @@ Featurization, or feature engineering,
 
 This article assumes you are already familiar with how to configure an automated machine learning experiment with the default featurization settings.
 
-   * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-use-configure-auto-train.md).
+   * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For low/no code experience customers: [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 See these introductory examples of automated machine learning experiments,
@@ -50,7 +50,7 @@ Featurization Configuration | Description
  ------------- | ------------- 
 `"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.
 `"featurization": 'off'`| Indicates featurization step should not be done automatically.
-`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
+`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-feature-engineering).|
 
 <a name="featurization"></a>
 
@@ -75,7 +75,7 @@ The following table summarizes the techniques that are automatically applied to 
 
 ## Data guardrails
 
- Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls#identify-models-with-imbalanced-data) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
+ Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
 
 Users can review data guardrails in the studio within the **Data guardrails** tab of an automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK.
 
@@ -135,7 +135,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 * Learn how to set up your automated ML experiments,
 
-    * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-use-configure-auto-train.md).
+    * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For limited/no code experience customers: [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
