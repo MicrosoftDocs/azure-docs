@@ -59,8 +59,7 @@ If you want to enable the profiler for other clouds, you can use the below app s
 
 ## Disable Profiler
 
-To stop or restart Profiler for an individual app's instance, under **Web Jobs**, go to the app resource. To delete Profiler, go to **Extensions**.
-
+To stop or restart Profiler for an individual app's instance, under **WebJobs** and stop the webjob named ApplicationInsightsProfiler3. Even if the profiler is disabled using the switch on the Application Insights page as described above, it will still run. The profiler will check to see if it is enabled. If it isn't, it will go to sleep for a period of time before checking again. If you disable this webjob, it won't run at all for this application until you enable the webjob again, or restart the app.
 ![Disable Profiler for a web job][disable-profiler-webjob]
 
 We recommend that you have Profiler enabled on all your apps to discover any performance issues as early as possible.
