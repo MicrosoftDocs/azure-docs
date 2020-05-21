@@ -83,4 +83,3 @@ In some cases, the general subject of an article can be used in a product, but t
 ## Next steps
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md). The list on this page supplements that guidelines and features article, and focuses on Transact-SQL statements.
- 

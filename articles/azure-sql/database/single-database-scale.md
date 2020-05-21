@@ -16,7 +16,7 @@ ms.date: 04/30/2020
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](serverless-tier-overview.md) provides compute auto-scaling and bills per second for compute used.
 
-After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
@@ -149,4 +149,3 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 ## Next steps
 
 For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](resource-limits-vcore-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](resource-limits-dtu-single-databases.md).
- 

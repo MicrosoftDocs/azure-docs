@@ -51,4 +51,3 @@ In addition to the pre-installed packages, you can [install additional packages]
 - See the [key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md).
 - To learn how to use R to query Azure SQL Database Machine Learning Services (preview), see the [Quickstart guide](connect-query-r.md).
 - To get started with some simple R scripts, see [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](r-script-create-quickstart.md).
- 

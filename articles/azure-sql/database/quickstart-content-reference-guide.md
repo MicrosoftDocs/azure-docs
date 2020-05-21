@@ -52,4 +52,3 @@ The following Microsoft Learn modules help you learn for free about Azure SQL Da
 - Find more sample scripts written in [PowerShell](powershell-script-content-guide.md) and [the Azure CLI](az-cli-script-samples-content-guide.md).
 - Learn more about the [management API](single-database-manage.md) that you can use to configure your databases.
 - [Identify the right Azure SQL Database or Azure SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).
- 

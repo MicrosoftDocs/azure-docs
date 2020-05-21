@@ -240,4 +240,3 @@ For more info about Azure SQL Database, see the following articles:
 
 - [SQL Database Overview](sql-database-paas-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
- 

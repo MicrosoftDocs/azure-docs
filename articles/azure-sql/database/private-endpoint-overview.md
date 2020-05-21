@@ -186,4 +186,3 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 [4]: media/quickstart-create-single-database/pec-approve.png
 [5]: media/quickstart-create-single-database/pec-list-after.png
 [6]: media/quickstart-create-single-database/pec-select.png
- 

@@ -93,4 +93,3 @@ To restore a database from the LTR storage, you can select a specific backup bas
 ## Next steps
 
 Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. To learn about the other SQL Database business-continuity solutions, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

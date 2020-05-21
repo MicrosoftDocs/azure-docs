@@ -211,4 +211,3 @@ For more info about SQL Database, see:
 
 -   [SQL Database Overview](../../sql-database/sql-database-technical-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
- 
