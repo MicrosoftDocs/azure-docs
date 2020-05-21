@@ -31,7 +31,8 @@ As a first step, you would need to create your first Managed Instance with the n
   - Set up [point-to-site VPN connection to your managed instance](sql-database-managed-instance-configure-p2s.md) from your client computer on which you have SQL Server Management Studio and other client connectivity applications. This is other of two options for connectivity to your managed instance and to its VNet.
 
   > [!NOTE]
-  > You can also use express route or site-to-site connection from your local network, but these approaches are out of the scope of these quickstarts.
+  > - You can also use express route or site-to-site connection from your local network, but these approaches are out of the scope of these quickstarts.
+  > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
 As an alternative to manual creation of Managed Instance, you can use [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell with Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md), or [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) to script and automate this process.
 
