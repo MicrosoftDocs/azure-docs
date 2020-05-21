@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/19/2020
+ms.date: 05/21/2020
 ms.author: chmutali
 ms.reviewer: celested
 ---
@@ -22,7 +22,8 @@ This section provides a list of attributes that you can fetch from Workday using
 
 The table below captures the list of Workday attributes and corresponding XPATH expressions that are shipped out of the box with the Workday inbound provisioning app connector. These XPATH values are used *if no version information is specified in the connection URL or if the version is set to v21.1*. 
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/wd_url_no_version_info.png" alt-text="Workday no version info":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Workday no version info":::
+
 
 | \# | Name                                  | Workday API expression                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -111,7 +112,7 @@ The table below captures the list of Workday attributes and corresponding XPATH 
 
 If you are using WWS API v30.0 or above in the connection URL as shown below:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/wd_url_version_info.png" alt-text="Workday version info":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday version info":::
 
 ...then before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** to use the values listed in the table. 
 
