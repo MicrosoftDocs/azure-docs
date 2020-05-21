@@ -82,4 +82,4 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
 ## Next steps
 
-- [Quickstart: Deploy Azure Data Box Disk using the Azure portal](data-box-disk-quickstart-portal.md)
+* [Quickstart: Deploy Azure Data Box Disk using the Azure portal](data-box-disk-quickstart-portal.md)

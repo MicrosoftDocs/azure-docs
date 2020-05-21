@@ -82,4 +82,4 @@ When you place a Data Box order, you can choose self-managed shipping option.
 
 ## Next steps
 
-- [Get started with Azure Data Box](data-box-quickstart-portal.md)
+* [Get started with Azure Data Box](data-box-quickstart-portal.md)
