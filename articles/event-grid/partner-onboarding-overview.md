@@ -34,7 +34,7 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 
     ![Create Partner Topic](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. Create one or more `partnerNamespaces` in each region you want to publish events. As part of this, Event Grid service will provision a publishing endpoint (for example, https://contoso.westus-1.eventgrid.azure.net/api/events) and access keys.
+1. Create one or more `partnerNamespaces` in each region you want to publish events. As part of this, Event Grid service will provision a publishing endpoint (for example, `https://contoso.westus-1.eventgrid.azure.net/api/events`) and access keys.
 
     ![Create Partner Namespace](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
@@ -101,7 +101,7 @@ Publish events to Azure Event Grid using the CloudEvents 1.0 schema. Event Grid 
 
 ### Example Flow
 
-1.	The publishing service does an HTTP POST to https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01.
+1.	The publishing service does an HTTP POST to `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 2.	In the request, include a header value named aeg-sas-key that contains a key for authentication. This key is provisioned during the creation of the partnerNamespace. For example, a valid header value is aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
 3.	Set the Content-Type header to “application/cloudevents-batch+json; charset=UTF-8”.
 4.	Perform an HTTP POST to the above publish URL with a batch of events corresponding to that region. For example:
@@ -154,7 +154,7 @@ After posting to the partnerNamespace endpoint, you'll receive a response. The r
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM Template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [ARM Template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/partnernamespaces)
+  * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [CLI Extension](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### SDKs
