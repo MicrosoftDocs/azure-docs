@@ -1,5 +1,5 @@
 ---
-title: VM is unresponsive while applying policy
+title: Azure virtual machine is unresponsive while applying policy
 description: This article provides steps to resolve issues in which the load screen is stuck when applying a policy during boot in an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -67,12 +67,12 @@ Here’s the problematic policy:
     - System-wide settings are stored on `HKEY_LOCAL_MACHINE` and can be abbreviated as “HKLM”.
 3. In the attached disk, go to the `\windows\system32\config\SOFTWARE` file and open it.
 
-    a) You will be prompted for a name. Enter BROKENSOFTWARE.<br/>
-    b) To verify that BROKENSOFTWARE was loaded, expand **HKEY_LOCAL_MACHINE** and look for the added BROKENSOFTWARE key.
+    1. You will be prompted for a name. Enter BROKENSOFTWARE.<br/>
+    2. To verify that BROKENSOFTWARE was loaded, expand **HKEY_LOCAL_MACHINE** and look for the added BROKENSOFTWARE key.
 4. Navigate to BROKENSOFTWARE and check if the CleanupProfile key exists in the loaded hive.
 
-    a) If the key exists, then the CleanupProfile policy is set, its value represents the retention policy in days. Continue deleting the key.<br/>
-    b) If the key doesn't exist, the CleanupProfile policy isn't set. [Submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), including the memory.dmp file located in the Windows directory of the attached OS disk.
+    1. If the key exists, then the CleanupProfile policy is set, its value represents the retention policy in days. Continue deleting the key.<br/>
+    2. If the key doesn't exist, the CleanupProfile policy isn't set. [Submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), including the memory.dmp file located in the Windows directory of the attached OS disk.
 
 5. Delete the CleanupProfiles key using this command:
 
@@ -144,3 +144,7 @@ If the issue is fixed, the policy has been disabled locally. For a permanent sol
 Don’t use this policy:
 
 `Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart`
+
+## Next steps
+
+If you encounter issues when you apply Windows Update, see [VM is unresponsive with "C01A001D" error when applying Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update)
