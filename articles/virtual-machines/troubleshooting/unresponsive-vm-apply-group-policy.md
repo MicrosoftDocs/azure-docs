@@ -120,7 +120,7 @@ To enable memory dump collection and Serial Console, run this script:
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
     ```
-    
+
     Enable on ControlSet002:
     
     ```
@@ -147,4 +147,4 @@ Don’t use this policy:
 
 ## Next steps
 
-If you encounter issues when you apply Windows Update, see [VM is unresponsive with "C01A001D" error when applying Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update)
+If you encounter issues when you apply Windows Update, see [VM is unresponsive with "C01A001D" error when applying Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
