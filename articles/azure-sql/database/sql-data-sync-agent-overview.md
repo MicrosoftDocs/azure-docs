@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
 # Data Sync Agent for SQL Data Sync
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Sync data with on-premises SQL Server databases by installing and configuring the Data Sync Agent for SQL Data Sync in Azure. For more info about SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 

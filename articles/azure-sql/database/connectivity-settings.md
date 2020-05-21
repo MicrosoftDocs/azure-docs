@@ -12,6 +12,7 @@ ms.date: 03/09/2020
 ---
 
 # Azure SQL Connectivity Settings
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 

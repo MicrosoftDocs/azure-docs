@@ -11,22 +11,23 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
-# Security controls for Azure SQL Database
+# Security controls for Azure SQL Database and SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article documents the security controls that are built into Azure SQL Database.
+This article documents the security controls that are built into Azure SQL Database and Azure SQL Managed Instance.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
-SQL Database includes both [single database](../index.yml) and [managed instance](../managed-instance/sql-managed-instance-paas-overview.md). The following entries apply to both offerings except where otherwise noted.
+
 
 ## Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Applies to [single database](../index.yml) only. |
-| Azure Virtual Network injection support| Yes | Applies to [managed instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
-| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
-| Forced tunneling support| Yes | [Managed instance](../managed-instance/sql-managed-instance-paas-overview.md) via an [ExpressRoute](../expressroute/../index.yml) VPN. |
+| Service endpoint support| Yes | Applies to [SQL Database](../index.yml) only. |
+| Azure Virtual Network injection support| Yes | Applies to [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
+| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) only. |
+| Forced tunneling support| Yes | [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) via an [ExpressRoute](../expressroute/../index.yml) VPN. |
 
 ## Monitoring & logging
 

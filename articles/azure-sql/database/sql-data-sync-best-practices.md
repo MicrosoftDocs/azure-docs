@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
 # Best practices for SQL Data Sync 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes best practices for Azure SQL Data Sync.
 

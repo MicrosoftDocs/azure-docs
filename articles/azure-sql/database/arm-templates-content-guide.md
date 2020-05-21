@@ -14,8 +14,8 @@ ms.reviewer: sstein
 ms.date: 02/04/2019
 ---
 
-# Azure Resource Manager templates for Azure SQL Database & Azure SQL Managed Instance 
-
+# Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure Resource Manager templates enable you to define your infrastructure as code and deploy your solutions to Azure cloud for your Azure SQL Database and Azure SQL Managed Instance.
 

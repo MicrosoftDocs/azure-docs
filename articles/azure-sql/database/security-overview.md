@@ -14,6 +14,7 @@ ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
 ---
 # An overview of Azure SQL Database & SQL Managed Instance security capabilities
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article outlines the basics of securing the data tier of an application using [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
 

@@ -14,6 +14,8 @@ ms.reviewer: vanto
 ms.date: 02/24/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+
 
 This topic describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-overview.md).
 

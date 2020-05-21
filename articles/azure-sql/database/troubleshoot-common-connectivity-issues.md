@@ -15,6 +15,7 @@ ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ---
 # Troubleshooting transient connection errors to Microsoft Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 

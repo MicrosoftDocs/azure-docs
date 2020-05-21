@@ -14,7 +14,8 @@ ms.reviewer: carlrab
 ms.date: 04/08/2019
 ---
 
-# What is the Azure SQL Database service?
+# What is Azure SQL Database?
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
