@@ -51,7 +51,7 @@ Telemetry message:
 { 
     "specversion": "1.0", 
     "type": "microsoft.iot.telemetry", 
-    "source": "myhub.westcentralus.azuredigitaltwins.net", 
+    "source": "myhub.westus2.azuredigitaltwins.net", 
     "subject": "thermostat.vav-123", 
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
     "dataschema": "dtmi:com:contoso:DigitalTwins:VAV;1",
@@ -71,7 +71,7 @@ Life-cycle notification message:
 { 
     "specversion": "1.0", 
     "type": "microsoft.digitaltwins.twin.create", 
-    "source": "mydigitaltwins.westcentralus.azuredigitaltwins.net", 
+    "source": "mydigitaltwins.westus2.azuredigitaltwins.net", 
     "subject": "device-123", 
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
     "time": "2018-04-05T17:31:00Z", 
@@ -107,7 +107,7 @@ Here are the fields in the body of a life-cycle notification.
 | Name | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Create`<br>`Microsoft.DigitalTwins.TwinProxy.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Attach`<br>`Microsoft.DigitalTwins.TwinProxy.Detach` |
 | `datacontenttype` | application/json |
@@ -193,7 +193,7 @@ Here are the fields in the body of an edge change notification.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br>`Microsoft.DigitalTwins.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
@@ -245,7 +245,7 @@ Here are the fields in the body of a model change notification.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Patch` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
 | `datacontenttype` | application/json |
@@ -287,7 +287,7 @@ Here are the fields in the body of a digital twin change notification.
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | application/json-patch+json |

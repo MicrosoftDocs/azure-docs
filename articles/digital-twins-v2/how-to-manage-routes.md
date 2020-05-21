@@ -26,7 +26,7 @@ Supported endpoint types include:
 
 For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
-Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/IoT-ADT/sdk/digitaltwins/Azure.DigitalTwins.Core), or with the [Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [C# SDK](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -35,8 +35,14 @@ To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or 
 The following example shows how to create an event grid topic using the Azure CLI:
 
 ```azurecli
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l "westcentralus"
+az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
+
+> [!TIP]
+> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
+> ```azurecli
+> az account list-locations -o table
+> ```
 
 Once you have created the topic, you can link it to Azure Digital Twins with the following command:
 
