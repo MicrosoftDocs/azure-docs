@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ---
 
-# Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers
+# Enable monitoring of Azure Arc enabled Kubernetes cluster
 
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of your Kubernetes clusters hosted outside of Azure that are enabled with Azure Arc, to achieve a similar monitoring experience.
 
