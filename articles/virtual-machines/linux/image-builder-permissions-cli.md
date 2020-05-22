@@ -2,7 +2,7 @@
 title: Configure Azure Image Builder Service permissions using Azure CLI
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using Azure CLI
 author: cynthn
-ms.author: patricka
+ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines

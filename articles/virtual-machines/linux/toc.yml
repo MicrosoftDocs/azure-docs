@@ -482,6 +482,8 @@
         href: image-builder-permissions-powershell.md
       - name: Networking options
         href: image-builder-networking.md
+      - name: DevOps task
+        href: image-builder-devops-task.md
       - name: ARM template reference
         href: image-builder-json.md
         displayName: ARM,Resource Manager

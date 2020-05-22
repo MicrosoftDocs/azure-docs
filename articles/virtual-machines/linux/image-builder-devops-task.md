@@ -2,8 +2,8 @@
 title: Azure Image Builder Service DevOps Task
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 author: cynthn
-ms.author: patricka
-ms.date: 05/20/2020
+ms.author: danis
+ms.date: 05/22/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -11,13 +11,13 @@ ms.subservice: imaging
 
 # Azure Image Builder Service DevOps Task
 
-This article shows you how to use a Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
+This article shows you how to use an Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 
 ## Prerequisites
 
 * Install the [DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
-* Create a Standard Azure Storage Account in the source image Resource Group, you can use other Resource Group/Storage accounts, but you must ensure the Image Builder has contributor permissions to the Storage account. This is used transfer the build artifacts from the DevOps task to the image.
+* Create a Standard Azure Storage Account in the source image Resource Group, you can use other Resource Group/Storage accounts, but you must ensure the Image Builder has contributor permissions to the Storage account. The storage account is used transfer the build artifacts from the DevOps task to the image.
 * Register and enable requirements, as per below:
 ```bash
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -62,7 +62,7 @@ Set the following task properties:
 
 ### Azure Subscription
 
-Select from the drop down menu which subscription you want the Image Builder to run. Use the same subscription where your source images are located and where the images are to be distributed. You need to authorize the image builder contributor access to the Subscription or Resource Group.
+Select from the drop-down menu which subscription you want the Image Builder to run. Use the same subscription where your source images are located and where the images are to be distributed. You need to authorize the image builder contributor access to the Subscription or Resource Group.
 
 ### Resource Group
 
@@ -70,11 +70,11 @@ Use the resource group where the temporary image template artifact will be store
  
 ### Location
 
-The location is where the Image Builder will run. Only a set amount of locations are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
+The location is where the Image Builder will run. Only a set number of locations are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
 
 ### Source
 
-The source images must be of the supported Image Builder OS's. You can choose existing custom images in the same region as Image Builder is running from:
+The source images must be of the supported Image Builder OSs. You can choose existing custom images in the same region as Image Builder is running from:
 * Managed Image - You need to pass in the resourceId, for example:
     ```json
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
@@ -88,13 +88,13 @@ The source images must be of the supported Image Builder OS's. You can choose ex
 
 * Marketplace Base Images
 
-    Image Builder will defaults to using the 'latest' version of the supported OS's, you can specify an image version (optional).
+    Image Builder defaults to using the latest version of the supported OSs, you can specify an image version (optional).
 
 ### Customize
 
 #### Provisioner
 
-Initially, two customerizers are supported - **Shell** and **PowerShell**. Only inline is supported. If you want to download scripts, then you can pass inline commands to do so.
+Initially, two customizers are supported - **Shell** and **PowerShell**. Only inline is supported. If you want to download scripts, then you can pass inline commands to do so.
 
 For your OS, select PowerShell or Shell.
 
@@ -102,7 +102,7 @@ For your OS, select PowerShell or Shell.
 
 For Windows only, the task runs Windows Update at the end of the customizations. It handles the required reboots.
 
-The following is the Windows Update configuration that is executed:
+The following Windows Update configuration is executed:
 ```json
     "type": "WindowsUpdate",
     "searchCriteria": "IsInstalled=0",
@@ -114,7 +114,7 @@ It installs important and recommended Windows Updates that are not preview.
 
 #### Build Path
 
-The task is designed to be able to inject DevOps Build release artifacts into the image. To make this work, you need to setup a build pipeline. In the setup of the release pipeline, you must add the repo of the build artifacts.
+The task is designed to be able to inject DevOps Build release artifacts into the image. To make this work, you need to set up a build pipeline. In the setup of the release pipeline, you must add the repo of the build artifacts.
 
 ![Selecting add an artifact in the release pipeline](./media/image-builder-devops-task/add-artifact.png)
 
@@ -124,7 +124,7 @@ Select the **Build Path** button to choose the build folder you want to be place
 > When adding a repo artifact, you may find the directory is prefixed with an underscore *_*. The underscore can cause issues with the inline commands. Use the appropriate quotes in the commands.
 > 
 
-The following is an example to explain how this works:
+The following example explains how this works:
 
 ![A directory structure showing hierarchy](./media/image-builder-devops-task/build-artifacts.png)
 
@@ -140,7 +140,7 @@ The following is an example to explain how this works:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OS's, on a reboot, the /tmp directory contents are deleted. If you want these to exist in the image, you must create another directory and copy them over.  For example:
+* Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -172,7 +172,7 @@ The following is an example to explain how this works:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux - The build artifacts are put into the `/tmp` directory. However, on many Linux OS's, on a reboot, the `/tmp` directory contents are deleted. It is suggested that you have code to remove the contents and not rely on the OS to remove the contents. For example:
+* Linux - The build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the `/tmp` directory contents are deleted. It is suggested that you have code to remove the contents and not rely on the OS to remove the contents. For example:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -180,14 +180,14 @@ The following is an example to explain how this works:
     
 #### Total length of image build
 
-This cannot be changed in the DevOps pipeline task yet, so it uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](https://github.com/danielsollondon/azvmimagebuilder/blob/2834d0fcbc3e0a004b247f24692b64f6ef661dac/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L12), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder).
+Total length cannot be changed in the DevOps pipeline task yet. It uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](https://github.com/danielsollondon/azvmimagebuilder/blob/2834d0fcbc3e0a004b247f24692b64f6ef661dac/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L12), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder).
 
 
 #### Storage Account
 
 Select the storage account you created in the prerequisites. If you do not see it in the list, Image Builder does not have permissions to it.
 
-When the build starts, Image Builder will create a container called `imagebuilder-vststask`, The container is where the build artifacts from the repo are stored.
+When the build starts, Image Builder will create a container called `imagebuilder-vststask`. The container is where the build artifacts from the repo are stored.
 
 > [!NOTE]
 > You need to manually delete the storage account or container after each build.
@@ -213,7 +213,7 @@ The Shared Image Gallery must already exist.
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>
     ```
-* Regions: list of regions, comma separated, e.g. westus, eastus, centralus
+* Regions: list of regions, comma separated. For example, westus, eastus, centralus
 
 #### VHD
 
@@ -221,7 +221,7 @@ You cannot pass any values to this, Image Builder will emit the VHD to the tempo
 
 ### Optional Settings
 
-* [VM Size](image-builder-json#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may do this to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
+* [VM Size](image-builder-json#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may override to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
 
 ## How it works
 
@@ -229,7 +229,7 @@ When you create the release, the task creates a container in the storage account
 
 The task uses the properties passed to the task to create the Image Builder Template artifact. The task does the following:
 * Downloads the build artifact zip file and any other associated scripts. The files are saved in a storage account in the temporary Image Builder resource group `IT_<DestinationResourceGroup>_<TemplateName>`.
-* Creates a template prefixed *t_* and a 10 digit monotonic integer. The template is saved to the resource group you selected. The template exists for the duration of the build in the resource group. 
+* Creates a template prefixed *t_* and a 10-digit monotonic integer. The template is saved to the resource group you selected. The template exists for the duration of the build in the resource group. 
 
 Example output:
 
@@ -251,7 +251,7 @@ When the image build starts, the run status is reported in the release logs:
 starting run template...
 ```
 
-When the image build completes you see output similar to following:
+When the image build completes, you see output similar to following text:
 
 ```text
 2019-05-06T12:49:52.0558229Z starting run template...
@@ -312,4 +312,4 @@ Source for image:  { type: 'SharedImageVersion',
 template name:  t_1556938436xxx
 ...
 ```
-The Image Template resource artifact is in the resource group specified initially in the task. When you're done troubleshooting delete the artifact. If deleting using the Azure Portal, within the resource group, select **Show Hidden Types**, to view the artifact.
+The Image Template resource artifact is in the resource group specified initially in the task. When you're done troubleshooting delete the artifact. If deleting using the Azure portal, within the resource group, select **Show Hidden Types**, to view the artifact.

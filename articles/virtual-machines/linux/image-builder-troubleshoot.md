@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
 author: cynthn
-ms.author: patricka
+ms.author: danis
 ms.date: 05/07/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
