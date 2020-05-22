@@ -62,7 +62,7 @@ landingContent:
             url: quickstarts/convert-model.md
 
   # Card
-  - title: Learn how to build your own app in Unity
+  - title: Learn how to build your own app
     linkLists:
       - linkListType: tutorial
         links:
