@@ -182,9 +182,9 @@ Here is another example of a digital twin. This one is based on a [model](concep
 }
 ```
 
-### Digital twin edge change notifications
+### Digital twin relationship change notifications
 
-**Edge change notifications** are triggered when any relationship of a digital twin is created, updated, or deleted. 
+**Relationship change notifications** are triggered when any relationship of a digital twin is created, updated, or deleted. 
 
 #### Properties
 
@@ -195,7 +195,7 @@ Here are the fields in the body of an edge change notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br>`Microsoft.DigitalTwins.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`<br>`datacontenttype    application/json for Relationship.Create`<br>`application/json-patch+json for Relationship.Update` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
@@ -207,7 +207,7 @@ The body is the payload of a relationship, also in JSON format. It uses the same
 
 "Updating a relationship" means properties of the relationship have changed. 
 
-Here is an example of an update edge notification to update a property:
+Here is an example of an update relationship notification to update a property:
 
 ```json
 [
@@ -219,15 +219,15 @@ Here is an example of an update edge notification to update a property:
 ]
 ```
 
-For `Edge.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
+For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 
-Here is an example of a create or delete edge notification:
+Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$edgeId": "EdgeId1",
+    "$relationshipId": "EdgeId1",
     "$sourceId": "building11",
-    "$relationship": "Contains",
+    "$relationshipName": "Contains",
     "$targetId": "floor11",
     "ownershipUser": "user1",
     "ownershipDepartment": "Operations"
