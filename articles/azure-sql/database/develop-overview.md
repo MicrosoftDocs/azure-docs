@@ -14,7 +14,7 @@ ms.custom: sqldbrb=2
 # Application development overview - SQL Database & SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article walks through the basic considerations that a developer should be aware of when writing code to connect to your database in Azure. This article applies to Azure SQL Database, and Azure SQL Managed Instance
+This article walks through the basic considerations that a developer should be aware of when writing code to connect to your database in Azure. This article applies to Azure SQL Database, and Azure SQL Managed Instance.
 
 ## Language and platform
 
@@ -24,7 +24,7 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 ## Authentication
 
-Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](authentication-aad-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
+Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory authentication](authentication-aad-overview.md) users and logins. Azure Active Directory logins are available only in SQL Managed Instance. 
 
 Learn more about [managing database access and login](logins-create-manage.md).
 
@@ -40,7 +40,7 @@ Avoid long-running transactions because any infrastructure or connection failure
 
 Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](troubleshoot-common-errors-issues.md).
 
-For more information about how to prepare for planned maintenance events on your Azure SQL database, see [planning for Azure maintenance events in Azure SQL Database](planned-maintenance.md).
+For more information about how to prepare for planned maintenance events on your Azure SQL Database, see [planning for Azure maintenance events in Azure SQL Database](planned-maintenance.md).
 
 ## Network considerations
 
