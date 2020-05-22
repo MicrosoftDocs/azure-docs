@@ -28,6 +28,10 @@ Just create a new Office 365 or security group with the ‘isAssignableToRole’
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group aa an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 
+You must be on updated version of PIM to be able to assign a group to Azure AD role via PIM. You could be on older version of PIM because your tenant leverages PIM's API. Please reach out to pim_preview@microsoft.com to move your tenant and update your API. Learn more."
+
+Learn more should point to this link - https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-ad-roles-features
+
 ## Why we enforce creation of a special group for assigning it to a role
 
 If a group is assigned a role, any IT admin who can manage group membership could also indirectly manage the membership of that role. For example, assume that a group Contoso_User_Administrators is assigned to User account admin role. An Exchange admin who can modify group membership could add themselves to the Contoso_User_Administrators group and in that way become a User account admin. As you can see, an admin could elevate their privilege in a way you did not intend.
