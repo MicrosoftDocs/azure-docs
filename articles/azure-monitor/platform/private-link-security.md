@@ -22,15 +22,15 @@ With Private Link you can:
 
 - Connect privately to Azure Monitor without opening up any public network access
 - Ensure your monitoring data is only accessed through authorized private networks
-- Prevent data exfiltration from your private networks by defining specific Azure Monitor resources connect through your private endpoint
+- Prevent data exfiltration from your private networks by defining specific Azure Monitor resources that connect through your private endpoint
 - Securely connect your private on-premises network to Azure Monitor using ExpressRoute and Private Link
 - Keep all traffic inside the Microsoft Azure backbone network
 
-For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits)
+For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits).
 
 ## How it works
 
-Azure Monitor Private Link Scope is a grouping resource to connect one or more private endpoints (and therefore the virtual networks they are contained in) to one or more Azure Monitor resources. These resources include Log Analytics workspaces and Application Insights components. 
+Azure Monitor Private Link Scope is a grouping resource to connect one or more private endpoints (and therefore the virtual networks they are contained in) to one or more Azure Monitor resources. The resources include Log Analytics workspaces and Application Insights components.
 
 ![Diagram of resource topology](./media/private-link-security/private-link-topology-1.png)
 
@@ -52,7 +52,7 @@ Review each of your Azure Monitor resources:
 - Should the resource allow ingestion of logs from resources located on specific VNets only?
 - Should the resource be queried only by clients located on specific VNETs?
 
-If the answer to any of these questions is yes, set the restrictions as explained in [Configuring Log Analytics](#configure-log-analytics) workspaces and [Configuring Application Insights components](#configure-application-insights-components) and associate these resources to a single or several AMPLS(s). Virtual networks that should access these monitoring resources need to have a Private Endpoint that connects to the relevant AMPLS.
+If the answer to any of these questions is yes, set the restrictions as explained in [Configuring Log Analytics](#configure-log-analytics) workspaces and [Configuring Application Insights components](#configure-application-insights) and associate these resources to a single or several AMPLS(s). Virtual networks that should access these monitoring resources need to have a Private Endpoint that connects to the relevant AMPLS.
 Remember – you can connect the same workspaces or application to multiple AMPLS, to allow them to be reached by different networks.
 
 ### Group together monitoring resources by network accessibility
@@ -67,10 +67,10 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 ## Example connection
 
-Let's start by creating an Azure Monitor Private Link Scope resource.
+Start by creating an Azure Monitor Private Link Scope resource.
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
-2. Click create. 
+2. Click **create**. 
 3. Pick a Subscription and Resource Group. 
 4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
 5. Click **Review + Create**. 
@@ -81,7 +81,7 @@ Let's start by creating an Azure Monitor Private Link Scope resource.
 You can connect your AMPLS first to private endpoints and then to Azure Monitor resources or vice versa, but the connection process goes faster if you start with your Azure Monitor resources. Here's how we connect Azure Monitor Log Analytics workspaces and Application Insights components to an AMPLS
 
 1. In your Azure Monitor Private Link scope, click on **Azure Monitor Resources** in the left-hand menu. Click the **Add** button.
-2. Add the workspace or component. Clicking the Add button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and click **Apply** to add them to your scope.
+2. Add the workspace or component. Clicking the **Add** button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and click **Apply** to add them to your scope.
 
     ![Screenshot of select a scope UX](./media/private-link-security/ampls-select-2.png)
 
@@ -93,9 +93,9 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
     ![Screenshot of Private Endpoint Connections UX](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
-2. Pick the subscription, resource group, and name of the endpoint, and the region it should live in. This needs to be the same region as the virtual network you will connect it to.
+2. Pick the subscription, resource group, and name of the endpoint, and the region it should live in. The region needs to be the same region as the virtual network you will connect it to.
 
-3. Click **Next : Resource**. 
+3. Click **Next: Resource**. 
 
 4. In the Resource screen,
 
@@ -126,34 +126,35 @@ You have now created a new private endpoint that is connected to this Azure Moni
 
 ## Configure Log Analytics
 
-In the Azure portal in your Azure Monitor Log Analytics workspace resource is a menu item Network Isolation on the left-hand side. You can control two different states from this menu. 
+Go to the Azure portal. In your Azure Monitor Log Analytics workspace resource is a menu item **Network Isolation** on the left-hand side. You can control two different states from this menu. 
 
 ![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-First, you can connect this Log Analytics resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this workspace. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources).  
+First, you can connect this Log Analytics resource to any Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this workspace. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources).  
 
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
 If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal which consume Log Analytics data also have to be running within the private-linked VNET.
 
+Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. Restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
-Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
-
-> [!NOTE] 
+> [!NOTE]
 > Logs and metrics uploaded to a workspace via [Diagnostic Settings](diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
 
 ## Configure Application Insights
 
-In the Azure portal in your Azure Monitor Application Insights Component resource is a menu item Network Isolation on the left-hand side. You can control two different states from this menu.
+Go to the Azure portal. In your Azure Monitor Application Insights component resource is a menu item **Network Isolation** on the left-hand side. You can control two different states from this menu.
 
 ![AI Network Isolation](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
 First, you can connect this Application Insights resource to Azure Monitor Private Link scopes that you have access to. Click **Add** and select the **Azure Monitor Private Link Scope**. Click Apply to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this component. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). 
 
-Second, you can control how this resource can be reached from outside of the private link scopes listed previously. If you set **Allow public network access for ingestion** to **No** , then machines or SDKs outside of the connected scopes cannot upload data to this component. If you set **Allow public network access for queries** to **No** , then machines outside of the scopes cannot access data in this Application Insights resource. That data includes access to APM logs, metrics, and live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Note that non-portal consumption experiences have to be running within the private linked VNET that includes the monitored workloads.
+Second, you can control how this resource can be reached from outside of the private link scopes listed previously. If you set **Allow public network access for ingestion** to **No**, then machines or SDKs outside of the connected scopes cannot upload data to this component. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this Application Insights resource. That data includes access to APM logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. 
 
-You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](https://docs.microsoft.com/en-us/azure/app-service/networking/private-endpoint) for how to do this for App Services.
+Note that non-portal consumption experiences also have to be running within the private-linked VNET that includes the monitored workloads. 
 
-Restricting access in this manner only applies to data in the Application Insights resource. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
+You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) for how to do this for App Services.
+
+Restricting access in this manner only applies to data in the Application Insights resource. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. Instead, restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
@@ -165,29 +166,29 @@ Restricting access in this manner only applies to data in the Application Insigh
 
 You can automate the process described earlier using Azure Resource Manager templates and command-line interfaces.
 
-To create and manage private link scopes, use [az monitor private-link-scope](https://docs.microsoft.com/en-us/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Using this command, you can create scopes, associate Log Analytics workspaces and Application Insights components, and add/remove/approve private endpoints.
+To create and manage private link scopes, use [az monitor private-link-scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Using this command, you can create scopes, associate Log Analytics workspaces and Application Insights components, and add/remove/approve private endpoints.
 
 To manage network access, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) or [Application Insights components](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
 ## Collect Custom Logs over Private Link
 
-Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace. See more details on how to setup such accounts using [command line](https://docs.microsoft.com/en-us/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
-For information on bringing your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md)
+For more information on bringing your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md)
 
 ## Restrictions and limitations
 
 ### Agents
 
-The latest versions of the Windows and Linux agents must be used on private networks to enable secure telemetry ingestion to Log Analytics workspaces. Older versions cannot upload telemetry in a private network. 
+The latest versions of the Windows and Linux agents must be used on private networks to enable secure telemetry ingestion to Log Analytics workspaces. Older versions cannot upload monitoring data in a private network.
 
 **Log Analytics Windows agent**
 
-Your must use the Log Analytics agent version 18.20.18038.0 or later.
+Use the Log Analytics agent version 18.20.18038.0 or later.
 
 **Log Analytics Linux agent**
 
-You must use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
+Use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
 
 ```cmd
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
@@ -196,13 +197,13 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### Azure portal
 
-To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** and **AzureFrontdoor.Frontend** [service tags](../..firewall/service-tags.md) to your firewall.
+To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your firewall.
 
 ### Programmatic access
 
 To use the REST API, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) or PowerShell with Azure Monitor on private networks,  add the [service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)  **AzureActiveDirectory** and **AzureResourceManager** to your firewall.
 
-Adding these tags allows you to perform actions such as quering log data, create and manage Log Analytics workspaces and AI components.
+Adding these tags allows you to perform actions such as querying log data, create, and manage Log Analytics workspaces and AI components.
 
 ### Application Insights SDK downloads from a content delivery network
 
@@ -210,12 +211,12 @@ Bundle the JavaScript code in your script so that the browser does not attempt t
 
 ### Log Analytics solution download
 
-To allow the Log Analytics Agent to download solution packs, whitelist the following fully-qualified domain names in your firewall as appropriate.
+To allow the Log Analytics Agent to download solution packs, add the appropriate fully qualified domain names to your firewall allow list. 
 
 
 | Cloud environment | Agent Resource | Ports | Direction |
 |:--|:--|:--|:--|
 |Azure Public     | scadvisor.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
-|Azure China      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
