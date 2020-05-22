@@ -64,7 +64,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
 - Let a user create, edit, or delete any data factory in a resource group from the Azure portal.
 
-  Assign the built-in **Data Factory contributor** role at the resource group level for the user. If you want to allow,  access to any data factory in a subscription, assign the role at the subscription level.
+  Assign the built-in **Data Factory contributor** role at the resource group level for the user. If you want to allow  access to any data factory in a subscription, assign the role at the subscription level.
 
 - Let a user view (read) and monitor a data factory, but not edit or change it.
 
