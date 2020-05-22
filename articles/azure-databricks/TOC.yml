@@ -1623,20 +1623,6 @@
           - name: Azure AD token authentication overview
             href: /azure/databricks/dev-tools/api/latest/aad/index
             maintainContext: true
-          - name: Get an Azure AD token using the Azure AD Authentication Library
-            href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-            maintainContext: true
-          - name: Get an Azure AD token using a service principal
-            href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-            maintainContext: true
-          - name: Troubleshoot Azure AD access tokens
-            href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-          maintainContext: true
-        - name: Azure Active Directory tokens
-          items:
-          - name: Azure AD token authentication overview
-            href: /azure/databricks/dev-tools/api/latest/aad/index
-            maintainContext: true
           - name: Get an Azure AD token using the AAD Authentication Library
             href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
             maintainContext: true
