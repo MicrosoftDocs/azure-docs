@@ -52605,7 +52605,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-query-performance.md",
-        "redirect_url": "/azure/azure-sql/database/query-performance-insight",
+        "redirect_url": "/azure/azure-sql/database/query-performance-insight-use",
         "redirect_document_id": true
     },
     {
@@ -52805,12 +52805,12 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-aad-authentication-configure.md",
-        "redirect_url": "/azure/azure-sql/database/aad-authentication-configure",
+        "redirect_url": "/azure/azure-sql/database/authentication-aad-configure",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-aad-authentication.md",
-        "redirect_url": "/azure/azure-sql/database/aad-authentication-overview",
+        "redirect_url": "/azure/azure-sql/database/authentication-aad-overview",
         "redirect_document_id": true
     },
     {
@@ -53155,7 +53155,7 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-threat-detection.md",
-        "redirect_url": "/azure/azure-sql/database/threat-detection",
+        "redirect_url": "/azure/azure-sql/database/threat-detection-configure",
         "redirect_document_id": true
     },
     {
@@ -53325,12 +53325,12 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-in-memory-oltp-migration.md",
-        "redirect_url": "/azure/azure-sql/in-memory-oltp-migration",
+        "redirect_url": "/azure/azure-sql/in-memory-oltp-configure",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-in-memory-oltp-monitoring.md",
-        "redirect_url": "/azure/azure-sql/in-memory-oltp-monitoring",
+        "redirect_url": "/azure/azure-sql/in-memory-oltp-monitor-space",
         "redirect_document_id": true
     },
     {
@@ -53345,17 +53345,17 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights-troubleshoot-performance.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights-troubleshoot-performance",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-troubleshoot-performance",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights-use-diagnostics-log.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights-use-diagnostics-log",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-use-diagnostics-log",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-overview",
         "redirect_document_id": true
     },
     {
@@ -53455,12 +53455,12 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication-configure.md",
-        "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-configure",
+        "redirect_url": "/azure/azure-sql/database/authentication-mfa-ssms-configure",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-ssms-mfa-authentication.md",
-        "redirect_url": "/azure/azure-sql/mfa-authentication-ssms-overview",
+        "redirect_url": "/azure/azure-sql/database/authentication-mfa-ssms-overview",
         "redirect_document_id": true
     },
     {
@@ -53972,6 +53972,11 @@
         "source_path": "articles/sql-database/sql-database-single-index.yml",
         "redirect_url": "/azure/azure-sql/database/index",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path": "articles/data-factory/connector-azure-sql-database-managed-instance.md",
+        "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
+        "redirect_document_id": true
+    }   
  ]
 }

@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/20/2019
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU purchasing model.
 

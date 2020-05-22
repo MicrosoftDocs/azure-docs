@@ -13,8 +13,8 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ---
-# Azure SQL Database connectivity architecture
-
+# Azure SQL Database and Azure Synapse Analytics connectivity architecture
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 This article explains architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 

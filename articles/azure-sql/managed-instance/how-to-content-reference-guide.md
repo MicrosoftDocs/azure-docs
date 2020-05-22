@@ -48,15 +48,15 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Feature configuration
 
-- [Configure Azure AD auth](../database/aad-authentication-configure.md)
+- [Configure Azure AD auth](../database/authentication-aad-configure.md)
 - [Configure Conditional Access](../database/conditional-access-configure.md)
-- [Multi-factor AAD auth](../mfa-authentication-ssms-overview.md)
-- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
+- [Multi-factor AAD auth](../database/authentication-mfa-ssms-overview.md)
+- [Configure multi-factor auth](../database/authentication-mfa-ssms-configure.md)
 - [Configure temporal retention policy](../database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
 - [Remove TDE protector](../database/transparent-data-encryption-byok-remove-tde-protector.md)
-- [Configure In-Memory OLTP](../in-memory-oltp-migration.md)
+- [Configure In-Memory OLTP](../in-memory-oltp-configure.md)
 - [Configure Azure Automation](../database/automation-manage.md)
 - [Transactional replication](replication-between-two-instances-configure-tutorial.md) enables you to replicate your data between Azure SQL Managed Instances, or from on-premises SQL Server to a SQL Managed Instance, and vice versa.
 - [Configure threat detection](threat-detection-configure.md) – [threat detection](../database/threat-detection-overview.md) is a built-in Azure SQL Managed Instance feature that detects various potential attacks such as SQL Injection or access from suspicious locations. 
@@ -67,9 +67,9 @@ In this article you can find a content reference to various guides, scripts, and
 - [Manual tuning](../database/performance-guidance.md)
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
-- [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
-- [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
-- [Monitor In-memory OLTP space](../in-memory-oltp-monitoring.md)
+- [Troubleshoot performance with Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
+- [Use Intelligent Insights diagnostics log](../database/intelligent-insights-use-diagnostics-log.md)
+- [Monitor In-memory OLTP space](../in-memory-oltp-monitor-space.md)
 
 ### Extended events
 
