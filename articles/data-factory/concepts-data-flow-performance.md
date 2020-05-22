@@ -136,6 +136,10 @@ For example, if you have a list of data files from July 2019 that you wish to pr
 
 By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
 
+The pipeline For Each in parallel mode will spawn multiple clusters by spinning-up job clusters for every executed data flow activity. This can cause Azure service throttling with high numbers of concurrent executions. However, use of Execute Data Flow inside of a For Eeach with Sequential set in the pipeline will avoid throttling and resource exhaustion. This will force Data Factory to execute each of your files against a data flow sequentially.
+
+It is recommended that if you use For Each with a data flow in sequence, that you utilize the TTL setting in the Azure Integration Runtime. This is because each file will incur a full 5 minute cluster startup time inside of your iterator.
+
 ### Optimizing for CosmosDB
 
 Setting throughput and batch properties on CosmosDB sinks only take effect during the execution of that data flow from a pipeline data flow activity. The original collection settings will be honored by CosmosDB after your data flow execution.
