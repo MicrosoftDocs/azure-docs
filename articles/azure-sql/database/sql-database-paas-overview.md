@@ -136,7 +136,7 @@ With SQL Database, you get built-in intelligence that helps you dramatically red
 
 SQL Database provides detailed insight into the queries that you need to monitor. SQL Database learns about your database patterns, and enables you to adapt your database schema to your workload. SQL Database provides [performance tuning recommendations](database-advisor-implement-performance-recommendations.md), where you can review tuning actions and apply them.
 
-However, constantly monitoring a database is a hard and tedious task, especially when dealing with many databases. [Intelligent Insights](../intelligent-insights.md) does this job for you by automatically monitoring SQL Database performance at scale. It informs you of performance degradation issues, it identifies the root cause of each issue, and provides performance improvement recommendations when possible.
+However, constantly monitoring a database is a hard and tedious task, especially when dealing with many databases. [Intelligent Insights](intelligent-insights-overview.md) does this job for you by automatically monitoring SQL Database performance at scale. It informs you of performance degradation issues, it identifies the root cause of each issue, and provides performance improvement recommendations when possible.
 
 Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that SQL Database and Azure provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to SQL Database by using [automatic tuning](automatic-tuning-overview.md). SQL Database automatically applies recommendations, tests, and verifies each of its tuning actions to ensure the performance keeps improving. This way, SQL Database automatically adapts to your workload in a controlled and safe way. Automatic tuning means that the performance of your database is carefully monitored and compared before and after every tuning action. If the performance doesn't improve, the tuning action is reverted.
 
@@ -182,7 +182,7 @@ SQL Database helps secure your data by providing encryption. For data in motion,
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](aad-authentication-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](../mfa-authentication-ssms-overview.md) to increase data and application security, while supporting a single sign-in process.
+SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](authentication-aad-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](authentication-mfa-ssms-overview.md) to increase data and application security, while supporting a single sign-in process.
 
 ## Easy-to-use tools
 

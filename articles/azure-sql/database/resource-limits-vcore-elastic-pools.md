@@ -13,6 +13,7 @@ ms.reviewer: carlrab, sstein
 ms.date: 03/03/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore purchasing model.
 

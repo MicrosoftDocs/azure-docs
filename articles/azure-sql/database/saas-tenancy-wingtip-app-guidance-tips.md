@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article contains general guidance for running the Wingtip Tickets sample SaaS applications that use Azure SQL Database.
 
