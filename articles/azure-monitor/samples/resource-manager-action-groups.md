@@ -1,5 +1,5 @@
 ---
-title: Resource Manager template samples for Azure Monitor action groups
+title: Resource Manager template samples for action groups
 description: Sample Azure Resource Manager templates to deploy Azure Monitor action groups.
 ms.subservice: logs
 ms.topic: sample
@@ -9,7 +9,7 @@ ms.date: 05/18/2020
 
 ---
 
-# Resource Manager template samples for Azure Monitor action groups
+# Resource Manager template samples for action groups in Azure Monitor
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create [action groups](../platform/action-groups.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]

@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for Azure Monitor workspaces
-description: Sample Azure Resource Manager templates to deploy Azure Monitor workspaces and configure data sources.
+title: Resource Manager template samples for Log Analytics workspaces
+description: Sample Azure Resource Manager templates to deploy Log Analytics workspaces and configure data sources in Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
@@ -9,7 +9,7 @@ ms.date: 05/18/2020
 
 ---
 
-# Resource Manager template samples for Azure Monitor workspaces
+# Resource Manager template samples for Log Analytics workspaces in Azure Monitor
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]

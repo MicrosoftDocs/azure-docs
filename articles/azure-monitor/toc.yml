@@ -63,29 +63,29 @@
   - name: Resource Manager templates
     items:
     - name: Overview
-      href: samples/arm-samples.md
+      href: samples/resource-manager-samples.md
     - name: Agents
-      href: samples/arm-agent.md
+      href: samples/resource-manager-agent.md
     - name: Alerts
       items:
       - name: Log alert rules
-        href: samples/arm-alerts-log.md
+        href: samples/resource-manager-alerts-log.md
       - name: Metric alert rules
-        href: samples/arm-alerts-metric.md
+        href: samples/resource-manager-alerts-metric.md
       - name: Action groups
-        href: samples/arm-action-groups.md
+        href: samples/resource-manager-action-groups.md
     - name: Diagnostic settings
-      href: samples/arm-diagnostic-settings.md
+      href: samples/resource-manager-diagnostic-settings.md
     - name: Log Anaytics workspaces
-      href: samples/arm-workspace.md
+      href: samples/resource-manager-workspace.md
     - name: Log queries
-      href: samples/arm-log-queries.md
+      href: samples/resource-manager-log-queries.md
     - name: Workbooks
-      href: samples/arm-workbooks.md
+      href: samples/resource-manager-workbooks.md
     - name: Azure Monitor for containers
-      href: samples/arm-container-insights.md
+      href: samples/resource-manager-container-insights.md
     - name: Azure Monitor for VMs
-      href: samples/arm-vminsights.md
+      href: samples/resource-manager-vminsights.md
   - name: Azure CLI
     href: samples/cli-samples.md
   - name: Azure PowerShell

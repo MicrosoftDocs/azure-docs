@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor resource manager samples
-description: Deploy and configure Azure Monitor features using resource manager templates
+title: Resource Manager template samples for Azure Monitor
+description: Deploy and configure Azure Monitor features using Resource Manager templates
 author: bwren
 ms.author: bwren
 services: azure-monitor
@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: 
 ---
-# Azure Monitor resource manager samples
+# Resource Manager template samples for Azure Monitor
 
 Azure Monitor can deployed and configured at scale using [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
 
@@ -43,7 +43,6 @@ az group deployment create \
 - Alerts
   - [Log alert rules](arm-alerts-log.md) - Alerts from log queries and Azure activity log.
   - [Metric alert rules](arm-alerts-metric.md) - Alerts from metrics using different kinds of logic.
-- Application Insights - Coming soon.
 - [Diagnostic settings](arm-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](arm-log-queries.md) - Create saved log queries in a Log Analytics workspace.
 - [Log Analytics Workspace](arm-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.

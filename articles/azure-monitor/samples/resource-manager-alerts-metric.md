@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
 ---
-# Create a metric alert with a Resource Manager template
+# Resource Manager template samples for metric alert rules in Azure Monitor
 
 This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
@@ -26,7 +26,7 @@ See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-
 - [Microsoft.Insights metricAlerts](/azure/templates/microsoft.insights/2018-03-01/metricalerts)
 
 ## Single criteria, static threshold
-The following sample creates a metic alert rule using a single criteria and a static threshold.
+The following sample creates a metric alert rule using a single criteria and a static threshold.
 
 ### Template file
 
@@ -240,7 +240,7 @@ The following sample creates a metic alert rule using a single criteria and a st
 
 
 ## Single criteria, dynamic threshold
-The following sample creates a metic alert rule using a single criteria and a dynamic threshold.
+The following sample creates a metric alert rule using a single criteria and a dynamic threshold.
 
 ### Template file
 Save the json below as simpledynamicmetricalert.json for the purpose of this walkthrough.
@@ -490,12 +490,12 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 
 
 ## Multiple criteria, static threshold
-Metric alerts support alerting on multi-dimensional metrics and up to 5 criterions per alert rule. The following sample creates a metric alert rule on dimensional metrics and specify multiple criteria.
+Metric alerts support alerting on multi-dimensional metrics and up to 5 criteria per alert rule. The following sample creates a metric alert rule on dimensional metrics and specify multiple criteria.
 
 The following constraints apply when using dimensions in an alert rule that contains multiple criteria:
 - You can only select one value per dimension within each criterion.
 - You cannot use "\*" as a dimension value.
-- When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics in the relevant criterions.
+- When metrics that are configured in different criteria support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics in the relevant criteria.
 	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 ### Template file
@@ -892,7 +892,7 @@ For example, a few of the potential time series that are monitored by this alert
 A single dynamic thresholds alert rule can create tailored thresholds for hundreds of metric time series (even different types) at a time, which results in fewer alert rules to manage. The following sample creates a dynamic thresholds metric alert rule on dimensional metrics.
 
 
-In this sampel, the alert rule monitors the dimensions value combinations of the **ResponseType** and **ApiName** dimensions for the **Transactions** metric:
+In this sample, the alert rule monitors the dimensions value combinations of the **ResponseType** and **ApiName** dimensions for the **Transactions** metric:
 1. **ResponsType** - For each value of the **ResponseType** dimension, including future values, a different time series is monitored individually.
 2. **ApiName** - A different time series is monitored only for the **GetBlob** and **PutBlob** dimension values.
 
@@ -1324,7 +1324,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 ## Multiple resources
 
-Azure Monitor supports monitoring multiple resources of the same type with a single metric alert rule, for resources that exist in the same Azure region. This feature is currently only supported in Azure public cloud and only for Virtual machines, SQL server databases, SQL server elastic pools and Databox edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
+Azure Monitor supports monitoring multiple resources of the same type with a single metric alert rule, for resources that exist in the same Azure region. This feature is currently only supported in Azure public cloud and only for Virtual machines, SQL server databases, SQL server elastic pools and Data Box Edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
