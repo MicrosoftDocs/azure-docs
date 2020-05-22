@@ -21,7 +21,7 @@ ms.author: yelevin
 
 
 
-Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
 
 This tutorial helps you visualize your data in Azure Sentinel.
@@ -48,7 +48,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
    > This creates an Azure resource based on the relevant template and saves the template Json file itself and not the data.
 
 
-1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md).
+1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md).
 ![view workbooks](./media/tutorial-monitor-data/workbook-graph.png)
 1. After you make your changes, you can save the workbook. 
 
@@ -60,7 +60,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
   ![go to workbooks](./media/tutorial-monitor-data/create-workbook.png)
 
-1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). 
+1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md). 
 
 1. When building a query, set the **Data source** is set to **Logs**, the **Resource type** is set to **Log Analytics** and then choose the relevant workspace(s). 
 
