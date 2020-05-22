@@ -124,16 +124,16 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
-	
+    
 # This is your Azure AD Application's ObjectId. 
 $myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
-	
+    
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
-	
+    
 # This is the name of the new role we will add to your Azure AD Application
 $actionGroupRoleName = "ActionGroupsSecureWebhook"
-	
+    
 # Create an application role of given name and description
 Function CreateAppRole([string] $Name, [string] $Description)
 {
@@ -147,7 +147,7 @@ Function CreateAppRole([string] $Name, [string] $Description)
     $appRole.Value = $Name;
     return $appRole
 }
-	
+    
 # Get my Azure AD Application, it's roles and service principal
 $myApp = Get-AzureADApplication -ObjectId $myAzureADApplicationObjectId
 $myAppRoles = $myApp.AppRoles
@@ -155,7 +155,7 @@ $actionGroupsSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $actionGro
 
 Write-Host "App Roles before addition of new role.."
 Write-Host $myAppRoles
-	
+    
 # Create the role if it doesn't exist
 if ($myAppRoles -match "ActionGroupsSecureWebhook")
 {
@@ -164,13 +164,13 @@ if ($myAppRoles -match "ActionGroupsSecureWebhook")
 else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
-	
+    
     # Add our new role to the Azure AD Application
     $newRole = CreateAppRole -Name $actionGroupRoleName -Description "This is a role for Action Groups to join"
     $myAppRoles.Add($newRole)
     Set-AzureADApplication -ObjectId $myApp.ObjectId -AppRoles $myAppRoles
 }
-	
+    
 # Create the service principal if it doesn't exist
 if ($actionGroupsSP -match "AzNS AAD Webhook")
 {
@@ -181,9 +181,9 @@ else
     # Create a service principal for the Action Groups Azure AD Application and add it to the role
     $actionGroupsSP = New-AzureADServicePrincipal -AppId $actionGroupsAppId
 }
-	
+    
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
-	
+    
 Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
@@ -195,9 +195,9 @@ See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-l
 You may have a limited number of SMS actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country code, then SMS is not supported for your country.  If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country.  
+> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
-Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### Voice
@@ -206,9 +206,9 @@ See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-l
 You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country code, then voice calls are not supported for your country. If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country.  
+> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
 
-Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Webhook
 Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 

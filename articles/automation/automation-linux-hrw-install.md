@@ -1,6 +1,6 @@
 ---
-title: Azure Automation Linux Hybrid Runbook Worker
-description: This article provides information on installing an Azure Automation Hybrid Runbook Worker so you can run runbooks on Linux-based computers in your local datacenter or cloud environment.
+title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
+description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based computers in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
@@ -64,20 +64,20 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 
 ## Install a Linux Hybrid Runbook Worker
 
-To install and configure a Hybrid Runbook Worker on your Linux computer, follow a straightforward manual process. It requires enabling the Automation Hybrid Worker solution in your Azure Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a group.
+To install and configure a Hybrid Runbook Worker on your Linux computer, follow a straightforward manual process. It requires enabling the Hybrid Runbook Worker in your Azure Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a group.
 
 Before you proceed, note the Log Analytics workspace that your Automation account is linked to. Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 >[!NOTE]
 > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
-1. Enable the Automation Hybrid Worker solution in Azure by using one of the following methods:
+1. Enable the Hybrid Runbook Worker in Azure by using one of the following methods:
 
-   * Add the Automation Hybrid Worker solution to your subscription by using the procedure at [Add Azure Monitor log solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Add the Hybrid Runbook Worker to your subscription by using the procedure at [Add Azure Monitor logs to your workspace](../log-analytics/log-analytics-add-solutions.md).
    * Run the following cmdlet:
 
         ```azurepowershell-interactive
-         Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+         Set-AzOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
 1. Install the Log Analytics agent for Linux by running the following command. Replace \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.
@@ -125,4 +125,4 @@ To remove a Hybrid Runbook Worker group of Linux computers, you use the same ste
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues - Linux](troubleshoot/hybrid-runbook-worker.md#linux).

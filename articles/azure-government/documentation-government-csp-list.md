@@ -211,7 +211,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ManCom Inc](https://www.mancominc.com/)|
 |[ManTech](https://www.mantech.com/Pages/Home.aspx)|
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
-|[Mibura Inc.](https://www.mibura.com)|
+|Mibura Inc.|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
@@ -293,7 +293,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
-|[Software Services Group (dba Secant Technolgies)](https://www.secantcorp.com/)|
+|[Software Services Group (dba Secant Technologies)](https://www.secantcorp.com/)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
 |[Solution Systems Inc.](https://www.solsyst.com/)|
 |[Stabilify](http://www.stabilify.net/)|
@@ -307,7 +307,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sumo Logic](https://www.sumologic.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|

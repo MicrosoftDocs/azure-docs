@@ -8,10 +8,8 @@ ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 04/25/2019
-ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: akjosh
-
 ---
 
 
