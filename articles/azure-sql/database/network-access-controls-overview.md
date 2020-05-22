@@ -154,3 +154,4 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
+ 

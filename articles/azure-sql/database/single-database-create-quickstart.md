@@ -94,3 +94,4 @@ Remove-AzResourceGroup -Name <your resource group>
 > [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
 >
 > [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+ 

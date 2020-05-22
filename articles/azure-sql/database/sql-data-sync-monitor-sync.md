@@ -1,6 +1,6 @@
 ---
 title: Monitor SQL Data Sync with Azure Monitor logs
-description: "Learn how to monitor SQL Data Sync by using Azure Monitor logs"
+description: "Learn how to monitor SQL Data Sync by using Azure Monitor logs."
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement

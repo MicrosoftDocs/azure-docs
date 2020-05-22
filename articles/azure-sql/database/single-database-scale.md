@@ -149,3 +149,4 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 ## Next steps
 
 For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](resource-limits-vcore-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](resource-limits-dtu-single-databases.md).
+ 

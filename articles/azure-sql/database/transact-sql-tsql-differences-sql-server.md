@@ -1,6 +1,6 @@
 ---
 title: Resolving T-SQL differences-migration
-description: Transact-SQL statements that are less than fully supported in Azure SQL Database
+description: Transact-SQL statements that are less than fully supported in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database

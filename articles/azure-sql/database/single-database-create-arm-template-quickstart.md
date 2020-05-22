@@ -125,3 +125,4 @@ az group delete --name $resourceGroupName
 - To create a single database using the Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](powershell-script-content-guide.md).
 - To learn how to create Resource Manager templates, see [Create your first template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+ 

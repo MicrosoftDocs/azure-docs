@@ -155,3 +155,4 @@ For questions, please reach out to us on the [SQL Database forum](https://social
 
 <!--Image references-->
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
+ 
