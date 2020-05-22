@@ -188,4 +188,4 @@ Verify that the startup type of the VSS Provider service is set to **Automatic**
 
 ## Next steps
 
-If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community, and one of our engineers can assist you.
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). We have an active community, and one of our engineers can assist you.

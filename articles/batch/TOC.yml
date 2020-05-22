@@ -268,8 +268,8 @@
     href: https://github.com/Azure/Batch
   - name: Batch feedback
     href: https://feedback.azure.com/forums/269742-batch
-  - name: Batch forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
+  - name: Microsoft Q&A question page for Batch
+    href: https://docs.microsoft.com/answers/topics/azure-batch.html
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog

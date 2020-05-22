@@ -891,8 +891,8 @@
     href: sql-database-public-data-sets.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-sql-database.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
