@@ -34,7 +34,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 
 
 - An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- A database in [Azure SQL Database](single-database-create-quickstart.md) or [Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md).
+- A database in [Azure SQL Database](single-database-create-quickstart.md) or [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
