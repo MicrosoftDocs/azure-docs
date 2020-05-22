@@ -29,7 +29,7 @@ So how does your organization turn on MFA even for free, before becoming a stati
 
 Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication in their environment.
 
-## Office 365 Business Premium, E3, or E5
+## Microsoft 365 Business, E3, or E5
 
 For customers with Office 365, there are two options:
 
