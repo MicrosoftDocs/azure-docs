@@ -20,7 +20,7 @@ Completing this Quickstart will incur USD $1 in your Azure account, when using t
 
 [Azure App Service](overview.md) | [WebJobs for .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) | [How to use the WebJobs SDK](webjobs-sdk-how-to.md)
 
-**Note** 
+[!Note]
 This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. This WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ## Prerequisites
