@@ -45,11 +45,44 @@ landingContent:
             url: analyze-live-video-concept.md    
 
   # Card
-  - title: Develop
+  - title: Scenarios
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Detect motion and emit events 
+            url: detect-motion-emit-events-quickstart.md
+          - text: Run Live Video Analytics with your own model
+            url: use-your-model-quickstart.md
+          - text: Detect motion, record video clips to Azure Media Services
+            url: detect-motion-record-video-clips-media-services-quickstart.md
+          - text: Detect motion, record video to edge devices
+            url: detect-motion-record-video-edge-device-quickstart.md
       - linkListType: tutorial
         links:
           - text: Continuous video recording  
             url: continuous-video-recording-tutorial.md
+          - text: Event-based video recording  
+            url: event-based-video-recording-tutorial.md  
 
+  # Card
+  - title: Develop 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get started
+            url: get-started-how-to.md
+          - text: Manage recording policy
+            url: manage-recording-policy-how-to.md
+          - text: Playback a recording 
+            url: playback-recording-how-to.md
+      - linkListType: reference
+        links:
+          - text: Direct methods
+            url: direct-methods.md
+          - text: Module Twin configuration schema  
+            url: module-twin-configuration-schema.md
+          - text: Telemetry schema
+            url: telemetry-schema.md
+          - text: Quotas and limitations  
+            url: quotas-limitations.md
   
