@@ -3,21 +3,21 @@ title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 05/22/2020
 ---
 
-# Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
+# Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
 
-The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
+The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive. It supports tasks such as moving data between Spark DataFrames and Hive tables. Also, by directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It also supports Scala, Java, and Python as programming languages for development.
 
 The Hive Warehouse Connector allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications.
 
-Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark.
+Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing (LLAP) not available in Apache Spark.
 
-Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 and Apache Hive 3.1.0 have separate metastores, which can make interoperability difficult. The Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel, making it  more efficient and scalable than using a standard JDBC connection from Spark to Hive.
+Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 and Apache Hive 3.1.0 have separate metastores. The separate metastores can make interoperability difficult. The Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel. This process makes it more efficient and adaptable than a standard JDBC connection from Spark to Hive.
 
 ![hive warehouse connector architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -33,7 +33,7 @@ Some of the operations supported by the Hive Warehouse Connector are:
 
 ## Hive Warehouse Connector setup
 
-Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Please follow these steps to set up these clusters in Azure HDInsight:
+Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
 ### Create clusters
 
@@ -49,9 +49,10 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 1. Navigate to **Summary** > **HiveServer2 Interactive JDBC URL** and note the value. The value may be similar to: `jdbc:hive2://zk0-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`.
 
-1. Navigate to **Configs** > **Advanced** > **General** > **hive.metastore.uris** and note the value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
-
 1. Navigate to **Configs** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+
+1. Navigate to **Configs** > **Advanced** > **General** > **hive.metastore.uris** and note the 
+value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 1. Navigate to **Configs** > **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** and note the value. The value may be similar to: `@llap0`.
 
@@ -82,95 +83,98 @@ The Enterprise Security Package (ESP) provides enterprise-grade capabilities lik
 
 Apart from the configurations mentioned in the previous section, add the following configuration to use HWC on the ESP clusters.
 
-* From Ambari web UI of Spark cluster, navigate to **Spark2** > **CONFIGS** > **Custom spark2-defaults**.
+1. From Ambari web UI of Spark cluster, navigate to **Spark2** > **CONFIGS** > **Custom spark2-defaults**.
 
-* Update the following property.
+1. Update the following property.
 
-| Configuration | Value |
-|----|----|
-| `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | Configuration | Value |
+    |----|----|
+    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    
+    Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node of the Interactive Query cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check /etc/krb5.conf for the realm names if needed.
+    
+1. Save changes and restart components as needed.
 
-* Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node of the Interactive Query cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check /etc/krb5.conf for the realm names if needed.
-
-* Save changes and restart components as needed.
-
-## Using the Hive Warehouse Connector
-
-### Connecting and running queries
+## Hive Warehouse Connector usage
 
 You can choose between a few different methods to connect to your Interactive Query cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following tools:
 
 * [Spark-shell / PySpark](../spark/apache-spark-shell.md)
 * [Spark-submit](#spark-submit)
-* [Zeppelin](./apache-hive-warehouse-connector-zeppelin-livy.md)
+* [Zeppelin](./hive-warehouse-connector-zeppelin.md)
 
 
 Below are some examples to connect to HWC from Spark.
 
-Firstly, SSH into the headnode of the Apache Spark cluster. For more information about connecting to your cluster with SSH, see [Connect to HDInsight (Apache Hadoop) using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+### Spark-shell
 
-#### Spark-shell
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
-* Execute the below command to initiate the spark-shell.
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. From your ssh session, execute the following command to note the `hive-warehouse-connector-assembly` version:
+
+    ```bash
+    ls /usr/hdp/current/hive_warehouse_connector
+    ```
+
+1. Edit the code below with the `hive-warehouse-connector-assembly` version identified above. Then execute the command to start the spark shell:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-* After starting the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
+1. After starting the spark shell, a Hive Warehouse Connector instance can be started using the following commands:
 
     ```scala
     import com.hortonworks.hwc.HiveWarehouseSession
     val hive = HiveWarehouseSession.session(spark).build()
     ```
 
-#### Spark-submit
+### Spark-submit
 
-* Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application.
+Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 
-    YARN Client mode
+* YARN Client mode
     
     ```scala
     spark-submit \
     --class myHwcApp \
     --master yarn \
     --deploy-mode client \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     /<APP_JAR_PATH>/myHwcAppProject.jar
     ```
 
-    YARN Cluster mode
+* YARN Cluster mode
     ```scala
     spark-submit \
     --class myHwcApp \
     --master yarn \
     --deploy-mode cluster \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=true
     /<APP_JAR_PATH>/myHwcAppProject.jar
     ```
 
-* For Python, add the following configuration as well. 
+For Python, add the following configuration as well. 
 
     ```python
-    --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<STACK_VERSION>.zip
+    --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
     ```
-
-To learn about the spark operations supported by HWC, please follow this [document](./apache-hive-warehouse-connector-supported-spark-operations.md).
-
-
+    
 ## Run queries on Enterprise Security Package (ESP) clusters
 
-* Before initiating the spark-shell or spark-submit, execute the following command.
+Use `kinit` before starting the spark-shell or spark-submit. Replace USERNAME with the name of a domain account with permissions to access the cluster, then execute the following command:
 
-    ```bash
-    kinit <username>
-    ```
-* Replace `<username>` with the name of an account on the domain with permissions to access the cluster.
-
+```bash
+kinit USERNAME
+```
 
 ### Securing data on Spark ESP clusters
 
@@ -207,15 +211,7 @@ To learn about the spark operations supported by HWC, please follow this [docume
 
 ## Next steps
 
-* [Apache Spark Operations Supported By Hive Warehouse Connector](./apache-hive-warehouse-connector-supported-spark-operations.md)
-* [Use Interactive Query with HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-* [Integrate Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight](./apache-hive-warehouse-connector-zeppelin-livy.md)
+* [HWC and Apache Spark operations](./hive-warehouse-connector-operations.md)
+* [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
+* [HWC integration with Apache Zeppelin](./interactive-query/hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
-
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

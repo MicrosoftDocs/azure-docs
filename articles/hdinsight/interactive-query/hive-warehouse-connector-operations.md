@@ -1,17 +1,52 @@
 ---
-title: Spark operations supported by Hive Warehouse Connector - Azure HDInsight
+title: Apache Spark operations supported by Hive Warehouse Connector in Azure HDInsight
 description: Learn about the different capabilities of Hive Warehouse Connector on Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 05/22/2020
 ---
 
-# Spark operations supported by Hive Warehouse Connector on Azure HDInsight
+# Apache Spark operations supported by Hive Warehouse Connector in Azure HDInsight
 
-The article shows different spark based operations supported by HWC. All examples shown below will be executed through spark-shell.
+This article shows spark-based operations supported by Hive Warehouse Connector (HWC). All examples shown below will be executed through the Apache Spark shell.
+
+## Prerequisite
+
+Complete the [Hive Warehouse Connector setup](./hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
+
+## Getting started
+
+To start a spark-shell session, do the following steps:
+
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. From your ssh session, execute the following command to note the `hive-warehouse-connector-assembly` version:
+
+    ```bash
+    ls /usr/hdp/current/hive_warehouse_connector
+    ```
+
+1. Edit the code below with the `hive-warehouse-connector-assembly` version identified above. Then execute the command to start the spark shell:
+
+    ```bash
+    spark-shell --master yarn \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
+    --conf spark.security.credentials.hiveserver2.enabled=false
+    ```
+
+1. After starting the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
+
+    ```scala
+    import com.hortonworks.hwc.HiveWarehouseSession
+    val hive = HiveWarehouseSession.session(spark).build()
+    ```
 
 ## Creating Spark DataFrames using Hive queries
 
@@ -49,15 +84,17 @@ Spark doesn't natively support writing to Hive's managed ACID tables. However,us
     
     ![hive warehouse connector show hive table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
+
 ## Structured streaming writes
 
 Using Hive Warehouse Connector, you can use Spark streaming to write data into Hive tables.
 
-Follow the steps below to create a Hive Warehouse Connector example that ingests data from a Spark stream on localhost port 9999 into a Hive table.
+> [!IMPORTANT]
+> Structured streaming writes are not supported in ESP enabled Spark 4.0 clusters.
 
-1. Follow the steps under [Connecting and running queries](./apache-hive-warehouse-connector.md#connecting-and-running-queries) to trigger the spark-shell.
+Follow the steps below to ingest data from a Spark stream on localhost port 9999 into a Hive table via. Hive Warehouse Connector.
 
-1. Begin the spark stream with the following command:
+1. From your open Spark shell, begin a spark stream with the following command:
 
     ```scala
     val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
@@ -98,14 +135,8 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
 
 Use **Ctrl + C** to stop netcat on the second SSH session. Use `:q` to exit spark-shell on the first SSH session.
 
-**NOTE:** In ESP enabled Spark 4.0 clusters, structured streaming writes are not supported.
-
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* [HWC integration with Apache Spark and Apache Hive](./hive-warehouse-connector.md)
+* [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
+* [HWC integration with Apache Zeppelin](./interactive-query/hive-warehouse-connector-zeppelin.md)
