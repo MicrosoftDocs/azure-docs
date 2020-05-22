@@ -1,7 +1,7 @@
 ---
 title: Replicate Azure VMs running in Proximity Placement Groups with Azure Site Recovery 
 description: Learn how to replicate Azure VMs running in Proximity Placement Groups using Azure Site Recovery.
-author: Sharmisth-Rai
+author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
