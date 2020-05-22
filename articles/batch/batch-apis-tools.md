@@ -27,7 +27,7 @@ When you develop Batch solutions, you use the following accounts in your Azure s
 
 Azure Batch has two sets of APIs, one for the service level and one for the management level. The naming is often similar, but they return different results.
 
-Only actions performed by the management APIs are tracked in the activity log. Service level APIs bypass the Azure Resource Management layer (management.azure.com) and are not logged.
+Only actions from the management APIs are tracked in the activity log. Service level APIs bypass the Azure Resource Management layer (management.azure.com) and are not logged.
 
 For example, the [Batch service API to delete a pool](https://docs.microsoft.com/rest/api/batchservice/pool/delete) is targeted directly on the batch account: `DELETE {batchUrl}/pools/{poolId}`
 
