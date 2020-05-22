@@ -515,8 +515,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-site-recovery.html
   - name: Learning path
     href: /learn/azure/
   - name: Pricing
