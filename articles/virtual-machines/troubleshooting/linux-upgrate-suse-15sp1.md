@@ -24,7 +24,7 @@ This article provides general steps about how to use SUSE Distribution Migration
 ## Prerequisites
 
 - The current SUSE version must be SUSE 12 SP4  or 12 SP5.
-- Plan the migration activity as per the approved downtime window. This ise because the VM reboots during the migration.
+- Plan the migration activity as per the approved downtime window. This is because the VM reboots during the migration.
 - Prior to the migration activity, take a complete backup of the VM.
 - If backup is not configured, take a snapshot backup of the OS disk.
 
