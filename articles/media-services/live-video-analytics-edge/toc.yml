@@ -46,6 +46,14 @@
       href: event-based-video-recording-concept.md
     - name: Live Video Analytics without video recording
       href: analyze-live-video-concept.md
+- name: How-to guides
+  items:
+  - name: Get started
+    href: get-started-how-to.md
+  - name: Manage retention policy
+    href: manage-retention-policy-how-to.md
+  - name: Playback a recording 
+    href: playback-recordings-how-to.md        
 - name: Reference
   items:
   - name: Telemetry schema
