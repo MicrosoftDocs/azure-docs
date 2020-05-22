@@ -33,9 +33,11 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Manufacturer,<br/>HSM as a Service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|**Method 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (with strong attestation for key import and HSM validation)<br/>**Method 2:** [Use new BYOK method](hsm-protected-keys-byok.md) |
 |Thales|Manufacturer|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method](hsm-protected-keys-byok.md)|
 |Fortanix|HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
-|Marvell|Manufacturer|<ul><li>Firmware version 2.x</li><li>Firmware version 3.2 or newer</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-byok.md)|
+|Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptopmathic site for details](https://www.cryptomathic.com/Azure)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 
 
 ## Next steps
 
-Follow [Key Vault Best Practices](../general/best-practices.md) to ensure security, durability and monitoring for your keys.
+* Follow [Key Vault Best Practices](../general/best-practices.md) to ensure security, durability and monitoring for your keys.
+* Refer to [BYOK specification](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) for a complete description of the new BYOK method
