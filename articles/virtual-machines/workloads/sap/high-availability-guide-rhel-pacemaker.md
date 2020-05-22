@@ -273,7 +273,7 @@ Use the following command to configure the fence device.
 </code></pre>
 
 > [!TIP]
->Azure Fence Agent requires outbound connectivity to public end points as documented along with possible solutions in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## Next steps
 
