@@ -7,14 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/11/2020
+ms.date: 05/22/2020
 ---
 
 # Quickstart: Create a geo-replicated container registry by using a Resource Manager template
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images and related artifacts. This quickstart shows how to create an Azure Container Registry instance using an Azure Resource Manager template. 
-
-The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
+This quickstart shows how to create an Azure Container Registry instance using an Azure Resource Manager template. The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,9 +26,10 @@ None.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication). The template sets up a registry and an additional regional replica.
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json)]
+:::code language="json" source=
+"~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81 highlight="45-74" :::
 
 The following resources are defined in the template:
 
