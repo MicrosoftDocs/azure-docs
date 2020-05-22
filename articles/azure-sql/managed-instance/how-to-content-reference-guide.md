@@ -68,7 +68,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
 - [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
-- [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
+- [Use Intelligent Insights diagnostics log](intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-memory OLTP space](../in-memory-oltp-monitor-space.md)
 
 ### Extended events

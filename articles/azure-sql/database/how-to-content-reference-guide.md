@@ -56,9 +56,9 @@ In this article you can find a content reference of various guides, scripts, and
 - [Apply performance recommendations](database-advisor-find-recommendations-portal.md) and optimize your database.
 - [Create alerts](alerts-insights-configure-portal.md) to get notifications from Azure SQL Database.
 - [Troubleshoot connectivity](troubleshoot-common-errors-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](resource-health-to-troubleshoot-connectivity.md).
-- [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
+- [Troubleshoot performance with Intelligent Insights](intelligent-insights-troubleshoot-performance.md)
 - [Manage file space](file-space-manage.md) to monitor storage usage in your database.
-- [Use Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
+- [Use Intelligent Insights diagnostics log](intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-memory OLTP space](../in-memory-oltp-monitor-space.md)
 
 ### Extended events

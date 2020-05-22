@@ -53345,17 +53345,17 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights-troubleshoot-performance.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights-troubleshoot-performance",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-troubleshoot-performance",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights-use-diagnostics-log.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights-use-diagnostics-log",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-use-diagnostics-log",
         "redirect_document_id": true
     },
     {
         "source_path": "articles/sql-database/sql-database-intelligent-insights.md",
-        "redirect_url": "/azure/azure-sql/intelligent-insights",
+        "redirect_url": "/azure/azure-sql/database/intelligent-insights-overview",
         "redirect_document_id": true
     },
     {
