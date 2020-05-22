@@ -9,16 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-Use this quickstart to make your first call to the Bing Video Search API. This simple JavaScript application sends an HTTP video search query to the API, and displays the JSON response. 
+Use this quickstart to make your first call to the Bing Video Search API. This simple PHP application sends an HTTP video search query to the API, and displays the JSON response. The example code is written to work under PHP 5.6.
 
-Although this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages.
-The example code is written to work under PHP 5.6.
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -33,7 +32,7 @@ The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservice
 1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the following code.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
-4. Replace the `$accessKey` value with an access key valid for your subscription. You can use the value of `$endpoint` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. Replace the `$accessKey` value with an access key valid for your subscription. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php

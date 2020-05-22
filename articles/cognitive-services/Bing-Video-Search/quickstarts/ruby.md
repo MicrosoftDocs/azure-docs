@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
@@ -35,7 +35,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     require 'json'
     ```
 
-2. Create variables for the API endpoint, video API search path, your subscription key, and search term. You can use the value of `uri` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -71,9 +71,9 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 After the response is received, print the JSON response.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## JSON response
 

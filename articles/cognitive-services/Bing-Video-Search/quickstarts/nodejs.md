@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Node.js
@@ -35,7 +35,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     let https = require('https');
     ```
 
-2. Create variables for your API endpoint, subscription key, and search term. You can use the value of `host` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and search term. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -57,7 +57,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     };
     ```
     
-1. In this function, use `response.on()` when `end` is signaled to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
+1. In this function, use `response.on()` when `end` is signaled to store the bing-related headers (starting with `bingapis` or `x-msedge-`). Parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
 
     ```javascript
     response.on('end', function () {
@@ -75,21 +75,22 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 Create a function called `bing_video_search()`. Add the parameters for your request including your host name, and headers. Encode your search term and append it to your path parameter with the `?q=` parameter. Then, send the request with `req.end()`.
 
-    ```javascript
-    let bing_video_search = function (search_term) {
-      console.log('Searching videos for: ' + term);
-      let request_params = {
-    		method : 'GET',
-    		hostname : host,
-    		path : path + '?q=' + encodeURIComponent(search_term),
-    		headers : {
-    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-    		}
-    	};
-    	let req = https.request(request_params, response_handler);
-    	req.end();
-    }
-    ```
+```javascript
+let bing_video_search = function (search_term) {
+  console.log('Searching videos for: ' + term);
+let request_params = {
+    method : 'GET',
+    hostname : host,
+    path : path + '?q=' + encodeURIComponent(search_term),
+    headers : {
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    let req = https.request(request_params,
+      response_handler);
+    req.end();
+}
+```
 
 ## JSON response
 

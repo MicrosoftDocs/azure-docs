@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Java
@@ -56,7 +56,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     }
     ```
 
-3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. You can use the value of `host` in the following code for the global endpoint, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -71,7 +71,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 In the `SearchVideos()` method, perform the following steps:
 
-1. Construct the URL for your request by combining your API host, path, and encoded search query. Then, use `openConnection()` to create a connection, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Construct the URL for your request by combining your API host, path, and encoded search query. Use `openConnection()` to create a connection, and then add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
      ```java
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
@@ -105,15 +105,15 @@ In the `SearchVideos()` method, perform the following steps:
 
 Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to convert a JSON string to an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string.
 
-    ```java
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    ```
+```java
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
 ## Send the request and print the response
 
