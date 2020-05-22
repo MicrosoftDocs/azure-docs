@@ -108,7 +108,7 @@
       - name: Overview
         href: database/monitor-tune-overview.md
       - name: Intelligent Insights
-        href: intelligent-insights.md
+        href: database/intelligent-insights-overview.md
       - name: SQL Analytics
         href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
       - name: Automatic tuning

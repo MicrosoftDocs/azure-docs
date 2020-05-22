@@ -13,9 +13,9 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
-[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights-overview.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
@@ -43,7 +43,7 @@ Intelligent Insights automatically detects performance issues based on query exe
 | [Pricing tier downgrade](intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Pricing tier downgrade action decreased available resources. This is affecting performance. | Pricing tier downgrade action decreased available resources. This is affecting the database performance. |
 
 > [!TIP]
-> For continuous performance optimization of databases, enable [automatic tuning](database/automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database, automatically tunes indexes, and applies query execution plan corrections.
+> For continuous performance optimization of databases, enable [automatic tuning](automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database, automatically tunes indexes, and applies query execution plan corrections.
 >
 
 The following section describes detectable performance patterns in more detail.
@@ -54,7 +54,7 @@ The following section describes detectable performance patterns in more detail.
 
 This detectable performance pattern combines performance issues that are related to reaching available resource limits, worker limits, and session limits. After this performance issue is detected, a description field of the diagnostics log indicates whether the performance issue is related to resource, worker, or session limits.
 
-Resources on Azure SQL Database are typically referred to [DTU](database/service-tiers-dtu.md) or [vCore](database/service-tiers-vcore.md) resources, and resources on Azure SQL Managed Instance are referred to as vCore resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
+Resources on Azure SQL Database are typically referred to [DTU](service-tiers-dtu.md) or [vCore](service-tiers-vcore.md) resources, and resources on Azure SQL Managed Instance are referred to as vCore resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
 
 The session limits resource denotes the number of available concurrent logins to the database. This performance pattern is recognized when applications that are connected to the databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
 
@@ -66,7 +66,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database subscription. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](../azure-sql/database/resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 
 ## Workload Increase
 
@@ -179,7 +179,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 > [!TIP]
 > Did you know that built-in intelligence can automatically manage the best-performing indexes for your databases?
 >
-> For continuous performance optimization, we recommend that you enable [automatic tuning](database/automatic-tuning-overview.md). This unique built-in intelligence feature continuously monitors your database and automatically tunes and creates indexes for your databases.
+> For continuous performance optimization, we recommend that you enable [automatic tuning](automatic-tuning-overview.md). This unique built-in intelligence feature continuously monitors your database and automatically tunes and creates indexes for your databases.
 >
 
 ## New Query
@@ -194,7 +194,7 @@ Writing a good-performing query sometimes can be a challenging task. For more in
 
 The diagnostics log outputs information up to two new most CPU-consuming queries, including their query hashes. Because the detected query affects the workload performance, you can optimize your query. Good practice is to retrieve only data you need to use. We also recommend using queries with a WHERE clause. We also recommend that you simplify complex queries and break them up into smaller queries. Another good practice is to break down large batch queries into smaller batch queries. Introducing indexes for new queries is typically a good practice to mitigate this performance issue.
 
-In Azure SQL Database, consider using [Query Performance Insight](database/query-performance-insight-use.md).
+In Azure SQL Database, consider using [Query Performance Insight](query-performance-insight-use.md).
 
 ## Increased Wait Statistic
 
@@ -230,7 +230,7 @@ For more information, see [Introduction to memory-optimized tables](https://docs
 
 This detectable performance pattern indicates a degradation in the current database workload performance compared to the past seven-day baseline. It's due to the shortage of available DTUs in the elastic pool of your subscription.
 
-[Azure elastic pool resources](database/elastic-pool-overview.md) are used as a pool of available resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
+[Azure elastic pool resources](elastic-pool-overview.md) are used as a pool of available resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
 
 ### Troubleshooting
 
@@ -265,7 +265,7 @@ For more information, see [Learn how SQL Server prevents plan regressions](https
 > [!TIP]
 > Did you know that the built-in intelligence feature can automatically manage the best-performing query execution plans for your databases?
 >
-> For continuous performance optimization, we recommend that you enable [automatic tuning](database/automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database and automatically tunes and creates best-performing query execution plans for your databases.
+> For continuous performance optimization, we recommend that you enable [automatic tuning](automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database and automatically tunes and creates best-performing query execution plans for your databases.
 
 ## Database-Scoped Configuration Value Change
 
@@ -322,7 +322,7 @@ Intelligent Insights usually needs one hour of time to perform the root cause an
 
 ## Next steps
 
-- Learn [Intelligent Insights](intelligent-insights.md) concepts.
+- Learn [Intelligent Insights](intelligent-insights-overview.md) concepts.
 - Use the [Intelligent Insights performance diagnostics log](intelligent-insights-use-diagnostics-log.md).
 - Monitor using [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Learn to [collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).
+- Learn to [collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md).
