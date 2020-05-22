@@ -85,7 +85,7 @@
     - name: Azure Monitor for containers
       href: samples/arm-container-insights.md
     - name: Azure Monitor for VMs
-      href: samples/arm-vm-insights.md
+      href: samples/arm-vminsights.md
   - name: Azure CLI
     href: samples/cli-samples.md
   - name: Azure PowerShell
