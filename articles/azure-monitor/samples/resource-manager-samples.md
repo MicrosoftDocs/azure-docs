@@ -39,16 +39,16 @@ az group deployment create \
 
 ## List of sample templates
 
-- [Agents](arm-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
+- [Agents](resource-manager-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
 - Alerts
-  - [Log alert rules](arm-alerts-log.md) - Alerts from log queries and Azure activity log.
-  - [Metric alert rules](arm-alerts-metric.md) - Alerts from metrics using different kinds of logic.
-- [Diagnostic settings](arm-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
-- [Log queries](arm-log-queries.md) - Create saved log queries in a Log Analytics workspace.
-- [Log Analytics Workspace](arm-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
-- [Workbooks](arm-workbooks.md) - Create workbooks.
-- [Azure Monitor for containers](arm-container-insights.md) - Onboard clusters to Azure Monitor for containers.
-- [Azure Monitor for VMs](arm-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
+  - [Log alert rules](resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
+  - [Metric alert rules](resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
+- [Diagnostic settings](resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
+- [Log queries](resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
+- [Log Analytics Workspace](resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
+- [Workbooks](resource-manager-workbooks.md) - Create workbooks.
+- [Azure Monitor for containers](resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
+- [Azure Monitor for VMs](resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
 
 
 

@@ -205,6 +205,6 @@ The following sample creates a [metric measurement alert rule](../platform/alert
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about alert rules](../platform/alerts-overview.md).
 

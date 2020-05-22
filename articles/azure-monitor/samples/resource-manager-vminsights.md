@@ -336,5 +336,5 @@ The following sample adds an Azure virtual machine scale set to Azure Monitor fo
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about Azure Monitor for VMs](../insights/vminsights-overview.md).

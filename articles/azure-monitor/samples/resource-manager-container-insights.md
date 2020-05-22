@@ -353,4 +353,4 @@ The following sample enables Azure Monitor for containers on an AKS cluster.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](arm-samples.md).
-* [Learn more about Azure Monitor for VMs](../insights/vminsights-overview.md).
+* [Learn more about Azure Monitor for containers](../insights/container-insights-overview.md).

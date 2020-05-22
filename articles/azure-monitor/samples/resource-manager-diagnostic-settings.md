@@ -233,5 +233,5 @@ The following sample adds two log queries to an Azure SQL database.
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about diagnostic settings](../platform/diagnostic-settings.md).

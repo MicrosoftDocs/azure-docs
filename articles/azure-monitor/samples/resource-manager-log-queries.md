@@ -235,6 +235,6 @@ The following sample adds a log query as a function that uses a parameter to a L
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about log queries](../log-query/log-query-overview.md).
 * [Learn more about functions](../log-query/functions.md).
