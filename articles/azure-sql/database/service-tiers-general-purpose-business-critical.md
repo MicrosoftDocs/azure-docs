@@ -42,7 +42,7 @@ The following table describes the key differences between service tiers for the 
 | **Database size** | SQL Database | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **Storage size** | SQL Database | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-| | SQL Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **TempDB size** | SQL Database | [32 GB per vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB per vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB per vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | SQL Managed Instance  | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | Up to 4 TB - [limited by storage size](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | SQL Database | [1.875 MB/s per vCore (max 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s per vCore (max 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
@@ -95,6 +95,6 @@ Storage for database backups is allocated to support the point-in-time restore (
 For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see: 
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
-- [vCore-based resource limits for pooled Azure SQL Databases](resource-limits-vcore-elastic-pools.md).
+- [vCore-based resource limits for pooled databases in Azure SQL Database](resource-limits-vcore-elastic-pools.md).
 - [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
 
