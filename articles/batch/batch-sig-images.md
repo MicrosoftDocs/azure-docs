@@ -37,7 +37,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks. For more information, see [Prepare a managed image](#prepare-a-managed-image).
 
 > [!NOTE]
-> Your Shared Image must be in the same subscription as the Batch account. Your Shared Image can be in different regions as long as it has replicas in the same region as your Batch account.
+> Your Shared Image must be in the same subscription as the Batch account. The image can be in different regions as long as it has replicas in the same region as your Batch account.
 
 ## Prepare a managed image
 
@@ -48,7 +48,7 @@ In Azure, you can prepare a managed image from:
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports managed images. You can't create a custom image pool from a specialized image at this time.
+> Currently, Batch only supports generalized Shared Images. You can't create a custom image pool from a specialized Shared Image at this time.
 
 The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 

@@ -7,7 +7,7 @@ ms.date: 05/20/2020
 
 # Use a managed image to create a pool of virtual machines
 
-To create a custom image for your Batch pool's virtual machines (VMs), you can use the [Shared Image Gallery](batch-sig-images.md). We also provide a way to create a custom image with a *managed image* resource.
+To create a custom image for your Batch pool's virtual machines (VMs), you can use the [Shared Image Gallery](batch-sig-images.md) to create a managed image. Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
 > [!IMPORTANT]
 > In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
@@ -29,7 +29,7 @@ In Azure, you can prepare a managed image from:
 - A generalized Azure VM with managed disks
 - A generalized on-premises VHD uploaded to the cloud
 
-To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. The following steps show how to prepare a VM, take a snapshot, and create a managed image from the snapshot.
+To scale Batch pools reliably with a managed image, we recommend creating the managed image using *only* the first method: using snapshots of the VM's disks. The following steps show how to prepare a VM, take a snapshot, and create a managed image from the snapshot.
 
 ### Prepare a VM
 
