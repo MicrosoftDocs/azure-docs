@@ -68,13 +68,11 @@ Use one of the methods in this section to convert your virtual disk to the requi
 
 1. VHD Size:
 
-   1. All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to
-      a VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion.
-      Fractions of a megabyte cause errors when creating images from the uploaded VHD.
+   1. Disks in Azure must have a virtual size aligned to 1 MB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD.
+   
+   1. The maximum size allowed for the OS VHD is 2,048 GiB (2 TiB), for a data disk is 32,767 GiB (32 TiB).
 
-   1. The maximum size allowed for the OS VHD is 2 TB.
-
-After you convert the disk, create a VM that uses the disk. Start and sign in to the VM to finish
+After you convert to a fixed disk, create a VM that uses the disk. Start and sign in to the VM to finish
 preparing it for uploading.
 
 ### Use Hyper-V Manager to convert the disk
