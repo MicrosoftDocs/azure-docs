@@ -126,6 +126,11 @@ A backup policy defines when backups are taken, and how long they're retained.
 * A policy is created at the vault level.
 * Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault.
 
+>[!NOTE]
+>Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
+>
+>Modify the policy manually as needed.
+
 Specify the policy settings as follows:
 
 1. In **Policy name**, enter a name for the new policy.
