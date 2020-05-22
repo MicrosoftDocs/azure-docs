@@ -136,7 +136,7 @@ To see the logs, run the following query:
 
 ### Send an email when a runbook job fails or suspends
 
-The following steps show how to setup alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
+The following steps show how to set up alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
 
 To create an alert rule, start by creating a log search for the runbook job records that should invoke the alert. Click the **Alert** button to create and configure the alert rule.
 
