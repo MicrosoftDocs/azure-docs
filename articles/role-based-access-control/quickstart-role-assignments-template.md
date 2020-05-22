@@ -52,7 +52,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter a resource group name (i.e. ExampleGrouprg)"
     $emailAddress = Read-Host -Prompt "Enter an email address for a user in your directory"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     
     $roleAssignmentName = New-Guid
     $principalId = (Get-AzAdUser -Mail $emailAddress).id
