@@ -1,13 +1,15 @@
 ---
-title: Azure Monitor CLI quick start samples
-description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
+title: Azure Monitor CLI samples
+description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service, which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
 ms.subservice: ""
-ms.topic: conceptual
+ms.topic: sample
+author: bwren
+ms.author: bwren
 ms.date: 05/16/2018
 
 ---
 
-# Azure Monitor CLI quick start samples
+# Azure Monitor CLI samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 ## Prerequisites
@@ -15,7 +17,7 @@ This article shows you sample command-line interface (CLI) commands to help you 
 If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available commands in the [Azure Monitor CLI reference](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## Log in to Azure
-The first step is to login to your Azure account.
+The first step is to log in to your Azure account.
 
 ```azurecli
 az login
@@ -35,7 +37,7 @@ To change working context to a different subscription, use the following command
 az account set -s <Subscription ID or name>
 ```
 
-To view a list of all supported Azure Monitor commands, perform the following.
+To view a list of all supported Azure Monitor commands, perform the following command.
 
 ```azurecli
 az monitor -h
@@ -43,7 +45,7 @@ az monitor -h
 
 ## View activity log for a subscription
 
-To view a list of activity log events, perform the following.
+To view a list of activity log events, perform the following command.
 
 ```azurecli
 az monitor activity-log list

@@ -60,6 +60,4 @@ Error links flow from these activities to a single `error management` code activ
 
 ## Next steps
 
-* [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md#use-links-for-workflow)
-* [Runbook execution in Azure Automation](automation-runbook-execution.md)
-* [Manage runbooks in Azure Automation](manage-runbooks.md)
+* For information about resolving graphical runbook errors, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).
