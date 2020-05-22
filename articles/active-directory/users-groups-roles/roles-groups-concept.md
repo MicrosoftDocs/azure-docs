@@ -40,8 +40,7 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 - Only Global admins and Privileged role admins can create a role-assignable group (with the "isAssignableToRole" property enabled).
 - It can't be an Azure AD dynamic group; that is, it must have a membership type of "Assigned." Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
--  To prevent elevation of privilege, the credentials of the owner of a role-assignable group can be changed only by a Privileged authentication administrator or a Global administrator.
-- By default, only Global admins and Privileged role admins can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
+-  By default, only Global admins and Privileged role admins can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners. To prevent elevation of privilege, the credentials of the owner of a role-assignable group can be changed only by a Privileged authentication administrator or a Global administrator.
 - No nesting. A group can't be added as a member of a role-assignable group.
 
 ## Limitations
@@ -56,13 +55,13 @@ We are working on these capabilities.
 
 ## Known Issues
 
-*Azure AD P2 license customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
+- *Azure AD P2 license customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
 
-End time of the assignment might end up showing incorrectly
+  - End time of the assignment might end up showing incorrectly
 
-In the PIM UI, My Roles can only show one role assignment regardless of how many methods the assignment is granted (through one or more groups and directly)
+  - In the PIM UI, My Roles can only show one role assignment regardless of how many methods the assignment is granted (through one or more groups and directly)
 
-[Azure AD P2 license customers only] Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.
+- [*Azure AD P2 license customers only*] Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.
 
 We are fixing these issues.
 
