@@ -34,11 +34,6 @@ Also before you start, install [Visual Studio 2019](https://visualstudio.microso
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
-[!INCLUDE [Instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
-
-> [!NOTE]
-> The PowerShell version of Azure Cloud Shell is recommended for its parsing of quotations. The other bash version will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
-
 [!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
 
 #### Register your application

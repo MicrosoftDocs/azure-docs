@@ -31,19 +31,11 @@ What you need to begin:
 
 To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
 
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip ahead to the "Set up project" section. 
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
 
-Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. This will also allow you to skip to the "Set up project" section.
-
-Otherwise, continue through "Use Azure Cloud Shell" and "Set up an Azure Digital Twins instance."
-
-[!INCLUDE [Instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
-
-#### Register your application
-
-[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
+Otherwise, you can either:
+* Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). Also, set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
 
 ## Set up project
 

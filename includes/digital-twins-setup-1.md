@@ -7,6 +7,8 @@ ms.date: 4/22/2020
 ms.author: baanders
 ---
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ### Add the IoT extension to Cloud Shell
 
 Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
