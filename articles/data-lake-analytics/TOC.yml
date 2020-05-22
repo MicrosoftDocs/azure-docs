@@ -162,7 +162,7 @@
   - name: Request changes
     href: https://feedback.azure.com/forums/327234-data-lake
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html
+    href: https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-lake-analytics/
   - name: Pricing calculator
