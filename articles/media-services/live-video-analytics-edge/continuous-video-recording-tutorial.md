@@ -36,7 +36,7 @@ Prerequisites for this tutorial are as follows
     > You might be prompted to install docker. You may ignore this prompt.
 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
-<!--* Complete [Set up Azure resources](), and [Set up the environment]()
+Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
 At the end of the above steps, you will have certain Azure resources deployed in the Azure subscription, including:
 
@@ -44,7 +44,6 @@ At the end of the above steps, you will have certain Azure resources deployed in
 * Storage account
 * Media Services account
 * A Linux Virtual Machine
--->
 
 ## Concepts
 
