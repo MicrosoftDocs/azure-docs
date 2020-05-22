@@ -106,7 +106,7 @@ Open SQL Server Managed Studio (SSMS) and connect to the server or managed with 
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
 
-2. Enter your server name  or instansce name and credentials. 
+2. Enter your server name  or instance name and credentials. 
 
     ![Copy the connection string](./media/always-encrypted-azure-key-vault-configure/ssms-connect.png)
 
@@ -591,7 +591,7 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
 
 ## Next steps
 
-After you test using Always Encrypted, you may want to do the following:
+After your database is configured to use Always Encrypted, you may want to do the following:
 
 - [Rotate and clean up your keys](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).

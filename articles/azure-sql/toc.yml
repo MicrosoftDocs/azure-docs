@@ -148,10 +148,11 @@
         href: database/sql-database-vulnerability-assessment-storage.md
       - name: Always Encrypted
         items: 
-        - name: Use the certificate store
-          href: database/always-encrypted-certificate-store-configure.md
         - name: Use the Azure key vault
           href: database/always-encrypted-azure-key-vault-configure.md
+        - name: Use the certificate store
+          href: database/always-encrypted-certificate-store-configure.md
+
   
     - name: Monitor & tune
       items: 
