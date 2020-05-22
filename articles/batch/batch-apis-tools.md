@@ -24,12 +24,14 @@ When you develop Batch solutions, you use the following accounts in your Azure s
 
 ## Service-level and management-level APIs
 
-Azure Batch has two sets of APIs, one for the service level and one for the management level. The naming is often similar, but they return different results. If you want activity logs, then you need to use the management APIs. Service level APIs bypass the Azure Resource Management layer and are not logged.
+Azure Batch has two sets of APIs, one for the service level and one for the management level. The naming is often similar, but they return different results.
+
+Only actions performed by the management APIs are tracked in the activity log. Service level APIs bypass the Azure Resource Management layer (management.azure.com) and are not logged.
 
 For example:
 
-- The [Batch service API to delete a pool](https://docs.microsoft.com/rest/api/batchservice/pool/delete) is targeted directly on the batch account: `DELETE {batchUrl}/pools/{poolId}?api-version=2019-08-01.10.0`
-- The [Batch management API to delete a pool](https://docs.microsoft.com/rest/api/batchmanagement/pool/delete)  is targeted at the management.azure.com layer: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}?api-version=2019-08-01`
+- The [Batch service API to delete a pool](https://docs.microsoft.com/rest/api/batchservice/pool/delete) is targeted directly on the batch account: `DELETE {batchUrl}/pools/{poolId}`
+- The [Batch management API to delete a pool](https://docs.microsoft.com/rest/api/batchmanagement/pool/delete)  is targeted at the management.azure.com layer: `DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}`
 
 ## Batch service APIs
 
@@ -58,7 +60,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 
 These command-line tools provide the same functionality as the Batch service and Batch Management APIs: 
 
-* [Batch PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.batch/): The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
+* [Batch PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.batch/): The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
 * [Azure CLI](/cli/azure): The Azure CLI is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
 
 ## Other tools for application development
@@ -68,7 +70,7 @@ These additional tools may be helpful for building and debugging your Batch appl
 * [Azure portal](https://portal.azure.com/): You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal. You can view status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools. For example, you can download a failed task's `stderr.txt` while troubleshooting. You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
 * [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer (formerly called BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows.
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard is a tool to help provision, execute, and monitor container-based batch processing and HPC workloads on Azure Batch.
-* [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/): While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/): While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Additional resources
 
