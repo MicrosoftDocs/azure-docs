@@ -11,7 +11,7 @@ ms.custom: H1Hack27Feb2017
 
 Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and choose the account properties that fit your compute scenario. Learn where to find important account properties like access keys and account URLs.
 
-For background about Batch accounts and scenarios, see the [feature overview](batch-api-basics.md).
+For background about Batch accounts and scenarios, see [Batch service workflow and resources](batch-service-workflow-features.md).
 
 ## Create a Batch account
 
@@ -35,7 +35,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
-    e. **Storage account**: An optional Azure Storage account that you associate with your Batch account. A general-purpose v2 storage account is recommended for the best performance. For all storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account). In the portal, select an existing storage account, or create a new one.
+    e. **Storage account**: An optional Azure Storage account that you associate with your Batch account. A general-purpose v2 storage account is recommended for the best performance. For all storage account options in Batch, see the [Batch feature overview](accounts.md#azure-storage-accounts). In the portal, select an existing storage account, or create a new one.
 
       ![Create a storage account][storage_account]
 
@@ -133,7 +133,7 @@ In addition to using the Azure portal, you can create and manage Batch accounts 
 
 ## Next steps
 
-* See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features for large-scale compute workloads.
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 
 [azure_portal]: https://portal.azure.com
