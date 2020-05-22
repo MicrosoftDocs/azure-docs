@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/21/2020
 ms.custom: seodec18
 ---
 
@@ -24,7 +24,7 @@ You can apply what you learn from this article to scenarios such as these:
 * Evaluating comments on forums, blogs, and videos. 
 * Many other real-time, predictive scoring scenarios.
 
-In a real-world scenario, you would get the data directly from a Twitter data stream. To simplify the tutorial, it's written so that the Streaming Analytics job gets tweets from a CSV file in Azure Blob storage. You can create your own CSV file, or you can use a sample CSV file, as shown in the following image:
+In a real-world scenario, you would get the data directly from a Twitter data stream. To simplify the tutorial, it's written so that the Stream Analytics job gets tweets from a CSV file in Azure Blob storage. You can create your own CSV file, or you can use a sample CSV file as shown in the following image:
 
 ![Sample tweets shown in a CSV file](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
