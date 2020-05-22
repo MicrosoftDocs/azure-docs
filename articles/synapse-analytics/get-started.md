@@ -104,12 +104,12 @@ When your SQL pool is created, it will be associated with a SQL pool database al
 1. In Synapse Studio, on the left side select **Manage > Apache Spark pools**
 1. Select **+New** and enter these settings:
 
-    a. |Setting | Suggested value | 
-    b. |---|---|---|
-    c. |**Apache Spark pool name**|`Spark1`
-    d. |**Node size**| `Small`|
-    e. |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
-    f. |||
+    |Setting | Suggested value | 
+    |---|---|---|
+    |**Apache Spark pool name**|`Spark1`
+    |**Node size**| `Small`|
+    |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
+    |||
 
 1. Select **Review+create** and then select **Create**.
 1. Your Apache Spark pool will be ready in a few seconds.
