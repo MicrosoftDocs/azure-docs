@@ -40,13 +40,13 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 
    ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
 
-## User-defined routes (UDR) for forced tunneling
+## User-defined routes for forced tunneling
 
 You might have requirements in your organization to redirect (force) Internet-bound traffic from the subnet back to your on-premises location for inspection and logging. You may have enabled forced tunneling for the subnets in your VNet.
 
-To ensure that your Azure Batch pool compute nodes work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
+To ensure that your Azure Batch pool compute nodes work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) (UDR) for that subnet:
 
-* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route (UDR) for each IP address used by the Batch service in the region where your Batch account exists. To learn how to obtain the list of IP addresses of the Batch service, see [Service tags on-premises](../virtual-network/service-tags-overview.md).
+* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a UDR for each IP address used by the Batch service in the region where your Batch account exists. To learn how to obtain the list of IP addresses of the Batch service, see [Service tags on-premises](../virtual-network/service-tags-overview.md).
 
 * Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked via your on-premises network appliance.
 
