@@ -52,8 +52,8 @@ For more information about creating trusted locations in Conditional Access, see
 
 The following policy applies to all selected users that attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**
-1. Select **+ New policy**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
 1. Under **Assignments**, select **Users and groups**. Choose the users and groups you want this policy to apply to, then select **Done**.
 
@@ -65,13 +65,13 @@ The following policy applies to all selected users that attempt to register usin
     ![Create a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. Under **Conditions** > **Locations**, configure the following options:
-   1. Configure **Yes**
-   1. Include **Any location**
-   1. Exclude **All trusted locations**
+   1. Configure **Yes**.
+   1. Include **Any location**.
+   1. Exclude **All trusted locations**.
 1. Select **Done** on the *Locations* window, then select **Done** on the *Conditions* window.
-1. Under **Access controls** > **Grant**, choose **Block access**, then **Select**
-1. Set **Enable policy** to **On**
-1. To finalize the policy, select **Create**
+1. Under **Access controls** > **Grant**, choose **Block access**, then **Select**.
+1. Set **Enable policy** to **On**.
+1. To finalize the policy, select **Create**.
 
 ## Next steps
 
