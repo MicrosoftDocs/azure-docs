@@ -28,6 +28,8 @@
   items:
   - name: Continuous video recording  
     href: continuous-video-recording-tutorial.md
+  - name: Event-based video recording  
+    href: event-based-video-recording-tutorial.md    
 - name: Concepts
   items:
   - name: Media graph
