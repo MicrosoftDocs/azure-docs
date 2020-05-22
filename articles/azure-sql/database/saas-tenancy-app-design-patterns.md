@@ -12,6 +12,7 @@ ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ---
 # Multi-tenant SaaS database tenancy patterns
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes the various tenancy models available for a multi-tenant SaaS application.
 

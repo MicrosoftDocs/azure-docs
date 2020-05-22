@@ -13,6 +13,7 @@ ms.reviewer: carlrab, vanto
 ms.date: 04/28/2020
 ---
 # Use PowerShell to configure SQL Database auditing and Advanced Threat Protection
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example configures Azure SQL Database auditing and Advanced Threat Protection.
 

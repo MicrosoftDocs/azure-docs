@@ -13,6 +13,7 @@ ms.reviewer: carlr
 ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [A single database](../index.yml) is fully managed platform as a service (PaaS) database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
 

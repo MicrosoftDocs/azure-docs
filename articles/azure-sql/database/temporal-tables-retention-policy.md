@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 09/25/2018
 ---
 # Manage historical data in Temporal tables with retention policy
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Temporal tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal tables in Azure SQL Database and Azure SQL Managed Instance come with easy-to-use retention mechanism that helps you accomplish this task.
 
