@@ -1,4 +1,4 @@
-- name: Live Video Analytics on IoT Edge documentation
+- name: Live Video Analytics on IoT Edge (Preview) documentation
   href: index.yml
 - name: Switch to Azure Media Services v3 documentation
   href: ../latest/index.yml
@@ -53,11 +53,11 @@
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
   - name: Playback a recording 
-    href: playback-recordings-how-to.md        
+    href: playback-recordings-how-to.md    
+  - name: Monitoring and logging
+    href: monitoring-logging.md    
 - name: Reference
   items:
-  - name: Telemetry schema
-    href: telemetry-schema.md
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  

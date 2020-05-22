@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Live Video Analytics on IoT Edge
+  - title: About Live Video Analytics on IoT Edge (Preview)
     linkLists:
       - linkListType: overview
         links:
@@ -75,14 +75,14 @@ landingContent:
             url: manage-retention-policy-how-to.md
           - text: Playback a recording 
             url: playback-recordings-how-to.md
+          - text: Monitoring and logging
+            url: monitoring-logging.md           
       - linkListType: reference
         links:
           - text: Direct methods
             url: direct-methods.md
           - text: Module Twin configuration schema  
             url: module-twin-configuration-schema.md
-          - text: Telemetry schema
-            url: telemetry-schema.md
           - text: Quotas and limitations  
             url: quotas-limitations.md
   
