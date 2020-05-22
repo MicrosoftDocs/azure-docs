@@ -782,6 +782,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/luis/reference-entity-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/integrate-qnamaker-luis.md",
       "redirect_url": "/azure/cognitive-services/luis/choose-natural-language-processing-service",
       "redirect_document_id": false
@@ -2500,12 +2505,12 @@
     },
     {
       "source_path": "articles/cosmos-db/analytics-usecases.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
       "redirect_document_id": false
     },
     {
@@ -2515,7 +2520,7 @@
     },
     {
       "source_path": "articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/analytical-store-introduction",
       "redirect_document_id": false
     },
     {
@@ -42719,7 +42724,7 @@
     {
       "source_path": "articles/application-insights/app-insights-usage-workbooks.md",
       "redirect_url": "/azure/azure-monitor/app/usage-workbooks",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-visual-studio-codelens.md",
@@ -52428,12 +52433,17 @@
         "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
         "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
         "redirect_document_id": true
-      },
-      {
+    },
+    {
         "source_path": "articles/cdn/endpoint-multiorigin.md",
         "redirect_url": "/azure/cdn/cdn-overview",
         "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/app/usage-workbooks.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview",
+	  "redirect_document_id": false
+	},
     {
       "source_path": "articles/batch/batch-api-basics.md",
       "redirect_url": "/azure/batch/batch-service-workflow-features",

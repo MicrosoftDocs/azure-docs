@@ -22,7 +22,7 @@ landingContent:
         url: speech-translation.md
       - text: Speech translation basics
         url: speech-translation-basics.md
-      - text: Use SPX to translate speech with no code
+      - text: Use the Speech CLI to translate speech with no code
         url: spx-overview.md
     - linkListType: quickstart
       links:
