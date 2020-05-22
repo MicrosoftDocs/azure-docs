@@ -1,6 +1,6 @@
 ---
 title: Single database vCore resource limits 
-description: This page describes some common vCore resource limits for a single Azure SQL database. 
+description: This page describes some common vCore resource limits for a single database in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database

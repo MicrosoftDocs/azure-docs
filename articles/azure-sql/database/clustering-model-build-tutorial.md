@@ -72,7 +72,7 @@ In the following R script, you'll use the function **rxKmeans**, which is the K-
 return_cluster = RxSqlServerData(table = "return_cluster", connectionString = connStr);
 # Set the seed for the random number generator for predictability
 set.seed(10);
-# Generate clusters using rxKmeans and output key / cluster to a table in a SQL database
+# Generate clusters using rxKmeans and output key / cluster to a table in a database in SQL Database
 # called return_cluster
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
                    customer_returns,
