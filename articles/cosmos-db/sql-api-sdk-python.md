@@ -34,7 +34,7 @@ ms.author: anfeldma
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
-## Release History
+## Release history
 
 ### 4.0.0
 
