@@ -67,7 +67,7 @@ For more information, see [Welcome to the commercial marketplace](https://docs.m
 
 ### How do I get support assistance for the commercial marketplace?
 
-To contact our marketplace publisher support team, you can [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1) from within Partner Center. 
+To contact our marketplace publisher support team, you can [submit a support ticket](https://aka.ms/marketplacepublishersupport) from within Partner Center. 
 
 You can also [join our active community forum](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) to learn about best practices and share information.
 
