@@ -15,7 +15,7 @@ HDInsight Spark clusters include Apache Zeppelin notebooks with different interp
 
 ## Prerequisite
 
-Complete the [Hive Warehouse Connector setup](hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
+Complete the [Hive Warehouse Connector setup](apache-hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
 
 ## Getting started
 
@@ -129,6 +129,6 @@ hive.executeQuery("select * from testers").show()
 
 ## Next steps
 
-* [HWC and Apache Spark operations](./hive-warehouse-connector-operations.md)
-* [HWC integration with Apache Spark and Apache Hive](./hive-warehouse-connector.md)
+* [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
+* [HWC integration with Apache Spark and Apache Hive](./apache-hive-warehouse-connector.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)

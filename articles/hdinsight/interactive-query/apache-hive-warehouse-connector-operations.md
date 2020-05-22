@@ -15,7 +15,7 @@ This article shows spark-based operations supported by Hive Warehouse Connector 
 
 ## Prerequisite
 
-Complete the [Hive Warehouse Connector setup](./hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
+Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
 
 ## Getting started
 
@@ -137,6 +137,6 @@ Use **Ctrl + C** to stop netcat on the second SSH session. Use `:q` to exit spar
 
 ## Next steps
 
-* [HWC integration with Apache Spark and Apache Hive](./hive-warehouse-connector.md)
+* [HWC integration with Apache Spark and Apache Hive](./apache-hive-warehouse-connector.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
-* [HWC integration with Apache Zeppelin](./interactive-query/hive-warehouse-connector-zeppelin.md)
+* [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)

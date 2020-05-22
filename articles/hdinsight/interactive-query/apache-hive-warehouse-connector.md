@@ -101,7 +101,7 @@ You can choose between a few different methods to connect to your Interactive Qu
 
 * [Spark-shell / PySpark](../spark/apache-spark-shell.md)
 * [Spark-submit](#spark-submit)
-* [Zeppelin](./hive-warehouse-connector-zeppelin.md)
+* [Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 
 
 Below are some examples to connect to HWC from Spark.
@@ -211,7 +211,7 @@ kinit USERNAME
 
 ## Next steps
 
-* [HWC and Apache Spark operations](./hive-warehouse-connector-operations.md)
+* [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
-* [HWC integration with Apache Zeppelin](./interactive-query/hive-warehouse-connector-zeppelin.md)
+* [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
