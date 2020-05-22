@@ -11,6 +11,7 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ---
+
 # Delete a subnet after deleting a managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 

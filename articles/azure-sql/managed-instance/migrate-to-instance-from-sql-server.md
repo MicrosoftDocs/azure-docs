@@ -26,10 +26,10 @@ At a high level, the database migration process looks like:
 
 - [Assess SQL Managed Instance compatibility](#assess-sql-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
   
-  This step also includes creation of a [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
+  This step also includes creation of a [performance baseline](#create-a-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
 - [Choose app connectivity options](connect-application-instance.md).
 - [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your managed instance.
-- [Select migration method and migrate](#select-migration-method-and-migrate) where you migrate your databases using offline migration (native backup/restore, database import/export) or online migration (Azure Data Migration Service, transactional replication).
+- [Select migration method and migrate](#select-a-migration-method-and-migrate) where you migrate your databases using offline migration (native backup/restore, database import/export) or online migration (Azure Data Migration Service, transactional replication).
 - [Monitor applications](#monitor-applications) to ensure that you have expected performance.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ For a quickstart showing how to restore a database backup to a managed instance 
 
 Once you have completed the migration to a managed instance, you should track the application behavior and performance of your workload. This process includes the following activities:
 
-- [Compare performance of the workload running on the managed instance](#compare-performance-with-the-baseline) with the [performance baseline that you created on the source SQL Server instance](#create-performance-baseline).
+- [Compare performance of the workload running on the managed instance](#compare-performance-with-the-baseline) with the [performance baseline that you created on the source SQL Server instance](#create-a-performance-baseline).
 - Continuously [monitor performance of your workload](#monitor-performance) to identify potential issues and improvement.
 
 ### Compare performance with the baseline
@@ -159,7 +159,7 @@ As a prerequisite, make sure that you have completed the following activities:
 - Implement [storage best practice guidelines for General Purpose](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), such as pre-allocating the size of the files to get better performance.
 - Learn about the [key environment differences that might cause the performance differences between a managed instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), and identify the risks that might affect the performance.
 - Make sure that you keep enabled Query Store and automatic tuning on your managed instance. These features enable you to measure workload performance and automatically fix the potential performance issues. Learn how to use Query Store as an optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to a newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
-Once you have prepared the environment that is comparable as much as possible with your on-premises environment, you can start running your workload and measure performance. Measurement process should include the same parameters that you measured [while you created baseline performance of your workload measures on the source SQL Server instance](#create-performance-baseline).
+Once you have prepared the environment that is comparable as much as possible with your on-premises environment, you can start running your workload and measure performance. Measurement process should include the same parameters that you measured [while you created baseline performance of your workload measures on the source SQL Server instance](#create-a-performance-baseline).
 As a result, you should compare performance parameters with the baseline and identify critical differences.
 
 > [!NOTE]
