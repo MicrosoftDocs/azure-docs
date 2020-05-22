@@ -304,6 +304,6 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 ## Next steps
 
-* [Create a PowerShell runbook](automation-first-runbook-textual-powershell.md)
-* [Create a PowerShell Workflow runbook](automation-first-runbook-textual.md)
-* [Create a Python runbook](automation-first-runbook-textual-python2.md)
+* To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-first-runbook-textual-powershell.md).
+* To get started with PowerShell workflow runbooks, see [Create a PowerShell Workflow runbook](automation-first-runbook-textual.md).
+* To get started with Python 2 runbooks, see [Create a Python runbook](automation-first-runbook-textual-python2.md).

@@ -34,6 +34,7 @@ Alternatively, you can unlink your Log Analytics workspace from your Automation 
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
-* [Remove VMs from Update Management](automation-remove-vms-from-update-management.md)
-* [Troubleshoot Update Management issues](troubleshoot/update-management.md)
+* To work with the feature, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
