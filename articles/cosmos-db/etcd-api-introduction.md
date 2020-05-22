@@ -4,7 +4,7 @@ description: This article provides an overview and key benefits of etcd API in A
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
 
