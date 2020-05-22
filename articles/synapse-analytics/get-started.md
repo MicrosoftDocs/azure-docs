@@ -117,9 +117,9 @@ When your SQL pool is created, it will be associated with a SQL pool database al
 > [!NOTE]
 > Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to inform the Synapse workspace how to interact with Spark. 
 
-Because they are metadata Spark pools cannot be started or stopped. 
+Because they are metadata, Spark pools cannot be started or stopped. 
 
-When you do any Spark activity in Synapse, you specify a Spark pool to use. The pool informs Synapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool the resources will automatically time out and be recycled.
+When you do any Spark activity in Synapse, you specify a Spark pool to use. The pool informs Synapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool, the resources will automatically time out and be recycled.
 
 > [!NOTE]
 > Spark databases are independently created from Spark pools. A workspace always has a Spark DB called **default** and you can create additional Spark databases.
@@ -128,15 +128,15 @@ When you do any Spark activity in Synapse, you specify a Spark pool to use. The 
 
 Every workspace comes with a pre-built and undeleteable pool called **SQL on-demand**. The SQL on-demand pool allows you to work with SQL without having to create or think about managing a Synapse SQL pool. Unlike the other kinds of pools, billing for SQL on-demand is based on the amount of data scanned to run the query - and not the number of resources used to execute the query.
 
-* SQL on-demand also has its own kind of SQL on-demand databases that exist independently from any SQL on-demand pool.
+* SQL on-demand also has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
 * Currently a workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
 ## Load the NYC Taxi Sample data into the SQLDB1 database
 
 1. In Synapse Studio, in the top-most blue menu, select the **?** icon.
 1. Select **Getting started > Getting started hub**
-1. In the card labeled **Query sample data** select the SQL pool named `SQLDB1`
-1. Select **Query data**. You will see a notification saying "Loading sample data" which will appear and then disappear.
+1. In the card labeled **Query sample data**, select the SQL pool named `SQLDB1`
+1. Select **Query data**. You will see a notification saying "Loading sample data" that will appear and then disappear.
 1. You'll see a light-blue notification bar near the top of Synapse Studio indicating that data is being loaded into SQLDB1. Wait until it turns green then dismiss it.
 
 ## Explore the NYC taxi data in the SQL Pool
@@ -159,7 +159,7 @@ Every workspace comes with a pre-built and undeleteable pool called **SQL on-dem
     ```
 
 1. This query shows how the total trip distances and average trip distance relate to the number of passengers
-1. In the SQL script result window change the **View** to **Chart** to see a visualization of the results as a line chart
+1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart
 
 ## Load the NYC Taxi Sample data into the Spark nyctaxi database
 
@@ -214,7 +214,7 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
  
 ## Customize data visualization data with Spark and notebooks
 
-With notebooks you can control how render charts. The following code shows a simple example using the popular libraries `matplotlib` and `seaborn`. It will render the same kind of line chart you saw when running the SQL queries earlier.
+With notebooks, you can control how render charts. The following code shows a simple example using the popular libraries `matplotlib` and `seaborn`. It will render the same kind of line chart you saw when running the SQL queries earlier.
 
 ```py
 %%pyspark
@@ -357,9 +357,9 @@ You can link a Power BI workspace to your Synapse workspace. This allows you to 
 1. This will launch Power BI desktop and automatically connect it to `SQLDB1` in your synapse workspace.
 1. If you see a dialog appear called **SQL server database**:
     a. Select **Microsoft account**. 
-    b. Select **Sign in** and log in.
+    b. Select **Sign in** and sign in.
     c. Select **Connect**.
-1. The **Navigator** dialog will open. When it does check the **PassengerCountStats** table and select **Load**.
+1. The **Navigator** dialog will open. When it does, check the **PassengerCountStats** table and select **Load**.
 1. A **Connection settings** dialog will appear. Select **DirectQuery** and select **OK**
 1. Select the **Report** button on the left.
 1. Add **Line chart** to your report.
@@ -377,7 +377,7 @@ You can link a Power BI workspace to your Synapse workspace. This allows you to 
 1. At the left, under **Workspaces** select the `NYCTaxiWorkspace1` workspace.
 1. Inside that workspace you should see a dataset called `Passenger Analysis` and a report called `Passenger Analysis`.
 1. Hover over the `PassengerAnalysis` dataset and select the icon with the three dots and select **Settings**.
-1. In **Data source credentials** set the **Authentication method** to **OAuth2** and select **Sign in**.
+1. In **Data source credentials**, set the **Authentication method** to **OAuth2** and select **Sign in**.
 
 ### Edit a report in Synapse Studio
 
@@ -393,7 +393,7 @@ You can link a Power BI workspace to your Synapse workspace. This allows you to 
 ## Monitor activities
 
 1. In Synapse Studio, navigate to the monitor hub.
-1. In this location you can see a history of all the activities taking place in the workspace and which ones are active now.
+1. In this location, you can see a history of all the activities taking place in the workspace and which ones are active now.
 1. Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** and you can see what you've already done in the workspace.
 
 ## Next steps
