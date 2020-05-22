@@ -427,7 +427,7 @@
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
-        href: app/alerts.md
+        href: platform/alerts-log.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
