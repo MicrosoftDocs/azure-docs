@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Work with your Maxient Implementation/Support representative to get the value.
+    > The value is not real. Update the value with the actual Sign-on URL. Work with your Maxient Implementation/Support representative to get the value.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.  You will need to provide your Maxient Implementation/Support representative with this URL.
 
@@ -111,7 +111,7 @@ In this section, you will grant access for all accounts to authenticate using th
 
 ## Test with Maxient 
 
-If a support ticket has not already been opened with a Maxient Implementation/Support representative, send an email to [support@maxient.com](mailto:support@maxient.com) with the subject "Campus Based Authentication/Azure Setup - <<School Name>>".  In the body of the email, provide the **App Federation Metadata Url**.  Maxient staff will respond with a test link to verify the proper attributes are being released.  
+If a support ticket has not already been opened with a Maxient Implementation/Support representative, send an email to [support@maxient.com](mailto:support@maxient.com) with the subject "Campus Based Authentication/Azure Setup - \<\<School Name\>\>". In the body of the email, provide the **App Federation Metadata Url**. Maxient staff will respond with a test link to verify the proper attributes are being released.  
 	
 ## Additional resources
 
