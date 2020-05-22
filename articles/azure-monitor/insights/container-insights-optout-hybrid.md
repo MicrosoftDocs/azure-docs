@@ -2,13 +2,17 @@
 title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/21/2020
 
 ---
 
 # How to stop monitoring your hybrid cluster
 
-After you enable monitoring of your Kubernetes cluster running on Azure Stack or on-premises, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this.  
+After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
+
+- AKS Engine on Azure and Azure Stack
+- OpenShift version 4 and higher
+- Azure Arc enabled Kubernetes (preview)
 
 ## How to stop monitoring using Helm
 
