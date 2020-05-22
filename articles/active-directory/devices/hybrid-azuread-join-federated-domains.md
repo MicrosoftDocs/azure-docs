@@ -178,25 +178,69 @@ The installer creates a scheduled task on the system that runs in the user conte
 
 ## Verify the registration
 
-To verify the device registration state in your Azure tenant, you can use the **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Here are 3 ways to locate and verify the device state:
+
+### Locally on the device
+
+1. Open Windows PowerShell.
+2. Enter `dsregcmd /status`.
+3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
+4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
+
+### Using the Azure portal
+
+1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
+4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
+
+### Using PowerShell
+
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device ID** that matches the ID on the Windows client must exist.
-- The value for **DeviceTrustType** must be **Domain Joined**. This setting is equivalent to the **Hybrid Azure AD joined** state under **Devices** in the Azure AD portal.
-- For devices that are used in Conditional Access, the value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed**.
-
-**To check the service details**:
+- The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Hybrid Azure AD joined** state on the **Devices** page in the Azure AD portal.
+- For devices that are used in Conditional Access, the value for **Enabled** is **True** and **DeviceTrustLevel** is **Managed**.
 
 1. Open Windows PowerShell as an administrator.
-1. Enter `Connect-MsolService` to connect to your Azure tenant.  
-1. Enter `get-msoldevice -deviceId <deviceId>`.
-1. Verify that **Enabled** is set to **True**.
+2. Enter `Connect-MsolService` to connect to your Azure tenant.
+
+#### Count all Hybrid Azure AD joined devices (excluding **Pending** state)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### Count all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### List all Hybrid Azure AD joined devices
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List details of a single device:
+
+1. Enter `get-msoldevice -deviceId <deviceId>` (This is the **DeviceId** obtained locally on the device).
+2. Verify that **Enabled** is set to **True**.
 
 ## Troubleshoot your implementation
 
 If you experience issues with completing hybrid Azure AD join for domain-joined Windows devices, see:
 
+- [Troubleshooting devices using dsregcmd command](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
 - [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshoot hybrid Azure AD join for Windows downlevel devices](troubleshoot-hybrid-join-windows-legacy.md)
 
