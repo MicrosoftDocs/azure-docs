@@ -65,5 +65,5 @@ Run one of the tutorial runbooks.
 In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first runbook.
 
 > [!div class="nextstepaction"]
-> [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
+> [Automation Quickstart - Create an Azure Automation runbook](./automation-quickstart-create-runbook.md)
 

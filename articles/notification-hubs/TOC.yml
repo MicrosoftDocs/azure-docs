@@ -170,8 +170,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature

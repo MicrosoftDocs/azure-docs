@@ -111,5 +111,5 @@ Start-AzAutomationRunbook `
 
 ## Next steps
 
-* [Start a runbook in Azure Automation](start-runbooks.md)
-* [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+* To run run your runbook, see [Start a runbook in Azure Automation](start-runbooks.md).
+* For monitoring of runbook operation, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md).
