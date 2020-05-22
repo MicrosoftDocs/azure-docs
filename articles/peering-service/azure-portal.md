@@ -81,10 +81,10 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 
    - Invalid Peering Service prefix, the prefix should be valid format, only Ipv4 prefix is supported.
    - Prefix was not received from Peering Service provider.
-   - Prefix announcement does not have a valid BGP community, please contact Peering Service provider.
-   - Backup route not found, please contact Peering Service provider.
-   - Prefix received with longer AS path, please contact Peering Service provider.
-   - Prefix received with private AS in the path, please contact Peering Service provider.
+   - Prefix announcement does not have a valid BGP community,  contact Peering Service provider.
+   - Backup route not found, contact Peering Service provider.
+   - Prefix received with longer AS path, contact Peering Service provider.
+   - Prefix received with private AS in the path, contact Peering Service provider.
 
 ### Add or remove a prefix
 
