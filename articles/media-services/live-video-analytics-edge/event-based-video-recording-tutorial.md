@@ -67,11 +67,11 @@ The diagram above is a pictorial representation of a [media graph](media-graph-c
 
 As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed, and send that video to two paths.
 
-1. First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that drops down the frame rate of its output that goes into an HTTP Extension node.
+* First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that drops down the frame rate of its output that goes into an HTTP Extension node.
 
     The HTTP Extension node sends frames (as images) to the external inference module (YOLO v3 – which is an object detector) and receives results – which will be the vehicles it detects. The HTTP Extension node then publishes the results via the IoT Hub Message Sink to the IoT Edge Hub
-1. The Object Counter is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It will examine these, and when it detects a specific object (a truck), it will send a specific message to the IoT Edge Hub, for routing to the media graph.
-1. The IoT Hub Source node in the Media Graph receives the message from the Object Counter and triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, causing the latter to open. Video then flows through the gate to the Asset Sink node for a configured period. A desired portion of the live stream, containing footage of a truck, will be recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
+* The Object Counter is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It will examine these, and when it detects a specific object (a truck), it will send a specific message to the IoT Edge Hub, for routing to the media graph.
+* The IoT Hub Source node in the Media Graph receives the message from the Object Counter and triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, causing the latter to open. Video then flows through the gate to the Asset Sink node for a configured period. A desired portion of the live stream, containing footage of a truck, will be recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
 
 ## Examine the template file 
 
@@ -93,13 +93,14 @@ Read the section on how to declare routes in IoT Edge deployment manifest and th
 * ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub Source node) in the lvaEdge module
 * objectCounterToIoTHub is used as a debug tool – to help you see the output from objectCounter when you run this tutorial
 
-Lastly, note the desired properties for the objectCounter module – it’s set up to look for objects that are tagged as “truck”, with a confidence level of at least 50%.
+> [!NOTE]
+> The desired properties for the objectCounter module – it’s set up to look for objects that are tagged as “truck”, with a confidence level of at least 50%.
 
 ## Deploy the modules
 
 Using Visual Studio Code, follow the instructions to login into docker and "Build and Push IoT Edge solution" but use src/edge/deployment.objectCounter.template.json for this step.
 
-png
+![Build and Push IoT Edge solution](./media/event-based-video-recording-tutorial/build-push.png)
 
 This will build the objectCounter module for object counting and push the image to your Azure Container Registry (ACR)
 
@@ -116,7 +117,7 @@ Next, Visual Studio Code will ask you select an IoT hub device. Select your IoT 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
 In about 30 seconds, refresh the Azure IOT Hub on the bottom left section in Visual Studio Code, and you should see that there are 4 modules deployed (note again the names: lvaEdge, rtspsim, yolov3, and objectCounter)
 
-png
+![4 modules deployed](./media/event-based-video-recording-tutorial/iot-hub.png)
 
 ## Prepare to monitor the modules
 
@@ -200,7 +201,7 @@ Note the following:
 1. "eventTime" indicates the time when the event occurred.
 1. "body" contains data about the diagnostic event - it's the SDP message
 
-Note down the eventTime – this is the time that the traffic video (MKV file) started to arrive into the module as a live stream.
+Write down the eventTime – this is the time that the traffic video (MKV file) started to arrive into the module as a live stream.
 
 ## Operational events
 
